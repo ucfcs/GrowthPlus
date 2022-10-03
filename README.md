@@ -10,7 +10,7 @@ Students in Africa have fewer opportunities to gain these skills and as a result
 ## Meet the Team
 
 ### Project Manager
-* 
+* Ruth Shryock 
 
 ### UI Layer
 * 
