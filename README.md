@@ -13,7 +13,7 @@ Students in Africa have fewer opportunities to gain these skills and as a result
 * Ruth Shryock 
 
 ### UI Layer
-* 
+* Victor Yue
 * 
 
 ### Data/Domain Layer
