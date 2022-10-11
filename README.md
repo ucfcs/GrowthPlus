@@ -18,5 +18,5 @@ Students in Africa have fewer opportunities to gain these skills and as a result
 
 ### Data/Domain Layer
 * Julio Alva
-*
-*
+* Mack Orooji
+* 
