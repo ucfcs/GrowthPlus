@@ -1,0 +1,23 @@
+package com.fall2022_group20.dataAccessLayer.ScenarioGame;
+
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class ScenarioGameSchema extends RealmObject{
+    @PrimaryKey
+    private Integer id;
+    private Integer points;
+
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getPoints() {return points;}
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
+}
