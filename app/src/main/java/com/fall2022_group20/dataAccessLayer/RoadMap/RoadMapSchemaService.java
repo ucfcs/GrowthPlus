@@ -119,7 +119,7 @@ public class RoadMapSchemaService {
     }
 
     /*
-     * Method to delete a scenario game data from a given roadmap
+     * Method to delete all lessons data from a given roadmap
      * The deletion must be executed within a realm transaction
      * TODO: Implement this method signature in the realm sample app
      * */
