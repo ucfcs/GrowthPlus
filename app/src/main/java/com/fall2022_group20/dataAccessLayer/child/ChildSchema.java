@@ -1,6 +1,9 @@
 package com.fall2022_group20.dataAccessLayer.child;
 
 //import android.media.Image;
+import com.fall2022_group20.dataAccessLayer.Report.ReportSchema;
+import com.fall2022_group20.dataAccessLayer.RoadMap.RoadMapSchema;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -10,10 +13,9 @@ public class ChildSchema extends RealmObject {
     private String name;
     //private Image avatar;
 
-    /* Can't create the below two fields without the schemas
-    private ProgressReportSchema report;
+    private ReportSchema report;
     private RoadMapSchema roadmap;
-    */
+
 
     public String getID() {
         return ID;
