@@ -10,10 +10,10 @@ import io.realm.RealmResults;
 public class ReportSchemaService {
     private String childName;
     private Realm realm;
-    private Integer childId;
+    private String childId;
     private Integer childScore;
 
-    public ReportSchemaService(Realm realm, Integer childId, String childName, Integer childScore) {
+    public ReportSchemaService(Realm realm, String childId, String childName, Integer childScore) {
 
         this.realm = realm;
         this.childName = childName;
