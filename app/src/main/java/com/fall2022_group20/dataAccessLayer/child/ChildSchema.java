@@ -11,9 +11,11 @@ public class ChildSchema extends RealmObject {
     @PrimaryKey
     private String ID;
     private String name;
-    //need to add a variable for avatar
+    //private Image avatar;
+
     private ReportSchema report;
     private RoadMapSchema roadmap;
+
 
     public String getID() {
         return ID;
@@ -39,20 +41,23 @@ public class ChildSchema extends RealmObject {
         this.avatar = avatar;
     }*/
 
-    public ReportSchema getReport() {
+    /*Once the corresponding fields are uncommented, these
+      getters and setters can be uncommented too.
+
+    public ProgressReport getReport() {
         return report;
     }
 
-    public void setReport(ReportSchema report) {
+    public void setReport(ProgressReport report) {
         this.report = report;
     }
 
-    public RoadMapSchema getRoadmap() {
+    public RoadMap getRoadmap() {
         return roadmap;
     }
 
-    public void setRoadmap(RoadMapSchema roadmap) {
+    public void setRoadmap(RoadMap roadmap) {
         this.roadmap = roadmap;
     }
-
+    */
 }

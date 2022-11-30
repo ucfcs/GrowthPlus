@@ -7,9 +7,7 @@ import io.realm.annotations.PrimaryKey;
 public class LessonSchema extends RealmObject{
     @PrimaryKey
     private Integer id;
-
     private Integer points;
-
     private String lessonName;
 
     public Integer getId() {
