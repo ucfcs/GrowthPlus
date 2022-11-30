@@ -41,23 +41,19 @@ public class ChildSchema extends RealmObject {
         this.avatar = avatar;
     }*/
 
-    /*Once the corresponding fields are uncommented, these
-      getters and setters can be uncommented too.
-
-    public ProgressReport getReport() {
+    public ReportSchema getReport() {
         return report;
     }
 
-    public void setReport(ProgressReport report) {
+    public void setReport(ReportSchema report) {
         this.report = report;
     }
 
-    public RoadMap getRoadmap() {
+    public RoadMapSchema getRoadmap() {
         return roadmap;
     }
 
-    public void setRoadmap(RoadMap roadmap) {
+    public void setRoadmap(RoadMapSchema roadmap) {
         this.roadmap = roadmap;
     }
-    */
 }

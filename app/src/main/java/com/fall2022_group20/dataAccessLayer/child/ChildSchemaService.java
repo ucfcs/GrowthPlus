@@ -71,7 +71,7 @@ public class ChildSchemaService {
     }
 
     /*
-    This method return all child schemas.
+    This method returns all child schemas.
     */
     public RealmResults<ChildSchema> getAllChildSchemas(){
         return realm.where(ChildSchema.class).findAll();
