@@ -11,14 +11,16 @@ public class ReportSchemaService {
     private String childName;
     private Realm realm;
     private String childId;
+    private String reportId;
     private Integer childScore;
 
-    public ReportSchemaService(Realm realm, String childId, String childName, Integer childScore) {
+    public ReportSchemaService(Realm realm, String childId, String childName, Integer childScore, String reportId) {
 
         this.realm = realm;
         this.childName = childName;
         this.childId = childId;
         this.childScore = childScore;
+        this.reportId = reportId;
     }
 
     /*
@@ -27,12 +29,13 @@ public class ReportSchemaService {
     * */
     public void createChildRealmReport (){
         realm.executeTransactionAsync(realm -> {
-            ReportSchema newReport = realm.createObject(ReportSchema.class, String.valueOf(childId));
+            ReportSchema newReport = realm.createObject(ReportSchema.class, String.valueOf(reportId));
             newReport.setChildName(childName);
             newReport.setChildScore(childScore);
+            newReport.setChildId(childId);
         }, () -> { // Lambda expression
             /* success actions */
-            Log.i("Success", "New child report object added to realm!");
+            Log.i("Child Report Added", childName + " report object added to realm!");
             //realm.close(); // Not sure if this the correct place to close the realm instance
         }, error -> {
             /* failure actions */
@@ -64,7 +67,7 @@ public class ReportSchemaService {
     * We are looking for a report by name, it can be changed to look for id as well
     * */
     public ReportSchema getChildReport(){
-        return realm.where(ReportSchema.class).equalTo("id", childName).findFirst();
+        return realm.where(ReportSchema.class).equalTo("childName", childName).findFirst();
     }
 
     /*

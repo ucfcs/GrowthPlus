@@ -30,9 +30,9 @@ public class ParentSchemaService {
     public void createParentSchema(){
         realm.executeTransactionAsync(realm1 -> {
             ParentSchema newParent = realm.createObject(ParentSchema.class, ID);
-            newParent.setID(Long.parseLong(ID));
+            newParent.setParentId(ID);
             newParent.setPIN(PIN);
-            newParent.setChildrenList(children);
+            newParent.setChildren(children);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New parent object added to realm!");
@@ -49,7 +49,7 @@ public class ParentSchemaService {
     public void updateChildrenList(RealmList<ChildSchema> newChildrenList){
         realm.executeTransactionAsync(realm ->{
             ParentSchema parent = getParentSchema();
-            parent.setChildrenList(newChildrenList);
+            parent.setChildren(newChildrenList);
         });
     }
 

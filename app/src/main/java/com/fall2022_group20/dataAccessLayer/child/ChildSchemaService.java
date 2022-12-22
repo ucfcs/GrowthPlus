@@ -35,7 +35,7 @@ public class ChildSchemaService {
     public void createChildSchema(){
         realm.executeTransactionAsync(realm -> {
             ChildSchema newChild = realm.createObject(ChildSchema.class, String.valueOf(ID));
-            newChild.setID(Long.parseLong(ID));
+            newChild.setChildId(String.valueOf(ID));
             newChild.setName(name);
             newChild.setReport(report);
             newChild.setRoadmap(roadmap);
