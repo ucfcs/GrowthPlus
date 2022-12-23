@@ -1,7 +1,5 @@
 package com.fall2022_group20.dummyData;
 
-import android.util.Log;
-
 import com.fall2022_group20.dataAccessLayer.Report.ReportSchemaService;
 
 import org.bson.types.ObjectId;
@@ -16,22 +14,22 @@ public class ReportDummyData {
     private Integer totalScore;
     private Realm realm;
 
-    // Need to provide the childId
-    public ReportDummyData(String childId){
-        this.reportId = String.valueOf(new ObjectId());
+    // Need to provide the childId and realm instance
+    public ReportDummyData(String childId, Realm realm, String childName, Integer totalScore){
         this.childId = childId;
-        this.childName = "Pablo Martinez";
-        this.totalScore = 85;
-        this.realm = Realm.getDefaultInstance();
+        this.childName = childName;
+        this.totalScore = totalScore;
+        this.realm = realm;
     }
 
+    // Create brand new report
+    // Check if a report for the same child already exist
     public void createChildReportDummyData(){
-        ReportSchemaService childReportZero = new ReportSchemaService(realm, childId, childName, totalScore, reportId);
-        childReportZero.createChildRealmReport();
-    }
-
-    public void closeRealm(){
-        realm.close();
+        ReportSchemaService childReport = new ReportSchemaService(realm, childId, childName, totalScore);
+        if(childReport.getChildReportByName()== null){
+            this.reportId = String.valueOf(new ObjectId());
+            childReport.createChildRealmReport(reportId);
+        }
     }
 
 }

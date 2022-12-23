@@ -6,15 +6,15 @@ import io.realm.annotations.PrimaryKey;
 
 public class LessonSchema extends RealmObject{
     @PrimaryKey
-    private Integer lessonId;
+    private String lessonId;
     private Integer points;
     private String lessonName;
 
-    public Integer getLessonId() {
+    public String getLessonId() {
         return lessonId;
     }
 
-    public void setLessonId(Integer lessonId) {
+    public void setLessonId(String lessonId) {
         this.lessonId = lessonId;
     }
 

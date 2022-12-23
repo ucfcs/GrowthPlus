@@ -14,33 +14,38 @@ public class ReportSchemaService {
     private String reportId;
     private Integer childScore;
 
-    public ReportSchemaService(Realm realm, String childId, String childName, Integer childScore, String reportId) {
+    public String getReportId() {
+        return reportId;
+    }
+
+    public ReportSchemaService(Realm realm, String childId, String childName, Integer childScore) {
 
         this.realm = realm;
         this.childName = childName;
         this.childId = childId;
         this.childScore = childScore;
-        this.reportId = reportId;
     }
 
     /*
     * Method to create a new child report
     * Creation of a realm object must be executed within an async realm transaction
+    * Check if child report already exist
     * */
-    public void createChildRealmReport (){
-        realm.executeTransactionAsync(realm -> {
-            ReportSchema newReport = realm.createObject(ReportSchema.class, String.valueOf(reportId));
-            newReport.setChildName(childName);
-            newReport.setChildScore(childScore);
-            newReport.setChildId(childId);
-        }, () -> { // Lambda expression
-            /* success actions */
-            Log.i("Child Report Added", childName + " report object added to realm!");
-            //realm.close(); // Not sure if this the correct place to close the realm instance
-        }, error -> {
-            /* failure actions */
-            Log.e("Error", "Something went wrong! " + error);
-        });
+    public void createChildRealmReport (String reportId){
+            this.reportId = reportId;
+            realm.executeTransactionAsync(realm -> {
+                ReportSchema newReport = realm.createObject(ReportSchema.class, String.valueOf(reportId));
+                newReport.setChildName(childName);
+                newReport.setChildScore(childScore);
+                newReport.setChildId(childId);
+            }, () -> { // Lambda expression
+                /* success actions */
+                Log.i("Child Report Added", childName + " report object added to realm!");
+                //realm.close(); // Not sure if this the correct place to close the realm instance
+            }, error -> {
+                /* failure actions */
+                Log.e("Error", "Something went wrong! " + error);
+            });
     }
 
     /*
@@ -50,7 +55,7 @@ public class ReportSchemaService {
      * */
     public void updateChildReportScore(Integer newScore){
         realm.executeTransactionAsync(realm -> {
-            ReportSchema childReport = getChildReport();
+            ReportSchema childReport = getChildReportByName();
             childReport.setChildScore(newScore);
         });
     }
@@ -66,8 +71,17 @@ public class ReportSchemaService {
     * Method to return an individual report
     * We are looking for a report by name, it can be changed to look for id as well
     * */
-    public ReportSchema getChildReport(){
+    public ReportSchema getChildReportByName(){
         return realm.where(ReportSchema.class).equalTo("childName", childName).findFirst();
+    }
+
+    /*
+     * Method to return an individual report
+     * We are looking for a report by child id
+     * Id's are unique and should never be a duplicate id in realm
+     * */
+    public ReportSchema getChildReportById(){
+        return realm.where(ReportSchema.class).equalTo("childId", childId).findFirst();
     }
 
     /*
@@ -78,7 +92,7 @@ public class ReportSchemaService {
     * */
     public void deleteChildReport(){
         realm.executeTransactionAsync(realm -> {
-            ReportSchema childReport = getChildReport();
+            ReportSchema childReport = getChildReportByName();
             childReport.deleteFromRealm();
             childReport = null;
         });

@@ -6,15 +6,15 @@ import io.realm.annotations.PrimaryKey;
 
 public class ScenarioGameSchema extends RealmObject{
     @PrimaryKey
-    private Integer scenarioGameId;
+    private String scenarioGameId;
     private Integer points;
     private String scenarioGameName;
 
-    public Integer getScenarioGameId() {
+    public String getScenarioGameId() {
         return scenarioGameId;
     }
 
-    public void setScenarioGameId(Integer scenarioGameId) {
+    public void setScenarioGameId(String scenarioGameId) {
         this.scenarioGameId = scenarioGameId;
     }
 
