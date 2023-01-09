@@ -11,9 +11,9 @@ import io.realm.RealmResults;
 public class ChildSchemaService {
 
 
-    private String ID;
+    private String childId;
     private String name;
-    //need to add a variable for avatar
+    private String avatar;
     private ReportSchema report;
     private RoadMapSchema roadmap;
     private Realm realm;
@@ -21,24 +21,25 @@ public class ChildSchemaService {
     /*
     Constructor
      */
-    public ChildSchemaService(Realm realm, String ID, String name, ReportSchema report, RoadMapSchema roadmap){
+    public ChildSchemaService(Realm realm, String name, ReportSchema report, RoadMapSchema roadmap, String avatar){
         this.realm = realm;
-        this.ID = ID;
         this.name = name;
         this.report = report;
         this.roadmap = roadmap;
+        this.avatar = avatar;
     }
 
     /*
     This method creates a new child schema.
      */
-    public void createChildSchema(){
+    public void createChildSchema(String childId){
+        this.childId = childId;
         realm.executeTransactionAsync(realm -> {
-            ChildSchema newChild = realm.createObject(ChildSchema.class, String.valueOf(ID));
-            newChild.setChildId(String.valueOf(ID));
+            ChildSchema newChild = realm.createObject(ChildSchema.class, String.valueOf(childId));
             newChild.setName(name);
             newChild.setReport(report);
             newChild.setRoadmap(roadmap);
+            newChild.setAvatar(avatar);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New child report object added to realm!");
@@ -47,7 +48,6 @@ public class ChildSchemaService {
             /* failure actions */
             Log.e("Error", "Something went wrong! " + error);
         });
-
     }
 
     /*
@@ -55,7 +55,7 @@ public class ChildSchemaService {
     */
     public void updateRoadmap(RoadMapSchema roadmap){
         realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchema();
+            ChildSchema childSchema = getChildSchemaById();
             childSchema.setRoadmap(roadmap);
         });
     }
@@ -65,7 +65,7 @@ public class ChildSchemaService {
     */
     public void updateReport(ReportSchema report){
         realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchema();
+            ChildSchema childSchema = getChildSchemaById();
             childSchema.setReport(report);
         });
     }
@@ -80,8 +80,15 @@ public class ChildSchemaService {
     /*
     This method returns a child schema by ID.
      */
-    public ChildSchema getChildSchema(){
-        return realm.where(ChildSchema.class).equalTo("ID", ID).findFirst();
+    public ChildSchema getChildSchemaById(){
+        return realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+    }
+
+    /*
+    This method returns a child schema by name.
+     */
+    public ChildSchema getChildSchemaByName(){
+        return realm.where(ChildSchema.class).equalTo("name", name).findFirst();
     }
 
     /*
@@ -89,7 +96,7 @@ public class ChildSchemaService {
      */
     public void deleteChildRoadmaps(){
         realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchema();
+            ChildSchema childSchema = getChildSchemaById();
             RoadMapSchema roadmap = childSchema.getRoadmap();
             roadmap.deleteFromRealm();
             roadmap = null;
@@ -100,7 +107,7 @@ public class ChildSchemaService {
      */
     public void deleteChildReport(){
         realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchema();
+            ChildSchema childSchema = getChildSchemaById();
             ReportSchema report = childSchema.getReport();
             report.deleteFromRealm();
             report = null;
@@ -112,7 +119,7 @@ public class ChildSchemaService {
      */
     public void deleteChildSchema(){
         realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchema();
+            ChildSchema childSchema = getChildSchemaById();
             childSchema.deleteFromRealm();
             childSchema = null;
         });

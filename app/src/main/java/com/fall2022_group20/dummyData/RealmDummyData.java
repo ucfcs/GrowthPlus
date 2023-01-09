@@ -1,13 +1,16 @@
 package com.fall2022_group20.dummyData;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class RealmDummyData {
     private Realm realm;
+    RealmList<LessonDummyData> lessons;
 
     public RealmDummyData(){
 
         this.realm = Realm.getDefaultInstance();
+
     }
 
     public void generateDummyData(){
@@ -33,11 +36,18 @@ public class RealmDummyData {
         LessonDummyData divisionLesson = new LessonDummyData("division", realm, 100);
         divisionLesson.createLessonDummyData();
 
+        lessons.add(multiplicationLesson);
+        lessons.add(additionLesson);
+        lessons.add(subtractionLesson);
+        lessons.add(divisionLesson);
+
         GameDummyData gameOne = new GameDummyData(realm, 1000, "gameOne");
         gameOne.createGameDummyData();
 
         GameDummyData gameTwo = new GameDummyData(realm, 2000, "gameTwo");
         gameTwo.createGameDummyData();
+
+
 
         closeRealmInstance();
 
