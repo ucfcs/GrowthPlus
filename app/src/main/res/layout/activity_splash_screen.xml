@@ -10,15 +10,15 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/growth_images_4"
-        android:layout_centerInParent="true"></ImageView>
+        android:layout_centerInParent="true"
+        android:src="@drawable/growth_images_4"></ImageView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Growth+"
         android:textColor="@color/dark_green"
-        android:textSize="52sp"
+        android:textSize="58sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="150dp">
