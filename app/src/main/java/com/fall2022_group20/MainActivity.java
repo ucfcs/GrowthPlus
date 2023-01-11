@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+
+import com.fall2022_group20.realmImporter.ChildRealmImporter;
 import com.fall2022_group20.realmImporter.LanguagesRealmImporter;
 import java.io.InputStream;
 
@@ -26,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         LanguagesRealmImporter languagesRealmImporter = new LanguagesRealmImporter(realm, resources, languagesInputStream);
         languagesRealmImporter.importLanguagesFromJson();
+
+        InputStream childInputStream = resources.openRawResource(R.raw.child);
+        ChildRealmImporter childRealmImporter = new ChildRealmImporter(realm, childInputStream);
+        childRealmImporter.importChildFromJson();
 
     }
 
