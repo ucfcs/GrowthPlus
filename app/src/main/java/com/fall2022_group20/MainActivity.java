@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
         JsonSampleData jsonSampleData = new JsonSampleData(realm, resources);
         jsonSampleData.importDataFromJson();
-
     }
 
     @Override

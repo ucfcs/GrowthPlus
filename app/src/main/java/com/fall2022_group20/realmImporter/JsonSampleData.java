@@ -1,19 +1,13 @@
 package com.fall2022_group20.realmImporter;
-
 import android.content.res.Resources;
-
 import com.fall2022_group20.R;
-
 import java.io.InputStream;
-
 import io.realm.Realm;
 
 public class JsonSampleData {
 
     Realm realm;
     Resources resources;
-
-    public JsonSampleData(){}
 
     public JsonSampleData(Realm realm, Resources resources){
         this.realm = realm;
@@ -31,5 +25,10 @@ public class JsonSampleData {
         InputStream childInputStream = resources.openRawResource(R.raw.child);
         ChildRealmImporter childRealmImporter = new ChildRealmImporter(realm, childInputStream);
         childRealmImporter.importChildFromJson();
+
+        // Parent data
+        InputStream parentInputStream = resources.openRawResource(R.raw.parent);
+        ParentRealmImporter parentRealmImporter = new ParentRealmImporter(realm, parentInputStream);
+        parentRealmImporter.importParentFromJson();
     }
 }

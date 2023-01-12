@@ -10,7 +10,6 @@ import io.realm.RealmResults;
 
 public class ChildSchemaService {
 
-
     private String childId;
     private String name;
     private String avatar;
