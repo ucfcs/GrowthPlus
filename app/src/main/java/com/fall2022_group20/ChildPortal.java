@@ -2,7 +2,10 @@ package com.fall2022_group20;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class ChildPortal extends AppCompatActivity {
 
@@ -10,5 +13,13 @@ public class ChildPortal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child_portal);
+
+        Button backBtn = (Button) findViewById(R.id.backChild);
+
+        backBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(ChildPortal.this, MainActivity.class));
+            }
+        });
     }
 }
