@@ -3,20 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="@color/blue"
-    >
+    android:layout_height="70dp"
+    android:background="@color/blue">
 
     <ImageButton
         android:id="@+id/button2"
-        android:layout_width="50dp"
-        android:layout_height="30dp"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/go_back_button_background"
         android:src="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/pointsIcon"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="204dp"
+        android:background="@color/blue"
+        android:src="@mipmap/points_icon_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:text="65"
+        android:textColor="@color/yellow"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/pointsIcon"
         app:layout_constraintTop_toTopOf="parent" />
 
 
