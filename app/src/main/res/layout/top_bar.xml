@@ -21,7 +21,7 @@
         android:id="@+id/pointsIcon"
         android:layout_width="50dp"
         android:layout_height="60dp"
-        android:layout_marginStart="204dp"
+        android:layout_marginStart="184dp"
         android:background="@color/blue"
         android:src="@mipmap/points_icon_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
