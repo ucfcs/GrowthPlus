@@ -12,23 +12,20 @@ import io.realm.RealmResults;
 
 public class RoadMapSchemaService {
     private Realm realm;
-    private String childId;
     private String roadMapName;
     private String roadMapId;
 
-    public RoadMapSchemaService(Realm realm, String childId, String roadMapName, String roadMapId) {
+    public RoadMapSchemaService(Realm realm, String roadMapName) {
         this.realm = realm;
-        this.childId = childId;
         this.roadMapName = roadMapName;
-        this.roadMapId = roadMapId;
     }
 
     /*
     * This methods creates a new roadmap schema
     * The creation of a new schema must be executed within a realm transaction
     * */
-
-    public void createRoadMap (ScenarioGameSchema newGame, RealmList<LessonSchema> lessons){
+    public void createRoadMap (ScenarioGameSchema newGame, RealmList<LessonSchema> lessons, String roadMapId){
+        this.roadMapId = roadMapId;
         realm.executeTransactionAsync(realm -> {
             RoadMapSchema newRoadMap = realm.createObject(RoadMapSchema.class, String.valueOf(roadMapId));
             newRoadMap.setRoadMapName(roadMapName);
@@ -37,8 +34,6 @@ public class RoadMapSchemaService {
         }, () -> { // Lambda expression
             /* success actions */
             Log.i("Success", "New Road map object added to realm!");
-            // TODO: Investigate if this is correct
-            //realm.close();
         }, error -> {
             /* failure actions */
             Log.e("Error", "Something went wrong! " + error);
@@ -54,7 +49,7 @@ public class RoadMapSchemaService {
     /*
     * Method to return a given roadmap by name
     * */
-    public RoadMapSchema getRoadMap (){
+    public RoadMapSchema getRoadMapByName (){
         return realm.where(RoadMapSchema.class)
                 .equalTo("roadMapName", roadMapName)
                 .findFirst();
@@ -64,7 +59,7 @@ public class RoadMapSchemaService {
     * Method to return all lesson of a given roadmap
     * */
     public RealmList<LessonSchema> getAllLessonFromRoadMap(){
-        RoadMapSchema roadMap = getRoadMap();
+        RoadMapSchema roadMap = getRoadMapByName();
         return roadMap.getLessons();
     }
 
@@ -72,7 +67,7 @@ public class RoadMapSchemaService {
     * Method to return a the scenario game corresponding to the road map
     * */
     public ScenarioGameSchema getRoadMapScenarioGame(){
-        RoadMapSchema roadMap = getRoadMap();
+        RoadMapSchema roadMap = getRoadMapByName();
         return roadMap.getScenarioGame();
     }
 
@@ -85,7 +80,7 @@ public class RoadMapSchemaService {
     * */
     public void setRoadMapScenarioGame (ScenarioGameSchema newGame){
         realm.executeTransactionAsync(realm -> {
-            RoadMapSchema roadMap = getRoadMap();
+            RoadMapSchema roadMap = getRoadMapByName();
             roadMap.setScenarioGame(newGame);
         });
     }
@@ -99,7 +94,7 @@ public class RoadMapSchemaService {
     * */
     public void setRoadMapLessons (RealmList<LessonSchema> lessons){
         realm.executeTransactionAsync(realm -> {
-            RoadMapSchema roadMap = getRoadMap();
+            RoadMapSchema roadMap = getRoadMapByName();
             roadMap.setLessons(lessons);
         });
     }
@@ -111,7 +106,7 @@ public class RoadMapSchemaService {
     * */
     public void deleteRoadMapScenarioGame(){
         realm.executeTransactionAsync(realm -> {
-            RoadMapSchema roadMap = getRoadMap();
+            RoadMapSchema roadMap = getRoadMapByName();
             ScenarioGameSchema scenarioGame = roadMap.getScenarioGame();
             scenarioGame.deleteFromRealm();
             scenarioGame = null;
@@ -125,7 +120,7 @@ public class RoadMapSchemaService {
      * */
     public void deleteRoadMapLessons(){
         realm.executeTransactionAsync(realm -> {
-            RoadMapSchema roadMap = getRoadMap();
+            RoadMapSchema roadMap = getRoadMapByName();
             RealmList<LessonSchema> lessons = roadMap.getLessons();
             lessons.deleteAllFromRealm();
             lessons = null;
@@ -137,7 +132,7 @@ public class RoadMapSchemaService {
     * */
     public void deleteRealmRoadMap(){
         realm.executeTransactionAsync(realm -> {
-            RoadMapSchema roadMap = getRoadMap();
+            RoadMapSchema roadMap = getRoadMapByName();
             roadMap.deleteFromRealm();
             roadMap = null;
         });

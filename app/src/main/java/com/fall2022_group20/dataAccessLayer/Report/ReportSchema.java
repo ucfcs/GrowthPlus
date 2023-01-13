@@ -6,16 +6,17 @@ import io.realm.annotations.PrimaryKey;
 public class ReportSchema extends RealmObject {
 
     @PrimaryKey
-    private String id;
+    private String reportId;
     private String childName;
     private Integer childScore;
+    private String childId;
 
-    public String getId() {
-        return id;
+    public String getReportId() {
+        return reportId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setReportId(String reportId) {
+        this.reportId = reportId;
     }
 
     public String getChildName() {
@@ -32,5 +33,13 @@ public class ReportSchema extends RealmObject {
 
     public void setChildScore(Integer childScore) {
         this.childScore = childScore;
+    }
+
+    public String getChildId() {
+        return childId;
+    }
+
+    public void setChildId(String childId) {
+        this.childId = childId;
     }
 }
