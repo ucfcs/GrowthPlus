@@ -1,6 +1,8 @@
 package com.fall2022_group20.dataAccessLayer.child;
 
 //import android.media.Image;
+import android.media.Image;
+
 import com.fall2022_group20.dataAccessLayer.Report.ReportSchema;
 import com.fall2022_group20.dataAccessLayer.RoadMap.RoadMapSchema;
 
@@ -9,20 +11,18 @@ import io.realm.annotations.PrimaryKey;
 
 public class ChildSchema extends RealmObject {
     @PrimaryKey
-    private String ID;
+    private String childId;
     private String name;
-    //private Image avatar;
-
+    private String avatar;
     private ReportSchema report;
     private RoadMapSchema roadmap;
 
-
-    public String getID() {
-        return ID;
+    public String getChildId() {
+        return childId;
     }
 
-    public void setID(long ID) {
-        this.ID = String.valueOf(ID);
+    public void setChildId(String childId) {
+        this.childId = childId;
     }
 
     public String getName() {
@@ -33,13 +33,13 @@ public class ChildSchema extends RealmObject {
         this.name = name;
     }
 
-    /*public Image getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Image avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
-    }*/
+    }
 
     public ReportSchema getReport() {
         return report;

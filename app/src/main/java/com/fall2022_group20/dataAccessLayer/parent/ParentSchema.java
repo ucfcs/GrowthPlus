@@ -8,23 +8,23 @@ import io.realm.annotations.PrimaryKey;
 
 public class ParentSchema extends RealmObject {
     @PrimaryKey
-    private String ID;
+    private String parentId;
     private Integer PIN;
     private RealmList<ChildSchema> children;
 
-    public String getID() {
-        return ID;
+    public String getParentId() {
+        return parentId;
     }
 
-    public void setID(long ID) {
-        this.ID = String.valueOf(ID);
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
-    public int getPIN() {
+    public Integer getPIN() {
         return PIN;
     }
 
-    public void setPIN(int PIN) {
+    public void setPIN(Integer PIN) {
         this.PIN = PIN;
     }
 
@@ -32,7 +32,7 @@ public class ParentSchema extends RealmObject {
         return children;
     }
 
-    public void setChildrenList(RealmList<ChildSchema> children) {
+    public void setChildren(RealmList<ChildSchema> children) {
         this.children = children;
     }
 }

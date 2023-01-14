@@ -1,5 +1,7 @@
 package com.fall2022_group20.dataAccessLayer;
 
+import java.util.Locale;
+
 import io.realm.DynamicRealm;
 import io.realm.RealmMigration;
 
@@ -31,6 +33,11 @@ import io.realm.RealmMigration;
 public class Migration implements RealmMigration {
     @Override
     public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
+
+
+        if (oldVersion < newVersion) {
+            throw new IllegalStateException(String.format(Locale.US, "Migration missing from v%d to v%d", oldVersion, newVersion));
+        }
 
     }
 }
