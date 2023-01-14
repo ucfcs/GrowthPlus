@@ -2,7 +2,12 @@ package com.fall2022_group20;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.fall2022_group20.screens.RoadMapOneActivity;
 
 import io.realm.Realm;
 
@@ -12,7 +17,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_roadmap_one);
+        setContentView(R.layout.activity_main);
         realm = Realm.getDefaultInstance();
+
+        Button goToRoadMapOne = findViewById(R.id.roadMapOneBtn);
+        goToRoadMapOne.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, RoadMapOneActivity.class);
+            startActivity(intent);
+        });
     }
 }

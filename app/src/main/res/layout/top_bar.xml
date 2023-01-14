@@ -7,7 +7,7 @@
     android:background="@color/blue">
 
     <ImageButton
-        android:id="@+id/button2"
+        android:id="@+id/goBackBtn"
         android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -25,7 +25,7 @@
         android:background="@color/blue"
         android:src="@mipmap/points_icon_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/goBackBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
