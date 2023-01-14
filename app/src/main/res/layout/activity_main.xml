@@ -28,10 +28,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.129" />
 
-    <com.fall2022_group20.views.PracticeCustomView
-        android:id="@+id/customView"
+    <com.fall2022_group20.customViews.RoadMapTile
+        android:id="@+id/roadMapTileOne"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:background="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
