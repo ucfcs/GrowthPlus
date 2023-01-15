@@ -21,5 +21,14 @@ public class ChildPortal extends AppCompatActivity {
                 startActivity(new Intent(ChildPortal.this, MainActivity.class));
             }
         });
+
+        Button leaderboardBtn = (Button) findViewById(R.id.leaderboardBtn);
+
+        leaderboardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ChildPortal.this, Leaderboard.class));
+            }
+        });
     }
 }
