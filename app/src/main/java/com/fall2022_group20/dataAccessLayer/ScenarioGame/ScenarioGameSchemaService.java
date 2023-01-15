@@ -9,19 +9,22 @@ import io.realm.RealmResults;
 
 public class ScenarioGameSchemaService {
     private Realm realm;
-    private String Id;
+    private String scenarioGameId;
+    private String scenarioGameName;
     private Integer points;
 
-    public ScenarioGameSchemaService(Realm realm, String Id, Integer points){
+    public ScenarioGameSchemaService(Realm realm, String scenarioGameName, Integer points){
         this.realm = realm;
-        this.Id = Id;
+        this.scenarioGameName = scenarioGameName;
         this.points = points;
     }
 
-    public void createScenarioGame(){
+    public void createScenarioGame( String gameId){
+        this.scenarioGameId = gameId;
         realm.executeTransactionAsync(realm -> {
-            ScenarioGameSchema newScenarioGame = realm.createObject(ScenarioGameSchema.class, String.valueOf(Id));
+            ScenarioGameSchema newScenarioGame = realm.createObject(ScenarioGameSchema.class, String.valueOf(scenarioGameId));
             newScenarioGame.setPoints(points);
+            newScenarioGame.setScenarioGameName(scenarioGameName);
         }, () -> {
             Log.i("Success", "New Scenario Game ");
         }, error -> {
@@ -34,7 +37,7 @@ public class ScenarioGameSchemaService {
     }
     public ScenarioGameSchema getScenarioGame(){
         return realm.where(ScenarioGameSchema.class)
-                .equalTo("Id", Id)
+                .equalTo("scenarioGameName", scenarioGameName)
                 .findFirst();
     }
 

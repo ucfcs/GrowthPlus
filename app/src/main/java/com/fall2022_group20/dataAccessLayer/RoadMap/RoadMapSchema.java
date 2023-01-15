@@ -10,10 +10,26 @@ import io.realm.annotations.PrimaryKey;
 public class RoadMapSchema extends RealmObject {
 
     @PrimaryKey
-    private Integer id;
+    private String roadMapId;
     private String roadMapName;
     private RealmList<LessonSchema> lessons;
-    private ScenarioGameSchema ScenarioGame;
+    private ScenarioGameSchema scenarioGame;
+
+    public String getRoadMapId() {
+        return roadMapId;
+    }
+
+    public void setRoadMapId(String roadMapId) {
+        this.roadMapId = roadMapId;
+    }
+
+    public String getRoadMapName() {
+        return roadMapName;
+    }
+
+    public void setRoadMapName(String roadMapName) {
+        this.roadMapName = roadMapName;
+    }
 
     public RealmList<LessonSchema> getLessons() {
         return lessons;
@@ -24,26 +40,10 @@ public class RoadMapSchema extends RealmObject {
     }
 
     public ScenarioGameSchema getScenarioGame() {
-        return ScenarioGame;
+        return scenarioGame;
     }
 
     public void setScenarioGame(ScenarioGameSchema scenarioGame) {
-        ScenarioGame = scenarioGame;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getRoadMapName() {
-        return roadMapName;
-    }
-
-    public void setRoadMapName(String roadMapName) {
-        this.roadMapName = roadMapName;
+        scenarioGame = scenarioGame;
     }
 }
