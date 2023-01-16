@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         // Do not use string values of realm results, it does not work that way
         Log.i("Child", String.valueOf(childService.getAllChildSchemas()));
         Log.i("Child Report", String.valueOf(childService.getReportByChildName("Child Zero").getChildScore()));
-
     }
 
     @Override
