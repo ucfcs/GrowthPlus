@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello, I am a TextView" />
+    <com.fall2022_group20.customViews.RoadMapTile
+        android:id="@+id/roadMapTile1"
+        android:layout_width="90dp"
+        android:layout_height="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello, I am a Button" />
-</LinearLayout>
+    <com.fall2022_group20.customViews.RoadMapTile
+        android:id="@+id/roadMapTile3"
+        android:layout_width="90dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="72dp"
+        app:layout_constraintStart_toEndOf="@+id/roadMapTile1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.fall2022_group20.customViews.RoadMapTile
+        android:id="@+id/roadMapTile4"
+        android:layout_width="90dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="72dp"
+        app:layout_constraintStart_toEndOf="@+id/roadMapTile2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.fall2022_group20.customViews.RoadMapTile
+        android:id="@+id/roadMapTile2"
+        android:layout_width="90dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="80dp"
+        app:layout_constraintStart_toStartOf="@+id/roadMapTile1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

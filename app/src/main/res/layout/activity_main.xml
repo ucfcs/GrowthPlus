@@ -30,9 +30,8 @@
 
     <com.fall2022_group20.customViews.RoadMapTile
         android:id="@+id/roadMapTileOne"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@color/blue"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
