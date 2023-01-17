@@ -3,6 +3,7 @@ package com.fall2022_group20.dataAccessLayer.child;
 import android.util.Log;
 
 import com.fall2022_group20.dataAccessLayer.Report.ReportSchema;
+import com.fall2022_group20.dataAccessLayer.Report.ReportSchemaService;
 import com.fall2022_group20.dataAccessLayer.RoadMap.RoadMapSchema;
 
 import io.realm.Realm;
@@ -18,8 +19,12 @@ public class ChildSchemaService {
     private Realm realm;
 
     /*
-    Constructor
-     */
+      Constructor
+    */
+    public ChildSchemaService(){
+        this.realm = Realm.getDefaultInstance();
+    }
+
     public ChildSchemaService(Realm realm, String name, ReportSchema report, RoadMapSchema roadmap, String avatar){
         this.realm = realm;
         this.name = name;
@@ -122,5 +127,12 @@ public class ChildSchemaService {
             childSchema.deleteFromRealm();
             childSchema = null;
         });
+    }
+
+    public ReportSchema getReportByChildName(String childName) {
+        ReportSchemaService report = new ReportSchemaService(realm);
+        report.getChildReportByName(childName);
+
+        return report.getChildReportByName(childName);
     }
 }
