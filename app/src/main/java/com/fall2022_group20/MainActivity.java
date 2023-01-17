@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         JsonSampleData jsonSampleData = new JsonSampleData(realm, resources);
         jsonSampleData.importDataFromJson();
 
-        Button childPortal = (Button) findViewById(R.id.childBtn);
+        Button childPortal = (Button) findViewById(R.id.childPortal);
         childPortal.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(MainActivity.this, ChildPortal.class));

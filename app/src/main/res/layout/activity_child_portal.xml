@@ -15,6 +15,7 @@
         android:layout_marginStart="20sp"
         android:background="@drawable/round_button"
         android:drawableStart="@drawable/back_arrow"
+        android:backgroundTint="@color/blue"
         android:paddingStart="17sp"
         android:paddingEnd="20sp">
     </android.widget.Button>
