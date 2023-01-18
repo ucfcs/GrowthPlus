@@ -24,6 +24,7 @@
 
     <include
         layout="@layout/roadmap_bottom_navigation"
-        />
+        tools:layout_editor_absoluteX="-25dp"
+        tools:layout_editor_absoluteY="82dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
