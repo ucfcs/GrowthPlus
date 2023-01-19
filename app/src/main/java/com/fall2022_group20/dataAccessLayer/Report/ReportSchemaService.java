@@ -18,6 +18,11 @@ public class ReportSchemaService {
         return reportId;
     }
 
+    public ReportSchemaService(Realm realm){
+        this.realm = realm;
+
+    }
+
     public ReportSchemaService(Realm realm, String childId, String childName, Integer childScore) {
 
         this.realm = realm;
@@ -73,6 +78,14 @@ public class ReportSchemaService {
     * */
     public ReportSchema getChildReportByName(){
         return realm.where(ReportSchema.class).equalTo("childName", childName).findFirst();
+    }
+
+    /*
+     * Method to return an individual report
+     * We are looking for a report by name, it can be changed to look for id as well
+     * */
+    public ReportSchema getChildReportByName(String name){
+        return realm.where(ReportSchema.class).equalTo("childName", name).findFirst();
     }
 
     /*
