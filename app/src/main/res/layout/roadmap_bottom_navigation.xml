@@ -19,10 +19,14 @@
         android:id="@+id/roadMapBottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:backgroundTint="@color/yellow"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/roadmap_bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
-        app:backgroundTint="@color/yellow"/>
+        app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
+        app:itemTextAppearanceInactive="@style/BottomNavigationView"
+        app:itemIconTint="@color/bottom_nav_bar_item"
+        app:itemTextColor="@color/bottom_nav_bar_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

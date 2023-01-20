@@ -4,6 +4,8 @@ package com.fall2022_group20.roadMapActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.fall2022_group20.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,7 +23,6 @@ public class RoadMapOneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_road_map_one);
 
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
-
         bottomNavigationView.setSelectedItemId(R.id.roadMap1item);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {

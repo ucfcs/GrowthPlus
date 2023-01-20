@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style
+        name="BottomNavigationView"
+        parent="@style/TextAppearance.AppCompat.Caption">
+        <item
+            name="android:textSize">30dp</item>
+    </style>
+
+    <style
+        name="BottomNavigationView.Active"
+        parent="@style/TextAppearance.AppCompat.Caption">
+        <item
+            name="android:textSize">35dp</item>
+    </style>
+</resources>
