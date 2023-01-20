@@ -18,14 +18,9 @@ public class RoadMapTile extends View {
 
     private static final int TITLE_SIZE = 300;
     Resources resources;
-    private Path roadMapTitle;
     private RectF rect;
     private Paint tileFillPaint;
     private Paint tileStrokePaint;
-
-    private Paint trianglePaint;
-    private Path trianglePath;
-
 
     public RoadMapTile(Context context) {
         super(context);
@@ -51,14 +46,9 @@ public class RoadMapTile extends View {
 
     public void init(@Nullable AttributeSet set){
 
-        roadMapTitle = new Path();
         rect = new RectF();
         tileFillPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         tileStrokePaint = new Paint();
-
-        trianglePaint = new Paint();
-        trianglePath = new Path();
-
     }
 
     @Override
@@ -80,24 +70,5 @@ public class RoadMapTile extends View {
         canvas.drawRoundRect(rect, cornerRadius, cornerRadius, tileFillPaint);    // fill
         canvas.drawRoundRect(rect, cornerRadius, cornerRadius, tileStrokePaint);  // stroke
 
-        drawTriangle(canvas, trianglePaint, 100,60, 60);
-
     }
-
-    public void drawTriangle(Canvas canvas, Paint paint, int x, int y, int width) {
-        int halfWidth = width / 2;
-
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(ContextCompat.getColor(getContext(), R.color.yellow));
-
-        Path path = new Path();
-        path.moveTo(x, y - halfWidth); // Top
-        path.lineTo(x - halfWidth, y + halfWidth); // Bottom left
-        path.lineTo(x + halfWidth, y + halfWidth); // Bottom right
-        path.lineTo(x, y - halfWidth); // Back to Top
-        path.close();
-
-        canvas.drawPath(path, paint);
-    }
-
 }
