@@ -1,74 +1,48 @@
 package com.fall2022_group20.customViews;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.fall2022_group20.R;
 
-public class RoadMapTile extends View {
+public class RoadMapTile extends ConstraintLayout {
 
-    private static final int TITLE_SIZE = 300;
-    Resources resources;
-    private RectF rect;
-    private Paint tileFillPaint;
-    private Paint tileStrokePaint;
+    // Add fields for each component
+    Tile tile;
+    TextView triangle;
+    ImageView avatar;
 
-    public RoadMapTile(Context context) {
+
+    public RoadMapTile(@NonNull Context context) {
         super(context);
-        resources = getResources();
-
         init(null);
     }
 
-    public RoadMapTile(Context context, @Nullable AttributeSet attrs) {
+    public RoadMapTile(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public RoadMapTile(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RoadMapTile(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
 
-    public RoadMapTile(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public RoadMapTile(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }
 
-    public void init(@Nullable AttributeSet set){
-
-        rect = new RectF();
-        tileFillPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        tileStrokePaint = new Paint();
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas){
-
-        rect.left = 10;
-        rect.top = 10;
-        rect.right = 220;
-        rect.bottom = 130;
-
-        tileFillPaint.setStyle(Paint.Style.FILL);
-        tileFillPaint.setColor(ContextCompat.getColor(getContext(), R.color.blue));
-
-        tileStrokePaint.setStyle(Paint.Style.STROKE);
-        tileStrokePaint.setColor(ContextCompat.getColor(getContext(), R.color.black));
-        tileStrokePaint.setStrokeWidth(8);
-
-        int cornerRadius = 30;
-        canvas.drawRoundRect(rect, cornerRadius, cornerRadius, tileFillPaint);    // fill
-        canvas.drawRoundRect(rect, cornerRadius, cornerRadius, tileStrokePaint);  // stroke
-
+    private void init(@Nullable AttributeSet set) {
+        inflate(getContext(), R.layout.roadmap_tile, this);
+        tile = findViewById(R.id.tile);
+        triangle = findViewById(R.id.triangle);
+        avatar = findViewById(R.id.avatar);
     }
 }

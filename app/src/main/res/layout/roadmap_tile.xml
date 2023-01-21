@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    >
 
-    <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/roadMapTile"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.fall2022_group20.customViews.Tile
+        android:id="@+id/tile"
         android:layout_width="85dp"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,19 +22,19 @@
         android:text="▼"
         android:textSize="40dp"
         android:textColor="@color/yellow"
-        app:layout_constraintBottom_toBottomOf="@+id/roadMapTile"
-        app:layout_constraintEnd_toEndOf="@+id/roadMapTile"
-        app:layout_constraintStart_toStartOf="@+id/roadMapTile"
-        app:layout_constraintTop_toTopOf="@+id/roadMapTile" />
+        app:layout_constraintBottom_toBottomOf="@+id/tile"
+        app:layout_constraintEnd_toEndOf="@+id/tile"
+        app:layout_constraintStart_toStartOf="@+id/tile"
+        app:layout_constraintTop_toTopOf="@+id/tile" />
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="122dp"
-        android:layout_height="114dp"
-        android:src="@mipmap/bunny_foreground"
-        app:layout_constraintBottom_toBottomOf="@+id/roadMapTile"
-        app:layout_constraintEnd_toEndOf="@+id/roadMapTile"
-        app:layout_constraintStart_toStartOf="@+id/roadMapTile"
-        app:layout_constraintTop_toTopOf="@+id/roadMapTile" />
+        android:layout_width="85dp"
+        android:layout_height="90dp"
+        android:background="@mipmap/bunny_foreground"
+        app:layout_constraintBottom_toBottomOf="@+id/tile"
+        app:layout_constraintEnd_toEndOf="@+id/tile"
+        app:layout_constraintStart_toStartOf="@+id/tile"
+        app:layout_constraintTop_toTopOf="@+id/tile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

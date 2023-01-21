@@ -13,15 +13,14 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="4dp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ROADMAP 3"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.fall2022_group20.customViews.RoadMapLessonTrail
+        android:id="@+id/roadMapThreeTrail"
+        android:layout_width="345dp"
+        android:layout_height="380dp"
+        android:layout_marginTop="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <include
         layout="@layout/roadmap_bottom_navigation"
