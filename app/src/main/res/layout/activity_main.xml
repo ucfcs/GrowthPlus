@@ -28,16 +28,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.129" />
 
-    <com.fall2022_group20.customViews.Tile
-        android:id="@+id/roadMapTileOne"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roadMapOneBtn"
-        app:layout_constraintVertical_bias="0.129"
-        />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

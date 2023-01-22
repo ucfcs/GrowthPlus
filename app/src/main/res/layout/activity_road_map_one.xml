@@ -6,25 +6,26 @@
     android:layout_height="match_parent"
     android:background="@drawable/level1">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/top_bar"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="4dp" />
+    <com.fall2022_group20.customViews.TopBar
+        android:id="@+id/topBarOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.fall2022_group20.customViews.RoadMapLessonTrail
-        android:id="@+id/roadMapOneTrail"
+        android:id="@+id/roadMapOneLessonTrail"
         android:layout_width="345dp"
         android:layout_height="380dp"
         android:layout_marginTop="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        app:layout_constraintTop_toBottomOf="@+id/topBarOne" />
 
     <include
         layout="@layout/roadmap_bottom_navigation"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="158dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,21 +7,22 @@
     tools:context=".roadMapActivity.RoadMapTwoActivity"
     android:background="@drawable/level2">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/top_bar"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="4dp" />
-
+    <com.fall2022_group20.customViews.TopBar
+        android:id="@+id/topBarTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.fall2022_group20.customViews.RoadMapLessonTrail
-        android:id="@+id/roadMapTwoTrail"
+        android:id="@+id/roadMapTwoLessonTrail"
         android:layout_width="345dp"
         android:layout_height="380dp"
         android:layout_marginTop="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        app:layout_constraintTop_toBottomOf="@+id/topBarTwo" />
 
     <include
         layout="@layout/roadmap_bottom_navigation"

@@ -5,10 +5,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.fall2022_group20.customViews.Tile
+    <ImageView
         android:id="@+id/tile"
         android:layout_width="85dp"
-        android:layout_height="55dp"
+        android:layout_height="50dp"
+        android:src="@drawable/tile_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +32,6 @@
         android:id="@+id/avatar"
         android:layout_width="85dp"
         android:layout_height="90dp"
-        android:background="@mipmap/bunny_foreground"
         app:layout_constraintBottom_toBottomOf="@+id/tile"
         app:layout_constraintEnd_toEndOf="@+id/tile"
         app:layout_constraintStart_toStartOf="@+id/tile"

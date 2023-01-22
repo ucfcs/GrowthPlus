@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile1"
+        android:id="@+id/roadMapTileOne"
         android:layout_width="85dp"
         android:layout_height="50dp"
         android:layout_marginTop="72dp"
@@ -14,87 +14,87 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile2"
+        android:id="@+id/roadMapTileTwo"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@+id/tile1"
-        app:layout_constraintTop_toTopOf="@+id/tile1" />
+        app:layout_constraintStart_toEndOf="@+id/roadMapTileOne"
+        app:layout_constraintTop_toTopOf="@+id/roadMapTileOne" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile3"
+        android:id="@+id/roadMapTileThree"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@+id/tile2"
-        app:layout_constraintTop_toTopOf="@+id/tile2" />
+        app:layout_constraintStart_toEndOf="@+id/roadMapTileTwo"
+        app:layout_constraintTop_toTopOf="@+id/roadMapTileTwo" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile4"
+        android:id="@+id/roadMapTileFour"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@+id/tile3"
-        app:layout_constraintTop_toTopOf="@+id/tile3" />
+        app:layout_constraintStart_toEndOf="@+id/roadMapTileThree"
+        app:layout_constraintTop_toTopOf="@+id/roadMapTileThree" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile5"
+        android:id="@+id/roadMapTileFive"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/tile4"
-        app:layout_constraintTop_toBottomOf="@+id/tile4" />
+        app:layout_constraintEnd_toEndOf="@+id/roadMapTileFour"
+        app:layout_constraintTop_toBottomOf="@+id/roadMapTileFour" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile6"
+        android:id="@+id/roadMapTileSix"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/tile5"
-        app:layout_constraintTop_toBottomOf="@+id/tile5" />
+        app:layout_constraintEnd_toEndOf="@+id/roadMapTileFive"
+        app:layout_constraintTop_toBottomOf="@+id/roadMapTileFive"/>
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile7"
+        android:id="@+id/roadMapTileSeven"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/tile6"
-        app:layout_constraintTop_toBottomOf="@+id/tile6" />
+        app:layout_constraintEnd_toEndOf="@+id/roadMapTileSix"
+        app:layout_constraintTop_toBottomOf="@+id/roadMapTileSix" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile8"
+        android:id="@+id/roadMapTileEight"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tile7"
-        app:layout_constraintEnd_toStartOf="@+id/tile7" />
+        app:layout_constraintBottom_toBottomOf="@+id/roadMapTileSeven"
+        app:layout_constraintEnd_toStartOf="@+id/roadMapTileSeven"/>
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile9"
+        android:id="@+id/roadMapTileNine"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tile8"
-        app:layout_constraintEnd_toStartOf="@+id/tile8" />
+        app:layout_constraintBottom_toBottomOf="@+id/roadMapTileEight"
+        app:layout_constraintEnd_toStartOf="@+id/roadMapTileEight" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile10"
+        android:id="@+id/roadMapTileTen"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tile9"
-        app:layout_constraintEnd_toStartOf="@+id/tile9" />
+        app:layout_constraintBottom_toBottomOf="@+id/roadMapTileNine"
+        app:layout_constraintEnd_toStartOf="@+id/roadMapTileNine" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile11"
+        android:id="@+id/roadMapTileEleven"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="@+id/tile10"
-        app:layout_constraintTop_toBottomOf="@+id/tile10" />
+        app:layout_constraintStart_toStartOf="@+id/roadMapTileTen"
+        app:layout_constraintTop_toBottomOf="@+id/roadMapTileTen" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile12"
+        android:id="@+id/roadMapTileTwelve"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="@+id/tile11"
-        app:layout_constraintTop_toBottomOf="@+id/tile11" />
+        app:layout_constraintStart_toStartOf="@+id/roadMapTileEleven"
+        app:layout_constraintTop_toBottomOf="@+id/roadMapTileEleven" />
 
     <com.fall2022_group20.customViews.RoadMapTile
-        android:id="@+id/tile13"
+        android:id="@+id/roadMapTileThirteen"
         android:layout_width="85dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tile12"
-        app:layout_constraintStart_toEndOf="@+id/tile12" />
+        app:layout_constraintBottom_toBottomOf="@+id/roadMapTileTwelve"
+        app:layout_constraintStart_toEndOf="@+id/roadMapTileTwelve" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

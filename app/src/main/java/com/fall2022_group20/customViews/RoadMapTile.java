@@ -1,6 +1,7 @@
 package com.fall2022_group20.customViews;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ import com.fall2022_group20.R;
 public class RoadMapTile extends ConstraintLayout {
 
     // Add fields for each component
-    Tile tile;
+    ImageView tile;
     TextView triangle;
     ImageView avatar;
 
