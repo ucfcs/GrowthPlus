@@ -16,10 +16,10 @@
 
     <com.fall2022_group20.customViews.RoadMapLessonTrail
         android:id="@+id/roadMapOneLessonTrail"
-        android:layout_width="345dp"
-        android:layout_height="380dp"
-        android:layout_marginTop="45dp"
+        android:layout_width="340dp"
+        android:layout_height="375dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBarOne" />
 

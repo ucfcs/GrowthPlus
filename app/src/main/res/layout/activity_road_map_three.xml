@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".roadMapActivity.RoadMapThreeActivity"
-    android:background="@drawable/level3">
+    android:background="@drawable/level3"
+    android:id="@+id/roadMapThree">
 
     <com.fall2022_group20.customViews.TopBar
         android:id="@+id/topBarThree"
@@ -17,12 +18,25 @@
 
     <com.fall2022_group20.customViews.RoadMapLessonTrail
         android:id="@+id/roadMapThreeLessonTrail"
-        android:layout_width="345dp"
-        android:layout_height="380dp"
-        android:layout_marginTop="45dp"
+        android:layout_width="340dp"
+        android:layout_height="375dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBarThree" />
+        app:layout_constraintTop_toBottomOf="@+id/topBarThree">
+
+        <ImageView
+            android:id="@+id/lockThree"
+            android:layout_width="80dp"
+            android:layout_height="85dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.435"
+            app:srcCompat="@drawable/ic_baseline_lock_24" />
+
+    </com.fall2022_group20.customViews.RoadMapLessonTrail>
 
     <include
         layout="@layout/roadmap_bottom_navigation"

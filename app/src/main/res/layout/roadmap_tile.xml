@@ -22,7 +22,7 @@
         android:rotationX="180"
         android:text="▼"
         android:textSize="40dp"
-        android:textColor="@color/yellow"
+        android:textColor="@color/blue"
         app:layout_constraintBottom_toBottomOf="@+id/tile"
         app:layout_constraintEnd_toEndOf="@+id/tile"
         app:layout_constraintStart_toStartOf="@+id/tile"

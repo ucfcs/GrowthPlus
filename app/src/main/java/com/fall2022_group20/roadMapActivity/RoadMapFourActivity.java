@@ -1,18 +1,26 @@
 package com.fall2022_group20.roadMapActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.fall2022_group20.R;
+import com.fall2022_group20.customViews.RoadMapLessonTrail;
+import com.fall2022_group20.customViews.TopBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class RoadMapFourActivity extends AppCompatActivity {
 
     ImageButton goBackButton;
     BottomNavigationView bottomNavigationView;
+    ConstraintLayout roadMapFour;
+    RoadMapLessonTrail roadMapLessonFourTrail;
+    TopBar topBarFour;
+    ImageView lockFour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +28,10 @@ public class RoadMapFourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_road_map_four);
 
-        bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
+        init();
+        initState();
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap4item);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
@@ -48,5 +56,19 @@ public class RoadMapFourActivity extends AppCompatActivity {
         goBackButton = findViewById(R.id.goBackBtn);
         goBackButton.setOnClickListener(v -> onBackPressed());
 
+    }
+
+    private void init(){
+
+        bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
+        roadMapFour = findViewById(R.id.roadMapFour);
+        topBarFour = roadMapFour.findViewById(R.id.topBarFour);
+        roadMapLessonFourTrail = roadMapFour.findViewById(R.id.roadMapFourLessonTrail);
+        lockFour = roadMapLessonFourTrail.findViewById(R.id.lockTwo);
+
+    }
+
+    private void initState(){
+        roadMapLessonFourTrail.setAlpha(.7f);
     }
 }

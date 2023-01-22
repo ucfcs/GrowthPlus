@@ -1,18 +1,26 @@
 package com.fall2022_group20.roadMapActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.fall2022_group20.R;
+import com.fall2022_group20.customViews.RoadMapLessonTrail;
+import com.fall2022_group20.customViews.TopBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class RoadMapThreeActivity extends AppCompatActivity {
 
     ImageButton goBackButton;
     BottomNavigationView bottomNavigationView;
+    ConstraintLayout roadMapThree;
+    RoadMapLessonTrail roadMapLessonThreeTrail;
+    TopBar topBarThree;
+    ImageView lockThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +28,10 @@ public class RoadMapThreeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_road_map_three);
 
-        bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
+        init();
+        initState();
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap3item);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
@@ -48,5 +56,19 @@ public class RoadMapThreeActivity extends AppCompatActivity {
         goBackButton = findViewById(R.id.goBackBtn);
         goBackButton.setOnClickListener(v -> onBackPressed());
 
+    }
+
+    private void init(){
+
+        bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
+        roadMapThree = findViewById(R.id.roadMapThree);
+        topBarThree = roadMapThree.findViewById(R.id.topBarThree);
+        roadMapLessonThreeTrail = roadMapThree.findViewById(R.id.roadMapThreeLessonTrail);
+        lockThree = roadMapLessonThreeTrail.findViewById(R.id.lockThree);
+
+    }
+
+    private void initState(){
+        roadMapLessonThreeTrail.setAlpha(.7f);
     }
 }
