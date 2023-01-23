@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import com.fall2022_group20.R;
 
@@ -18,7 +19,8 @@ public class RoadMapTile extends ConstraintLayout {
     ImageView tile;
     TextView triangle;
     ImageView avatar;
-
+    Boolean isSelected;
+    Boolean isCompleted;
 
     public RoadMapTile(@NonNull Context context) {
         super(context);
@@ -46,4 +48,39 @@ public class RoadMapTile extends ConstraintLayout {
         triangle = findViewById(R.id.triangle);
         avatar = findViewById(R.id.avatar);
     }
+
+    // TODO: Need methods to change the state of each view
+
+    // Method to change the state of the tile
+    private void setTileSelectedState(){
+        tile.setImageResource(R.drawable.tile_shape_selected);
+    }
+
+    private void setTriangleSelectedState(){
+        triangle.setTextColor(ContextCompat.getColor(getContext(), R.color.light_green));
+    }
+
+    // The path to this resource needs to come from the database
+    // Have not figured it out yet
+    private void setAvatar(){
+        avatar.setImageResource(R.mipmap.bunny_foreground);
+    }
+
+    private void removeAvatar(){
+        avatar.setImageResource(0);
+    }
+
+    public void setSelectedState(){
+        setTileSelectedState();
+        setTriangleSelectedState();
+        setAvatar();
+    }
+
+    // Completed state once the child has reached the goal of the lesson
+    public void setCompletedState(){
+        setTileSelectedState();
+        setTriangleSelectedState();
+        removeAvatar();
+    }
+
 }

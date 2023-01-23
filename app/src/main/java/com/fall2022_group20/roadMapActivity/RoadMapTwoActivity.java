@@ -18,9 +18,8 @@ public class RoadMapTwoActivity extends AppCompatActivity {
     ImageButton goBackButton;
     BottomNavigationView bottomNavigationView;
     ConstraintLayout roadMapTwo;
-    RoadMapLessonTrail roadMapLessonTwoTrail;
+    RoadMapLessonTrail roadMapTwoLessonTrail;
     TopBar topBarTwo;
-    ImageView lockTwo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,7 @@ public class RoadMapTwoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_road_map_two);
 
         init();
-        initState();
+        lockedState();
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap2item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -63,13 +62,11 @@ public class RoadMapTwoActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
         roadMapTwo = findViewById(R.id.roadMapTwo);
         topBarTwo = roadMapTwo.findViewById(R.id.topBarTwo);
-        roadMapLessonTwoTrail = roadMapTwo.findViewById(R.id.roadMapTwoLessonTrail);
-        lockTwo = roadMapLessonTwoTrail.findViewById(R.id.lockTwo);
+        roadMapTwoLessonTrail = roadMapTwo.findViewById(R.id.roadMapTwoLessonTrail);
 
     }
 
-    private void initState(){
-        roadMapLessonTwoTrail.setAlpha(.7f);
-
+    private void lockedState(){
+        roadMapTwoLessonTrail.setAlpha(.7f);
     }
 }

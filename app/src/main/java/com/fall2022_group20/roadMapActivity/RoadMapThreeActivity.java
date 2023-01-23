@@ -18,9 +18,8 @@ public class RoadMapThreeActivity extends AppCompatActivity {
     ImageButton goBackButton;
     BottomNavigationView bottomNavigationView;
     ConstraintLayout roadMapThree;
-    RoadMapLessonTrail roadMapLessonThreeTrail;
+    RoadMapLessonTrail roadMapThreeLessonTrail;
     TopBar topBarThree;
-    ImageView lockThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +62,11 @@ public class RoadMapThreeActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
         roadMapThree = findViewById(R.id.roadMapThree);
         topBarThree = roadMapThree.findViewById(R.id.topBarThree);
-        roadMapLessonThreeTrail = roadMapThree.findViewById(R.id.roadMapThreeLessonTrail);
-        lockThree = roadMapLessonThreeTrail.findViewById(R.id.lockThree);
+        roadMapThreeLessonTrail = roadMapThree.findViewById(R.id.roadMapThreeLessonTrail);
 
     }
 
     private void initState(){
-        roadMapLessonThreeTrail.setAlpha(.7f);
+        roadMapThreeLessonTrail.setAlpha(.7f);
     }
 }

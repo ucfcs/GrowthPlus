@@ -8,11 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import com.fall2022_group20.R;
 import com.fall2022_group20.customViews.RoadMapLessonTrail;
 import com.fall2022_group20.customViews.RoadMapTile;
+import com.fall2022_group20.customViews.TopBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -21,11 +23,8 @@ public class RoadMapOneActivity extends AppCompatActivity {
     ImageButton goBackButton;
     BottomNavigationView bottomNavigationView;
     RoadMapLessonTrail roadMapOneLessonTrail;
-    RoadMapTile roadMapTileOne;
-    ImageView tile;
-    ImageView avatar;
-    TextView triangle;
-
+    ConstraintLayout roadMapOne;
+    TopBar topBarOne;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +32,12 @@ public class RoadMapOneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_road_map_one);
 
-        bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
+        init();
+
+        roadMapOneLessonTrail.unLockRoadMap();
+        roadMapOneLessonTrail.setSelectedState(roadMapOneLessonTrail.getRoadMapTile1());
+
         bottomNavigationView.setSelectedItemId(R.id.roadMap1item);
-
-        roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
-        roadMapTileOne = roadMapOneLessonTrail.findViewById(R.id.roadMapTileOne);
-
-        tile = roadMapTileOne.findViewById(R.id.tile);
-        avatar = roadMapTileOne.findViewById(R.id.avatar);
-        triangle = roadMapTileOne.findViewById(R.id.triangle);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
@@ -67,5 +62,16 @@ public class RoadMapOneActivity extends AppCompatActivity {
         goBackButton = findViewById(R.id.goBackBtn);
         goBackButton.setOnClickListener(v -> onBackPressed());
 
+    }
+
+    private void init(){
+        bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
+        roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
+        roadMapOne = findViewById(R.id.roadMapOne);
+        topBarOne = findViewById(R.id.topBarOne);
+    }
+
+    private void lockedState(){
+        roadMapOneLessonTrail.setAlpha(.7f);
     }
 }

@@ -24,19 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBarFour" >
 
-        <ImageView
-            android:id="@+id/lockTwo"
-            android:layout_width="80dp"
-            android:layout_height="85dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.435"
-            app:srcCompat="@drawable/ic_baseline_lock_24" />
-
-
     </com.fall2022_group20.customViews.RoadMapLessonTrail>
 
     <include
