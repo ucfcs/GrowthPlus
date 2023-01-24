@@ -5,11 +5,11 @@ plugins {
 apply plugin: "realm-android"
 
 android {
-    namespace 'com.fall2022_group20'
+    namespace 'com.GrowthPlus'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.fall2022_group20"
+        applicationId "com.GrowthPlus"
         minSdk 21
         targetSdk 32
         versionCode 1
