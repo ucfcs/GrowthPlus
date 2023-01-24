@@ -6,12 +6,12 @@ apply plugin: "realm-android"
 
 android {
     namespace 'com.GrowthPlus'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.GrowthPlus"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -35,7 +35,9 @@ dependencies {
     implementation 'io.realm:realm-gradle-plugin:10.10.1'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

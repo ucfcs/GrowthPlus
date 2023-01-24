@@ -13,7 +13,7 @@
         android:layout_height="300dp"
         android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/growth_images_4"></ImageView>
+        android:src="@drawable/ic_launcher_background"></ImageView>
 
     <TextView
         android:layout_width="wrap_content"
