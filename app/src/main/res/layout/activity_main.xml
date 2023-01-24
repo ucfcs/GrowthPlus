@@ -26,7 +26,7 @@
         <FrameLayout
             android:id="@+id/childPortalFrame"
             android:layout_width="310dp"
-            android:layout_height="350dp"
+            android:layout_height="380dp"
             android:layout_centerHorizontal="true"
             android:backgroundTint="@color/blue"
             android:background="@drawable/round_button"/>
@@ -35,9 +35,10 @@
             android:id="@+id/idFrame"
             android:layout_marginTop="50dp"
             android:layout_width="310dp"
-            android:layout_height="200dp"
+            android:layout_height="170dp"
             android:backgroundTint="@color/blue"
             android:background="@drawable/round_button"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:layout_centerHorizontal="true">
 
             <ImageButton
@@ -46,20 +47,20 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_button"
                 android:paddingLeft="50dp"
-                android:paddingTop="10dp"
-                android:scaleX="3"
-                android:scaleY="3"
+                android:paddingTop="8dp"
+                android:scaleX="2.7"
+                android:scaleY="2.7"
                 android:src="@mipmap/parent_foreground" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="57dp"
                 android:clickable="false"
                 android:text="parent"
                 android:textColor="@color/dark_green"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
         </FrameLayout>
 
     </LinearLayout>
