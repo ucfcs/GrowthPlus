@@ -6,9 +6,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-
-import com.GrowthPlus.R;
-
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.realmImporter.JsonSampleData;
 import com.GrowthPlus.roadMapActivity.RoadMapOneActivity;

@@ -1,7 +1,6 @@
 package com.GrowthPlus.customViews;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
