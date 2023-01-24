@@ -6,28 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@color/light_green">
-
+    <ImageButton
+        android:id="@+id/langBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/settings_gear"
+        android:background="@color/light_green"
+        app:tint="@color/dark_green"
+        android:scaleY="1.5"
+        android:scaleX="1.5"
+        android:layout_marginStart="310dp"
+        android:paddingTop="15dp"></ImageButton>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp">
-        <android.widget.Button
-            android:id="@+id/childPortal"
-            android:layout_width="325dp"
+        android:layout_marginTop="70dp">
+        <FrameLayout
+            android:id="@+id/childPortalFrame"
+            android:layout_width="310dp"
             android:layout_height="350dp"
             android:layout_centerHorizontal="true"
             android:backgroundTint="@color/blue"
             android:background="@drawable/round_button"/>
-        <android.widget.Button
-            android:id="@+id/parentPortal"
+
+        <FrameLayout
+            android:id="@+id/idFrame"
             android:layout_marginTop="50dp"
-            android:layout_width="325dp"
+            android:layout_width="310dp"
             android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
             android:backgroundTint="@color/blue"
-            android:background="@drawable/round_button"/>
+            android:background="@drawable/round_button"
+            android:layout_centerHorizontal="true">
+
+            <ImageButton
+                android:id="@+id/idParent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:paddingLeft="50dp"
+                android:paddingTop="10dp"
+                android:scaleX="3"
+                android:scaleY="3"
+                android:src="@mipmap/parent_foreground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:clickable="false"
+                android:text="parent"
+                android:textColor="@color/dark_green"
+                android:textSize="40dp" />
+        </FrameLayout>
 
     </LinearLayout>
 

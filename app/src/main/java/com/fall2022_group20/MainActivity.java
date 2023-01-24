@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.fall2022_group20.dataAccessLayer.child.ChildSchemaService;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.fall2022_group20.realmImporter.JsonSampleData;
 import io.realm.Realm;
@@ -37,10 +39,18 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Child", String.valueOf(childService.getAllChildSchemas()));
         Log.i("Child Report", String.valueOf(childService.getReportByChildName("Child Zero").getChildScore()));
 
-        Button childPortal = (Button) findViewById(R.id.childPortal);
+        ImageButton childPortal = (ImageButton) findViewById(R.id.idParent);
         childPortal.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(MainActivity.this, ChildPortal.class));
+            }
+        });
+
+        ImageButton language = (ImageButton) findViewById(R.id.langBtn);
+        language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LanguageSettingActivity.class));
             }
         });
     }

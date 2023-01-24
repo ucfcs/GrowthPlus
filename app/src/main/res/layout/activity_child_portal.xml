@@ -45,10 +45,12 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="80sp"
+            android:layout_height="90sp"
             android:layout_weight="1"
-            android:src="@drawable/points"
-            android:paddingStart="40sp"
+            android:scaleY="1.3"
+            android:scaleX="1.3"
+            android:src="@mipmap/points_foreground"
+            android:paddingStart="10sp"
             android:scaleType="centerCrop">
         </ImageView>
 
@@ -79,7 +81,7 @@
                 android:id="@+id/leaderboardBtn"
                 android:layout_width="170sp"
                 android:layout_height="150sp"
-                android:foreground="@drawable/bunny_avatar"
+                android:foreground="@mipmap/bunny_foreground"
                 android:background="@drawable/leaderboard">
                 <!-- TODO: change avatar image to child's avatar image -->
             </android.widget.Button>
@@ -89,7 +91,7 @@
                 android:layout_width="170sp"
                 android:layout_height="150sp"
                 android:layout_marginTop="40sp"
-                android:foreground="@drawable/bunny_avatar"
+                android:foreground="@mipmap/bunny_foreground"
                 android:background="@drawable/roadmap">
                 <!-- TODO: change avatar image to child's avatar image -->
             </android.widget.Button>
