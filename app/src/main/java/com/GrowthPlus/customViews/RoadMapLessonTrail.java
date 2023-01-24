@@ -1,4 +1,4 @@
-package com.fall2022_group20.customViews;
+package com.GrowthPlus.customViews;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.fall2022_group20.R;
+import com.GrowthPlus.R;
 
 public class RoadMapLessonTrail extends ConstraintLayout {
 

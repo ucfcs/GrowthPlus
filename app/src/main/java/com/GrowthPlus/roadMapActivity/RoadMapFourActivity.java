@@ -1,4 +1,4 @@
-package com.fall2022_group20.roadMapActivity;
+package com.GrowthPlus.roadMapActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -6,11 +6,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
-import com.fall2022_group20.R;
-import com.fall2022_group20.customViews.RoadMapLessonTrail;
-import com.fall2022_group20.customViews.TopBar;
+import com.GrowthPlus.R;
+import com.GrowthPlus.customViews.RoadMapLessonTrail;
+import com.GrowthPlus.customViews.TopBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class RoadMapFourActivity extends AppCompatActivity {

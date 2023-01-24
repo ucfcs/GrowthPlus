@@ -9,7 +9,7 @@
     tools:context=".roadMapActivity.RoadMapTwoActivity"
     android:background="@drawable/level2">
 
-    <com.fall2022_group20.customViews.TopBar
+    <com.GrowthPlus.customViews.TopBar
         android:id="@+id/topBarTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.fall2022_group20.customViews.RoadMapLessonTrail
+    <com.GrowthPlus.customViews.RoadMapLessonTrail
         android:id="@+id/roadMapTwoLessonTrail"
         android:layout_width="340dp"
         android:layout_height="375dp"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topBarTwo" >
 
 
-    </com.fall2022_group20.customViews.RoadMapLessonTrail>
+    </com.GrowthPlus.customViews.RoadMapLessonTrail>
 
 
     <include

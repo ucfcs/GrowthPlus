@@ -1,55 +1,47 @@
-package com.fall2022_group20.roadMapActivity;
+package com.GrowthPlus.roadMapActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-
-import com.fall2022_group20.R;
-import com.fall2022_group20.customViews.RoadMapLessonTrail;
-import com.fall2022_group20.customViews.RoadMapTile;
-import com.fall2022_group20.customViews.TopBar;
+import com.GrowthPlus.R;
+import com.GrowthPlus.customViews.RoadMapLessonTrail;
+import com.GrowthPlus.customViews.TopBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-
-public class RoadMapOneActivity extends AppCompatActivity {
+public class RoadMapThreeActivity extends AppCompatActivity {
 
     ImageButton goBackButton;
     BottomNavigationView bottomNavigationView;
-    RoadMapLessonTrail roadMapOneLessonTrail;
-    ConstraintLayout roadMapOne;
-    TopBar topBarOne;
+    ConstraintLayout roadMapThree;
+    RoadMapLessonTrail roadMapThreeLessonTrail;
+    TopBar topBarThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_road_map_one);
+        setContentView(R.layout.activity_road_map_three);
 
         init();
+        initState();
 
-        roadMapOneLessonTrail.unLockRoadMap();
-        roadMapOneLessonTrail.setSelectedState(roadMapOneLessonTrail.getRoadMapTile1());
-
-        bottomNavigationView.setSelectedItemId(R.id.roadMap1item);
+        bottomNavigationView.setSelectedItemId(R.id.roadMap3item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
                 case R.id.roadMap1item:
+                    startActivity(new Intent(getApplicationContext(), RoadMapOneActivity.class));
+                    overridePendingTransition(0,0);
                     return true;
                 case R.id.roadMap2item:
                     startActivity(new Intent(getApplicationContext(), RoadMapTwoActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 case R.id.roadMap3item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapThreeActivity.class));
-                    overridePendingTransition(0,0);
                     return true;
                 case R.id.roadMap4item:
                     startActivity(new Intent(getApplicationContext(), RoadMapFourActivity.class));
@@ -65,13 +57,15 @@ public class RoadMapOneActivity extends AppCompatActivity {
     }
 
     private void init(){
+
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
-        roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
-        roadMapOne = findViewById(R.id.roadMapOne);
-        topBarOne = findViewById(R.id.topBarOne);
+        roadMapThree = findViewById(R.id.roadMapThree);
+        topBarThree = roadMapThree.findViewById(R.id.topBarThree);
+        roadMapThreeLessonTrail = roadMapThree.findViewById(R.id.roadMapThreeLessonTrail);
+
     }
 
-    private void lockedState(){
-        roadMapOneLessonTrail.setAlpha(.7f);
+    private void initState(){
+        roadMapThreeLessonTrail.setAlpha(.7f);
     }
 }
