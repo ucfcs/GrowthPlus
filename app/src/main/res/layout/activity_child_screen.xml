@@ -13,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/blue_circle"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="147dp" />
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="60dp" />
 
     <android.widget.Button
         android:id="@+id/back_button"
@@ -24,32 +24,37 @@
         android:drawableStart="@drawable/back_arrow"
         android:paddingStart="17sp"
         android:paddingEnd="20sp"
-        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="27dp"></android.widget.Button>
+
+    <!--android:background="@drawable/round_button"-->
+
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="211dp"
         android:layout_height="60sp"
-        android:background="#E3E0E0"
+        android:background="@drawable/white_round_button"
+        android:gravity="center"
         android:text="Sally"
         android:textAlignment="center"
         android:textColor="@color/blue"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="376dp" />
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="288dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="94dp"
         android:layout_height="60sp"
-        android:background="@color/blue"
+        android:background="@drawable/round_button"
+        android:gravity="center"
         android:text="65"
         android:textAlignment="center"
         android:textColor="@color/yellow"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="254dp"
-        tools:layout_editor_absoluteY="376dp" />
+        tools:layout_editor_absoluteX="241dp"
+        tools:layout_editor_absoluteY="288dp" />
 
     <ImageButton
         android:id="@+id/minimize_button"
@@ -57,48 +62,240 @@
         android:layout_height="wrap_content"
         android:background="@null"
         app:srcCompat="@drawable/red_circle"
-        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteX="335dp"
         tools:layout_editor_absoluteY="7dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/bunny"
         android:layout_width="305dp"
         android:layout_height="333dp"
         app:srcCompat="@drawable/bunny"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="78dp" />
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="-12dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="612dp" />
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="458dp" />
 
     <ProgressBar
         android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="566dp" />
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="429dp" />
 
     <ProgressBar
         android:id="@+id/progressBar3"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="523dp" />
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="398dp" />
 
     <ProgressBar
         android:id="@+id/progressBar4"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="491dp" />
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="370dp" />
+
+    <TableLayout
+        android:layout_width="339dp"
+        android:layout_height="223dp"
+        android:background="@drawable/round_button"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="492dp"
+        android:gravity="center">
+
+        <TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            <!-- android:stretchColumns="1" -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Numbers" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Length" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+        </TableRow>
+
+        <TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            <!-- android:stretchColumns="1" -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Counting" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Weight" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+        </TableRow>
+
+
+        <TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            <!-- android:stretchColumns="1" -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Addition" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Money" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+        </TableRow>
+
+        <TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            <!-- android:stretchColumns="1" -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Subtraction" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Time" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+        </TableRow>
+
+        <TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            <!-- android:stretchColumns="1" -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Multiplication" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Shapes" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+        </TableRow>
+
+        <TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            <!-- android:stretchColumns="1" -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Division" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="Angles" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:text="x" />
+        </TableRow>
+
+    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
