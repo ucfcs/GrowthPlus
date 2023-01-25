@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_green"
+    tools:context=".ChildPortal">
+
+    <android.widget.Button
+        android:id="@+id/backChild"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="30sp"
+        android:layout_marginStart="20sp"
+        android:background="@drawable/round_button"
+        android:drawableStart="@drawable/back_arrow"
+        android:backgroundTint="@color/blue"
+        android:paddingStart="17sp"
+        android:paddingEnd="20sp">
+    </android.widget.Button>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80sp"
+        android:text="Sally"
+        android:textColor="@color/white"
+        android:textSize="70sp">
+        <!-- TODO: change text value to child's name -->
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="100sp"
+        android:layout_marginRight="100sp"
+        android:orientation="horizontal"
+        android:layout_marginTop="180sp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="90sp"
+            android:layout_weight="1"
+            android:scaleY="1.3"
+            android:scaleX="1.3"
+            android:src="@mipmap/points_foreground"
+            android:paddingStart="10sp"
+            android:scaleType="centerCrop">
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80sp"
+            android:layout_weight="1"
+            android:text="0"
+            android:textColor="@color/yellow"
+            android:textSize="45sp"
+            android:paddingTop="15sp"
+            android:gravity="">
+            <!-- TODO: change text value to child's point value -->
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/points"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50sp"
+        android:orientation="vertical">
+
+            <android.widget.Button
+                android:id="@+id/leaderboardBtn"
+                android:layout_width="170sp"
+                android:layout_height="150sp"
+                android:foreground="@mipmap/bunny_foreground"
+                android:background="@drawable/leaderboard">
+                <!-- TODO: change avatar image to child's avatar image -->
+            </android.widget.Button>
+
+            <android.widget.Button
+                android:id="@+id/learnBtn"
+                android:layout_width="170sp"
+                android:layout_height="150sp"
+                android:layout_marginTop="40sp"
+                android:foreground="@mipmap/bunny_foreground"
+                android:background="@drawable/roadmap">
+                <!-- TODO: change avatar image to child's avatar image -->
+            </android.widget.Button>
+
+    </LinearLayout>
+
+</RelativeLayout>

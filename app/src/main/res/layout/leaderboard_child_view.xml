@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yellow"
+    android:layout_marginTop="2dp">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:scaleX="8.5"
+        android:scaleY="8.5"
+        android:layout_marginStart="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:id="@+id/leaderboardAvatarImg">
+    </ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leaderboardName"
+        android:layout_toEndOf="@id/leaderboardAvatarImg"
+        android:textSize="35dp"
+        android:layout_marginStart="5dp"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:layout_centerVertical="true"
+        android:textColor="@color/dark_green"
+        android:text="Name">
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:layout_marginStart="70dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/leaderboardName"
+        android:id="@+id/leaderboardPoints"
+        android:textColor="@color/white"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/light_green"
+        android:text="100">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/dark_green"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/leaderboardAvatarImg"/>
+
+
+</RelativeLayout>
