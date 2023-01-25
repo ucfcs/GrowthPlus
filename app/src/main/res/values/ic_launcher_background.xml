@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GrowthPlus</string>
+    <color name="ic_launcher_background">#C6C012</color>
 </resources>
