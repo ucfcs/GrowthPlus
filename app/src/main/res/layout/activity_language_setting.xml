@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green"
+    tools:context=".LanguageSettingActivity">
+
+    <android.widget.Button
+        android:id="@+id/backLang"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="30sp"
+        android:layout_marginStart="20sp"
+        android:background="@drawable/round_button"
+        android:drawableStart="@drawable/back_arrow"
+        android:backgroundTint="@color/blue"
+        android:paddingStart="17sp"
+        android:paddingEnd="20sp">
+    </android.widget.Button>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        android:textColor="@color/dark_green"
+        android:layout_below="@+id/backLang"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textSize="45dp"></TextView>
+
+</RelativeLayout>
