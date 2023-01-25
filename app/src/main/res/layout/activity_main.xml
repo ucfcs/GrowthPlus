@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
+    tools:context=".MainActivity"
+    android:background="@color/light_green">
+    <ImageButton
+        android:id="@+id/langBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/settings_gear"
+        android:background="@color/light_green"
+        app:tint="@color/dark_green"
+        android:scaleY="1.5"
+        android:scaleX="1.5"
+        android:layout_marginStart="310dp"
+        android:paddingTop="15dp"></ImageButton>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp">
+        <FrameLayout
+            android:id="@+id/childPortalFrame"
+            android:layout_width="310dp"
+            android:layout_height="380dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/blue"
+            android:background="@drawable/round_button"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <FrameLayout
+            android:id="@+id/idFrame"
+            android:layout_marginTop="50dp"
+            android:layout_width="310dp"
+            android:layout_height="170dp"
+            android:backgroundTint="@color/blue"
+            android:background="@drawable/round_button"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:layout_centerHorizontal="true">
+
+            <ImageButton
+                android:id="@+id/idParent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:paddingLeft="50dp"
+                android:paddingTop="8dp"
+                android:scaleX="2.7"
+                android:scaleY="2.7"
+                android:src="@mipmap/parent_foreground" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="57dp"
+                android:clickable="false"
+                android:text="parent"
+                android:textColor="@color/dark_green"
+                android:textSize="30dp" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
