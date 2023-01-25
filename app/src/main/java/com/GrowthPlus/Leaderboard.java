@@ -25,13 +25,9 @@ public class Leaderboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
         realm = Realm.getDefaultInstance();
-        Button backBtn = (Button) findViewById(R.id.backChildPortal);
+        Button backBtn = findViewById(R.id.backChildPortal);
 
-        backBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(Leaderboard.this, ChildPortal.class));
-            }
-        });
+        backBtn.setOnClickListener(v -> startActivity(new Intent(Leaderboard.this, ChildPortal.class)));
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
 //        RealmResults<ChildSchema> children= realm.where(ChildSchema.class).findAll();

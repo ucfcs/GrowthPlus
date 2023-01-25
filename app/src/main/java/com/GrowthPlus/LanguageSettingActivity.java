@@ -14,12 +14,8 @@ public class LanguageSettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_setting);
 
-        Button backSet = (Button) findViewById(R.id.backLang);
+        Button backSet = findViewById(R.id.backLang);
 
-        backSet.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(LanguageSettingActivity.this, MainActivity.class));
-            }
-        });
+        backSet.setOnClickListener(v -> startActivity(new Intent(LanguageSettingActivity.this, MainActivity.class)));
     }
 }
