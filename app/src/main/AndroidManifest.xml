@@ -28,6 +28,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".CreateAccount"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".LanguageSettingActivity"
             android:exported="false"
             android:screenOrientation="portrait">
