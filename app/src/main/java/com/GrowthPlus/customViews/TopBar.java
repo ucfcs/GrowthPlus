@@ -2,6 +2,7 @@ package com.GrowthPlus.customViews;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +15,7 @@ import com.GrowthPlus.R;
 
 public class TopBar extends ConstraintLayout {
 
-    ImageButton goBackButton;
+    Button goBackButton;
     ImageView pointsIcon;
     TextView points;
 

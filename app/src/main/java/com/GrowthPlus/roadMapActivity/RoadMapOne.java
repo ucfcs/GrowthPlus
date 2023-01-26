@@ -2,6 +2,7 @@ package com.GrowthPlus.roadMapActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class RoadMapOne extends AppCompatActivity {
 
-    ImageButton goBackButton;
+    Button goBackButton;
     BottomNavigationView bottomNavigationView;
     RoadMapLessonTrail roadMapOneLessonTrail;
     ConstraintLayout roadMapOne;
