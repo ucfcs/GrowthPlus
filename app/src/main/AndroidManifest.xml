@@ -59,6 +59,38 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".roadMapActivity.RoadMapFour"
+            android:exported="false"
+            android:noHistory="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".roadMapActivity.RoadMapThree"
+            android:exported="false"
+            android:noHistory="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".roadMapActivity.RoadMapTwo"
+            android:exported="false"
+            android:noHistory="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".roadMapActivity.RoadMapOne"
+            android:exported="false"
+            android:noHistory="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
     </application>
 
 </manifest>
