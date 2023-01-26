@@ -19,6 +19,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/childCardAdd"
+        android:layout_width="185dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/add_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/childCarName"
         android:layout_width="wrap_content"

@@ -15,6 +15,7 @@ public class ChildCard extends ConstraintLayout {
 
     private ImageView childCardAvatar;
     private TextView childCardName;
+    private ImageView childCardAdd;
 
 
     public ChildCard(@NonNull Context context) {
@@ -42,5 +43,6 @@ public class ChildCard extends ConstraintLayout {
         inflate(getContext(), R.layout.child_card, this);
         childCardAvatar = findViewById(R.id.childCardAvatar);
         childCardName = findViewById(R.id.childCarName);
+        childCardAdd = findViewById(R.id.childCardAdd);
     }
 }
