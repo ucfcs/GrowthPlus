@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAccount"
-    android:background="@color/dark_green">
+    android:background="@color/yellow"
+    tools:context=".ParentSignup">
 
     <android.widget.Button
-        android:id="@+id/backCreateAccount"
+        android:id="@+id/backParentLogin"
         android:layout_width="60sp"
         android:layout_height="40sp"
         android:layout_marginTop="30sp"
@@ -20,32 +21,32 @@
     </android.widget.Button>
 
     <ImageView
-        android:id="@+id/createChildAccount"
+        android:id="@+id/loginParentCircle"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@drawable/circle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:backgroundTint="@color/blue">
+        android:backgroundTint="@color/light_green">
     </ImageView>
     <ImageView
-        android:id="@+id/avatarImg"
+        android:id="@+id/loginParentImg"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:scaleX="1.3"
-        android:scaleY="1.3"
-        android:background="@mipmap/bunny_foreground"
+        android:scaleX="1.7"
+        android:scaleY="1.7"
+        android:background="@mipmap/parent_foreground"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp">
     </ImageView>
     <EditText
-        android:id="@+id/nameInput"
+        android:id="@+id/loginPinInput"
         android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:layout_below="@id/createChildAccount"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/loginParentCircle"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:hint="Name"
+        android:hint="Pin"
         android:textSize="30dp"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"
@@ -55,14 +56,14 @@
         android:id="@+id/loginBtn"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/round_button"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/play_large"
         android:paddingStart="60dp"
-        android:layout_below="@id/nameInput"
+        android:layout_below="@id/loginPinInput"
         ></android.widget.Button>
+
+
 </RelativeLayout>
-
-
