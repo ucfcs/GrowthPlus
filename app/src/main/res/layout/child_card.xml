@@ -29,5 +29,4 @@
         app:layout_constraintStart_toStartOf="@+id/childCardAvatar"
         app:layout_constraintTop_toBottomOf="@+id/childCardAvatar" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
