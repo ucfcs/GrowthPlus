@@ -2,22 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/childAvatarComponentLayout"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/circle"
-    android:backgroundTint="@color/blue">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/childAvatarComponent"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:background="@drawable/add_icon"
-        android:backgroundTint="@color/dark_green"
+        android:background="@drawable/circle_background"
+        android:backgroundTint="@color/blue"
+        android:src="@mipmap/bunny_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
     </ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
