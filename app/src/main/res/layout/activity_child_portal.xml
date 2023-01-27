@@ -74,20 +74,20 @@
         android:layout_below="@id/points"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="30sp"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="170sp"
-            android:layout_height="170sp"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
             android:src="@drawable/leaderboard">
         </ImageView>
 
       <ImageButton
             android:id="@+id/leaderboardBtn"
-            android:layout_width="170sp"
-            android:layout_height="170sp"
-            android:layout_marginTop="-170dp"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_marginTop="-150dp"
             android:scaleY="0.5"
             android:scaleX="0.5"
             android:background="@mipmap/bunny_foreground"
@@ -97,17 +97,17 @@
 
 
         <ImageView
-            android:layout_width="170sp"
-            android:layout_height="170sp"
-            android:layout_marginTop="40sp"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_marginTop="30sp"
             android:src="@drawable/roadmap">
         </ImageView>
 
         <ImageButton
             android:id="@+id/learnBtn"
-            android:layout_width="170sp"
-            android:layout_height="170sp"
-            android:layout_marginTop="-170dp"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_marginTop="-150dp"
             android:scaleY="0.5"
             android:scaleX="0.5"
             android:background="@mipmap/bunny_foreground">
