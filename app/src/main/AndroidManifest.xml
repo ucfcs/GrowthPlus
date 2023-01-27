@@ -14,6 +14,27 @@
         android:theme="@style/Theme.GrowthPlus"
         tools:targetApi="31">
         <activity
+            android:name=".ParentLogin"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ParentSignup"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CreateAccount"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SelectChildAvatar"
             android:exported="false">
             <meta-data
