@@ -34,12 +34,6 @@ public class MainActivity extends AppCompatActivity {
         JsonSampleData jsonSampleData = new JsonSampleData(realm, resources);
         jsonSampleData.importDataFromJson();
 
-        ChildSchemaService childService = new ChildSchemaService();
-
-        // This is casting to string so that it can be printed to the console as example
-        // Do not use string values of realm results, it does not work that way
-        Log.i("Child", String.valueOf(childService.getAllChildSchemas()));
-        Log.i("Child Report", String.valueOf(childService.getReportByChildName("Child Zero").getChildScore()));
 
         // TODO: this button is currently navigating to child portal, change to parent portal
         ImageButton childPortal = (ImageButton) findViewById(R.id.idParent);
