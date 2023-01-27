@@ -33,8 +33,8 @@
         android:id="@+id/loginParentImg"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:scaleX="1.7"
-        android:scaleY="1.7"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
         android:background="@mipmap/parent_foreground"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp">

@@ -16,13 +16,14 @@
         android:scaleY="1.5"
         android:scaleX="1.5"
         android:layout_marginStart="310dp"
-        android:paddingTop="15dp"></ImageButton>
+        android:paddingTop="5dp"></ImageButton>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp">
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp">
         <FrameLayout
             android:id="@+id/childPortalFrame"
             android:layout_width="310dp"
@@ -45,11 +46,11 @@
                 android:id="@+id/idParent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:background="@drawable/round_button"
-                android:paddingLeft="50dp"
-                android:paddingTop="8dp"
-                android:scaleX="2.7"
-                android:scaleY="2.7"
+                android:layout_marginTop="-20dp"
+                android:scaleX="1.15"
+                android:scaleY="1.15"
                 android:src="@mipmap/parent_foreground" />
 
             <TextView

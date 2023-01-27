@@ -23,12 +23,14 @@
 
     </android.widget.Button>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/pointsIcon"
         android:layout_width="50dp"
         android:layout_height="60dp"
-        android:layout_marginStart="148dp"
+        android:layout_marginStart="210dp"
         android:background="@color/blue"
+        android:scaleY="0.8"
+        android:scaleX="0.8"
         android:src="@mipmap/points_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/goBackBtn"
