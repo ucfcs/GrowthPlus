@@ -2,33 +2,36 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/childName"
-        android:layout_width="100dp"
+        android:layout_width="175dp"
         android:layout_height="50dp"
-        android:background="@color/grey"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/grey"
         android:gravity="center"
         android:text="Sally"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="@+id/childScore"
-        app:layout_constraintEnd_toStartOf="@+id/childScore"
-        app:layout_constraintTop_toTopOf="@+id/childScore" />
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/childScore"
-        android:layout_width="75dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
-        android:background="@color/blue"
+        android:layout_marginStart="144dp"
+        android:background="@drawable/round_button"
         android:gravity="center"
         android:text="65"
         android:textAlignment="center"
         android:textColor="@color/yellow"
-        android:textSize="28sp"
-        tools:layout_editor_absoluteX="236dp"
-        tools:layout_editor_absoluteY="340dp" />
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/childName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
