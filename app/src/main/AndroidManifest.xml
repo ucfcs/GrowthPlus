@@ -14,7 +14,7 @@
         android:theme="@style/Theme.GrowthPlus"
         tools:targetApi="31">
         <activity
-            android:name=".CreateAccount"
+            android:name=".SelectChildAvatar"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
