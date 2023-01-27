@@ -32,6 +32,8 @@
         android:id="@+id/avatar"
         android:layout_width="85dp"
         android:layout_height="90dp"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
         app:layout_constraintBottom_toBottomOf="@+id/tile"
         app:layout_constraintEnd_toEndOf="@+id/tile"
         app:layout_constraintStart_toStartOf="@+id/tile"

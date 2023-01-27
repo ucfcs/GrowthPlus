@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 
@@ -26,7 +27,7 @@ public class ChildPortal extends AppCompatActivity {
             }
         });
 
-        Button leaderboardBtn = (Button) findViewById(R.id.leaderboardBtn);
+        ImageButton leaderboardBtn = (ImageButton) findViewById(R.id.leaderboardBtn);
 
         leaderboardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +36,7 @@ public class ChildPortal extends AppCompatActivity {
             }
         });
 
-        learnButton = findViewById(R.id.learnBtn);
+        ImageButton learnButton = (ImageButton) findViewById(R.id.learnBtn);
         learnButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, RoadMapOne.class);
             startActivity(intent);
