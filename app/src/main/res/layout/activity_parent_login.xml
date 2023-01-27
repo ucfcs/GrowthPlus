@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    tools:context=".ParentSignup">
+
+    <android.widget.Button
+        android:id="@+id/backParentLogin"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_marginTop="30sp"
+        android:layout_marginStart="20sp"
+        android:background="@drawable/round_button"
+        android:drawableStart="@drawable/back_arrow"
+        android:backgroundTint="@color/blue"
+        android:paddingStart="17sp"
+        android:paddingEnd="20sp">
+    </android.widget.Button>
+
+    <ImageView
+        android:id="@+id/loginParentCircle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/circle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:backgroundTint="@color/light_green">
+    </ImageView>
+    <ImageView
+        android:id="@+id/loginParentImg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleX="1.7"
+        android:scaleY="1.7"
+        android:background="@mipmap/parent_foreground"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp">
+    </ImageView>
+    <EditText
+        android:id="@+id/loginPinInput"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/loginParentCircle"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Pin"
+        android:textSize="30dp"
+        android:backgroundTint="@color/grey"
+        android:textAlignment="center"
+        android:background="@drawable/round_button">
+    </EditText>
+    <android.widget.Button
+        android:id="@+id/loginBtn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/dark_green"
+        android:drawableStart="@drawable/play_large"
+        android:paddingStart="60dp"
+        android:layout_below="@id/loginPinInput"
+        ></android.widget.Button>
+
+
+</RelativeLayout>
