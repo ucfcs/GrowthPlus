@@ -77,24 +77,42 @@
         android:layout_marginTop="50sp"
         android:orientation="vertical">
 
-            <android.widget.Button
-                android:id="@+id/leaderboardBtn"
-                android:layout_width="170sp"
-                android:layout_height="150sp"
-                android:foreground="@mipmap/bunny_foreground"
-                android:background="@drawable/leaderboard">
-                <!-- TODO: change avatar image to child's avatar image -->
-            </android.widget.Button>
+        <ImageView
+            android:layout_width="170sp"
+            android:layout_height="170sp"
+            android:src="@drawable/leaderboard">
+        </ImageView>
 
-            <android.widget.Button
-                android:id="@+id/learnBtn"
-                android:layout_width="170sp"
-                android:layout_height="150sp"
-                android:layout_marginTop="40sp"
-                android:foreground="@mipmap/bunny_foreground"
-                android:background="@drawable/roadmap">
-                <!-- TODO: change avatar image to child's avatar image -->
-            </android.widget.Button>
+      <ImageButton
+            android:id="@+id/leaderboardBtn"
+            android:layout_width="170sp"
+            android:layout_height="170sp"
+            android:layout_marginTop="-170dp"
+            android:scaleY="0.5"
+            android:scaleX="0.5"
+            android:background="@mipmap/bunny_foreground"
+            >
+            <!-- TODO: change avatar image to child's avatar image -->
+        </ImageButton>
+
+
+        <ImageView
+            android:layout_width="170sp"
+            android:layout_height="170sp"
+            android:layout_marginTop="40sp"
+            android:src="@drawable/roadmap">
+        </ImageView>
+
+        <ImageButton
+            android:id="@+id/learnBtn"
+            android:layout_width="170sp"
+            android:layout_height="170sp"
+            android:layout_marginTop="-170dp"
+            android:scaleY="0.5"
+            android:scaleX="0.5"
+            android:background="@mipmap/bunny_foreground">
+            <!-- TODO: change avatar image to child's avatar image -->
+        </ImageButton>
 
     </LinearLayout>
 
