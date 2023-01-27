@@ -22,14 +22,17 @@ public class ChildAvatarComponent extends ConstraintLayout {
 
     public ChildAvatarComponent(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init(null);
     }
 
     public ChildAvatarComponent(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(attrs);
     }
 
     public ChildAvatarComponent(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init(attrs);
     }
 
     private void init(@Nullable AttributeSet set) {
