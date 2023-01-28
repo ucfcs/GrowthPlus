@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/childAvatarComponentLayout"
+    android:id="@+id/landingPageAddChildLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/circle"
     android:backgroundTint="@color/blue">
 
     <ImageView
-        android:id="@+id/childAvatarComponent"
+        android:id="@+id/landingPageAddChild"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@drawable/add_icon"
