@@ -59,6 +59,9 @@ public class LandingPageChildCard extends ConstraintLayout {
         landingPageChildName = findViewById(R.id.landingPageChildName);
     }
 
+    /*
+    * Gets custom attributes unique to Landing page child card"
+    * */
 
     private void getCustomAttributes(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
 
