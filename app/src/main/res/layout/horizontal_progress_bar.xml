@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content">
+
+    <!--add backgroundTint?? -->
+
+
+    <ProgressBar
+        android:id="@+id/horizontalProgressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="40dp"
+        android:progress="55"
+        android:progressTint="@color/dark_green"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarLevelNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/progressBarLevelNumber"
+        app:layout_constraintTop_toTopOf="@+id/progressBarLevelNumber"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <TextView
+        android:id="@+id/progressBarLevelNumber"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/dark_green"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="1"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

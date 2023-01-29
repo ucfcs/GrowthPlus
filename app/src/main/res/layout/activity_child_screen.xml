@@ -16,9 +16,53 @@
         android:drawableStart="@drawable/back_arrow"
         android:paddingStart="17sp"
         android:paddingEnd="20sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="27dp"></android.widget.Button>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/childAvatar"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"></android.widget.Button>
+
+    <com.GrowthPlus.customViews.ChildAvatarComponent
+        android:id="@+id/childAvatar"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106" />
+
+    <com.GrowthPlus.customViews.ChildNameScoreComponent
+        android:id="@+id/childNameAndScore"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/childAvatar"
+        app:layout_constraintVertical_bias="0.08" />
 
 
+    <com.GrowthPlus.customViews.HorizontalProgressBar
+        android:id="@+id/horizontalBarLevelOne"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="481dp" />
+
+    <com.GrowthPlus.customViews.HorizontalProgressBar
+        android:id="@+id/horizontalBarLevelTwo"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/childNameAndScore"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
