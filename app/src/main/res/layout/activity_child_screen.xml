@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/childAvatar"
         app:layout_constraintVertical_bias="0.016" />
 
-    <com.GrowthPlus.customViews.HorizontalProgressBarOne
+    <com.GrowthPlus.customViews.HorizontalProgressBar
         android:id="@+id/horizontalProgressBarLevelOne"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.478" />
 
 
-    <com.GrowthPlus.customViews.HorizontalProgressBarTwo
+    <com.GrowthPlus.customViews.HorizontalProgressBar
         android:id="@+id/horizontalProgressBarLevelTwo"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -69,7 +69,7 @@
         app:layout_constraintVertical_bias="0.537"
         />
 
-  <com.GrowthPlus.customViews.HorizontalProgressBarThree
+  <com.GrowthPlus.customViews.HorizontalProgressBar
       android:id="@+id/horizontalProgressBarLevelThree"
       android:layout_width="300dp"
       android:layout_height="40dp"
@@ -80,7 +80,7 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.599" />
 
-    <com.GrowthPlus.customViews.HorizontalProgressBarFour
+    <com.GrowthPlus.customViews.HorizontalProgressBar
         android:id="@+id/horizontalProgressBarLevelFour"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -93,16 +93,16 @@
 
     <TextView
         android:id="@+id/tempTextView"
-        android:layout_width="282dp"
-        android:layout_height="202dp"
+        android:layout_width="350dp"
+        android:layout_height="210dp"
         android:background="@drawable/round_button"
         android:gravity="center_horizontal|center_vertical"
         android:text="TempTextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.612"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
+        app:layout_constraintVertical_bias="0.948" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

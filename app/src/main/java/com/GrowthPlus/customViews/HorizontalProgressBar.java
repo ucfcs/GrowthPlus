@@ -54,6 +54,11 @@ public class HorizontalProgressBar extends ConstraintLayout {
         progressBarLevelNumber.setBackgroundTintList(tint);
     }
 
+    //progress starts at 0 but will need to be updated as the user completes lessons and hopefully eventually reaches 100
+    //Note: you can also use incrementProgressBy(int diff) to increase the current progress completed by a specified amount if setProgress doesn't work out
+    public void setHorizontalBarProgress(int progress){
+        horizontalProgressBar.setProgress(progress);
+    }
     public void setHorizontalBarColor(ColorStateList list){
         horizontalProgressBar.setProgressTintList(list);
     }
