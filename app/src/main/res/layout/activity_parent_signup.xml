@@ -98,7 +98,9 @@
         android:drawableStart="@drawable/play_large"
         android:paddingStart="60dp"
         android:layout_below="@id/confirmPinInput"
-        ></android.widget.Button>
+        >
+
+    </android.widget.Button>
 
 
 </RelativeLayout>
