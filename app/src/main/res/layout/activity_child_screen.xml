@@ -45,11 +45,10 @@
         app:layout_constraintTop_toBottomOf="@+id/childAvatar"
         app:layout_constraintVertical_bias="0.016" />
 
-    <com.GrowthPlus.customViews.HorizontalProgressBar
-        android:id="@+id/horizontalBarLevelOne"
+    <com.GrowthPlus.customViews.HorizontalProgressBarOne
+        android:id="@+id/horizontalProgressBarLevelOne"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:progressTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.559"
@@ -57,8 +56,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.478" />
 
-    <com.GrowthPlus.customViews.HorizontalProgressBar
-        android:id="@+id/horizontalBarLevelTwo"
+
+    <com.GrowthPlus.customViews.HorizontalProgressBarTwo
+        android:id="@+id/horizontalProgressBarLevelTwo"
         android:layout_width="300dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,23 +66,22 @@
         app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537">
+        app:layout_constraintVertical_bias="0.537"
+        />
 
-    </com.GrowthPlus.customViews.HorizontalProgressBar>
+  <com.GrowthPlus.customViews.HorizontalProgressBarThree
+      android:id="@+id/horizontalProgressBarLevelThree"
+      android:layout_width="300dp"
+      android:layout_height="40dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.559"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.599" />
 
-    <com.GrowthPlus.customViews.HorizontalProgressBar
-        android:id="@+id/horizontalBarLevelThree"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599" />
-
-    <com.GrowthPlus.customViews.HorizontalProgressBar
-        android:id="@+id/horizontalBarLevelFour"
+    <com.GrowthPlus.customViews.HorizontalProgressBarFour
+        android:id="@+id/horizontalProgressBarLevelFour"
         android:layout_width="300dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,5 +90,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.657" />
+
+    <TextView
+        android:id="@+id/tempTextView"
+        android:layout_width="282dp"
+        android:layout_height="202dp"
+        android:background="@drawable/round_button"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TempTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.612"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

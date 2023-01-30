@@ -2,7 +2,6 @@ package com.GrowthPlus.customViews;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -13,49 +12,49 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.R;
 
-public class HorizontalProgressBar extends ConstraintLayout {
+public class HorizontalProgressBarThree extends ConstraintLayout {
 
-    ProgressBar horizontalProgressBar;
-    TextView progressBarLevelNumber;
+    ProgressBar horizontalProgressBarThree;
+    TextView progressBarLevelNumberThree;
 
-    public HorizontalProgressBar(@NonNull Context context) {
+    public HorizontalProgressBarThree(@NonNull Context context) {
         super(context);
         init(null);
     }
 
-    public HorizontalProgressBar(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public HorizontalProgressBarThree(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public HorizontalProgressBar(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public HorizontalProgressBarThree(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
 
-    public HorizontalProgressBar(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public HorizontalProgressBarThree(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }
 
     private void init(@Nullable AttributeSet attrs){
-        inflate(getContext(), R.layout.horizontal_progress_bar, this);
-        horizontalProgressBar = findViewById(R.id.horizontalProgressBar);
-        progressBarLevelNumber = findViewById(R.id.progressBarLevelNumber);
+        inflate(getContext(), R.layout.horizontal_progress_bar_three, this);
+        horizontalProgressBarThree = findViewById(R.id.horizontalProgressBarThree);
+        progressBarLevelNumberThree = findViewById(R.id.progressBarLevelNumberThree);
     }
 
 
     public void setBarLevelText (CharSequence text){
-        progressBarLevelNumber.setText(text);
+        progressBarLevelNumberThree.setText(text);
     }
 
     //sets the color of the progress bar level number textview (levels 1, 2, 3, and 4 have different colors)
     public void setBarLevelColor (ColorStateList tint){
-        progressBarLevelNumber.setBackgroundTintList(tint);
+        progressBarLevelNumberThree.setBackgroundTintList(tint);
     }
 
     public void setHorizontalBarColor(ColorStateList list){
-        horizontalProgressBar.setProgressTintList(list);
+        horizontalProgressBarThree.setProgressTintList(list);
     }
 
 

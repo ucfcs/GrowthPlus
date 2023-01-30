@@ -23,7 +23,8 @@ public class childScreen extends AppCompatActivity {
     }
 
     private void init(@Nullable AttributeSet set) {
-        horizontalBarLevelTwo = findViewById(R.id.horizontalBarLevelTwo);
+        //as of right now I don't know if this even works
+        horizontalBarLevelTwo = findViewById(R.id.horizontalProgressBarLevelTwo);
         horizontalBarLevelTwo.setBarLevelText("2");
     }
 }
