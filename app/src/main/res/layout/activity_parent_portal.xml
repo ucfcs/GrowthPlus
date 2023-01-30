@@ -45,7 +45,7 @@
         android:id="@+id/ParentPortalGridLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:paddingTop="50dp"
         app:columnCount="2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +55,8 @@
         app:rowCount="3">
 
         <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="119dp"
-            android:layout_height="132dp"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
             tools:layout_editor_absoluteX="62dp"
             tools:layout_editor_absoluteY="49dp" />
 
