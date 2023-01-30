@@ -7,7 +7,6 @@
     android:background="@color/light_green"
     tools:context=".childScreen">
 
-
     <android.widget.Button
         android:id="@+id/back_button"
         android:layout_width="60sp"
@@ -32,7 +31,8 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="0.076" />
+
 
     <com.GrowthPlus.customViews.ChildNameScoreComponent
         android:id="@+id/childNameAndScore"
@@ -43,26 +43,53 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/childAvatar"
-        app:layout_constraintVertical_bias="0.08" />
-
+        app:layout_constraintVertical_bias="0.016" />
 
     <com.GrowthPlus.customViews.HorizontalProgressBar
         android:id="@+id/horizontalBarLevelOne"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="481dp" />
+        android:progressTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
 
     <com.GrowthPlus.customViews.HorizontalProgressBar
         android:id="@+id/horizontalBarLevelTwo"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/childNameAndScore"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.537">
+
+    </com.GrowthPlus.customViews.HorizontalProgressBar>
+
+    <com.GrowthPlus.customViews.HorizontalProgressBar
+        android:id="@+id/horizontalBarLevelThree"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.599" />
+
+    <com.GrowthPlus.customViews.HorizontalProgressBar
+        android:id="@+id/horizontalBarLevelFour"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.657" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

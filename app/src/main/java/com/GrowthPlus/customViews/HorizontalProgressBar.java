@@ -2,6 +2,7 @@ package com.GrowthPlus.customViews;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -58,6 +59,8 @@ public class HorizontalProgressBar extends ConstraintLayout {
         progressBarLevelNumber.setBackgroundTintList(tint);
     }
 
-
+    public void setHorizontalBarColor(ColorStateList list){
+        horizontalProgressBar.setProgressTintList(list);
+    }
 
 }
