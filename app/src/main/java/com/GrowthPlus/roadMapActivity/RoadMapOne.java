@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
+import com.GrowthPlus.customViews.RoadMapTile;
 import com.GrowthPlus.customViews.TopBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,6 +21,7 @@ public class RoadMapOne extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     RoadMapLessonTrail roadMapOneLessonTrail;
     ConstraintLayout roadMapOne;
+    RoadMapTile tileOne;
     TopBar topBarOne;
 
     @Override
@@ -63,6 +65,9 @@ public class RoadMapOne extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
         roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
+
+        tileOne = roadMapOneLessonTrail.findViewById(R.id.roadMapTileOne);
+
         roadMapOne = findViewById(R.id.roadMapOne);
         goBackButton = roadMapOne.findViewById(R.id.goBackBtn);
         topBarOne = findViewById(R.id.topBarOne);

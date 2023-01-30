@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green"
+    tools:context=".childScreen">
+
+
+    <android.widget.Button
+        android:id="@+id/back_button"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:background="@drawable/round_button"
+        android:drawableStart="@drawable/back_arrow"
+        android:paddingStart="17sp"
+        android:paddingEnd="20sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="27dp"></android.widget.Button>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
