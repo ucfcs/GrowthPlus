@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_green"
     tools:context=".ParentPortal">
-
 
     <android.widget.Button
         android:id="@+id/backChild"
@@ -42,7 +42,7 @@
     </ImageButton>
 
     <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/ParentPortalGridLayout"
+        android:id="@+id/parentPortalGridLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -93,14 +93,15 @@
     </androidx.gridlayout.widget.GridLayout>
 
     <LinearLayout
-        android:id="@+id/parentPortalPB"
+        android:id="@+id/parentPortalPb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/progress_bar_background"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ParentPortalGridLayout">
+        app:layout_constraintTop_toBottomOf="@+id/parentPortalGridLayout">
 
         <com.GrowthPlus.customViews.VerticalProgressBar
             android:layout_width="45dp"
