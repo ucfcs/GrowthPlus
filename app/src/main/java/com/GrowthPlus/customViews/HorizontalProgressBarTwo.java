@@ -44,25 +44,4 @@ public class HorizontalProgressBarTwo extends ConstraintLayout {
     }
 
 
-    public void setBarLevelText (CharSequence text){
-        progressBarLevelNumberTwo.setText(text);
-    }
-
-    //sets the color of the progress bar level number textview (levels 1, 2, 3, and 4 have different colors)
-    public void setBarLevelColor (ColorStateList tint){
-        progressBarLevelNumberTwo.setBackgroundTintList(tint);
-    }
-
-    public void setHorizontalBarColor(ColorStateList list){
-        horizontalProgressBarTwo.setProgressTintList(list);
-    }
-
-
-    /*
-    public void setBarLevelTextColor (int color){
-        progressBarLevelNumber.setTextColor(color);
-    }
-    Note: theres another types of setTextColor method asking for a ColorStateList rather than an int
-    Update: don't need this method anyway because text is blue for all 4 horizontal bars
-    */
 }
