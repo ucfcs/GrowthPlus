@@ -14,6 +14,7 @@ public class ChildSchemaService {
     private String childId;
     private String name;
     private Integer avatar;
+    private Integer colorId;
     private ReportSchema report;
     private RoadMapSchema roadmap;
     private Realm realm;
@@ -22,15 +23,17 @@ public class ChildSchemaService {
       Constructor
     */
     public ChildSchemaService(){
+
         this.realm = Realm.getDefaultInstance();
     }
 
-    public ChildSchemaService(Realm realm, String name, ReportSchema report, RoadMapSchema roadmap, Integer avatar){
+    public ChildSchemaService(Realm realm, String name, ReportSchema report, RoadMapSchema roadmap, Integer avatar, Integer colorId){
         this.realm = realm;
         this.name = name;
         this.report = report;
         this.roadmap = roadmap;
         this.avatar = avatar;
+        this.colorId = colorId;
     }
 
     /*
@@ -43,7 +46,8 @@ public class ChildSchemaService {
             newChild.setName(name);
             newChild.setReport(report);
             newChild.setRoadmap(roadmap);
-            newChild.setAvatar(avatar);
+            newChild.setAvatarSrc(avatar);
+            newChild.setColorId(colorId);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New child report object added to realm!");

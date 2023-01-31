@@ -84,4 +84,13 @@ public class ChildCard extends ConstraintLayout {
         childCardName.setTextColor(color);
     }
 
+    /**
+     * Methods to set the component's height
+     */
+
+
+    /**
+     * Methods to set the component's width
+     */
+
 }
