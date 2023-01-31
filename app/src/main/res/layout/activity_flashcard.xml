@@ -30,29 +30,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guide_bottom" />
 
-    <ImageView
-        android:id="@+id/flashcard"
-        android:layout_width="346dp"
-        android:layout_height="500dp"
+    <com.GrowthPlus.customViews.Flashcard
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toTopOf="@+id/guide_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/answer"
-        android:layout_width="140dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/grey"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="@+id/flashcard"
-        app:layout_constraintEnd_toEndOf="@+id/flashcard"
-        app:layout_constraintStart_toStartOf="@+id/flashcard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
