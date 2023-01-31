@@ -54,41 +54,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:rowCount="3">
 
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            tools:layout_editor_absoluteX="62dp"
-            tools:layout_editor_absoluteY="49dp" />
+     <com.GrowthPlus.customViews.ChildCard
+         android:layout_height="150dp"
+         android:layout_width="120dp"
+         />
 
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="120dp"
+        <com.GrowthPlus.customViews.ChildCardAdd
             android:layout_height="150dp"
-            tools:layout_editor_absoluteX="62dp"
-            tools:layout_editor_absoluteY="49dp" />
-
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            tools:layout_editor_absoluteX="62dp"
-            tools:layout_editor_absoluteY="49dp" />
-
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            tools:layout_editor_absoluteX="62dp"
-            tools:layout_editor_absoluteY="49dp" />
-
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            tools:layout_editor_absoluteX="62dp"
-            tools:layout_editor_absoluteY="49dp" />
-
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            tools:layout_editor_absoluteX="62dp"
-            tools:layout_editor_absoluteY="49dp" />
+            android:layout_width="120dp"/>
 
     </androidx.gridlayout.widget.GridLayout>
 

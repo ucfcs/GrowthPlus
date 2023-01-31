@@ -13,7 +13,7 @@ public class ChildSchema extends RealmObject {
     @PrimaryKey
     private String childId;
     private String name;
-    private String avatar;
+    private Integer avatar;
     private ReportSchema report;
     private RoadMapSchema roadmap;
 
@@ -33,11 +33,11 @@ public class ChildSchema extends RealmObject {
         this.name = name;
     }
 
-    public String getAvatar() {
+    public Integer getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
+    public void setAvatar(Integer avatar) {
         this.avatar = avatar;
     }
 

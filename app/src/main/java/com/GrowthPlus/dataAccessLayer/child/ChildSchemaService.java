@@ -13,7 +13,7 @@ public class ChildSchemaService {
 
     private String childId;
     private String name;
-    private String avatar;
+    private Integer avatar;
     private ReportSchema report;
     private RoadMapSchema roadmap;
     private Realm realm;
@@ -25,7 +25,7 @@ public class ChildSchemaService {
         this.realm = Realm.getDefaultInstance();
     }
 
-    public ChildSchemaService(Realm realm, String name, ReportSchema report, RoadMapSchema roadmap, String avatar){
+    public ChildSchemaService(Realm realm, String name, ReportSchema report, RoadMapSchema roadmap, Integer avatar){
         this.realm = realm;
         this.name = name;
         this.report = report;

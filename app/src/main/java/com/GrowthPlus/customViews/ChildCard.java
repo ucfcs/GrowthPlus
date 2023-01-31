@@ -17,7 +17,6 @@ public class ChildCard extends ConstraintLayout {
 
     private ImageView childCardAvatar;
     private TextView childCardName;
-    private ImageView childCardAdd;
 
 
     public ChildCard(@NonNull Context context) {
@@ -50,6 +49,7 @@ public class ChildCard extends ConstraintLayout {
 
         setBackgroundTintList(color);
         setImageResource(R.mipmap.camel_foreground);
+        setTextColor(color);
         setText("Pablo");
     }
 
@@ -64,6 +64,7 @@ public class ChildCard extends ConstraintLayout {
     * Change the image source of the child card
     * */
     public void setImageResource (int resId){
+
         childCardAvatar.setImageResource(resId);
     }
 
@@ -71,7 +72,16 @@ public class ChildCard extends ConstraintLayout {
     * Change the name of the child card
     * */
     public final void setText (CharSequence newName){
+
         childCardName.setText(newName);
+    }
+
+    /*
+    * Change the color of the text
+    * */
+    public void setTextColor (ColorStateList color){
+
+        childCardName.setTextColor(color);
     }
 
 }
