@@ -38,28 +38,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="100dp" />
 
-    <ImageView
-        android:id="@+id/quiz_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/guide_middle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/elephant_foreground" />
-
-    <TextView
-        android:id="@+id/quiz_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="1 + 1 = 2"
-        android:textColor="@color/light_green"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/guide_middle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <com.GrowthPlus.customViews.QuizCircle
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,15 +58,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guide_middle" />
 
     <com.GrowthPlus.customViews.QuizCircle
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guide_middle" />
+
+    <com.GrowthPlus.customViews.TopBar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="370dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/guide_middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

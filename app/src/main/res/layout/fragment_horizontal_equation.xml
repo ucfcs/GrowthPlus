@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".fragment.HorizontalEquation">
+
+    <TextView
+        android:id="@+id/equation"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="1 + 2 = 3"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:textSize="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/first_image"
+        android:layout_width="117dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/bunny_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/equation" />
+
+    <ImageView
+        android:id="@+id/second_image"
+        android:layout_width="116dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/giraffe_foreground"
+        app:layout_constraintStart_toEndOf="@+id/first_image"
+        app:layout_constraintTop_toBottomOf="@+id/equation" />
+
+    <ImageView
+        android:id="@+id/third_image"
+        android:layout_width="117dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/elephant_foreground"
+        app:layout_constraintStart_toEndOf="@+id/second_image"
+        app:layout_constraintTop_toBottomOf="@+id/equation" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,79 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_green"
-    tools:context=".location_intro" >
+    tools:context=".location_intro">
 
-    <TextView
-        android:id="@+id/intro_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-15dp"
-        android:layout_marginTop="210dp"
-        android:text="Lesson"
-        android:textColor="@color/light_green"
-        android:textSize="65sp"
-        app:layout_constraintEnd_toStartOf="@+id/guide_right"
-        app:layout_constraintHorizontal_bias="0.312"
-        app:layout_constraintStart_toStartOf="@+id/guide_left"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/intro_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="210dp"
-        android:text="1"
-        android:textColor="@color/light_green"
-        android:textSize="65sp"
-        app:layout_constraintEnd_toStartOf="@+id/guide_right"
-        app:layout_constraintHorizontal_bias="0.324"
-        app:layout_constraintStart_toEndOf="@+id/intro_name"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="60dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="60dp" />
-
-
-    <ImageView
-        android:id="@+id/intro_shape"
-        android:layout_width="195dp"
-        android:layout_height="195dp"
-        android:layout_marginTop="37dp"
-        android:background="@drawable/circle"
-        android:backgroundTint="@color/yellow"
-        app:layout_constraintEnd_toStartOf="@+id/guide_right"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/guide_left"
-        app:layout_constraintTop_toBottomOf="@+id/intro_name"
-        app:srcCompat="@drawable/circle" />
-
-    <ImageView
-        android:id="@+id/intro_animal"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toStartOf="@+id/guide_right"
-        app:layout_constraintStart_toStartOf="@+id/guide_left"
-        app:layout_constraintTop_toBottomOf="@+id/intro_name"
-        app:srcCompat="@mipmap/elephant_foreground" />
 
     <android.widget.Button
         android:id="@+id/next_button"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginTop="-25dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
@@ -85,8 +20,25 @@
         android:paddingStart="26dp"
         android:scaleX="-1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guide_right"
-        app:layout_constraintStart_toStartOf="@+id/guide_left"
-        app:layout_constraintTop_toBottomOf="@+id/intro_animal" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.GrowthPlus.customViews.TopBar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="350dp"
+        android:layout_height="425dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/next_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

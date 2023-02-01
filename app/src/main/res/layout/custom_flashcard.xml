@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -30,15 +31,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/flashcard" />
 
-    <ImageView
-        android:id="@+id/questionImage"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:visibility="visible"
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="270dp"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toTopOf="@+id/answer"
-        app:layout_constraintEnd_toEndOf="@+id/flashcard"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/flashcard"
-        app:layout_constraintTop_toTopOf="@+id/flashcard"
-        app:srcCompat="@mipmap/elephant_foreground" />
+        app:layout_constraintTop_toTopOf="@+id/flashcard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
