@@ -2,11 +2,11 @@
   {
     "childId": "childZero",
     "name": "Child Zero",
-    "avatarSrc": 0,
+    "avatarName": "bunny",
     "report":  {
                   "reportId": "reportChildZero",
                   "childName": "Child Zero",
-                  "childScore": 100,
+                  "childScore": 50,
                   "childId": "childZero"
 
                 },
@@ -33,22 +33,32 @@
                                   }
 
                 },
-    "colorId": 0
+    "colorName": "blue"
   },
   {
     "childId": "childOne",
     "name": "Child One",
-    "avatar": 1,
-    "report": null,
+    "avatarName": "camel",
+    "report": {
+                "reportId": "reportChildOne",
+                "childName": "Child One",
+                "childScore": 100,
+                "childId": "childOne"
+              },
     "roadmap":null,
-    "colorId": 1
+    "colorName": "red"
   },
   {
     "childId": "childTwo",
     "name": "Child Two",
-    "avatar": 2,
-    "report": null,
+    "avatarName": "elephant",
+    "report": {
+                "reportId": "reportChildOne",
+                "childName": "Child One",
+                "childScore": 200,
+                "childId": "childOne"
+              },
     "roadmap": null,
-    "colorId": 2
+    "colorName": "orange"
   }
 ]

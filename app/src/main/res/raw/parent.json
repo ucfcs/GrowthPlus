@@ -6,7 +6,7 @@
       {
         "childId": "childZero",
         "name": "Child Zero",
-        "avatar": 0,
+        "avatarName": "bunny",
         "report":  {
           "reportId": "reportChildZero",
           "childName": "Child Zero",
@@ -36,21 +36,24 @@
             "scenarioGameName": "Game Zero"
           }
 
-        }
+        },
+        "colorName": "blue"
       },
       {
         "childId": "childOne",
         "name": "Child One",
-        "avatar": 1,
+        "avatarName": "camel",
         "report": null,
-        "roadmap":null
+        "roadmap":null,
+        "colorName": "red"
       },
       {
         "childId": "childTwo",
         "name": "Child Two",
-        "avatar": 2,
+        "avatarName": "elephant",
         "report": null,
-        "roadmap": null
+        "roadmap": null,
+        "colorName": "orange"
       }
     ]
   }

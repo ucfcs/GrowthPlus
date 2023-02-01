@@ -15,6 +15,12 @@ import com.GrowthPlus.customViews.ChildCard;
 import com.GrowthPlus.customViews.ChildCardAdd;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
+import com.GrowthPlus.utilities.ColorIdentifier;
+import com.GrowthPlus.utilities.ImageSrcIdentifier;
+
+import org.bson.types.ObjectId;
+
+import java.util.HashMap;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -26,6 +32,8 @@ public class ParentPortal extends AppCompatActivity {
     private GridLayout parentPortalGridLayout;
     private LinearLayout parentPortalPb;
     private ChildSchemaService childSchemaService;
+    public ColorIdentifier colorIdentifier;
+    public ImageSrcIdentifier imageSrcIdentifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,37 +50,37 @@ public class ParentPortal extends AppCompatActivity {
         ChildSchema child = children.get(0);
         Log.i("Child" , String.valueOf(child));
 
-        Log.i("Child name", child.getName());
+        String childName = child.getName();
+        Log.i("Child name", childName);
 
-        Log.i("Child avatar src", String.valueOf(child.getAvatarSrc()));
+        String avatarName = child.getAvatarName();
+        Log.i("Child avatar name", avatarName);
 
-        Log.i("Child color id", String.valueOf(child.getColorId()));
+        String colorName = child.getColorName();
+        Log.i("Child color ", colorName);
 
-        /*
-        * Let's figure out how to add a child to the layout
-        * Might be useful:
-        *
-        *   onViewAdded(View child)
-            Called when a new child is added to this ViewGroup
-        *
-        *
-        * */
-
-        ColorStateList color = ContextCompat.getColorStateList(this, R.color.red);
-
+        ColorStateList color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(colorName));
 
         ChildCard childCardTemp = new ChildCard(this);
-        childCardTemp.setImageResource(R.mipmap.camel_foreground);
+        childCardTemp.setImageResource(imageSrcIdentifier.getImageSrcId(avatarName));
         childCardTemp.setBackgroundTintList(color);
-        childCardTemp.setText(child.getName());
+        childCardTemp.setText(childName);
         childCardTemp.setTextColor(color);
-        childCardTemp.setId(0);
+        childCardTemp.setId(R.id.parentPortalChildCard1);
 
         parentPortalGridLayout.addView(childCardTemp);
 
         ChildCardAdd addChildCard1 = new ChildCardAdd(this);
 
         parentPortalGridLayout.addView(addChildCard1);
+
+        /*
+        * Adding a child object to realm
+        * */
+        Realm realm = Realm.getDefaultInstance();
+        ChildSchemaService newChild = new ChildSchemaService(realm, "SomeChild", null, null, "camel", "red");
+        ObjectId id = new ObjectId();
+        newChild.createChildSchema(String.valueOf(id));
 
     }
 
@@ -82,10 +90,12 @@ public class ParentPortal extends AppCompatActivity {
         parentPortalGridLayout = findViewById(R.id.parentPortalGridLayout);
         parentPortalPb = findViewById(R.id.parentPortalPb);
         childSchemaService = new ChildSchemaService();
+        colorIdentifier = new ColorIdentifier();
+        imageSrcIdentifier = new ImageSrcIdentifier();
     }
 
-
-
-
+    public void setChildCard( ChildCard childCard, String childName, String avatarName, String colorName){
+        ColorStateList color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(colorName));
+    }
 
 }

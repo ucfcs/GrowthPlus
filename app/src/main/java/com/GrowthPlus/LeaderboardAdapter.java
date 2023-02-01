@@ -33,8 +33,8 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardChildVie
         holder.nameView.setText(children.get(position).getName());
         holder.pointsView.setText(children.get(position).getReport().getChildScore());
         // TODO: Temporary fix of setting image resource as int, test and refactor later (setImageResource only takes int, we have Avatar set as string)
-        int resourceId = children.get(position).getAvatarSrc();
-        holder.avatarView.setImageResource(resourceId);
+        // int resourceId = children.get(position).getAvatarSrc();
+        // holder.avatarView.setImageResource(resourceId);
     }
 
     @Override

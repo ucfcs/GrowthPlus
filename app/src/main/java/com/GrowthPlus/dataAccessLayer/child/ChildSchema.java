@@ -13,10 +13,10 @@ public class ChildSchema extends RealmObject {
     @PrimaryKey
     private String childId;
     private String name;
-    private Integer avatarSrc;
+    private String avatarName;
     private ReportSchema report;
     private RoadMapSchema roadmap;
-    private Integer colorId;
+    private String colorName;
 
     public String getChildId() {
         return childId;
@@ -50,19 +50,19 @@ public class ChildSchema extends RealmObject {
         this.roadmap = roadmap;
     }
 
-    public Integer getAvatarSrc() {
-        return avatarSrc;
+    public String getAvatarName() {
+        return avatarName;
     }
 
-    public void setAvatarSrc(Integer avatarSrc) {
-        this.avatarSrc = avatarSrc;
+    public void setAvatarName(String avatarName) {
+        this.avatarName = avatarName;
     }
 
-    public Integer getColorId() {
-        return colorId;
+    public String getColorName() {
+        return colorName;
     }
 
-    public void setColorId(Integer colorId) {
-        this.colorId = colorId;
+    public void setColorName(String colorName) {
+        this.colorName = colorName;
     }
 }

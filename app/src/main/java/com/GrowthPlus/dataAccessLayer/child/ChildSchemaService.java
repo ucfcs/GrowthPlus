@@ -6,6 +6,8 @@ import com.GrowthPlus.dataAccessLayer.Report.ReportSchema;
 import com.GrowthPlus.dataAccessLayer.Report.ReportSchemaService;
 import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
 
+import javax.annotation.Nullable;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -13,8 +15,8 @@ public class ChildSchemaService {
 
     private String childId;
     private String name;
-    private Integer avatar;
-    private Integer colorId;
+    private String avatarName;
+    private String colorName;
     private ReportSchema report;
     private RoadMapSchema roadmap;
     private Realm realm;
@@ -27,13 +29,13 @@ public class ChildSchemaService {
         this.realm = Realm.getDefaultInstance();
     }
 
-    public ChildSchemaService(Realm realm, String name, ReportSchema report, RoadMapSchema roadmap, Integer avatar, Integer colorId){
+    public ChildSchemaService(Realm realm, String name, @Nullable  ReportSchema report, @Nullable  RoadMapSchema roadmap, String avatarName, String colorName){
         this.realm = realm;
         this.name = name;
         this.report = report;
         this.roadmap = roadmap;
-        this.avatar = avatar;
-        this.colorId = colorId;
+        this.avatarName = avatarName;
+        this.colorName = colorName;
     }
 
     /*
@@ -46,8 +48,8 @@ public class ChildSchemaService {
             newChild.setName(name);
             newChild.setReport(report);
             newChild.setRoadmap(roadmap);
-            newChild.setAvatarSrc(avatar);
-            newChild.setColorId(colorId);
+            newChild.setAvatarName(avatarName);
+            newChild.setColorName(colorName);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New child report object added to realm!");
