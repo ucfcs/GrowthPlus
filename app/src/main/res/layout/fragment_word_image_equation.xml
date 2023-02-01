@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".fragment.WordImageEquation">
+
+    <TextView
+        android:id="@+id/first_word"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="ten units"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:textSize="55sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/first_image"
+        android:layout_width="350dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="5dp"
+        android:src="@mipmap/camel_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_word" />
+
+    <TextView
+        android:id="@+id/operator"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="="
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:textSize="55sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_image" />
+
+    <TextView
+        android:id="@+id/second_word"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="one ten"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:textSize="55sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/operator" />
+
+    <ImageView
+        android:id="@+id/second_image"
+        android:layout_width="350dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="5dp"
+        android:src="@mipmap/guinea_fowl_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/second_word" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
