@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LandingPageChildCard">
+        <attr name="childName" format="string" />
+        <attr name="nameBackgroundColor" format="color"/>
+        <attr name="avatarBackgroundColor" format="color"/>
+        <attr name="avatarSrc" format="reference|color"/>
+    </declare-styleable>
+</resources>

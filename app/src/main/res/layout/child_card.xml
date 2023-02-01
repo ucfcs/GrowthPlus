@@ -6,28 +6,35 @@
     android:layout_height="wrap_content"
     android:background="@color/dark_green">
 
-    <ImageView
-        android:id="@+id/childCardAvatar"
-        android:layout_width="220dp"
-        android:layout_height="210dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/circle_background"
-        android:backgroundTint="@color/blue"
-        android:src="@mipmap/bunny_foreground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/childCardAvatar"
+            android:layout_width="77dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/blue"
+            android:src="@mipmap/bunny_foreground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/childCarName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="@+id/childCardAvatar"
-        app:layout_constraintStart_toStartOf="@+id/childCardAvatar"
-        app:layout_constraintTop_toBottomOf="@+id/childCardAvatar" />
+        <ImageView
+            android:id="@+id/childCardAdd"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/childCarName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/childCardAvatar"
+            app:layout_constraintStart_toStartOf="@+id/childCardAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/childCardAvatar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
