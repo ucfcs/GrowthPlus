@@ -19,6 +19,7 @@
         android:paddingStart="17sp"
         android:paddingEnd="20sp">
     </android.widget.Button>
+
     <TextView
         android:id="@+id/languageText"
         android:layout_width="wrap_content"

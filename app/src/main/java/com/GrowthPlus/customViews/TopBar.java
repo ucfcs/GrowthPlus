@@ -14,7 +14,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.GrowthPlus.R;
 
 public class TopBar extends ConstraintLayout {
-
     Button goBackButton;
     ImageView pointsIcon;
     TextView points;
@@ -45,6 +44,5 @@ public class TopBar extends ConstraintLayout {
         pointsIcon = findViewById(R.id.pointsIcon);
         points = findViewById(R.id.points);
     }
-
 
 }
