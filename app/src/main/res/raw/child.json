@@ -53,10 +53,10 @@
     "name": "Child Two",
     "avatarName": "elephant",
     "report": {
-                "reportId": "reportChildOne",
-                "childName": "Child One",
+                "reportId": "reportChildTwo",
+                "childName": "Child Two",
                 "childScore": 200,
-                "childId": "childOne"
+                "childId": "childTwo"
               },
     "roadmap": null,
     "colorName": "orange"
