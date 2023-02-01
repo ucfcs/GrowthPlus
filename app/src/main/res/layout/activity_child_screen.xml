@@ -25,11 +25,11 @@
 
     <android.widget.Button
         android:id="@+id/deleteChildButton"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:background="@drawable/minimize_button"
-        android:scaleX="0.7"
-        android:scaleY="0.7"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/red"
+        android:drawableStart="@drawable/minus_large"
         android:gravity="center_horizontal|center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

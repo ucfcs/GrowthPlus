@@ -11,7 +11,7 @@
             android:layout_width="77dp"
             android:layout_height="79dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/circle_background"
+            android:background="@drawable/circle"
             android:backgroundTint="@color/blue"
             android:src="@mipmap/bunny_foreground"
             app:layout_constraintEnd_toEndOf="parent"
