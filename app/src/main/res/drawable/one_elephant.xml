@@ -1,0 +1,8 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/elephant"
+        android:width="339dp"
+        android:height="276dp"
+        >
+    </item>
+</layer-list>

@@ -20,6 +20,7 @@
         android:paddingEnd="20sp">
     </android.widget.Button>
     <TextView
+        android:id="@+id/languageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Language"
@@ -28,5 +29,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:textSize="45dp"></TextView>
+    <ImageView
+        android:layout_below="@id/languageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/two_elephants"></ImageView>
+
 
 </RelativeLayout>
