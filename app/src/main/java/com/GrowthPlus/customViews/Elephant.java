@@ -26,7 +26,7 @@ public class Elephant extends ConstraintLayout {
         init(attrs);
     }
 
-    public UnElephantit(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public Elephant(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
