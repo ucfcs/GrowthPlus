@@ -21,7 +21,9 @@
         app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019"></android.widget.Button>
+        app:layout_constraintVertical_bias="0.019">
+
+    </android.widget.Button>
 
     <android.widget.Button
         android:id="@+id/deleteChildButton"
@@ -70,44 +72,10 @@
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473" />
-
-    <com.GrowthPlus.customViews.HorizontalProgressBar
-        android:id="@+id/horizontalProgressBarLevelTwoo"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537"
-        />
-
-    <com.GrowthPlus.customViews.HorizontalProgressBar
-        android:id="@+id/horizontalProgressBarLevelThree"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599" />
-
-    <com.GrowthPlus.customViews.HorizontalProgressBar
-        android:id="@+id/horizontalProgressBarLevelFourr"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657"/>
+        app:layout_constraintVertical_bias="0.613" />
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/contentAreasGrid"
@@ -128,62 +96,6 @@
             android:id="@+id/numbersCompletionComponent"
             android:layout_width="140dp"
             android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/lengthCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/countingCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/weightCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/additionCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/moneyCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/subtractionCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/timeCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/multiplicationCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/shapesCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/divisionCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/anglesCompletionComponent"
-            android:layout_width="140dp"
-            android:layout_height="35dp" />
-
 
     </androidx.gridlayout.widget.GridLayout>
 

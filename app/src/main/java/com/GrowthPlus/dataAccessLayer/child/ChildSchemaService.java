@@ -24,9 +24,9 @@ public class ChildSchemaService {
     /*
       Constructor
     */
-    public ChildSchemaService(){
+    public ChildSchemaService(Realm realm){
 
-        this.realm = Realm.getDefaultInstance();
+        this.realm = realm;
     }
 
     public ChildSchemaService(Realm realm, String name, @Nullable  ReportSchema report, @Nullable  RoadMapSchema roadmap, String avatarName, String colorName){
