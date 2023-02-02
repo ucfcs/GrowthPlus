@@ -13,34 +13,32 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.R;
 
-public class Unit extends ConstraintLayout {
-    ImageView shape;
-    TextView number;
+public class Elephant extends ConstraintLayout {
+    ImageView ele;
 
-    public Unit(@NonNull Context context) {
+    public Elephant(@NonNull Context context) {
         super(context);
         init(null);
     }
 
-    public Unit(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public Elephant(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public Unit(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public UnElephantit(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
 
-    public Unit(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public Elephant(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }
 
     private void init(@Nullable AttributeSet set){
         inflate(getContext(), R.layout.custom_unit, this);
-        shape = findViewById(R.id.unitShape);
-        number = findViewById(R.id.unitNumber);
+        ele = findViewById(R.id.eleShape);
     }
 
 }
