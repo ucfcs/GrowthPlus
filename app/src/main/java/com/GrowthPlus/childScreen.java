@@ -3,6 +3,7 @@ package com.GrowthPlus;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,13 @@ public class childScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child_screen);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("childIdParentPortal");
+            Log.i("Child id parent portal", value);
+        }
+
     }
 
     private void init(@Nullable AttributeSet set) {

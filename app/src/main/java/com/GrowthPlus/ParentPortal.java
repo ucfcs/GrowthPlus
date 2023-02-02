@@ -77,6 +77,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
             childCardTemp = setChildCard(childCardId.get(i), childNameTemp, avatarNameTemp, colorNameTemp);
             parentPortalGridLayout.addView(childCardTemp, i);
 
+            //TODO: Need to add vertical progress bar to linear layout
+
             // Map the child card component ids to their corresponding child schema ids from realm
             childId.put(childCardId.get(i), childIdTemp);
 
@@ -189,7 +191,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
     public void startChildScreenActivity(String childId){
         Intent childScreen = new Intent(ParentPortal.this, childScreen.class);
-        childScreen.putExtra("childId",childId);
+        childScreen.putExtra("childIdParentPortal",childId);
         startActivity(childScreen);
     }
 }
