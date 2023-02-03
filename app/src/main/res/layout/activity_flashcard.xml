@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_green"
     tools:context=".flashcard">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="100dp" />
 
     <android.widget.Button
         android:id="@+id/next_button"
@@ -21,23 +15,48 @@
         android:layout_marginTop="-40dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
-        android:drawableStart="@drawable/back_arrow"
+        android:drawableStart="@drawable/arrow_large"
         android:drawableTint="@color/dark_green"
-        android:paddingStart="26dp"
-        android:scaleX="-1"
+        android:paddingStart="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guide_right"
+        app:layout_constraintStart_toStartOf="@+id/guide_left"
         app:layout_constraintTop_toTopOf="@+id/guide_bottom" />
 
-    <com.GrowthPlus.customViews.Flashcard
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/guide_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBar">
-    </com.GrowthPlus.customViews.Flashcard>
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/frame_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/frame_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".84" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".88" />
 
     <com.GrowthPlus.customViews.TopBar
         android:id="@+id/topBar"
@@ -45,5 +64,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.GrowthPlus.customViews.Flashcard
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/frame_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guide_right"
+        app:layout_constraintStart_toStartOf="@+id/guide_left"
+        app:layout_constraintTop_toBottomOf="@+id/frame_top">
+    </com.GrowthPlus.customViews.Flashcard>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

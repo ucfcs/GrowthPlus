@@ -78,6 +78,13 @@
         app:layout_constraintGuide_percent="0.57" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/forgotLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -144,6 +151,19 @@
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS">
     </EditText>
+
+    <TextView
+        android:id="@+id/forgotPinText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/orange"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/nameBottom"
+        app:layout_constraintBottom_toTopOf="@id/forgotLine"
+        android:text="forgot pin?">
+    </TextView>
 
     <android.widget.Button
         android:id="@+id/parentLoginBtn"

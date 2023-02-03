@@ -70,7 +70,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/rightBtn"
         android:layout_width="wrap_content"
