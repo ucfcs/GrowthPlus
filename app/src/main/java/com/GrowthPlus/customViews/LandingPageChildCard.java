@@ -86,7 +86,6 @@ public class LandingPageChildCard extends ConstraintLayout {
     }
 
     public void setChildCardName(String name){
-
         landingPageChildName.setText(name);
     }
 
