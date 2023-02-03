@@ -8,26 +8,27 @@
     <ProgressBar
         android:id="@+id/verticalProgressBar"
         style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="40dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:progress="100"
+        android:progressBackgroundTint="@color/blue"
         android:progressTint="@color/light_green"
         android:rotation="-90"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.355" />
 
     <ImageView
         android:id="@+id/progressBarAvatar"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/circle_background"
         android:backgroundTint="@color/blue"
         android:src="@mipmap/bunny_foreground"
         app:layout_constraintEnd_toEndOf="@+id/verticalProgressBar"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/verticalProgressBar"
         app:layout_constraintTop_toBottomOf="@+id/verticalProgressBar" />
 

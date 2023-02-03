@@ -7,4 +7,12 @@
     <item type="id" name="parentPortalChildCard4" />
     <item type="id" name="parentPortalChildCard5" />
     <item type="id" name="parentPortalChildCardAdd" />
+
+    <item type="id" name="parentPortalChildCardPb0" />
+    <item type="id" name="parentPortalChildCardPb1" />
+    <item type="id" name="parentPortalChildCardPb2" />
+    <item type="id" name="parentPortalChildCardPb3" />
+    <item type="id" name="parentPortalChildCardPb4" />
+    <item type="id" name="parentPortalChildCardPb5" />
+
 </resources>

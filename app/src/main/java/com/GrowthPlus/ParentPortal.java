@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildCard;
 import com.GrowthPlus.customViews.ChildCardAdd;
+import com.GrowthPlus.customViews.VerticalProgressBar;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
@@ -35,10 +36,11 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     private Button buttonBackChild;
     private ImageButton languageButton;
     private GridLayout parentPortalGridLayout;
-    private LinearLayout parentPortalPb;
+    private LinearLayout parentPortalLinearLayout;
     private ChildSchemaService childSchemaService;
     private HashMap<Integer, Integer> childCardId; // ChildCard component id == android:id="@+id/"
     private HashMap<Integer, String> childId; // Store the children ids childName : id
+    private HashMap<Integer, Integer> progressBarIds;
     public ColorIdentifier colorIdentifier;
     public ImageSrcIdentifier imageSrcIdentifier;
     private Realm realm;
@@ -57,6 +59,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         int childrenRealmResultSize = children.size();
         ChildSchema childRealmObjectTemp;
         ChildCard childCardTemp;
+        VerticalProgressBar verticalProgressBarTemp;
         String childIdTemp;
         String childNameTemp;
         String avatarNameTemp;
@@ -77,7 +80,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
             childCardTemp = setChildCard(childCardId.get(i), childNameTemp, avatarNameTemp, colorNameTemp);
             parentPortalGridLayout.addView(childCardTemp, i);
 
-            //TODO: Need to add vertical progress bar to linear layout
+            verticalProgressBarTemp = setVerticalProgressBar(progressBarIds.get(i), avatarNameTemp, colorNameTemp);
+            parentPortalLinearLayout.addView(verticalProgressBarTemp, i);
 
             // Map the child card component ids to their corresponding child schema ids from realm
             childId.put(childCardId.get(i), childIdTemp);
@@ -85,6 +89,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
             // Reset temp values
             childRealmObjectTemp = null;
             childCardTemp = null;
+            verticalProgressBarTemp = null;
         }
 
         ChildCardAdd addChildCard1 = new ChildCardAdd(this);
@@ -102,14 +107,16 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         buttonBackChild = findViewById(R.id.backChild);
         languageButton = findViewById(R.id.langBtn);
         parentPortalGridLayout = findViewById(R.id.parentPortalGridLayout);
-        parentPortalPb = findViewById(R.id.parentPortalPb);
+        parentPortalLinearLayout = findViewById(R.id.parentPortalPb);
         childSchemaService = new ChildSchemaService(realm);
         colorIdentifier = new ColorIdentifier();
         imageSrcIdentifier = new ImageSrcIdentifier();
         childCardId = new HashMap<>();
         childId = new HashMap<>();
+        progressBarIds = new HashMap<>();
 
         setChildCardIds();
+        setProgressBarIds();
     }
 
     @Nullable
@@ -128,10 +135,22 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         return childCardTemp;
     }
 
+    @Nullable
+    public VerticalProgressBar setVerticalProgressBar(Integer id, String avatarName, String colorName){
+        ColorStateList color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(colorName));
+        VerticalProgressBar temp = new VerticalProgressBar(this);
+
+        temp.setId(id);
+        temp.setImageResource(imageSrcIdentifier.getImageSrcId(avatarName));
+        temp.setBackgroundTintList(color);
+
+        return temp;
+    }
+
     /**
-     * Setting pre-defined view ids for each child card
-     * This is necessary for parsing within the for loop
-     * References the ids.xml file within res/values
+     * Setting pre-defined view ids for each child card.
+     * This is necessary for parsing within the for loop.
+     * References the ids.xml file within res/values.
      */
     private void setChildCardIds(){
        childCardId.put(0, R.id.parentPortalChildCard0);
@@ -140,6 +159,15 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
        childCardId.put(3, R.id.parentPortalChildCard3);
        childCardId.put(4, R.id.parentPortalChildCard4);
        childCardId.put(5, R.id.parentPortalChildCard5);
+    }
+
+    private void setProgressBarIds(){
+        progressBarIds.put(0, R.id.parentPortalChildCardPb0);
+        progressBarIds.put(1, R.id.parentPortalChildCardPb1);
+        progressBarIds.put(2, R.id.parentPortalChildCardPb2);
+        progressBarIds.put(3, R.id.parentPortalChildCardPb3);
+        progressBarIds.put(4, R.id.parentPortalChildCardPb4);
+        progressBarIds.put(5, R.id.parentPortalChildCardPb5);
     }
 
     @Override
@@ -176,11 +204,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         }
 
         if((view.getId()) == R.id.parentPortalChildCardAdd) {
-            Toast toast;
-            int duration = Toast.LENGTH_SHORT;
-            String id = String.valueOf(R.id.parentPortalChildCardAdd);
-            toast = Toast.makeText(this, id + " " + " ADD CHILD", duration);
-            toast.show();
+            startSelectChildAvatarActivity();
+
         }
     }
 
@@ -193,5 +218,10 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         Intent childScreen = new Intent(ParentPortal.this, childScreen.class);
         childScreen.putExtra("childIdParentPortal",childId);
         startActivity(childScreen);
+    }
+
+    public void startSelectChildAvatarActivity(){
+        Intent selectChildAvatar = new Intent(ParentPortal.this, SelectChildAvatar.class);
+        startActivity(selectChildAvatar);
     }
 }
