@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.GrowthPlus.customViews.LandingPageAddChild;
 import com.GrowthPlus.customViews.LandingPageChildCard;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private HashMap<Integer, String> landingPageChildId;
     public ColorIdentifier colorIdentifier;
     public ImageSrcIdentifier imageSrcIdentifier;
+    private final int CHILDREN_MAX_NUM = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RealmResults<ChildSchema> children = landingPageChildren.getAllChildSchemas();
         LandingPageChildCard childCardTemp;
         ChildSchema childTemp;
+
 
         int childrenNum = children.size();
         String childIdTemp;
@@ -79,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             childTemp = null;
         }
 
+        if(childrenNum != CHILDREN_MAX_NUM){
+            LandingPageAddChild landingPageAddChild = new LandingPageAddChild(this);
+            landingPageGridLayout.addView(landingPageAddChild);
+        }
 
 
         // TODO: this button is currently navigating to child portal, change to parent portal
@@ -147,12 +154,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ColorStateList color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(colorName));
         LandingPageChildCard temp = new LandingPageChildCard(this);
 
+        // Using landing page child card custom methods
         temp.setId(id);
         temp.setChildCardName(childName);
         temp.setNameBackground(color);
         temp.setAvatarBackgroundColor(color);
         temp.setAvatarSrc(imageSrcIdentifier.getImageSrcId(avatarName));
-
         temp.setOnClickListener(this);
 
         return temp;

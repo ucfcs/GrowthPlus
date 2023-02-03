@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/landingPageAddChild"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@drawable/add_icon"
         android:backgroundTint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"
