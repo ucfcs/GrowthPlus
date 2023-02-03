@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,28 +7,138 @@
     android:background="@color/yellow"
     tools:context=".ParentSignup">
 
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.69" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.31" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/parentImgTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bunnyBottomLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.44" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/createBottomLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.48" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/nameBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/confirmBottomLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.59" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/confirmInputLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.69" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
     <android.widget.Button
         android:id="@+id/backParentSU"
         android:layout_width="60sp"
         android:layout_height="40sp"
-        android:layout_marginTop="30sp"
-        android:layout_marginStart="20sp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
-        android:drawableStart="@drawable/back_arrow"
         android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/back_arrow"
         android:paddingStart="17sp"
-        android:paddingEnd="20sp">
-    </android.widget.Button>
+        android:paddingEnd="20sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonEnd"
+        app:layout_constraintStart_toStartOf="@id/buttonStart"
+        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
 
     <ImageView
         android:id="@+id/parentCircle"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@drawable/circle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:backgroundTint="@color/light_green">
-    </ImageView>
+        android:backgroundTint="@color/light_green"
+        app:layout_constraintBottom_toTopOf="@id/bunnyBottomLine"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/parentImgTop"></ImageView>
+
     <ImageView
         android:id="@+id/parentImg"
         android:layout_width="200dp"
@@ -36,71 +146,145 @@
         android:scaleX="0.7"
         android:scaleY="0.7"
         android:background="@mipmap/parent_foreground"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp">
+        app:layout_constraintBottom_toTopOf="@id/bunnyBottomLine"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/parentImgTop">
     </ImageView>
+
     <TextView
         android:id="@+id/createPinText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/parentCircle"
-        android:layout_marginTop="30dp"
         android:textColor="@color/orange"
-        android:layout_centerHorizontal="true"
         android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/bunnyBottomLine"
+        app:layout_constraintBottom_toTopOf="@id/createBottomLine"
         android:text="create 4 digit pin">
     </TextView>
+
     <EditText
         android:id="@+id/enterPin"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/createPinText"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:hint="Pin"
         android:textSize="30dp"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"
-        android:background="@drawable/round_button">
+        android:background="@drawable/round_button"
+        app:layout_constraintTop_toBottomOf="@id/createBottomLine"
+        app:layout_constraintBottom_toTopOf="@id/nameBottom"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS">
     </EditText>
+
     <TextView
         android:id="@+id/confirmPinText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/enterPin"
-        android:layout_marginTop="10dp"
         android:textColor="@color/orange"
-        android:layout_centerHorizontal="true"
         android:textSize="20dp"
-        android:text="confirm">
+        android:text="confirm"
+        app:layout_constraintTop_toBottomOf="@id/nameBottom"
+        app:layout_constraintBottom_toTopOf="@id/confirmBottomLine"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS">
     </TextView>
+
     <EditText
         android:id="@+id/confirmPinInput"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/confirmPinText"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:hint="Pin"
         android:textSize="30dp"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"
-        android:background="@drawable/round_button">
+        android:background="@drawable/round_button"
+        app:layout_constraintTop_toBottomOf="@id/confirmBottomLine"
+        app:layout_constraintBottom_toTopOf="@id/confirmInputLine"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS">
     </EditText>
+
     <android.widget.Button
-        android:id="@+id/signupBtn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/parentLoginBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/play_large"
         android:paddingStart="60dp"
-        android:layout_below="@id/confirmPinInput"
-        >
+        app:layout_constraintTop_toBottomOf="@id/playTop"
+        app:layout_constraintBottom_toTopOf="@id/playBottom"
+        app:layout_constraintStart_toEndOf="@id/playStart"
+        app:layout_constraintEnd_toStartOf="@id/playEnd"
+        ></android.widget.Button>
 
-    </android.widget.Button>
+
+<!--    <TextView-->
+<!--        android:id="@+id/createPinText"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/parentCircle"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:textColor="@color/orange"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:textSize="20dp"-->
+<!--        android:text="create 4 digit pin">-->
+<!--    </TextView>-->
+<!--    <EditText-->
+<!--        android:id="@+id/enterPin"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_below="@id/createPinText"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:hint="Pin"-->
+<!--        android:textSize="30dp"-->
+<!--        android:backgroundTint="@color/grey"-->
+<!--        android:textAlignment="center"-->
+<!--        android:background="@drawable/round_button">-->
+<!--    </EditText>-->
+<!--    <TextView-->
+<!--        android:id="@+id/confirmPinText"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/enterPin"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textColor="@color/orange"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:textSize="20dp"-->
+<!--        android:text="confirm">-->
+<!--    </TextView>-->
+<!--    <EditText-->
+<!--        android:id="@+id/confirmPinInput"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_below="@id/confirmPinText"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:hint="Pin"-->
+<!--        android:textSize="30dp"-->
+<!--        android:backgroundTint="@color/grey"-->
+<!--        android:textAlignment="center"-->
+<!--        android:background="@drawable/round_button">-->
+<!--    </EditText>-->
+<!--    <android.widget.Button-->
+<!--        android:id="@+id/signupBtn"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:background="@drawable/round_button"-->
+<!--        android:backgroundTint="@color/dark_green"-->
+<!--        android:drawableStart="@drawable/play_large"-->
+<!--        android:paddingStart="60dp"-->
+<!--        android:layout_below="@id/confirmPinInput"-->
+<!--        >-->
+
+<!--    </android.widget.Button>-->
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,68 +1,141 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAccount"
-    android:background="@color/dark_green">
+    android:background="@color/dark_green"
+    tools:context=".CreateAccount">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bunnyBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.69" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.31" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/nameBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.57" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/playBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
 
     <android.widget.Button
         android:id="@+id/backCreateAccount"
         android:layout_width="60sp"
         android:layout_height="40sp"
-        android:layout_marginTop="30sp"
-        android:layout_marginStart="20sp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
-        android:drawableStart="@drawable/back_arrow"
         android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/back_arrow"
         android:paddingStart="17sp"
-        android:paddingEnd="20sp">
-    </android.widget.Button>
+        android:paddingEnd="20sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonEnd"
+        app:layout_constraintStart_toStartOf="@id/buttonStart"
+        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
 
-    <ImageView
-        android:id="@+id/createChildAccount"
+    <com.GrowthPlus.customViews.ChildAvatarComponent
+        android:id="@+id/childAvatar"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:background="@drawable/circle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:backgroundTint="@color/blue">
-    </ImageView>
-    <ImageView
-        android:id="@+id/avatarImg"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:scaleX="0.75"
-        android:scaleY="0.75"
-        android:background="@mipmap/bunny_foreground"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp">
-    </ImageView>
+        app:layout_constraintBottom_toTopOf="@id/bunnyBottom"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/buttonBottom" />
+
     <EditText
         android:id="@+id/nameInput"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:layout_below="@id/createChildAccount"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:hint="Name"
         android:textSize="30dp"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"
-        android:background="@drawable/round_button">
+        android:background="@drawable/round_button"
+        app:layout_constraintTop_toBottomOf="@id/bunnyBottom"
+        app:layout_constraintBottom_toTopOf="@id/nameBottom"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS">
     </EditText>
+
     <android.widget.Button
         android:id="@+id/loginBtn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/play_large"
         android:paddingStart="60dp"
         android:layout_below="@id/nameInput"
+        app:layout_constraintTop_toBottomOf="@id/playTop"
+        app:layout_constraintBottom_toTopOf="@id/playBottom"
+        app:layout_constraintStart_toEndOf="@id/playStart"
+        app:layout_constraintEnd_toStartOf="@id/playEnd"
         ></android.widget.Button>
-</RelativeLayout>
 
-
+</androidx.constraintlayout.widget.ConstraintLayout>

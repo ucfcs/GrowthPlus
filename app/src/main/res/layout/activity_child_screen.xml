@@ -78,9 +78,10 @@
         app:layout_constraintGuide_percent="0.96" />
 
     <android.widget.Button
-        android:id="@+id/backChild"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/backParentPortal"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
@@ -106,7 +107,7 @@
 
 
     <com.GrowthPlus.customViews.ChildAvatarComponent
-        android:id="@+id/childAvatar"
+        android:id="@+id/childAvatarScreen"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toTopOf="@id/bunnyBottom"

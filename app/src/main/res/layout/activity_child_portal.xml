@@ -101,8 +101,9 @@
 
     <android.widget.Button
         android:id="@+id/backChild"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
@@ -147,6 +148,7 @@
             android:src="@mipmap/points_foreground"></ImageView>
 
         <TextView
+            android:id="@+id/pointsValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -204,23 +206,5 @@
         app:layout_constraintEnd_toStartOf="@id/leftBtn"
         app:layout_constraintTop_toBottomOf="@id/botBtn"
         app:layout_constraintBottom_toTopOf="@id/bottom"></ImageButton>
-
-
-<!--        <ImageView-->
-<!--            android:layout_width="150sp"-->
-<!--            android:layout_height="150sp"-->
-<!--            android:layout_marginTop="30sp"-->
-<!--            android:src="@drawable/roadmap"></ImageView>-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/learnBtn"-->
-<!--            android:layout_width="150sp"-->
-<!--            android:layout_height="150sp"-->
-<!--            android:layout_marginTop="-150dp"-->
-<!--            android:background="@mipmap/bunny_foreground"-->
-<!--            android:scaleX="0.5"-->
-<!--            android:scaleY="0.5"></ImageButton>-->
-
-<!--    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

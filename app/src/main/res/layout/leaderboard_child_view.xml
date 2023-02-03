@@ -1,55 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/yellow"
-    android:layout_marginTop="2dp">
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerVertical="true"
-        android:scaleX="4.5"
-        android:scaleY="4.5"
-        android:src="@mipmap/bunny_foreground"
-        android:layout_marginStart="10dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:id="@+id/leaderboardAvatarImg">
-    </ImageView>
-    <TextView
+    android:layout_height="50dp"
+    android:background="@color/yellow">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/avatarStartLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/leaderboardName"
-        android:layout_toEndOf="@id/leaderboardAvatarImg"
-        android:textSize="35dp"
-        android:layout_marginStart="5dp"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp"
-        android:layout_centerVertical="true"
-        android:textColor="@color/dark_green"
-        android:text="Name">
-    </TextView>
-    <TextView
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/avatarEndLine"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".16" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/nameStartLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".23" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/nameEndLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/pointStartLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".67" />
+
+    <ImageView
+        android:id="@+id/leaderboardAvatarImg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/avatarStartLine"
+        app:layout_constraintEnd_toStartOf="@id/avatarEndLine"
+        android:src="@mipmap/bunny_foreground"></ImageView>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/leaderboardName"
+        android:textSize="35dp"
+        android:textColor="@color/dark_green"
+        android:text="Name"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nameEndLine"
+        app:layout_constraintStart_toStartOf="@id/nameStartLine">
+    </TextView>
+
+    <TextView
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:paddingEnd="15dp"
-        android:paddingStart="15dp"
-        android:layout_marginStart="70dp"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/leaderboardName"
         android:id="@+id/leaderboardPoints"
         android:textColor="@color/white"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/light_green"
-        android:text="100">
+        android:text="100"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/pointStartLine"
+        app:layout_constraintEnd_toEndOf="parent">
     </TextView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/dark_green"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/leaderboardAvatarImg"/>
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

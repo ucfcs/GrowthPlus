@@ -18,27 +18,19 @@ import io.realm.RealmResults;
 
 public class Leaderboard extends AppCompatActivity {
 
-    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
-        realm = Realm.getDefaultInstance();
-        Button backBtn = (Button) findViewById(R.id.backChildPortal);
 
-        backBtn.setOnClickListener(new View.OnClickListener(){
+        Button backSet = (Button) findViewById(R.id.backChildPortal);
+
+        backSet.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(Leaderboard.this, ChildPortal.class));
+                startActivity(new Intent(Leaderboard.this, MainActivity.class));
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-//        RealmResults<ChildSchema> children= realm.where(ChildSchema.class).findAll();
-//        ChildSchemaService service = new ChildSchemaService(realm,)
-
-//
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setAdapter(new LeaderboardAdapter(getApplicationContext(), children));
     }
 }

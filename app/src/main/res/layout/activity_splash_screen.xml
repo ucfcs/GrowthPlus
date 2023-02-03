@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,22 +8,39 @@
     tools:context=".SplashScreen">
 
     <ImageView
-        android:id="@id/logo"
+        android:id="@+id/logo"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="150dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"></ImageView>
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/topSplash"
+        app:layout_constraintBottom_toTopOf="@id/appName"></ImageView>
 
     <TextView
+        android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
         android:text="Growth+"
         android:textColor="@color/dark_green"
-        android:textSize="58sp"></TextView>
+        android:textSize="58sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintBottom_toTopOf="@id/bottomSplash"></TextView>
 
-</RelativeLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".27"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".6"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
