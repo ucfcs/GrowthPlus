@@ -6,11 +6,23 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/landingPageChildAvatar"
+        android:id="@+id/landingPageChildColor"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@drawable/circle"
         android:backgroundTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <ImageView
+        android:id="@+id/landingPageChildAvatar"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:scaleX="0.85"
+        android:scaleY="0.85"
         android:src="@mipmap/bunny_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

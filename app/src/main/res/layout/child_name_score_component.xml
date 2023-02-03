@@ -15,18 +15,20 @@
         android:backgroundTint="@color/grey"
         android:gravity="center"
         android:text="Sally"
+        android:paddingEnd="20dp"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="30sp"
+        android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/childScore"
-        android:layout_width="100dp"
+        android:layout_width="85dp"
         android:layout_height="50dp"
         android:layout_marginStart="144dp"
         android:background="@drawable/round_button"
+        android:backgroundTint="@color/blue"
         android:gravity="center"
         android:text="65"
         android:textAlignment="center"

@@ -8,13 +8,13 @@
 
     <android.widget.Button
         android:id="@+id/goBackBtn"
-        android:layout_width="70sp"
-        android:layout_height="48sp"
-        android:layout_marginStart="15dp"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="22sp"
+        android:paddingStart="17sp"
         android:paddingEnd="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -23,6 +23,7 @@ public class LandingPageChildCard extends ConstraintLayout {
 
     private ImageView landingPageChildAvatar;
     private TextView landingPageChildName;
+    private ImageView landingPageChildColor;
     private String childName;
     private ColorStateList nameBackground;
     private ColorStateList avatarBackgroundColor;
@@ -57,6 +58,7 @@ public class LandingPageChildCard extends ConstraintLayout {
         inflate(getContext(), R.layout.landing_page_child_card, this);
         landingPageChildAvatar = findViewById(R.id.landingPageChildAvatar);
         landingPageChildName = findViewById(R.id.landingPageChildName);
+        landingPageChildColor = findViewById(R.id.landingPageChildColor);
     }
 
     /*
@@ -93,7 +95,7 @@ public class LandingPageChildCard extends ConstraintLayout {
     }
 
     public void setAvatarBackgroundColor(ColorStateList color){
-        landingPageChildAvatar.setBackgroundTintList(color);
+        landingPageChildColor.setBackgroundTintList(color);
     }
 
     public void setAvatarSrc(int imageResource){
