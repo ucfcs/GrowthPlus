@@ -39,53 +39,26 @@
             app:layout_constraintTop_toTopOf="parent"
             app:rowCount="3">
 
-            <com.GrowthPlus.customViews.LandingPageChildCard
-                android:layout_width="160dp"
-                android:layout_height="120dp"
-                app:avatarBackgroundColor="@color/red"
-                app:avatarSrc="@mipmap/camel_foreground"
-                app:childName="Sue"
-                app:nameBackgroundColor="@color/red" />
-
-            <com.GrowthPlus.customViews.LandingPageChildCard
-                android:layout_width="160dp"
-                android:layout_height="120dp"
-                app:avatarBackgroundColor="@color/yellow"
-                app:avatarSrc="@mipmap/squirrel_foreground"
-                app:childName="John"
-                app:nameBackgroundColor="@color/yellow" />
-
-            <com.GrowthPlus.customViews.LandingPageChildCard
-                android:layout_width="160dp"
-                android:layout_height="120dp"
-                app:avatarBackgroundColor="@color/light_green"
-                app:avatarSrc="@mipmap/guinea_fowl_foreground"
-                app:childName="Chad"
-                app:nameBackgroundColor="@color/light_green" />
-
-            <com.GrowthPlus.customViews.LandingPageAddChild
-                android:layout_width="160dp"
-                android:layout_height="120dp" />
 
         </androidx.gridlayout.widget.GridLayout>
 
         <FrameLayout
             android:id="@+id/idFrame"
-            android:layout_marginTop="50dp"
-            android:layout_width="310dp"
+            android:layout_width="300dp"
             android:layout_height="170dp"
-            android:backgroundTint="@color/blue"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
             android:background="@drawable/round_button"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:layout_centerHorizontal="true">
+            android:backgroundTint="@color/blue"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
 
             <ImageButton
                 android:id="@+id/idParent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/round_button"
                 android:layout_marginTop="-20dp"
+                android:background="@drawable/round_button"
                 android:scaleX="1.15"
                 android:scaleY="1.15"
                 android:src="@mipmap/parent_foreground" />

@@ -15,4 +15,11 @@
     <item type="id" name="parentPortalChildCardPb4" />
     <item type="id" name="parentPortalChildCardPb5" />
 
+    <item type="id" name="landingPageChildCard0" />
+    <item type="id" name="landingPageChildCard1" />
+    <item type="id" name="landingPageChildCard2" />
+    <item type="id" name="landingPageChildCard3" />
+    <item type="id" name="landingPageChildCard4" />
+    <item type="id" name="landingPageChildCard5" />
+
 </resources>

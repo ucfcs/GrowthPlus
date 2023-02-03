@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,6 +21,12 @@ public class ChildPortal extends AppCompatActivity {
         setContentView(R.layout.activity_child_portal);
 
         Button backBtn = (Button) findViewById(R.id.backChild);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("childIdLandingPage");
+            Log.i("Child Id LP", value);
+        }
 
         backBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
