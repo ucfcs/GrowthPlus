@@ -7,8 +7,6 @@
 
     <!--add backgroundTint?? -->
 
-
-
     <ProgressBar
         android:id="@+id/horizontalProgressBar"
         style="@android:style/Widget.ProgressBar.Horizontal"
@@ -36,5 +34,4 @@
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

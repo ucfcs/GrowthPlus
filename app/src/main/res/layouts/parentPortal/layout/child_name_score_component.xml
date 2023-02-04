@@ -14,17 +14,17 @@
         android:background="@drawable/round_button"
         android:backgroundTint="@color/grey"
         android:gravity="center"
-        android:text="Sally"
+        android:text="Sally Sally"
         android:paddingEnd="20dp"
-        android:textAlignment="center"
+
         android:textColor="@color/blue"
-        android:textSize="25sp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/childScore"
-        android:layout_width="75dp"
+        android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginStart="125dp"
         android:background="@drawable/round_button"
