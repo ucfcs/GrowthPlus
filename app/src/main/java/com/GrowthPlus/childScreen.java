@@ -76,6 +76,10 @@ public class childScreen extends AppCompatActivity {
         setProgressBar(horizontalProgressBarThree, "3", progressBarThreeColor, 50);
         setProgressBar(horizontalProgressBarFour, "4", progressBarFourColor, 50);
 
+        backParentPortal.setOnClickListener(view -> {
+            this.finish();
+        });
+
     }
 
     private void init(){

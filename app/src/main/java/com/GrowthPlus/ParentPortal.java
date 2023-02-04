@@ -34,7 +34,6 @@ import io.realm.RealmResults;
 public class ParentPortal extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonBackChild;
-    private ImageButton languageButton;
     private GridLayout parentPortalGridLayout;
     private LinearLayout parentPortalLinearLayout;
     private ChildSchemaService childSchemaService;
@@ -97,6 +96,9 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         addChildCard1.setOnClickListener(this);
         parentPortalGridLayout.addView(addChildCard1);
 
+        buttonBackChild.setOnClickListener(this);
+
+
     }
 
     /**
@@ -105,7 +107,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     private void init(){
         realm = Realm.getDefaultInstance();
         buttonBackChild = findViewById(R.id.backChild);
-        languageButton = findViewById(R.id.langBtn);
         parentPortalGridLayout = findViewById(R.id.parentPortalGrid);
         parentPortalLinearLayout = findViewById(R.id.parentPortalPB);
         childSchemaService = new ChildSchemaService(realm);
@@ -207,6 +208,11 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
             startSelectChildAvatarActivity();
 
         }
+
+        if((view.getId()) == R.id.backChild) {
+            this.finish();
+        }
+
     }
 
     @Override

@@ -17,7 +17,7 @@ public class ChildSchemaService {
     private String name;
     private String avatarName;
     private String colorName;
-    private ReportSchema report;
+    private Integer score;
     private RoadMapSchema roadmap;
     private Realm realm;
 
@@ -29,13 +29,13 @@ public class ChildSchemaService {
         this.realm = realm;
     }
 
-    public ChildSchemaService(Realm realm, String name, @Nullable  ReportSchema report, @Nullable  RoadMapSchema roadmap, String avatarName, String colorName){
+    public ChildSchemaService(Realm realm, String name, @Nullable  RoadMapSchema roadmap, String avatarName, String colorName, Integer score){
         this.realm = realm;
         this.name = name;
-        this.report = report;
         this.roadmap = roadmap;
         this.avatarName = avatarName;
         this.colorName = colorName;
+        this.score = score;
     }
 
     /*
@@ -46,10 +46,10 @@ public class ChildSchemaService {
         realm.executeTransactionAsync(realm -> {
             ChildSchema newChild = realm.createObject(ChildSchema.class, String.valueOf(childId));
             newChild.setName(name);
-            newChild.setReport(report);
             newChild.setRoadmap(roadmap);
             newChild.setAvatarName(avatarName);
             newChild.setColorName(colorName);
+            newChild.setScore(score);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New child report object added to realm!");
@@ -67,16 +67,6 @@ public class ChildSchemaService {
         realm.executeTransactionAsync(realm -> {
             ChildSchema childSchema = getChildSchemaById();
             childSchema.setRoadmap(roadmap);
-        });
-    }
-
-    /*
-    This method updates a child's report.
-    */
-    public void updateReport(ReportSchema report){
-        realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById();
-            childSchema.setReport(report);
         });
     }
 
@@ -117,17 +107,6 @@ public class ChildSchemaService {
             RoadMapSchema roadmap = childSchema.getRoadmap();
             roadmap.deleteFromRealm();
             roadmap = null;
-        });
-    }
-    /*
-    This method deletes a child's report.
-     */
-    public void deleteChildReport(){
-        realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById();
-            ReportSchema report = childSchema.getReport();
-            report.deleteFromRealm();
-            report = null;
         });
     }
 

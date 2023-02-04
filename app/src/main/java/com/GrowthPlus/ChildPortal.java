@@ -79,7 +79,7 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
             startActivity(new Intent(ChildPortal.this, Leaderboard.class));
         }
         if(viewId == R.id.backChild){
-            startActivity(new Intent(ChildPortal.this, MainActivity.class));
+            this.finish();
         }
     }
 }

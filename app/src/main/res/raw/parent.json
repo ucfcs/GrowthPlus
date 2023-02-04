@@ -7,13 +7,6 @@
         "childId": "childZero",
         "name": "Child Zero",
         "avatarName": "bunny",
-        "report":  {
-          "reportId": "reportChildZero",
-          "childName": "Child Zero",
-          "childScore": 100,
-          "childId": "childZero"
-
-        },
         "roadmap": {
           "roadMapId": "roadMapZero",
           "roadMapName": "Roadmap Zero",
@@ -37,23 +30,24 @@
           }
 
         },
-        "colorName": "blue"
+        "colorName": "blue",
+        "score": 0
       },
       {
         "childId": "childOne",
         "name": "Child One",
         "avatarName": "camel",
-        "report": null,
         "roadmap":null,
-        "colorName": "red"
+        "colorName": "red",
+        "score": 0
       },
       {
         "childId": "childTwo",
         "name": "Child Two",
         "avatarName": "elephant",
-        "report": null,
         "roadmap": null,
-        "colorName": "orange"
+        "colorName": "orange",
+        "score": 0
       }
     ]
   }
