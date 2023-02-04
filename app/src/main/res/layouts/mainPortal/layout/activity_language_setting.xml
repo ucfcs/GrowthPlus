@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green"
+    tools:context=".LanguageSettingActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/langBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <android.widget.Button
+        android:id="@+id/backLang"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/back_arrow"
+        android:paddingStart="17sp"
+        android:paddingEnd="20sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonEnd"
+        app:layout_constraintStart_toStartOf="@id/buttonStart"
+        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
+
+    <TextView
+        android:id="@+id/languageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        android:textColor="@color/dark_green"
+        android:textSize="45dp"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toTopOf="@id/buttonBottom"
+        app:layout_constraintBottom_toTopOf="@id/langBottom"></TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
