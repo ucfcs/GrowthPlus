@@ -44,7 +44,6 @@ public class HorizontalProgressBar extends ConstraintLayout {
         progressBarLevelNumber = findViewById(R.id.progressBarLevelNumber);
     }
 
-
     public void setBarLevelText (CharSequence text){
         progressBarLevelNumber.setText(text);
     }
@@ -63,12 +62,4 @@ public class HorizontalProgressBar extends ConstraintLayout {
         horizontalProgressBar.setProgressTintList(list);
     }
 
-
-    /*
-    public void setBarLevelTextColor (int color){
-        progressBarLevelNumber.setTextColor(color);
-    }
-    Note: theres another types of setTextColor method asking for a ColorStateList rather than an int
-    Update: don't need this method anyway because text is blue for all 4 horizontal bars
-    */
 }

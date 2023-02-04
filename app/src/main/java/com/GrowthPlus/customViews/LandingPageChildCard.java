@@ -33,25 +33,21 @@ public class LandingPageChildCard extends ConstraintLayout {
     public LandingPageChildCard(@NonNull Context context) {
         super(context);
         init(null);
-        getCustomAttributes(context, null, 0);
     }
 
     public LandingPageChildCard(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
-        getCustomAttributes(context, attrs, 0);
     }
 
     public LandingPageChildCard(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
-        getCustomAttributes(context, attrs, defStyleAttr);
     }
 
     public LandingPageChildCard(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
-        getCustomAttributes(context, attrs, defStyleAttr);
     }
 
     private void init(@Nullable AttributeSet set){
@@ -61,29 +57,6 @@ public class LandingPageChildCard extends ConstraintLayout {
         landingPageChildColor = findViewById(R.id.landingPageChildColor);
     }
 
-    /*
-    * Gets custom attributes unique to Landing page child card"
-    * */
-
-    private void getCustomAttributes(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-
-        TypedArray typedArray = null;
-        if (attrs != null) {
-
-            typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.LandingPageChildCard, defStyleAttr, 0);
-            childName = typedArray.getString(R.styleable.LandingPageChildCard_childName);
-            nameBackground = typedArray.getColorStateList(R.styleable.LandingPageChildCard_nameBackgroundColor);
-            avatarBackgroundColor = typedArray.getColorStateList(R.styleable.LandingPageChildCard_avatarBackgroundColor);
-            avatarSrc = typedArray.getResourceId(R.styleable.LandingPageChildCard_avatarSrc, R.mipmap.bunny_foreground);
-        }
-
-        setChildCardName(childName);
-        setNameBackground(nameBackground);
-        setAvatarBackgroundColor(avatarBackgroundColor);
-        setAvatarSrc(avatarSrc);
-
-      typedArray.recycle();
-    }
 
     public void setChildCardName(String name){
         landingPageChildName.setText(name);

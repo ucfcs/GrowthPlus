@@ -9,6 +9,7 @@ public class LessonSchema extends RealmObject{
     private String lessonId;
     private Integer points;
     private String lessonName;
+    private String category;
 
     public String getLessonId() {
         return lessonId;
@@ -32,5 +33,13 @@ public class LessonSchema extends RealmObject{
 
     public void setLessonName(String lessonName) {
         this.lessonName = lessonName;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
