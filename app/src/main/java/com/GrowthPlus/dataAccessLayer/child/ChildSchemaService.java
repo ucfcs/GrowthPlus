@@ -95,6 +95,13 @@ public class ChildSchemaService {
     }
 
     /*
+   This method returns a child schema by ID.
+    */
+    public ChildSchema getChildSchemaById(String childId){
+        return realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+    }
+
+    /*
     This method returns a child schema by name.
      */
     public ChildSchema getChildSchemaByName(){

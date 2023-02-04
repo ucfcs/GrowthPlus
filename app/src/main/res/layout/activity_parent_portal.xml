@@ -50,6 +50,8 @@
         app:layout_constraintTop_toBottomOf="@+id/backChild"
         app:rowCount="3">
 
+        <com.GrowthPlus.customViews.ChildCardAdd/>
+
     </androidx.gridlayout.widget.GridLayout>
 
     <LinearLayout

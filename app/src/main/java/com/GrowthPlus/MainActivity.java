@@ -84,9 +84,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(childrenNum != CHILDREN_MAX_NUM){
             LandingPageAddChild landingPageAddChild = new LandingPageAddChild(this);
+            landingPageAddChild.setId(R.id.landingPageChildCardAdd);
+            landingPageAddChild.setOnClickListener(this);
             landingPageGridLayout.addView(landingPageAddChild);
         }
-
 
         // TODO: this button is currently navigating to child portal, change to parent portal
         childPortal.setOnClickListener(this);
@@ -133,10 +134,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if(id == R.id.landingPageChildCard0){
-
             String childId = landingPageChildId.get(R.id.landingPageChildCard0);
             startChildPortalActivity(childId);
+        }
 
+        if(id == R.id.landingPageChildCard1){
+            String childId = landingPageChildId.get(R.id.landingPageChildCard1);
+            startChildPortalActivity(childId);
+        }
+
+        if(id == R.id.landingPageChildCard2){
+            String childId = landingPageChildId.get(R.id.landingPageChildCard2);
+            startChildPortalActivity(childId);
+        }
+
+        if(id == R.id.landingPageChildCard3){
+            String childId = landingPageChildId.get(R.id.landingPageChildCard3);
+            startChildPortalActivity(childId);
+        }
+
+        if(id == R.id.landingPageChildCard4){
+            String childId = landingPageChildId.get(R.id.landingPageChildCard4);
+            startChildPortalActivity(childId);
+        }
+
+        if(id == R.id.landingPageChildCard5){
+            String childId = landingPageChildId.get(R.id.landingPageChildCard5);
+            startChildPortalActivity(childId);
+        }
+
+        if( id == R.id.landingPageChildCardAdd){
+            startAddChildActivity();
         }
 
     }
@@ -169,5 +197,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent childPortal = new Intent(MainActivity.this, ChildPortal.class);
         childPortal.putExtra("childIdLandingPage",childId);
         startActivity(childPortal);
+    }
+
+    public void startAddChildActivity(){
+        Intent selectChildAvatar = new Intent(MainActivity.this, SelectChildAvatar.class);
+        startActivity(selectChildAvatar);
     }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,7 +20,7 @@
     </android.widget.Button>
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/childPortalName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -44,6 +43,7 @@
         android:layout_marginTop="180sp">
 
         <ImageView
+            android:id="@+id/pointsIcon"
             android:layout_width="match_parent"
             android:layout_height="90sp"
             android:layout_weight="1"
@@ -55,6 +55,7 @@
         </ImageView>
 
         <TextView
+            android:id="@+id/pointsNumber"
             android:layout_width="match_parent"
             android:layout_height="80sp"
             android:layout_weight="1"
@@ -83,36 +84,36 @@
             android:src="@drawable/leaderboard">
         </ImageView>
 
-      <ImageButton
-            android:id="@+id/leaderboardBtn"
+      <ImageView
+            android:id="@+id/leaderBoardBtn"
             android:layout_width="150sp"
             android:layout_height="150sp"
             android:layout_marginTop="-150dp"
             android:scaleY="0.5"
             android:scaleX="0.5"
-            android:background="@mipmap/bunny_foreground"
+            android:src="@mipmap/bunny_foreground"
             >
             <!-- TODO: change avatar image to child's avatar image -->
-        </ImageButton>
+        </ImageView>
 
 
         <ImageView
             android:layout_width="150sp"
             android:layout_height="150sp"
             android:layout_marginTop="30sp"
-            android:src="@drawable/roadmap">
+            android:background="@drawable/roadmap">
         </ImageView>
 
-        <ImageButton
+        <ImageView
             android:id="@+id/learnBtn"
             android:layout_width="150sp"
             android:layout_height="150sp"
             android:layout_marginTop="-150dp"
             android:scaleY="0.5"
             android:scaleX="0.5"
-            android:background="@mipmap/bunny_foreground">
+            android:src="@mipmap/bunny_foreground">
             <!-- TODO: change avatar image to child's avatar image -->
-        </ImageButton>
+        </ImageView>
 
     </LinearLayout>
 
