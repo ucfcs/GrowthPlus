@@ -53,10 +53,10 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
 
         realm = Realm.getDefaultInstance();
         learnButton = findViewById(R.id.learnBtn);
-        leaderBoardBtn = findViewById(R.id.leaderBoardBtn);
+        leaderBoardBtn = findViewById(R.id.leaderboardBtn);
         backBtn = findViewById(R.id.backChild);
         childPortalName = findViewById(R.id.childPortalName);
-        pointsNumber = findViewById(R.id.pointsNumber);
+        pointsNumber = findViewById(R.id.pointsValue);
         childSchemaService = new ChildSchemaService(realm);
         imageSrcIdentifier = new ImageSrcIdentifier();
 
@@ -75,7 +75,7 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
             Intent intent = new Intent(this, RoadMapOne.class);
             startActivity(intent);
         }
-        if(viewId == R.id.leaderBoardBtn){
+        if(viewId == R.id.leaderboardBtn){
             startActivity(new Intent(ChildPortal.this, Leaderboard.class));
         }
         if(viewId == R.id.backChild){

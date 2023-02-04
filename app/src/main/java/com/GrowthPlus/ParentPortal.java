@@ -106,8 +106,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         realm = Realm.getDefaultInstance();
         buttonBackChild = findViewById(R.id.backChild);
         languageButton = findViewById(R.id.langBtn);
-        parentPortalGridLayout = findViewById(R.id.parentPortalGridLayout);
-        parentPortalLinearLayout = findViewById(R.id.parentPortalPb);
+        parentPortalGridLayout = findViewById(R.id.parentPortalGrid);
+        parentPortalLinearLayout = findViewById(R.id.parentPortalPB);
         childSchemaService = new ChildSchemaService(realm);
         colorIdentifier = new ColorIdentifier();
         imageSrcIdentifier = new ImageSrcIdentifier();

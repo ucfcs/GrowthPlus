@@ -106,36 +106,8 @@
         app:layout_constraintBottom_toTopOf="@id/childEnd"
         app:layout_constraintTop_toTopOf="@id/topLine">
 
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="119dp"
-            android:layout_height="132dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"/>
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="119dp"
-            android:layout_height="132dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"/>
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="119dp"
-            android:layout_height="132dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"/>
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="119dp"
-            android:layout_height="132dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"/>
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="119dp"
-            android:layout_height="132dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"/>
-        <com.GrowthPlus.customViews.ChildCard
-            android:layout_width="119dp"
-            android:layout_height="132dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"/>
+        <com.GrowthPlus.customViews.ChildCard/>
+        <com.GrowthPlus.customViews.ChildCard/>
 
     </androidx.gridlayout.widget.GridLayout>
 
@@ -148,31 +120,8 @@
         app:layout_constraintTop_toBottomOf="@id/parentStart"
         app:layout_constraintBottom_toTopOf="@id/botLine"
         app:layout_constraintStart_toStartOf="@id/leftLine"
-        app:layout_constraintEnd_toStartOf="@id/rightLine">
-
-        <com.GrowthPlus.customViews.VerticalProgressBar
-            android:layout_width="45dp"
-            android:layout_height="95dp" />
-
-        <com.GrowthPlus.customViews.VerticalProgressBar
-            android:layout_width="45dp"
-            android:layout_height="95dp" />
-
-        <com.GrowthPlus.customViews.VerticalProgressBar
-            android:layout_width="45dp"
-            android:layout_height="95dp" />
-
-        <com.GrowthPlus.customViews.VerticalProgressBar
-            android:layout_width="45dp"
-            android:layout_height="95dp" />
-
-        <com.GrowthPlus.customViews.VerticalProgressBar
-            android:layout_width="45dp"
-            android:layout_height="95dp" />
-
-        <com.GrowthPlus.customViews.VerticalProgressBar
-            android:layout_width="45dp"
-            android:layout_height="95dp" />
+        app:layout_constraintEnd_toStartOf="@id/rightLine"
+        android:orientation="horizontal">
 
     </LinearLayout>
 
