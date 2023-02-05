@@ -49,6 +49,20 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.78" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
     <android.widget.Button
         android:id="@+id/backLang"
         android:layout_width="60sp"
@@ -71,9 +85,87 @@
         android:text="Language"
         android:textColor="@color/dark_green"
         android:textSize="45dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintTop_toTopOf="@id/buttonBottom"
         app:layout_constraintBottom_toTopOf="@id/langBottom"></TextView>
+
+    <RelativeLayout
+        android:id="@+id/englishBtn"
+        android:clickable="true"
+        android:layout_width="280dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/yellow"
+        app:layout_constraintTop_toBottomOf="@id/langBottom"
+        app:layout_constraintStart_toStartOf="@id/rightGuide"
+        app:layout_constraintEnd_toEndOf="@id/leftGuide"
+        app:layout_constraintBottom_toTopOf="@id/frenchBtn">
+
+        <ImageView
+            android:id="@+id/englishCheck"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_check_mark"
+            android:backgroundTint="@color/dark_green"
+            android:background="@drawable/circle"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="210dp"
+            android:visibility="invisible"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/yellow"
+            android:text="English"
+            android:textAllCaps="false"
+            android:textSize="25dp"
+            android:paddingStart="40dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/blue"></TextView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/frenchBtn"
+        android:clickable="true"
+        android:layout_width="280dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/yellow"
+        app:layout_constraintTop_toBottomOf="@id/englishBtn"
+        app:layout_constraintStart_toStartOf="@id/rightGuide"
+        app:layout_constraintEnd_toEndOf="@id/leftGuide">
+
+        <ImageView
+            android:id="@+id/frenchCheck"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_check_mark"
+            android:backgroundTint="@color/dark_green"
+            android:background="@drawable/circle"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="210dp"
+            android:visibility="invisible"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/yellow"
+            android:text="French"
+            android:textAllCaps="false"
+            android:textSize="25dp"
+            android:paddingStart="40dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/blue"></TextView>
+
+    </RelativeLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
