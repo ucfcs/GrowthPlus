@@ -7,33 +7,33 @@
 
     <TextView
         android:id="@+id/childName"
-        android:layout_width="175dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/grey"
         android:gravity="center"
-        android:text="Sally"
+        android:text="Sally Sally"
         android:paddingEnd="20dp"
-        android:textAlignment="center"
+
         android:textColor="@color/blue"
-        android:textSize="35sp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/childScore"
-        android:layout_width="85dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="144dp"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="125dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:gravity="center"
         android:text="65"
         android:textAlignment="center"
         android:textColor="@color/yellow"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/childName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

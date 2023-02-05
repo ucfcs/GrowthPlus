@@ -6,6 +6,8 @@ import com.GrowthPlus.dataAccessLayer.Report.ReportSchema;
 import com.GrowthPlus.dataAccessLayer.Report.ReportSchemaService;
 import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
 
+import javax.annotation.Nullable;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -13,24 +15,27 @@ public class ChildSchemaService {
 
     private String childId;
     private String name;
-    private String avatar;
-    private ReportSchema report;
+    private String avatarName;
+    private String colorName;
+    private Integer score;
     private RoadMapSchema roadmap;
     private Realm realm;
 
     /*
       Constructor
     */
-    public ChildSchemaService(){
-        this.realm = Realm.getDefaultInstance();
+    public ChildSchemaService(Realm realm){
+
+        this.realm = realm;
     }
 
-    public ChildSchemaService(Realm realm, String name, ReportSchema report, RoadMapSchema roadmap, String avatar){
+    public ChildSchemaService(Realm realm, String name, @Nullable  RoadMapSchema roadmap, String avatarName, String colorName, Integer score){
         this.realm = realm;
         this.name = name;
-        this.report = report;
         this.roadmap = roadmap;
-        this.avatar = avatar;
+        this.avatarName = avatarName;
+        this.colorName = colorName;
+        this.score = score;
     }
 
     /*
@@ -41,9 +46,10 @@ public class ChildSchemaService {
         realm.executeTransactionAsync(realm -> {
             ChildSchema newChild = realm.createObject(ChildSchema.class, String.valueOf(childId));
             newChild.setName(name);
-            newChild.setReport(report);
             newChild.setRoadmap(roadmap);
-            newChild.setAvatar(avatar);
+            newChild.setAvatarName(avatarName);
+            newChild.setColorName(colorName);
+            newChild.setScore(score);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New child report object added to realm!");
@@ -65,16 +71,6 @@ public class ChildSchemaService {
     }
 
     /*
-    This method updates a child's report.
-    */
-    public void updateReport(ReportSchema report){
-        realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById();
-            childSchema.setReport(report);
-        });
-    }
-
-    /*
     This method returns all child schemas.
     */
     public RealmResults<ChildSchema> getAllChildSchemas(){
@@ -85,6 +81,13 @@ public class ChildSchemaService {
     This method returns a child schema by ID.
      */
     public ChildSchema getChildSchemaById(){
+        return realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+    }
+
+    /*
+   This method returns a child schema by ID.
+    */
+    public ChildSchema getChildSchemaById(String childId){
         return realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
     }
 
@@ -104,17 +107,6 @@ public class ChildSchemaService {
             RoadMapSchema roadmap = childSchema.getRoadmap();
             roadmap.deleteFromRealm();
             roadmap = null;
-        });
-    }
-    /*
-    This method deletes a child's report.
-     */
-    public void deleteChildReport(){
-        realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById();
-            ReportSchema report = childSchema.getReport();
-            report.deleteFromRealm();
-            report = null;
         });
     }
 

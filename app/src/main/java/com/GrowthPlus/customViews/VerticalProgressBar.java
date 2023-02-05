@@ -1,6 +1,7 @@
 package com.GrowthPlus.customViews;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -41,5 +42,33 @@ public class VerticalProgressBar extends ConstraintLayout {
         inflate(getContext(), R.layout.vertical_progress_bar, this);
         verticalProgressBar = findViewById(R.id.verticalProgressBar);
         progressBarAvatar = findViewById(R.id.progressBarAvatar);
+    }
+
+    /*
+     * set background tint of the avatar
+     * */
+    public void setBackgroundTintList (ColorStateList tint){
+        progressBarAvatar.setBackgroundTintList(tint);
+    }
+
+    /*
+     * set image source of the avatar
+     * */
+    public void setImageResource (int resId){
+        progressBarAvatar.setImageResource(resId);
+    }
+
+    /*
+    * Set new bar progress
+    * */
+    public void setProgress (int progress){
+        verticalProgressBar.setProgress(progress);
+    }
+
+    /*
+    * Set progress background tint, might be useful
+    * */
+    public void setProgressBackgroundTintList (ColorStateList tint){
+        verticalProgressBar.setBackgroundTintList(tint);
     }
 }

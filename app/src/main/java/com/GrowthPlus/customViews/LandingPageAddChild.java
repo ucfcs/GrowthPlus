@@ -43,9 +43,6 @@ public class LandingPageAddChild extends ConstraintLayout {
         landingPageAddChild = findViewById(R.id.landingPageAddChild);
         landingPageAddChildCircle = findViewById(R.id.landingPageAddChildCircle);
 
-        ColorStateList color = ContextCompat.getColorStateList(getContext(), R.color.red);
-
-        setCircleColor(color);
     }
 
     /*

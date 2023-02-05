@@ -1,6 +1,7 @@
 package com.GrowthPlus.customViews;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import com.GrowthPlus.R;
 
@@ -15,7 +17,6 @@ public class ChildCard extends ConstraintLayout {
 
     private ImageView childCardAvatar;
     private TextView childCardName;
-    private ImageView childCardAdd;
 
 
     public ChildCard(@NonNull Context context) {
@@ -43,6 +44,53 @@ public class ChildCard extends ConstraintLayout {
         inflate(getContext(), R.layout.child_card, this);
         childCardAvatar = findViewById(R.id.childCardAvatar);
         childCardName = findViewById(R.id.childCarName);
-        childCardAdd = findViewById(R.id.childCardAdd);
+
+        ColorStateList color = ContextCompat.getColorStateList(getContext(), R.color.red);
+
+        setBackgroundTintList(color);
+        setImageResource(R.mipmap.camel_foreground);
+        setTextColor(color);
+        setText("Pablo");
     }
+
+    /*
+    * Change the circle background color of the child card
+    * */
+    public void setBackgroundTintList (ColorStateList tint){
+        childCardAvatar.setBackgroundTintList(tint);
+    }
+
+    /*
+    * Change the image source of the child card
+    * */
+    public void setImageResource (int resId){
+
+        childCardAvatar.setImageResource(resId);
+    }
+
+    /*
+    * Change the name of the child card
+    * */
+    public final void setText (CharSequence newName){
+
+        childCardName.setText(newName);
+    }
+
+    /*
+    * Change the color of the text
+    * */
+    public void setTextColor (ColorStateList color){
+
+        childCardName.setTextColor(color);
+    }
+
+    /**
+     * Methods to set the component's height
+     */
+
+
+    /**
+     * Methods to set the component's width
+     */
+
 }
