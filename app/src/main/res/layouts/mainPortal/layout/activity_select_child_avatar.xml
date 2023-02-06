@@ -83,7 +83,7 @@
         android:id="@+id/giraffeOption"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/dark_green"
+        android:background="@color/blue"
         android:src="@mipmap/giraffe_foreground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/middleGuideline"

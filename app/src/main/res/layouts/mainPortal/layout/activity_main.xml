@@ -108,9 +108,6 @@
         app:columnCount="2"
         app:rowCount="3">
 
-        <com.GrowthPlus.customViews.LandingPageChildCard />
-        <com.GrowthPlus.customViews.LandingPageChildCard/>
-
 
     </androidx.gridlayout.widget.GridLayout>
 
