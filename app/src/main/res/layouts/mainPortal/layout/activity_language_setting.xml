@@ -65,14 +65,14 @@
 
     <android.widget.Button
         android:id="@+id/backLang"
-        android:layout_width="60sp"
-        android:layout_height="40sp"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="17sp"
-        android:paddingEnd="20sp"
+        android:paddingStart="22dp"
+        android:paddingEnd="20dp"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:text="Language"
         android:textColor="@color/dark_green"
-        android:textSize="45dp"
+        android:textSize="45sp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
@@ -121,7 +121,7 @@
             android:backgroundTint="@color/yellow"
             android:text="English"
             android:textAllCaps="false"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:paddingStart="40dp"
             android:gravity="center_vertical"
             android:textColor="@color/blue"></TextView>
@@ -163,9 +163,5 @@
             android:textColor="@color/blue"></TextView>
 
     </RelativeLayout>
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

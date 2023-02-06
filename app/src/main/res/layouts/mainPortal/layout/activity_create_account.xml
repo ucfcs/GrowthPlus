@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.53" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonS"
@@ -54,46 +54,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.69" />
+        app:layout_constraintGuide_percent="0.67" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.31" />
+        app:layout_constraintGuide_percent="0.33" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/nameBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.57" />
+        app:layout_constraintGuide_percent="0.61" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.62" />
+        app:layout_constraintGuide_percent="0.64" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.68" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <android.widget.Button
         android:id="@+id/backCreateAccount"
-        android:layout_width="60sp"
-        android:layout_height="40sp"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="17sp"
-        android:paddingEnd="20sp"
+        android:paddingStart="22dp"
+        android:paddingEnd="20dp"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
@@ -103,39 +103,40 @@
         android:id="@+id/childAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scaleX="1.4"
+        android:scaleY="1.4"
         app:layout_constraintBottom_toTopOf="@id/bunnyBottom"
-        app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintTop_toBottomOf="@id/buttonBottom" />
 
     <EditText
         android:id="@+id/nameInput"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:hint="Name"
-        android:textSize="30dp"
-        android:backgroundTint="@color/grey"
-        android:textAlignment="center"
+        android:inputType="textPersonName"
         android:background="@drawable/round_button"
-        app:layout_constraintTop_toBottomOf="@id/bunnyBottom"
+        android:backgroundTint="@color/grey"
+        android:hint="Name"
+        android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@id/nameBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintEnd_toStartOf="@id/buttonS">
-    </EditText>
+        app:layout_constraintTop_toBottomOf="@id/bunnyBottom"></EditText>
 
     <android.widget.Button
         android:id="@+id/loginBtn"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_below="@id/nameInput"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/play_large"
-        android:paddingStart="60dp"
-        android:layout_below="@id/nameInput"
-        app:layout_constraintTop_toBottomOf="@id/playTop"
+        android:paddingStart="53dp"
         app:layout_constraintBottom_toTopOf="@id/playBottom"
-        app:layout_constraintStart_toEndOf="@id/playStart"
         app:layout_constraintEnd_toStartOf="@id/playEnd"
-        ></android.widget.Button>
+        app:layout_constraintStart_toEndOf="@id/playStart"
+        app:layout_constraintTop_toBottomOf="@id/playTop"></android.widget.Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
