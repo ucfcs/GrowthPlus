@@ -10,10 +10,13 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.R;
+import com.GrowthPlus.utilities.ColorIdentifier;
+import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 public class ChildAvatarComponent extends ConstraintLayout {
 
-    ImageView childAvatarComponent;
+    ImageView childAvatarImg;
+    ImageView childAvatarColor;
 
 
     public ChildAvatarComponent(@NonNull Context context) {
@@ -37,18 +40,19 @@ public class ChildAvatarComponent extends ConstraintLayout {
 
     private void init(@Nullable AttributeSet set) {
         inflate(getContext(), R.layout.child_avatar_component, this);
-        childAvatarComponent = findViewById(R.id.childAvatarComponent);
+        childAvatarImg = findViewById(R.id.childAvatarImg);
+        childAvatarColor = findViewById(R.id.childAvatarColor);
     }
 
     public void setImageResource(int resId){
-        childAvatarComponent.setImageResource(resId);
+        childAvatarImg.setImageResource(resId);
     }
 
     public void setBackgroundResource(int resId){
-        childAvatarComponent.setBackgroundResource(resId);
+        childAvatarImg.setBackgroundResource(resId);
     }
 
     public void setBackgroundTintList (ColorStateList tint){
-        childAvatarComponent.setBackgroundTintList(tint);
+        childAvatarColor.setBackgroundTintList(tint);
     }
 }

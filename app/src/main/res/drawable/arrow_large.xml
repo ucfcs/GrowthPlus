@@ -1,0 +1,7 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/forward_arrow"
+        android:width="45dp"
+        android:height="45dp">
+    </item>
+</layer-list>

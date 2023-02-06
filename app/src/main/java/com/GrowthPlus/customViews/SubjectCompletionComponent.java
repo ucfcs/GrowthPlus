@@ -1,6 +1,7 @@
 package com.GrowthPlus.customViews;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +15,6 @@ import com.GrowthPlus.R;
 public class SubjectCompletionComponent extends ConstraintLayout {
 
     TextView subjectName;
-    ImageView checkGreenCircle;
     ImageView checkMark;
 
     public SubjectCompletionComponent(@NonNull Context context) {
@@ -40,8 +40,19 @@ public class SubjectCompletionComponent extends ConstraintLayout {
     private void init(@Nullable AttributeSet set) {
         inflate(getContext(), R.layout.subject_completion_component, this);
         subjectName = findViewById(R.id.subjectName);
-        checkGreenCircle = findViewById(R.id.checkGreenCircle);
         checkMark = findViewById(R.id.checkMark);
+    }
+
+    public final void setText (CharSequence text){
+        subjectName.setText(text);
+    }
+
+    public void setBackgroundTintList (ColorStateList tint){
+        checkMark.setBackgroundTintList(tint);
+    }
+
+    public void setImageResource (int resId){
+        checkMark.setImageResource(resId);
     }
 
 }
