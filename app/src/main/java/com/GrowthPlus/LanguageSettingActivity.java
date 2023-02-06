@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
@@ -26,6 +29,10 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     private Button backSet;
     private RelativeLayout english;
     private RelativeLayout french;
+    private LanguageSchemaService langSchemaService;
+
+
+    private TextView name;
 
     Realm realm;
     Resources resources;
@@ -36,6 +43,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_setting);
         init();
+
 
         backSet.setOnClickListener(this);
         english.setOnClickListener(this);
@@ -48,6 +56,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         backSet = findViewById(R.id.backLang);
         english = findViewById(R.id.englishBtn);
         french = findViewById(R.id.frenchBtn);
+        name = findViewById(R.id.languageText);
     }
 
 
@@ -69,6 +78,18 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
             InputStream englishInputStream = resources.openRawResource(R.raw.english);
             LanguagesRealmImporter englishRealmImporter = new LanguagesRealmImporter(realm, resources, englishInputStream);
             englishRealmImporter.importLanguagesFromJson();
+
+            langSchemaService = new LanguageSchemaService(realm, "englishZero");
+
+            LanguageSchema eng = langSchemaService.getLanguageSchemaById();
+            String lang = eng.getName();
+            String msg = "testing lang id";
+            String tag = "Language Settings";
+
+            Log.d(tag, msg);
+            Log.d(tag, lang);
+
+            name.setText(eng.getGrowthPlus());
 
         }
         if(langView == R.id.frenchBtn){

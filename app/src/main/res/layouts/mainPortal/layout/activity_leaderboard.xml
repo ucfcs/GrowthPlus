@@ -48,15 +48,15 @@
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
-        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
+        app:layout_constraintTop_toBottomOf="@id/buttonTop" />
 
-<!--    <com.GrowthPlus.customViews.LeaderboardChildView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/buttonBottom"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent">-->
-<!--    </com.GrowthPlus.customViews.LeaderboardChildView>-->
+<!--        <com.GrowthPlus.customViews.LeaderboardChildView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/buttonBottom"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent">-->
+<!--        </com.GrowthPlus.customViews.LeaderboardChildView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
