@@ -19,6 +19,7 @@ public class ParentSchemaService {
     Constructor
      */
     public ParentSchemaService(Realm realm, String ID, Integer PIN, RealmList<ChildSchema> children){
+        this.ID = ID;
         this.realm = realm;
         this.PIN = PIN;
         this.children = children;
@@ -57,7 +58,7 @@ public class ParentSchemaService {
     This method returns a parent schema by ID.
     */
     public ParentSchema getParentSchema(){
-        return realm.where(ParentSchema.class).equalTo("ID", ID).findFirst();
+        return realm.where(ParentSchema.class).equalTo("parentId", ID).findFirst();
     }
 
     /*

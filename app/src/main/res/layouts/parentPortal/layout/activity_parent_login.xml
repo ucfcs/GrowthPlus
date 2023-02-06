@@ -142,6 +142,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Pin"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
         android:textSize="30dp"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"

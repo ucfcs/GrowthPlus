@@ -55,7 +55,17 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
           Temp ChildCard component to add to the grid layout
          */
         RealmResults<ChildSchema> children = childSchemaService.getAllChildSchemas();
+
+        //mack, you added this from julio's vid: Log.i("Children", String.valueOf(children));
         int childrenRealmResultSize = children.size();
+        ChildSchema childaaa = children.get(0);
+        Log.i("child 0", String.valueOf(childaaa));
+        Log.i("child 0 name", String.valueOf(childaaa.getName()));
+        Log.i("child 0 avatar src", String.valueOf(childaaa.getAvatarName()));
+        Log.i("child 0 color id", String.valueOf(childaaa.getColorName()));
+
+        //end of what i added from julio's vid
+
         ChildSchema childRealmObjectTemp;
         ChildCard childCardTemp;
         VerticalProgressBar verticalProgressBarTemp;

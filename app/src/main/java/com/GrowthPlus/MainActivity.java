@@ -22,6 +22,7 @@ import com.GrowthPlus.customViews.LandingPageChildCard;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.realmImporter.JsonSampleData;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ImageSrcIdentifier imageSrcIdentifier;
     private final int CHILDREN_MAX_NUM = 6;
 
+    public boolean parentExists = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,7 +128,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
 
         if(id == R.id.idParent){
-            startActivity(new Intent(MainActivity.this, ParentPortal.class));
+
+            //If a parent exists (check global boolean variable parentExists), we can go to the login page
+            //Otherwise we go to the signup page to create a parent
+            if(parentExists) {
+                startActivity(new Intent(MainActivity.this, ParentLogin.class));
+            }
+            else{
+                startActivity(new Intent(MainActivity.this, ParentSignup.class));
+            }
         }
 
         if(id == R.id.langBtn){

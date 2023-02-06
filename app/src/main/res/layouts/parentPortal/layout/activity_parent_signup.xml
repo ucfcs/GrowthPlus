@@ -169,6 +169,8 @@
         android:id="@+id/enterPin"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
         android:hint="Pin"
         android:textSize="30dp"
         android:backgroundTint="@color/grey"
@@ -197,6 +199,8 @@
         android:id="@+id/confirmPinInput"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
         android:hint="Pin"
         android:textSize="30dp"
         android:backgroundTint="@color/grey"
@@ -208,8 +212,9 @@
         app:layout_constraintEnd_toStartOf="@id/buttonS">
     </EditText>
 
+    <!--android:id="@+id/parentSignupBtn"-->
     <android.widget.Button
-        android:id="@+id/parentLoginBtn"
+        android:id="@+id/parentSignupBtn"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/round_button"
