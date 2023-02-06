@@ -48,15 +48,69 @@
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
-        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
+        app:layout_constraintTop_toBottomOf="@id/buttonTop" />
 
-<!--    <com.GrowthPlus.customViews.LeaderboardChildView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/buttonBottom"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent">-->
-<!--    </com.GrowthPlus.customViews.LeaderboardChildView>-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.99" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/leaderBoardGridLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:columnCount="1"
+        app:layout_constraintBottom_toTopOf="@id/bottomLine"
+        app:layout_constraintEnd_toStartOf="@id/rightLine"
+        app:layout_constraintStart_toStartOf="@id/leftLine"
+        app:layout_constraintTop_toBottomOf="@id/guideline4"
+        app:rowCount="6">
+
+        <com.GrowthPlus.customViews.LeaderboardChildView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"/>
+        <com.GrowthPlus.customViews.LeaderboardChildView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"/>
+        <com.GrowthPlus.customViews.LeaderboardChildView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"/>
+        <com.GrowthPlus.customViews.LeaderboardChildView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"/>
+        <com.GrowthPlus.customViews.LeaderboardChildView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"/>
+        <com.GrowthPlus.customViews.LeaderboardChildView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"/>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
