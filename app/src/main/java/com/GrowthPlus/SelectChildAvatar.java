@@ -56,7 +56,7 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         v.startAnimation(buttonClick);
 
         if(v.getId() == R.id.backSelectChild){
-            startActivity(new Intent(SelectChildAvatar.this, MainActivity.class));
+            this.finish();
         }
 
         switch(v.getId()){
