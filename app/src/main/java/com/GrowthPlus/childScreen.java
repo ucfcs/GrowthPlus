@@ -106,7 +106,7 @@ public class childScreen extends AppCompatActivity {
         horizontalProgressBarThree = findViewById(R.id.horizontalProgressBarLevelThree);
         horizontalProgressBarFour = findViewById(R.id.horizontalProgressBarLevelFour);
 
-        progressBarOneColor = ContextCompat.getColorStateList(this, R.color.dark_green);
+        progressBarOneColor = ContextCompat.getColorStateList(this, R.color.light_green);
         progressBarTwoColor = ContextCompat.getColorStateList(this, R.color.orange);
         progressBarThreeColor = ContextCompat.getColorStateList(this, R.color.blue);
         progressBarFourColor = ContextCompat.getColorStateList(this, R.color.yellow);

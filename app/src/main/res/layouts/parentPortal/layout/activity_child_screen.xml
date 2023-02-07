@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green"
+    android:background="@color/dark_green"
     tools:context=".childScreen">
 
     <androidx.constraintlayout.widget.Guideline
@@ -62,14 +62,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_percent="0.43" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/underBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.71" />
+        app:layout_constraintGuide_percent="0.65" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/end"
@@ -165,6 +165,7 @@
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         app:columnCount="2"
+        android:paddingBottom="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="@id/end"
         app:layout_constraintTop_toBottomOf="@id/underBar"

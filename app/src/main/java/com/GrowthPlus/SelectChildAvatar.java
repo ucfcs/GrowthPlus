@@ -3,15 +3,11 @@ package com.GrowthPlus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import java.io.ByteArrayOutputStream;
 
 public class SelectChildAvatar extends AppCompatActivity implements View.OnClickListener{
     private ImageView bunny, elephant, bird, camel, giraffe, squirrel;
@@ -63,10 +59,6 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
             startActivity(new Intent(SelectChildAvatar.this, MainActivity.class));
         }
 
-        ByteArrayOutputStream bs = new ByteArrayOutputStream();
-        Bitmap bitmap;
-        byte[] b;
-
         switch(v.getId()){
             case R.id.bunnyOption:
                 startNextScreen("yellow", "bunny");
@@ -79,15 +71,19 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
             case R.id.birdOption:
                 startNextScreen("light_green", "guinea_fowl");
                 break;
+
             case R.id.camelOption:
                 startNextScreen("red", "camel");
                 break;
+
             case R.id.giraffeOption:
                 startNextScreen("yellow", "giraffe");
                 break;
+
             case R.id.squirrelOption:
                 startNextScreen("orange", "squirrel");
                 break;
+
             default:
         }
     }
