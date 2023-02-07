@@ -4,17 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 
 public class SelectChildAvatar extends AppCompatActivity implements View.OnClickListener{
     private ImageView bunny, elephant, bird, camel, giraffe, squirrel;
+    private Button backSelect;
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
@@ -40,6 +41,8 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
 
         ImageView bottomRight = (ImageView) findViewById(R.id.squirrelOption);
         bottomRight.setOnClickListener(this);
+
+        backSelect.setOnClickListener(this);
     }
 
     public void init(){
@@ -49,11 +52,18 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         camel = findViewById(R.id.camelOption);
         giraffe = findViewById(R.id.giraffeOption);
         squirrel = findViewById(R.id.squirrelOption);
+        backSelect = findViewById(R.id.backSelectChild);
     }
 
     @Override
     public void onClick(View v) {
         v.startAnimation(buttonClick);
+
+        if(v.getId() == R.id.backSelectChild){
+            Log.i("select child", "I am clicking!!");
+            startActivity(new Intent(SelectChildAvatar.this, MainActivity.class));
+        }
+
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         Bitmap bitmap;
         byte[] b;
@@ -61,7 +71,6 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         switch(v.getId()){
             case R.id.bunnyOption:
                 startNextScreen("yellow", "bunny");
-
                 break;
 
             case R.id.elephantOption:
