@@ -59,6 +59,7 @@ public class CreateAccount extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CreateAccount.this, SelectChildAvatar.class));
+                finish();
             }
         };
         backButton.setOnClickListener(goBack);

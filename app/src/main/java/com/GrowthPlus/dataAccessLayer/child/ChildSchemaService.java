@@ -63,9 +63,9 @@ public class ChildSchemaService {
     /*
     This method updates a child's roadmap.
     */
-    public void updateRoadmap(RoadMapSchema roadmap){
+    public void updateRoadmap(RoadMapSchema roadmap, String childId){
         realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById();
+            ChildSchema childSchema = getChildSchemaById(childId);
             childSchema.setRoadmap(roadmap);
         });
     }
@@ -80,7 +80,7 @@ public class ChildSchemaService {
     /*
     This method returns a child schema by ID.
      */
-    public ChildSchema getChildSchemaById(){
+    public ChildSchema getChildSchema(){
         return realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
     }
 
@@ -101,9 +101,9 @@ public class ChildSchemaService {
     /*
     This method deletes a child's roadmap.
      */
-    public void deleteChildRoadmaps(){
+    public void deleteChildRoadmaps(String childId){
         realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById();
+            ChildSchema childSchema = getChildSchemaById(childId);
             RoadMapSchema roadmap = childSchema.getRoadmap();
             roadmap.deleteFromRealm();
             roadmap = null;
@@ -113,11 +113,17 @@ public class ChildSchemaService {
     /*
     This method deletes a child schema.
      */
-    public void deleteChildSchema(){
+    public void deleteChildSchemaById(String childId){
         realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById();
+            ChildSchema childSchema = getChildSchemaById(childId);
             childSchema.deleteFromRealm();
             childSchema = null;
+        });
+    }
+
+    public void deleteChildFromRealm(ChildSchema child){
+        realm.executeTransactionAsync(realm -> {
+            child.deleteFromRealm();
         });
     }
 

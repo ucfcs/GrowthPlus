@@ -1,5 +1,6 @@
 package com.GrowthPlus;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -80,6 +81,17 @@ public class childScreen extends AppCompatActivity {
 
         backParentPortal.setOnClickListener(view -> {
             view.startAnimation(buttonClick);
+            startActivity(new Intent(childScreen.this, ParentPortal.class));
+            this.finish();
+        });
+
+        deleteChildButton.setOnClickListener(view -> {
+            realm.executeTransactionAsync(realm -> {
+                ChildSchema deleteChild = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                deleteChild.deleteFromRealm();
+
+            });
+            startActivity(new Intent(childScreen.this, ParentPortal.class));
             this.finish();
         });
 

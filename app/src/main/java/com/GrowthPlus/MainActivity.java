@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        importSampleData();
 
         RealmResults<ChildSchema> children = landingPageChildren.getAllChildSchemas();
         LandingPageChildCard childCardTemp;
         ChildSchema childTemp;
 
-        int childrenNum = children.size(), random;
+        int childrenNum = children.size();
+        int random;
         String childIdTemp;
         String childNameTemp;
         String avatarNameTemp;
@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void init(){
         realm = Realm.getDefaultInstance();
         resources = getResources();
+        importSampleData();
         childPortal = findViewById(R.id.idParent);
         language = findViewById(R.id.langBtn);
         landingPageGridLayout = findViewById(R.id.landingPageChildGrid);
@@ -169,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(id == R.id.idParent){
             startActivity(new Intent(MainActivity.this, ParentPortal.class));
+            this.finish();
         }
 
         if(id == R.id.langBtn){
@@ -238,6 +240,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent childPortal = new Intent(MainActivity.this, ChildPortal.class);
         childPortal.putExtra("childIdLandingPage",childId);
         startActivity(childPortal);
+
     }
 
     public void startAddChildActivity(){
