@@ -80,6 +80,11 @@ public class childScreen extends AppCompatActivity {
             this.finish();
         });
 
+        deleteChildButton.setOnClickListener(view -> {
+            //this.finish();
+
+        });
+
     }
 
     private void init(){
