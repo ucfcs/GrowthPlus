@@ -54,6 +54,9 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
        Log.i("parentId", parentId);
        Log.i("parent", String.valueOf(parent));
 
+       parentSignupPIN = parent.getPIN();
+       Log.i("parent signup pin", String.valueOf(parentSignupPIN));
+
     }
 
     private void init(){
@@ -62,6 +65,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         loginButton = findViewById(R.id.parentLoginBtn);
         loginBackButton = findViewById(R.id.backParentLogin);
         loginPinInput = findViewById(R.id.loginPinInput);
+        loginParentService = new ParentSchemaService(realm);
 
         //get the parentId passed in from ParentSignup
         Bundle extras = getIntent().getExtras();

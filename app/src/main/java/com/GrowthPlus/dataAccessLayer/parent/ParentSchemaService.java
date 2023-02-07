@@ -18,6 +18,10 @@ public class ParentSchemaService {
     /*
     Constructor
      */
+
+    public ParentSchemaService(Realm realm){
+        this.realm = realm;
+    }
     public ParentSchemaService(Realm realm, String ID, Integer PIN, RealmList<ChildSchema> children){
         this.ID = ID;
         this.realm = realm;

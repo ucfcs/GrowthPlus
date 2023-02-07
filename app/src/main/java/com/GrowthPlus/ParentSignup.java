@@ -80,9 +80,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
                 signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, null);
                 signupParentService.createParentSchema();
 
-                //Log.i("parent signup parent id", parentIdString);
-                //Log.i("parent signup prnt srvc", signupParentService.getParentSchema().toString());
-
                 //move on to the login screen
                 startLoginActivity(parentIdString);
             }
@@ -126,7 +123,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     public void startLoginActivity(String parentID){
         Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
         parentLogin.putExtra("parentId", parentID);
-        //Log.i("parentId SLA=", parentID);
         startActivity(parentLogin);
     }
 }
