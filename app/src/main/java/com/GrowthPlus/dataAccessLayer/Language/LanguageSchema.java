@@ -7,6 +7,7 @@ public class LanguageSchema extends RealmObject {
     @PrimaryKey
     String languageId;
     String languageName;
+    String language;
     String	growthPlus;
     String	parent;
     String	child;
@@ -207,6 +208,14 @@ public class LanguageSchema extends RealmObject {
 
     public void setLanguageName(String languageName) {
         this.languageName = languageName;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public String getGrowthPlus() {

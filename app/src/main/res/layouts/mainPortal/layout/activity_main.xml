@@ -79,19 +79,17 @@
 
     <ImageButton
         android:id="@+id/langBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:src="@drawable/settings_gear"
         android:background="@color/light_green"
         app:tint="@color/dark_green"
-        android:scaleY="1.5"
-        android:scaleX="1.5"
+        android:scaleY="1.6"
+        android:scaleX="1.6"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonE"
         app:layout_constraintStart_toStartOf="@id/buttonS"
-        app:layout_constraintTop_toBottomOf="@id/buttonTop">
-
-    </ImageButton>
+        app:layout_constraintTop_toBottomOf="@id/buttonTop" />
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/landingPageChildGrid"
@@ -108,13 +106,11 @@
         app:columnCount="2"
         app:rowCount="3">
 
-        <com.GrowthPlus.customViews.LandingPageChildCard />
-        <com.GrowthPlus.customViews.LandingPageChildCard/>
-
-
     </androidx.gridlayout.widget.GridLayout>
 
     <FrameLayout
+        android:id="@+id/idParent"
+        android:clickable="true"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/parentStart"
@@ -124,24 +120,25 @@
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue">
         <ImageButton
-            android:id="@+id/idParent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/round_button"
             android:layout_marginTop="-20dp"
-            android:scaleX=".9"
-            android:scaleY=".9"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
             android:src="@mipmap/parent_foreground" />
+
         <TextView
+            android:id="@+id/parentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:clickable="false"
-            android:text="parent"
+            android:text="Parent"
             android:textColor="@color/dark_green"
-            android:textSize="25dp" />
+            android:textSize="28dp" />
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

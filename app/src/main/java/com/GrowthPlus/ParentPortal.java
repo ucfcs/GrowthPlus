@@ -32,7 +32,7 @@ import io.realm.RealmResults;
  * It will provide onClick method that we can override and implement custom logic
  */
 public class ParentPortal extends AppCompatActivity implements View.OnClickListener {
-
+    private final int MAX_CHILDREN = 6;
     private Button buttonBackChild;
     private GridLayout parentPortalGridLayout;
     private LinearLayout parentPortalLinearLayout;
@@ -76,8 +76,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
         // Looping through the number of children from the realm result
         // Dynamically add the child cards components with their corresponding data to the grid layout
-        for(int i =0; i< childrenRealmResultSize; i++){
-
+        for(int i = 0; i < childrenRealmResultSize; i++){
             childRealmObjectTemp = children.get(i);
             Log.i("Child ", String.valueOf(childRealmObjectTemp));
             assert childRealmObjectTemp != null;
@@ -101,14 +100,15 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
             verticalProgressBarTemp = null;
         }
 
-        ChildCardAdd addChildCard1 = new ChildCardAdd(this);
-        addChildCard1.setId(R.id.parentPortalChildCardAdd);
-        addChildCard1.setOnClickListener(this);
-        parentPortalGridLayout.addView(addChildCard1);
+        // Make sure children do not surpass 6
+        if(childrenRealmResultSize < MAX_CHILDREN){
+            ChildCardAdd addChildCard1 = new ChildCardAdd(this);
+            addChildCard1.setId(R.id.parentPortalChildCardAdd);
+            addChildCard1.setOnClickListener(this);
+            parentPortalGridLayout.addView(addChildCard1);
+        }
 
         buttonBackChild.setOnClickListener(this);
-
-
     }
 
     /**
