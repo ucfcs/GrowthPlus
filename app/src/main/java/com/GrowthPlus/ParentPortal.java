@@ -23,7 +23,11 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import java.util.HashMap;
+
+import io.realm.ObjectChangeSet;
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
+import io.realm.RealmObjectChangeListener;
 import io.realm.RealmResults;
 
 
@@ -55,6 +59,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
           Temp ChildCard component to add to the grid layout
          */
         RealmResults<ChildSchema> children = childSchemaService.getAllChildSchemas();
+
         int childrenRealmResultSize = children.size();
         ChildSchema childRealmObjectTemp;
         ChildCard childCardTemp;
@@ -210,6 +215,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         }
 
         if((view.getId()) == R.id.backChild) {
+            startLandingPageActivity();
             this.finish();
         }
 
@@ -224,10 +230,17 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         Intent childScreen = new Intent(ParentPortal.this, childScreen.class);
         childScreen.putExtra("childIdParentPortal",childId);
         startActivity(childScreen);
+        this.finish();
     }
 
     public void startSelectChildAvatarActivity(){
         Intent selectChildAvatar = new Intent(ParentPortal.this, SelectChildAvatar.class);
         startActivity(selectChildAvatar);
+    }
+
+    public void startLandingPageActivity(){
+        Intent landingPage = new Intent(ParentPortal.this, MainActivity.class);
+        startActivity(landingPage);
+        this.finish();
     }
 }

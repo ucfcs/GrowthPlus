@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(id == R.id.idParent){
             startActivity(new Intent(MainActivity.this, ParentPortal.class));
+            this.finish();
         }
 
         if(id == R.id.langBtn){
@@ -197,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent childPortal = new Intent(MainActivity.this, ChildPortal.class);
         childPortal.putExtra("childIdLandingPage",childId);
         startActivity(childPortal);
+
     }
 
     public void startAddChildActivity(){
