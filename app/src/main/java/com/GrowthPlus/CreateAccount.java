@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildAvatarComponent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
@@ -43,10 +44,12 @@ public class CreateAccount extends AppCompatActivity {
         View.OnClickListener goNext = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newChild = new ChildSchemaService(realm, nameInput.getText().toString(), null, animalName, colorName, 0);
-                ObjectId childId = new ObjectId();
-                newChild.createChildSchema(String.valueOf(childId)); // Create new child in realm database
-                startActivity(new Intent(CreateAccount.this, MainActivity.class));
+                if (!nameInput.getText().toString().equals(null) && !nameInput.getText().toString().equals("")){
+                    newChild = new ChildSchemaService(realm, nameInput.getText().toString(), null, animalName, colorName, 0);
+                    ObjectId childId = new ObjectId();
+                    newChild.createChildSchema(String.valueOf(childId)); // Create new child in realm database
+                    startActivity(new Intent(CreateAccount.this, MainActivity.class));
+                }
             }
         };
         loginButton.setOnClickListener(goNext);
@@ -72,8 +75,10 @@ public class CreateAccount extends AppCompatActivity {
         childAvatar = findViewById(R.id.childAvatar);
 
         Bundle extras = getIntent().getExtras();
-        colorName = extras.getString("selectColor"); // Get color
-        animalName = extras.getString("selectAnimal"); // Get animal
+        if (extras != null) {
+            colorName = extras.getString("selectColor"); // Get color
+            animalName = extras.getString("selectAnimal"); // Get animal
+        }
         color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(colorName));
 
         backButton.setBackgroundTintList(color); // Set color

@@ -5,11 +5,9 @@ import com.GrowthPlus.R;
 import java.util.HashMap;
 
 public class ColorIdentifier {
-
     private HashMap<String, Integer> colorId;
 
     public ColorIdentifier(){
-
         colorId = new HashMap<String, Integer>();
         colorId.put("red", R.color.red);
         colorId.put("dark_green", R.color.dark_green);

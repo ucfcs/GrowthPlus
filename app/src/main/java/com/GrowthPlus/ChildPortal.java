@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -31,6 +32,7 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
     private ChildSchemaService childSchemaService;
     private Realm realm;
     private ImageSrcIdentifier imageSrcIdentifier;
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,8 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+
+        view.startAnimation(buttonClick);
 
         int viewId = view.getId();
 

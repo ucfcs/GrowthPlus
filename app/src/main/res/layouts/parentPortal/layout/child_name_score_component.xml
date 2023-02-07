@@ -14,9 +14,8 @@
         android:background="@drawable/round_button"
         android:backgroundTint="@color/grey"
         android:gravity="center"
-        android:text="Sally Sally"
+        android:text="Sally"
         android:paddingEnd="20dp"
-
         android:textColor="@color/blue"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"

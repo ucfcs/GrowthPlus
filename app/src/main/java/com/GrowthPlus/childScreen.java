@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -60,6 +61,7 @@ public class childScreen extends AppCompatActivity {
 
     private Realm realm;
     private ChildSchemaService childSchemaService;
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
 
     @Override
@@ -78,6 +80,7 @@ public class childScreen extends AppCompatActivity {
         setProgressBar(horizontalProgressBarFour, "4", progressBarFourColor, 50);
 
         backParentPortal.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             startActivity(new Intent(childScreen.this, ParentPortal.class));
             this.finish();
         });
@@ -115,9 +118,9 @@ public class childScreen extends AppCompatActivity {
         horizontalProgressBarThree = findViewById(R.id.horizontalProgressBarLevelThree);
         horizontalProgressBarFour = findViewById(R.id.horizontalProgressBarLevelFour);
 
-        progressBarOneColor = ContextCompat.getColorStateList(this, R.color.dark_green);
+        progressBarOneColor = ContextCompat.getColorStateList(this, R.color.light_green);
         progressBarTwoColor = ContextCompat.getColorStateList(this, R.color.orange);
-        progressBarThreeColor = ContextCompat.getColorStateList(this, R.color.light_green);
+        progressBarThreeColor = ContextCompat.getColorStateList(this, R.color.blue);
         progressBarFourColor = ContextCompat.getColorStateList(this, R.color.yellow);
 
         numbers = findViewById(R.id.numbersCompletion);
@@ -144,7 +147,6 @@ public class childScreen extends AppCompatActivity {
     }
 
     private void setProgressBar(HorizontalProgressBar temp,  CharSequence text, ColorStateList tint, Integer progress){
-
         temp.setBarLevelText(text);
         temp.setBarLevelColor(tint);
         temp.setHorizontalBarColor(tint);
