@@ -2,8 +2,9 @@
   {
     "languageId": "frenchZero",
     "languageName": "French",
+    "language": "Langue",
     "growthPlus": "Arrose+",
-    "parent": "parent",
+    "parent": "parente",
     "child": "l’enfant",
     "points": "la point",
     "pin": "le code PIN",

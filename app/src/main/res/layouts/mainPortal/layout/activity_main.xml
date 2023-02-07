@@ -131,6 +131,7 @@
             android:scaleY=".9"
             android:src="@mipmap/parent_foreground" />
         <TextView
+            android:id="@+id/parentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

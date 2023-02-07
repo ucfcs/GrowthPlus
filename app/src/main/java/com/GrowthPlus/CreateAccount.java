@@ -74,8 +74,10 @@ public class CreateAccount extends AppCompatActivity {
         childAvatar = findViewById(R.id.childAvatar);
 
         Bundle extras = getIntent().getExtras();
-        colorName = extras.getString("selectColor"); // Get color
-        animalName = extras.getString("selectAnimal"); // Get animal
+        if (extras != null) {
+            colorName = extras.getString("selectColor"); // Get color
+            animalName = extras.getString("selectAnimal"); // Get animal
+        }
         color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(colorName));
 
         backButton.setBackgroundTintList(color); // Set color

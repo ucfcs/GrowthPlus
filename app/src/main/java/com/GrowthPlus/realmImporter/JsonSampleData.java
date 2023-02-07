@@ -18,10 +18,10 @@ public class JsonSampleData {
 
     public void importDataFromJson(){
 
-//        //Language Data
-//        InputStream languagesInputStream = resources.openRawResource(R.raw.languages);
-//        LanguagesRealmImporter languagesRealmImporter = new LanguagesRealmImporter(realm, resources, languagesInputStream);
-//        languagesRealmImporter.importLanguagesFromJson();
+        //Language Data
+        InputStream languagesInputStream = resources.openRawResource(R.raw.languages);
+        LanguagesRealmImporter languagesRealmImporter = new LanguagesRealmImporter(realm, resources, languagesInputStream);
+        languagesRealmImporter.importLanguagesFromJson();
 
         // Children data
         InputStream childInputStream = resources.openRawResource(R.raw.child);
