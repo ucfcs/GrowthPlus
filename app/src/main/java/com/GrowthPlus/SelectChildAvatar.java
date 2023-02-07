@@ -3,14 +3,9 @@ package com.GrowthPlus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
-import java.io.ByteArrayOutputStream;
 
 public class SelectChildAvatar extends AppCompatActivity implements View.OnClickListener{
     private ImageView bunny, elephant, bird, camel, giraffe, squirrel;
@@ -51,14 +46,9 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        ByteArrayOutputStream bs = new ByteArrayOutputStream();
-        Bitmap bitmap;
-        byte[] b;
-
         switch(v.getId()){
             case R.id.bunnyOption:
                 startNextScreen("blue", "bunny");
-
                 break;
 
             case R.id.elephantOption:
@@ -68,15 +58,19 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
             case R.id.birdOption:
                 startNextScreen("light_green", "guinea_fowl");
                 break;
+
             case R.id.camelOption:
                 startNextScreen("red", "camel");
                 break;
+
             case R.id.giraffeOption:
                 startNextScreen("blue", "giraffe");
                 break;
+
             case R.id.squirrelOption:
                 startNextScreen("yellow", "squirrel");
                 break;
+
             default:
         }
     }

@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat;
 import com.GrowthPlus.R;
 
 public class LandingPageAddChild extends ConstraintLayout {
-
     private ImageView landingPageAddChild;
     private ImageView landingPageAddChildCircle;
 
@@ -45,16 +44,12 @@ public class LandingPageAddChild extends ConstraintLayout {
 
     }
 
-    /*
-    * Set color of the circle background of the add component
-    * */
+    // Set color of circle background
     public void setCircleColor(ColorStateList color){
         landingPageAddChildCircle.setBackgroundTintList(color);
     }
 
-    /*
-    * Set color of the add icon
-    * */
+    // Set color of add icon
     public void setAddIconColor(ColorStateList color){
         landingPageAddChild.setBackgroundTintList(color);
     }
