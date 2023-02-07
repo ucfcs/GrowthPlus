@@ -7,15 +7,10 @@ import androidx.gridlayout.widget.GridLayout;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
-import com.GrowthPlus.R;
 
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.GrowthPlus.customViews.LandingPageAddChild;
 import com.GrowthPlus.customViews.LandingPageChildCard;
@@ -27,12 +22,14 @@ import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
+    ColorIdentifier colorIdentifier;
+    ColorStateList red, darkGreen, blue, yellow, lightGreen;
     Realm realm;
     Resources resources;
     private ImageButton childPortal;
@@ -41,10 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ChildSchemaService landingPageChildren;
     private HashMap<Integer, Integer> landingPageChildCardIds;
     private HashMap<Integer, String> landingPageChildId;
-    public ColorIdentifier colorIdentifier;
     public ImageSrcIdentifier imageSrcIdentifier;
-    private final int CHILDREN_MAX_NUM = 6;
-
+    public final int MAX_CHILDREN = 6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LandingPageChildCard childCardTemp;
         ChildSchema childTemp;
 
-
-        int childrenNum = children.size();
+        int childrenNum = children.size(), random;
         String childIdTemp;
         String childNameTemp;
         String avatarNameTemp;
@@ -82,10 +76,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             childTemp = null;
         }
 
-        if(childrenNum != CHILDREN_MAX_NUM){
+        if(childrenNum < MAX_CHILDREN){
             LandingPageAddChild landingPageAddChild = new LandingPageAddChild(this);
             landingPageAddChild.setId(R.id.landingPageChildCardAdd);
             landingPageAddChild.setOnClickListener(this);
+
+            // Produces a 'random' color for the add student button
+            Random rand = new Random();
+            random = rand.nextInt(5);
+            if(random == 0){
+                landingPageAddChild.setCircleColor(red);
+                landingPageAddChild.setAddIconColor(blue);
+            }
+            else if(random == 1){
+                landingPageAddChild.setCircleColor(darkGreen);
+                landingPageAddChild.setAddIconColor(yellow);
+            }
+            else if(random == 2){
+                landingPageAddChild.setCircleColor(darkGreen);
+                landingPageAddChild.setAddIconColor(blue);
+            }
+            else if(random == 3){
+                landingPageAddChild.setCircleColor(lightGreen);
+                landingPageAddChild.setAddIconColor(darkGreen);
+            }
+            else{
+                landingPageAddChild.setCircleColor(yellow);
+                landingPageAddChild.setAddIconColor(red);
+            }
+
             landingPageGridLayout.addView(landingPageAddChild);
         }
 
@@ -105,6 +124,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageSrcIdentifier = new ImageSrcIdentifier();
         landingPageChildId = new HashMap<>();
 
+        red = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier("red"));
+        darkGreen = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier("dark_green"));
+        blue = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier("blue"));
+        yellow = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier("yellow"));
+        lightGreen = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier("light_green"));
+
         landingPageChildCardIds = new HashMap<>();
         setLandingPageChildCardIds();
     }
@@ -121,8 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View view) {
-
+    public void onClick(View view){
         int id = view.getId();
 
         if(id == R.id.idParent){
@@ -166,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if( id == R.id.landingPageChildCardAdd){
             startAddChildActivity();
         }
-
     }
 
     private void setLandingPageChildCardIds(){
