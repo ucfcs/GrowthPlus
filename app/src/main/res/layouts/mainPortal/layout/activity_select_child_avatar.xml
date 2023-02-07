@@ -32,7 +32,7 @@
         android:id="@+id/bunnyOption"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/blue"
+        android:background="@color/yellow"
         android:src="@mipmap/bunny_foreground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/middleGuideline"
@@ -80,11 +80,11 @@
     </ImageView>
 
     <ImageView
-        android:id="@+id/giraffeOption"
+        android:id="@+id/squirrelOption"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/blue"
-        android:src="@mipmap/giraffe_foreground"
+        android:background="@color/orange"
+        android:src="@mipmap/squirrel_foreground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/middleGuideline"
         app:layout_constraintTop_toTopOf="@id/horizontal2"
@@ -93,11 +93,11 @@
     </ImageView>
 
     <ImageView
-        android:id="@+id/squirrelOption"
+        android:id="@+id/giraffeOption"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/yellow"
-        android:src="@mipmap/squirrel_foreground"
+        android:src="@mipmap/giraffe_foreground"
         app:layout_constraintStart_toStartOf="@id/middleGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/horizontal2"

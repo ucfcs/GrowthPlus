@@ -13,7 +13,9 @@ import android.util.Log;
 import com.GrowthPlus.R;
 
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Realm realm;
     Resources resources;
-    private ImageButton childPortal;
+    private FrameLayout childPortal;
     private ImageButton language;
     private GridLayout landingPageGridLayout;
     private ChildSchemaService landingPageChildren;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ColorIdentifier colorIdentifier;
     public ImageSrcIdentifier imageSrcIdentifier;
     private final int CHILDREN_MAX_NUM = 6;
+    public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +125,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+
+        view.startAnimation(buttonClick);
 
         int id = view.getId();
 

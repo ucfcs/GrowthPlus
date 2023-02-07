@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -30,6 +31,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     private RelativeLayout english;
     private RelativeLayout french;
     private LanguageSchemaService langSchemaService;
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
 
     private TextView name;
@@ -62,6 +64,8 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
+
+        view.startAnimation(buttonClick);
 
         int langView = view.getId();
         ImageView engCheck = (ImageView) findViewById(R.id.englishCheck);

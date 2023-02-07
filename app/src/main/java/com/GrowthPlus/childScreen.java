@@ -4,6 +4,7 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -59,6 +60,7 @@ public class childScreen extends AppCompatActivity {
 
     private Realm realm;
     private ChildSchemaService childSchemaService;
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
 
     @Override
@@ -77,6 +79,7 @@ public class childScreen extends AppCompatActivity {
         setProgressBar(horizontalProgressBarFour, "4", progressBarFourColor, 50);
 
         backParentPortal.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             this.finish();
         });
 
@@ -132,7 +135,6 @@ public class childScreen extends AppCompatActivity {
     }
 
     private void setProgressBar(HorizontalProgressBar temp,  CharSequence text, ColorStateList tint, Integer progress){
-
         temp.setBarLevelText(text);
         temp.setBarLevelColor(tint);
         temp.setHorizontalBarColor(tint);

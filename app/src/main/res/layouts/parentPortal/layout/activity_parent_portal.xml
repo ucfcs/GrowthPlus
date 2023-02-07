@@ -106,9 +106,6 @@
         app:layout_constraintBottom_toTopOf="@id/childEnd"
         app:layout_constraintTop_toTopOf="@id/topLine">
 
-        <com.GrowthPlus.customViews.ChildCard/>
-        <com.GrowthPlus.customViews.ChildCard/>
-
     </androidx.gridlayout.widget.GridLayout>
 
     <LinearLayout

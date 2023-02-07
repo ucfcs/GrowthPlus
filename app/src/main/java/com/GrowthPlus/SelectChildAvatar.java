@@ -8,12 +8,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 
 public class SelectChildAvatar extends AppCompatActivity implements View.OnClickListener{
     private ImageView bunny, elephant, bird, camel, giraffe, squirrel;
+    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +53,14 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
+        v.startAnimation(buttonClick);
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         Bitmap bitmap;
         byte[] b;
 
         switch(v.getId()){
             case R.id.bunnyOption:
-                startNextScreen("blue", "bunny");
+                startNextScreen("yellow", "bunny");
 
                 break;
 
@@ -72,10 +75,10 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
                 startNextScreen("red", "camel");
                 break;
             case R.id.giraffeOption:
-                startNextScreen("blue", "giraffe");
+                startNextScreen("yellow", "giraffe");
                 break;
             case R.id.squirrelOption:
-                startNextScreen("yellow", "squirrel");
+                startNextScreen("orange", "squirrel");
                 break;
             default:
         }
