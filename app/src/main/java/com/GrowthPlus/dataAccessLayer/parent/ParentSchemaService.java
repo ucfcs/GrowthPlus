@@ -30,8 +30,7 @@ public class ParentSchemaService {
      */
     public void createParentSchema(){
         realm.executeTransactionAsync(realm1 -> {
-            ParentSchema newParent = realm.createObject(ParentSchema.class, ID);
-            newParent.setParentId(ID);
+            ParentSchema newParent = realm1.createObject(ParentSchema.class, ID);
             newParent.setPIN(PIN);
             newParent.setChildren(children);
         }, () -> { //Lambda expression
@@ -59,6 +58,11 @@ public class ParentSchemaService {
     */
     public ParentSchema getParentSchema(){
         return realm.where(ParentSchema.class).equalTo("parentId", ID).findFirst();
+        //maybe change ID to parentId
+    }
+
+    public ParentSchema getParentSchemaById(String parentId){
+        return realm.where(ParentSchema.class).equalTo("parentId", parentId).findFirst();
     }
 
     /*

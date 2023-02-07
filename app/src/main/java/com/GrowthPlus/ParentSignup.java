@@ -24,8 +24,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
     Realm realm;
     Resources resources;
-
-    ParentSchema parentSchema;
     private ParentSchemaService signupParentService;
     private Button signupButton;
     private Button signupBackButton;
@@ -42,7 +40,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         init();
         importSampleData();
 
-        //new way
         signupButton.setOnClickListener(this);
         signupBackButton.setOnClickListener(this);
 
@@ -67,13 +64,14 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
         int id = view.getId();
 
+        //if they click the signup button
         if(id == R.id.parentSignupBtn){
 
             //track what the user entered
             enterPinInputInteger = Integer.parseInt(enterPinInput.getText().toString());
             confirmPinInputInteger = Integer.parseInt(confirmPinInput.getText().toString());
-            Log.i("enterPinInputInteger ==", enterPinInputInteger.toString());
-            Log.i("confirmPinInputIntgr ==", confirmPinInputInteger.toString());
+            //Log.i("enterPinInputInteger ==", enterPinInputInteger.toString());
+           // Log.i("confirmPinInputIntgr ==", confirmPinInputInteger.toString());
 
             if(confirmPinMatch(enterPinInputInteger, confirmPinInputInteger) == true){
                 //create a parent with the pin
@@ -82,23 +80,28 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
                 signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, null);
                 signupParentService.createParentSchema();
 
-                Log.i("parent signup parent id", parentId.toString());
+                //Log.i("parent signup parent id", parentIdString);
                 //Log.i("parent signup prnt srvc", signupParentService.getParentSchema().toString());
 
-                //move on to the launch screen
-                Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
-                parentLogin.putExtra("confirmedPin", confirmPinInputInteger.toString());
-                startActivity(parentLogin);
+                //move on to the login screen
+                startLoginActivity(parentIdString);
             }
 
             else{
-                //while loop?
+                //ruth said something about a while loop?
+                //for now just display a toast
+                Context context = getApplicationContext();
+                CharSequence text = "PINs do not match! Please try typing them again.";
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         }
 
+        //if they click the back button, go to the main landing page
         if(id == R.id.backParentSU){
-            Intent mainActivity = new Intent(ParentSignup.this, MainActivity.class);
-            startActivity(mainActivity);
+            startMainActivity();
         }
     }
 
@@ -111,13 +114,19 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
         else{
             //they don't match
-            Context context = getApplicationContext();
-            CharSequence text = "PINs do not match! Please try typing them again.";
-            int duration = Toast.LENGTH_LONG;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
             return false;
         }
+    }
+
+    public void startMainActivity(){
+        Intent mainActivity = new Intent(ParentSignup.this, MainActivity.class);
+        startActivity(mainActivity);
+    }
+
+    public void startLoginActivity(String parentID){
+        Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
+        parentLogin.putExtra("parentId", parentID);
+        //Log.i("parentId SLA=", parentID);
+        startActivity(parentLogin);
     }
 }
