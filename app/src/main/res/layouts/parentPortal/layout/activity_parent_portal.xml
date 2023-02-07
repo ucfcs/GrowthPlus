@@ -85,8 +85,8 @@
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="22sp"
-        android:paddingEnd="20sp"
+        android:paddingStart="22dp"
+        android:paddingEnd="20dp"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
@@ -105,9 +105,6 @@
         app:layout_constraintEnd_toStartOf="@id/rightLine"
         app:layout_constraintBottom_toTopOf="@id/childEnd"
         app:layout_constraintTop_toTopOf="@id/topLine">
-
-        <com.GrowthPlus.customViews.ChildCard/>
-        <com.GrowthPlus.customViews.ChildCard/>
 
     </androidx.gridlayout.widget.GridLayout>
 

@@ -28,11 +28,39 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.66" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.17" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
     <ImageView
         android:id="@+id/bunnyOption"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/blue"
+        android:background="@color/yellow"
         android:src="@mipmap/bunny_foreground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/middleGuideline"
@@ -80,11 +108,11 @@
     </ImageView>
 
     <ImageView
-        android:id="@+id/giraffeOption"
+        android:id="@+id/squirrelOption"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/blue"
-        android:src="@mipmap/giraffe_foreground"
+        android:background="@color/orange"
+        android:src="@mipmap/squirrel_foreground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/middleGuideline"
         app:layout_constraintTop_toTopOf="@id/horizontal2"
@@ -93,17 +121,32 @@
     </ImageView>
 
     <ImageView
-        android:id="@+id/squirrelOption"
+        android:id="@+id/giraffeOption"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/yellow"
-        android:src="@mipmap/squirrel_foreground"
+        android:src="@mipmap/giraffe_foreground"
         app:layout_constraintStart_toStartOf="@id/middleGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/horizontal2"
         app:layout_constraintBottom_toBottomOf="parent">
 
     </ImageView>
+
+    <android.widget.Button
+        android:id="@+id/backSelectChild"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/back_arrow"
+        android:paddingStart="22dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonEnd"
+        app:layout_constraintStart_toStartOf="@id/buttonStart"
+        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

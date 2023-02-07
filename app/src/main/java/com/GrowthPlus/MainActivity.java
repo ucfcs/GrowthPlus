@@ -10,7 +10,12 @@ import android.content.res.Resources;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.GrowthPlus.customViews.LandingPageAddChild;
 import com.GrowthPlus.customViews.LandingPageChildCard;
@@ -32,14 +37,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ColorStateList red, darkGreen, blue, yellow, lightGreen;
     Realm realm;
     Resources resources;
-    private ImageButton childPortal;
+    private FrameLayout childPortal;
     private ImageButton language;
+    private TextView parentText;
     private GridLayout landingPageGridLayout;
     private ChildSchemaService landingPageChildren;
     private HashMap<Integer, Integer> landingPageChildCardIds;
     private HashMap<Integer, String> landingPageChildId;
     public ImageSrcIdentifier imageSrcIdentifier;
     public final int MAX_CHILDREN = 6;
+    public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         childPortal = findViewById(R.id.idParent);
         language = findViewById(R.id.langBtn);
         landingPageGridLayout = findViewById(R.id.landingPageChildGrid);
+        parentText = findViewById(R.id.parentText);
         landingPageChildren = new ChildSchemaService(realm);
         colorIdentifier = new ColorIdentifier();
         imageSrcIdentifier = new ImageSrcIdentifier();
@@ -132,6 +141,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         landingPageChildCardIds = new HashMap<>();
         setLandingPageChildCardIds();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            parentText.setText(extras.getString("setParent"));
+        }
+
     }
 
     private void importSampleData(){
@@ -146,7 +161,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View view){
+    public void onClick(View view) {
+
+        view.startAnimation(buttonClick);
+
         int id = view.getId();
 
         if(id == R.id.idParent){
