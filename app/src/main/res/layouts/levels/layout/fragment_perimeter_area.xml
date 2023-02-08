@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".fragment.PerimeterArea">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="perimeter"
+        android:textAlignment="center"
+        android:textColor="@color/dark_green"
+        android:textSize="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="350dp"
+        android:layout_height="220dp"
+        android:src="@mipmap/rectangle_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:text="p = length + width + length + width =  p = 2 x (length + width)"
+        android:textAlignment="center"
+        android:textColor="@color/dark_green"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image" />
+</androidx.constraintlayout.widget.ConstraintLayout>
