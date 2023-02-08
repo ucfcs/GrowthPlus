@@ -9,6 +9,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public final int MAX_CHILDREN = 6;
     public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
-    public boolean parentExists = false;
+    private boolean parentExists;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,9 +146,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         landingPageChildCardIds = new HashMap<>();
         setLandingPageChildCardIds();
 
+        parentExists = false;
+
+        String str = getIntent().toString();
+        Log.i("getIntent() ", str);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             parentText.setText(extras.getString("setParent"));
+            parentExists = extras.getBoolean("parentExists");
+            Log.i("parentExists MA = ", String.valueOf(parentExists));
+        }
+
+        else{
+            Log.i("extras null", "the extras were null i guess");
         }
 
     }
@@ -172,11 +185,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(id == R.id.idParent){
 
             //If a parent exists (check global boolean variable parentExists), we can go to the login page
-            //Otherwise we go to the signup page to create a parent
             if(parentExists) {
+                Log.i("tag ioipe MA", "inside of if(parentExists)");
                 startActivity(new Intent(MainActivity.this, ParentLogin.class));
             }
+            //Otherwise we go to the signup page to create a parent
             else{
+                Log.i("tag ioipe MA", "inside of else(parentExists)");
                 startActivity(new Intent(MainActivity.this, ParentSignup.class));
             }
         }

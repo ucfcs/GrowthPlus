@@ -24,7 +24,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
     Realm realm;
     Resources resources;
-    private ParentSchemaService signupParentService;
     private Button signupButton;
     private Button signupBackButton;
 
@@ -32,6 +31,11 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     private EditText confirmPinInput;
     Integer enterPinInputInteger;
     Integer confirmPinInputInteger;
+
+    private ParentSchemaService signupParentService;
+    private ObjectId parentId;
+    private String parentIdString;
+    public boolean parentExists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,9 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         signupBackButton = findViewById(R.id.backParentSU);
         enterPinInput = findViewById(R.id.enterPin);
         confirmPinInput = findViewById(R.id.confirmPinInput);
+        parentId = new ObjectId();
+        parentIdString = parentId.toString();
+        parentExists = false;
     }
 
     private void importSampleData(){
@@ -66,22 +73,17 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
         //if they click the signup button
         if(id == R.id.parentSignupBtn){
-
             //track what the user entered
             enterPinInputInteger = Integer.parseInt(enterPinInput.getText().toString());
             confirmPinInputInteger = Integer.parseInt(confirmPinInput.getText().toString());
-            //Log.i("enterPinInputInteger ==", enterPinInputInteger.toString());
-           // Log.i("confirmPinInputIntgr ==", confirmPinInputInteger.toString());
 
             if(confirmPinMatch(enterPinInputInteger, confirmPinInputInteger) == true){
                 //create a parent with the pin
-                ObjectId parentId = new ObjectId();
-                String parentIdString = parentId.toString();
-                signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, null);
-                signupParentService.createParentSchema();
+                createParent();
+                parentExists = true;
 
                 //move on to the login screen
-                startLoginActivity(parentIdString);
+                startLoginActivity();
             }
 
             else{
@@ -102,27 +104,34 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //simple method to see if two pins match
     private boolean confirmPinMatch(Integer pin1, Integer pin2){
 
-        if(pin1.equals(pin2)){
-            //they match
+        if(pin1.equals(pin2))
             return true;
-        }
 
-        else{
-            //they don't match
+        else
             return false;
-        }
     }
 
+    //moves to the MainActivity page
     public void startMainActivity(){
         Intent mainActivity = new Intent(ParentSignup.this, MainActivity.class);
         startActivity(mainActivity);
     }
 
-    public void startLoginActivity(String parentID){
+    //moves to the login page, passing over the parentId
+    public void startLoginActivity(){
         Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
-        parentLogin.putExtra("parentId", parentID);
+        parentLogin.putExtra("parentIdString", parentIdString);
+        parentLogin.putExtra("parentExists", parentExists);
+        Log.i("parent exists PS", String.valueOf(parentExists));
         startActivity(parentLogin);
+    }
+
+    //since the signup page involves about creating an account, we need a method to create a parent
+    private void createParent(){
+        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, null);
+        signupParentService.createParentSchema();
     }
 }

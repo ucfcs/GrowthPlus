@@ -44,6 +44,9 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     public ImageSrcIdentifier imageSrcIdentifier;
     private Realm realm;
 
+    private boolean parentExists;
+    private String parentIdString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,16 +59,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
          */
         RealmResults<ChildSchema> children = childSchemaService.getAllChildSchemas();
 
-        //mack, you added this from julio's vid: Log.i("Children", String.valueOf(children));
         int childrenRealmResultSize = children.size();
-        ChildSchema childaaa = children.get(0);
-        Log.i("child 0", String.valueOf(childaaa));
-        Log.i("child 0 name", String.valueOf(childaaa.getName()));
-        Log.i("child 0 avatar src", String.valueOf(childaaa.getAvatarName()));
-        Log.i("child 0 color id", String.valueOf(childaaa.getColorName()));
-
-        //end of what i added from julio's vid
-
         ChildSchema childRealmObjectTemp;
         ChildCard childCardTemp;
         VerticalProgressBar verticalProgressBarTemp;
@@ -125,9 +119,18 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         childCardId = new HashMap<>();
         childId = new HashMap<>();
         progressBarIds = new HashMap<>();
+        parentExists = false;
 
         setChildCardIds();
         setProgressBarIds();
+
+        //get the parentId passed in from ParentSignup
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            parentIdString = extras.getString("parentIdString");
+            parentExists = extras.getBoolean("parentExists");
+            Log.i("parentExists PP = ", String.valueOf(parentExists));
+        }
     }
 
     @Nullable
@@ -220,7 +223,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         }
 
         if((view.getId()) == R.id.backChild) {
-            this.finish();
+            //this.finish();
+            startMainActivity();
         }
 
     }
@@ -239,5 +243,13 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     public void startSelectChildAvatarActivity(){
         Intent selectChildAvatar = new Intent(ParentPortal.this, SelectChildAvatar.class);
         startActivity(selectChildAvatar);
+    }
+
+    //moves to the MainActivity page
+    public void startMainActivity(){
+        Intent mainActivity = new Intent(ParentPortal.this, MainActivity.class);
+        mainActivity.putExtra("parentExists", parentExists);
+        mainActivity.putExtra("parentIdString", parentIdString);
+        startActivity(mainActivity);
     }
 }
