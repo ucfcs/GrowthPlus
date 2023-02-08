@@ -3,12 +3,6 @@ package com.GrowthPlus.dataAccessLayer.child;
 import android.util.Log;
 
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
-import com.GrowthPlus.dataAccessLayer.Report.ReportSchema;
-import com.GrowthPlus.dataAccessLayer.Report.ReportSchemaService;
-import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
-
-import javax.annotation.Nullable;
-
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -125,10 +119,4 @@ public class ChildSchemaService {
         });
     }
 
-    public ReportSchema getReportByChildName(String childName) {
-        ReportSchemaService report = new ReportSchemaService(realm);
-        report.getChildReportByName(childName);
-
-        return report.getChildReportByName(childName);
-    }
 }

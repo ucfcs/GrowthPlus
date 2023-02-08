@@ -1,8 +1,55 @@
 [
   {
-    "roadMapId": "roadMap1",
-    "roadMapName": "roadMapOne",
+    "roadMapId": "roadMapOne",
+    "roadMapName": "Level 1",
+    "lessons": [
+      {
+        "lessonId": "lessonOneRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "count 1-10",
+        "category": "numbers",
+        "image": "elephant"
+      },
+      {
+        "lessonId": "lessonTwoRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "adding 1-10",
+        "category": "addition",
+        "image": "elephant"
+      },
+      {
+        "lessonId": "lessonThreeRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "unit 10s",
+        "category": "units",
+        "image": "elephant"
+      }
+    ],
+    "quizzes": null,
+    "scenarioGame": null
+  },
+  {
+    "roadMapId": "roadMapTwo",
+    "roadMapName": "Level 2",
     "lessons": null,
+    "quizzes": null,
+    "scenarioGame": null
+  },
+  {
+    "roadMapId": "roadMapThree",
+    "roadMapName": "Level 3",
+    "lessons": null,
+    "quizzes": null,
+    "scenarioGame": null
+  },
+  {
+    "roadMapId": "roadMapFour",
+    "roadMapName": "Level 4",
+    "lessons": null,
+    "quizzes": null,
     "scenarioGame": null
   }
 ]

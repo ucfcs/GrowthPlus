@@ -1,12 +1,6 @@
 package com.GrowthPlus.dataAccessLayer.child;
 
-//import android.media.Image;
-import android.media.Image;
-
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
-import com.GrowthPlus.dataAccessLayer.Report.ReportSchema;
-import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
-
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 

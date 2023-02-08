@@ -49,12 +49,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ImageSrcIdentifier imageSrcIdentifier;
     public final int MAX_CHILDREN = 6;
     public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    JsonSampleData jsonSampleData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        importRoadMapData();
 
         RealmResults<ChildSchema> children = landingPageChildren.getAllChildSchemas();
 
@@ -126,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void init(){
         realm = Realm.getDefaultInstance();
         resources = getResources();
+        jsonSampleData = new JsonSampleData(realm, resources);
         childPortal = findViewById(R.id.idParent);
         language = findViewById(R.id.langBtn);
         landingPageGridLayout = findViewById(R.id.landingPageChildGrid);
@@ -152,8 +155,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void importSampleData(){
-        JsonSampleData jsonSampleData = new JsonSampleData(realm, resources);
         jsonSampleData.importDataFromJson();
+    }
+
+    public void importRoadMapData(){
+        jsonSampleData.importRoadMapData();
     }
 
     @Override
