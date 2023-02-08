@@ -8,13 +8,18 @@ import io.realm.RealmResults;
 public class LessonSchemaService {
     private Realm realm;
     private String lessonId;
-    private Integer points;
+    private Integer maxPoints;
+    private Integer minPoints;
     private String lessonName;
+    private String image;
 
-    public LessonSchemaService(Realm realm, Integer points, String lessonName){
+    public LessonSchemaService(Realm realm, String lessonId, Integer maxPoints, Integer minPoints, String lessonName, String image) {
         this.realm = realm;
+        this.lessonId = lessonId;
+        this.maxPoints = maxPoints;
+        this.minPoints = minPoints;
         this.lessonName = lessonName;
-        this.points = points;
+        this.image = image;
     }
 
     public String getLessonId() {
@@ -26,7 +31,9 @@ public class LessonSchemaService {
             realm.executeTransactionAsync(realm ->{
                 LessonSchema newLessonSchema = realm.createObject(LessonSchema.class, String.valueOf(lessonId));
                 newLessonSchema.setLessonName(lessonName);
-                newLessonSchema.setPoints(points);
+                newLessonSchema.setMinPoints(minPoints);
+                newLessonSchema.setMaxPoints(maxPoints);
+                newLessonSchema.setImage(image);
             }, () ->{
                 Log.i("Success", "New Lesson added to realm");
             }, error -> {
