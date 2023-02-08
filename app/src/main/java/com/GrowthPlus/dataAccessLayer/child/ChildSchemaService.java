@@ -2,6 +2,7 @@ package com.GrowthPlus.dataAccessLayer.child;
 
 import android.util.Log;
 
+import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.Report.ReportSchema;
 import com.GrowthPlus.dataAccessLayer.Report.ReportSchemaService;
 import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
@@ -18,8 +19,11 @@ public class ChildSchemaService {
     private String avatarName;
     private String colorName;
     private Integer score;
-    private RoadMapSchema roadmap;
     private Realm realm;
+    ChildRoadMap childRoadMapOne;
+    ChildRoadMap childRoadMapTwo;
+    ChildRoadMap childRoadMapThree;
+    ChildRoadMap childRoadMapFour;
 
     /*
       Constructor
@@ -29,13 +33,24 @@ public class ChildSchemaService {
         this.realm = realm;
     }
 
-    public ChildSchemaService(Realm realm, String name, @Nullable  RoadMapSchema roadmap, String avatarName, String colorName, Integer score){
+    public ChildSchemaService(Realm realm,
+                              String name,
+                              String avatarName,
+                              String colorName,
+                              Integer score,
+                              ChildRoadMap childRoadMapOne,
+                              ChildRoadMap childRoadMapTwo,
+                              ChildRoadMap childRoadMapThree,
+                              ChildRoadMap childRoadMapFour){
         this.realm = realm;
         this.name = name;
-        this.roadmap = roadmap;
         this.avatarName = avatarName;
         this.colorName = colorName;
         this.score = score;
+        this.childRoadMapOne = childRoadMapOne;
+        this.childRoadMapTwo = childRoadMapTwo;
+        this.childRoadMapThree = childRoadMapThree;
+        this.childRoadMapFour = childRoadMapFour;
     }
 
     /*
@@ -46,10 +61,14 @@ public class ChildSchemaService {
         realm.executeTransactionAsync(realm -> {
             ChildSchema newChild = realm.createObject(ChildSchema.class, String.valueOf(childId));
             newChild.setName(name);
-            newChild.setRoadmap(roadmap);
             newChild.setAvatarName(avatarName);
             newChild.setColorName(colorName);
             newChild.setScore(score);
+            newChild.setRoadMapOne(childRoadMapOne);
+            newChild.setRoadMapTwo(childRoadMapTwo);
+            newChild.setRoadMapThree(childRoadMapThree);
+            newChild.setRoadMapFour(childRoadMapFour);
+
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New child report object added to realm!");
@@ -57,16 +76,6 @@ public class ChildSchemaService {
         }, error -> {
             /* failure actions */
             Log.e("Error", "Something went wrong! " + error);
-        });
-    }
-
-    /*
-    This method updates a child's roadmap.
-    */
-    public void updateRoadmap(RoadMapSchema roadmap, String childId){
-        realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById(childId);
-            childSchema.setRoadmap(roadmap);
         });
     }
 
@@ -98,17 +107,6 @@ public class ChildSchemaService {
         return realm.where(ChildSchema.class).equalTo("name", name).findFirst();
     }
 
-    /*
-    This method deletes a child's roadmap.
-     */
-    public void deleteChildRoadmaps(String childId){
-        realm.executeTransactionAsync(realm -> {
-            ChildSchema childSchema = getChildSchemaById(childId);
-            RoadMapSchema roadmap = childSchema.getRoadmap();
-            roadmap.deleteFromRealm();
-            roadmap = null;
-        });
-    }
 
     /*
     This method deletes a child schema.

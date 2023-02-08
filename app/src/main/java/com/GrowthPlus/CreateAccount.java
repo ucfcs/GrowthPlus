@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildAvatarComponent;
+import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -39,13 +40,26 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         init();
+        ChildRoadMap childRoadMapOne = new ChildRoadMap("roadMapOne", 0, true, false, false, null, null, null);
+        ChildRoadMap childRoadMapTwo = new ChildRoadMap("roadMapTwo", 0, false, false, false, null, null, null);
+        ChildRoadMap childRoadMapThree = new ChildRoadMap("roadMapThree", 0, false, false, false, null, null, null);
+        ChildRoadMap childRoadMapFour = new ChildRoadMap("roadMapFour", 0, false, false, false, null, null, null);
 
         // Go to main page with update new child
         View.OnClickListener goNext = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!nameInput.getText().toString().equals(null) && !nameInput.getText().toString().equals("")){
-                    newChild = new ChildSchemaService(realm, nameInput.getText().toString(), null, animalName, colorName, 0);
+
+                    newChild = new ChildSchemaService(realm,
+                            nameInput.getText().toString(),
+                            animalName,
+                            colorName, 0,
+                            childRoadMapOne,
+                            childRoadMapTwo,
+                            childRoadMapThree,
+                            childRoadMapFour);
+
                     ObjectId childId = new ObjectId();
                     newChild.createChildSchema(String.valueOf(childId)); // Create new child in realm database
                     startActivity(new Intent(CreateAccount.this, MainActivity.class));

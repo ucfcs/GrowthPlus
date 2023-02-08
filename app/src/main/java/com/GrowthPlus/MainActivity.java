@@ -9,6 +9,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -30,6 +31,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import io.realm.Realm;
+import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -55,18 +57,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         init();
 
         RealmResults<ChildSchema> children = landingPageChildren.getAllChildSchemas();
+
         LandingPageChildCard childCardTemp;
         ChildSchema childTemp;
 
         int childrenNum = children.size();
+        Log.i("Num of children", String.valueOf(childrenNum));
         int random;
         String childIdTemp;
         String childNameTemp;
         String avatarNameTemp;
         String colorNameTemp;
 
-
-        // Up here
         for(int index = 0; index < childrenNum; index ++){
             childTemp = children.get(index);
 
