@@ -23,7 +23,11 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import java.util.HashMap;
+
+import io.realm.ObjectChangeSet;
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
+import io.realm.RealmObjectChangeListener;
 import io.realm.RealmResults;
 
 
@@ -223,8 +227,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         }
 
         if((view.getId()) == R.id.backChild) {
-            //this.finish();
-            startMainActivity();
+            startLandingPageActivity();
+            this.finish();
         }
 
     }
@@ -238,6 +242,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         Intent childScreen = new Intent(ParentPortal.this, childScreen.class);
         childScreen.putExtra("childIdParentPortal",childId);
         startActivity(childScreen);
+        this.finish();
     }
 
     public void startSelectChildAvatarActivity(){
@@ -245,11 +250,11 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         startActivity(selectChildAvatar);
     }
 
-    //moves to the MainActivity page
-    public void startMainActivity(){
-        Intent mainActivity = new Intent(ParentPortal.this, MainActivity.class);
-        mainActivity.putExtra("parentExists", parentExists);
-        mainActivity.putExtra("parentIdString", parentIdString);
-        startActivity(mainActivity);
+    public void startLandingPageActivity(){
+        Intent landingPage = new Intent(ParentPortal.this, MainActivity.class);
+        landingPage.putExtra("parentExists", parentExists);
+        landingPage.putExtra("parentIdString", parentIdString);
+        startActivity(landingPage);
+        this.finish();
     }
 }
