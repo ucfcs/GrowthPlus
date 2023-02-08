@@ -63,6 +63,7 @@ public class CreateAccount extends AppCompatActivity {
                     ObjectId childId = new ObjectId();
                     newChild.createChildSchema(String.valueOf(childId)); // Create new child in realm database
                     startActivity(new Intent(CreateAccount.this, MainActivity.class));
+                    finish();
                 }
             }
         };
