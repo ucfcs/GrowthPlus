@@ -3,46 +3,33 @@
     "childId": "childZero",
     "name": "Child Zero",
     "avatarName": "bunny",
-    "roadmap": {
-                  "roadMapId": "roadMapZero",
-                  "roadMapName": "Roadmap Zero",
-                  "lessons":  [
-                                {
-                                  "lessonId": "additionId",
-                                  "points": 100,
-                                  "lessonName": "addition"
-                                },
-
-                                {
-                                  "lessonId": "multiplicationId",
-                                  "points": 200,
-                                  "lessonName": "multiplication"
-                                }
-                              ],
-                  "scenarioGame": {
-                                      "scenarioGameId": "gameZero",
-                                      "points": 1000,
-                                      "scenarioGameName": "Game Zero"
-                                  }
-
-                },
     "colorName": "yellow",
-    "score": 0
+    "score": 0,
+    "roadMapOne": null,
+    "roadMapTwo": null,
+    "roadMapThree": null,
+    "roadMapFour": null
   },
   {
     "childId": "childOne",
     "name": "Child One",
     "avatarName": "camel",
-    "roadmap":null,
     "colorName": "red",
-    "score": 0
+    "score": 0,
+    "roadMapOne": null,
+    "roadMapTwo": null,
+    "roadMapThree": null,
+    "roadMapFour": null
   },
   {
     "childId": "childTwo",
     "name": "Child Two",
     "avatarName": "elephant",
-    "roadmap": null,
     "colorName": "orange",
-    "score": 0
+    "score": 0,
+    "roadMapOne": null,
+    "roadMapTwo": null,
+    "roadMapThree": null,
+    "roadMapFour": null
   }
 ]
