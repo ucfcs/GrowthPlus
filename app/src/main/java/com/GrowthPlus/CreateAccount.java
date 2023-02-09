@@ -46,36 +46,33 @@ public class CreateAccount extends AppCompatActivity {
         ChildRoadMap childRoadMapFour = new ChildRoadMap("roadMapFour", 0, false, false, false, null, null, null);
 
         // Go to main page with update new child
-        View.OnClickListener goNext = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!nameInput.getText().toString().equals(null) && !nameInput.getText().toString().equals("")){
+        View.OnClickListener goNext = v -> {
+            if (!nameInput.getText().toString().equals(null) && !nameInput.getText().toString().equals("")){
 
-                    newChild = new ChildSchemaService(realm,
-                            nameInput.getText().toString(),
-                            animalName,
-                            colorName, 0,
-                            childRoadMapOne,
-                            childRoadMapTwo,
-                            childRoadMapThree,
-                            childRoadMapFour);
+                newChild = new ChildSchemaService(realm,
+                        nameInput.getText().toString(),
+                        animalName,
+                        colorName, 0,
+                        childRoadMapOne,
+                        childRoadMapTwo,
+                        childRoadMapThree,
+                        childRoadMapFour);
 
-                    ObjectId childId = new ObjectId();
-                    newChild.createChildSchema(String.valueOf(childId)); // Create new child in realm database
-                    startActivity(new Intent(CreateAccount.this, MainActivity.class));
-                    finish();
-                }
+                ObjectId childId = new ObjectId();
+                newChild.createChildSchema(String.valueOf(childId)); // Create new child in realm database
+                Intent intent = new Intent(CreateAccount.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         };
         loginButton.setOnClickListener(goNext);
 
         // Go back to select child avatar
-        View.OnClickListener goBack = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CreateAccount.this, SelectChildAvatar.class));
-                finish();
-            }
+        View.OnClickListener goBack = v -> {
+            finish();
         };
         backButton.setOnClickListener(goBack);
     }

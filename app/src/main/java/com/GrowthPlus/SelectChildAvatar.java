@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 public class SelectChildAvatar extends AppCompatActivity implements View.OnClickListener{
     private ImageView bunny, elephant, bird, camel, giraffe, squirrel;
     private Button backSelect;
+    private String goBackTo;
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
@@ -19,6 +21,8 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_child_avatar);
         init();
+
+        Log.i("goBackTo", goBackTo);
 
         ImageView topLeft = (ImageView) findViewById(R.id.bunnyOption);
         topLeft.setOnClickListener(this);
@@ -49,6 +53,10 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         giraffe = findViewById(R.id.giraffeOption);
         squirrel = findViewById(R.id.squirrelOption);
         backSelect = findViewById(R.id.backSelectChild);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            goBackTo = extras.getString("comingFrom");
+        }
     }
 
     @Override
