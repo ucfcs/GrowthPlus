@@ -64,12 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         init();
         importRoadMapData();
-
-        landingPageParent = landingPageParentService.getParentSchemaById(parentIdString);
-        //String str = landingPageParent.getParentId();
-        // Log.i("parentId frm .getPID = ", str);
-        //Log.i("parentId from extras = ", parentIdString);
-
         setAllLandingPageCards(children);
 
         parentPortal.setOnClickListener(this);
@@ -105,16 +99,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             parentText.setText(extras.getString("setParent"));
-            //parentIdString = extras.getString("parentIdString");
+            parentIdString = extras.getString("parentIdString");
+            Log.i("parentIdString = ", parentIdString);
         }
 
         else{
-            Log.i("extras null", "the extras were null i guess");
+            Log.i("extras null", "the extras were null");
         }
 
         landingPageParentService = new ParentSchemaService(realm);
-        //landingPageParent = new ParentSchema();
-        landingPageParent = landingPageParentService.getParentSchema();
+
+        //get the parent without the parentId
+        //landingPageParent = landingPageParentService.getParentSchema();
+
+        //get the parent with the parentId
+        landingPageParent = landingPageParentService.getParentSchemaById(parentIdString);
+
+        //String str = landingPageParent.getParentId();
+        // Log.i("parentId frm .getPID = ", str);
     }
 
     private void importSampleData(){
@@ -147,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.i("main activity", "landingPageParent is NOT null");
                 startActivity(new Intent(MainActivity.this, ParentLogin.class));
 
-                //this.finish(); i just put this because the else statement had it
+                this.finish(); //i just put this because the else statement had it
             }
             //Otherwise we go to the signup page to create a parent
             else{

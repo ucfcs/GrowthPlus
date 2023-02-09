@@ -29,7 +29,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     private String parentIdString;
     private ParentSchemaService loginParentService;
-    private ParentSchema parent;
+    private ParentSchema loginParent;
     private Integer parentSignupPIN;
 
     @Override
@@ -50,7 +50,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         loginBackButton = findViewById(R.id.backParentLogin);
         loginPinInput = findViewById(R.id.loginPinInput);
         loginParentService = new ParentSchemaService(realm);
-        parent = new ParentSchema();
 
         //get the parentId passed in from ParentSignup
         Bundle extras = getIntent().getExtras();
@@ -58,13 +57,16 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
             parentIdString = extras.getString("parentIdString");
         }
 
+        //get the parentschema without the parentId
+        loginParent = loginParentService.getParentSchema();
+
         //using the parentId, get the parentSchema
-        parent = loginParentService.getParentSchemaById(parentIdString);
+        loginParent = loginParentService.getParentSchemaById(parentIdString);
 
-        Log.i("parentIdString PL", String.valueOf(parentIdString));
-        Log.i("parent PL", String.valueOf(parent));
+        //Log.i("parentIdString PL", String.valueOf(parentIdString));
+        //Log.i("parent PL", String.valueOf(loginParent));
 
-        parentSignupPIN = parent.getPIN();
+        parentSignupPIN = loginParent.getPIN();
         //Log.i("parent signup pin PL", String.valueOf(parentSignupPIN));
     }
 
@@ -84,6 +86,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
             //check that the PIN matches the PIN and then start the parent portal activity
             if(confirmPinMatch(loginPinInputInteger, parentSignupPIN) == true){
+                loginPinInput.setText("");//clears the EditText
                 startParentPortalActivity();
             }
 
@@ -103,13 +106,15 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
         if(id == R.id.backParentLogin){
             //go back to the signup page if a parent doesn't exist.....but it always does, right?
-            if(true) {
+            if(loginParent == null) {
+                Log.i("parent login", "loginParent IS null");
                 startParentSignupActivity();
             }
 
             //if a parent already exists, then clicking the back arrow should send you back to the landing page
             else{
-               startLandingPageActivity();
+                Log.i("parent login", "loginParent is NOT null");
+                startLandingPageActivity();
             }
         }
     }
