@@ -100,6 +100,10 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         if(id == R.id.backParentSU){
             startMainActivity();
         }
+
+        enterPinInput.setText("");
+        confirmPinInput.setText("");//clears the EditText(s)
+
     }
 
     //simple method to see if two pins match

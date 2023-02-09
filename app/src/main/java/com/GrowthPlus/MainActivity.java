@@ -100,7 +100,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (extras != null) {
             parentText.setText(extras.getString("setParent"));
             parentIdString = extras.getString("parentIdString");
-            Log.i("parentIdString = ", parentIdString);
+
+            //Log.i("parentIdString = ", parentIdString);
+            //this caused an error saying java.lang.NullPointerException: println needs a message
         }
 
         else{
@@ -145,17 +147,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             //If a parent exists, we can go to the login page
             if(landingPageParent != null) {
-
                 Log.i("main activity", "landingPageParent is NOT null");
                 startActivity(new Intent(MainActivity.this, ParentLogin.class));
-
                 this.finish(); //i just put this because the else statement had it
             }
             //Otherwise we go to the signup page to create a parent
             else{
                 Log.i("main activity", "landingPageParent IS null");
                 startActivity(new Intent(MainActivity.this, ParentSignup.class));
-
                 this.finish(); //I need to learn more about .finish()
 
             }

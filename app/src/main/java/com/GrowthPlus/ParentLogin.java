@@ -58,7 +58,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         }
 
         //get the parentschema without the parentId
-        loginParent = loginParentService.getParentSchema();
+        //loginParent = loginParentService.getParentSchema();
 
         //using the parentId, get the parentSchema
         loginParent = loginParentService.getParentSchemaById(parentIdString);
@@ -67,7 +67,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         //Log.i("parent PL", String.valueOf(loginParent));
 
         parentSignupPIN = loginParent.getPIN();
-        //Log.i("parent signup pin PL", String.valueOf(parentSignupPIN));
+        Log.i("parent signup pin PL", String.valueOf(parentSignupPIN));
     }
 
     private void importSampleData(){
@@ -86,7 +86,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
             //check that the PIN matches the PIN and then start the parent portal activity
             if(confirmPinMatch(loginPinInputInteger, parentSignupPIN) == true){
-                loginPinInput.setText("");//clears the EditText
                 startParentPortalActivity();
             }
 
@@ -101,10 +100,10 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
-
         }
 
         if(id == R.id.backParentLogin){
+
             //go back to the signup page if a parent doesn't exist.....but it always does, right?
             if(loginParent == null) {
                 Log.i("parent login", "loginParent IS null");
@@ -117,6 +116,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
                 startLandingPageActivity();
             }
         }
+        loginPinInput.setText("");//clears the EditText
     }
 
     private boolean confirmPinMatch(Integer pin1, Integer pin2){
