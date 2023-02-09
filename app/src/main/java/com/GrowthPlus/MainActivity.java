@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import io.realm.Realm;
+import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ImageSrcIdentifier imageSrcIdentifier;
     public final int MAX_CHILDREN = 6;
     public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    JsonSampleData jsonSampleData;
 
     private ParentSchemaService landingPageParentService;
     ParentSchema landingPageParent;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        importRoadMapData();
 
         landingPageParent = landingPageParentService.getParentSchemaById(parentIdString);
         //String str = landingPageParent.getParentId();
@@ -67,18 +70,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Log.i("parentId from extras = ", parentIdString);
 
         RealmResults<ChildSchema> children = landingPageChildren.getAllChildSchemas();
+
         LandingPageChildCard childCardTemp;
         ChildSchema childTemp;
 
         int childrenNum = children.size();
+        Log.i("Num of children", String.valueOf(childrenNum));
         int random;
         String childIdTemp;
         String childNameTemp;
         String avatarNameTemp;
         String colorNameTemp;
 
-
-        // Up here
         for(int index = 0; index < childrenNum; index ++){
             childTemp = children.get(index);
 
@@ -136,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void init(){
         realm = Realm.getDefaultInstance();
         resources = getResources();
-        importSampleData();
+        jsonSampleData = new JsonSampleData(realm, resources);
         childPortal = findViewById(R.id.idParent);
         language = findViewById(R.id.langBtn);
         landingPageGridLayout = findViewById(R.id.landingPageChildGrid);
@@ -174,8 +177,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void importSampleData(){
-        JsonSampleData jsonSampleData = new JsonSampleData(realm, resources);
         jsonSampleData.importDataFromJson();
+    }
+
+    public void importRoadMapData(){
+        jsonSampleData.importRoadMapData();
     }
 
     @Override

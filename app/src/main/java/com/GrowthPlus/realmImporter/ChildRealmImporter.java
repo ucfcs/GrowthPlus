@@ -1,6 +1,5 @@
 package com.GrowthPlus.realmImporter;
 
-import android.content.res.Resources;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import java.io.InputStream;
 import io.realm.Realm;

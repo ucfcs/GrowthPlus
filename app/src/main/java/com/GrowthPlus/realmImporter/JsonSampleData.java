@@ -33,4 +33,11 @@ public class JsonSampleData {
         ParentRealmImporter parentRealmImporter = new ParentRealmImporter(realm, parentInputStream);
         parentRealmImporter.importParentFromJson();
     }
+
+    public void importRoadMapData(){
+        InputStream roadMapInputStream = resources.openRawResource(R.raw.roadmap);
+        RoadMapImporter roadMapImporter = new RoadMapImporter(realm, roadMapInputStream);
+        roadMapImporter.importRoadMapFromJson();
+
+    }
 }
