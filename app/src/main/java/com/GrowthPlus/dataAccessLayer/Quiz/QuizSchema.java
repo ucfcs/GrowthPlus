@@ -11,6 +11,10 @@ public class QuizSchema extends RealmObject {
     private Integer maxPoints;
     private Integer minPoints;
     private String question;
+    private String firstOperand;
+    private String firstOperator;
+    private String secondOperand;
+    private String secondOperator;
     private String answer;
 
     public String getQuizId() {
@@ -59,6 +63,38 @@ public class QuizSchema extends RealmObject {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public String getFirstOperand() {
+        return firstOperand;
+    }
+
+    public void setFirstOperand(String firstOperand) {
+        this.firstOperand = firstOperand;
+    }
+
+    public String getFirstOperator() {
+        return firstOperator;
+    }
+
+    public void setFirstOperator(String firstOperator) {
+        this.firstOperator = firstOperator;
+    }
+
+    public String getSecondOperand() {
+        return secondOperand;
+    }
+
+    public void setSecondOperand(String secondOperand) {
+        this.secondOperand = secondOperand;
+    }
+
+    public String getSecondOperator() {
+        return secondOperator;
+    }
+
+    public void setSecondOperator(String secondOperator) {
+        this.secondOperator = secondOperator;
     }
 
     public String getAnswer() {

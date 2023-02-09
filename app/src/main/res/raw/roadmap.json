@@ -12,18 +12,24 @@
         "image": "elephant",
         "flashcards": [
           {
-            "flashCardId": "lessonOneRmOneFlashOne",
+            "flashCardId": "",
             "flashCardName": "",
             "question": "",
-            "answer": "",
-            "lessonNumber": 0
+            "firstOperand": "",
+            "firstOperator": "",
+            "secondOperand": "",
+            "secondOperator": "",
+            "answer": ""
           },
           {
-            "flashCardId": "lessonOneRmOneFlashTwo",
+            "flashCardId": "",
             "flashCardName": "",
             "question": "",
-            "answer": "",
-            "lessonNumber": 0
+            "firstOperand": "",
+            "firstOperator": "",
+            "secondOperand": "",
+            "secondOperator": "",
+            "answer": ""
           }
         ]
       },

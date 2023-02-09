@@ -41,9 +41,9 @@ public class CreateAccount extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         init();
         ChildRoadMap childRoadMapOne = new ChildRoadMap("roadMapOne", 0, true, false, false, null, null, null);
-        ChildRoadMap childRoadMapTwo = new ChildRoadMap("roadMapTwo", 0, false, false, false, null, null, null);
-        ChildRoadMap childRoadMapThree = new ChildRoadMap("roadMapThree", 0, false, false, false, null, null, null);
-        ChildRoadMap childRoadMapFour = new ChildRoadMap("roadMapFour", 0, false, false, false, null, null, null);
+        ChildRoadMap childRoadMapTwo = new ChildRoadMap("roadMapTwo", 0, false, false, true, null, null, null);
+        ChildRoadMap childRoadMapThree = new ChildRoadMap("roadMapThree", 0, false, false, true, null, null, null);
+        ChildRoadMap childRoadMapFour = new ChildRoadMap("roadMapFour", 0, false, false, true, null, null, null);
 
         // Go to main page with update new child
         View.OnClickListener goNext = new View.OnClickListener() {
