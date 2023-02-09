@@ -224,14 +224,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
         if((view.getId()) == R.id.backChild) {
             startLandingPageActivity();
-            this.finish();
         }
 
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
     }
 
     public void startChildScreenActivity(String childId){
@@ -243,6 +237,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
     public void startSelectChildAvatarActivity(){
         Intent selectChildAvatar = new Intent(ParentPortal.this, SelectChildAvatar.class);
+        selectChildAvatar.putExtra("comingFrom", "ParentPortal");
         startActivity(selectChildAvatar);
     }
 
