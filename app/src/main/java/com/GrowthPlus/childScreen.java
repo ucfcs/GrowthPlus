@@ -91,6 +91,8 @@ public class childScreen extends AppCompatActivity {
                 deleteChild.deleteFromRealm();
 
             });
+            Intent intent = new Intent(childScreen.this, ParentPortal.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(new Intent(childScreen.this, ParentPortal.class));
             this.finish();
         });
