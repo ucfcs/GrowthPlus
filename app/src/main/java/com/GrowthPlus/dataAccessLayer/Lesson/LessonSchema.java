@@ -1,5 +1,7 @@
 package com.GrowthPlus.dataAccessLayer.Lesson;
 
+import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -12,6 +14,7 @@ public class LessonSchema extends RealmObject{
     private String lessonName;
     private String category;
     private String image;
+    private RealmList<FlashcardSchema> flashcards;
 
     public String getLessonId() {
         return lessonId;
@@ -59,5 +62,13 @@ public class LessonSchema extends RealmObject{
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public RealmList<FlashcardSchema> getFlashcards() {
+        return flashcards;
+    }
+
+    public void setFlashcards(RealmList<FlashcardSchema> flashcards) {
+        this.flashcards = flashcards;
     }
 }

@@ -9,7 +9,23 @@
         "minPoints": 7,
         "lessonName": "count 1-10",
         "category": "numbers",
-        "image": "elephant"
+        "image": "elephant",
+        "flashcards": [
+          {
+            "flashCardId": "lessonOneRmOneFlashOne",
+            "flashCardName": "",
+            "question": "",
+            "answer": "",
+            "lessonNumber": 0
+          },
+          {
+            "flashCardId": "lessonOneRmOneFlashTwo",
+            "flashCardName": "",
+            "question": "",
+            "answer": "",
+            "lessonNumber": 0
+          }
+        ]
       },
       {
         "lessonId": "lessonTwoRmOne",
@@ -17,7 +33,8 @@
         "minPoints": 7,
         "lessonName": "adding 1-10",
         "category": "addition",
-        "image": "elephant"
+        "image": "elephant",
+        "flashcards": null
       },
       {
         "lessonId": "lessonThreeRmOne",
@@ -25,11 +42,44 @@
         "minPoints": 7,
         "lessonName": "unit 10s",
         "category": "units",
-        "image": "elephant"
+        "image": "elephant",
+        "flashcards": null
       }
     ],
-    "quizzes": null,
-    "scenarioGame": null
+    "quizzes": [
+      {
+        "quizId": "rmOneQuizOne",
+        "quizName": "",
+        "image": "",
+        "maxPoints": 0,
+        "minPoints": 0,
+        "question": "",
+        "answer": ""
+
+      },
+      {
+        "quizId": "rmOneQuizTwo",
+        "quizName": "",
+        "image": "",
+        "maxPoints": 0,
+        "minPoints": 0,
+        "question": "",
+        "answer": ""
+      }
+    ],
+    "scenarioGame":
+    {
+        "scenarioGameId": "rmOneScenarioGame",
+        "scenarioGameName": "",
+        "minPoints": 0,
+        "maxPoints": 0,
+        "firstOperand": "",
+        "firstOperator": "",
+        "secondOperand": "",
+        "secondOperator": null,
+        "thirdOperand": null
+    }
+
   },
   {
     "roadMapId": "roadMapTwo",

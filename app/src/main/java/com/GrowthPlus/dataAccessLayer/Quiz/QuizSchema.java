@@ -10,6 +10,8 @@ public class QuizSchema extends RealmObject {
     private String image;
     private Integer maxPoints;
     private Integer minPoints;
+    private String question;
+    private String answer;
 
     public String getQuizId() {
         return quizId;
@@ -51,4 +53,19 @@ public class QuizSchema extends RealmObject {
         this.minPoints = minPoints;
     }
 
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 }
