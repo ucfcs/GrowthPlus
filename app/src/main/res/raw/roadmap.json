@@ -7,39 +7,69 @@
         "lessonId": "lessonOneRmOne",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "count 1-10",
+        "lessonName": "Lesson 1",
         "category": "numbers",
         "image": "elephant",
         "contents": [
           {
-            "lessonContentId": "lessonOneOne",
+            "lessonContentId": "lessonOneContentOne",
             "word": "one",
             "number": "1",
             "imgNum": "1"
           },
           {
-            "lessonContentId": "lessonOneTwo",
+            "lessonContentId": "lessonOneContentTwo",
             "word": "two",
             "number": "2",
             "imgNum": "2"
           },
           {
-            "lessonContentId": "lessonOneThree",
+            "lessonContentId": "lessonOneContentThree",
             "word": "three",
             "number": "3",
             "imgNum": "3"
           },
           {
-            "lessonContentId": "lessonOneFour",
+            "lessonContentId": "lessonOneContentFour",
             "word": "four",
             "number": "4",
-            "imgNum": "5"
+            "imgNum": "4"
           },
           {
-            "lessonContentId": "lessonOneFive",
+            "lessonContentId": "lessonOneContentFive",
             "word": "five",
             "number": "5",
             "imgNum": "5"
+          },
+          {
+            "lessonContentId": "lessonOneContentSix",
+            "word": "six",
+            "number": "6",
+            "imgNum": "6"
+          },
+          {
+            "lessonContentId": "lessonOneContentSeven",
+            "word": "seven",
+            "number": "7",
+            "imgNum": "7"
+          },
+          {
+            "lessonContentId": "lessonOneContentEight",
+            "word": "eight",
+            "number": "8",
+            "imgNum": "8"
+          },
+          {
+            "lessonContentId": "lessonOneContentNine",
+            "word": "nine",
+            "number": "9",
+            "imgNum": "9"
+          },
+          {
+            "lessonContentId": "lessonOneContentTen",
+            "word": "ten",
+            "number": "10",
+            "imgNum": "10"
           }
         ]
       },
@@ -47,17 +77,480 @@
         "lessonId": "lessonTwoRmOne",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "adding 1-10",
+        "lessonName": "Lesson 2",
         "category": "addition",
-        "image": "elephant"
+        "image": "elephant",
+        "contents": [
+          {
+            "lessonContentId": "lessonTwoContentOne",
+            "word": null,
+            "number": "1+1=2",
+            "imgNum": "1+1=2"
+          },
+          {
+            "lessonContentId": "lessonTwoContentTwo",
+            "word": null,
+            "number": "1+2=3",
+            "imgNum": "1+2=3"
+          },
+          {
+            "lessonContentId": "lessonTwoContentThree",
+            "word": null,
+            "number": "2+2=4",
+            "imgNum": "2+2=4"
+          },
+          {
+            "lessonContentId": "lessonTwoContentFour",
+            "word": null,
+            "number": "2+3=5",
+            "imgNum": "2+3=5"
+          },
+          {
+            "lessonContentId": "lessonTwoContentFive",
+            "word": null,
+            "number": "2+4=6",
+            "imgNum": "2+4=6"
+          },
+          {
+            "lessonContentId": "lessonTwoContentSix",
+            "word": null,
+            "number": "3+4=7",
+            "imgNum": "3+4=7"
+          },
+          {
+            "lessonContentId": "lessonTwoContentSeven",
+            "word": null,
+            "number": "2+6=8",
+            "imgNum": "2+6=8"
+          },
+          {
+            "lessonContentId": "lessonTwoContentEight",
+            "word": null,
+            "number": "4+5=9",
+            "imgNum": "4+5=9"
+          },
+          {
+            "lessonContentId": "lessonTwoContentNine",
+            "word": null,
+            "number": "5+5=10",
+            "imgNum": "5+5=10"
+          }
+        ]
       },
       {
         "lessonId": "lessonThreeRmOne",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "unit 10s",
+        "lessonName": "Lesson 3",
         "category": "units",
-        "image": "elephant"
+        "image": "unit",
+        "contents": [
+          {
+            "lessonContentId": "lessonThreeContentOne",
+            "word":"une unité",
+            "number": null,
+            "imgNum": "oneUnit"
+          },
+          {
+            "lessonContentId": "lessonThreeContentTwo",
+            "word":"dix unités = une dizaine",
+            "number": null,
+            "imgNum": "tenUnits,oneTenUnit"
+          },
+          {
+            "lessonContentId": "lessonThreeContentThree",
+            "word":"une dizaine",
+            "number": null,
+            "imgNum": "oneTenUnit"
+          },
+          {
+            "lessonContentId": "lessonThreeContentFour",
+            "word": null,
+            "number": "5+5=",
+            "imgNum": "DUimg"
+          },
+          {
+            "lessonContentId": "lessonThreeContentFive",
+            "word": null,
+            "number": "4+6=",
+            "imgNum": "DUimg"
+          },
+          {
+            "lessonContentId": "lessonThreeContentSix",
+            "word": null,
+            "number": "7+3=",
+            "imgNum": "DUimg"
+          },
+          {
+            "lessonContentId": "lessonThreeContentSeven",
+            "word": null,
+            "number": "2+8=",
+            "imgNum": "DUimg"
+          },
+          {
+            "lessonContentId": "lessonThreeContentEight",
+            "word": null,
+            "number": "1+9=",
+            "imgNum": "DUimg"
+          }
+        ]
+      },
+      {
+        "lessonId": "lessonFourRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "Lesson 4",
+        "category": "numbers",
+        "image": "elephant",
+        "contents": [
+          {
+            "lessonContentId": "lessonFourContentOne",
+            "word": "eleven",
+            "number": "1",
+            "imgNum": "1"
+          },
+          {
+            "lessonContentId": "lessonFourContentTwo",
+            "word": "twelve",
+            "number": "12",
+            "imgNum": "12"
+          },
+          {
+            "lessonContentId": "lessonFourContentThree",
+            "word": "thirteen",
+            "number": "13",
+            "imgNum": "13"
+          },
+          {
+            "lessonContentId": "lessonFourContentFour",
+            "word": "fourteen",
+            "number": "14",
+            "imgNum": "14"
+          },
+          {
+            "lessonContentId": "lessonFourContentFive",
+            "word": "fifteen",
+            "number": "15",
+            "imgNum": "15"
+          },
+          {
+            "lessonContentId": "lessonFourContentSix",
+            "word": "sixteen",
+            "number": "16",
+            "imgNum": "16"
+          },
+          {
+            "lessonContentId": "lessonFourContentSeven",
+            "word": "seventeen",
+            "number": "17",
+            "imgNum": "17"
+          },
+          {
+            "lessonContentId": "lessonFourContentEight",
+            "word": "eighteen",
+            "number": "18",
+            "imgNum": "18"
+          },
+          {
+            "lessonContentId": "lessonFourContentNine",
+            "word": "nineteen",
+            "number": "19",
+            "imgNum": "19"
+          },
+          {
+            "lessonContentId": "lessonFourContentTen",
+            "word": "twenty",
+            "number": "20",
+            "imgNum": "20"
+          }
+        ]
+      },
+      {
+        "lessonId": "lessonFiveRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "Lesson 5",
+        "category": "subtraction",
+        "image": "elephant",
+        "contents": [
+          {
+            "lessonContentId": "lessonFiveContentOne",
+            "word": null,
+            "number": "2-1=1",
+            "imgNum": "2-1=1"
+          },
+          {
+            "lessonContentId": "lessonFiveContentTwo",
+            "word": null,
+            "number": "3-1=2",
+            "imgNum": "3-1=2"
+          },
+          {
+            "lessonContentId": "lessonFiveContentThree",
+            "word": null,
+            "number": "5-2=3",
+            "imgNum": "5-2=3"
+          },
+          {
+            "lessonContentId": "lessonFiveContentFour",
+            "word": null,
+            "number": "9-5=4",
+            "imgNum": "9-5=4"
+          },
+          {
+            "lessonContentId": "lessonFiveContentFive",
+            "word": null,
+            "number": "10-5=5",
+            "imgNum": "10-5=5"
+          },
+          {
+            "lessonContentId": "lessonFiveContentSix",
+            "word": null,
+            "number": "14-8=6",
+            "imgNum": "14-8=6"
+          },
+          {
+            "lessonContentId": "lessonFiveContentSeven",
+            "word": null,
+            "number": "16-9=7",
+            "imgNum": "16-9=7"
+          },
+          {
+            "lessonContentId": "lessonFiveContentEight",
+            "word": null,
+            "number": "18-10=8",
+            "imgNum": "18-10=8"
+          },
+          {
+            "lessonContentId": "lessonFiveContentNine",
+            "word": null,
+            "number": "20-11=9",
+            "imgNum": "20-11=9"
+          },
+          {
+            "lessonContentId": "lessonFiveContentTen",
+            "word": null,
+            "number": "20-10=10",
+            "imgNum": "20-10=10"
+          }
+        ]
+      },
+      {
+        "lessonId": "lessonSixRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "Lesson 6",
+        "category": "multiplication",
+        "image": "elephant",
+        "contents": [
+          {
+            "lessonContentId": "lessonSixContentOne",
+            "word": null,
+            "number": "2x1=2",
+            "imgNum": "2in1"
+          },
+          {
+            "lessonContentId": "lessonSixContentTwo",
+            "word": null,
+            "number": "2x2=4",
+            "imgNum": "2in2"
+          },
+          {
+            "lessonContentId": "lessonSixContentThree",
+            "word": null,
+            "number": "2x3=6",
+            "imgNum": "2in3"
+          },
+          {
+            "lessonContentId": "lessonSixContentFour",
+            "word": null,
+            "number": "2x4=8",
+            "imgNum": "2in4"
+          },
+          {
+            "lessonContentId": "lessonSixContentFive",
+            "word": null,
+            "number": "2x5=10",
+            "imgNum": "2in5"
+          },
+          {
+            "lessonContentId": "lessonSixContentSix",
+            "word": null,
+            "number": "2x6=12",
+            "imgNum": "2in6"
+          },
+          {
+            "lessonContentId": "lessonSixContentSeven",
+            "word": null,
+            "number": "2x7=14",
+            "imgNum": "2in7"
+          },
+          {
+            "lessonContentId": "lessonSixContentEight",
+            "word": null,
+            "number": "2x8=16",
+            "imgNum": "2in8"
+          },
+          {
+            "lessonContentId": "lessonSixContentNine",
+            "word": null,
+            "number": "2x9=18",
+            "imgNum": "2in9"
+          },
+          {
+            "lessonContentId": "lessonSixContentTen",
+            "word": null,
+            "number": "2x10=20",
+            "imgNum": "2in10"
+          }
+        ]
+      },
+      {
+        "lessonId": "lessonSevenRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "Lesson 7",
+        "category": "division",
+        "image": "elephant",
+        "contents": [
+          {
+            "lessonContentId": "lessonSevenContentOne",
+            "word": null,
+            "number": "2:2=1",
+            "imgNum": "2in1"
+          },
+          {
+            "lessonContentId": "lessonSevenContentTwo",
+            "word": null,
+            "number": "4:2=2",
+            "imgNum": "2in2"
+          },
+          {
+            "lessonContentId": "lessonSevenContentThree",
+            "word": null,
+            "number": "6:2=3",
+            "imgNum": "2in3"
+          },
+          {
+            "lessonContentId": "lessonSevenContentFour",
+            "word": null,
+            "number": "8:2=4",
+            "imgNum": "2in4"
+          },
+          {
+            "lessonContentId": "lessonSevenContentFive",
+            "word": null,
+            "number": "10:2=5",
+            "imgNum": "2in5"
+          },
+          {
+            "lessonContentId": "lessonSevenContentSix",
+            "word": null,
+            "number": "12:2=6",
+            "imgNum": "2in6"
+          },
+          {
+            "lessonContentId": "lessonSevenContentSeven",
+            "word": null,
+            "number": "14:2=7",
+            "imgNum": "2in7"
+          },
+          {
+            "lessonContentId": "lessonSevenContentEight",
+            "word": null,
+            "number": "16:2=8",
+            "imgNum": "2in8"
+          },
+          {
+            "lessonContentId": "lessonSevenContentNine",
+            "word": null,
+            "number": "18:2=9",
+            "imgNum": "2in9"
+          },
+          {
+            "lessonContentId": "lessonSevenContentTen",
+            "word": null,
+            "number": "20:2=10",
+            "imgNum": "2in10"
+          }
+        ]
+      },
+      {
+        "lessonId": "lessonEightRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "Lesson 8",
+        "category": "multiplication",
+        "image": "elephant",
+        "contents": [
+          {
+            "lessonContentId": "lessonEightContentOne",
+            "word": null,
+            "number": "5x1=5",
+            "imgNum": "5in1"
+          },
+          {
+            "lessonContentId": "lessonEightContentTwo",
+            "word": null,
+            "number": "5x2=10",
+            "imgNum": "5in2"
+          },
+          {
+            "lessonContentId": "lessonEightContentThree",
+            "word": null,
+            "number": "5x3=15",
+            "imgNum": "5in3"
+          },
+          {
+            "lessonContentId": "lessonEightContentFour",
+            "word": null,
+            "number": "5x4=20",
+            "imgNum": "5in4"
+          }
+        ]
+      },
+      {
+        "lessonId": "lessonNineRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "Lesson 9",
+        "category": "division",
+        "image": "elephant",
+        "contents": [
+          {
+            "lessonContentId": "lessonNineContentOne",
+            "word": null,
+            "number": "5:5=1",
+            "imgNum": "5in1"
+          },
+          {
+            "lessonContentId": "lessonNineContentTwo",
+            "word": null,
+            "number": "10:5=2",
+            "imgNum": "5in2"
+          },
+          {
+            "lessonContentId": "lessonNineContentThree",
+            "word": null,
+            "number": "15:5=3",
+            "imgNum": "5in3"
+          },
+          {
+            "lessonContentId": "lessonNineContentFour",
+            "word": null,
+            "number": "20:5=4",
+            "imgNum": "5in4"
+          }
+        ]
+      },
+      {
+        "lessonId": "lessonTenRmOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "Lesson 10",
+        "category": null,
+        "image": null,
+        "contents": null
       }
     ],
     "quizzes": null,
