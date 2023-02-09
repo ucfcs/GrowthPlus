@@ -32,10 +32,11 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     Integer enterPinInputInteger;
     Integer confirmPinInputInteger;
 
-    private ParentSchemaService signupParentService;
     private ObjectId parentId;
     private String parentIdString;
-    public boolean parentExists;
+
+    private ParentSchemaService signupParentService;
+    private ParentSchema signupParent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         confirmPinInput = findViewById(R.id.confirmPinInput);
         parentId = new ObjectId();
         parentIdString = parentId.toString();
-        parentExists = false;
     }
 
     private void importSampleData(){
@@ -80,15 +80,13 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
             if(confirmPinMatch(enterPinInputInteger, confirmPinInputInteger) == true){
                 //create a parent with the pin
                 createParent();
-                parentExists = true;
 
                 //move on to the login screen
                 startLoginActivity();
             }
 
             else{
-                //ruth said something about a while loop?
-                //for now just display a toast
+                //display a toast
                 Context context = getApplicationContext();
                 CharSequence text = "PINs do not match! Please try typing them again.";
                 int duration = Toast.LENGTH_LONG;
@@ -117,6 +115,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     //moves to the MainActivity page
     public void startMainActivity(){
         Intent mainActivity = new Intent(ParentSignup.this, MainActivity.class);
+        mainActivity.putExtra("parentIdString", parentIdString);
         startActivity(mainActivity);
     }
 
@@ -124,8 +123,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     public void startLoginActivity(){
         Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
         parentLogin.putExtra("parentIdString", parentIdString);
-        parentLogin.putExtra("parentExists", parentExists);
-        Log.i("parent exists PS", String.valueOf(parentExists));
         startActivity(parentLogin);
     }
 
@@ -133,5 +130,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     private void createParent(){
         signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, null);
         signupParentService.createParentSchema();
+        signupParent = signupParentService.getParentSchema();//idk if this is actually needed
     }
 }

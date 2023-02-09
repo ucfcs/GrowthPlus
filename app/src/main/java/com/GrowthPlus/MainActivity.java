@@ -23,6 +23,7 @@ import com.GrowthPlus.customViews.LandingPageChildCard;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.realmImporter.JsonSampleData;
 import com.GrowthPlus.utilities.ColorIdentifier;
@@ -50,13 +51,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public final int MAX_CHILDREN = 6;
     public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
-    private boolean parentExists;
+    private ParentSchemaService landingPageParentService;
+    ParentSchema landingPageParent;
+    private String parentIdString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+
+        landingPageParent = landingPageParentService.getParentSchemaById(parentIdString);
+        //String str = landingPageParent.getParentId();
+       // Log.i("parentId frm .getPID = ", str);
+        //Log.i("parentId from extras = ", parentIdString);
 
         RealmResults<ChildSchema> children = landingPageChildren.getAllChildSchemas();
         LandingPageChildCard childCardTemp;
@@ -147,22 +155,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         landingPageChildCardIds = new HashMap<>();
         setLandingPageChildCardIds();
 
-        parentExists = false;
-
         String str = getIntent().toString();
         Log.i("getIntent() ", str);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            parentText.setText(extras.getString("setParent"));
-            parentExists = extras.getBoolean("parentExists");
-            Log.i("parentExists MA = ", String.valueOf(parentExists));
+            //parentText.setText(extras.getString("setParent"));
+            parentIdString = extras.getString("parentIdString");
         }
 
         else{
             Log.i("extras null", "the extras were null i guess");
         }
 
+        landingPageParentService = new ParentSchemaService(realm);
+        //landingPageParent = new ParentSchema();
+        landingPageParent = landingPageParentService.getParentSchema();
     }
 
     private void importSampleData(){
@@ -184,19 +192,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
 
         if(id == R.id.idParent){
-            startActivity(new Intent(MainActivity.this, ParentPortal.class));
+            //startActivity(new Intent(MainActivity.this, ParentPortal.class));
 
-            //If a parent exists (check global boolean variable parentExists), we can go to the login page
-            if(parentExists) {
-                Log.i("tag ioipe MA", "inside of if(parentExists)");
+            //If a parent exists, we can go to the login page
+            if(landingPageParent != null) {
+
+                Log.i("main activity", "landingPageParent is NOT null");
                 startActivity(new Intent(MainActivity.this, ParentLogin.class));
+
+                //this.finish(); i just put this because the else statement had it
             }
             //Otherwise we go to the signup page to create a parent
             else{
-                Log.i("tag ioipe MA", "inside of else(parentExists)");
+                Log.i("main activity", "landingPageParent IS null");
                 startActivity(new Intent(MainActivity.this, ParentSignup.class));
 
-                this.finish(); //delete this?
+                //this.finish(); //delete this?
 
             }
         }

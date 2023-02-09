@@ -48,7 +48,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     public ImageSrcIdentifier imageSrcIdentifier;
     private Realm realm;
 
-    private boolean parentExists;
     private String parentIdString;
 
     @Override
@@ -123,7 +122,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         childCardId = new HashMap<>();
         childId = new HashMap<>();
         progressBarIds = new HashMap<>();
-        parentExists = false;
 
         setChildCardIds();
         setProgressBarIds();
@@ -132,8 +130,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             parentIdString = extras.getString("parentIdString");
-            parentExists = extras.getBoolean("parentExists");
-            Log.i("parentExists PP = ", String.valueOf(parentExists));
         }
     }
 
@@ -252,7 +248,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
     public void startLandingPageActivity(){
         Intent landingPage = new Intent(ParentPortal.this, MainActivity.class);
-        landingPage.putExtra("parentExists", parentExists);
         landingPage.putExtra("parentIdString", parentIdString);
         startActivity(landingPage);
         this.finish();

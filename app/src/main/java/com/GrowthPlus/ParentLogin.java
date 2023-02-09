@@ -31,7 +31,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     private ParentSchemaService loginParentService;
     private ParentSchema parent;
     private Integer parentSignupPIN;
-    private boolean parentExists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +50,12 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         loginBackButton = findViewById(R.id.backParentLogin);
         loginPinInput = findViewById(R.id.loginPinInput);
         loginParentService = new ParentSchemaService(realm);
-        parentExists = false;
+        parent = new ParentSchema();
 
         //get the parentId passed in from ParentSignup
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             parentIdString = extras.getString("parentIdString");
-            parentExists = extras.getBoolean("parentExists");
-            Log.i("parentExists PL = ", String.valueOf(parentExists));
         }
 
         //using the parentId, get the parentSchema
@@ -68,7 +65,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         Log.i("parent PL", String.valueOf(parent));
 
         parentSignupPIN = parent.getPIN();
-        Log.i("parent signup pin PL", String.valueOf(parentSignupPIN));
+        //Log.i("parent signup pin PL", String.valueOf(parentSignupPIN));
     }
 
     private void importSampleData(){
@@ -105,8 +102,15 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         }
 
         if(id == R.id.backParentLogin){
-            //go back to the signup page....is this a good thing to actually let happen though??
-            startParentSignupActivity();
+            //go back to the signup page if a parent doesn't exist.....but it always does, right?
+            if(true) {
+                startParentSignupActivity();
+            }
+
+            //if a parent already exists, then clicking the back arrow should send you back to the landing page
+            else{
+               startLandingPageActivity();
+            }
         }
     }
 
@@ -130,8 +134,14 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     public void startParentPortalActivity(){
         Intent parentPortal = new Intent(ParentLogin.this, ParentPortal.class);
-        parentPortal.putExtra("parentExists", parentExists);
         parentPortal.putExtra("parentIdString", parentIdString);
         startActivity(parentPortal);
+    }
+
+    //moves to the MainActivity page
+    public void startLandingPageActivity(){
+        Intent landingPageActivity = new Intent(ParentLogin.this, MainActivity.class);
+        landingPageActivity.putExtra("parentIdString", parentIdString);
+        startActivity(landingPageActivity);
     }
 }
