@@ -9,7 +9,39 @@
         "minPoints": 7,
         "lessonName": "count 1-10",
         "category": "numbers",
-        "image": "elephant"
+        "image": "elephant",
+        "contents": [
+          {
+            "lessonContentId": "lessonOneOne",
+            "word": "one",
+            "number": "1",
+            "imgNum": "1"
+          },
+          {
+            "lessonContentId": "lessonOneTwo",
+            "word": "two",
+            "number": "2",
+            "imgNum": "2"
+          },
+          {
+            "lessonContentId": "lessonOneThree",
+            "word": "three",
+            "number": "3",
+            "imgNum": "3"
+          },
+          {
+            "lessonContentId": "lessonOneFour",
+            "word": "four",
+            "number": "4",
+            "imgNum": "5"
+          },
+          {
+            "lessonContentId": "lessonOneFive",
+            "word": "five",
+            "number": "5",
+            "imgNum": "5"
+          }
+        ]
       },
       {
         "lessonId": "lessonTwoRmOne",
