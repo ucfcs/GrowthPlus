@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.gridlayout.widget.GridLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -19,13 +20,17 @@ import android.widget.TextView;
 
 import com.GrowthPlus.customViews.LandingPageAddChild;
 import com.GrowthPlus.customViews.LandingPageChildCard;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 
 import com.GrowthPlus.realmImporter.JsonSampleData;
+import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setLangPreferences();
         init();
         importRoadMapData();
 
@@ -87,10 +93,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setLandingPageChildCardIds();
         children = landingPageChildren.getAllChildSchemas();
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            parentText.setText(extras.getString("setParent"));
-        }
+
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String lang23 = langPrefs.getString("languageId", "englishZero");
+        // import language json file
+        InputStream langInputStream = resources.openRawResource(R.raw.languages);
+        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+        langRealmImporter.importLanguagesFromJson();
+//
+//        // create language schema service and set strings
+        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, lang23);
+        LanguageSchema lang = langSchemaService.getLanguageSchemaById();
+
+//        prefsEditor.putString("languageResource", "R.raw.english");
+//        prefsEditor.putString("languageId", "englishZero");
+        parentText.setText(lang.getParent());
+
     }
 
     private void importSampleData(){
@@ -255,6 +273,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             landingPageGridLayout.addView(landingPageAddChild);
         }
+
+    }
+
+    public void setLangPreferences(){
+
+        // Create shared preferences class to save default language
+        SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+
+        // Add english as default lang
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString("languageId", "frenchZero");
+        prefsEditor.commit();
 
     }
 }
