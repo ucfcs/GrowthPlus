@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.gridlayout.widget.GridLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -12,9 +13,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.GrowthPlus.customViews.LandingPageAddChild;
@@ -22,6 +25,8 @@ import com.GrowthPlus.customViews.LandingPageChildCard;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.realmImporter.JsonSampleData;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -51,13 +56,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private JsonSampleData jsonSampleData;
     private RealmResults<ChildSchema> children;
 
+    private ParentSchemaService landingPageParentService;
+    private RealmResults<ParentSchema> parent;
+    int parentSize;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
         importRoadMapData();
-
         setAllLandingPageCards(children);
 
         parentPortal.setOnClickListener(this);
@@ -87,14 +95,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setLandingPageChildCardIds();
         children = landingPageChildren.getAllChildSchemas();
 
+        landingPageParentService = new ParentSchemaService(realm);
+        parent = landingPageParentService.getAllParentSchemas();//this gets the parent
+        parentSize = parent.size();
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             parentText.setText(extras.getString("setParent"));
         }
-    }
-
-    private void importSampleData(){
-        jsonSampleData.importDataFromJson();
+        else{
+            Log.i("extras null", "the extras were null");
+        }
     }
 
     public void importRoadMapData(){
@@ -114,9 +125,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int id = view.getId();
 
-        if(id == R.id.idParent){
-            startActivity(new Intent(MainActivity.this, ParentPortal.class));
-            this.finish();
+        if(id == R.id.idParent){//the user clicked the parent button
+
+            //If a parent exists, we can go to the login page
+            if(parentSize > 0) {
+                startParentLoginActivity();
+            }
+
+            else{ //otherwise, go to the signup page
+                startParentSignupActivity();
+            }
         }
 
         if(id == R.id.langBtn){
@@ -154,7 +172,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if( id == R.id.landingPageChildCardAdd){
-            startAddChildActivity();
+
+            //If a parent exists, we can go to the add child screen
+            if(parentSize > 0) {
+                startAddChildActivity();
+            }
+
+            else{ //otherwise, display a toast encouraging them to signup for a parent account
+                Context context = getApplicationContext();
+                CharSequence text = "You cannot add a child account yet. Please create a parent account first.";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
     }
 
@@ -256,5 +287,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             landingPageGridLayout.addView(landingPageAddChild);
         }
 
+    }
+    public void startParentSignupActivity(){
+        Intent parentSignup = new Intent(MainActivity.this, ParentSignup.class);
+        startActivity(parentSignup);
+    }
+
+    public void startParentLoginActivity(){
+        Intent parentLogin = new Intent(MainActivity.this, ParentLogin.class);
+        startActivity(parentLogin);
     }
 }
