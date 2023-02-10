@@ -3,6 +3,7 @@ package com.GrowthPlus;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,10 +29,13 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     private Button backSet;
     private RelativeLayout english;
     private RelativeLayout french;
+    private ImageView engCheck;
+    private ImageView freCheck;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
-
     private TextView name;
+    private TextView englishText;
+    private TextView frenchText;
 
     Realm realm;
     Resources resources;
@@ -43,7 +47,6 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_language_setting);
         init();
 
-
         backSet.setOnClickListener(this);
         english.setOnClickListener(this);
         french.setOnClickListener(this);
@@ -53,6 +56,10 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         realm = Realm.getDefaultInstance();
         resources = getResources();
         backSet = findViewById(R.id.backLang);
+        englishText = findViewById(R.id.englishText);
+        frenchText = findViewById(R.id.frenchText);
+        engCheck = findViewById(R.id.englishCheck);
+        freCheck = findViewById(R.id.frenchCheck);
         english = findViewById(R.id.englishBtn);
         french = findViewById(R.id.frenchBtn);
         name = findViewById(R.id.languageText);
@@ -64,66 +71,76 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         view.startAnimation(buttonClick);
 
         int langView = view.getId();
-        ImageView engCheck = findViewById(R.id.englishCheck);
-        ImageView freCheck = findViewById(R.id.frenchCheck);
 
         if(langView == R.id.backLang){
             this.finish();
         }
         if(langView == R.id.englishBtn){
-
-            // set check mark to english button
             engCheck.setVisibility(View.VISIBLE);
             freCheck.setVisibility(View.INVISIBLE);
-
             setEnglishText();
         }
         if(langView == R.id.frenchBtn){
-
-            // set check mark to french button
             freCheck.setVisibility(View.VISIBLE);
             engCheck.setVisibility(View.INVISIBLE);
-
             setFrenchText();
         }
     }
 
     public void setEnglishText(){
 
-        // import english language json file
-        InputStream englishInputStream = resources.openRawResource(R.raw.english);
-        LanguagesRealmImporter englishRealmImporter = new LanguagesRealmImporter(realm, resources, englishInputStream);
-        englishRealmImporter.importLanguagesFromJson();
+        // Create shared preferences class to save default language, french
+        SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
 
-        // create language schema service and set strings
-        LanguageSchemaService englangSchemaService = new LanguageSchemaService(realm, "englishZero");
-        LanguageSchema eng = englangSchemaService.getLanguageSchemaById();
-        name.setText(eng.getLanguage());
-        Log.i("LanguageSettings", eng.getLanguage());
-
-        // Main activity words
-        Intent mainIntent = new Intent(LanguageSettingActivity.this, MainActivity.class);
-        mainIntent.putExtra("setParent", eng.getParent());
-        startActivity(mainIntent);
+        // Add english as default lang
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString("languageId", "englishZero");
+        prefsEditor.commit();
+        // refresh UI
+        onResume();
 
     }
 
     public void setFrenchText(){
 
-        // import french language json file
-        InputStream frenchInputStream = this.resources.openRawResource(R.raw.french);
-        LanguagesRealmImporter frenchRealmImporter = new LanguagesRealmImporter(realm, resources, frenchInputStream);
-        frenchRealmImporter.importLanguagesFromJson();
+        // Create shared preferences class to save default language, french
+        SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
 
+        // Add english as default lang
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString("languageId", "frenchZero");
+        prefsEditor.commit();
+        // refresh UI
+        onResume();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // create instance of shared preferences
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // import language json file
+        InputStream langInputStream = resources.openRawResource(R.raw.languages);
+        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+        langRealmImporter.importLanguagesFromJson();
         // create language schema service and set strings
-        LanguageSchemaService frelangSchemaService = new LanguageSchemaService(realm, "frenchZero");
-        LanguageSchema fre = frelangSchemaService.getLanguageSchemaById();
-        name.setText(fre.getLanguage());
+        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", langId));
+        LanguageSchema lang = langSchemaService.getLanguageSchemaById();
 
-        // Main activity words
-        Intent mainIntent = new Intent(LanguageSettingActivity.this, MainActivity.class);
-        mainIntent.putExtra("setParent", fre.getParent());
-        startActivity(mainIntent);
+        name.setText(lang.getLanguage());
+        englishText.setText(lang.getEnglish());
+        frenchText.setText(lang.getFrench());
+        if(langId.equals("englishZero")){
+            engCheck.setVisibility(View.VISIBLE);
+            freCheck.setVisibility(View.INVISIBLE);
+        }
+        else{
+            freCheck.setVisibility(View.VISIBLE);
+            engCheck.setVisibility(View.INVISIBLE);
+        }
     }
 
 

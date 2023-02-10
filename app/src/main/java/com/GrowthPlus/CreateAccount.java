@@ -5,7 +5,9 @@ import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -16,16 +18,21 @@ import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildAvatarComponent;
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
 import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
+import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import org.bson.types.ObjectId;
+
+import java.io.InputStream;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -40,6 +47,7 @@ public class CreateAccount extends AppCompatActivity {
     ColorStateList color;
     ChildSchemaService newChild;
     Realm realm;
+    Resources resources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +174,7 @@ public class CreateAccount extends AppCompatActivity {
 
     public void init(){
         realm = Realm.getDefaultInstance();
+        resources = getResources();
         backButton = findViewById(R.id.backCreateAccount);
         loginButton = findViewById(R.id.loginBtn);
         nameInput = findViewById(R.id.nameInput);
@@ -184,6 +193,24 @@ public class CreateAccount extends AppCompatActivity {
         loginButton.setBackgroundTintList(color);
 
         setChildAvatar();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // create instance of shared preferences
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        // import language json file
+        InputStream langInputStream = resources.openRawResource(R.raw.languages);
+        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+        langRealmImporter.importLanguagesFromJson();
+        // create language schema service and set strings
+        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
+        LanguageSchema lang = langSchemaService.getLanguageSchemaById();
+
+        nameInput.setHint(lang.getName());
+
     }
 
     // Change custom view animal and color

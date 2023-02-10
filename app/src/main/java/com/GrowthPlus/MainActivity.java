@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setLangPreferences();
         init();
         importRoadMapData();
         setAllLandingPageCards(children);
@@ -113,21 +112,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.i("extras null", "the extras were null");
         }
 
-        SharedPreferences langPrefs = getSharedPreferences("DefaultLangPreferences", MODE_PRIVATE);
-        String lang23 = langPrefs.getString("languageId", "englishZero");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // create instance of shared preferences
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
         // import language json file
         InputStream langInputStream = resources.openRawResource(R.raw.languages);
         LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
         langRealmImporter.importLanguagesFromJson();
-//
-//        // create language schema service and set strings
-        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, lang23);
+        // create language schema service and set strings
+        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
         LanguageSchema lang = langSchemaService.getLanguageSchemaById();
 
-//        prefsEditor.putString("languageResource", "R.raw.english");
-//        prefsEditor.putString("languageId", "englishZero");
         parentText.setText(lang.getParent());
-
     }
 
     private void importSampleData(){
@@ -322,17 +323,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void startParentLoginActivity(){
         Intent parentLogin = new Intent(MainActivity.this, ParentLogin.class);
         startActivity(parentLogin);
-    }
-
-    public void setLangPreferences(){
-
-        // Create shared preferences class to save default language
-        SharedPreferences mPrefs = getSharedPreferences("DefaultLangPreferences", MODE_PRIVATE);
-
-        // Add english as default lang
-        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-        prefsEditor.putString("languageId", "frenchZero");
-        prefsEditor.commit();
-
     }
 }
