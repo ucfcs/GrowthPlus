@@ -178,10 +178,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startAddChildActivity();
             }
 
-            else{ //otherwise, display a toast encouraging them to signup
+            else{ //otherwise, display a toast encouraging them to signup for a parent account
                 Context context = getApplicationContext();
                 CharSequence text = "You cannot add a child account yet. Please create a parent account first.";
-                int duration = Toast.LENGTH_LONG;
+                int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();

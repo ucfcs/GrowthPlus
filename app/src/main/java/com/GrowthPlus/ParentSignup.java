@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -66,24 +67,36 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
         //if they click the signup button
         if(id == R.id.parentSignupBtn){
-            //track what the user entered
-            enterPinInputInteger = Integer.parseInt(enterPinInput.getText().toString());
-            confirmPinInputInteger = Integer.parseInt(confirmPinInput.getText().toString());
 
-            if(confirmPinMatch(enterPinInputInteger, confirmPinInputInteger) == true){
-                //create a parent with the pin
-                createParent();
+            boolean inputValid = validInput(enterPinInput, confirmPinInput);//checks for null and blank input
 
-                //move on to the login screen
-                startLoginActivity();
+            if(inputValid == true){
+                //track what the user entered
+                enterPinInputInteger = Integer.parseInt(enterPinInput.getText().toString());
+                confirmPinInputInteger = Integer.parseInt(confirmPinInput.getText().toString());
+
+                //if the PIN's match, start the parent portal activity
+                if(confirmPinMatch(enterPinInputInteger, confirmPinInputInteger) == true){
+                    //create a parent with the pin
+                    createParent();
+
+                    //move on to the login screen
+                    startLoginActivity();
+                }
+
+                else{//PIN's don't match -> display a toast
+                    Context context = getApplicationContext();
+                    CharSequence text = "PINs do not match! Please try typing them again.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             }
 
-            else{
-                //display a toast
+            else { //input was not valid -> display a toast
                 Context context = getApplicationContext();
-                CharSequence text = "PINs do not match! Please try typing them again.";
-                int duration = Toast.LENGTH_LONG;
-
+                CharSequence text = "At least one PIN was blank or null. Please enter a 4-digit number.";
+                int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
@@ -97,6 +110,21 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         enterPinInput.setText("");
         confirmPinInput.setText("");//clears the EditText(s)
 
+    }
+
+    private boolean validInput(EditText input1, EditText input2) {
+        String input1String = input1.getText().toString();
+        String input2String = input2.getText().toString();
+
+        if (!input1String.equals(null) &&
+            !input1String.equals("") &&
+            !input2String.equals(null) &&
+            !input2String.equals("")){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     //simple method to see if two pins match

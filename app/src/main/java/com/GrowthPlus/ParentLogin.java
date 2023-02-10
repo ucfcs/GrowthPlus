@@ -61,19 +61,29 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         //the user clicked the login button
         if(id == R.id.parentLoginBtn){
 
-            loginPinInputInteger = Integer.parseInt(loginPinInput.getText().toString());
-            //this line can lead to errors if the user doesn't enter a number
+            boolean inputValid = validInput(loginPinInput);//checks for null and blank input
 
-            //if the PIN's match, start the parent portal activity
-            if(confirmPinMatch(loginPinInputInteger, parentSignupPIN) == true){
-                startParentPortalActivity();
+            if(inputValid == true){
+                loginPinInputInteger = Integer.parseInt(loginPinInput.getText().toString());
+
+                //if the PIN's match and the input was valid, start the parent portal activity
+                if(confirmPinMatch(loginPinInputInteger, parentSignupPIN) == true){
+                    startParentPortalActivity();
+                }
+
+                else{ //PIN's don't match -> display a toast
+                    Context context = getApplicationContext();
+                    CharSequence text = "That is not the correct PIN. Please try typing it again.";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             }
 
-            //if the PIN's don't match, display a toast
-            else{
+            else {//input was not valid -> display a toast
                 Context context = getApplicationContext();
-                CharSequence text = "That is not the correct PIN. Please try typing it again.";
-                int duration = Toast.LENGTH_LONG;
+                CharSequence text = "The PIN you entered was blank or null. Please enter a 4-digit number.";
+                int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
@@ -94,6 +104,16 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         loginPinInput.setText("");//clears the EditText
     }
 
+    private boolean validInput(EditText input) {
+        String inputString = input.getText().toString();
+
+        if (!inputString.equals(null) && !inputString.equals("")) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     private boolean confirmPinMatch(Integer pin1, Integer pin2){
 
         if(pin1.equals(pin2)) //they match
