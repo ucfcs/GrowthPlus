@@ -14,8 +14,16 @@
           {
             "lessonContentId": "lessonOneContentOne",
             "word": "one",
-            "number": "1",
-            "imgNum": "1"
+            "firstNumber": "",
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
+            "thirdNumber": "",
+            "imgOne": "",
+            "imgTwo": "",
+            "imgThree": "",
+            "imgFour": "",
+            "imgFive": ""
           },
           {
             "lessonContentId": "lessonOneContentTwo",
