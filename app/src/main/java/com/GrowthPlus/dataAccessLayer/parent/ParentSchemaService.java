@@ -70,6 +70,13 @@ public class ParentSchemaService {
     }
 
     /*
+    This method returns all parent schemas.
+    */
+    public RealmResults<ParentSchema> getAllParentSchemas(){
+        return realm.where(ParentSchema.class).findAll();
+    }
+
+    /*
     This method deletes a parent's list of children.
      */
     public void deleteParentChildren(){

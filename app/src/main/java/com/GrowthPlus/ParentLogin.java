@@ -37,7 +37,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent_login);
         init();
-        importSampleData();
 
         loginButton.setOnClickListener(this);
         loginBackButton.setOnClickListener(this);
@@ -58,21 +57,11 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         }
 
         //get the parentschema without the parentId
-        //loginParent = loginParentService.getParentSchema();
-
-        //using the parentId, get the parentSchema
-        loginParent = loginParentService.getParentSchemaById(parentIdString);
-
-        //Log.i("parentIdString PL", String.valueOf(parentIdString));
-        //Log.i("parent PL", String.valueOf(loginParent));
-
+        loginParent = loginParentService.getAllParentSchemas().get(0);
         parentSignupPIN = loginParent.getPIN();
-        Log.i("parent signup pin PL", String.valueOf(parentSignupPIN));
-    }
 
-    private void importSampleData(){
-        JsonSampleData jsonSampleData = new JsonSampleData(realm, resources);
-        jsonSampleData.importDataFromJson();
+        //Log.i("parent PL", String.valueOf(loginParent));
+        Log.i("parent signup pin PL", String.valueOf(parentSignupPIN));
     }
 
     @Override
@@ -139,14 +128,13 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     public void startParentPortalActivity(){
         Intent parentPortal = new Intent(ParentLogin.this, ParentPortal.class);
-        parentPortal.putExtra("parentIdString", parentIdString);
         startActivity(parentPortal);
     }
 
     //moves to the MainActivity page
     public void startLandingPageActivity(){
         Intent landingPageActivity = new Intent(ParentLogin.this, MainActivity.class);
-        landingPageActivity.putExtra("parentIdString", parentIdString);
         startActivity(landingPageActivity);
+
     }
 }

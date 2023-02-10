@@ -243,7 +243,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
     public void startLandingPageActivity(){
         Intent landingPage = new Intent(ParentPortal.this, MainActivity.class);
-        landingPage.putExtra("parentIdString", parentIdString);
         startActivity(landingPage);
         this.finish();
     }

@@ -56,7 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ParentSchemaService landingPageParentService;
     ParentSchema landingPageParent;
+    private RealmResults<ParentSchema> parent;
+
     private String parentIdString;
+
+    int parentSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,17 +116,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         landingPageParentService = new ParentSchemaService(realm);
 
         //get the parent without the parentId
-        //landingPageParent = landingPageParentService.getParentSchema();
-
-        //get the parent with the parentId
-        landingPageParent = landingPageParentService.getParentSchemaById(parentIdString);
+        parent = landingPageParentService.getAllParentSchemas();
+        parentSize = parent.size();
 
         //String str = landingPageParent.getParentId();
         // Log.i("parentId frm .getPID = ", str);
-    }
-
-    private void importSampleData(){
-        jsonSampleData.importDataFromJson();
     }
 
     public void importRoadMapData(){
@@ -146,18 +144,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //startActivity(new Intent(MainActivity.this, ParentPortal.class));
 
             //If a parent exists, we can go to the login page
-            if(landingPageParent != null) {
-                Log.i("main activity", "landingPageParent is NOT null");
-                startActivity(new Intent(MainActivity.this, ParentLogin.class));
-                this.finish(); //i just put this because the else statement had it
+            if(parentSize > 0) {
+                Log.i("parent exists", parent.toString());
+                startParentLoginActivity();
             }
-            //Otherwise we go to the signup page to create a parent
-            else{
-                Log.i("main activity", "landingPageParent IS null");
-                startActivity(new Intent(MainActivity.this, ParentSignup.class));
-                this.finish(); //I need to learn more about .finish()
 
+            else{
+                Log.i("parent size is 0", "");
+                startParentSignupActivity();
             }
+
         }
 
         if(id == R.id.langBtn){
@@ -297,5 +293,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             landingPageGridLayout.addView(landingPageAddChild);
         }
 
+    }
+    public void startParentSignupActivity(){
+        Intent parentSignup = new Intent(MainActivity.this, ParentSignup.class);
+        startActivity(parentSignup);
+    }
+
+    public void startParentLoginActivity(){
+        Intent parentLogin = new Intent(MainActivity.this, ParentLogin.class);
+        startActivity(parentLogin);
     }
 }

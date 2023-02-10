@@ -43,7 +43,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent_signup);
         init();
-        importSampleData();
 
         signupButton.setOnClickListener(this);
         signupBackButton.setOnClickListener(this);
@@ -59,11 +58,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         confirmPinInput = findViewById(R.id.confirmPinInput);
         parentId = new ObjectId();
         parentIdString = parentId.toString();
-    }
-
-    private void importSampleData(){
-        JsonSampleData jsonSampleData = new JsonSampleData(realm, resources);
-        jsonSampleData.importDataFromJson();
     }
 
     @Override
@@ -119,14 +113,13 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     //moves to the MainActivity page
     public void startMainActivity(){
         Intent mainActivity = new Intent(ParentSignup.this, MainActivity.class);
-        mainActivity.putExtra("parentIdString", parentIdString);
         startActivity(mainActivity);
+        this.finish();
     }
 
     //moves to the login page, passing over the parentId
     public void startLoginActivity(){
         Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
-        parentLogin.putExtra("parentIdString", parentIdString);
         startActivity(parentLogin);
     }
 
@@ -134,6 +127,5 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     private void createParent(){
         signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, null);
         signupParentService.createParentSchema();
-        signupParent = signupParentService.getParentSchema();//idk if this is actually needed
     }
 }
