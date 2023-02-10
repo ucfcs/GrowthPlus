@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         children = landingPageChildren.getAllChildSchemas();
 
 
-        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        SharedPreferences langPrefs = getSharedPreferences("DefaultLangPreferences", MODE_PRIVATE);
         String lang23 = langPrefs.getString("languageId", "englishZero");
         // import language json file
         InputStream langInputStream = resources.openRawResource(R.raw.languages);
@@ -279,7 +279,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setLangPreferences(){
 
         // Create shared preferences class to save default language
-        SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        SharedPreferences mPrefs = getSharedPreferences("DefaultLangPreferences", MODE_PRIVATE);
 
         // Add english as default lang
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
