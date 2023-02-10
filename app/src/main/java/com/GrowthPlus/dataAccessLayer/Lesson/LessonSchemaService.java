@@ -2,7 +2,10 @@ package com.GrowthPlus.dataAccessLayer.Lesson;
 
 import android.util.Log;
 
+import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
+
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class LessonSchemaService {
@@ -12,14 +15,16 @@ public class LessonSchemaService {
     private Integer minPoints;
     private String lessonName;
     private String image;
+    private RealmList<LessonContent> contents;
 
-    public LessonSchemaService(Realm realm, String lessonId, Integer maxPoints, Integer minPoints, String lessonName, String image) {
+    public LessonSchemaService(Realm realm, String lessonId, Integer maxPoints, Integer minPoints, String lessonName, String image, RealmList<LessonContent> contents) {
         this.realm = realm;
         this.lessonId = lessonId;
         this.maxPoints = maxPoints;
         this.minPoints = minPoints;
         this.lessonName = lessonName;
         this.image = image;
+        this.contents = contents;
     }
 
     public String getLessonId() {
@@ -34,6 +39,7 @@ public class LessonSchemaService {
                 newLessonSchema.setMinPoints(minPoints);
                 newLessonSchema.setMaxPoints(maxPoints);
                 newLessonSchema.setImage(image);
+                newLessonSchema.setContents(contents);
             }, () ->{
                 Log.i("Success", "New Lesson added to realm");
             }, error -> {
