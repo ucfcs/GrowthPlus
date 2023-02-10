@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.gridlayout.widget.GridLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.GrowthPlus.customViews.LandingPageAddChild;
@@ -170,7 +172,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if( id == R.id.landingPageChildCardAdd){
-            startAddChildActivity();
+
+            //If a parent exists, we can go to the add child screen
+            if(parentSize > 0) {
+                startAddChildActivity();
+            }
+
+            else{ //otherwise, display a toast encouraging them to signup
+                Context context = getApplicationContext();
+                CharSequence text = "You cannot add a child account yet. Please create a parent account first.";
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
         }
     }
 
