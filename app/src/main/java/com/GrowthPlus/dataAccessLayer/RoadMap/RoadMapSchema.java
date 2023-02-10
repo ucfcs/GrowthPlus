@@ -46,7 +46,7 @@ public class RoadMapSchema extends RealmObject {
     }
 
     public void setScenarioGame(ScenarioGameSchema scenarioGame) {
-        scenarioGame = scenarioGame;
+        this.scenarioGame = scenarioGame;
     }
 
     public RealmList<QuizSchema> getQuizzes() {
