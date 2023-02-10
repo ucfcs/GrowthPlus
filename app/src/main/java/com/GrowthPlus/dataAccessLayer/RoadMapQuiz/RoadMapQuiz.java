@@ -11,8 +11,8 @@ public class RoadMapQuiz extends RealmObject {
     Integer minPoints;
     Boolean isCurrent;
     Boolean isCompleted;
-    String question;
-    String answer;
+    String databaseQuizId;
+    Integer currentPoints;
 
     public RoadMapQuiz() {
     }
@@ -24,16 +24,17 @@ public class RoadMapQuiz extends RealmObject {
             Integer minPoints,
             Boolean isCurrent,
             Boolean isCompleted,
-            String question,
-            String answer) {
+            String databaseQuizId,
+            Integer currentPoints
+    ) {
         this.quizName = quizName;
         this.image = image;
         this.maxPoints = maxPoints;
         this.minPoints = minPoints;
         this.isCurrent = isCurrent;
         this.isCompleted = isCompleted;
-        this.question = question;
-        this.answer = answer;
+        this.databaseQuizId = databaseQuizId;
+        this.currentPoints = currentPoints;
     }
 
     public String getQuizName() {
@@ -84,19 +85,19 @@ public class RoadMapQuiz extends RealmObject {
         isCompleted = completed;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getDatabaseQuizId() {
+        return databaseQuizId;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setDatabaseQuizId(String databaseQuizId) {
+        this.databaseQuizId = databaseQuizId;
     }
 
-    public String getAnswer() {
-        return answer;
+    public Integer getCurrentPoints() {
+        return currentPoints;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setCurrentPoints(Integer currentPoints) {
+        this.currentPoints = currentPoints;
     }
 }

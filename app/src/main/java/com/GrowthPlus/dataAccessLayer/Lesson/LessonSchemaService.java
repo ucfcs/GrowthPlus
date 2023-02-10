@@ -35,7 +35,6 @@ public class LessonSchemaService {
             String image,
             RealmList<FlashcardSchema> flashcards
     ) {
-     {
         this.realm = realm;
         this.lessonId = lessonId;
         this.maxPoints = maxPoints;
@@ -48,7 +47,6 @@ public class LessonSchemaService {
     }
 
     public void createLesson (){
-
             realm.executeTransactionAsync(realm ->{
                 LessonSchema newLessonSchema = realm.createObject(LessonSchema.class, String.valueOf(lessonId));
                 newLessonSchema.setLessonName(lessonName);
@@ -65,9 +63,6 @@ public class LessonSchemaService {
             });
     }
 
-    public RealmResults<LessonSchema> getAllLessons(){
-        return realm.where(LessonSchema.class).findAll();
-    }
 
     public LessonSchema getLessonByName(){
         return realm.where(LessonSchema.class)

@@ -18,6 +18,7 @@ public class ChildRoadMap extends RealmObject {
     RealmList<RoadMapLesson> roadMapLessons;
     RealmList<RoadMapQuiz> roadMapQuizzes;
     RoadMapScenarioGame scenarioGame;
+    String databaseRoadMapId;
 
     public  ChildRoadMap(){}
 
@@ -28,7 +29,9 @@ public class ChildRoadMap extends RealmObject {
                         Boolean isLocked,
                         RealmList<RoadMapLesson> roadMapLessons,
                         RealmList<RoadMapQuiz> roadMapQuizzes,
-                        RoadMapScenarioGame scenarioGame){
+                        RoadMapScenarioGame scenarioGame,
+                        String databaseRoadMapId
+    ){
         this.roadMapName = roadMapName;
         this.lessonsCompleted = lessonsCompleted;
         this.isCurrent = isCurrent;
@@ -37,6 +40,7 @@ public class ChildRoadMap extends RealmObject {
         this.roadMapLessons = roadMapLessons;
         this.roadMapQuizzes = roadMapQuizzes;
         this.scenarioGame = scenarioGame;
+        this.databaseRoadMapId = databaseRoadMapId;
     }
 
     public String getRoadMapName() {

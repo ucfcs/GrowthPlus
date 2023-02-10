@@ -8,11 +8,11 @@ public class FlashcardSchema extends RealmObject {
     private String flashCardId;
     private String flashCardName;
     private String question;
-    private String firstOperand;
+    private String firstNumber;
     private String firstOperator;
-    private String secondOperand;
+    private String secondNumber;
     private String secondOperator;
-    private String answer;
+    private String thirdNumber;
 
     public String getFlashCardId() {
         return flashCardId;
@@ -38,12 +38,12 @@ public class FlashcardSchema extends RealmObject {
         this.question = question;
     }
 
-    public String getFirstOperand() {
-        return firstOperand;
+    public String getFirstNumber() {
+        return firstNumber;
     }
 
-    public void setFirstOperand(String firstOperand) {
-        this.firstOperand = firstOperand;
+    public void setFirstNumber(String firstNumber) {
+        this.firstNumber = firstNumber;
     }
 
     public String getFirstOperator() {
@@ -54,12 +54,12 @@ public class FlashcardSchema extends RealmObject {
         this.firstOperator = firstOperator;
     }
 
-    public String getSecondOperand() {
-        return secondOperand;
+    public String getSecondNumber() {
+        return secondNumber;
     }
 
-    public void setSecondOperand(String secondOperand) {
-        this.secondOperand = secondOperand;
+    public void setSecondNumber(String secondNumber) {
+        this.secondNumber = secondNumber;
     }
 
     public String getSecondOperator() {
@@ -70,11 +70,11 @@ public class FlashcardSchema extends RealmObject {
         this.secondOperator = secondOperator;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getThirdNumber() {
+        return thirdNumber;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setThirdNumber(String thirdNumber) {
+        this.thirdNumber = thirdNumber;
     }
 }

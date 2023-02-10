@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildAvatarComponent;
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -23,6 +24,7 @@ import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import org.bson.types.ObjectId;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class CreateAccount extends AppCompatActivity {
     Button backButton, loginButton;
@@ -40,10 +42,68 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         init();
-        ChildRoadMap childRoadMapOne = new ChildRoadMap("roadMapOne", 0, true, false, false, null, null, null);
-        ChildRoadMap childRoadMapTwo = new ChildRoadMap("roadMapTwo", 0, false, false, true, null, null, null);
-        ChildRoadMap childRoadMapThree = new ChildRoadMap("roadMapThree", 0, false, false, true, null, null, null);
-        ChildRoadMap childRoadMapFour = new ChildRoadMap("roadMapFour", 0, false, false, true, null, null, null);
+
+        RoadMapLesson roadMapLesson = new RoadMapLesson(
+                "Roadmap One Lesson 1",
+                "elephant",
+                "numbers",
+                true,
+                false,
+                7,
+                10,
+                "RmOneLessonOne",
+                "RmOneLessonOneContentOne",
+                "RmOneLessonOneFlashOne",
+                true,
+                false,
+                0);
+        RealmList<RoadMapLesson> roadMapLessons = new RealmList<>();
+        roadMapLessons.add(roadMapLesson);
+
+
+        ChildRoadMap childRoadMapOne = new ChildRoadMap(
+                "roadMapOne",
+                0,
+                true,
+                false,
+                false,
+                roadMapLessons,
+                null,
+                null,
+                "RoadMapOne");
+
+        ChildRoadMap childRoadMapTwo = new ChildRoadMap(
+                "roadMapTwo",
+                0,
+                false,
+                false,
+                true,
+                null,
+                null,
+                null,
+                "RoadMapTwo");
+
+        ChildRoadMap childRoadMapThree = new ChildRoadMap(
+                "roadMapThree",
+                0,
+                false,
+                false,
+                true,
+                null,
+                null,
+                null,
+                "RoadMapThree");
+
+        ChildRoadMap childRoadMapFour = new ChildRoadMap(
+                "roadMapFour",
+                0,
+                false,
+                false,
+                true,
+                null,
+                null,
+                null,
+                "RoadMapFour");
 
         // Go to main page with update new child
         View.OnClickListener goNext = v -> {
