@@ -28,7 +28,8 @@ public class Leaderboard extends AppCompatActivity {
 
         backSet.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(Leaderboard.this, MainActivity.class));
+                //startActivity(new Intent(Leaderboard.this, ChildPortal.class));
+                finish();
             }
         });
 
