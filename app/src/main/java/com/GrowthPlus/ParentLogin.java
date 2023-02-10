@@ -22,15 +22,12 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     Realm realm;
     Resources resources;
-
     private Button loginButton;
     private Button loginBackButton;
     private EditText loginPinInput;
-
     private ParentSchemaService loginParentService;
     private ParentSchema loginParent;
     private Integer parentSignupPIN;
-
     Integer loginPinInputInteger;
 
     @Override

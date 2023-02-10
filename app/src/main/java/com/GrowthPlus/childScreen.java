@@ -90,17 +90,21 @@ public class childScreen extends AppCompatActivity {
                 ChildSchema deleteChild = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                 deleteChild.deleteFromRealm();
 
+            },()->{
+                Intent intent = new Intent(childScreen.this, ParentPortal.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                overridePendingTransition(0, 0);
+                startActivity(new Intent(childScreen.this, ParentPortal.class));
+                overridePendingTransition(0, 0);
+                this.finish();
+            }, error -> {
+                Log.i("Error", "Could not delete child from realm " + error);
             });
-            Intent intent = new Intent(childScreen.this, ParentPortal.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(new Intent(childScreen.this, ParentPortal.class));
-            this.finish();
         });
 
     }
 
     private void init(){
-
         realm = Realm.getDefaultInstance();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
