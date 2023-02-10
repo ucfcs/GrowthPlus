@@ -16,7 +16,11 @@ import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildAvatarComponent;
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
+import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
+import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
+import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
+import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -60,6 +64,29 @@ public class CreateAccount extends AppCompatActivity {
         RealmList<RoadMapLesson> roadMapLessons = new RealmList<>();
         roadMapLessons.add(roadMapLesson);
 
+        RoadMapQuiz roadMapQuiz = new RoadMapQuiz(
+                "RoadMap One Quiz One",
+                "elephant",
+                10,
+                7,
+                true,
+                false,
+                "RmOneQuizOne",
+                0
+        );
+        RealmList<RoadMapQuiz> roadMapQuizzes = new RealmList<>();
+        roadMapQuizzes.add(roadMapQuiz);
+
+        RoadMapScenarioGame roadMapOneScenarioGame = new RoadMapScenarioGame(
+                "Fishing",
+                "fish",
+                20,
+                17,
+                false,
+                "RmOneScenarioGame",
+                0
+        );
+
 
         ChildRoadMap childRoadMapOne = new ChildRoadMap(
                 "roadMapOne",
@@ -68,8 +95,8 @@ public class CreateAccount extends AppCompatActivity {
                 false,
                 false,
                 roadMapLessons,
-                null,
-                null,
+                roadMapQuizzes,
+                roadMapOneScenarioGame,
                 "RoadMapOne");
 
         ChildRoadMap childRoadMapTwo = new ChildRoadMap(
