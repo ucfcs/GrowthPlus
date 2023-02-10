@@ -36,7 +36,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     private String parentIdString;
 
     private ParentSchemaService signupParentService;
-    private ParentSchema signupParent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

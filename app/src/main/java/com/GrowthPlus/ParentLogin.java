@@ -27,10 +27,11 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     private Button loginBackButton;
     private EditText loginPinInput;
 
-    private String parentIdString;
     private ParentSchemaService loginParentService;
     private ParentSchema loginParent;
     private Integer parentSignupPIN;
+
+    Integer loginPinInputInteger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,60 +50,45 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         loginBackButton = findViewById(R.id.backParentLogin);
         loginPinInput = findViewById(R.id.loginPinInput);
         loginParentService = new ParentSchemaService(realm);
-
-        //get the parentId passed in from ParentSignup
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            parentIdString = extras.getString("parentIdString");
-        }
-
-        //get the parentschema without the parentId
-        loginParent = loginParentService.getAllParentSchemas().get(0);
-        parentSignupPIN = loginParent.getPIN();
-
-        //Log.i("parent PL", String.valueOf(loginParent));
-        Log.i("parent signup pin PL", String.valueOf(parentSignupPIN));
+        loginParent = loginParentService.getAllParentSchemas().get(0); //gets the parent
+        parentSignupPIN = loginParent.getPIN(); //and their PIN
     }
 
     @Override
     public void onClick(View view) {
         int id = view.getId();
 
-        //if they click the login button,
+        //the user clicked the login button
         if(id == R.id.parentLoginBtn){
 
-            Integer loginPinInputInteger = Integer.parseInt(loginPinInput.getText().toString());
+            loginPinInputInteger = Integer.parseInt(loginPinInput.getText().toString());
+            //this line can lead to errors if the user doesn't enter a number
 
-            //check that the PIN matches the PIN and then start the parent portal activity
+            //if the PIN's match, start the parent portal activity
             if(confirmPinMatch(loginPinInputInteger, parentSignupPIN) == true){
                 startParentPortalActivity();
             }
 
-            //if the PIN doesn't match, display a toast
+            //if the PIN's don't match, display a toast
             else{
-                //ruth said something about a while loop?
-                //for now just display a toast
                 Context context = getApplicationContext();
                 CharSequence text = "That is not the correct PIN. Please try typing it again.";
                 int duration = Toast.LENGTH_LONG;
-
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
         }
 
+        //the user clicked the back button
         if(id == R.id.backParentLogin){
-
-            //go back to the signup page if a parent doesn't exist.....but it always does, right?
-            if(loginParent == null) {
-                Log.i("parent login", "loginParent IS null");
-                startParentSignupActivity();
+            //if a parent already exists, then clicking the back arrow should send you back to the landing page
+            if(loginParent != null){
+                startLandingPageActivity();
             }
 
-            //if a parent already exists, then clicking the back arrow should send you back to the landing page
-            else{
-                Log.i("parent login", "loginParent is NOT null");
-                startLandingPageActivity();
+            //if a parent doesn't exist, then go to the signup page.....but this never is the case, right?
+            else {
+                startParentSignupActivity();
             }
         }
         loginPinInput.setText("");//clears the EditText
@@ -110,15 +96,11 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     private boolean confirmPinMatch(Integer pin1, Integer pin2){
 
-        if(pin1.equals(pin2)){
-            //they match
+        if(pin1.equals(pin2)) //they match
             return true;
-        }
 
-        else{
-            //they don't match
+        else //they don't match
             return false;
-        }
     }
 
     public void startParentSignupActivity(){

@@ -48,8 +48,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     public ImageSrcIdentifier imageSrcIdentifier;
     private Realm realm;
 
-    private String parentIdString;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,12 +123,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
         setChildCardIds();
         setProgressBarIds();
-
-        //get the parentId passed in from ParentSignup
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            parentIdString = extras.getString("parentIdString");
-        }
     }
 
     @Nullable

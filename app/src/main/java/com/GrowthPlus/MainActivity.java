@@ -55,11 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RealmResults<ChildSchema> children;
 
     private ParentSchemaService landingPageParentService;
-    ParentSchema landingPageParent;
     private RealmResults<ParentSchema> parent;
-
-    private String parentIdString;
-
     int parentSize;
 
     @Override
@@ -97,30 +93,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setLandingPageChildCardIds();
         children = landingPageChildren.getAllChildSchemas();
 
-        String str = getIntent().toString();
-        Log.i("getIntent() ", str);
+        landingPageParentService = new ParentSchemaService(realm);
+        parent = landingPageParentService.getAllParentSchemas();//this gets the parent
+        parentSize = parent.size();
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             parentText.setText(extras.getString("setParent"));
-            parentIdString = extras.getString("parentIdString");
-
-            //Log.i("parentIdString = ", parentIdString);
-            //this caused an error saying java.lang.NullPointerException: println needs a message
         }
-
         else{
             Log.i("extras null", "the extras were null");
         }
-
-        landingPageParentService = new ParentSchemaService(realm);
-
-        //get the parent without the parentId
-        parent = landingPageParentService.getAllParentSchemas();
-        parentSize = parent.size();
-
-        //String str = landingPageParent.getParentId();
-        // Log.i("parentId frm .getPID = ", str);
     }
 
     public void importRoadMapData(){
@@ -140,20 +123,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int id = view.getId();
 
-        if(id == R.id.idParent){
-            //startActivity(new Intent(MainActivity.this, ParentPortal.class));
+        if(id == R.id.idParent){//the user clicked the parent button
 
             //If a parent exists, we can go to the login page
             if(parentSize > 0) {
-                Log.i("parent exists", parent.toString());
                 startParentLoginActivity();
             }
 
-            else{
-                Log.i("parent size is 0", "");
+            else{ //otherwise, go to the signup page
                 startParentSignupActivity();
             }
-
         }
 
         if(id == R.id.langBtn){
