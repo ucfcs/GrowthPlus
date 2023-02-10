@@ -69,17 +69,17 @@ public class LessonContentService {
         return realm.where(LessonContent.class).findAll();
     }
 
-    public LessonContent getLessonById(){
+    public LessonContent getLessonById(String lessonContentId){
         return realm.where(LessonContent.class)
                 .equalTo("lessonContentId", lessonContentId)
                 .findFirst();
     }
 
-    public void deleteRealmLessonContent(){
-        realm.executeTransactionAsync(realm ->{
-            LessonContent lessonContent = getLessonById();
-            lessonContent.deleteFromRealm();
-            lessonContent = null;
-        });
-    }
+//    public void deleteRealmLessonContent(){
+//        realm.executeTransactionAsync(realm ->{
+//            LessonContent lessonContent = getLessonById(lessonContentId);
+//            lessonContent.deleteFromRealm();
+//            lessonContent = null;
+//        });
+//    }
 }

@@ -14,70 +14,142 @@
           {
             "lessonContentId": "lessonOneContentOne",
             "word": "one",
-            "firstNumber": "",
-            "firstOperator": "",
-            "secondNumber": "",
-            "secondOperator": "",
-            "thirdNumber": "",
-            "imgOne": "",
-            "imgTwo": "",
-            "imgThree": "",
-            "imgFour": "",
-            "imgFive": ""
+            "firstNumber": "1",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentTwo",
             "word": "two",
-            "number": "2",
-            "imgNum": "2"
+            "firstNumber": "2",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentThree",
             "word": "three",
-            "number": "3",
-            "imgNum": "3"
+            "firstNumber": "3",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentFour",
             "word": "four",
-            "number": "4",
-            "imgNum": "4"
+            "firstNumber": "4",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentFive",
             "word": "five",
-            "number": "5",
-            "imgNum": "5"
+            "firstNumber": "5",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentSix",
             "word": "six",
-            "number": "6",
-            "imgNum": "6"
+            "firstNumber": "6",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentSeven",
             "word": "seven",
-            "number": "7",
-            "imgNum": "7"
+            "firstNumber": "7",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentEight",
             "word": "eight",
-            "number": "8",
-            "imgNum": "8"
+            "firstNumber": "8",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentNine",
             "word": "nine",
-            "number": "9",
-            "imgNum": "9"
+            "firstNumber": "9",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonOneContentTen",
             "word": "ten",
-            "number": "10",
-            "imgNum": "10"
+            "firstNumber": "10",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
@@ -92,56 +164,128 @@
           {
             "lessonContentId": "lessonTwoContentOne",
             "word": null,
-            "number": "1+1=2",
-            "imgNum": "1+1=2"
+            "firstNumber": "1",
+            "firstOperator": "+",
+            "secondNumber": "1",
+            "secondOperator": "=",
+            "thirdNumber": "2",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonTwoContentTwo",
             "word": null,
-            "number": "1+2=3",
-            "imgNum": "1+2=3"
+            "firstNumber": "1",
+            "firstOperator": "+",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "3",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonTwoContentThree",
             "word": null,
-            "number": "2+2=4",
-            "imgNum": "2+2=4"
+            "firstNumber": "2",
+            "firstOperator": "+",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "4",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonTwoContentFour",
             "word": null,
-            "number": "2+3=5",
-            "imgNum": "2+3=5"
+            "firstNumber": "2",
+            "firstOperator": "+",
+            "secondNumber": "3",
+            "secondOperator": "=",
+            "thirdNumber": "5",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonTwoContentFive",
             "word": null,
-            "number": "2+4=6",
-            "imgNum": "2+4=6"
+            "firstNumber": "2",
+            "firstOperator": "+",
+            "secondNumber": "4",
+            "secondOperator": "=",
+            "thirdNumber": "6",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonTwoContentSix",
             "word": null,
-            "number": "3+4=7",
-            "imgNum": "3+4=7"
+            "firstNumber": "3",
+            "firstOperator": "+",
+            "secondNumber": "4",
+            "secondOperator": "=",
+            "thirdNumber": "7",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonTwoContentSeven",
             "word": null,
-            "number": "2+6=8",
-            "imgNum": "2+6=8"
+            "firstNumber": "2",
+            "firstOperator": "+",
+            "secondNumber": "6",
+            "secondOperator": "=",
+            "thirdNumber": "8",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonTwoContentEight",
             "word": null,
-            "number": "4+5=9",
-            "imgNum": "4+5=9"
+            "firstNumber": "4",
+            "firstOperator": "+",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "9",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonTwoContentNine",
             "word": null,
-            "number": "5+5=10",
-            "imgNum": "5+5=10"
+            "firstNumber": "5",
+            "firstOperator": "+",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "10",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
@@ -156,50 +300,114 @@
           {
             "lessonContentId": "lessonThreeContentOne",
             "word":"une unité",
-            "number": null,
-            "imgNum": "oneUnit"
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "oneUnit",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonThreeContentTwo",
-            "word":"dix unités = une dizaine",
-            "number": null,
-            "imgNum": "tenUnits,oneTenUnit"
+            "word": null,
+            "firstNumber": "dix unités",
+            "firstOperator": "=",
+            "secondNumber": "une dizaine",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "tenOneUnits",
+            "imgTwo": "tenUnit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonThreeContentThree",
             "word":"une dizaine",
-            "number": null,
-            "imgNum": "oneTenUnit"
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "tenUnit",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonThreeContentFour",
             "word": null,
-            "number": "5+5=",
-            "imgNum": "DUimg"
+            "firstNumber": "5",
+            "firstOperator": "+",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": null,
+            "imgOne": "DUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonThreeContentFive",
             "word": null,
-            "number": "4+6=",
-            "imgNum": "DUimg"
+            "firstNumber": "4",
+            "firstOperator": "+",
+            "secondNumber": "6",
+            "secondOperator": "=",
+            "thirdNumber": null,
+            "imgOne": "DUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonThreeContentSix",
             "word": null,
-            "number": "7+3=",
-            "imgNum": "DUimg"
+            "firstNumber": "7",
+            "firstOperator": "+",
+            "secondNumber": "3",
+            "secondOperator": "=",
+            "thirdNumber": null,
+            "imgOne": "DUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonThreeContentSeven",
             "word": null,
-            "number": "2+8=",
-            "imgNum": "DUimg"
+            "firstNumber": "2",
+            "firstOperator": "+",
+            "secondNumber": "8",
+            "secondOperator": "=",
+            "thirdNumber": null,
+            "imgOne": "DUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonThreeContentEight",
             "word": null,
-            "number": "1+9=",
-            "imgNum": "DUimg"
+            "firstNumber": "1",
+            "firstOperator": "+",
+            "secondNumber": "9",
+            "secondOperator": "=",
+            "thirdNumber": null,
+            "imgOne": "DUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
@@ -214,62 +422,142 @@
           {
             "lessonContentId": "lessonFourContentOne",
             "word": "eleven",
-            "number": "1",
-            "imgNum": "1"
+            "firstNumber": "11",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentTwo",
             "word": "twelve",
-            "number": "12",
-            "imgNum": "12"
+            "firstNumber": "12",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentThree",
             "word": "thirteen",
-            "number": "13",
-            "imgNum": "13"
+            "firstNumber": "13",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentFour",
             "word": "fourteen",
-            "number": "14",
-            "imgNum": "14"
+            "firstNumber": "14",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentFive",
             "word": "fifteen",
-            "number": "15",
-            "imgNum": "15"
+            "firstNumber": "15",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentSix",
             "word": "sixteen",
-            "number": "16",
-            "imgNum": "16"
+            "firstNumber": "16",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentSeven",
             "word": "seventeen",
-            "number": "17",
-            "imgNum": "17"
+            "firstNumber": "17",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentEight",
             "word": "eighteen",
-            "number": "18",
-            "imgNum": "18"
+            "firstNumber": "18",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentNine",
             "word": "nineteen",
-            "number": "19",
-            "imgNum": "19"
+            "firstNumber": "19",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFourContentTen",
             "word": "twenty",
-            "number": "20",
-            "imgNum": "20"
+            "firstNumber": "20",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
@@ -284,62 +572,142 @@
           {
             "lessonContentId": "lessonFiveContentOne",
             "word": null,
-            "number": "2-1=1",
-            "imgNum": "2-1=1"
+            "firstNumber": "2",
+            "firstOperator": "-",
+            "secondNumber": "1",
+            "secondOperator": "=",
+            "thirdNumber": "1",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentTwo",
             "word": null,
-            "number": "3-1=2",
-            "imgNum": "3-1=2"
+            "firstNumber": "3",
+            "firstOperator": "-",
+            "secondNumber": "1",
+            "secondOperator": "=",
+            "thirdNumber": "2",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentThree",
             "word": null,
-            "number": "5-2=3",
-            "imgNum": "5-2=3"
+            "firstNumber": "5",
+            "firstOperator": "-",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "3",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentFour",
             "word": null,
-            "number": "9-5=4",
-            "imgNum": "9-5=4"
+            "firstNumber": "9",
+            "firstOperator": "-",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "4",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentFive",
             "word": null,
-            "number": "10-5=5",
-            "imgNum": "10-5=5"
+            "firstNumber": "10",
+            "firstOperator": "-",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "5",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentSix",
             "word": null,
-            "number": "14-8=6",
-            "imgNum": "14-8=6"
+            "firstNumber": "14",
+            "firstOperator": "-",
+            "secondNumber": "8",
+            "secondOperator": "=",
+            "thirdNumber": "6",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentSeven",
             "word": null,
-            "number": "16-9=7",
-            "imgNum": "16-9=7"
+            "firstNumber": "16",
+            "firstOperator": "-",
+            "secondNumber": "9",
+            "secondOperator": "=",
+            "thirdNumber": "7",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentEight",
             "word": null,
-            "number": "18-10=8",
-            "imgNum": "18-10=8"
+            "firstNumber": "18",
+            "firstOperator": "-",
+            "secondNumber": "10",
+            "secondOperator": "=",
+            "thirdNumber": "8",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentNine",
             "word": null,
-            "number": "20-11=9",
-            "imgNum": "20-11=9"
+            "firstNumber": "20",
+            "firstOperator": "-",
+            "secondNumber": "11",
+            "secondOperator": "=",
+            "thirdNumber": "9",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonFiveContentTen",
             "word": null,
-            "number": "20-10=10",
-            "imgNum": "20-10=10"
+            "firstNumber": "20",
+            "firstOperator": "-",
+            "secondNumber": "10",
+            "secondOperator": "=",
+            "thirdNumber": "10",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
@@ -354,62 +722,142 @@
           {
             "lessonContentId": "lessonSixContentOne",
             "word": null,
-            "number": "2x1=2",
-            "imgNum": "2in1"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "1",
+            "secondOperator": "=",
+            "thirdNumber": "2",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentTwo",
             "word": null,
-            "number": "2x2=4",
-            "imgNum": "2in2"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "4",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentThree",
             "word": null,
-            "number": "2x3=6",
-            "imgNum": "2in3"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "3",
+            "secondOperator": "=",
+            "thirdNumber": "6",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentFour",
             "word": null,
-            "number": "2x4=8",
-            "imgNum": "2in4"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "4",
+            "secondOperator": "=",
+            "thirdNumber": "8",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentFive",
             "word": null,
-            "number": "2x5=10",
-            "imgNum": "2in5"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "10",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentSix",
             "word": null,
-            "number": "2x6=12",
-            "imgNum": "2in6"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "6",
+            "secondOperator": "=",
+            "thirdNumber": "12",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentSeven",
             "word": null,
-            "number": "2x7=14",
-            "imgNum": "2in7"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "7",
+            "secondOperator": "=",
+            "thirdNumber": "14",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentEight",
             "word": null,
-            "number": "2x8=16",
-            "imgNum": "2in8"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "8",
+            "secondOperator": "=",
+            "thirdNumber": "16",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentNine",
             "word": null,
-            "number": "2x9=18",
-            "imgNum": "2in9"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "9",
+            "secondOperator": "=",
+            "thirdNumber": "18",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSixContentTen",
             "word": null,
-            "number": "2x10=20",
-            "imgNum": "2in10"
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "10",
+            "secondOperator": "=",
+            "thirdNumber": "20",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
@@ -424,62 +872,142 @@
           {
             "lessonContentId": "lessonSevenContentOne",
             "word": null,
-            "number": "2:2=1",
-            "imgNum": "2in1"
+            "firstNumber": "2",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "1",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentTwo",
             "word": null,
-            "number": "4:2=2",
-            "imgNum": "2in2"
+            "firstNumber": "4",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "2",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentThree",
             "word": null,
-            "number": "6:2=3",
-            "imgNum": "2in3"
+            "firstNumber": "6",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "3",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentFour",
             "word": null,
-            "number": "8:2=4",
-            "imgNum": "2in4"
+            "firstNumber": "8",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "4",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentFive",
             "word": null,
-            "number": "10:2=5",
-            "imgNum": "2in5"
+            "firstNumber": "10",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "5",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentSix",
             "word": null,
-            "number": "12:2=6",
-            "imgNum": "2in6"
+            "firstNumber": "12",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "6",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentSeven",
             "word": null,
-            "number": "14:2=7",
-            "imgNum": "2in7"
+            "firstNumber": "14",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "7",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentEight",
             "word": null,
-            "number": "16:2=8",
-            "imgNum": "2in8"
+            "firstNumber": "16",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "8",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentNine",
             "word": null,
-            "number": "18:2=9",
-            "imgNum": "2in9"
+            "firstNumber": "18",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "9",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonSevenContentTen",
             "word": null,
-            "number": "20:2=10",
-            "imgNum": "2in10"
+            "firstNumber": "20",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "10",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
@@ -494,26 +1022,58 @@
           {
             "lessonContentId": "lessonEightContentOne",
             "word": null,
-            "number": "5x1=5",
-            "imgNum": "5in1"
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "1",
+            "secondOperator": "=",
+            "thirdNumber": "5",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonEightContentTwo",
             "word": null,
-            "number": "5x2=10",
-            "imgNum": "5in2"
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "2",
+            "secondOperator": "=",
+            "thirdNumber": "10",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonEightContentThree",
             "word": null,
-            "number": "5x3=15",
-            "imgNum": "5in3"
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "3",
+            "secondOperator": "=",
+            "thirdNumber": "15",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonEightContentFour",
             "word": null,
-            "number": "5x4=20",
-            "imgNum": "5in4"
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "4",
+            "secondOperator": "=",
+            "thirdNumber": "20",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
@@ -528,26 +1088,58 @@
           {
             "lessonContentId": "lessonNineContentOne",
             "word": null,
-            "number": "5:5=1",
-            "imgNum": "5in1"
+            "firstNumber": "5",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "1",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonNineContentTwo",
             "word": null,
-            "number": "10:5=2",
-            "imgNum": "5in2"
+            "firstNumber": "10",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "2",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonNineContentThree",
             "word": null,
-            "number": "15:5=3",
-            "imgNum": "5in3"
+            "firstNumber": "15",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "3",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           },
           {
             "lessonContentId": "lessonNineContentFour",
             "word": null,
-            "number": "20:5=4",
-            "imgNum": "5in4"
+            "firstNumber": "20",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": "=",
+            "thirdNumber": "4",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null
           }
         ]
       },
