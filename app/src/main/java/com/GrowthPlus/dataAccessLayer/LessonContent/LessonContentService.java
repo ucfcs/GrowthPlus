@@ -75,11 +75,11 @@ public class LessonContentService {
                 .findFirst();
     }
 
-//    public void deleteRealmLessonContent(){
-//        realm.executeTransactionAsync(realm ->{
-//            LessonContent lessonContent = getLessonById(lessonContentId);
-//            lessonContent.deleteFromRealm();
-//            lessonContent = null;
-//        });
-//    }
+    public void deleteRealmLessonContent(){
+        realm.executeTransactionAsync(realm ->{
+            LessonContent lessonContent = getLessonById(lessonContentId);
+            lessonContent.deleteFromRealm();
+            lessonContent = null;
+        });
+    }
 }
