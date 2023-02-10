@@ -2,6 +2,8 @@ package com.GrowthPlus.dataAccessLayer.Lesson;
 
 import android.util.Log;
 
+import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
+
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 
 import io.realm.Realm;
@@ -16,6 +18,7 @@ public class LessonSchemaService {
     private String lessonName;
     private String category;
     private String image;
+    private RealmList<LessonContent> contents;
     private RealmList<FlashcardSchema> flashcards;
 
     public LessonSchemaService(Realm realm){
@@ -32,6 +35,7 @@ public class LessonSchemaService {
             String image,
             RealmList<FlashcardSchema> flashcards
     ) {
+     {
         this.realm = realm;
         this.lessonId = lessonId;
         this.maxPoints = maxPoints;
@@ -39,6 +43,7 @@ public class LessonSchemaService {
         this.lessonName = lessonName;
         this.category = category;
         this.image = image;
+        this.contents = contents;
         this.flashcards = flashcards;
     }
 
@@ -50,6 +55,7 @@ public class LessonSchemaService {
                 newLessonSchema.setMinPoints(minPoints);
                 newLessonSchema.setMaxPoints(maxPoints);
                 newLessonSchema.setImage(image);
+                newLessonSchema.setContents(contents);
                 newLessonSchema.setCategory(category);
                 newLessonSchema.setFlashcards(flashcards);
             }, () ->{

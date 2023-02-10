@@ -12,11 +12,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.GrowthPlus.customViews.LandingPageAddChild;
 import com.GrowthPlus.customViews.LandingPageChildCard;
@@ -35,11 +34,11 @@ import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    ColorIdentifier colorIdentifier;
-    ColorStateList red, darkGreen, blue, yellow, lightGreen;
-    Realm realm;
-    Resources resources;
-    private FrameLayout childPortal;
+    private ColorIdentifier colorIdentifier;
+    private ColorStateList red, darkGreen, blue, yellow, lightGreen;
+    private Realm realm;
+    private Resources resources;
+    private FrameLayout parentPortal;
     private ImageButton language;
     private TextView parentText;
     private GridLayout landingPageGridLayout;
@@ -49,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ImageSrcIdentifier imageSrcIdentifier;
     public final int MAX_CHILDREN = 6;
     public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
-    JsonSampleData jsonSampleData;
+    private JsonSampleData jsonSampleData;
+    private RealmResults<ChildSchema> children;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,70 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         init();
         importRoadMapData();
 
-        RealmResults<ChildSchema> children = landingPageChildren.getAllChildSchemas();
+        setAllLandingPageCards(children);
 
-        LandingPageChildCard childCardTemp;
-        ChildSchema childTemp;
-
-        int childrenNum = children.size();
-        Log.i("Num of children", String.valueOf(childrenNum));
-        int random;
-        String childIdTemp;
-        String childNameTemp;
-        String avatarNameTemp;
-        String colorNameTemp;
-
-        for(int index = 0; index < childrenNum; index ++){
-            childTemp = children.get(index);
-
-            childIdTemp = childTemp.getChildId();
-            childNameTemp = childTemp.getName();
-            avatarNameTemp = childTemp.getAvatarName();
-            colorNameTemp = childTemp.getColorName();
-
-            childCardTemp = setLandingPageChildCard(landingPageChildCardIds.get(index), childNameTemp, avatarNameTemp, colorNameTemp);
-            landingPageGridLayout.addView(childCardTemp, index);
-
-            landingPageChildId.put(landingPageChildCardIds.get(index), childIdTemp);
-
-            childCardTemp = null;
-            childTemp = null;
-        }
-
-        if(childrenNum < MAX_CHILDREN){
-            LandingPageAddChild landingPageAddChild = new LandingPageAddChild(this);
-            landingPageAddChild.setId(R.id.landingPageChildCardAdd);
-            landingPageAddChild.setOnClickListener(this);
-
-            // Produces a 'random' color for the add student button
-            Random rand = new Random();
-            random = rand.nextInt(5);
-            if(random == 0){
-                landingPageAddChild.setCircleColor(red);
-                landingPageAddChild.setAddIconColor(blue);
-            }
-            else if(random == 1){
-                landingPageAddChild.setCircleColor(darkGreen);
-                landingPageAddChild.setAddIconColor(yellow);
-            }
-            else if(random == 2){
-                landingPageAddChild.setCircleColor(darkGreen);
-                landingPageAddChild.setAddIconColor(blue);
-            }
-            else if(random == 3){
-                landingPageAddChild.setCircleColor(lightGreen);
-                landingPageAddChild.setAddIconColor(darkGreen);
-            }
-            else{
-                landingPageAddChild.setCircleColor(yellow);
-                landingPageAddChild.setAddIconColor(red);
-            }
-
-            landingPageGridLayout.addView(landingPageAddChild);
-        }
-
-        // TODO: this button is currently navigating to child portal, change to parent portal
-        childPortal.setOnClickListener(this);
+        parentPortal.setOnClickListener(this);
         language.setOnClickListener(this);
     }
 
@@ -129,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         realm = Realm.getDefaultInstance();
         resources = getResources();
         jsonSampleData = new JsonSampleData(realm, resources);
-        childPortal = findViewById(R.id.idParent);
+        parentPortal = findViewById(R.id.idParent);
         language = findViewById(R.id.langBtn);
         landingPageGridLayout = findViewById(R.id.landingPageChildGrid);
         parentText = findViewById(R.id.parentText);
@@ -146,12 +85,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         landingPageChildCardIds = new HashMap<>();
         setLandingPageChildCardIds();
+        children = landingPageChildren.getAllChildSchemas();
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             parentText.setText(extras.getString("setParent"));
         }
-
     }
 
     private void importSampleData(){
@@ -252,6 +191,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void startAddChildActivity(){
         Intent selectChildAvatar = new Intent(MainActivity.this, SelectChildAvatar.class);
+        selectChildAvatar.putExtra("comingFrom", "LandingPage");
         startActivity(selectChildAvatar);
+    }
+
+    private void setAllLandingPageCards(RealmResults<ChildSchema> children){
+        LandingPageChildCard childCardTemp;
+        ChildSchema childTemp;
+
+        int childrenNum = children.size();
+        Log.i("Num of children", String.valueOf(childrenNum));
+        int random;
+        String childIdTemp;
+        String childNameTemp;
+        String avatarNameTemp;
+        String colorNameTemp;
+
+        for(int index = 0; index < childrenNum; index ++){
+            childTemp = children.get(index);
+
+            childIdTemp = childTemp.getChildId();
+            childNameTemp = childTemp.getName();
+            avatarNameTemp = childTemp.getAvatarName();
+            colorNameTemp = childTemp.getColorName();
+
+            childCardTemp = setLandingPageChildCard(landingPageChildCardIds.get(index), childNameTemp, avatarNameTemp, colorNameTemp);
+            landingPageGridLayout.addView(childCardTemp, index);
+
+            landingPageChildId.put(landingPageChildCardIds.get(index), childIdTemp);
+
+            childCardTemp = null;
+            childTemp = null;
+        }
+
+        if(childrenNum < MAX_CHILDREN){
+            LandingPageAddChild landingPageAddChild = new LandingPageAddChild(this);
+            landingPageAddChild.setId(R.id.landingPageChildCardAdd);
+            landingPageAddChild.setOnClickListener(this);
+
+            // Produces a 'random' color for the add student button
+            Random rand = new Random();
+            random = rand.nextInt(5);
+            if(random == 0){
+                landingPageAddChild.setCircleColor(red);
+                landingPageAddChild.setAddIconColor(blue);
+            }
+            else if(random == 1){
+                landingPageAddChild.setCircleColor(darkGreen);
+                landingPageAddChild.setAddIconColor(yellow);
+            }
+            else if(random == 2){
+                landingPageAddChild.setCircleColor(darkGreen);
+                landingPageAddChild.setAddIconColor(blue);
+            }
+            else if(random == 3){
+                landingPageAddChild.setCircleColor(lightGreen);
+                landingPageAddChild.setAddIconColor(darkGreen);
+            }
+            else{
+                landingPageAddChild.setCircleColor(yellow);
+                landingPageAddChild.setAddIconColor(red);
+            }
+
+            landingPageGridLayout.addView(landingPageAddChild);
+        }
+
     }
 }
