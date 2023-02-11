@@ -14,8 +14,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +38,6 @@ import java.util.HashMap;
 import java.util.Random;
 
 import io.realm.Realm;
-import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ColorStateList red, darkGreen, blue, yellow, lightGreen;
     private Realm realm;
     private Resources resources;
-    private FrameLayout parentPortal;
+    private ImageButton parentPortal;
     private ImageButton language;
     private TextView parentText;
     private GridLayout landingPageGridLayout;
