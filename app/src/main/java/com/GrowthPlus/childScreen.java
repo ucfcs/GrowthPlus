@@ -3,17 +3,12 @@ package com.GrowthPlus;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.content.ContextCompat;
-import androidx.gridlayout.widget.GridLayout;
 
 import com.GrowthPlus.customViews.ChildAvatarComponent;
 import com.GrowthPlus.customViews.ChildNameScoreComponent;
@@ -90,17 +85,21 @@ public class childScreen extends AppCompatActivity {
                 ChildSchema deleteChild = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                 deleteChild.deleteFromRealm();
 
+            },()->{
+                Intent intent = new Intent(childScreen.this, ParentPortal.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                overridePendingTransition(0, 0);
+                startActivity(new Intent(childScreen.this, ParentPortal.class));
+                overridePendingTransition(0, 0);
+                this.finish();
+            }, error -> {
+                Log.i("Error", "Could not delete child from realm " + error);
             });
-            Intent intent = new Intent(childScreen.this, ParentPortal.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(new Intent(childScreen.this, ParentPortal.class));
-            this.finish();
         });
 
     }
 
     private void init(){
-
         realm = Realm.getDefaultInstance();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

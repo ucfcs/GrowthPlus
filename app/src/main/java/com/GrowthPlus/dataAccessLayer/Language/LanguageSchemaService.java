@@ -13,7 +13,6 @@ public class LanguageSchemaService {
       Constructor
     */
     public LanguageSchemaService(Realm realm, String langID){
-
         this.realm = realm;
         this.languageId = langID;
     }
@@ -24,4 +23,7 @@ public class LanguageSchemaService {
     public LanguageSchema getLanguageSchemaById(){
         return realm.where(LanguageSchema.class).equalTo("languageId", languageId).findFirst();
     }
+
+    public String returnID(){ return this.languageId; }
+
 }

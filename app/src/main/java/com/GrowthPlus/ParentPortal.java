@@ -11,9 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildCard;
 import com.GrowthPlus.customViews.ChildCardAdd;
@@ -24,10 +22,7 @@ import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import java.util.HashMap;
 
-import io.realm.ObjectChangeSet;
 import io.realm.Realm;
-import io.realm.RealmChangeListener;
-import io.realm.RealmObjectChangeListener;
 import io.realm.RealmResults;
 
 
@@ -70,7 +65,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         String colorNameTemp;
 
         // Looping through the number of children from the realm result
-        // Dynamically add the child cards components with their corresponding data to the grid layout
+        // Dynamically add the child card components with their corresponding data to the grid layout
         for(int i = 0; i < childrenRealmResultSize; i++){
             childRealmObjectTemp = children.get(i);
             Log.i("Child ", String.valueOf(childRealmObjectTemp));

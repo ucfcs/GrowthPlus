@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.28" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonS"
@@ -116,6 +116,7 @@
             android:visibility="invisible"></ImageView>
 
         <TextView
+            android:id="@+id/englishText"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"
@@ -152,6 +153,7 @@
             android:visibility="invisible"></ImageView>
 
         <TextView
+            android:id="@+id/frenchText"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"

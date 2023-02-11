@@ -69,49 +69,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.44" />
+        app:layout_constraintGuide_percent="0.46" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/createBottomLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.48" />
+        app:layout_constraintGuide_percent="0.51" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/nameBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.58" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/confirmBottomLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.59" />
+        app:layout_constraintGuide_percent="0.63" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/confirmInputLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.66" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.69" />
+        app:layout_constraintGuide_percent="0.74" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.79" />
 
     <android.widget.Button
         android:id="@+id/backParentSU"
@@ -157,7 +157,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textColor="@color/orange"
-        android:textSize="20dp"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintTop_toBottomOf="@id/bunnyBottomLine"
@@ -172,7 +172,7 @@
         android:inputType="numberDecimal"
         android:maxLength="4"
         android:hint="Pin"
-        android:textSize="30dp"
+        android:textSize="25sp"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"
         android:background="@drawable/round_button"
@@ -187,7 +187,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textColor="@color/orange"
-        android:textSize="20dp"
+        android:textSize="15sp"
         android:text="confirm"
         app:layout_constraintTop_toBottomOf="@id/nameBottom"
         app:layout_constraintBottom_toTopOf="@id/confirmBottomLine"
@@ -202,7 +202,7 @@
         android:inputType="numberDecimal"
         android:maxLength="4"
         android:hint="Pin"
-        android:textSize="30dp"
+        android:textSize="25sp"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"
         android:background="@drawable/round_button"
@@ -215,8 +215,8 @@
     <!--android:id="@+id/parentSignupBtn"-->
     <android.widget.Button
         android:id="@+id/parentSignupBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/play_large"
