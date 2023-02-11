@@ -342,7 +342,7 @@
             "firstNumber": "2",
             "firstOperator": "+",
             "secondNumber": "2",
-            "secondOperator": "=",
+            "secondOperator": null,
             "answer": "4"
           },
           {
@@ -351,7 +351,7 @@
             "firstNumber": "1",
             "firstOperator": "+",
             "secondNumber": "5",
-            "secondOperator": "=",
+            "secondOperator": null,
             "answer": "6"
           },
           {
@@ -360,7 +360,7 @@
             "firstNumber": "3",
             "firstOperator": "+",
             "secondNumber": "5",
-            "secondOperator": "=",
+            "secondOperator": null,
             "answer": "8"
           },
           {
@@ -369,7 +369,7 @@
             "firstNumber": "3",
             "firstOperator": "+",
             "secondNumber": "3",
-            "secondOperator": "=",
+            "secondOperator": null,
             "answer": "6"
           },
           {
@@ -378,7 +378,7 @@
             "firstNumber": "8",
             "firstOperator": "+",
             "secondNumber": "2",
-            "secondOperator": "=",
+            "secondOperator": null,
             "answer": "10"
           }
         ]
@@ -399,7 +399,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "oneUnit",
+            "imgOne": "unit",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
@@ -507,47 +507,47 @@
         "flashcards": [
           {
             "flashCardId": "RmOneLessonThreeFlashOne",
-            "image": "elephant",
-            "firstNumber": "2",
-            "firstOperator": "+",
-            "secondNumber": "2",
-            "secondOperator": "=",
-            "answer": "4"
+            "image": "unit",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "1"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashTwo",
-            "image": "elephant",
-            "firstNumber": "1",
-            "firstOperator": "+",
-            "secondNumber": "5",
-            "secondOperator": "=",
-            "answer": "6"
+            "image": "tenUnit",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "10"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashThree",
-            "image": "elephant",
-            "firstNumber": "3",
+            "image": "unit",
+            "firstNumber": "5",
             "firstOperator": "+",
             "secondNumber": "5",
-            "secondOperator": "=",
-            "answer": "8"
+            "secondOperator": null,
+            "answer": "10"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashFour",
             "image": null,
-            "firstNumber": "3",
+            "firstNumber": "6",
             "firstOperator": "+",
-            "secondNumber": "3",
-            "secondOperator": "=",
-            "answer": "6"
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "10"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashFive",
-            "image": null,
-            "firstNumber": "8",
+            "image": "unit",
+            "firstNumber": "83",
             "firstOperator": "+",
-            "secondNumber": "2",
-            "secondOperator": "=",
+            "secondNumber": "7",
+            "secondOperator": null,
             "answer": "10"
           }
         ]
@@ -701,7 +701,53 @@
             "imgFive": null
           }
         ],
-        "flashcards": null
+        "flashcards": [
+          {
+            "flashCardId": "RmOneLessonFourFlashOne",
+            "image": "elephant",
+            "firstNumber": "12",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "12"
+          },
+          {
+            "flashCardId": "RmOneLessonFourFlashTwo",
+            "image": "elephant",
+            "firstNumber": "14",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "14"
+          },
+          {
+            "flashCardId": "RmOneLessonFourFlashThree",
+            "image": "elephant",
+            "firstNumber": "15",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "15"
+          },
+          {
+            "flashCardId": "RmOneLessonFourFlashFour",
+            "image": "elephant",
+            "firstNumber": "17",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "17"
+          },
+          {
+            "flashCardId": "RmOneLessonOneFlashFive",
+            "image": "tenUnit",
+            "firstNumber": "2",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "20"
+          }
+        ]
       },
       {
         "lessonId": "RmOneLessonFive",
@@ -852,7 +898,53 @@
             "imgFive": null
           }
         ],
-        "flashcards": null
+        "flashcards": [
+          {
+            "flashCardId": "RmOneLessonFiveFlashOne",
+            "image": "elephant",
+            "firstNumber": "5",
+            "firstOperator": "-",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "1"
+          },
+          {
+            "flashCardId": "RmOneLessonFiveFlashTwo",
+            "image": "elephant",
+            "firstNumber": "10",
+            "firstOperator": "-",
+            "secondNumber": "7",
+            "secondOperator": null,
+            "answer": "3"
+          },
+          {
+            "flashCardId": "RmOneLessonFiveFlashThree",
+            "image": null,
+            "firstNumber": "19",
+            "firstOperator": "-",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "17"
+          },
+          {
+            "flashCardId": "RmOneLessonFiveFlashFour",
+            "image": null,
+            "firstNumber": "15",
+            "firstOperator": "-",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "11"
+          },
+          {
+            "flashCardId": "RmOneLessonFiveFlashFive",
+            "image": null,
+            "firstNumber": "6",
+            "firstOperator": "-",
+            "secondNumber": "3",
+            "secondOperator": null,
+            "answer": "3"
+          }
+        ]
       },
       {
         "lessonId": "RmOneLessonSix",
@@ -1003,7 +1095,53 @@
             "imgFive": null
           }
         ],
-        "flashcards": null
+        "flashcards": [
+          {
+            "flashCardId": "RmOneLessonSixFlashOne",
+            "image": null,
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "1",
+            "secondOperator": null,
+            "answer": "2"
+          },
+          {
+            "flashCardId": "RmOneLessonSixFlashTwo",
+            "image": null,
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "8"
+          },
+          {
+            "flashCardId": "RmOneLessonSixFlashThree",
+            "image": null,
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "6",
+            "secondOperator": null,
+            "answer": "12"
+          },
+          {
+            "flashCardId": "RmOneLessonSixFlashFour",
+            "image": null,
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "9",
+            "secondOperator": null,
+            "answer": "18"
+          },
+          {
+            "flashCardId": "RmOneLessonSixFlashFive",
+            "image": null,
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "10",
+            "secondOperator": null,
+            "answer": "20"
+          }
+        ]
       },
       {
         "lessonId": "RmOneLessonSeven",
@@ -1154,7 +1292,53 @@
             "imgFive": null
           }
         ],
-        "flashcards": null
+        "flashcards": [
+          {
+            "flashCardId": "RmOneLessonSevenFlashOne",
+            "image": null,
+            "firstNumber": "4",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "2"
+          },
+          {
+            "flashCardId": "RmOneLessonSevenFlashTwo",
+            "image": null,
+            "firstNumber": "8",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "4"
+          },
+          {
+            "flashCardId": "RmOneLessonSevenFlashThree",
+            "image": null,
+            "firstNumber": "10",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "5"
+          },
+          {
+            "flashCardId": "RmOneLessonSevenFlashFour",
+            "image": null,
+            "firstNumber": "18",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "9"
+          },
+          {
+            "flashCardId": "RmOneLessonSevenFlashFive",
+            "image": null,
+            "firstNumber": "20",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "10"
+          }
+        ]
       },
       {
         "lessonId": "RmOneLessonEight",
@@ -1221,7 +1405,53 @@
             "imgFive": null
           }
         ],
-        "flashcards": null
+        "flashcards": [
+          {
+            "flashCardId": "RmOneLessonEightFlashOne",
+            "image": null,
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "1",
+            "secondOperator": null,
+            "answer": "5"
+          },
+          {
+            "flashCardId": "RmOneLessonEightFlashTwo",
+            "image": null,
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "10"
+          },
+          {
+            "flashCardId": "RmOneLessonEightFlashThree",
+            "image": null,
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "3",
+            "secondOperator": null,
+            "answer": "15"
+          },
+          {
+            "flashCardId": "RmOneLessonEightFlashFour",
+            "image": null,
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "20"
+          },
+          {
+            "flashCardId": "RmOneLessonEightFlashFive",
+            "image": null,
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "10"
+          }
+        ]
       },
       {
         "lessonId": "RmOneLessonNine",
@@ -1288,7 +1518,53 @@
             "imgFive": null
           }
         ],
-        "flashcards": null
+        "flashcards": [
+          {
+            "flashCardId": "RmOneLessonNineFlashOne",
+            "image": null,
+            "firstNumber": "5",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": null,
+            "answer": "1"
+          },
+          {
+            "flashCardId": "RmOneLessonNineFlashTwo",
+            "image": null,
+            "firstNumber": "10",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": null,
+            "answer": "2"
+          },
+          {
+            "flashCardId": "RmOneLessonNineFlashThree",
+            "image": null,
+            "firstNumber": "15",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": null,
+            "answer": "3"
+          },
+          {
+            "flashCardId": "RmOneLessonNineFlashFour",
+            "image": null,
+            "firstNumber": "20",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": null,
+            "answer": "4"
+          },
+          {
+            "flashCardId": "RmOneLessonNineFlashFive",
+            "image": null,
+            "firstNumber": "5",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": null,
+            "answer": "1"
+          }
+        ]
       },
       {
         "lessonId": "RmOneLessonTen",
@@ -1298,7 +1574,98 @@
         "category": null,
         "image": null,
         "contents": null,
-        "flashcards": null
+        "flashcards":[
+          {
+            "flashCardId": "RmOneLessonTenFlashOne",
+            "image": "elephant",
+            "firstNumber": "3",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "3"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashTwo",
+            "image": "elephant",
+            "firstNumber": "4",
+            "firstOperator": "+",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "8"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashThree",
+            "image": "tenUnit",
+            "firstNumber": "1",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "10"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashFour",
+            "image": "elephant",
+            "firstNumber": "17",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "17"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashFive",
+            "image": "elephant",
+            "firstNumber": "10",
+            "firstOperator": "-",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "6"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashSix",
+            "image": null,
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "5",
+            "secondOperator": null,
+            "answer": "10"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashSeven",
+            "image": null,
+            "firstNumber": "12",
+            "firstOperator": ":",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "6"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashEight",
+            "image": null,
+            "firstNumber": "5",
+            "firstOperator": "x",
+            "secondNumber": "1",
+            "secondOperator": null,
+            "answer": "5"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashNine",
+            "image": null,
+            "firstNumber": "15",
+            "firstOperator": ":",
+            "secondNumber": "5",
+            "secondOperator": null,
+            "answer": "3"
+          },
+          {
+            "flashCardId": "RmOneLessonTenFlashTen",
+            "image": null,
+            "firstNumber": "2",
+            "firstOperator": "x",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "4"
+          }
+        ]
       }
     ],
     "quizzes": [
