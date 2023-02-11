@@ -2,7 +2,6 @@ package com.GrowthPlus.roadMapActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -61,26 +60,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
 
         roadMapOneLessonTrail.unLockRoadMap();
 
-        // Loop thru the lessons completed
-        for(int i = 0; i <= lessonCompleted; i++){
-            RoadMapLesson roadMapLessonTemp = roadMapLessons.get(i);
-            assert roadMapLessonTemp != null;
-            String dataBaseLessonId = roadMapLessonTemp.getDatabaseLessonId();
-
-            Integer tileIdTemp = Objects.requireNonNull(mapTiles.get(i)).getId();
-
-            assert roadMapLessonTemp != null;
-            if(roadMapLessonTemp.getCompleted()){
-                Objects.requireNonNull(mapTiles.get(i)).setCompletedState();
-            }
-
-            if(roadMapLessonTemp.getCurrent()){
-                roadMapOneLessonTrail.setSelectedState(Objects.requireNonNull(mapTiles.get(i)), child);
-            }
-
-            mapTiles.get(i).setOnClickListener(this);
-            mapLessonId.put(tileIdTemp, dataBaseLessonId);
-        }
+        setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap1item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -121,6 +101,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
     }
 
     private void init(ChildSchema child){
+
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
         roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
         IntentIntro = new Intent(RoadMapOne.this, location_intro.class);
@@ -169,10 +150,33 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         mapTiles.put(9, tile12);
     }
 
+    private void setLessonTiles(ChildSchema child){
+
+        // Loop thru the lessons completed
+        for(int i = 0; i <= lessonCompleted; i++){
+            RoadMapLesson roadMapLessonTemp = roadMapLessons.get(i);
+            assert roadMapLessonTemp != null;
+            String dataBaseLessonId = roadMapLessonTemp.getDatabaseLessonId();
+
+            Integer tileIdTemp = Objects.requireNonNull(mapTiles.get(i)).getId();
+
+            if(roadMapLessonTemp.getCompleted()){
+                Objects.requireNonNull(mapTiles.get(i)).setCompletedState();
+            }
+
+            if(roadMapLessonTemp.getCurrent()){
+                roadMapOneLessonTrail.setSelectedState(Objects.requireNonNull(mapTiles.get(i)), child);
+            }
+
+            Objects.requireNonNull(mapTiles.get(i)).setOnClickListener(this);
+            mapLessonId.put(tileIdTemp, dataBaseLessonId);
+        }
+    }
+
     /*
     * These may all look the same, but the big difference is the id of the tile component
     * Each tile component id maps to its corresponding lesson id
-    * The lesson ids are populated when looping through the completed lesson in the roadmap
+    * The lesson ids are populated in a hashmap when looping through the completed lesson in the roadmap
     * */
     @Override
     public void onClick(View view) {
@@ -197,9 +201,11 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
+        // This tile is a quiz!
+        // Put the quiz id
         if(viewId == tile4.getId()){
             IntentIntro.putExtra("childId", childID);
-            IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+
             startActivity(IntentIntro);
         }
 
@@ -221,9 +227,11 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
+        // This tile is a quiz!
+        // Put the quiz id
         if(viewId == tile9.getId()){
             IntentIntro.putExtra("childId", childID);
-            IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+
             startActivity(IntentIntro);
         }
 
@@ -245,9 +253,11 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
+        // This is a scenario game!
+        // Put scenario game id
         if(viewId == tile13.getId()){
             IntentIntro.putExtra("childId", childID);
-            IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+
             startActivity(IntentIntro);
         }
 

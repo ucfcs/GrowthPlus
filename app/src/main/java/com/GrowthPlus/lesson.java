@@ -13,5 +13,4 @@ public class lesson extends AppCompatActivity {
         setContentView(R.layout.activity_lesson);
     }
 
-
 }
