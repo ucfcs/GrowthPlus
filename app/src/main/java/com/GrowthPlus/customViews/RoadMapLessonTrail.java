@@ -1,17 +1,20 @@
 package com.GrowthPlus.customViews;
 
+import android.content.Intent;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.R;
+import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 
 public class RoadMapLessonTrail extends ConstraintLayout {
-
     private RoadMapTile roadMapTile1;
     private RoadMapTile roadMapTile2;
     private RoadMapTile roadMapTile3;
@@ -109,7 +112,6 @@ public class RoadMapLessonTrail extends ConstraintLayout {
     }
 
     private void init(@Nullable AttributeSet set) {
-
         inflate(getContext(), R.layout.activity_road_map_lesson_trail, this);
         roadMapTile1 = findViewById(R.id.roadMapTileOne);
 
@@ -138,15 +140,14 @@ public class RoadMapLessonTrail extends ConstraintLayout {
         roadMapTile13 = findViewById(R.id.roadMapTileThirteen);
 
         lock = findViewById(R.id.lock);
-
     }
 
     public void roadMapInitState(){
         setLocked(true);
     }
 
-    public void setSelectedState(RoadMapTile roadMapTile){
-        roadMapTile.setSelectedState();
+    public void setSelectedState(RoadMapTile roadMapTile, ChildSchema child){
+        roadMapTile.setSelectedState(child);
     }
 
     public void unLockRoadMap(){
