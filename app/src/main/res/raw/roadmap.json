@@ -155,33 +155,52 @@
         "flashcards": [
           {
             "flashCardId": "RmOneLessonOneFlashOne",
-            "flashCardName": "",
-            "question": "",
-            "firstNumber": "",
-            "firstOperator": "",
-            "secondNumber": "",
-            "secondOperator": "",
-            "thirdNumber": ""
+            "image": "elephant",
+            "firstNumber": "1",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "1"
           },
           {
             "flashCardId": "RmOneLessonOneFlashTwo",
-            "flashCardName": "",
-            "question": "",
-            "firstNumber": "",
-            "firstOperator": "",
-            "secondNumber": "",
-            "secondOperator": "",
-            "thirdNumber": ""
+            "flashCardName": null,
+            "question": "elephant",
+            "firstNumber": "3",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": "3"
           },
           {
             "flashCardId": "RmOneLessonOneFlashThree",
-            "flashCardName": "",
-            "question": "",
-            "firstOperand": "",
-            "firstOperator": "",
-            "secondOperand": "",
-            "secondOperator": "",
-            "answer": ""
+            "flashCardName": null,
+            "question": "elephant",
+            "firstNumber": "6",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": "6"
+          },
+          {
+            "flashCardId": "RmOneLessonOneFlashFour",
+            "flashCardName": null,
+            "question": "elephant",
+            "firstNumber": "8",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": "8"
+          },
+          {
+            "flashCardId": "RmOneLessonOneFlashFive",
+            "flashCardName": null,
+            "question": "elephant",
+            "firstNumber": "9",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": "9"
           }
         ]
       },
