@@ -98,8 +98,8 @@ public class CreateAccount extends AppCompatActivity {
         ChildRoadMap childRoadMapOne = new ChildRoadMap(
                 "roadMapOne",
                 0,
-                false,
                 true,
+                false,
                 false,
                 roadMapLessons,
                 roadMapQuizzes,
@@ -110,7 +110,7 @@ public class CreateAccount extends AppCompatActivity {
                 "roadMapTwo",
                 0,
                 false,
-                true,
+                false,
                 true,
                 null,
                 null,
@@ -120,7 +120,7 @@ public class CreateAccount extends AppCompatActivity {
         ChildRoadMap childRoadMapThree = new ChildRoadMap(
                 "roadMapThree",
                 0,
-                true,
+                false,
                 false,
                 true,
                 null,

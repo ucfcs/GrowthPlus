@@ -19,6 +19,7 @@ public class location_intro extends AppCompatActivity {
     private ChildSchema child;
     private ChildRoadMap childRoadMap;
     private TopBar topBar;
+    private String dataBaseLessonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class location_intro extends AppCompatActivity {
         setTopBar();
 
         Log.i("Child Roadmap", String.valueOf(childRoadMap));
+        Log.i("Lesson id", dataBaseLessonId);
 
     }
 
@@ -36,6 +38,7 @@ public class location_intro extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             childId = extras.getString("childId");
+            dataBaseLessonId = extras.getString("dataBaseLessonId");
         }
          realm = Realm.getDefaultInstance();
          child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
