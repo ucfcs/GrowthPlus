@@ -12,6 +12,9 @@ import androidx.core.content.ContextCompat;
 
 import com.GrowthPlus.R;
 
+import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.utilities.ImageSrcIdentifier;
+
 public class RoadMapTile extends ConstraintLayout {
 
     // Add fields for each component
@@ -20,6 +23,7 @@ public class RoadMapTile extends ConstraintLayout {
     ImageView avatar;
     Boolean isSelected;
     Boolean isCompleted;
+    private ImageSrcIdentifier avatarImage;
 
     public RoadMapTile(@NonNull Context context) {
         super(context);
@@ -43,6 +47,7 @@ public class RoadMapTile extends ConstraintLayout {
 
     private void init(@Nullable AttributeSet set) {
         inflate(getContext(), R.layout.activity_road_map_tile, this);
+        avatarImage = new ImageSrcIdentifier();
         tile = findViewById(R.id.tile);
         triangle = findViewById(R.id.triangle);
         avatar = findViewById(R.id.avatar);
@@ -51,28 +56,33 @@ public class RoadMapTile extends ConstraintLayout {
     // TODO: Need methods to change the state of each view
 
     // Method to change the state of the tile
-    private void setTileSelectedState(){
+    public void setTileSelectedState(){
         tile.setImageResource(R.drawable.tile_shape_selected);
     }
 
-    private void setTriangleSelectedState(){
+    public void setTriangleSelectedState(){
         triangle.setTextColor(ContextCompat.getColor(getContext(), R.color.light_green));
     }
 
     // The path to this resource needs to come from the database
     // Have not figured it out yet
-    private void setAvatar(){
-        avatar.setImageResource(R.mipmap.bunny_foreground);
+    public void setAvatar(String name){
+        avatar.setImageResource(avatarImage.getImageSrcId(name));
     }
 
-    private void removeAvatar(){
+    public void removeAvatar(){
         avatar.setImageResource(0);
     }
 
-    public void setSelectedState(){
+    public void hideShape(){
+        // TODO: HIDE SHAPE BRO
+    }
+
+    public void setSelectedState(ChildSchema child){
         setTileSelectedState();
         setTriangleSelectedState();
-        setAvatar();
+        hideShape();
+        setAvatar(child.getAvatarName());
     }
 
     // Completed state once the child has reached the goal of the lesson
@@ -81,5 +91,4 @@ public class RoadMapTile extends ConstraintLayout {
         setTriangleSelectedState();
         removeAvatar();
     }
-
 }

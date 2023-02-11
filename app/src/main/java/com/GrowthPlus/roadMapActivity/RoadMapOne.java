@@ -3,7 +3,6 @@ package com.GrowthPlus.roadMapActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -12,28 +11,43 @@ import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
 import com.GrowthPlus.customViews.RoadMapTile;
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
+import com.GrowthPlus.location_intro;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import io.realm.Realm;
 
 public class RoadMapOne extends AppCompatActivity {
-
     Button goBackButton;
     BottomNavigationView bottomNavigationView;
     RoadMapLessonTrail roadMapOneLessonTrail;
     ConstraintLayout roadMapOne;
-    RoadMapTile tileOne;
+    RoadMapTile tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11, tile12, tile13;
     TopBar topBarOne;
+    Intent IntentIntro; // Leads to location_intro page
+    String childID;
+    ChildSchemaService childSchemaService;
+    Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_road_map_one);
 
-        init();
+        realm = Realm.getDefaultInstance();
+        childSchemaService = new ChildSchemaService(realm);
+
+        // !!! MUST PASS CHILD.ID WITH 'putExtra' WHEN NAVIGATING BETWEEN LEVELS OR ELSE SYSTEM CRASH !!!
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            childID = extras.getString("childIdentify");
+        }
+        ChildSchema child = childSchemaService.getChildSchemaById(childID);
+        init(child);
 
         roadMapOneLessonTrail.unLockRoadMap();
-        roadMapOneLessonTrail.setSelectedState(roadMapOneLessonTrail.getRoadMapTile1());
+        roadMapOneLessonTrail.setSelectedState(roadMapOneLessonTrail.getRoadMapTile1(), child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap1item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -58,19 +72,82 @@ public class RoadMapOne extends AppCompatActivity {
         });
 
         goBackButton.setOnClickListener(v -> onBackPressed());
-
     }
 
-    private void init(){
-
+    private void init(ChildSchema child){
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
         roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
-
-        tileOne = roadMapOneLessonTrail.findViewById(R.id.roadMapTileOne);
+        IntentIntro = new Intent(RoadMapOne.this, location_intro.class);
 
         roadMapOne = findViewById(R.id.roadMapOne);
         goBackButton = roadMapOne.findViewById(R.id.goBackBtn);
         topBarOne = findViewById(R.id.topBarOne);
+        topBarOne.setPoints(String.valueOf(child.getScore())); // Update points for specific child
+
+        tile1 = roadMapOneLessonTrail.getRoadMapTile1();
+        tile1.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile2 = roadMapOneLessonTrail.getRoadMapTile2();
+        tile2.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile3 = roadMapOneLessonTrail.getRoadMapTile3();
+        tile3.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile4 = roadMapOneLessonTrail.getRoadMapTile4();
+        tile4.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile5 = roadMapOneLessonTrail.getRoadMapTile5();
+        tile5.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile6 = roadMapOneLessonTrail.getRoadMapTile6();
+        tile6.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile7 = roadMapOneLessonTrail.getRoadMapTile7();
+        tile7.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile8 = roadMapOneLessonTrail.getRoadMapTile8();
+        tile8.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile9 = roadMapOneLessonTrail.getRoadMapTile9();
+        tile9.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile10 = roadMapOneLessonTrail.getRoadMapTile10();
+        tile10.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile11 = roadMapOneLessonTrail.getRoadMapTile11();
+        tile11.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile12 = roadMapOneLessonTrail.getRoadMapTile12();
+        tile12.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
+
+        tile13 = roadMapOneLessonTrail.getRoadMapTile13();
+        tile13.setOnClickListener(v -> {
+            startActivity(IntentIntro);
+        });
     }
 
     private void lockedState(){
