@@ -4,25 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
-import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
-import com.GrowthPlus.realmImporter.JsonSampleData;
+import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 
 import io.realm.Realm;
 import io.realm.RealmList;
 
 import org.bson.types.ObjectId;
+
+import java.io.InputStream;
 
 public class ParentSignup extends AppCompatActivity implements View.OnClickListener{
 
@@ -33,6 +35,8 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
     private EditText enterPinInput;
     private EditText confirmPinInput;
+    private TextView createText;
+    private TextView confirmText;
     Integer enterPinInputInteger;
     Integer confirmPinInputInteger;
 
@@ -59,8 +63,30 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         signupBackButton = findViewById(R.id.backParentSU);
         enterPinInput = findViewById(R.id.enterPin);
         confirmPinInput = findViewById(R.id.confirmPinInput);
+        createText = findViewById(R.id.createPinText);
+        confirmText = findViewById(R.id.confirmPinText);
         parentId = new ObjectId();
         parentIdString = parentId.toString();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // create instance of shared preferences
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        // import language json file
+        InputStream langInputStream = resources.openRawResource(R.raw.languages);
+        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+        langRealmImporter.importLanguagesFromJson();
+        // create language schema service and set strings
+        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
+        LanguageSchema lang = langSchemaService.getLanguageSchemaById();
+
+        createText.setText(lang.getCreate());
+        confirmText.setText(lang.getConfirm());
+        enterPinInput.setHint(lang.getPin());
+        confirmPinInput.setHint(lang.getPin());
     }
 
     @Override

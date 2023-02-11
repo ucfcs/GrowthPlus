@@ -6,6 +6,7 @@ import androidx.gridlayout.widget.GridLayout;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -13,29 +14,29 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.GrowthPlus.customViews.LandingPageAddChild;
 import com.GrowthPlus.customViews.LandingPageChildCard;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.realmImporter.JsonSampleData;
+import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Random;
 
 import io.realm.Realm;
-import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ColorStateList red, darkGreen, blue, yellow, lightGreen;
     private Realm realm;
     private Resources resources;
-    private FrameLayout parentPortal;
+    private ImageButton parentPortal;
     private ImageButton language;
     private TextView parentText;
     private GridLayout landingPageGridLayout;
@@ -106,6 +107,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else{
             Log.i("extras null", "the extras were null");
         }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // create instance of shared preferences
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        // import language json file
+        InputStream langInputStream = resources.openRawResource(R.raw.languages);
+        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+        langRealmImporter.importLanguagesFromJson();
+        // create language schema service and set strings
+        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
+        LanguageSchema lang = langSchemaService.getLanguageSchemaById();
+
+        parentText.setText(lang.getParent());
+    }
+
+    private void importSampleData(){
+        jsonSampleData.importDataFromJson();
     }
 
     public void importRoadMapData(){

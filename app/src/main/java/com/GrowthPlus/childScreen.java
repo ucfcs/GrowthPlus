@@ -3,17 +3,12 @@ package com.GrowthPlus;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.content.ContextCompat;
-import androidx.gridlayout.widget.GridLayout;
 
 import com.GrowthPlus.customViews.ChildAvatarComponent;
 import com.GrowthPlus.customViews.ChildNameScoreComponent;
