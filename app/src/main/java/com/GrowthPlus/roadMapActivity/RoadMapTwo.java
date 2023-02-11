@@ -31,24 +31,42 @@ public class RoadMapTwo extends AppCompatActivity {
         init();
         lockedState();
 
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            childID = extras.getString("childIdentify");
+        }
+
         bottomNavigationView.setSelectedItemId(R.id.roadMap2item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
-                case R.id.roadMap1item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapOne.class));
+
+                case R.id.roadMap1item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapOne.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
-                case R.id.roadMap2item:
+
+                }
+                case R.id.roadMap2item:{
                     return true;
-                case R.id.roadMap3item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapThree.class));
+                }
+                case R.id.roadMap3item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapThree.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
-                case R.id.roadMap4item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapFour.class));
+                }
+
+                case R.id.roadMap4item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapFour.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
+                }
             }
             return false;
         });

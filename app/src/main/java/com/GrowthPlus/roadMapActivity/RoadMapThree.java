@@ -20,6 +20,7 @@ public class RoadMapThree extends AppCompatActivity {
     ConstraintLayout roadMapThree;
     RoadMapLessonTrail roadMapThreeLessonTrail;
     TopBar topBarThree;
+    String childID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,24 +31,42 @@ public class RoadMapThree extends AppCompatActivity {
         init();
         initState();
 
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            childID = extras.getString("childIdentify");
+        }
+
         bottomNavigationView.setSelectedItemId(R.id.roadMap3item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
-                case R.id.roadMap1item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapOne.class));
+
+                case R.id.roadMap1item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapOne.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
-                case R.id.roadMap2item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapTwo.class));
+
+                }
+                case R.id.roadMap2item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapTwo.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
-                case R.id.roadMap3item:
+                }
+                case R.id.roadMap3item:{
                     return true;
-                case R.id.roadMap4item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapFour.class));
+                }
+
+                case R.id.roadMap4item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapFour.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
+                }
             }
             return false;
         });
