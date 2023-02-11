@@ -53,20 +53,33 @@ public class RoadMapOne extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
-                case R.id.roadMap1item:
+
+                case R.id.roadMap1item:{
                     return true;
-                case R.id.roadMap2item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapTwo.class));
+
+                }
+                case R.id.roadMap2item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapTwo.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
-                case R.id.roadMap3item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapThree.class));
+                }
+                case R.id.roadMap3item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapThree.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
-                case R.id.roadMap4item:
-                    startActivity(new Intent(getApplicationContext(), RoadMapFour.class));
+                }
+
+                case R.id.roadMap4item:{
+                    Intent intent = new Intent(getApplicationContext(), RoadMapFour.class);
+                    intent.putExtra("childIdentify", childID);
+                    startActivity(intent);
                     overridePendingTransition(0,0);
                     return true;
+                }
             }
             return false;
         });
@@ -86,66 +99,79 @@ public class RoadMapOne extends AppCompatActivity {
 
         tile1 = roadMapOneLessonTrail.getRoadMapTile1();
         tile1.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile2 = roadMapOneLessonTrail.getRoadMapTile2();
         tile2.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile3 = roadMapOneLessonTrail.getRoadMapTile3();
         tile3.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile4 = roadMapOneLessonTrail.getRoadMapTile4();
         tile4.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile5 = roadMapOneLessonTrail.getRoadMapTile5();
         tile5.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile6 = roadMapOneLessonTrail.getRoadMapTile6();
         tile6.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile7 = roadMapOneLessonTrail.getRoadMapTile7();
         tile7.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile8 = roadMapOneLessonTrail.getRoadMapTile8();
         tile8.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile9 = roadMapOneLessonTrail.getRoadMapTile9();
         tile9.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile10 = roadMapOneLessonTrail.getRoadMapTile10();
         tile10.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile11 = roadMapOneLessonTrail.getRoadMapTile11();
         tile11.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile12 = roadMapOneLessonTrail.getRoadMapTile12();
         tile12.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
 
         tile13 = roadMapOneLessonTrail.getRoadMapTile13();
         tile13.setOnClickListener(v -> {
+            IntentIntro.putExtra("childId", childID);
             startActivity(IntentIntro);
         });
     }
