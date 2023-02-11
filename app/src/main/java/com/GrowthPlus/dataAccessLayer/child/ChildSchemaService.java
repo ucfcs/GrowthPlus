@@ -3,6 +3,8 @@ package com.GrowthPlus.dataAccessLayer.child;
 import android.util.Log;
 
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -65,11 +67,11 @@ public class ChildSchemaService {
 
         }, () -> { //Lambda expression
             /* success actions */
-            Log.i("Success", "New child report object added to realm!");
-            //realm.close(); // Not sure if this the correct place to close the realm instance
+            Log.i("Success", "New child added to realm!");
+
         }, error -> {
             /* failure actions */
-            Log.e("Error", "Something went wrong! " + error);
+            Log.e("Error", "Something went wrong, could not add child to realm " + error);
         });
     }
 

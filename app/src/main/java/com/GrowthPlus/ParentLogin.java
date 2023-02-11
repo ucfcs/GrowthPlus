@@ -22,15 +22,12 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     Realm realm;
     Resources resources;
-
     private Button loginButton;
     private Button loginBackButton;
     private EditText loginPinInput;
-
     private ParentSchemaService loginParentService;
     private ParentSchema loginParent;
     private Integer parentSignupPIN;
-
     Integer loginPinInputInteger;
 
     @Override
@@ -126,17 +123,19 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     public void startParentSignupActivity(){
         Intent parentSignup = new Intent(ParentLogin.this, ParentSignup.class);
         startActivity(parentSignup);
+        this.finish();
     }
 
     public void startParentPortalActivity(){
         Intent parentPortal = new Intent(ParentLogin.this, ParentPortal.class);
         startActivity(parentPortal);
+        this.finish();
     }
 
     //moves to the MainActivity page
     public void startLandingPageActivity(){
         Intent landingPageActivity = new Intent(ParentLogin.this, MainActivity.class);
         startActivity(landingPageActivity);
-
+        this.finish();
     }
 }

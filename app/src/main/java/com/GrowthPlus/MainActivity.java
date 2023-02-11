@@ -291,10 +291,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void startParentSignupActivity(){
         Intent parentSignup = new Intent(MainActivity.this, ParentSignup.class);
         startActivity(parentSignup);
+        this.finish();
     }
 
     public void startParentLoginActivity(){
         Intent parentLogin = new Intent(MainActivity.this, ParentLogin.class);
         startActivity(parentLogin);
+        this.finish();
     }
 }

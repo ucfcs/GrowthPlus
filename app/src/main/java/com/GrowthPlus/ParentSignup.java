@@ -14,11 +14,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.realmImporter.JsonSampleData;
 
 import io.realm.Realm;
+import io.realm.RealmList;
+
 import org.bson.types.ObjectId;
 
 public class ParentSignup extends AppCompatActivity implements View.OnClickListener{
@@ -148,11 +151,13 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     public void startLoginActivity(){
         Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
         startActivity(parentLogin);
+        this.finish();
     }
 
     //since the signup page involves about creating an account, we need a method to create a parent
     private void createParent(){
-        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, null);
+        RealmList <ChildSchema> children = new RealmList<>();
+        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, children);
         signupParentService.createParentSchema();
     }
 }
