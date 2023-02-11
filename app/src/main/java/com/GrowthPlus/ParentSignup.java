@@ -151,6 +151,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     public void startLoginActivity(){
         Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
         startActivity(parentLogin);
+        this.finish();
     }
 
     //since the signup page involves about creating an account, we need a method to create a parent
