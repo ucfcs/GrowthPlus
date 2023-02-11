@@ -3,29 +3,27 @@ package com.GrowthPlus;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildAvatarComponent;
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
-import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
-import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
+import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -46,6 +44,7 @@ public class CreateAccount extends AppCompatActivity {
     ChildAvatarComponent childAvatar;
     ColorStateList color;
     ChildSchemaService newChild;
+    ParentSchemaService parentService;
     Realm realm;
     Resources resources;
 
@@ -154,13 +153,25 @@ public class CreateAccount extends AppCompatActivity {
                         childRoadMapFour);
 
                 ObjectId childId = new ObjectId();
-                newChild.createChildSchema(String.valueOf(childId)); // Create new child in realm database
-                Intent intent = new Intent(CreateAccount.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                finish();
-                overridePendingTransition(0, 0);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
+                newChild.createChildSchema(String.valueOf(childId));
+
+                // Adding newly created child to parent's children
+                realm.executeTransactionAsync(realm -> {
+                    ChildSchema child = realm.where(ChildSchema.class).equalTo("childId", childId.toString()).findFirst();
+                    ParentSchema parent = realm.where(ParentSchema.class).findFirst();
+                    parent.getChildren().add(child);
+
+                }, ()->{
+                        Intent intent = new Intent(CreateAccount.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        overridePendingTransition(0, 0);
+                        startActivity(intent);
+                        overridePendingTransition(0, 0);
+                        finish();
+                }, error -> {
+                        Log.i("Error", "Could not add child to parent " + error);
+                });
+
             }
         };
         loginButton.setOnClickListener(goNext);
@@ -181,6 +192,7 @@ public class CreateAccount extends AppCompatActivity {
         colorIdentifier = new ColorIdentifier();
         imageSrcIdentifier = new ImageSrcIdentifier();
         childAvatar = findViewById(R.id.childAvatar);
+        parentService = new ParentSchemaService(realm);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

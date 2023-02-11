@@ -7,23 +7,21 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
-import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
-import com.GrowthPlus.realmImporter.JsonSampleData;
 import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 
 import io.realm.Realm;
+import io.realm.RealmList;
+
 import org.bson.types.ObjectId;
 
 import java.io.InputStream;
@@ -179,11 +177,13 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     public void startLoginActivity(){
         Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
         startActivity(parentLogin);
+        this.finish();
     }
 
     //since the signup page involves about creating an account, we need a method to create a parent
     private void createParent(){
-        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, null);
+        RealmList <ChildSchema> children = new RealmList<>();
+        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, children);
         signupParentService.createParentSchema();
     }
 }

@@ -18,7 +18,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.GrowthPlus.customViews.LandingPageAddChild;
 import com.GrowthPlus.customViews.LandingPageChildCard;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
@@ -315,10 +314,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void startParentSignupActivity(){
         Intent parentSignup = new Intent(MainActivity.this, ParentSignup.class);
         startActivity(parentSignup);
+        this.finish();
     }
 
     public void startParentLoginActivity(){
         Intent parentLogin = new Intent(MainActivity.this, ParentLogin.class);
         startActivity(parentLogin);
+        this.finish();
     }
 }

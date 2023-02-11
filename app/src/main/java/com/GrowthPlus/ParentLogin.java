@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +17,6 @@ import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
-import com.GrowthPlus.realmImporter.JsonSampleData;
 import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 
 import java.io.InputStream;
@@ -29,7 +27,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     Realm realm;
     Resources resources;
-
     private Button loginButton;
     private Button loginBackButton;
     private EditText loginPinInput;
@@ -38,7 +35,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     private ParentSchemaService loginParentService;
     private ParentSchema loginParent;
     private Integer parentSignupPIN;
-
     Integer loginPinInputInteger;
 
     @Override
@@ -153,17 +149,19 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     public void startParentSignupActivity(){
         Intent parentSignup = new Intent(ParentLogin.this, ParentSignup.class);
         startActivity(parentSignup);
+        this.finish();
     }
 
     public void startParentPortalActivity(){
         Intent parentPortal = new Intent(ParentLogin.this, ParentPortal.class);
         startActivity(parentPortal);
+        this.finish();
     }
 
     //moves to the MainActivity page
     public void startLandingPageActivity(){
         Intent landingPageActivity = new Intent(ParentLogin.this, MainActivity.class);
         startActivity(landingPageActivity);
-
+        this.finish();
     }
 }
