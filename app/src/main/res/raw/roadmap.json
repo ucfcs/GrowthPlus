@@ -1674,7 +1674,7 @@
         "quizName": "Quiz 1",
         "maxPoints": 10,
         "minPoints": 7,
-        "contents": [
+        "quizContents": [
           {
             "quizContentId": "RmOneQuizOneContentOne",
             "image": null,
@@ -1878,7 +1878,7 @@
         "quizName": "Quiz 2",
         "maxPoints": 10,
         "minPoints": 7,
-        "contents": [
+        "quizContents": [
           {
             "quizContentId": "RmOneQuizTwoContentOne",
             "image": null,

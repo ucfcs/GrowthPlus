@@ -1,8 +1,9 @@
 package com.GrowthPlus.dataAccessLayer.QuizContent;
 
+import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class QuizContent {
+public class QuizContent extends RealmObject {
     @PrimaryKey
     private String quizContentId;
     private String image;
