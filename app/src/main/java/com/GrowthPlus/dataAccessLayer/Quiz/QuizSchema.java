@@ -1,5 +1,8 @@
 package com.GrowthPlus.dataAccessLayer.Quiz;
 
+import com.GrowthPlus.dataAccessLayer.QuizContent.QuizContent;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -7,15 +10,9 @@ public class QuizSchema extends RealmObject {
     @PrimaryKey
     private String quizId;
     private String quizName;
-    private String image;
     private Integer maxPoints;
     private Integer minPoints;
-    private String question;
-    private String firstOperand;
-    private String firstOperator;
-    private String secondOperand;
-    private String secondOperator;
-    private String answer;
+    private RealmList<QuizContent> contents;
 
     public String getQuizId() {
         return quizId;
@@ -31,14 +28,6 @@ public class QuizSchema extends RealmObject {
 
     public void setQuizName(String quizName) {
         this.quizName = quizName;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public Integer getMaxPoints() {
@@ -57,51 +46,8 @@ public class QuizSchema extends RealmObject {
         this.minPoints = minPoints;
     }
 
-    public String getQuestion() {
-        return question;
-    }
+    public RealmList<QuizContent> getContents() { return contents; }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
+    public void setContents(RealmList<QuizContent> contents) { this.contents = contents; }
 
-    public String getFirstOperand() {
-        return firstOperand;
-    }
-
-    public void setFirstOperand(String firstOperand) {
-        this.firstOperand = firstOperand;
-    }
-
-    public String getFirstOperator() {
-        return firstOperator;
-    }
-
-    public void setFirstOperator(String firstOperator) {
-        this.firstOperator = firstOperator;
-    }
-
-    public String getSecondOperand() {
-        return secondOperand;
-    }
-
-    public void setSecondOperand(String secondOperand) {
-        this.secondOperand = secondOperand;
-    }
-
-    public String getSecondOperator() {
-        return secondOperator;
-    }
-
-    public void setSecondOperator(String secondOperator) {
-        this.secondOperator = secondOperator;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
 }

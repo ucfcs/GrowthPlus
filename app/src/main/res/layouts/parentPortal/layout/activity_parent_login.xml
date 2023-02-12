@@ -158,7 +158,7 @@
         android:id="@+id/forgotPinText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/orange"
+        android:textColor="@color/dark_green"
         android:textSize="15dp"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
