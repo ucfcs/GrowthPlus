@@ -89,25 +89,6 @@
         app:layout_constraintTop_toBottomOf="@id/guideline4"
         app:rowCount="6">
 
-        <com.GrowthPlus.customViews.LeaderboardChildView
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"/>
-        <com.GrowthPlus.customViews.LeaderboardChildView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"/>
-        <com.GrowthPlus.customViews.LeaderboardChildView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"/>
-        <com.GrowthPlus.customViews.LeaderboardChildView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"/>
-        <com.GrowthPlus.customViews.LeaderboardChildView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"/>
-        <com.GrowthPlus.customViews.LeaderboardChildView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"/>
-
     </androidx.gridlayout.widget.GridLayout>
 
 
