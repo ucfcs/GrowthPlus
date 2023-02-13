@@ -7,7 +7,7 @@
     tools:context=".fragment.Counting" >
 
     <TextView
-        android:id="@+id/number"
+        android:id="@+id/numberCounting"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:text="1"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/word"
+        android:id="@+id/wordCounting"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -28,15 +28,15 @@
         android:textColor="@color/yellow"
         android:textSize="62sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number" />
+        app:layout_constraintTop_toBottomOf="@+id/numberCounting" />
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imageCounting"
         android:layout_width="350dp"
         android:layout_height="210dp"
         android:layout_marginTop="40dp"
         android:src="@mipmap/elephant_foreground"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/word" />
+        app:layout_constraintTop_toBottomOf="@+id/wordCounting" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

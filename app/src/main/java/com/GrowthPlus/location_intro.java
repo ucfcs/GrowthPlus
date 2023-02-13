@@ -19,6 +19,7 @@ import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.fragment.WordImage;
+import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import io.realm.Realm;
@@ -36,6 +37,8 @@ public class location_intro extends AppCompatActivity {
     private ImageSrcIdentifier imageSrcIdentifier;
     private Button nextButton;
 
+    private Button introBackBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,7 @@ public class location_intro extends AppCompatActivity {
         nextButton.setOnClickListener( view -> {
             Intent lessonIntent = new Intent(this, lesson.class);
             lessonIntent.putExtra("dataBaseLessonId", dataBaseLessonId);
+            lessonIntent.putExtra("childId", childId);
             startActivity(lessonIntent);
             }
         );
@@ -63,6 +67,13 @@ public class location_intro extends AppCompatActivity {
                     .add(R.id.frame_layout, WordImage.class, bundle)
                     .commit();
         }
+
+        introBackBtn.setOnClickListener(view -> {
+            Intent lessonIntent = new Intent(location_intro.this, RoadMapOne.class);
+            // TODO: Dynamically change return address
+            lessonIntent.putExtra("childIdentify", childId);
+            startActivity(lessonIntent);
+        });
     }
 
     private void init(){
@@ -75,6 +86,7 @@ public class location_intro extends AppCompatActivity {
          child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
          childRoadMap = child.getRoadMapOne();
          topBar = findViewById(R.id.topBar);
+         introBackBtn = topBar.findViewById(R.id.goBackBtn);
          lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
 
          lessonName = lesson.getLessonName();
