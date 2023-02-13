@@ -16,9 +16,9 @@ import com.GrowthPlus.realmImporter.JsonSampleData;
 import java.util.HashMap;
 
 import io.realm.RealmResults;
-import io.realm.gradle.Realm;
+import io.realm.Realm;
 
-public class Leaderboard extends AppCompatActivity implements View.OnClickListener {
+public class Leaderboard extends AppCompatActivity {
 
     Realm realm;
     Resources resources;
@@ -39,6 +39,7 @@ public class Leaderboard extends AppCompatActivity implements View.OnClickListen
         importSampleData();
 
         RealmResults<ChildSchema> children = childrenLeaderBoard.getAllChildSchemas();
+        setChildCardIds();
 
         backChildPortalBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -63,10 +64,6 @@ public class Leaderboard extends AppCompatActivity implements View.OnClickListen
         jsonSampleData.importDataFromJson();
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
 
     private void setChildCardIds(){
         leaderBoardChildCardIds.put(0, R.id.leaderBoardChildCard0);
