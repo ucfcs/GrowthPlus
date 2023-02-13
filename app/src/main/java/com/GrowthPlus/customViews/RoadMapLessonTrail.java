@@ -120,6 +120,7 @@ public class RoadMapLessonTrail extends ConstraintLayout {
         roadMapTile3 = findViewById(R.id.roadMapTileThree);
 
         roadMapTile4 = findViewById(R.id.roadMapTileFour);
+        roadMapTile4.setToCircle();
 
         roadMapTile5 = findViewById(R.id.roadMapTileFive);
 
@@ -130,6 +131,7 @@ public class RoadMapLessonTrail extends ConstraintLayout {
         roadMapTile8 = findViewById(R.id.roadMapTileEight);
 
         roadMapTile9 = findViewById(R.id.roadMapTileNine);
+        roadMapTile9.setToCircle();
 
         roadMapTile10 = findViewById(R.id.roadMapTileTen);
 
@@ -138,6 +140,7 @@ public class RoadMapLessonTrail extends ConstraintLayout {
         roadMapTile12 = findViewById(R.id.roadMapTileTwelve);
 
         roadMapTile13 = findViewById(R.id.roadMapTileThirteen);
+        roadMapTile13.setToStar();
 
         lock = findViewById(R.id.lock);
     }

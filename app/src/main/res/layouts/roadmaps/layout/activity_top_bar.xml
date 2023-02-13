@@ -21,6 +21,49 @@
         app:layout_constraintTop_toTopOf="parent">
     </android.widget.Button>
 
+
+    <TextView
+        android:id="@+id/topBarTriangle"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:rotationX="180"
+        android:text="▼"
+        android:textColor="@color/light_green"
+        android:textSize="50sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/topBarCircle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/dark_green"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/topBarStar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/star"
+        android:backgroundTint="@color/yellow"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <ImageView
         android:id="@+id/pointsIcon"
         android:layout_width="50dp"
