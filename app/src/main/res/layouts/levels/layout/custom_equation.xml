@@ -5,14 +5,54 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/equation"
+    <ImageView
+        android:id="@+id/bar"
         android:layout_width="270dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/light_green"
+        android:src="@drawable/round_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/round_button" />
+
+    <TextView
+        android:id="@+id/first_number"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2 + 3"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="50dp"
+        android:text="1"
         android:textAlignment="center"
         android:textColor="@color/light_green"
         android:textSize="80sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/second_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="45dp"
+        android:text="1"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/bar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/operator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="45dp"
+        android:text="+"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/bar"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

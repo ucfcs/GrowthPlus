@@ -1,11 +1,6 @@
 package com.GrowthPlus.dataAccessLayer.child;
 
-//import android.media.Image;
-import android.media.Image;
-
-import com.GrowthPlus.dataAccessLayer.Report.ReportSchema;
-import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;
-
+import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -14,9 +9,12 @@ public class ChildSchema extends RealmObject {
     private String childId;
     private String name;
     private String avatarName;
-    private RoadMapSchema roadmap;
     private String colorName;
     private Integer score;
+    ChildRoadMap roadMapOne;
+    ChildRoadMap roadMapTwo;
+    ChildRoadMap roadMapThree;
+    ChildRoadMap roadMapFour;
 
     public String getChildId() {
         return childId;
@@ -32,14 +30,6 @@ public class ChildSchema extends RealmObject {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public RoadMapSchema getRoadmap() {
-        return roadmap;
-    }
-
-    public void setRoadmap(RoadMapSchema roadmap) {
-        this.roadmap = roadmap;
     }
 
     public String getAvatarName() {
@@ -64,5 +54,37 @@ public class ChildSchema extends RealmObject {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public ChildRoadMap getRoadMapOne() {
+        return roadMapOne;
+    }
+
+    public void setRoadMapOne(ChildRoadMap roadMapOne) {
+        this.roadMapOne = roadMapOne;
+    }
+
+    public ChildRoadMap getRoadMapTwo() {
+        return roadMapTwo;
+    }
+
+    public void setRoadMapTwo(ChildRoadMap roadMapTwo) {
+        this.roadMapTwo = roadMapTwo;
+    }
+
+    public ChildRoadMap getRoadMapThree() {
+        return roadMapThree;
+    }
+
+    public void setRoadMapThree(ChildRoadMap roadMapThree) {
+        this.roadMapThree = roadMapThree;
+    }
+
+    public ChildRoadMap getRoadMapFour() {
+        return roadMapFour;
+    }
+
+    public void setRoadMapFour(ChildRoadMap roadMapFour) {
+        this.roadMapFour = roadMapFour;
     }
 }

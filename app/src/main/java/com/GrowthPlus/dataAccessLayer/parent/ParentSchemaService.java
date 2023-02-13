@@ -18,7 +18,12 @@ public class ParentSchemaService {
     /*
     Constructor
      */
+
+    public ParentSchemaService(Realm realm){
+        this.realm = realm;
+    }
     public ParentSchemaService(Realm realm, String ID, Integer PIN, RealmList<ChildSchema> children){
+        this.ID = ID;
         this.realm = realm;
         this.PIN = PIN;
         this.children = children;
@@ -29,8 +34,7 @@ public class ParentSchemaService {
      */
     public void createParentSchema(){
         realm.executeTransactionAsync(realm1 -> {
-            ParentSchema newParent = realm.createObject(ParentSchema.class, ID);
-            newParent.setParentId(ID);
+            ParentSchema newParent = realm1.createObject(ParentSchema.class, ID);
             newParent.setPIN(PIN);
             newParent.setChildren(children);
         }, () -> { //Lambda expression
@@ -57,7 +61,19 @@ public class ParentSchemaService {
     This method returns a parent schema by ID.
     */
     public ParentSchema getParentSchema(){
-        return realm.where(ParentSchema.class).equalTo("ID", ID).findFirst();
+        return realm.where(ParentSchema.class).equalTo("parentId", ID).findFirst();
+        //maybe change ID to parentId
+    }
+
+    public ParentSchema getParentSchemaById(String parentId){
+        return realm.where(ParentSchema.class).equalTo("parentId", parentId).findFirst();
+    }
+
+    /*
+    This method returns all parent schemas.
+    */
+    public RealmResults<ParentSchema> getAllParentSchemas(){
+        return realm.where(ParentSchema.class).findAll();
     }
 
     /*

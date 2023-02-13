@@ -11,9 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.GrowthPlus.customViews.ChildCard;
 import com.GrowthPlus.customViews.ChildCardAdd;
@@ -23,6 +21,7 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import java.util.HashMap;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -32,7 +31,7 @@ import io.realm.RealmResults;
  * It will provide onClick method that we can override and implement custom logic
  */
 public class ParentPortal extends AppCompatActivity implements View.OnClickListener {
-
+    private final int MAX_CHILDREN = 6;
     private Button buttonBackChild;
     private GridLayout parentPortalGridLayout;
     private LinearLayout parentPortalLinearLayout;
@@ -55,6 +54,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
           Temp ChildCard component to add to the grid layout
          */
         RealmResults<ChildSchema> children = childSchemaService.getAllChildSchemas();
+
         int childrenRealmResultSize = children.size();
         ChildSchema childRealmObjectTemp;
         ChildCard childCardTemp;
@@ -65,9 +65,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         String colorNameTemp;
 
         // Looping through the number of children from the realm result
-        // Dynamically add the child cards components with their corresponding data to the grid layout
-        for(int i =0; i< childrenRealmResultSize; i++){
-
+        // Dynamically add the child card components with their corresponding data to the grid layout
+        for(int i = 0; i < childrenRealmResultSize; i++){
             childRealmObjectTemp = children.get(i);
             Log.i("Child ", String.valueOf(childRealmObjectTemp));
             assert childRealmObjectTemp != null;
@@ -91,14 +90,15 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
             verticalProgressBarTemp = null;
         }
 
-        ChildCardAdd addChildCard1 = new ChildCardAdd(this);
-        addChildCard1.setId(R.id.parentPortalChildCardAdd);
-        addChildCard1.setOnClickListener(this);
-        parentPortalGridLayout.addView(addChildCard1);
+        // Make sure children do not surpass 6
+        if(childrenRealmResultSize < MAX_CHILDREN){
+            ChildCardAdd addChildCard1 = new ChildCardAdd(this);
+            addChildCard1.setId(R.id.parentPortalChildCardAdd);
+            addChildCard1.setOnClickListener(this);
+            parentPortalGridLayout.addView(addChildCard1);
+        }
 
         buttonBackChild.setOnClickListener(this);
-
-
     }
 
     /**
@@ -210,24 +210,27 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         }
 
         if((view.getId()) == R.id.backChild) {
-            this.finish();
+            startLandingPageActivity();
         }
 
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
     }
 
     public void startChildScreenActivity(String childId){
         Intent childScreen = new Intent(ParentPortal.this, childScreen.class);
         childScreen.putExtra("childIdParentPortal",childId);
         startActivity(childScreen);
+        this.finish();
     }
 
     public void startSelectChildAvatarActivity(){
         Intent selectChildAvatar = new Intent(ParentPortal.this, SelectChildAvatar.class);
+        selectChildAvatar.putExtra("comingFrom", "ParentPortal");
         startActivity(selectChildAvatar);
+    }
+
+    public void startLandingPageActivity(){
+        Intent landingPage = new Intent(ParentPortal.this, MainActivity.class);
+        startActivity(landingPage);
+        this.finish();
     }
 }

@@ -15,7 +15,7 @@
         android:layout_marginStart="45dp"
         android:progress="55"
         android:progressBackgroundTint="@color/grey"
-        android:progressTint="@color/dark_green"
+        android:progressTint="@color/light_green"
         app:layout_constraintBottom_toBottomOf="@+id/progressBarLevelNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/progressBarLevelNumber" />
@@ -30,7 +30,7 @@
         android:backgroundTint="@color/dark_green"
         android:gravity="center_horizontal|center_vertical"
         android:text="1"
-        android:textColor="@color/blue"
+        android:textColor="@color/red"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

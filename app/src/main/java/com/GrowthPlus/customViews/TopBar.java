@@ -12,11 +12,17 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.R;
+import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
+
+import io.realm.Realm;
 
 public class TopBar extends ConstraintLayout {
     Button goBackButton;
     ImageView pointsIcon;
     TextView points;
+    ChildSchemaService childSchemaService;
+    Realm realm;
 
     public TopBar(@NonNull Context context) {
         super(context);
@@ -40,9 +46,14 @@ public class TopBar extends ConstraintLayout {
 
     private void init(@Nullable AttributeSet attrs) {
         inflate(getContext(), R.layout.activity_top_bar, this);
+        realm = Realm.getDefaultInstance();
         goBackButton = findViewById(R.id.goBackBtn);
         pointsIcon = findViewById(R.id.pointsIcon);
         points = findViewById(R.id.points);
+        childSchemaService = new ChildSchemaService(realm);
     }
 
+    public void setPoints(String number){
+        points.setText(number);
+    }
 }

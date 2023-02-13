@@ -1,6 +1,7 @@
 package com.GrowthPlus.dataAccessLayer.RoadMap;
 
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
+import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 
 import io.realm.RealmList;
@@ -13,6 +14,7 @@ public class RoadMapSchema extends RealmObject {
     private String roadMapId;
     private String roadMapName;
     private RealmList<LessonSchema> lessons;
+    private RealmList<QuizSchema> quizzes;
     private ScenarioGameSchema scenarioGame;
 
     public String getRoadMapId() {
@@ -44,6 +46,14 @@ public class RoadMapSchema extends RealmObject {
     }
 
     public void setScenarioGame(ScenarioGameSchema scenarioGame) {
-        scenarioGame = scenarioGame;
+        this.scenarioGame = scenarioGame;
+    }
+
+    public RealmList<QuizSchema> getQuizzes() {
+        return quizzes;
+    }
+
+    public void setQuizzes(RealmList<QuizSchema> quizzes) {
+        this.quizzes = quizzes;
     }
 }

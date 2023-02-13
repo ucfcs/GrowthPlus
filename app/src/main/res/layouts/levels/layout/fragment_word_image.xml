@@ -21,7 +21,7 @@
     <ImageView
         android:id="@+id/image"
         android:layout_width="350dp"
-        android:layout_height="300dp"
+        android:layout_height="320dp"
         android:layout_marginTop="40dp"
         android:src="@mipmap/coconut_foreground"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.R;
+import com.GrowthPlus.utilities.ColorIdentifier;
+import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 public class ChildAvatarComponent extends ConstraintLayout {
 

@@ -7,15 +7,18 @@ public class LanguageSchema extends RealmObject {
     @PrimaryKey
     String languageId;
     String languageName;
+    String language;
+    String english;
+    String french;
     String	growthPlus;
     String	parent;
     String	child;
     String	points;
     String	pin;
+    String forgotPin;
     String	create;
     String	confirm;
     String	numbers;
-    String	counting;
     String	addition;
     String	subtraction;
     String	multiplication;
@@ -209,6 +212,28 @@ public class LanguageSchema extends RealmObject {
         this.languageName = languageName;
     }
 
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getEnglish() {
+        return english;
+    }
+
+    public void setEnglish(String english) {
+        this.english = english;
+    }
+
+    public String getFrench() { return french; }
+
+    public void setFrench(String french) {
+        this.french = french;
+    }
+
     public String getGrowthPlus() {
         return growthPlus;
     }
@@ -249,6 +274,14 @@ public class LanguageSchema extends RealmObject {
         this.pin = pin;
     }
 
+    public String getForgotPin() {
+        return forgotPin;
+    }
+
+    public void setForgotPin(String forgotPin) {
+        this.forgotPin = forgotPin;
+    }
+
     public String getCreate() {
         return create;
     }
@@ -271,14 +304,6 @@ public class LanguageSchema extends RealmObject {
 
     public void setNumbers(String numbers) {
         this.numbers = numbers;
-    }
-
-    public String getCounting() {
-        return counting;
-    }
-
-    public void setCounting(String counting) {
-        this.counting = counting;
     }
 
     public String getAddition() {
