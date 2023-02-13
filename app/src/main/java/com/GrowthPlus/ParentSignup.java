@@ -17,14 +17,11 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
-import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 
 import io.realm.Realm;
 import io.realm.RealmList;
 
 import org.bson.types.ObjectId;
-
-import java.io.InputStream;
 
 public class ParentSignup extends AppCompatActivity implements View.OnClickListener{
 
@@ -75,10 +72,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
         // create instance of shared preferences
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
-        // import language json file
-        InputStream langInputStream = resources.openRawResource(R.raw.languages);
-        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
-        langRealmImporter.importLanguagesFromJson();
         // create language schema service and set strings
         LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
         LanguageSchema lang = langSchemaService.getLanguageSchemaById();

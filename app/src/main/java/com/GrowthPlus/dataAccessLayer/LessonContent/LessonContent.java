@@ -1,7 +1,5 @@
 package com.GrowthPlus.dataAccessLayer.LessonContent;
 
-import java.util.ArrayList;
-
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
