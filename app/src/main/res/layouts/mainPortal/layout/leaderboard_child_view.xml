@@ -36,21 +36,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".23" />
+        app:layout_constraintGuide_percent=".20" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/nameEndLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".65" />
+        app:layout_constraintGuide_percent=".70" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/pointStartLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".67" />
+        app:layout_constraintGuide_percent=".70" />
 
     <ImageView
         android:id="@+id/leaderboardAvatarImg"
@@ -67,14 +67,17 @@
         android:layout_height="0dp"
         android:id="@+id/leaderboardName"
         android:textSize="40sp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:textColor="@color/dark_green"
-        android:text="Name"
+        android:text="ChildNameHere"
         android:gravity="center_vertical"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/nameEndLine"
-        app:layout_constraintStart_toStartOf="@id/nameStartLine">
+        app:layout_constraintStart_toStartOf="@id/nameStartLine"
+        android:autoSizeTextType="uniform">
     </TextView>
 
     <TextView
