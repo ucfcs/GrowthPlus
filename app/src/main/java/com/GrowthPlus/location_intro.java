@@ -29,9 +29,8 @@ public class location_intro extends AppCompatActivity {
     private String lessonName;
     private String image;
     private ImageSrcIdentifier imageSrcIdentifier;
-    private FrameLayout layout;
-    private ImageView locationIntroImage;
-    private TextView locationIntroText;
+    private ImageView introImg;
+    private TextView introText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +42,8 @@ public class location_intro extends AppCompatActivity {
         Log.i("Lesson Name", String.valueOf(lessonName));
         Log.i("Lesson image", String.valueOf(image));
 
-        locationIntroImage.setImageResource(imageSrcIdentifier.getImageSrcId(image));
-        locationIntroText.setText(lessonName);
-
-        layout.addView(locationIntroImage);
-        layout.addView(locationIntroText);
+        introText.setText(lessonName);
+        introImg.setImageResource(imageSrcIdentifier.getImageSrcId(image));
 
     }
 
@@ -68,10 +64,10 @@ public class location_intro extends AppCompatActivity {
          image = lesson.getImage();
 
          imageSrcIdentifier = new ImageSrcIdentifier();
-         layout = findViewById(R.id.frame_layout);
 
-         locationIntroImage = new ImageView(this);
-         locationIntroText = new TextView(this);
+         introText = findViewById(R.id.introText);
+         introImg = findViewById(R.id.introImg);
+
     }
 
     private void setTopBar(){

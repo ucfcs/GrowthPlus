@@ -72,6 +72,28 @@
         app:layout_constraintBottom_toTopOf="@+id/frame_bottom"
         app:layout_constraintEnd_toStartOf="@+id/guide_right"
         app:layout_constraintStart_toStartOf="@+id/guide_left"
-        app:layout_constraintTop_toBottomOf="@+id/frame_top" />
+        app:layout_constraintTop_toBottomOf="@+id/frame_top" >
+        <TextView
+            android:id="@+id/introText"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="one unit"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/light_green"
+            android:textSize="70sp"
+            app:layout_constraintStart_toStartOf="@id/frame_layout"
+            app:layout_constraintTop_toTopOf="@id/frame_layout" />
+
+        <ImageView
+            android:id="@+id/introImg"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="170dp"
+            android:src="@mipmap/coconut_foreground"
+            app:layout_constraintStart_toStartOf="@id/frame_layout"
+            app:layout_constraintTop_toBottomOf="@+id/introText" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
