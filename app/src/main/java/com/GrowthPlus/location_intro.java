@@ -2,8 +2,10 @@ package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,7 +25,7 @@ public class location_intro extends AppCompatActivity {
     private Realm realm;
     private ChildSchema child;
     private ChildRoadMap childRoadMap;
-    private TopBar topBar;
+    //private TopBar topBar;
     private String dataBaseLessonId;
     private LessonSchema lesson;
     private String lessonName;
@@ -31,19 +33,27 @@ public class location_intro extends AppCompatActivity {
     private ImageSrcIdentifier imageSrcIdentifier;
     private ImageView introImg;
     private TextView introText;
+    private Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_intro);
         init();
-        setTopBar();
+       // setTopBar();
 
         Log.i("Lesson Name", String.valueOf(lessonName));
         Log.i("Lesson image", String.valueOf(image));
 
         introText.setText(lessonName);
         introImg.setImageResource(imageSrcIdentifier.getImageSrcId(image));
+
+        nextButton.setOnClickListener( view -> {
+            Intent lessonIntent = new Intent(this, lesson.class);
+            lessonIntent.putExtra("dataBaseLessonId", dataBaseLessonId);
+            startActivity(lessonIntent);
+            }
+        );
 
     }
 
@@ -57,7 +67,7 @@ public class location_intro extends AppCompatActivity {
          realm = Realm.getDefaultInstance();
          child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
          childRoadMap = child.getRoadMapOne();
-         topBar = findViewById(R.id.topBar);
+         //topBar = findViewById(R.id.topBar);
          lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
 
          lessonName = lesson.getLessonName();
@@ -67,10 +77,11 @@ public class location_intro extends AppCompatActivity {
 
          introText = findViewById(R.id.introText);
          introImg = findViewById(R.id.introImg);
+         nextButton = findViewById(R.id.next_button);
 
     }
 
     private void setTopBar(){
-        topBar.setPoints(String.valueOf(child.getScore()));
+        //topBar.setPoints(String.valueOf(child.getScore()));
     }
 }

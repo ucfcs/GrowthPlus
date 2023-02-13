@@ -58,8 +58,8 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
         init(child);
 
+        // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
         roadMapOneLessonTrail.unLockRoadMap();
-
         setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap1item);
