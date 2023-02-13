@@ -137,7 +137,7 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
         mapTiles.put(7, tile10);
         mapTiles.put(8, tile11);
         mapTiles.put(9, tile12);
-        // 13 TILES ???
+
     }
 
     private void setLessonTiles(ChildSchema child){
