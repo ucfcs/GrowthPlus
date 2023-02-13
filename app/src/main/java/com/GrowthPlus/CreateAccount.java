@@ -24,13 +24,10 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
-import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import org.bson.types.ObjectId;
-
-import java.io.InputStream;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -213,10 +210,6 @@ public class CreateAccount extends AppCompatActivity {
 
         // create instance of shared preferences
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
-        // import language json file
-        InputStream langInputStream = resources.openRawResource(R.raw.languages);
-        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
-        langRealmImporter.importLanguagesFromJson();
         // create language schema service and set strings
         LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
         LanguageSchema lang = langSchemaService.getLanguageSchemaById();

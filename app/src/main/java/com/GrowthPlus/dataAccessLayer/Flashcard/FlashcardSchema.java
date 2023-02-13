@@ -6,13 +6,12 @@ import io.realm.annotations.PrimaryKey;
 public class FlashcardSchema extends RealmObject {
     @PrimaryKey
     private String flashCardId;
-    private String flashCardName;
-    private String question;
+    private String image;
     private String firstNumber;
     private String firstOperator;
     private String secondNumber;
     private String secondOperator;
-    private String thirdNumber;
+    private String answer;
 
     public String getFlashCardId() {
         return flashCardId;
@@ -22,20 +21,12 @@ public class FlashcardSchema extends RealmObject {
         this.flashCardId = flashCardId;
     }
 
-    public String getFlashCardName() {
-        return flashCardName;
+    public String getImage() {
+        return image;
     }
 
-    public void setFlashCardName(String flashCardName) {
-        this.flashCardName = flashCardName;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getFirstNumber() {
@@ -70,11 +61,11 @@ public class FlashcardSchema extends RealmObject {
         this.secondOperator = secondOperator;
     }
 
-    public String getThirdNumber() {
-        return thirdNumber;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setThirdNumber(String thirdNumber) {
-        this.thirdNumber = thirdNumber;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }
