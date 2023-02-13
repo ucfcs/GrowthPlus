@@ -59,7 +59,7 @@ public class LeaderboardChildView extends ConstraintLayout{
         childAvatar.setImageResource(resId);
     }
     //childName is the TextView with the name that needs to be changed
-    public void setText (CharSequence newName){
+    public void setName (CharSequence newName){
         childName.setText(newName);
     }
     //nameBlock is a View contains the way to change the entire background of the card
@@ -67,7 +67,7 @@ public class LeaderboardChildView extends ConstraintLayout{
         nameBlock.setBackgroundTintList(tint);
     }
     //childScore is a TextView that contains text that needs to be changed
-    public void setPointsText (CharSequence points){
+    public void setPoints (CharSequence points){
         childScore.setText(points);
     }
 }
