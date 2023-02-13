@@ -81,6 +81,8 @@ public class Leaderboard extends AppCompatActivity {
         backChildPortalBtn = findViewById(R.id.backChildPortal);
         leaderBoardGridLayout = findViewById(R.id.leaderBoardGridLayout);
         childrenLeaderBoard = new ChildSchemaService(realm);
+        imageSrcIdentifier = new ImageSrcIdentifier();
+        colorIdentifier = new ColorIdentifier();
         //leaderBoardChildCardIds = new HashMap<>();
     }
 
