@@ -25,7 +25,7 @@ import java.util.Objects;
 import io.realm.Realm;
 import io.realm.RealmList;
 
-public class RoadMapFour extends AppCompatActivity implements View.OnClickListener{
+public class RoadMapFour extends AppCompatActivity{
     Button goBackButton;
     BottomNavigationView bottomNavigationView;
     ConstraintLayout roadMapFour;
@@ -60,7 +60,7 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
         initState();
 
         // WHEN TO UNLOCK LESSON 4 TRAIL ???
-        setLessonTiles(child);
+        // setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap4item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -102,6 +102,8 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
         topBarFour.setPoints(String.valueOf(child.getScore()));
         goBackButton = topBarFour.findViewById(R.id.goBackBtn);
         roadMapFourLessonTrail = findViewById(R.id.roadMapFourLessonTrail);
+
+        /*
         childRoadMapFour = child.getRoadMapFour();
         lessonCompleted = childRoadMapFour.getLessonsCompleted();
         roadMapLessons = childRoadMapFour.getRoadMapLessons();
@@ -124,8 +126,10 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
         mapTiles = new HashMap<>();
         mapLessonId = new HashMap<>();
         mapRoadMapTiles();
+         */
     }
 
+    /*
     private void mapRoadMapTiles(){
         mapTiles.put(0, tile1);
         mapTiles.put(1, tile2);
@@ -159,11 +163,6 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
             Objects.requireNonNull(mapTiles.get(i)).setOnClickListener(this);
             mapLessonId.put(tileIdTemp, dataBaseLessonId);
         }
-    }
-
-    // Initial state is locked. Check if previous 3 levels completed before unlocking
-    private void initState(){
-        roadMapFourLessonTrail.setAlpha(.7f);
     }
 
     @Override
@@ -236,5 +235,11 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
 
             startActivity(IntentIntro);
         }
+    }
+     */
+
+    // Initial state is locked. Check if previous 3 levels completed before unlocking
+    private void initState(){
+        roadMapFourLessonTrail.setAlpha(.7f);
     }
 }
