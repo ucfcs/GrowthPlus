@@ -2,6 +2,7 @@ package com.GrowthPlus.customViews;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -23,6 +24,9 @@ public class TopBar extends ConstraintLayout {
     TextView points;
     ChildSchemaService childSchemaService;
     Realm realm;
+    TextView triangle;
+    ImageView circle;
+    ImageView star;
 
     public TopBar(@NonNull Context context) {
         super(context);
@@ -51,9 +55,30 @@ public class TopBar extends ConstraintLayout {
         pointsIcon = findViewById(R.id.pointsIcon);
         points = findViewById(R.id.points);
         childSchemaService = new ChildSchemaService(realm);
+        triangle = findViewById(R.id.topBarTriangle);
+        circle = findViewById(R.id.topBarCircle);
+        star = findViewById(R.id.topBarStar);
     }
 
     public void setPoints(String number){
         points.setText(number);
+    }
+
+    public void setToTriangle(){
+        triangle.setVisibility(View.VISIBLE);
+        circle.setVisibility(View.INVISIBLE);
+        star.setVisibility(View.INVISIBLE);
+    }
+
+    public void setToCircle(){
+        triangle.setVisibility(View.INVISIBLE);
+        circle.setVisibility(View.VISIBLE);
+        star.setVisibility(View.INVISIBLE);
+    }
+
+    public void setToStar(){
+        triangle.setVisibility(View.INVISIBLE);
+        circle.setVisibility(View.INVISIBLE);
+        star.setVisibility(View.VISIBLE);
     }
 }
