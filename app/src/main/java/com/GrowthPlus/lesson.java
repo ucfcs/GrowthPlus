@@ -2,6 +2,8 @@ package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,9 +38,6 @@ public class lesson extends AppCompatActivity {
     private Button introBackBtn;
     private int contentLength;
     private Button nextContent;
-    int i;
-    private Fragment fragment1, fragment2, fragment3, fragment4, fragment5, fragment6, fragment7, fragment8, fragment9, fragment10;
-    private HashMap<Integer, Fragment> contentFrag;
     int counter;
 
 
@@ -59,6 +58,9 @@ public class lesson extends AppCompatActivity {
         });
         setTopBar();
 
+        // Create one fragment that we will dynamically change
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
         contentLength = contents.size();
         counter = 0;
         nextContent.setOnClickListener(new View.OnClickListener() {
@@ -67,31 +69,38 @@ public class lesson extends AppCompatActivity {
                     Intent lessonIntent = new Intent(lesson.this, flashcard.class);
                     startActivity(lessonIntent);
                 }
+                else{
+                    String category = contents.get(counter).getCategory();
+                    Log.i("category", category);
 
-                String category = contents.get(counter).getCategory();
-                Log.i("category", category);
+                    switch (category){
+                        case "counting":
+                            String word = contents.get(counter).getWord();
+                            String num = contents.get(counter).getFirstNumber();
+                            String img = lesson.getImage();
 
-                switch (category){
-                    case "counting":
-                        String word = contents.get(counter).getWord();
-                        String num = contents.get(counter).getFirstNumber();
-                        String img = lesson.getImage();
+                            if(savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("lessonWord", word);
+                                bundle.putString("lessonNumber", num);
+                                bundle.putString("lessonImage", img);
 
-                        if(savedInstanceState == null) {
-                            Bundle bundle = new Bundle();
-                            bundle.putString("lessonWord", word);
-                            bundle.putString("lessonNumber", num);
-                            bundle.putString("lessonImage", img);
 
-                            getSupportFragmentManager().beginTransaction()
-                                    .setReorderingAllowed(true)
-                                    .add(R.id.frame_layout_lesson, Counting.class, bundle)
-                                    .commit();
-                        }
-                    default:
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+
+                                // Replace whatever is in the fragment_container view with this fragment
+                                transaction.replace(R.id.frame_layout_lesson, Counting.class, bundle);
+
+                                // Commit the transaction
+                                transaction.commit();
+                            }
+                        default:
+                    }
+
+                    counter++;
                 }
 
-                counter++;
             }
         });
 
@@ -110,32 +119,8 @@ public class lesson extends AppCompatActivity {
         topBar = findViewById(R.id.topBar);
         introBackBtn = topBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button_lesson);
-        fragment1 = new Fragment();
-        fragment2 = new Fragment();
-        fragment3 = new Fragment();
-        fragment4 = new Fragment();
-        fragment5 = new Fragment();
-        fragment6 = new Fragment();
-        fragment7 = new Fragment();
-        fragment8 = new Fragment();
-        fragment9 = new Fragment();
-        fragment10 = new Fragment();
-
-        // contentFrag = new HashMap<>();
     }
 
-    private void contentFragMap(){
-        contentFrag.put(0, fragment1);
-        contentFrag.put(1, fragment2);
-        contentFrag.put(2, fragment3);
-        contentFrag.put(3, fragment4);
-        contentFrag.put(4, fragment5);
-        contentFrag.put(5, fragment6);
-        contentFrag.put(6, fragment7);
-        contentFrag.put(7, fragment8);
-        contentFrag.put(8, fragment9);
-        contentFrag.put(9, fragment10);
-    }
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
