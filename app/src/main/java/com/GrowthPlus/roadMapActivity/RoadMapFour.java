@@ -5,7 +5,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.GrowthPlus.R;
@@ -16,11 +15,10 @@ import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
-import com.GrowthPlus.location_intro;
+import com.GrowthPlus.lesson;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
-import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -107,7 +105,7 @@ public class RoadMapFour extends AppCompatActivity{
         childRoadMapFour = child.getRoadMapFour();
         lessonCompleted = childRoadMapFour.getLessonsCompleted();
         roadMapLessons = childRoadMapFour.getRoadMapLessons();
-        IntentIntro = new Intent(RoadMapFour.this, location_intro.class);
+        IntentIntro = new Intent(RoadMapFour.this, lesson.class);
 
         tile1 = roadMapFourLessonTrail.getRoadMapTile1();
         tile2 = roadMapFourLessonTrail.getRoadMapTile2();

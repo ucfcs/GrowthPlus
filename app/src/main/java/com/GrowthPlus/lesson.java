@@ -1,7 +1,6 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -11,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.GrowthPlus.customViews.Flashcard;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
@@ -19,9 +17,6 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -39,6 +34,8 @@ public class lesson extends AppCompatActivity {
     private int contentLength;
     private Button nextContent;
     int counter;
+    private String lessonName;
+    private String image;
 
 
     @Override
@@ -46,13 +43,10 @@ public class lesson extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson);
         init();
-        Log.i("Lesson id", dataBaseLessonId);
-        Log.i("child Id", childId);
-        Log.i("contents list", String.valueOf(contents));
 
         introBackBtn.setOnClickListener(view -> {
             Intent lessonIntent = new Intent(lesson.this, RoadMapOne.class);
-            // TODO: Dynamically change return address
+            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
         });
@@ -60,6 +54,18 @@ public class lesson extends AppCompatActivity {
 
         // Create one fragment that we will dynamically change
         FragmentManager fragmentManager = getSupportFragmentManager();
+
+        // Fragment for lesson intro
+        if (savedInstanceState == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("locationIntroText", lessonName);
+            bundle.putString("locationIntroImage", image);
+
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.setReorderingAllowed(true);
+            transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
+            transaction.commit();
+        }
 
         contentLength = contents.size();
         counter = 0;
@@ -85,14 +91,9 @@ public class lesson extends AppCompatActivity {
                                 bundle.putString("lessonNumber", num);
                                 bundle.putString("lessonImage", img);
 
-
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
-
-                                // Replace whatever is in the fragment_container view with this fragment
                                 transaction.replace(R.id.frame_layout_lesson, Counting.class, bundle);
-
-                                // Commit the transaction
                                 transaction.commit();
                             }
                         default:
@@ -119,6 +120,8 @@ public class lesson extends AppCompatActivity {
         topBar = findViewById(R.id.topBar);
         introBackBtn = topBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button_lesson);
+        lessonName = lesson.getLessonName();
+        image = lesson.getImage();
     }
 
 

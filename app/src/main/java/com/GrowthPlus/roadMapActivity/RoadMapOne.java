@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.GrowthPlus.ChildPortal;
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
 import com.GrowthPlus.customViews.RoadMapTile;
@@ -16,7 +17,7 @@ import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
-import com.GrowthPlus.location_intro;
+import com.GrowthPlus.lesson;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
     ConstraintLayout roadMapOne;
     RoadMapTile tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11, tile12, tile13;
     TopBar topBarOne;
-    Intent IntentIntro; // Leads to location_intro page
+    Intent IntentIntro; // Leads to lesson page
     String childID;
     ChildSchemaService childSchemaService;
     Realm realm;
@@ -97,14 +98,13 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             return false;
         });
 
-        goBackButton.setOnClickListener(v -> onBackPressed());
+        goBackButton.setOnClickListener(this);
     }
 
     private void init(ChildSchema child){
-
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
         roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
-        IntentIntro = new Intent(RoadMapOne.this, location_intro.class);
+        IntentIntro = new Intent(RoadMapOne.this, lesson.class);
 
         roadMapOne = findViewById(R.id.roadMapOne);
         goBackButton = roadMapOne.findViewById(R.id.goBackBtn);
@@ -182,6 +182,12 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
     public void onClick(View view) {
 
         int viewId = view.getId();
+
+        if(viewId == goBackButton.getId()){
+            Intent lessonIntent = new Intent(RoadMapOne.this, ChildPortal.class);
+            lessonIntent.putExtra("childIdLandingPage", childID);
+            startActivity(lessonIntent);
+        }
 
         if(viewId == tile1.getId()){
             IntentIntro.putExtra("childId", childID);
