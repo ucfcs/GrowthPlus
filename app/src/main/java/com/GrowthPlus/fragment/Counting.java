@@ -22,6 +22,7 @@ public class Counting extends Fragment {
     TextView number;
     GridLayout gridLayoutCounting;
     ImageSrcIdentifier imageSrcIdentifier;
+    Float sizeInPixels;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class Counting extends Fragment {
         number = view.findViewById(R.id.numberCounting);
         gridLayoutCounting = view.findViewById(R.id.gridLayoutCounting);
         imageSrcIdentifier = new ImageSrcIdentifier();
+        sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
         return view;
     }
 
@@ -47,10 +49,10 @@ public class Counting extends Fragment {
         word.setText(getWord);
         number.setText(getNumber);
 
-
         int resId = imageSrcIdentifier.getImageSrcId(getImg);
         for(int i=0; i<imgNum; i++){
-            ImageView imageTemp = setImageView(resId, 70, 70);
+            // width and height are pixels not dp, so need to convert from dp to pixels
+            ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
             gridLayoutCounting.addView(imageTemp, i);
         }
 
