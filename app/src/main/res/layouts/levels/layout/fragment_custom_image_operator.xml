@@ -34,4 +34,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/operator"
         app:srcCompat="@mipmap/fish_foreground" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
