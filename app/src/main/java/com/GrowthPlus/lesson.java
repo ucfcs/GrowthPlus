@@ -1,14 +1,14 @@
 package com.GrowthPlus;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
@@ -68,9 +68,11 @@ public class lesson extends AppCompatActivity {
         }
 
         contentLength = contents.size();
+        //use the counter to access the contents of the appropriate lesson
         counter = 0;
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                //here we've reached the end of the line and need to start looking at flashcards
                 if(counter >= contentLength){
                     Intent lessonIntent = new Intent(lesson.this, flashcard.class);
                     startActivity(lessonIntent);
@@ -95,6 +97,31 @@ public class lesson extends AppCompatActivity {
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, Counting.class, bundle);
                                 transaction.commit();
+                            }
+
+                        case "wordImageEquation":
+                            //should I be calling getFirstNumber or getImgOne???
+                            //should I include imgNum here too???
+                            String firstWord = contents.get(counter).getFirstNumber();
+                            String secondWord = contents.get(counter).getSecondNumber();
+
+                            //is second image the avatar image??
+                            //two image options in json - what do they mean??
+                            String avatarImg = contents.get(counter).getImgTwo();
+
+                            //also has the operator logic been included in WordImageEquation.java
+                            //are one of the images considered the operator, if so which one?
+                            String operator = contents.get(counter).getFirstOperator();
+
+                            if(savedInstanceState == null){
+                                Bundle bundle = new Bundle();
+                                bundle.putString("text1", firstWord);
+                                bundle.putString("text2", secondWord);
+                                //naming conventions in WordImageEquation.java is vague when it comes to
+                                //which image is the avatar image and which image is the operator, if it is one of the images
+                                //should I include imgNum here too???
+                                //which "" should I put for operator and the avatar images
+
                             }
                         default:
                     }
