@@ -17,6 +17,7 @@ public class ImageSrcIdentifier {
         imageSrcId.put("giraffe", R.mipmap.giraffe_foreground);
         imageSrcId.put("guinea_fowl", R.mipmap.guinea_fowl_foreground);
         imageSrcId.put("squirrel", R.mipmap.squirrel_foreground);
+        imageSrcId.put("unit", R.layout.custom_unit);
 
     }
 

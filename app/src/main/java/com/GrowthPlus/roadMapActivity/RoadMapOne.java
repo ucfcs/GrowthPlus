@@ -227,6 +227,12 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
+        if(viewId == tile7.getId()){
+            IntentIntro.putExtra("childId", childID);
+            IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            startActivity(IntentIntro);
+        }
+
         if(viewId == tile8.getId()){
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));

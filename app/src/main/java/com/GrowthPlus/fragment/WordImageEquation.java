@@ -25,10 +25,10 @@ public class WordImageEquation extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_word_image, container, false);
-        text1 = view.findViewById(R.id.first_word);
+        view = inflater.inflate(R.layout.fragment_word_image_equation, container, false);
+        text1 = view.findViewById(R.id.first_word_fragment);
         operator = view.findViewById(R.id.operator);
-        text2 = view.findViewById(R.id.second_word);
+        text2 = view.findViewById(R.id.second_word_fragment);
         image = view.findViewById(R.id.second_image);
         imageSrcIdentifier = new ImageSrcIdentifier();
         layout = view.findViewById(R.id.gridLayoutWordImageEquation);
@@ -44,13 +44,15 @@ public class WordImageEquation extends Fragment {
         String t2 = requireArguments().getString("bottomText");
         String firstImg = requireArguments().getString("multipliedImage"); // Image to be multiplied, goes in the grid
         String secondImg = requireArguments().getString("singleImage"); // Single image
-        String operator = requireArguments().getString("operatorSymbol");
-        int imgNum = requireArguments().getInt("number"); // How many copies of the image in grid layout
-        int resId = imageSrcIdentifier.getImageSrcId(firstImg);
+        String operatorString = requireArguments().getString("operatorSymbol");
+        String lessonImg = requireArguments().getString("lessonImg");
+        int imgNum = Integer.parseInt(firstImg); // How many copies of the image in grid layout
+        int resId = imageSrcIdentifier.getImageSrcId(lessonImg);
 
         text1.setText(t1);
         text2.setText(t2);
-        image.setImageResource(imageSrcIdentifier.getImageSrcId(secondImg));
+        operator.setText(operatorString);
+        image.setImageResource(imageSrcIdentifier.getImageSrcId(lessonImg));
 
         for(int i=0; i<imgNum; i++){
             // width and height are pixels not dp, so need to convert from dp to pixels

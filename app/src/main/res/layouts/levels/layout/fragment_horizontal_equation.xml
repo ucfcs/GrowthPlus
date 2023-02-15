@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".fragment.HorizontalEquation">
 
     <TextView
@@ -29,6 +29,20 @@
         app:columnCount="3"
         app:rowCount="7">
     </androidx.gridlayout.widget.GridLayout>
+
+<!--    <androidx.gridlayout.widget.GridLayout-->
+<!--        android:id="@+id/gridLayoutCounting"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/guideline3"-->
+<!--        app:layout_constraintStart_toStartOf="@id/guideline2"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/wordCounting"-->
+<!--        app:columnCount="5"-->
+<!--        app:rowCount="4"-->
+<!--        >-->
+
+<!--    </androidx.gridlayout.widget.GridLayout>-->
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayoutHorizontalEquationTwo"
