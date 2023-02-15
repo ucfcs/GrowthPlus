@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
@@ -79,11 +81,16 @@ public class lesson extends AppCompatActivity {
                     String category = contents.get(counter).getCategory();
                     Log.i("category", category);
 
+
+
+
                     switch (category){
                         case "counting":
                             String word = contents.get(counter).getWord();
                             String num = contents.get(counter).getFirstNumber();
                             String img = lesson.getImage();
+
+                            Translator trans = new Translator()
 
                             if(savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
