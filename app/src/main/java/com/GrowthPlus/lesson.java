@@ -90,7 +90,7 @@ public class lesson extends AppCompatActivity {
                             String num = contents.get(counter).getFirstNumber();
                             String img = lesson.getImage();
 
-                            Translator trans = new Translator()
+//                            Translator trans = new Translator()
 
                             if(savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
