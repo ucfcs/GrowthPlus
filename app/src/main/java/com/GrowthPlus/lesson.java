@@ -15,6 +15,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
@@ -93,11 +95,16 @@ public class lesson extends AppCompatActivity {
                     String lessonImg, word, firstNumber, firstOperator, secondNumber,
                             secondOperator, thirdNumber, imgOne, imgTwo, imgThree,
                             imgFour, imgFive;
+
+
+
                     switch (category){
                         case "counting":
                             word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
                             lessonImg = lesson.getImage();
+
+//                            Translator trans = new Translator()
 
                             if(savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
