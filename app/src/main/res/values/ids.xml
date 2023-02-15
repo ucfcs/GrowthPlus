@@ -24,4 +24,14 @@
     <item type="id" name="landingPageChildCard5" />
     <item type="id" name="landingPageChildCardAdd" />
 
+    <item type="id" name="leaderBoardChildCard0" />
+    <item type="id" name="leaderBoardChildCard1" />
+    <item type="id" name="leaderBoardChildCard2" />
+    <item type="id" name="leaderBoardChildCard3" />
+    <item type="id" name="leaderBoardChildCard4" />
+    <item type="id" name="leaderBoardChildCard5" />
+    <item type="id" name="leaderBoardChildCardAdd" />
+
+
+
 </resources>
