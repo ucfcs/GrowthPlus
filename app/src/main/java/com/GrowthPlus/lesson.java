@@ -15,6 +15,7 @@ import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Counting;
+import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 
@@ -94,6 +95,49 @@ public class lesson extends AppCompatActivity {
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, Counting.class, bundle);
+                                transaction.commit();
+                            }
+
+                        case "horizontalEquation":
+                            String firstNumStr = contents.get(counter).getFirstNumber();
+                            String firstOp = contents.get(counter).getFirstOperator();
+                            String secondNumStr = contents.get(counter).getSecondNumber();
+                            String secondOp = contents.get(counter).getSecondOperator();
+                            String thirdNumStr = contents.get(counter).getThirdNumber();
+                            String equation = firstNumStr+" "+firstOp+" "+secondNumStr+" "+secondOp+" "+thirdNumStr;
+
+                            img = lesson.getImage();
+
+                            int firstNumInt = Integer.valueOf(firstNumStr);
+                            int secondNumInt = Integer.valueOf(firstNumStr);
+                            int thirdNumInt = Integer.valueOf(firstNumStr);
+
+                            if(savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("text", equation);
+                                bundle.putString("lessonImg", img);
+                                bundle.putInt("num1", firstNumInt);
+                                bundle.putInt("num2", secondNumInt);
+                                bundle.putInt("num3", thirdNumInt);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, HorizontalEquation.class, bundle);
+                                transaction.commit();
+                            }
+
+                        case "wordImage" :
+                            word = contents.get(counter).getWord();
+                            img = contents.get(counter).getImgOne();
+
+                            if(savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("locationIntroText", word);
+                                bundle.putString("locationIntroImage", img);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
                                 transaction.commit();
                             }
                         default:
