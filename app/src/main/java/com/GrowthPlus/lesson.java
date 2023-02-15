@@ -35,6 +35,7 @@ public class lesson extends AppCompatActivity {
     private int contentLength;
     private Button nextContent;
     int counter;
+
     private String lessonName;
     private String image;
 
@@ -82,17 +83,22 @@ public class lesson extends AppCompatActivity {
                     String category = contents.get(counter).getCategory();
                     Log.i("category", category);
 
+                    //use these variables as needed in each switch statement
+                    //these are the same vars as are found in the roadmap.json for lessons
+                    String lessonImg, word, firstNumber, firstOperator, secondNumber,
+                            secondOperator, thirdNumber, imgOne, imgTwo, imgThree,
+                            imgFour, imgFive;
                     switch (category){
                         case "counting":
-                            String word = contents.get(counter).getWord();
-                            String num = contents.get(counter).getFirstNumber();
-                            String img = lesson.getImage();
+                            word = contents.get(counter).getWord();
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            lessonImg = lesson.getImage();
 
                             if(savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("lessonWord", word);
-                                bundle.putString("lessonNumber", num);
-                                bundle.putString("lessonImage", img);
+                                bundle.putString("lessonNumber", firstNumber);
+                                bundle.putString("lessonImage", lessonImg);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
@@ -108,26 +114,26 @@ public class lesson extends AppCompatActivity {
                             //reference the roadmap.json to see which methods are the correct ones to call
 
                             //here we grab the top text and bottom text
-                            String topNumWord = contents.get(counter).getFirstNumber();
-                            String bottomNumWord = contents.get(counter).getSecondNumber();
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            secondNumber = contents.get(counter).getSecondNumber();
 
                             //multiple image is many images of one tile with small numbers
                             //single image is one image with one large number
-                            String multipleImg = contents.get(counter).getImgOne();
-                            String singleImg = contents.get(counter).getImgTwo();
+                            imgOne = contents.get(counter).getImgOne();
+                            imgTwo = contents.get(counter).getImgTwo();
 
                             //here we are grabbing the operator as shown on the xml file
-                            String operator = contents.get(counter).getFirstOperator();
+                            firstOperator = contents.get(counter).getFirstOperator();
 
                             if(savedInstanceState == null){
                                 Bundle bundle = new Bundle();
                                 //here we're adding the proper components to the bundle using
                                 //their uniquely set IDs and the content that we grabbed above
-                                bundle.putString("topText", topNumWord);
-                                bundle.putString("bottomText", bottomNumWord);
-                                bundle.putString("multipliedImage", multipleImg);
-                                bundle.putString("singleImage", singleImg);
-                                bundle.putString("operatorSymbol", operator);
+                                bundle.putString("topText", firstNumber);
+                                bundle.putString("bottomText", secondNumber);
+                                bundle.putString("multipliedImage", imgOne);
+                                bundle.putString("singleImage", imgTwo);
+                                bundle.putString("operatorSymbol", firstOperator);
 
                                 //make the fragment transaction and commit it
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
