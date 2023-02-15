@@ -103,7 +103,8 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
             startActivity(new Intent(ChildPortal.this, Leaderboard.class));
         }
         if(viewId == R.id.backChild){
-            this.finish();
+            // TODO kill all other activities once we exit child portal
+            startActivity(new Intent(ChildPortal.this, MainActivity.class));
         }
     }
 }
