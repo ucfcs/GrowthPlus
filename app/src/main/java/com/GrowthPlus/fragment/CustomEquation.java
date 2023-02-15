@@ -9,15 +9,22 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.GrowthPlus.R;
 
 public class CustomEquation extends Fragment {
     View view;
+    TextView firstNumber;
+    TextView secondNumber;
+    TextView operator;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_custom_equation, container, false);
+        firstNumber = view.findViewById(R.id.first_number);
+        secondNumber = view.findViewById(R.id.second_number);
+        operator = view.findViewById(R.id.operator);
         return view;
     }
 

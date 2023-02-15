@@ -12,6 +12,7 @@ public class FlashcardSchema extends RealmObject {
     private String secondNumber;
     private String secondOperator;
     private String answer;
+    private String category;
 
     public String getFlashCardId() {
         return flashCardId;
@@ -67,5 +68,13 @@ public class FlashcardSchema extends RealmObject {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -58,7 +58,4 @@
         app:layout_constraintBottom_toTopOf="@+id/bar"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
