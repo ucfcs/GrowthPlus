@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="@+id/flashcard" />
 
     <FrameLayout
-        android:id="@+id/frame_layout"
+        android:id="@+id/frame_layout_flashcard"
         android:layout_width="270dp"
         android:layout_height="350dp"
         app:layout_constraintBottom_toTopOf="@+id/answer"

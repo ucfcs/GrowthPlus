@@ -55,7 +55,6 @@ public class Counting extends Fragment {
             ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
             gridLayoutCounting.addView(imageTemp, i);
         }
-
     }
 
     public ImageView setImageView(int resId, int width, int height){
