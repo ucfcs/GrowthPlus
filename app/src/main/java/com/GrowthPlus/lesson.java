@@ -101,8 +101,11 @@ public class lesson extends AppCompatActivity {
                     switch (category){
                         case "counting":
                             word = contents.get(counter).getWord();
+                            Log.i("lesson.java word","word");
                             firstNumber = contents.get(counter).getFirstNumber();
                             lessonImg = lesson.getImage();
+                            Log.i("lesson.java image","image");
+
 
 //                            Translator trans = new Translator()
 
@@ -118,7 +121,7 @@ public class lesson extends AppCompatActivity {
                                 transaction.commit();
                             }
                         //this category can be found on the roadmap.json file
-                        case "wordImageEquation":
+                        case "wordImageEquation": {
                             //it's good to reference the fragment_word_image_equation.xml file to see which components we need
                             //to grab
 
@@ -137,7 +140,7 @@ public class lesson extends AppCompatActivity {
                             //here we are grabbing the operator as shown on the xml file
                             firstOperator = contents.get(counter).getFirstOperator();
 
-                            if(savedInstanceState == null){
+                            if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 //here we're adding the proper components to the bundle using
                                 //their uniquely set IDs and the content that we grabbed above
@@ -153,14 +156,14 @@ public class lesson extends AppCompatActivity {
                                 transaction.replace(R.id.frame_layout_lesson, WordImageEquation.class, bundle);
                                 transaction.commit();
                             }
-
-                        case "horizontalEquation":
+                        }
+                        case "horizontalEquation": {
                             String firstNumStr = contents.get(counter).getFirstNumber();
                             String firstOp = contents.get(counter).getFirstOperator();
                             String secondNumStr = contents.get(counter).getSecondNumber();
                             String secondOp = contents.get(counter).getSecondOperator();
                             String thirdNumStr = contents.get(counter).getThirdNumber();
-                            String equation = firstNumStr+" "+firstOp+" "+secondNumStr+" "+secondOp+" "+thirdNumStr;
+                            String equation = firstNumStr + " " + firstOp + " " + secondNumStr + " " + secondOp + " " + thirdNumStr;
 
                             lessonImg = lesson.getImage();
 
@@ -168,9 +171,9 @@ public class lesson extends AppCompatActivity {
                             int secondNumInt = Integer.valueOf(firstNumStr);
                             int thirdNumInt = Integer.valueOf(firstNumStr);
 
-                            if(savedInstanceState == null) {
+                            if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("text", equation);
+                                bundle.putString("text1", equation);
                                 bundle.putString("lessonImg", lessonImg);
                                 bundle.putInt("num1", firstNumInt);
                                 bundle.putInt("num2", secondNumInt);
@@ -181,12 +184,14 @@ public class lesson extends AppCompatActivity {
                                 transaction.replace(R.id.frame_layout_lesson, HorizontalEquation.class, bundle);
                                 transaction.commit();
                             }
-
-                        case "wordImage" :
+                        }
+                        case "wordImage" : {
                             word = contents.get(counter).getWord();
-                            imgOne = contents.get(counter).getImgOne();
+                            //imgOne = contents.get(counter).getImgOne();
+                            imgOne = lesson.getImage();
+                            //TODO: look into how we're storing images for the wordImage lessons
 
-                            if(savedInstanceState == null) {
+                            if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("locationIntroText", word);
                                 bundle.putString("locationIntroImage", imgOne);
@@ -196,6 +201,7 @@ public class lesson extends AppCompatActivity {
                                 transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
                                 transaction.commit();
                             }
+                        }
                         default:
                     }
 
