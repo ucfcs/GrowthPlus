@@ -21,17 +21,15 @@ public class WordImage extends Fragment {
     TextView text;
     ImageView image;
     ImageSrcIdentifier imageSrcIdentifier;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_word_image, container, false);
         text = view.findViewById(R.id.word);
         image = view.findViewById(R.id.image);
         imageSrcIdentifier = new ImageSrcIdentifier();
-        return view;
-    }
 
-    public WordImage(){
-        super(R.layout.fragment_word_image);
+        return view;
     }
 
     @Override

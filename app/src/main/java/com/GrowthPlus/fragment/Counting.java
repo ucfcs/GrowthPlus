@@ -35,10 +35,6 @@ public class Counting extends Fragment {
         return view;
     }
 
-    public Counting(){
-        super(R.layout.fragment_counting);
-    }
-
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         String getWord = requireArguments().getString("lessonWord");
@@ -58,7 +54,6 @@ public class Counting extends Fragment {
     }
 
     public ImageView setImageView(int resId, int width, int height){
-
         ImageView imageTemp = new ImageView(getActivity());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, height);
         imageTemp.setLayoutParams(layoutParams);
