@@ -16,17 +16,42 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/triangle"
+        android:id="@+id/roadmapTriangle"
         android:layout_width="40dp"
         android:layout_height="45dp"
         android:rotationX="180"
         android:text="▼"
         android:textSize="40dp"
         android:textColor="@color/blue"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/tile"
         app:layout_constraintEnd_toEndOf="@+id/tile"
         app:layout_constraintStart_toStartOf="@+id/tile"
         app:layout_constraintTop_toTopOf="@+id/tile" />
+
+    <ImageView
+        android:id="@+id/roadmapCircle"
+        android:layout_height="35dp"
+        android:layout_width="35dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/dark_green"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tile"
+        app:layout_constraintEnd_toEndOf="@+id/tile"
+        app:layout_constraintStart_toStartOf="@+id/tile"
+        app:layout_constraintTop_toTopOf="@+id/tile"/>
+
+    <ImageView
+        android:id="@+id/roadmapStar"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:background="@drawable/star"
+        android:backgroundTint="@color/yellow"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tile"
+        app:layout_constraintEnd_toEndOf="@+id/tile"
+        app:layout_constraintStart_toStartOf="@+id/tile"
+        app:layout_constraintTop_toTopOf="@+id/tile"/>
 
     <ImageView
         android:id="@+id/avatar"

@@ -2,6 +2,7 @@ package com.GrowthPlus.customViews;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ public class RoadMapTile extends ConstraintLayout {
     // Add fields for each component
     ImageView tile;
     TextView triangle;
+    ImageView circle;
+    ImageView star;
     ImageView avatar;
     Boolean isSelected;
     Boolean isCompleted;
@@ -49,7 +52,9 @@ public class RoadMapTile extends ConstraintLayout {
         inflate(getContext(), R.layout.activity_road_map_tile, this);
         avatarImage = new ImageSrcIdentifier();
         tile = findViewById(R.id.tile);
-        triangle = findViewById(R.id.triangle);
+        triangle = findViewById(R.id.roadmapTriangle);
+        circle = findViewById(R.id.roadmapCircle);
+        star = findViewById(R.id.roadmapStar);
         avatar = findViewById(R.id.avatar);
     }
 
@@ -72,6 +77,24 @@ public class RoadMapTile extends ConstraintLayout {
 
     public void removeAvatar(){
         avatar.setImageResource(0);
+    }
+
+    public void setToTriangle(){
+        triangle.setVisibility(View.VISIBLE);
+        circle.setVisibility(View.INVISIBLE);
+        star.setVisibility(View.INVISIBLE);
+    }
+
+    public void setToCircle(){
+        triangle.setVisibility(View.INVISIBLE);
+        circle.setVisibility(View.VISIBLE);
+        star.setVisibility(View.INVISIBLE);
+    }
+
+    public void setToStar(){
+        triangle.setVisibility(View.INVISIBLE);
+        circle.setVisibility(View.INVISIBLE);
+        star.setVisibility(View.VISIBLE);
     }
 
     public void hideShape(){
