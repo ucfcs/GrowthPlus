@@ -16,6 +16,7 @@ import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.WordImage;
+import com.GrowthPlus.fragment.WordImageEquation;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 
 import io.realm.Realm;
@@ -98,30 +99,41 @@ public class lesson extends AppCompatActivity {
                                 transaction.replace(R.id.frame_layout_lesson, Counting.class, bundle);
                                 transaction.commit();
                             }
-
+                        //this category can be found on the roadmap.json file
                         case "wordImageEquation":
-                            //should I be calling getFirstNumber or getImgOne???
-                            //should I include imgNum here too???
-                            String firstWord = contents.get(counter).getFirstNumber();
-                            String secondWord = contents.get(counter).getSecondNumber();
+                            //it's good to reference the fragment_word_image_equation.xml file to see which components we need
+                            //to grab
 
-                            //is second image the avatar image??
-                            //two image options in json - what do they mean??
-                            String avatarImg = contents.get(counter).getImgTwo();
+                            //the methods attached to contents.get(counter) can all be found in the DAL of the application
+                            //reference the roadmap.json to see which methods are the correct ones to call
 
-                            //also has the operator logic been included in WordImageEquation.java
-                            //are one of the images considered the operator, if so which one?
+                            //here we grab the top text and bottom text
+                            String topNumWord = contents.get(counter).getFirstNumber();
+                            String bottomNumWord = contents.get(counter).getSecondNumber();
+
+                            //multiple image is many images of one tile with small numbers
+                            //single image is one image with one large number
+                            String multipleImg = contents.get(counter).getImgOne();
+                            String singleImg = contents.get(counter).getImgTwo();
+
+                            //here we are grabbing the operator as shown on the xml file
                             String operator = contents.get(counter).getFirstOperator();
 
                             if(savedInstanceState == null){
                                 Bundle bundle = new Bundle();
-                                bundle.putString("text1", firstWord);
-                                bundle.putString("text2", secondWord);
-                                //naming conventions in WordImageEquation.java is vague when it comes to
-                                //which image is the avatar image and which image is the operator, if it is one of the images
-                                //should I include imgNum here too???
-                                //which "" should I put for operator and the avatar images
+                                //here we're adding the proper components to the bundle using
+                                //their uniquely set IDs and the content that we grabbed above
+                                bundle.putString("topText", topNumWord);
+                                bundle.putString("bottomText", bottomNumWord);
+                                bundle.putString("multipliedImage", multipleImg);
+                                bundle.putString("singleImage", singleImg);
+                                bundle.putString("operatorSymbol", operator);
 
+                                //make the fragment transaction and commit it
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, WordImageEquation.class, bundle);
+                                transaction.commit();
                             }
                         default:
                     }

@@ -1,17 +1,16 @@
 package com.GrowthPlus.fragment;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.gridlayout.widget.GridLayout;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.gridlayout.widget.GridLayout;
 
 import com.GrowthPlus.R;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -41,10 +40,11 @@ public class WordImageEquation extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        String t1 = requireArguments().getString("text1");
-        String t2 = requireArguments().getString("text2");
-        String firstImg = requireArguments().getString("firstImg"); // Image to be multiplied
-        String secondImg = requireArguments().getString("secondImg"); // Single image
+        String t1 = requireArguments().getString("topText");
+        String t2 = requireArguments().getString("bottomText");
+        String firstImg = requireArguments().getString("multipliedImage"); // Image to be multiplied, goes in the grid
+        String secondImg = requireArguments().getString("singleImage"); // Single image
+        String operator = requireArguments().getString("operatorSymbol");
         int imgNum = requireArguments().getInt("number"); // How many copies of the image in grid layout
         int resId = imageSrcIdentifier.getImageSrcId(firstImg);
 
