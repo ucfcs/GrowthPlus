@@ -78,7 +78,6 @@ public class lesson extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString("locationIntroText", lessonTranslated);
             bundle.putString("locationIntroImage", image);
-            bundle.putInt("locationIntroNum", Integer.valueOf(lessonName));
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -92,7 +91,7 @@ public class lesson extends AppCompatActivity {
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Reached the end of the contents and need to start looking at flashcards or the lesson is 10 (which is all flashcards)
-                if(counter >= contentLength || counter == 8){
+                if(counter >= contentLength){
                     Intent lessonIntent = new Intent(lesson.this, flashcard.class);
                     startActivity(lessonIntent);
                 }
@@ -111,6 +110,9 @@ public class lesson extends AppCompatActivity {
                             word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
                             lessonImg = lesson.getImage();
+                            if(!trans.getString(word).equals("empty")){
+                                word = trans.getString(word);
+                            }
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
@@ -135,6 +137,9 @@ public class lesson extends AppCompatActivity {
                             // Access top text and bottom text
                             firstNumber = contents.get(counter).getFirstNumber();
                             secondNumber = contents.get(counter).getSecondNumber();
+                            // Translate to respective words
+                            String firstWord = "10 " + trans.getString(firstNumber);
+                            String secondWord = trans.getString(secondNumber);
 
                             // Multiple image is many images of one tile with small numbers
                             // Single image is one image with one large number
@@ -149,8 +154,8 @@ public class lesson extends AppCompatActivity {
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 // Add the proper components to the bundle using uniquely set IDs and the content that we accessed
-                                bundle.putString("topText", firstNumber);
-                                bundle.putString("bottomText", secondNumber);
+                                bundle.putString("topText", firstWord);
+                                bundle.putString("bottomText", secondWord);
                                 bundle.putString("multipliedImage", imgOne);
                                 bundle.putString("singleImage", imgTwo);
                                 bundle.putString("operatorSymbol", firstOperator);
@@ -195,7 +200,9 @@ public class lesson extends AppCompatActivity {
                         }
                         case "wordImage" : {
                             word = contents.get(counter).getWord();
-                            // imgOne = contents.get(counter).getImgOne();
+                            if(!trans.getString(word).equals("empty")){
+                                word = trans.getString(word);
+                            }
                             lessonImg = lesson.getImage();
                             // TODO: look into how we're storing images for the wordImage lessons
 

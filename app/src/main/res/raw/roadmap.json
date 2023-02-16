@@ -422,7 +422,7 @@
         "contents": [
           {
             "lessonContentId": "RmOneLessonThreeContentOne",
-            "word":"une unité",
+            "word":"unit",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
@@ -438,9 +438,9 @@
           {
             "lessonContentId": "RmOneLessonThreeContentTwo",
             "word": null,
-            "firstNumber": "dix unités",
+            "firstNumber": "unit",
             "firstOperator": "=",
-            "secondNumber": "une dizaine",
+            "secondNumber": "unitOfTen",
             "secondOperator": null,
             "thirdNumber": null,
             "imgOne": "10",
@@ -452,7 +452,7 @@
           },
           {
             "lessonContentId": "RmOneLessonThreeContentThree",
-            "word":"une dizaine",
+            "word":"unitOfTen",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
