@@ -88,6 +88,7 @@ public class lesson extends AppCompatActivity {
         contentLength = contents.size();
         // Use the counter to access the contents of the appropriate lesson
         counter = 0;
+
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Reached the end of the contents and need to start looking at flashcards or the lesson is 10 (which is all flashcards)
@@ -97,10 +98,9 @@ public class lesson extends AppCompatActivity {
                 }
                 else{
                     String category = contents.get(counter).getCategory();
-                    Log.i("category", category);
 
-                    //use these variables as needed in each switch statement
-                    //these are the same vars as are found in the roadmap.json for lessons
+                    // These variables as needed in each switch statement
+                    // Same vars as are found in the roadmap.json for lessons
                     String lessonImg, word, firstNumber, firstOperator, secondNumber,
                             secondOperator, thirdNumber, imgOne, imgTwo, imgThree,
                             imgFour, imgFive;
