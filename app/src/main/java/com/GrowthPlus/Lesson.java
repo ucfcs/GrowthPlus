@@ -7,17 +7,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.GrowthPlus.customViews.TopBar;
-import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
-import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
@@ -31,7 +24,7 @@ import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import io.realm.Realm;
 import io.realm.RealmList;
 
-public class lesson extends AppCompatActivity {
+public class Lesson extends AppCompatActivity {
 
     private String dataBaseLessonId;
     private String childId;
@@ -56,7 +49,7 @@ public class lesson extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
-            Intent lessonIntent = new Intent(lesson.this, RoadMapOne.class);
+            Intent lessonIntent = new Intent(Lesson.this, RoadMapOne.class);
             // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -69,11 +62,11 @@ public class lesson extends AppCompatActivity {
         // Create instance of shared preferences and save current language id
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
         String langId = langPrefs.getString("languageId", "frenchZero");
-        // Create language translator and set up the lesson string
+        // Create language translator and set up the Lesson string
         Translator trans = new Translator(langId);
-        String lessonTranslated = trans.getString("lesson") + " "+ lessonName;
+        String lessonTranslated = trans.getString("Lesson") + " "+ lessonName;
 
-        // Fragment for lesson intro
+        // Fragment for Lesson intro
         if (savedInstanceState == null) {
             Bundle bundle = new Bundle();
             bundle.putString("locationIntroText", lessonTranslated);
@@ -86,14 +79,14 @@ public class lesson extends AppCompatActivity {
         }
 
         contentLength = contents.size();
-        // Use the counter to access the contents of the appropriate lesson
+        // Use the counter to access the contents of the appropriate Lesson
         counter = 0;
 
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Reached the end of the contents and need to start looking at flashcards or the lesson is 10 (which is all flashcards)
+                // Reached the end of the contents and need to start looking at flashcards or the Lesson is 10 (which is all flashcards)
                 if(counter >= contentLength){
-                    Intent lessonIntent = new Intent(lesson.this, flashcard.class);
+                    Intent lessonIntent = new Intent(Lesson.this, flashcard.class);
                     startActivity(lessonIntent);
                 }
                 else{
@@ -147,7 +140,7 @@ public class lesson extends AppCompatActivity {
                             imgTwo = contents.get(counter).getImgTwo();
 
 
-                            // Access the operator as shown on the xml file and lesson image
+                            // Access the operator as shown on the xml file and Lesson image
                             firstOperator = contents.get(counter).getFirstOperator();
                             lessonImg = lesson.getImage();
 

@@ -8,6 +8,7 @@ public class ScenarioGameSchema extends RealmObject{
     @PrimaryKey
     private String scenarioGameId;
     private String scenarioGameName;
+    private String image;
     private Integer minPoints;
     private Integer maxPoints;
     private String firstOperand;
@@ -30,6 +31,14 @@ public class ScenarioGameSchema extends RealmObject{
 
     public void setScenarioGameName(String scenarioGameName) {
         this.scenarioGameName = scenarioGameName;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Integer getMinPoints() {

@@ -15,7 +15,6 @@ import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
-import com.GrowthPlus.lesson;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
@@ -105,7 +104,7 @@ public class RoadMapFour extends AppCompatActivity{
         childRoadMapFour = child.getRoadMapFour();
         lessonCompleted = childRoadMapFour.getLessonsCompleted();
         roadMapLessons = childRoadMapFour.getRoadMapLessons();
-        IntentIntro = new Intent(RoadMapFour.this, lesson.class);
+        IntentIntro = new Intent(RoadMapFour.this, Lesson.class);
 
         tile1 = roadMapFourLessonTrail.getRoadMapTile1();
         tile2 = roadMapFourLessonTrail.getRoadMapTile2();

@@ -1802,6 +1802,7 @@
       {
         "quizId": "RmOneQuizOne",
         "quizName": "Quiz 1",
+        "image": "elephant",
         "maxPoints": 10,
         "minPoints": 7,
         "quizContents": [
@@ -2006,6 +2007,7 @@
       {
         "quizId": "RmOneQuizTwo",
         "quizName": "Quiz 2",
+        "image": "elephant",
         "maxPoints": 10,
         "minPoints": 7,
         "quizContents": [
@@ -2211,9 +2213,10 @@
     "scenarioGame":
     {
         "scenarioGameId": "RmOneScenarioGame",
-        "scenarioGameName": "",
-        "minPoints": 0,
-        "maxPoints": 0,
+        "scenarioGameName": "Game 1",
+        "image": "elephant",
+        "minPoints": 14,
+        "maxPoints": 20,
         "firstOperand": "",
         "firstOperator": "",
         "secondOperand": "",

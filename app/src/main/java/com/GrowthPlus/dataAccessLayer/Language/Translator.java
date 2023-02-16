@@ -94,7 +94,7 @@ public class Translator {
             case "level":
                 value = languageSchema.getLevel();
                 break;
-            case "lesson":
+            case "Lesson":
                 value = languageSchema.getLesson();
                 break;
             case "game":

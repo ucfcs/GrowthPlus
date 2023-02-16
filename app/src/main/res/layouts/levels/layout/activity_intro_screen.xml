@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_green"
-    tools:context=".Lesson">
+    tools:context=".IntroScreen">
 
     <android.widget.Button
-        android:id="@+id/next_button_lesson"
+        android:id="@+id/next_button_intro"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginTop="-40dp"
@@ -59,14 +59,14 @@
         app:layout_constraintGuide_percent=".88" />
 
     <com.GrowthPlus.customViews.TopBar
-        android:id="@+id/topBar"
+        android:id="@+id/topBarIntroScreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
-        android:id="@+id/frame_layout_lesson"
+        android:id="@+id/frame_layout_intro_screen"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/frame_bottom"

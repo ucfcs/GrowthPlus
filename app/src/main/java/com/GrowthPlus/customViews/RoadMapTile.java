@@ -108,7 +108,7 @@ public class RoadMapTile extends ConstraintLayout {
         setAvatar(child.getAvatarName());
     }
 
-    // Completed state once the child has reached the goal of the lesson
+    // Completed state once the child has reached the goal of the Lesson
     public void setCompletedState(){
         setTileSelectedState();
         setTriangleSelectedState();

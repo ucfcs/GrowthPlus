@@ -17,7 +17,7 @@ import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
-import com.GrowthPlus.lesson;
+import com.GrowthPlus.Lesson;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
     ConstraintLayout roadMapOne;
     RoadMapTile tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11, tile12, tile13;
     TopBar topBarOne;
-    Intent IntentIntro; // Leads to lesson page
+    Intent IntentIntro; // Leads to Lesson page
     String childID;
     ChildSchemaService childSchemaService;
     Realm realm;
@@ -104,7 +104,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
     private void init(ChildSchema child){
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
         roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
-        IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+        IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
 
         roadMapOne = findViewById(R.id.roadMapOne);
         goBackButton = roadMapOne.findViewById(R.id.goBackBtn);
@@ -175,8 +175,8 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
 
     /*
     * These may all look the same, but the big difference is the id of the tile component
-    * Each tile component id maps to its corresponding lesson id
-    * The lesson ids are populated in a hashmap when looping through the completed lesson in the roadmap
+    * Each tile component id maps to its corresponding Lesson id
+    * The Lesson ids are populated in a hashmap when looping through the completed Lesson in the roadmap
     * */
     @Override
     public void onClick(View view) {
