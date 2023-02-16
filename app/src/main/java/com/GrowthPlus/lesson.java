@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
@@ -64,11 +66,19 @@ public class lesson extends AppCompatActivity {
         // Create one fragment that we will dynamically change
         FragmentManager fragmentManager = getSupportFragmentManager();
 
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the lesson string
+        Translator trans = new Translator(langId);
+        String lessonTranslated = trans.getString("lesson") + " "+ lessonName;
+
         // Fragment for lesson intro
         if (savedInstanceState == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("locationIntroText", lessonName);
+            bundle.putString("locationIntroText", lessonTranslated);
             bundle.putString("locationIntroImage", image);
+            bundle.putInt("locationIntroNum", Integer.valueOf(lessonName));
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -77,12 +87,12 @@ public class lesson extends AppCompatActivity {
         }
 
         contentLength = contents.size();
-        //use the counter to access the contents of the appropriate lesson
+        // Use the counter to access the contents of the appropriate lesson
         counter = 0;
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //here we've reached the end of the line and need to start looking at flashcards
-                if(counter >= contentLength){
+                // Reached the end of the contents and need to start looking at flashcards or the lesson is 10 (which is all flashcards)
+                if(counter >= contentLength || counter == 8){
                     Intent lessonIntent = new Intent(lesson.this, flashcard.class);
                     startActivity(lessonIntent);
                 }
@@ -90,12 +100,17 @@ public class lesson extends AppCompatActivity {
                     String category = contents.get(counter).getCategory();
                     Log.i("category", category);
 
+                    //use these variables as needed in each switch statement
+                    //these are the same vars as are found in the roadmap.json for lessons
+                    String lessonImg, word, firstNumber, firstOperator, secondNumber,
+                            secondOperator, thirdNumber, imgOne, imgTwo, imgThree,
+                            imgFour, imgFive;
+
                     switch (category){
                         case "counting": {
-                            String word = contents.get(counter).getWord();
-                            String firstNumber = contents.get(counter).getFirstNumber();
-                            String lessonImg = lesson.getImage();
-
+                            word = contents.get(counter).getWord();
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            lessonImg = lesson.getImage();
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
@@ -110,7 +125,7 @@ public class lesson extends AppCompatActivity {
                             }
                             break;
                         }
-                        //this category can be found on the roadmap.json file
+                        // This category can be found on the roadmap.json file
                         case "wordImageEquation": {
                             //it's good to reference the fragment_word_image_equation.xml file to see which components we need
                             //to grab
@@ -119,28 +134,28 @@ public class lesson extends AppCompatActivity {
                             //reference the roadmap.json to see which methods are the correct ones to call
 
                             //here we grab the top text and bottom text
-                            String firstNumber3 = contents.get(counter).getFirstNumber();
-                            String secondNumber3 = contents.get(counter).getSecondNumber();
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            secondNumber = contents.get(counter).getSecondNumber();
 
                             //multiple image is many images of one tile with small numbers
                             //single image is one image with one large number
-                            String imgOne3 = contents.get(counter).getImgOne();
-                            String imgTwo3 = contents.get(counter).getImgTwo();
+                            imgOne = contents.get(counter).getImgOne();
+                            imgTwo = contents.get(counter).getImgTwo();
 
 
                             //here we are grabbing the operator as shown on the xml file
-                            String firstOperator3 = contents.get(counter).getFirstOperator();
-                            String lessonImg = lesson.getImage();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            lessonImg = lesson.getImage();
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 //here we're adding the proper components to the bundle using
                                 //their uniquely set IDs and the content that we grabbed above
-                                bundle.putString("topText", firstNumber3);
-                                bundle.putString("bottomText", secondNumber3);
-                                bundle.putString("multipliedImage", imgOne3);
-                                bundle.putString("singleImage", imgTwo3);
-                                bundle.putString("operatorSymbol", firstOperator3);
+                                bundle.putString("topText", firstNumber);
+                                bundle.putString("bottomText", secondNumber);
+                                bundle.putString("multipliedImage", imgOne);
+                                bundle.putString("singleImage", imgTwo);
+                                bundle.putString("operatorSymbol", firstOperator);
                                 bundle.putString("lessonImg", lessonImg);
 
                                 //make the fragment transaction and commit it
@@ -152,26 +167,26 @@ public class lesson extends AppCompatActivity {
                             break;
                         }
                         case "horizontalEquation": {
-                            String firstNumStr1 = contents.get(counter).getFirstNumber();
-                            String firstOp1 = contents.get(counter).getFirstOperator();
-                            String secondNumStr1 = contents.get(counter).getSecondNumber();
-                            String secondOp1 = contents.get(counter).getSecondOperator();
-                            String thirdNumStr1 = contents.get(counter).getThirdNumber();
-                            String equation1 = firstNumStr1 + " " + firstOp1 + " " + secondNumStr1 + " " + secondOp1 + " " + thirdNumStr1;
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
+                            thirdNumber = contents.get(counter).getThirdNumber();
+                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
 
-                            String lessonImg1 = lesson.getImage();
+                            lessonImg = lesson.getImage();
 
-                            int firstNumInt1 = Integer.valueOf(firstNumStr1);
-                            int secondNumInt1 = Integer.valueOf(firstNumStr1);
-                            int thirdNumInt1 = Integer.valueOf(firstNumStr1);
+                            int firstNumInt = Integer.valueOf(firstNumber);
+                            int secondNumInt = Integer.valueOf(secondNumber);
+                            int thirdNumInt = Integer.valueOf(thirdNumber);
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("text1", equation1);
-                                bundle.putString("lessonImg", lessonImg1);
-                                bundle.putInt("num1", firstNumInt1);
-                                bundle.putInt("num2", secondNumInt1);
-                                bundle.putInt("num3", thirdNumInt1);
+                                bundle.putString("text1", equation);
+                                bundle.putString("lessonImg", lessonImg);
+                                bundle.putInt("num1", firstNumInt);
+                                bundle.putInt("num2", secondNumInt);
+                                bundle.putInt("num3", thirdNumInt);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
@@ -181,17 +196,15 @@ public class lesson extends AppCompatActivity {
                             break;
                         }
                         case "wordImage" : {
-                            String word2 = contents.get(counter).getWord();
+                            word = contents.get(counter).getWord();
                             //imgOne = contents.get(counter).getImgOne();
-                            String imgOne2 = lesson.getImage();
+                            lessonImg = lesson.getImage();
                             //TODO: look into how we're storing images for the wordImage lessons
 
-
-                            Log.i("wordImage", imgOne2);
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("locationIntroText", word2);
-                                bundle.putString("locationIntroImage", imgOne2);
+                                bundle.putString("locationIntroText", word);
+                                bundle.putString("locationIntroImage", lessonImg);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);

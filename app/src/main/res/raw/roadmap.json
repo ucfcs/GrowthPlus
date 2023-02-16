@@ -7,7 +7,7 @@
         "lessonId": "RmOneLessonOne",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 1",
+        "lessonName": "1",
         "category": "numbers",
         "image": "elephant",
         "contents": [
@@ -214,7 +214,7 @@
         "lessonId": "RmOneLessonTwo",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 2",
+        "lessonName": "2",
         "category": "addition",
         "image": "elephant",
         "contents": [
@@ -406,7 +406,7 @@
         "lessonId": "RmOneLessonThree",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 3",
+        "lessonName": "3",
         "category": "units",
         "image": "elephant",
         "contents": [
@@ -583,7 +583,7 @@
         "lessonId": "RmOneLessonFour",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 4",
+        "lessonName": "4",
         "category": "numbers",
         "image": "elephant",
         "contents": [
@@ -790,7 +790,7 @@
         "lessonId": "RmOneLessonFive",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 5",
+        "lessonName": "5",
         "category": "subtraction",
         "image": "elephant",
         "contents": [
@@ -997,7 +997,7 @@
         "lessonId": "RmOneLessonSix",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 6",
+        "lessonName": "6",
         "category": "multiplication",
         "image": "elephant",
         "contents": [
@@ -1204,7 +1204,7 @@
         "lessonId": "RmOneLessonSeven",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 7",
+        "lessonName": "7",
         "category": "division",
         "image": "elephant",
         "contents": [
@@ -1411,7 +1411,7 @@
         "lessonId": "RmOneLessonEight",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 8",
+        "lessonName": "8",
         "category": "multiplication",
         "image": "elephant",
         "contents": [
@@ -1528,7 +1528,7 @@
         "lessonId": "RmOneLessonNine",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 9",
+        "lessonName": "9",
         "category": "division",
         "image": "elephant",
         "contents": [
@@ -1645,9 +1645,9 @@
         "lessonId": "RmOneLessonTen",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 10",
+        "lessonName": "10",
         "category": null,
-        "image": null,
+        "image": "elephant",
         "contents": null,
         "flashcards":[
           {

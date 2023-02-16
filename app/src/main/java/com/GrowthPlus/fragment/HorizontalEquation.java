@@ -32,7 +32,7 @@ public class HorizontalEquation extends Fragment {
         layout2 = view.findViewById(R.id.gridLayoutHorizontalEquationTwo);
         layout3 = view.findViewById(R.id.gridLayoutHorizontalEquationThree);
         imageSrcIdentifier = new ImageSrcIdentifier();
-        sizeInPixels = getResources().getDimension(R.dimen.elephantSize);
+        sizeInPixels = getResources().getDimension(R.dimen.elephantSmall);
 
         return view;
     }

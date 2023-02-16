@@ -23,6 +23,10 @@ public class Translator {
                 value = languageSchema.getLanguage();
                 break;
 
+            case "lesson":
+                value = languageSchema.getLesson();
+                break;
+
             case "one":
                 value = languageSchema.getOne();
                 break;
