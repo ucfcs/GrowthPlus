@@ -127,30 +127,28 @@ public class lesson extends AppCompatActivity {
                         }
                         // This category can be found on the roadmap.json file
                         case "wordImageEquation": {
-                            //it's good to reference the fragment_word_image_equation.xml file to see which components we need
-                            //to grab
+                            // Reference the fragment_word_image_equation.xml file to see which components we need
 
-                            //the methods attached to contents.get(counter) can all be found in the DAL of the application
-                            //reference the roadmap.json to see which methods are the correct ones to call
+                            // Methods attached to contents.get(counter) can all be found in the DAL of the application
+                            // Reference the roadmap.json to see which methods are the correct ones to call
 
-                            //here we grab the top text and bottom text
+                            // Access top text and bottom text
                             firstNumber = contents.get(counter).getFirstNumber();
                             secondNumber = contents.get(counter).getSecondNumber();
 
-                            //multiple image is many images of one tile with small numbers
-                            //single image is one image with one large number
+                            // Multiple image is many images of one tile with small numbers
+                            // Single image is one image with one large number
                             imgOne = contents.get(counter).getImgOne();
                             imgTwo = contents.get(counter).getImgTwo();
 
 
-                            //here we are grabbing the operator as shown on the xml file
+                            // Access the operator as shown on the xml file and lesson image
                             firstOperator = contents.get(counter).getFirstOperator();
                             lessonImg = lesson.getImage();
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                //here we're adding the proper components to the bundle using
-                                //their uniquely set IDs and the content that we grabbed above
+                                // Add the proper components to the bundle using uniquely set IDs and the content that we accessed
                                 bundle.putString("topText", firstNumber);
                                 bundle.putString("bottomText", secondNumber);
                                 bundle.putString("multipliedImage", imgOne);
@@ -158,7 +156,7 @@ public class lesson extends AppCompatActivity {
                                 bundle.putString("operatorSymbol", firstOperator);
                                 bundle.putString("lessonImg", lessonImg);
 
-                                //make the fragment transaction and commit it
+                                // Make the fragment transaction and commit it
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, WordImageEquation.class, bundle);
@@ -197,9 +195,9 @@ public class lesson extends AppCompatActivity {
                         }
                         case "wordImage" : {
                             word = contents.get(counter).getWord();
-                            //imgOne = contents.get(counter).getImgOne();
+                            // imgOne = contents.get(counter).getImgOne();
                             lessonImg = lesson.getImage();
-                            //TODO: look into how we're storing images for the wordImage lessons
+                            // TODO: look into how we're storing images for the wordImage lessons
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
@@ -215,7 +213,6 @@ public class lesson extends AppCompatActivity {
                         }
                         default:
                     }
-
                     counter++;
                 }
 
