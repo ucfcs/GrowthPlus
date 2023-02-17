@@ -216,7 +216,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     }
 
     public void startChildScreenActivity(String childId){
-        Intent childScreen = new Intent(ParentPortal.this, childScreen.class);
+        Intent childScreen = new Intent(ParentPortal.this, ChildScreen.class);
         childScreen.putExtra("childIdParentPortal",childId);
         startActivity(childScreen);
         this.finish();

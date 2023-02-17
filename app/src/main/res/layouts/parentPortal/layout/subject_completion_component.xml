@@ -12,8 +12,10 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="Numbers"
+        android:autoSizeTextType="uniform"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/checkMark"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

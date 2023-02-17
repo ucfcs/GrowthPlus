@@ -24,7 +24,8 @@ import java.util.Collections;
 
 import io.realm.Realm;
 import io.realm.RealmList;
-public class quiz extends AppCompatActivity {
+
+public class Quiz extends AppCompatActivity {
     final int MAX = 10;
     ChildSchema child;
     Realm realm;
@@ -44,7 +45,7 @@ public class quiz extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
-            Intent lessonIntent = new Intent(quiz.this, RoadMapOne.class);
+            Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class);
             // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -103,7 +104,7 @@ public class quiz extends AppCompatActivity {
         nextContent.setOnClickListener(v -> {
             counter++;
             if(counter >= MAX){
-                Intent lessonIntent = new Intent(quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
+                Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
                 // TODO: Must pass with at least 7/10 correct otherwise has to do it again

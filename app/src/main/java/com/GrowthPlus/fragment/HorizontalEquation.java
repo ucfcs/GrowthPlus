@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
+import androidx.gridlayout.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,12 +27,12 @@ public class HorizontalEquation extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_horizontal_equation, container, false);
-        text1 = view.findViewById(R.id.first_text);
+        text1 = view.findViewById(R.id.equation);
         layout1 = view.findViewById(R.id.gridLayoutHorizontalEquationOne);
         layout2 = view.findViewById(R.id.gridLayoutHorizontalEquationTwo);
         layout3 = view.findViewById(R.id.gridLayoutHorizontalEquationThree);
         imageSrcIdentifier = new ImageSrcIdentifier();
-        sizeInPixels = getResources().getDimension(R.dimen.elephantSize);
+        sizeInPixels = getResources().getDimension(R.dimen.elephantSmall);
 
         return view;
     }

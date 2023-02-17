@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.ChildPortal;
+import com.GrowthPlus.Quiz;
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
 import com.GrowthPlus.customViews.RoadMapTile;
@@ -19,9 +20,8 @@ import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
-import com.GrowthPlus.game;
-import com.GrowthPlus.lesson;
-import com.GrowthPlus.quiz;
+import com.GrowthPlus.Game;
+import com.GrowthPlus.Lesson;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
@@ -37,7 +37,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
     ConstraintLayout roadMapOne;
     RoadMapTile tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11, tile12, tile13;
     TopBar topBarOne;
-    Intent IntentIntro; // Leads to lesson page
+    Intent IntentIntro; // Leads to Lesson page
     String childID;
     ChildSchemaService childSchemaService;
     Realm realm;
@@ -73,8 +73,10 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
+
                 case R.id.roadMap1item:{
                     return true;
+
                 }
                 case R.id.roadMap2item:{
                     Intent intent = new Intent(getApplicationContext(), RoadMapTwo.class);
@@ -156,11 +158,13 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
     }
 
     private void setLessonTiles(ChildSchema child){
+
         // Loop thru the lessons completed
         for(int i = 0; i <= lessonCompleted; i++){
             RoadMapLesson roadMapLessonTemp = roadMapLessons.get(i);
             assert roadMapLessonTemp != null;
             String dataBaseLessonId = roadMapLessonTemp.getDatabaseLessonId();
+
             Integer tileIdTemp = Objects.requireNonNull(mapTiles.get(i)).getId();
 
             if(roadMapLessonTemp.getCompleted()){
@@ -199,36 +203,36 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
 
     /*
     * These may all look the same, but the big difference is the id of the tile component
-    * Each tile component id maps to its corresponding lesson id
-    * The lesson ids are populated in a hashmap when looping through the completed lesson in the roadmap
+    * Each tile component id maps to its corresponding Lesson id
+    * The Lesson ids are populated in a hashmap when looping through the completed Lesson in the roadmap
     * */
     @Override
     public void onClick(View view) {
         int viewId = view.getId();
 
         if(viewId == goBackButton.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             Intent lessonIntent = new Intent(RoadMapOne.this, ChildPortal.class);
             lessonIntent.putExtra("childIdLandingPage", childID);
             startActivity(lessonIntent);
         }
 
         else if(viewId == tile1.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
 
         else if(viewId == tile2.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
 
         else if(viewId == tile3.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
@@ -237,28 +241,35 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         // This tile is a quiz!
         // Put the quiz id
         else if(viewId == tile4.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, quiz.class);
+            IntentIntro = new Intent(RoadMapOne.this, Quiz.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(0).getDatabaseQuizId());
             startActivity(IntentIntro);
         }
 
         else if(viewId == tile5.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
 
         else if(viewId == tile6.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
+            IntentIntro.putExtra("childId", childID);
+            IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            startActivity(IntentIntro);
+        }
+
+        else if(viewId == tile7.getId()){
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
 
         else if(viewId == tile8.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
@@ -267,28 +278,28 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         // This tile is a quiz!
         // Put the quiz id
         else if(viewId == tile9.getId()){
-            /*IntentIntro = new Intent(RoadMapOne.this, quiz.class);
+            /*IntentIntro = new Intent(RoadMapOne.this, Quiz.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
             startActivity(IntentIntro);*/
         }
 
         else if(viewId == tile10.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
 
         else if(viewId == tile11.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
 
         else if(viewId == tile12.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, lesson.class);
+            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
@@ -297,7 +308,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         // This is a scenario game!
         // Put scenario game id
         else if(viewId == tile13.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, game.class);
+            IntentIntro = new Intent(RoadMapOne.this, Game.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseGameId", game.getDatabaseScenarioGameId());
             startActivity(IntentIntro);

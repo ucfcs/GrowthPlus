@@ -7,13 +7,14 @@
     tools:context=".fragment.WordImageEquation">
 
     <TextView
-        android:id="@+id/first_word"
+        android:id="@+id/first_word_fragment"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:text="ten units"
+        android:autoSizeTextType="uniform"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="55sp"
+        android:textSize="45sp"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toTopOf="@id/guideline7" />
@@ -26,7 +27,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/first_word"
+        app:layout_constraintTop_toBottomOf="@+id/first_word_fragment"
         app:columnCount="5"
         app:rowCount="2">
 
@@ -38,21 +39,22 @@
         android:layout_marginTop="5dp"
         android:text="="
         android:textAlignment="center"
-        android:textColor="@color/blue"
+        android:textColor="@color/light_green"
         android:textSize="55sp"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/gridLayoutWordImageEquation" />
 
     <TextView
-        android:id="@+id/second_word"
+        android:id="@+id/second_word_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="one ten"
+        android:autoSizeTextType="uniform"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="55sp"
+        android:textSize="45sp"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/operator" />
@@ -65,7 +67,7 @@
         android:src="@mipmap/guinea_fowl_foreground"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/second_word" />
+        app:layout_constraintTop_toBottomOf="@+id/second_word_fragment" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -86,6 +88,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".15" />
+        app:layout_constraintGuide_percent="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

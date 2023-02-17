@@ -2,18 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".fragment.HorizontalEquation">
 
     <TextView
         android:id="@+id/equation"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
         android:text="1 + 2 = 3"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="60sp"
+        android:textSize="50sp"
         app:layout_constraintEnd_toStartOf="@id/guide10"
         app:layout_constraintStart_toStartOf="@id/guide0"
         app:layout_constraintTop_toTopOf="@id/guideline3" />
@@ -22,37 +23,34 @@
         android:id="@+id/gridLayoutHorizontalEquationOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toStartOf="@id/gridLayoutHorizontalEquationTwo"
+        android:layout_marginTop="8dp"
+        app:columnCount="3"
+        app:layout_constraintEnd_toStartOf="@id/guideline8"
         app:layout_constraintStart_toStartOf="@id/guide0"
         app:layout_constraintTop_toBottomOf="@+id/equation"
-        app:columnCount="3"
-        app:rowCount="7">
-    </androidx.gridlayout.widget.GridLayout>
+        app:rowCount="7"></androidx.gridlayout.widget.GridLayout>
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayoutHorizontalEquationTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toStartOf="@id/gridLayoutHorizontalEquationThree"
-        app:layout_constraintStart_toStartOf="@id/gridLayoutHorizontalEquationOne"
-        app:layout_constraintTop_toBottomOf="@+id/equation"
+        android:layout_marginTop="8dp"
         app:columnCount="3"
-        app:rowCount="7">
-    </androidx.gridlayout.widget.GridLayout>
+        app:layout_constraintEnd_toStartOf="@id/guideline9"
+        app:layout_constraintStart_toStartOf="@id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/equation"
+        app:rowCount="7"></androidx.gridlayout.widget.GridLayout>
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayoutHorizontalEquationThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toStartOf="@id/guide10"
-        app:layout_constraintStart_toEndOf="@+id/gridLayoutHorizontalEquationTwo"
-        app:layout_constraintTop_toBottomOf="@+id/equation"
+        android:layout_marginTop="8dp"
         app:columnCount="3"
-        app:rowCount="7">
-    </androidx.gridlayout.widget.GridLayout>
+        app:layout_constraintEnd_toStartOf="@id/guide10"
+        app:layout_constraintStart_toEndOf="@+id/guideline9"
+        app:layout_constraintTop_toBottomOf="@+id/equation"
+        app:rowCount="7"></androidx.gridlayout.widget.GridLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide0"
@@ -73,7 +71,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".08" />
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".36" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".63" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
