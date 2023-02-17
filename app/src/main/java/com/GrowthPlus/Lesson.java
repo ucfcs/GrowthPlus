@@ -17,6 +17,7 @@ import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.HorizontalEquation;
+import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
@@ -86,7 +87,7 @@ public class Lesson extends AppCompatActivity {
             public void onClick(View v) {
                 // Reached the end of the contents and need to start looking at flashcards or the Lesson is 10 (which is all flashcards)
                 if(counter >= contentLength){
-                    Intent lessonIntent = new Intent(Lesson.this, flashcard.class);
+                    Intent lessonIntent = new Intent(Lesson.this, Flashcard.class);
                     startActivity(lessonIntent);
                 }
                 else{
@@ -138,7 +139,7 @@ public class Lesson extends AppCompatActivity {
                             // Single image is one image with one large number
                             imgOne = contents.get(counter).getImgOne();
                             imgTwo = contents.get(counter).getImgTwo();
-
+                            imgThree = contents.get(counter).getImgThree();
 
                             // Access the operator as shown on the xml file and Lesson image
                             firstOperator = contents.get(counter).getFirstOperator();
@@ -152,7 +153,7 @@ public class Lesson extends AppCompatActivity {
                                 bundle.putString("multipliedImage", imgOne);
                                 bundle.putString("singleImage", imgTwo);
                                 bundle.putString("operatorSymbol", firstOperator);
-                                bundle.putString("lessonImg", lessonImg);
+                                bundle.putString("multipleImage", imgThree);
 
                                 // Make the fragment transaction and commit it
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -196,13 +197,13 @@ public class Lesson extends AppCompatActivity {
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
                             }
-                            lessonImg = lesson.getImage();
+                            imgOne = contents.get(counter).getImgOne();
                             // TODO: look into how we're storing images for the wordImage lessons
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("locationIntroText", word);
-                                bundle.putString("locationIntroImage", lessonImg);
+                                bundle.putString("locationIntroImage", imgOne);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
@@ -210,6 +211,35 @@ public class Lesson extends AppCompatActivity {
                                 transaction.commit();
                             }
                             break;
+                        }
+                        case "wordGrid" :{
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
+                            thirdNumber = contents.get(counter).getThirdNumber();
+                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
+                            imgOne = contents.get(counter).getImgOne();
+
+                            int numImg = 0;
+                            if(lesson.getCategory().equals("division")){
+                                numImg = Integer.valueOf(thirdNumber);
+                            }
+                            else if(lesson.getCategory().equals("multiplication")){
+                                numImg = Integer.valueOf(secondNumber);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("wordMD", equation);
+                                bundle.putString("imageMD", imgOne);
+                                bundle.putInt("numMD", numImg);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, WordGrid.class, bundle);
+                                transaction.commit();
+                            }
                         }
                         default:
                     }

@@ -97,7 +97,7 @@ public class Translator {
             case "Lesson":
                 value = languageSchema.getLesson();
                 break;
-            case "game":
+            case "Game":
                 value = languageSchema.getGame();
                 break;
             case "roadmap":

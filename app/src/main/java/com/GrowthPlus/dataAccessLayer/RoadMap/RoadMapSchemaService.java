@@ -71,7 +71,7 @@ public class RoadMapSchemaService {
     }
 
     /*
-    * Method to return a the scenario game corresponding to the road map
+    * Method to return a the scenario Game corresponding to the road map
     * */
     public ScenarioGameSchema getRoadMapScenarioGame(){
         RoadMapSchema roadMap = getRoadMapByName();
@@ -79,9 +79,9 @@ public class RoadMapSchemaService {
     }
 
     /*
-    * Method to insert a scenario game into the given existing roadmap
+    * Method to insert a scenario Game into the given existing roadmap
     * Invokes the getRoadMap() method
-    * Assumes new game is already created and populated
+    * Assumes new Game is already created and populated
     * The upsert must be executed within a realm transaction
     * TODO: Implement this method signature in the realm sample app
     * */
@@ -107,7 +107,7 @@ public class RoadMapSchemaService {
     }
 
     /*
-    * Method to delete a scenario game data from a given roadmap
+    * Method to delete a scenario Game data from a given roadmap
     * The deletion must be executed within a realm transaction
     * TODO: Implement this method signature in the realm sample app
     * */

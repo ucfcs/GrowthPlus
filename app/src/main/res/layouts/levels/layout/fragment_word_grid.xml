@@ -4,51 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".fragment.WordImage">
+    tools:context=".fragment.Counting">
 
     <TextView
-        android:id="@+id/wordFragment"
+        android:id="@+id/wordMD"
         android:layout_width="320dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:autoSizeTextType="uniform"
-        android:text="one unit"
+        android:text="1 + 2 = 3"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="65sp"
-        app:layout_constraintEnd_toStartOf="@id/guide2"
-        app:layout_constraintStart_toStartOf="@id/guide1"
-        app:layout_constraintTop_toTopOf="@id/guide3" />
+        android:textSize="50sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
+        app:layout_constraintTop_toTopOf="@id/guideline4" />
 
-    <ImageView
-        android:id="@+id/imageFragment"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayoutMD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:src="@mipmap/du_foreground"
-        app:layout_constraintEnd_toEndOf="@id/guide2"
-        app:layout_constraintStart_toStartOf="@id/guide1"
-        app:layout_constraintTop_toBottomOf="@+id/wordFragment" />
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/wordMD"
+        app:columnCount="4"
+        app:rowCount="3"
+        >
+
+    </androidx.gridlayout.widget.GridLayout>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide1"
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".1" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide2"
+        android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".9" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide3"
+        android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".20" />
+        app:layout_constraintGuide_percent="0.20" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

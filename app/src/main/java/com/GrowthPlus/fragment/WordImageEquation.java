@@ -42,17 +42,17 @@ public class WordImageEquation extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         String t1 = requireArguments().getString("topText");
         String t2 = requireArguments().getString("bottomText");
-        String firstImg = requireArguments().getString("multipliedImage"); // Image to be multiplied, goes in the grid
+        String firstImg = requireArguments().getString("multipliedImage"); // # of img to be multiplied
         String secondImg = requireArguments().getString("singleImage"); // Single image
         String operatorString = requireArguments().getString("operatorSymbol");
-        String lessonImg = requireArguments().getString("lessonImg");
+        String multImg = requireArguments().getString("multipleImage"); // img to be multiplied
         int imgNum = Integer.parseInt(firstImg); // How many copies of the image in grid layout
-        int resId = imageSrcIdentifier.getImageSrcId(lessonImg);
+        int resId = imageSrcIdentifier.getImageSrcId(multImg);
 
         text1.setText(t1);
         text2.setText(t2);
         operator.setText(operatorString);
-        image.setImageResource(imageSrcIdentifier.getImageSrcId(lessonImg));
+        image.setImageResource(imageSrcIdentifier.getImageSrcId(secondImg));
 
         for(int i=0; i<imgNum; i++){
             // width and height are pixels not dp, so need to convert from dp to pixels

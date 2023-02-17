@@ -207,8 +207,8 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-        // This tile is a quiz!
-        // Put the quiz id
+        // This tile is a Quiz!
+        // Put the Quiz id
         if(viewId == tile4.getId()){
             IntentIntro.putExtra("childId", childID);
 
@@ -239,8 +239,8 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-        // This tile is a quiz!
-        // Put the quiz id
+        // This tile is a Quiz!
+        // Put the Quiz id
         if(viewId == tile9.getId()){
             IntentIntro.putExtra("childId", childID);
 
@@ -265,8 +265,8 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-        // This is a scenario game!
-        // Put scenario game id
+        // This is a scenario Game!
+        // Put scenario Game id
         if(viewId == tile13.getId()){
             IntentIntro.putExtra("childId", childID);
 

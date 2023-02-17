@@ -21,15 +21,15 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".game"
+            android:name=".Game"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".quiz"
+            android:name=".Quiz"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flashcard"
+            android:name=".Flashcard"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -159,7 +159,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".childScreen"
+            android:name=".ChildScreen"
             android:exported="false"
             android:noHistory="true"
             android:screenOrientation="portrait">

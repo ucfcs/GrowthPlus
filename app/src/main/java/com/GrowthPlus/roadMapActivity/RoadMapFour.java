@@ -181,8 +181,8 @@ public class RoadMapFour extends AppCompatActivity{
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
-        // This tile is a quiz!
-        // Put the quiz id
+        // This tile is a Quiz!
+        // Put the Quiz id
         else if(viewId == tile4.getId()){
             IntentIntro.putExtra("childId", childID);
 
@@ -203,8 +203,8 @@ public class RoadMapFour extends AppCompatActivity{
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
-        // This tile is a quiz!
-        // Put the quiz id
+        // This tile is a Quiz!
+        // Put the Quiz id
         else if(viewId == tile9.getId()){
             IntentIntro.putExtra("childId", childID);
 
@@ -225,8 +225,8 @@ public class RoadMapFour extends AppCompatActivity{
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
             startActivity(IntentIntro);
         }
-        // This is a scenario game!
-        // Put scenario game id
+        // This is a scenario Game!
+        // Put scenario Game id
         else if(viewId == tile13.getId()){
             IntentIntro.putExtra("childId", childID);
 
