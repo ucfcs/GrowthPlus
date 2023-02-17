@@ -66,6 +66,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.GrowthPlus.customViews.Flashcard
+        android:id="@+id/flashcardContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/frame_bottom"
