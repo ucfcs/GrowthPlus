@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         init();
         importRoadMapData();
-        importChildrenData();
         setAllLandingPageCards(children);
 
         parentPortal.setOnClickListener(this);
@@ -129,8 +128,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void importRoadMapData(){
         jsonSampleData.importRoadMapData();
     }
-
-    public void importChildrenData(){ jsonSampleData.importChildrenData();}
 
     @Override
     protected void onDestroy() {
