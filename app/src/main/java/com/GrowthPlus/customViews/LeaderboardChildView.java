@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat;
 import com.GrowthPlus.R;
 
 public class LeaderboardChildView extends ConstraintLayout{
-
     private ImageView childAvatar;
     private TextView childName;
     private TextView childScore;
@@ -45,5 +44,4 @@ public class LeaderboardChildView extends ConstraintLayout{
         childName = findViewById(R.id.leaderboardName);
         childScore = findViewById(R.id.leaderboardPoints);
     }
-
 }

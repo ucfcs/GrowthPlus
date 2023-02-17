@@ -1758,7 +1758,8 @@
             "answerTwo": "3",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "1"
+            "answer": "1",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwo",
@@ -1768,7 +1769,8 @@
             "answerTwo": "8",
             "answerThree": "4",
             "answerFour": "2",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentThree",
@@ -1778,7 +1780,8 @@
             "answerTwo": "6",
             "answerThree": "3",
             "answerFour": "5",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentFour",
@@ -1788,7 +1791,8 @@
             "answerTwo": "5",
             "answerThree": "4",
             "answerFour": "7",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentFive",
@@ -1798,7 +1802,8 @@
             "answerTwo": "2",
             "answerThree": "1",
             "answerFour": "7",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentSix",
@@ -1808,7 +1813,8 @@
             "answerTwo": "3",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentSeven",
@@ -1818,7 +1824,8 @@
             "answerTwo": "7",
             "answerThree": "1",
             "answerFour": "6",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentEight",
             "image": null,
@@ -1827,7 +1834,8 @@
             "answerTwo": "10",
             "answerThree": "3",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentNine",
             "image": null,
@@ -1836,7 +1844,8 @@
             "answerTwo": "9",
             "answerThree": "4",
             "answerFour": "8",
-            "answer": "9"
+            "answer": "9",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentTen",
             "image": null,
@@ -1845,7 +1854,8 @@
             "answerTwo": "10",
             "answerThree": "8",
             "answerFour": "6",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentEleven",
             "image": "elephant",
@@ -1854,7 +1864,8 @@
             "answerTwo": "1",
             "answerThree": "6",
             "answerFour": "5",
-            "answer": "1"
+            "answer": "1",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwelve",
@@ -1864,7 +1875,8 @@
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "1",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentThirteen",
@@ -1874,7 +1886,8 @@
             "answerTwo": "10",
             "answerThree": "3",
             "answerFour": "6",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentFourteen",
@@ -1884,7 +1897,8 @@
             "answerTwo": "10",
             "answerThree": "5",
             "answerFour": "2",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentFifteen",
@@ -1894,7 +1908,8 @@
             "answerTwo": "1",
             "answerThree": "7",
             "answerFour": "3",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentSixteen",
@@ -1904,7 +1919,8 @@
             "answerTwo": "3",
             "answerThree": "1",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentSeventeen",
@@ -1914,7 +1930,8 @@
             "answerTwo": "7",
             "answerThree": "3",
             "answerFour": "2",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentEighteen",
@@ -1924,7 +1941,8 @@
             "answerTwo": "3",
             "answerThree": "5",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentNineteen",
@@ -1934,7 +1952,8 @@
             "answerTwo": "9",
             "answerThree": "7",
             "answerFour": "2",
-            "answer": "9"
+            "answer": "9",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwenty",
@@ -1944,7 +1963,8 @@
             "answerTwo": "8",
             "answerThree": "6",
             "answerFour": "10",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "Image"
           }
         ]
       },
@@ -1962,7 +1982,8 @@
             "answerTwo": "20",
             "answerThree": "15",
             "answerFour": "19",
-            "answer": "19"
+            "answer": "19",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwo",
@@ -1972,7 +1993,8 @@
             "answerTwo": "8",
             "answerThree": "9",
             "answerFour": "16",
-            "answer": "15"
+            "answer": "15",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentThree",
@@ -1982,7 +2004,8 @@
             "answerTwo": "12",
             "answerThree": "8",
             "answerFour": "6",
-            "answer": "12"
+            "answer": "12",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFour",
@@ -1992,7 +2015,8 @@
             "answerTwo": "8",
             "answerThree": "5",
             "answerFour": "11",
-            "answer": "13"
+            "answer": "13",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFive",
@@ -2002,7 +2026,8 @@
             "answerTwo": "12",
             "answerThree": "10",
             "answerFour": "16",
-            "answer": "16"
+            "answer": "16",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSix",
@@ -2012,7 +2037,8 @@
             "answerTwo": "10",
             "answerThree": "11",
             "answerFour": "6",
-            "answer": "11"
+            "answer": "11",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSeven",
@@ -2022,7 +2048,8 @@
             "answerTwo": "20",
             "answerThree": "11",
             "answerFour": "7",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentEight",
             "image": null,
@@ -2031,7 +2058,8 @@
             "answerTwo": "10",
             "answerThree": "11",
             "answerFour": "6",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentNine",
             "image": null,
@@ -2040,7 +2068,8 @@
             "answerTwo": "9",
             "answerThree": "7",
             "answerFour": "8",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentTen",
             "image": null,
@@ -2049,7 +2078,8 @@
             "answerTwo": "19",
             "answerThree": "8",
             "answerFour": "17",
-            "answer": "17"
+            "answer": "17",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentEleven",
             "image": null,
@@ -2058,7 +2088,8 @@
             "answerTwo": "1",
             "answerThree": "2",
             "answerFour": "5",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwelve",
@@ -2068,7 +2099,8 @@
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "8",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentThirteen",
@@ -2078,7 +2110,8 @@
             "answerTwo": "8",
             "answerThree": "3",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFourteen",
@@ -2088,7 +2121,8 @@
             "answerTwo": "10",
             "answerThree": "8",
             "answerFour": "16",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFifteen",
@@ -2098,7 +2132,8 @@
             "answerTwo": "5",
             "answerThree": "12",
             "answerFour": "15",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSixteen",
@@ -2108,7 +2143,8 @@
             "answerTwo": "1",
             "answerThree": "10",
             "answerFour": "4",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSeventeen",
@@ -2118,7 +2154,8 @@
             "answerTwo": "5",
             "answerThree": "3",
             "answerFour": "1",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentEighteen",
@@ -2128,7 +2165,8 @@
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentNineteen",
@@ -2138,7 +2176,8 @@
             "answerTwo": "8",
             "answerThree": "20",
             "answerFour": "2",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwenty",
@@ -2148,7 +2187,8 @@
             "answerTwo": "8",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           }
         ]
       }

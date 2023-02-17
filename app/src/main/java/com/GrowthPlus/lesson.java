@@ -22,7 +22,6 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class lesson extends AppCompatActivity {
-
     private String dataBaseLessonId;
     private String childId;
     private ChildSchema child;
@@ -104,7 +103,6 @@ public class lesson extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void init(){
@@ -124,9 +122,7 @@ public class lesson extends AppCompatActivity {
         image = lesson.getImage();
     }
 
-
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
     }
-
 }
