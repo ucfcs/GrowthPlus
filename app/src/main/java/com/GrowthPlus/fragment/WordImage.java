@@ -25,8 +25,8 @@ public class WordImage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_word_image, container, false);
-        text = view.findViewById(R.id.word);
-        image = view.findViewById(R.id.image);
+        text = view.findViewById(R.id.wordFragment);
+        image = view.findViewById(R.id.imageFragment);
         imageSrcIdentifier = new ImageSrcIdentifier();
 
         return view;

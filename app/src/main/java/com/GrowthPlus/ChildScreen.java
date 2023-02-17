@@ -21,7 +21,7 @@ import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import io.realm.Realm;
 
-public class childScreen extends AppCompatActivity {
+public class ChildScreen extends AppCompatActivity {
 
     private Button backParentPortal;
     private Button deleteChildButton;
@@ -76,7 +76,7 @@ public class childScreen extends AppCompatActivity {
 
         backParentPortal.setOnClickListener(view -> {
             view.startAnimation(buttonClick);
-            startActivity(new Intent(childScreen.this, ParentPortal.class));
+            startActivity(new Intent(ChildScreen.this, ParentPortal.class));
             this.finish();
         });
 
@@ -86,10 +86,10 @@ public class childScreen extends AppCompatActivity {
                 deleteChild.deleteFromRealm();
 
             },()->{
-                Intent intent = new Intent(childScreen.this, ParentPortal.class);
+                Intent intent = new Intent(ChildScreen.this, ParentPortal.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 overridePendingTransition(0, 0);
-                startActivity(new Intent(childScreen.this, ParentPortal.class));
+                startActivity(new Intent(ChildScreen.this, ParentPortal.class));
                 overridePendingTransition(0, 0);
                 this.finish();
             }, error -> {

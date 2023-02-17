@@ -117,13 +117,16 @@
 
     <TextView
         android:id="@+id/childPortalName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="Sally"
         android:textColor="@color/white"
-        android:textSize="70sp"
+        android:textSize="50sp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
         app:layout_constraintEnd_toStartOf="@id/rightGuideline"
         app:layout_constraintStart_toStartOf="@id/leftGuideline"
+        app:layout_constraintBottom_toTopOf="@id/points"
         app:layout_constraintTop_toTopOf="@id/top">
 
     </TextView>

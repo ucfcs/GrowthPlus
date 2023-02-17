@@ -7,9 +7,10 @@
     tools:context=".fragment.WordImage">
 
     <TextView
-        android:id="@+id/word"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/wordFragment"
+        android:layout_width="320dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
         android:text="one unit"
         android:textAlignment="center"
         android:textColor="@color/light_green"
@@ -19,14 +20,14 @@
         app:layout_constraintTop_toTopOf="@id/guide3" />
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imageFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:src="@mipmap/coconut_foreground"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/du_foreground"
         app:layout_constraintEnd_toEndOf="@id/guide2"
         app:layout_constraintStart_toStartOf="@id/guide1"
-        app:layout_constraintTop_toBottomOf="@+id/word" />
+        app:layout_constraintTop_toBottomOf="@+id/wordFragment" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide1"

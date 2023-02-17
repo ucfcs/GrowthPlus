@@ -46,12 +46,6 @@ public class LeaderboardChildView extends ConstraintLayout{
         childName = findViewById(R.id.leaderboardName);
         childScore = findViewById(R.id.leaderboardPoints);
         nameBlock = findViewById(R.id.nameBlock);
-
-        /*ColorStateList color = ContextCompat.getColorStateList(getContext(), R.color.red);
-        setBackgroundTintList(color);
-        setText("Billie");
-        setPointsText("65");
-        setImageResource(R.mipmap.camel_foreground);*/
     }
 
     //childAvatar is ImgView with the avatar img to be changed
