@@ -79,6 +79,7 @@ public class Flashcard extends AppCompatActivity {
                 * Handles the answer verification logic, if child taps the flashcard
                 * the animate() method fires up and rotates the flashcard 360 degrees.
                 * then the onAnimationEnd sets the corresponding color.
+                *
                 * */
                 flashcardContainer.setOnClickListener(view -> {
                     childAnswer = flashcardContainer.getAnswer();
@@ -133,6 +134,13 @@ public class Flashcard extends AppCompatActivity {
                         }
 
                         /*
+                        * Kid needs to put in an answer and only see the next button
+                        * after the answer is verify, kid should not be able to
+                        * tab the same flashcard twice, either hide the input or make it null
+                        * make sure to display the answer instead of image.
+                        * */
+
+                        /*
                          * Handles the answer verification logic, if child taps the flashcard
                          * the animate() method fires up and rotates the flashcard 360 degrees.
                          * then the onAnimationEnd sets the corresponding color.
@@ -150,6 +158,7 @@ public class Flashcard extends AppCompatActivity {
                                 public void onAnimationEnd(Animator animation) {
                                     super.onAnimationEnd(animation);
                                     flashcardContainer.setFlashcardColor(answerColor);
+                                    // flashcardContainer.setOnClickListener(null);
                                 }
                             });
                         });

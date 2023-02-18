@@ -40,6 +40,9 @@ public class CustomImage extends Fragment {
         int imgNum = Integer.parseInt(firstNumber);
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
+        // Check num of image and map to the size of images
+
+        //customImageGrid.setRowCount(2);
         for(int i=0; i<imgNum; i++){
             // width and height are pixels not dp, so need to convert from dp to pixels
             ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
