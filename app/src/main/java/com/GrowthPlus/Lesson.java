@@ -44,7 +44,7 @@ public class Lesson extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson);
         init();
@@ -245,10 +245,8 @@ public class Lesson extends AppCompatActivity {
                     }
                     counter++;
                 }
-
             }
         });
-
     }
 
     private void init(){
@@ -268,9 +266,7 @@ public class Lesson extends AppCompatActivity {
         image = lesson.getImage();
     }
 
-
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
     }
-
 }

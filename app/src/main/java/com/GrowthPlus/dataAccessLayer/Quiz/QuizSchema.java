@@ -55,8 +55,7 @@ public class QuizSchema extends RealmObject {
         this.minPoints = minPoints;
     }
 
-    public RealmList<QuizContent> getQuizContentsContents() { return quizContents; }
+    public RealmList<QuizContent> getContents() { return quizContents; }
 
     public void setQuizContents(RealmList<QuizContent> quizContents) { this.quizContents = quizContents; }
-
 }
