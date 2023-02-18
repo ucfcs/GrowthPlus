@@ -44,8 +44,8 @@ public class CustomImage extends Fragment {
 
         if(isAnimationDone){
             // Display answer only
-            sizeInPixels = getResources().getDimension(R.dimen.flashcardAnswerSize);
-            TextView answerView = setAnswerView(sizeInPixels.intValue(), sizeInPixels.intValue(), answer);
+            sizeInPixels = getResources().getDimension(R.dimen.elephantSize);
+            TextView answerView = setAnswerView(answer, sizeInPixels);
             customImageGrid.removeAllViews();
             customImageGrid.addView(answerView);
 
@@ -98,10 +98,9 @@ public class CustomImage extends Fragment {
         return imageTemp;
     }
 
-    public TextView setAnswerView(int width, int height, CharSequence charSequence){
+    public TextView setAnswerView(CharSequence charSequence, float textSize){
         TextView text = new TextView(getActivity());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, height);
-        text.setLayoutParams(layoutParams);
+        text.setTextSize(textSize);
         text.setTextColor(getResources().getColor(R.color.blue));
         text.setText(charSequence);
 
