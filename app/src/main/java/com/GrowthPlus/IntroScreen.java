@@ -32,6 +32,8 @@ public class IntroScreen extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             childId = extras.getString("childId");
+            // Need String to determine if quiz or game extras.getString
+            // QuizID or GameID
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();

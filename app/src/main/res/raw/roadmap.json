@@ -1814,7 +1814,8 @@
             "answerTwo": "3",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "1"
+            "answer": "1",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwo",
@@ -1824,7 +1825,8 @@
             "answerTwo": "8",
             "answerThree": "4",
             "answerFour": "2",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentThree",
@@ -1834,7 +1836,8 @@
             "answerTwo": "6",
             "answerThree": "3",
             "answerFour": "5",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentFour",
@@ -1844,7 +1847,8 @@
             "answerTwo": "5",
             "answerThree": "4",
             "answerFour": "7",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentFive",
@@ -1854,7 +1858,8 @@
             "answerTwo": "2",
             "answerThree": "1",
             "answerFour": "7",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentSix",
@@ -1864,7 +1869,8 @@
             "answerTwo": "3",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentSeven",
@@ -1874,7 +1880,8 @@
             "answerTwo": "7",
             "answerThree": "1",
             "answerFour": "6",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentEight",
             "image": null,
@@ -1883,7 +1890,8 @@
             "answerTwo": "10",
             "answerThree": "3",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentNine",
             "image": null,
@@ -1892,7 +1900,8 @@
             "answerTwo": "9",
             "answerThree": "4",
             "answerFour": "8",
-            "answer": "9"
+            "answer": "9",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentTen",
             "image": null,
@@ -1901,7 +1910,8 @@
             "answerTwo": "10",
             "answerThree": "8",
             "answerFour": "6",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentEleven",
             "image": "elephant",
@@ -1910,7 +1920,8 @@
             "answerTwo": "1",
             "answerThree": "6",
             "answerFour": "5",
-            "answer": "1"
+            "answer": "1",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwelve",
@@ -1920,7 +1931,8 @@
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "1",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentThirteen",
@@ -1930,7 +1942,8 @@
             "answerTwo": "10",
             "answerThree": "3",
             "answerFour": "6",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentFourteen",
@@ -1940,17 +1953,19 @@
             "answerTwo": "10",
             "answerThree": "5",
             "answerFour": "2",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentFifteen",
             "image": "elephant",
             "question": "5",
             "answerOne": "4",
-            "answerTwo": "1",
+            "answerTwo": "5",
             "answerThree": "7",
             "answerFour": "3",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentSixteen",
@@ -1960,7 +1975,8 @@
             "answerTwo": "3",
             "answerThree": "1",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentSeventeen",
@@ -1970,7 +1986,8 @@
             "answerTwo": "7",
             "answerThree": "3",
             "answerFour": "2",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentEighteen",
@@ -1980,7 +1997,8 @@
             "answerTwo": "3",
             "answerThree": "5",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentNineteen",
@@ -1990,7 +2008,8 @@
             "answerTwo": "9",
             "answerThree": "7",
             "answerFour": "2",
-            "answer": "9"
+            "answer": "9",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwenty",
@@ -2000,7 +2019,8 @@
             "answerTwo": "8",
             "answerThree": "6",
             "answerFour": "10",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "Image"
           }
         ]
       },
@@ -2014,198 +2034,218 @@
           {
             "quizContentId": "RmOneQuizTwoContentOne",
             "image": null,
-            "question": "6+13",
+            "question": "6 + 13",
             "answerOne": "7",
             "answerTwo": "20",
             "answerThree": "15",
             "answerFour": "19",
-            "answer": "19"
+            "answer": "19",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwo",
             "image": null,
-            "question": "3+12",
+            "question": "3 + 12",
             "answerOne": "15",
             "answerTwo": "8",
             "answerThree": "9",
             "answerFour": "16",
-            "answer": "15"
+            "answer": "15",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentThree",
             "image": null,
-            "question": "5+7",
+            "question": "5 + 7",
             "answerOne": "2",
             "answerTwo": "12",
             "answerThree": "8",
             "answerFour": "6",
-            "answer": "12"
+            "answer": "12",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFour",
             "image": null,
-            "question": "4+9",
+            "question": "4 + 9",
             "answerOne": "13",
             "answerTwo": "8",
             "answerThree": "5",
             "answerFour": "11",
-            "answer": "13"
+            "answer": "13",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFive",
             "image": null,
-            "question": "13+3",
+            "question": "13 + 3",
             "answerOne": "15",
             "answerTwo": "12",
             "answerThree": "10",
             "answerFour": "16",
-            "answer": "16"
+            "answer": "16",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSix",
             "image": null,
-            "question": "16-5",
+            "question": "16 - 5",
             "answerOne": "8",
             "answerTwo": "10",
             "answerThree": "11",
             "answerFour": "6",
-            "answer": "11"
+            "answer": "11",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSeven",
             "image": null,
-            "question": "12-8",
+            "question": "12 - 8",
             "answerOne": "4",
             "answerTwo": "20",
             "answerThree": "11",
             "answerFour": "7",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentEight",
             "image": null,
-            "question": "8-3",
+            "question": "8 - 3",
             "answerOne": "5",
             "answerTwo": "10",
             "answerThree": "11",
             "answerFour": "6",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentNine",
             "image": null,
-            "question": "11-4",
+            "question": "11 - 4",
             "answerOne": "5",
             "answerTwo": "9",
             "answerThree": "7",
             "answerFour": "8",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentTen",
             "image": null,
-            "question": "20-3",
+            "question": "20 - 3",
             "answerOne": "13",
             "answerTwo": "19",
             "answerThree": "8",
             "answerFour": "17",
-            "answer": "17"
+            "answer": "17",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentEleven",
             "image": null,
-            "question": "2x1",
+            "question": "2 x 1",
             "answerOne": "3",
             "answerTwo": "1",
             "answerThree": "2",
             "answerFour": "5",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwelve",
             "image": null,
-            "question": "2x2",
+            "question": "2 x 2",
             "answerOne": "1",
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "8",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentThirteen",
             "image": null,
-            "question": "2x3",
+            "question": "2 x 3",
             "answerOne": "5",
             "answerTwo": "8",
             "answerThree": "3",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFourteen",
             "image": null,
-            "question": "2x4",
+            "question": "2 x 4",
             "answerOne": "4",
             "answerTwo": "10",
             "answerThree": "8",
             "answerFour": "16",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFifteen",
             "image": null,
-            "question": "2x5",
+            "question": "2 x 5",
             "answerOne": "10",
             "answerTwo": "5",
             "answerThree": "12",
             "answerFour": "15",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSixteen",
             "image": null,
-            "question": "20:2",
+            "question": "20 : 2",
             "answerOne": "8",
             "answerTwo": "1",
             "answerThree": "10",
             "answerFour": "4",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSeventeen",
             "image": null,
-            "question": "6:2",
+            "question": "6 : 2",
             "answerOne": "2",
             "answerTwo": "5",
             "answerThree": "3",
             "answerFour": "1",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentEighteen",
             "image": null,
-            "question": "16:2",
+            "question": "16 : 2",
             "answerOne": "6",
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentNineteen",
             "image": null,
-            "question": "4:2",
+            "question": "4 : 2",
             "answerOne": "3",
             "answerTwo": "8",
             "answerThree": "20",
             "answerFour": "2",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwenty",
             "image": null,
-            "question": "14:2",
+            "question": "14 : 2",
             "answerOne": "7",
             "answerTwo": "8",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           }
         ]
       }
