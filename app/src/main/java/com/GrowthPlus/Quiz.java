@@ -99,7 +99,7 @@ public class Quiz extends AppCompatActivity {
         nextContent.setVisibility(View.INVISIBLE); // Hide nextQuestion until a circle is selected
 
         nextContent.setOnClickListener(v -> {
-            counter++;
+            counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
                 Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
@@ -160,7 +160,6 @@ public class Quiz extends AppCompatActivity {
     private void init(){
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            // TODO: Need quiz database ID
             childId = extras.getString("childId");
             databaseQuizId = extras.getString("databaseQuizId");
         }
