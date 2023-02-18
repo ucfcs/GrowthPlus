@@ -47,8 +47,6 @@ public class Lesson extends AppCompatActivity {
     private CountDownTimer countDownTimer1;
     private CustomTimerComponent customTimerComponent1;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -273,16 +271,16 @@ public class Lesson extends AppCompatActivity {
         lessonName = lesson.getLessonName();
         image = lesson.getImage();
 
-        customTimerComponent1 = findViewById(R.id.countdownTimer);
-        countDownTimer1 = new CountDownTimer(30000, 1000) {
-
-            public void onTick(long millisUntilFinished) {
-                customTimerComponent1.setTimerText(""+millisUntilFinished / 1000);
-            }
-            public void onFinish() {
-                customTimerComponent1.setTimerText("0");
-            }
-        }.start();
+//        customTimerComponent1 = findViewById(R.id.countdownTimer);
+//        countDownTimer1 = new CountDownTimer(30000, 1000) {
+//
+//            public void onTick(long millisUntilFinished) {
+//                customTimerComponent1.setTimerText(""+millisUntilFinished / 1000);
+//            }
+//            public void onFinish() {
+//                customTimerComponent1.setTimerText("0");
+//            }
+//        }.start();
     }
 
 

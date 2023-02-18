@@ -6,10 +6,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.QuizCircle;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
@@ -38,6 +40,9 @@ public class Quiz extends AppCompatActivity {
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
 
+    private CountDownTimer countDownTimer;
+    private CustomTimerComponent customTimerComponent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +63,7 @@ public class Quiz extends AppCompatActivity {
         counter = 0;
 
         // This loads the first question only before needing to click the next button ---------------------------------
+        setTimer();
         String category = contents.get(twenty.get(counter)).getQuizCategory();
         switch(category){
             case "String": {
@@ -102,6 +108,9 @@ public class Quiz extends AppCompatActivity {
         nextContent.setVisibility(View.INVISIBLE); // Hide nextQuestion until a circle is selected
 
         nextContent.setOnClickListener(v -> {
+            countDownTimer.cancel();
+            setTimer();
+
             counter++;
             if(counter >= MAX){
                 Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
@@ -185,6 +194,8 @@ public class Quiz extends AppCompatActivity {
         Collections.shuffle(twenty); // Randomize question selection
 
         // quizName = quiz.getQuizName(); // TODO: Should go to location_intro before this
+
+
     }
 
     private void setTopBar(){
@@ -290,5 +301,18 @@ public class Quiz extends AppCompatActivity {
         cir2.setOnClickListener(null);
         cir3.setOnClickListener(null);
         cir4.setOnClickListener(null);
+    }
+
+    private void setTimer() {
+        customTimerComponent = findViewById(R.id.countdownTimer);
+        countDownTimer = new CountDownTimer(5000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
+            }
+            public void onFinish() {
+                customTimerComponent.setTimerText("0");
+            }
+        }.start();
     }
 }

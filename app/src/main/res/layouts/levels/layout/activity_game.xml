@@ -46,10 +46,11 @@
     <com.GrowthPlus.customViews.CustomTimerComponent
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="540dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        ></com.GrowthPlus.customViews.CustomTimerComponent>
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toStartOf="parent"></com.GrowthPlus.customViews.CustomTimerComponent>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
