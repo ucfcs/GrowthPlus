@@ -9,7 +9,7 @@
     tools:context=".Flashcard">
 
     <android.widget.Button
-        android:id="@+id/next_button"
+        android:id="@+id/next_button_flashcard"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginTop="-40dp"

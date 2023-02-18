@@ -52,6 +52,7 @@ public class Flashcard extends ConstraintLayout {
     }
 
     public String getAnswer(){
+
         return answer.getText().toString();
     }
 
@@ -62,6 +63,11 @@ public class Flashcard extends ConstraintLayout {
     * 2 is number input only.
     * */
     public void setRawInputType(int type){
+
         answer.setRawInputType(type);
+    }
+
+    public void setText(CharSequence text){
+        answer.setText(text);
     }
 }
