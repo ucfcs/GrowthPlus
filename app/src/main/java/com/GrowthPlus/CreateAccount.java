@@ -204,18 +204,29 @@ public class CreateAccount extends AppCompatActivity {
         roadMapLessons.add(roadMapLesson10);
 
 
-        RoadMapQuiz roadMapQuiz = new RoadMapQuiz(
+        RoadMapQuiz roadMapQuiz1 = new RoadMapQuiz(
                 "RoadMap One Quiz One",
                 "elephant",
                 10,
                 7,
-                true,
                 false,
+                true,
                 "RmOneQuizOne",
                 0
         );
+        RoadMapQuiz roadMapQuiz2 = new RoadMapQuiz(
+                "RoadMap One Quiz Two",
+                "elephant",
+                10,
+                7,
+                false,
+                true,
+                "RmOneQuizTwo",
+                0
+        );
         RealmList<RoadMapQuiz> roadMapQuizzes = new RealmList<>();
-        roadMapQuizzes.add(roadMapQuiz);
+        roadMapQuizzes.add(roadMapQuiz1);
+        roadMapQuizzes.add(roadMapQuiz2);
 
         RoadMapScenarioGame roadMapOneScenarioGame = new RoadMapScenarioGame(
                 "Fishing",
