@@ -79,9 +79,6 @@ public class Quiz extends AppCompatActivity {
             case "Image": {
                 String picture = contents.get(twenty.get(counter)).getImage();
                 setAnswers();
-                Log.i(
-                        "Picture", picture
-                );
 
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();

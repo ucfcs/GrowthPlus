@@ -26,7 +26,6 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class Lesson extends AppCompatActivity {
-
     private String dataBaseLessonId;
     private String childId;
     private ChildSchema child;
