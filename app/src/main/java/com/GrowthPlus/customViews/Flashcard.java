@@ -1,6 +1,7 @@
 package com.GrowthPlus.customViews;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -16,7 +17,6 @@ import com.GrowthPlus.R;
 public class Flashcard extends ConstraintLayout {
     ImageView flashcard;
     EditText answer;
-
     FrameLayout frame_layout;
 
     public Flashcard(@NonNull Context context) {
@@ -47,4 +47,21 @@ public class Flashcard extends ConstraintLayout {
     }
 
     // TODO: Add methods to change color, image, etc.
+    public void setFlashcardColor(ColorStateList tint){
+        flashcard.setBackgroundTintList(tint);
+    }
+
+    public String getAnswer(){
+        return answer.getText().toString();
+    }
+
+    /*
+    * The type of data being placed in a text field,
+    * used to help an input method decide how to let the user enter input.
+    * 1 is text input only.
+    * 2 is number input only.
+    * */
+    public void setRawInputType(int type){
+        answer.setRawInputType(type);
+    }
 }

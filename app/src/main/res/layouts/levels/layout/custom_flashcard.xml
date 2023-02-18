@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/flashcard"
-        android:layout_width="346dp"
-        android:layout_height="500dp"
+        android:layout_width="300dp"
+        android:layout_height="420dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
