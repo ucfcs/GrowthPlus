@@ -29,7 +29,7 @@ public class WordGrid extends Fragment {
         wordMD = view.findViewById(R.id.wordMD);
         gridLayoutMD = view.findViewById(R.id.gridLayoutMD);
         imageSrcIdentifier = new ImageSrcIdentifier();
-        sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+        sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
         return view;
     }
 
@@ -40,6 +40,18 @@ public class WordGrid extends Fragment {
         String image = requireArguments().getString("imageMD");
 
         wordMD.setText(wordIn);
+
+        if(num <= 3){
+            sizeInPixels = getResources().getDimension(R.dimen.elephantXLarge);
+            gridLayoutMD.setRowCount(3);
+            gridLayoutMD.setColumnCount(1);
+        }
+
+        else if(num <= 5){
+            sizeInPixels = getResources().getDimension(R.dimen.elephantXLarge);
+            gridLayoutMD.setRowCount(3);
+            gridLayoutMD.setColumnCount(2);
+        }
 
         int resId = imageSrcIdentifier.getImageSrcId(image);
         for(int i=0; i<num; i++){
