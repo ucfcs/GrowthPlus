@@ -39,7 +39,7 @@ public class CustomImage extends Fragment {
         String firstNumber = requireArguments().getString("firstNumber");
         String answer = requireArguments().getString("answer");
         Boolean isAnimationDone = requireArguments().getBoolean("isAnimationDone");
-        int imgNum = Integer.parseInt(firstNumber);
+        int imgNum = Integer.parseInt(answer);
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
         if(isAnimationDone){
@@ -49,6 +49,36 @@ public class CustomImage extends Fragment {
             customImageGrid.addView(answerView);
 
         }else {
+            // Adjust grid rows and columns based on num of images
+            // TODO: Make bigger sizes for this fragment
+            if(imgNum <= 4){
+                sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+                customImageGrid.setRowCount(2);
+                customImageGrid.setColumnCount(2);
+            }
+            if(imgNum <= 6){
+                sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+                customImageGrid.setRowCount(2);
+                customImageGrid.setColumnCount(3);
+            }
+            if(imgNum <= 9){
+                sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
+                customImageGrid.setRowCount(3);
+                customImageGrid.setColumnCount(3);
+            }
+            if(imgNum == 10){
+                sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+                customImageGrid.setRowCount(2);
+                customImageGrid.setColumnCount(5);
+            }
+
+            if (imgNum <= 20){
+                sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+                customImageGrid.setRowCount(5);
+                customImageGrid.setColumnCount(4);
+            }
+
+
             // Check num of image and map to the size of images
             for(int i=0; i<imgNum; i++){
                 // width and height are pixels not dp, so need to convert from dp to pixels

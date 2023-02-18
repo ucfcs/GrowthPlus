@@ -92,6 +92,7 @@ public class Lesson extends AppCompatActivity {
                     flashcardIntent.putExtra("childId", childId);
                     flashcardIntent.putExtra("lessonImage", image);
                     startActivity(flashcardIntent);
+                    finish();
                 }
                 else{
                     String category = contents.get(counter).getCategory();

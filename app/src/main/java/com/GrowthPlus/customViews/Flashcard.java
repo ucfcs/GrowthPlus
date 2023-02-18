@@ -78,4 +78,8 @@ public class Flashcard extends ConstraintLayout {
     public void setAnswerEnabled(boolean enabled){
         answer.setEnabled(enabled);
     }
+
+    public void setAnswerOpacity(float alpha){
+        answer.setAlpha(alpha);
+    }
 }

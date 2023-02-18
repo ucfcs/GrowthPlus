@@ -10,6 +10,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -59,6 +60,7 @@ public class Flashcard extends AppCompatActivity {
         /*
         * Switch statement for first flashcard, we don't have an intro so we start at index 0
         * */
+        assert lessonFlashcards.get(0) != null;
         String initCategory = lessonFlashcards.get(0).getCategory();
         flashcard = lessonFlashcards.get(0);
         nextFlashcard.setVisibility(View.INVISIBLE);
@@ -85,7 +87,7 @@ public class Flashcard extends AppCompatActivity {
                 * If child taps the flashcard the animate() method fires up and rotates the flashcard 360 degrees.
                 * Then, the onAnimationEnd sets the corresponding logic after the animation is done.
                 * Once animation is done, the boolean flag isAnimationDone is set to true.
-                * With this fragment, the fragment clears out the images and replaces it with only tha answer.
+                * With this fragment, the fragment clears out the images and replaces it with only the answer.
                 * Refer to figma for clarification.
                 * */
                 flashcardContainer.setOnClickListener(view -> {
@@ -114,6 +116,7 @@ public class Flashcard extends AppCompatActivity {
                             }
 
                             flashcardContainer.setFlashcardColor(answerColor);
+                            flashcardContainer.setAnswerOpacity(0.7f); // opacity
                             flashcardContainer.setEnabled(false);
                             flashcardContainer.setAnswerEnabled(false);
                             nextFlashcard.setVisibility(View.VISIBLE);
@@ -123,13 +126,28 @@ public class Flashcard extends AppCompatActivity {
 
                 break;
             }
-            // More cases for different lessons
+
+            case "customImageOperator":{
+                Log.i("operator", "customImageOperator");
+                break;
+            }
+
+            case "customEquation":{
+                Log.i("equation", "customEquation");
+                break;
+            }
+
+            default:{
+                Log.i("default", "The category does not fit the case, check the return value");
+            }
+
         }
 
         // Now handle the next flashcard onClick, increment the counter to go to next flashcard
         // Make sure to reset the flashcardContainer state
         nextFlashcard.setOnClickListener(view -> {
             counter++;
+            flashcardContainer.setAnswerOpacity(1f);
             flashcardContainer.setEnabled(true);
             flashcardContainer.setAnswerEnabled(true);
             if(counter >= MAX){
@@ -163,10 +181,12 @@ public class Flashcard extends AppCompatActivity {
                         }
 
                         /*
-                         * Handles the answer verification logic, if child taps the flashcard
-                         * the animate() method fires up and rotates the flashcard.
-                         * Then, the onAnimationEnd sets the corresponding color.
-                         * After animation is done, disable the flashcard and next button is visible again.
+                         * Handles the answer verification logic.
+                         * If child taps the flashcard the animate() method fires up and rotates the flashcard 360 degrees.
+                         * Then, the onAnimationEnd sets the corresponding logic after the animation is done.
+                         * Once animation is done, the boolean flag isAnimationDone is set to true.
+                         * With this fragment, the fragment clears out the images and replaces it with only the answer.
+                         * Refer to figma for clarification.
                          * */
                         flashcardContainer.setOnClickListener(view1 -> {
                             childAnswer = flashcardContainer.getAnswer();
@@ -194,6 +214,7 @@ public class Flashcard extends AppCompatActivity {
                                     }
 
                                     flashcardContainer.setFlashcardColor(answerColor);
+                                    flashcardContainer.setAnswerOpacity(0.7f); // opacity
                                     flashcardContainer.setEnabled(false);
                                     flashcardContainer.setAnswerEnabled(false);
                                     nextFlashcard.setVisibility(View.VISIBLE);
@@ -202,6 +223,20 @@ public class Flashcard extends AppCompatActivity {
                         });
 
                         break;
+                    }
+
+                    case "customImageOperator":{
+                        Log.i("operator", "customImageOperator");
+                        break;
+                    }
+
+                    case "customEquation":{
+                        Log.i("equation", "customEquation");
+                        break;
+                    }
+
+                    default:{
+                        Log.i("default", "The category does not fit the case, check the return value");
                     }
                 }
             }
