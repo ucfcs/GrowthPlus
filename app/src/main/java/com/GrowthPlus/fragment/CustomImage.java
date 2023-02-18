@@ -44,6 +44,7 @@ public class CustomImage extends Fragment {
 
         if(isAnimationDone){
             // Display answer only
+            sizeInPixels = getResources().getDimension(R.dimen.flashcardAnswerSize);
             TextView answerView = setAnswerView(sizeInPixels.intValue(), sizeInPixels.intValue(), answer);
             customImageGrid.removeAllViews();
             customImageGrid.addView(answerView);
