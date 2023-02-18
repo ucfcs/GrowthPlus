@@ -9,31 +9,39 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import com.GrowthPlus.R;
+import com.GrowthPlus.utilities.ColorIdentifier;
 
 public class QuizCircle extends ConstraintLayout {
     ImageView circle;
     TextView number;
+    ColorIdentifier colorIdentifier;
+    ColorStateList green, red, blue;
 
     public QuizCircle(@NonNull Context context) {
         super(context);
         init(null);
+        setColors();
     }
 
     public QuizCircle(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
+        setColors();
     }
 
     public QuizCircle(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
+        setColors();
     }
 
     public QuizCircle(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
+        setColors();
     }
 
     private void init(@Nullable AttributeSet set){
@@ -42,13 +50,28 @@ public class QuizCircle extends ConstraintLayout {
         number = findViewById(R.id.number);
     }
 
-    // TODO: Add methods to change color and number
-    //These are methods I (Mack) have used in my own custom components, they could help
-    public void setBackgroundTintList (ColorStateList tint){
-        circle.setBackgroundTintList(tint);
+    private void setColors(){
+        green = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.light_green));
+        red = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.red));
+        blue = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.blue));
     }
 
-    public void setQuizCircleNumber (CharSequence text){
-        number.setText(text);
+    public void setAnswer(String answer){
+        number.setText(answer);
+    }
+
+    public String getAnswer(){
+        return (String) number.getText();
+    }
+    public void correct(){
+        circle.setBackgroundTintList(green);
+    }
+
+    public void incorrect(){
+        circle.setBackgroundTintList(red);
+    }
+
+    public void setBack(){
+        circle.setBackgroundTintList(blue);
     }
 }
