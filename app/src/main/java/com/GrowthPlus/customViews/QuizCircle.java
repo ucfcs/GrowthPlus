@@ -1,6 +1,7 @@
 package com.GrowthPlus.customViews;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,4 +43,12 @@ public class QuizCircle extends ConstraintLayout {
     }
 
     // TODO: Add methods to change color and number
+    //These are methods I (Mack) have used in my own custom components, they could help
+    public void setBackgroundTintList (ColorStateList tint){
+        circle.setBackgroundTintList(tint);
+    }
+
+    public void setQuizCircleNumber (CharSequence text){
+        number.setText(text);
+    }
 }
