@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.GrowthPlus.R;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -37,18 +38,24 @@ public class CustomImage extends Fragment {
         String image = requireArguments().getString("image");
         String firstNumber = requireArguments().getString("firstNumber");
         String answer = requireArguments().getString("answer");
+        Boolean isAnimationDone = requireArguments().getBoolean("isAnimationDone");
         int imgNum = Integer.parseInt(firstNumber);
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
-        // Check num of image and map to the size of images
+        if(isAnimationDone){
+            // Display answer only
+            TextView answerView = setAnswerView(sizeInPixels.intValue(), sizeInPixels.intValue(), answer);
+            customImageGrid.removeAllViews();
+            customImageGrid.addView(answerView);
 
-        //customImageGrid.setRowCount(2);
-        for(int i=0; i<imgNum; i++){
-            // width and height are pixels not dp, so need to convert from dp to pixels
-            ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
-            customImageGrid.addView(imageTemp, i);
+        }else {
+            // Check num of image and map to the size of images
+            for(int i=0; i<imgNum; i++){
+                // width and height are pixels not dp, so need to convert from dp to pixels
+                ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
+                customImageGrid.addView(imageTemp, i);
+            }
         }
-
     }
 
     public ImageView setImageView(int resId, int width, int height){
@@ -58,5 +65,15 @@ public class CustomImage extends Fragment {
         imageTemp.setImageResource(resId);
 
         return imageTemp;
+    }
+
+    public TextView setAnswerView(int width, int height, CharSequence charSequence){
+        TextView text = new TextView(getActivity());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, height);
+        text.setLayoutParams(layoutParams);
+        text.setTextColor(getResources().getColor(R.color.blue));
+        text.setText(charSequence);
+
+        return text;
     }
 }

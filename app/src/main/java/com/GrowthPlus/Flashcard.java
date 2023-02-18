@@ -7,14 +7,17 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomImage;
+import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import io.realm.Realm;
@@ -42,6 +45,7 @@ public class Flashcard extends AppCompatActivity {
     private final int TEXT_INPUT_ONLY = 1;
     private final int NUMBER_INPUT_ONLY = 2;
     int counter;
+    final int MAX = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +58,10 @@ public class Flashcard extends AppCompatActivity {
 
         /*
         * Switch statement for first flashcard, we don't have an intro so we start at index 0
-        *
         * */
         String initCategory = lessonFlashcards.get(0).getCategory();
         flashcard = lessonFlashcards.get(0);
+        nextFlashcard.setVisibility(View.INVISIBLE);
         switch (initCategory){
             case "customImage":{
                 image = flashcard.getImage();
@@ -69,6 +73,7 @@ public class Flashcard extends AppCompatActivity {
                     bundle.putString("image", image);
                     bundle.putString("firstNumber", initFirstNumber);
                     bundle.putString("answer", initAnswer);
+                    bundle.putBoolean("isAnimationDone", false);
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
@@ -76,10 +81,12 @@ public class Flashcard extends AppCompatActivity {
                 }
 
                 /*
-                * Handles the answer verification logic, if child taps the flashcard
-                * the animate() method fires up and rotates the flashcard 360 degrees.
-                * then the onAnimationEnd sets the corresponding color.
-                *
+                * Handles the answer verification logic.
+                * If child taps the flashcard the animate() method fires up and rotates the flashcard 360 degrees.
+                * Then, the onAnimationEnd sets the corresponding logic after the animation is done.
+                * Once animation is done, the boolean flag isAnimationDone is set to true.
+                * With this fragment, the fragment clears out the images and replaces it with only tha answer.
+                * Refer to figma for clarification.
                 * */
                 flashcardContainer.setOnClickListener(view -> {
                     childAnswer = flashcardContainer.getAnswer();
@@ -93,7 +100,23 @@ public class Flashcard extends AppCompatActivity {
                         @Override
                         public void onAnimationEnd(Animator animation) {
                             super.onAnimationEnd(animation);
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("image", image);
+                                bundle.putString("firstNumber", initFirstNumber);
+                                bundle.putString("answer", initAnswer);
+                                bundle.putBoolean("isAnimationDone", true);
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
+                                transaction.commit();
+                            }
+
                             flashcardContainer.setFlashcardColor(answerColor);
+                            flashcardContainer.setEnabled(false);
+                            flashcardContainer.setAnswerEnabled(false);
+                            nextFlashcard.setVisibility(View.VISIBLE);
                         }
                     });
                 });
@@ -103,12 +126,17 @@ public class Flashcard extends AppCompatActivity {
             // More cases for different lessons
         }
 
-
         // Now handle the next flashcard onClick, increment the counter to go to next flashcard
-        counter = 1;
+        // Make sure to reset the flashcardContainer state
         nextFlashcard.setOnClickListener(view -> {
-            if(counter > size){
-                // Finish flashcards
+            counter++;
+            flashcardContainer.setEnabled(true);
+            flashcardContainer.setAnswerEnabled(true);
+            if(counter >= MAX){
+                Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class); // TODO: Dynamically change location address
+                lessonIntent.putExtra("childIdentify", childId);
+                startActivity(lessonIntent);
+                this.finish();
             }else {
                 flashcardContainer.setText(null);
                 flashcardContainer.setFlashcardColor(resetColor);
@@ -118,6 +146,7 @@ public class Flashcard extends AppCompatActivity {
 
                 switch (category){
                     case "customImage":{
+                        nextFlashcard.setVisibility(View.INVISIBLE);
                         image = flashcard.getImage();
                         firstNumber = flashcard.getFirstNumber();
                         answer = flashcard.getAnswer();
@@ -134,16 +163,10 @@ public class Flashcard extends AppCompatActivity {
                         }
 
                         /*
-                        * Kid needs to put in an answer and only see the next button
-                        * after the answer is verify, kid should not be able to
-                        * tab the same flashcard twice, either hide the input or make it null
-                        * make sure to display the answer instead of image.
-                        * */
-
-                        /*
                          * Handles the answer verification logic, if child taps the flashcard
-                         * the animate() method fires up and rotates the flashcard 360 degrees.
-                         * then the onAnimationEnd sets the corresponding color.
+                         * the animate() method fires up and rotates the flashcard.
+                         * Then, the onAnimationEnd sets the corresponding color.
+                         * After animation is done, disable the flashcard and next button is visible again.
                          * */
                         flashcardContainer.setOnClickListener(view1 -> {
                             childAnswer = flashcardContainer.getAnswer();
@@ -157,8 +180,23 @@ public class Flashcard extends AppCompatActivity {
                                 @Override
                                 public void onAnimationEnd(Animator animation) {
                                     super.onAnimationEnd(animation);
+
+                                    if (savedInstanceState == null) {
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("image", image);
+                                        bundle.putString("firstNumber", firstNumber);
+                                        bundle.putString("answer", answer);
+                                        bundle.putBoolean("isAnimationDone", true);
+                                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                        transaction.setReorderingAllowed(true);
+                                        transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
+                                        transaction.commit();
+                                    }
+
                                     flashcardContainer.setFlashcardColor(answerColor);
-                                    // flashcardContainer.setOnClickListener(null);
+                                    flashcardContainer.setEnabled(false);
+                                    flashcardContainer.setAnswerEnabled(false);
+                                    nextFlashcard.setVisibility(View.VISIBLE);
                                 }
                             });
                         });
@@ -166,9 +204,7 @@ public class Flashcard extends AppCompatActivity {
                         break;
                     }
                 }
-                counter++;
             }
-
         });
 
 

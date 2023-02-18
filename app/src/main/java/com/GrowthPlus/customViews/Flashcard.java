@@ -70,4 +70,12 @@ public class Flashcard extends ConstraintLayout {
     public void setText(CharSequence text){
         answer.setText(text);
     }
+
+    public void setAnswerVisibility(int visibility){
+        answer.setVisibility(visibility);
+    }
+
+    public void setAnswerEnabled(boolean enabled){
+        answer.setEnabled(enabled);
+    }
 }
