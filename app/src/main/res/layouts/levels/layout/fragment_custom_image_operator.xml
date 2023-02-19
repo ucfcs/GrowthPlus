@@ -2,19 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/customImageFirstGrid"
-        android:layout_width="270dp"
-        android:layout_height="150dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/bottomGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/customImageOp"
+        app:layout_constraintStart_toStartOf="@+id/customImageOp"
+        app:layout_constraintTop_toBottomOf="@+id/customImageOp">
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/topGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/customImageOp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/customImageOp"
         app:layout_constraintTop_toTopOf="parent">
 
     </androidx.gridlayout.widget.GridLayout>
-
 
     <TextView
         android:id="@+id/customImageOp"
@@ -25,17 +35,8 @@
         android:textColor="@color/light_green"
         android:textSize="38sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customImageFirstGrid" />
-
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/customImageSecondGrid"
-        android:layout_width="270dp"
-        android:layout_height="150dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customImageOp"
-        app:srcCompat="@mipmap/fish_foreground">
-
-    </androidx.gridlayout.widget.GridLayout>
+        app:layout_constraintTop_toBottomOf="@+id/topGrid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

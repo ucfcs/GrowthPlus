@@ -18,6 +18,8 @@ import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomImage;
+import com.GrowthPlus.fragment.CustomImageOperator;
+import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
@@ -45,8 +47,13 @@ public class Flashcard extends AppCompatActivity {
     private ColorStateList resetColor;
     private final int TEXT_INPUT_ONLY = 1;
     private final int NUMBER_INPUT_ONLY = 2;
-    int counter;
+    int counter = 0;
     final int MAX = 5;
+    String flashcardAnswer;
+    String firstNumber;
+    String firstOperator;
+    String secondNumber;
+    String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,97 +61,51 @@ public class Flashcard extends AppCompatActivity {
         setContentView(R.layout.activity_flashcard);
         init();
 
-        String initFirstNumber, initFirstOperator, initSecondNumber, initSecondOperator, initAnswer;
-        int size = lessonFlashcards.size();
-
         /*
         * Switch statement for first flashcard, we don't have an intro so we start at index 0
         * */
-        assert lessonFlashcards.get(0) != null;
-        String initCategory = lessonFlashcards.get(0).getCategory();
-        flashcard = lessonFlashcards.get(0);
+        assert lessonFlashcards.get(counter) != null;
+        category = lessonFlashcards.get(counter).getCategory();
+        flashcard = lessonFlashcards.get(counter);
+
+        assert flashcard != null;
+        flashcardAnswer = flashcard.getAnswer();
+        image = flashcard.getImage();
         nextFlashcard.setVisibility(View.INVISIBLE);
-        switch (initCategory){
+
+        flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
+        switch (category){
             case "customImage":{
-                image = flashcard.getImage();
-                initFirstNumber = flashcard.getFirstNumber();
-                initAnswer = flashcard.getAnswer();
-                flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
+                firstNumber = flashcard.getFirstNumber();
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", image);
-                    bundle.putString("firstNumber", initFirstNumber);
-                    bundle.putString("answer", initAnswer);
+                    bundle.putString("firstNumber", firstNumber);
+                    bundle.putString("answer", flashcardAnswer);
                     bundle.putBoolean("isAnimationDone", false);
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
                     transaction.commit();
                 }
-
-                /*
-                * Handles the answer verification logic.
-                * If child taps the flashcard the animate() method fires up and rotates the flashcard 360 degrees.
-                * Then, the onAnimationEnd sets the corresponding logic after the animation is done.
-                * Once animation is done, the boolean flag isAnimationDone is set to true.
-                * With this fragment, the fragment clears out the images and replaces it with only the answer.
-                * Refer to figma for clarification.
-                * */
-                flashcardContainer.setOnClickListener(view -> {
-                    childAnswer = flashcardContainer.getAnswer();
-                    if(childAnswer.equals(initAnswer)){
-                       answerColor = correctAnswerColor;
-                    }
-                    else {
-                        answerColor = wrongAnswerColor;
-                    }
-                    flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            super.onAnimationEnd(animation);
-
-                            if (savedInstanceState == null) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("image", image);
-                                bundle.putString("firstNumber", initFirstNumber);
-                                bundle.putString("answer", initAnswer);
-                                bundle.putBoolean("isAnimationDone", true);
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                transaction.setReorderingAllowed(true);
-                                transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
-                                transaction.commit();
-                            }
-
-                            flashcardContainer.setFlashcardColor(answerColor);
-                            flashcardContainer.setAnswerOpacity(0.7f); // opacity
-                            flashcardContainer.setEnabled(false);
-                            flashcardContainer.setAnswerEnabled(false);
-                            nextFlashcard.setVisibility(View.VISIBLE);
-                        }
-                    });
-                });
-
                 break;
             }
 
             case "customImageOperator":{
-                image = flashcard.getImage();
-                initFirstNumber = flashcard.getFirstNumber();
-                initFirstOperator = flashcard.getFirstOperator();
-                initSecondNumber = flashcard.getSecondNumber();
-                initAnswer = flashcard.getAnswer();
-                flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
+                firstNumber = flashcard.getFirstNumber();
+                firstOperator = flashcard.getFirstOperator();
+                secondNumber = flashcard.getSecondNumber();
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", image);
-                    bundle.putString("firstNumber", initFirstNumber);
-                    bundle.putString("firstOperator", initFirstOperator);
-                    bundle.putString("secondNumber", initSecondNumber);
-                    bundle.putString("answer", initAnswer);
+                    bundle.putString("firstNumber", firstNumber);
+                    bundle.putString("firstOperator", firstOperator);
+                    bundle.putString("secondNumber", secondNumber);
+                    bundle.putString("answer", flashcardAnswer);
                     bundle.putBoolean("isAnimationDone", false);
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
-                    transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
+                    transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
                     transaction.commit();
                 }
                 break;
@@ -158,93 +119,110 @@ public class Flashcard extends AppCompatActivity {
             default:{
                 Log.i("default", "The category does not fit the case, check the return value");
             }
-
         }
+
+        /*
+         * Handles the answer verification logic.
+         * If child taps the flashcard the animate() method fires up and rotates the flashcard 360 degrees.
+         * Then, the onAnimationEnd sets the corresponding logic after the animation is done.
+         * Once animation is done, the boolean flag isAnimationDone is set to true.
+         * With this fragment, the fragment clears out the images and replaces it with only the answer.
+         * Refer to figma for clarification.
+         * */
+        flashcardContainer.setOnClickListener(view -> {
+            childAnswer = flashcardContainer.getAnswer();
+            if(childAnswer.equals(flashcardAnswer)){
+                answerColor = correctAnswerColor;
+            }
+            else {
+                answerColor = wrongAnswerColor;
+            }
+            flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+
+                    if (savedInstanceState == null) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("answer", flashcardAnswer);
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        transaction.setReorderingAllowed(true);
+                        transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
+                        transaction.commit();
+                    }
+
+                    flashcardContainer.setFlashcardColor(answerColor);
+                    flashcardContainer.setAnswerOpacity(0.7f); // opacity
+                    flashcardContainer.setEnabled(false);
+                    flashcardContainer.setAnswerEnabled(false);
+                    nextFlashcard.setVisibility(View.VISIBLE);
+                }
+            });
+        });
 
         // Now handle the next flashcard onClick, increment the counter to go to next flashcard
         // Make sure to reset the flashcardContainer state
         nextFlashcard.setOnClickListener(view -> {
             counter++;
-            flashcardContainer.setAnswerOpacity(1f);
-            flashcardContainer.setEnabled(true);
-            flashcardContainer.setAnswerEnabled(true);
             if(counter >= MAX){
                 Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
                 this.finish();
+
             }else {
+
+                // Resetting state of flashcard
                 flashcardContainer.setText(null);
                 flashcardContainer.setFlashcardColor(resetColor);
-                String image, firstNumber, firstOperator, secondNumber, secondOperator, answer, category;
+                flashcardContainer.setAnswerOpacity(1f);
+                flashcardContainer.setEnabled(true);
+                flashcardContainer.setAnswerEnabled(true);
+                flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
+
+                assert lessonFlashcards.get(counter) != null;
                 flashcard = lessonFlashcards.get(counter);
+
+                assert flashcard != null;
                 category = flashcard.getCategory();
+                flashcardAnswer = flashcard.getAnswer();
+                image = flashcard.getImage();
+
+                nextFlashcard.setVisibility(View.INVISIBLE);
 
                 switch (category){
                     case "customImage":{
-                        nextFlashcard.setVisibility(View.INVISIBLE);
-                        image = flashcard.getImage();
                         firstNumber = flashcard.getFirstNumber();
-                        answer = flashcard.getAnswer();
-                        flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("image", image);
                             bundle.putString("firstNumber", firstNumber);
-                            bundle.putString("answer", answer);
+                            bundle.putString("answer", flashcardAnswer);
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
                             transaction.commit();
                         }
-
-                        /*
-                         * Handles the answer verification logic.
-                         * If child taps the flashcard the animate() method fires up and rotates the flashcard 360 degrees.
-                         * Then, the onAnimationEnd sets the corresponding logic after the animation is done.
-                         * Once animation is done, the boolean flag isAnimationDone is set to true.
-                         * With this fragment, the fragment clears out the images and replaces it with only the answer.
-                         * Refer to figma for clarification.
-                         * */
-                        flashcardContainer.setOnClickListener(view1 -> {
-                            childAnswer = flashcardContainer.getAnswer();
-                            if(childAnswer.equals(answer)){
-                                answerColor = correctAnswerColor;
-                            }
-                            else {
-                                answerColor = wrongAnswerColor;
-                            }
-                            flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
-                                @Override
-                                public void onAnimationEnd(Animator animation) {
-                                    super.onAnimationEnd(animation);
-
-                                    if (savedInstanceState == null) {
-                                        Bundle bundle = new Bundle();
-                                        bundle.putString("image", image);
-                                        bundle.putString("firstNumber", firstNumber);
-                                        bundle.putString("answer", answer);
-                                        bundle.putBoolean("isAnimationDone", true);
-                                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                        transaction.setReorderingAllowed(true);
-                                        transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
-                                        transaction.commit();
-                                    }
-
-                                    flashcardContainer.setFlashcardColor(answerColor);
-                                    flashcardContainer.setAnswerOpacity(0.7f); // opacity
-                                    flashcardContainer.setEnabled(false);
-                                    flashcardContainer.setAnswerEnabled(false);
-                                    nextFlashcard.setVisibility(View.VISIBLE);
-                                }
-                            });
-                        });
-
                         break;
                     }
 
                     case "customImageOperator":{
-                        Log.i("operator", "customImageOperator");
+                        firstNumber = flashcard.getFirstNumber();
+                        firstOperator = flashcard.getFirstOperator();
+                        secondNumber = flashcard.getSecondNumber();
+                        if (savedInstanceState == null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("image", image);
+                            bundle.putString("firstNumber", firstNumber);
+                            bundle.putString("firstOperator", firstOperator);
+                            bundle.putString("secondNumber", secondNumber);
+                            bundle.putString("answer", flashcardAnswer);
+                            bundle.putBoolean("isAnimationDone", false);
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.setReorderingAllowed(true);
+                            transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
+                            transaction.commit();
+                        }
                         break;
                     }
 
@@ -257,11 +235,10 @@ public class Flashcard extends AppCompatActivity {
                         Log.i("default", "The category does not fit the case, check the return value");
                     }
                 }
+
+
             }
         });
-
-
-
 
     }
 
