@@ -126,8 +126,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         String inputString = input.getText().toString();
 
         if (!inputString.equals(null) &&
-            !inputString.equals("")   &&
-            Integer.valueOf(inputString) >= 1000) {
+            inputString.length() == 4) {
             return true;
         }
         else{
