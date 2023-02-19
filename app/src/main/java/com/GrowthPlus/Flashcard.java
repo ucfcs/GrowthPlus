@@ -128,7 +128,25 @@ public class Flashcard extends AppCompatActivity {
             }
 
             case "customImageOperator":{
-                Log.i("operator", "customImageOperator");
+                image = flashcard.getImage();
+                initFirstNumber = flashcard.getFirstNumber();
+                initFirstOperator = flashcard.getFirstOperator();
+                initSecondNumber = flashcard.getSecondNumber();
+                initAnswer = flashcard.getAnswer();
+                flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
+                if (savedInstanceState == null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("image", image);
+                    bundle.putString("firstNumber", initFirstNumber);
+                    bundle.putString("firstOperator", initFirstOperator);
+                    bundle.putString("secondNumber", initSecondNumber);
+                    bundle.putString("answer", initAnswer);
+                    bundle.putBoolean("isAnimationDone", false);
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.setReorderingAllowed(true);
+                    transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
+                    transaction.commit();
+                }
                 break;
             }
 

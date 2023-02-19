@@ -368,7 +368,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "4",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashTwo",
@@ -378,7 +378,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "6",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashThree",
@@ -388,7 +388,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "8",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashFour",
@@ -398,7 +398,7 @@
             "secondNumber": "3",
             "secondOperator": null,
             "answer": "6",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashFive",
@@ -408,7 +408,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customEquation"
           }
         ]
       },

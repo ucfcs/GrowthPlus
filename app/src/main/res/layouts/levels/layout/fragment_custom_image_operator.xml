@@ -6,33 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/customImageFirst"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/customImageFirstGrid"
         android:layout_width="270dp"
         android:layout_height="150dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/fish_foreground" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.gridlayout.widget.GridLayout>
+
 
     <TextView
         android:id="@+id/customImageOp"
         android:layout_width="270dp"
         android:layout_height="50dp"
-        android:text="TextView"
+        android:text="+"
         android:textAlignment="center"
         android:textColor="@color/light_green"
         android:textSize="38sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customImageFirst"
-        tools:text="+" />
+        app:layout_constraintTop_toBottomOf="@+id/customImageFirstGrid" />
 
-    <ImageView
-        android:id="@+id/customImageSecond"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/customImageSecondGrid"
         android:layout_width="270dp"
         android:layout_height="150dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customImageOp"
-        app:srcCompat="@mipmap/fish_foreground" />
+        app:srcCompat="@mipmap/fish_foreground">
+
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
