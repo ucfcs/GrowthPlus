@@ -42,7 +42,6 @@ public class CustomImageOperator extends Fragment {
         int firstNumber = Integer.parseInt(requireArguments().getString("firstNumber"));
         String firstOperator = requireArguments().getString("firstOperator");
         int secondNumber = Integer.parseInt(requireArguments().getString("secondNumber"));
-        String answer = requireArguments().getString("answer");
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
         // Setting top grid
@@ -59,7 +58,6 @@ public class CustomImageOperator extends Fragment {
             ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
             bottomGrid.addView(imageTemp, i);
         }
-
     }
 
     public ImageView setImageView(int resId, int width, int height){

@@ -35,20 +35,11 @@ public class CustomImage extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         String image = requireArguments().getString("image");
-        String firstNumber = requireArguments().getString("firstNumber");
         String answer = requireArguments().getString("answer");
-        Boolean isAnimationDone = requireArguments().getBoolean("isAnimationDone");
         int imgNum = Integer.parseInt(answer);
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
-        if(isAnimationDone){
-            // Display answer only
-            sizeInPixels = getResources().getDimension(R.dimen.elephantSize);
-            TextView answerView = setAnswerView(answer, sizeInPixels);
-            customImageGrid.removeAllViews();
-            customImageGrid.addView(answerView);
 
-        }else {
             // Adjust grid rows and columns based on num of images
             // TODO: Make bigger sizes for this fragment
             if(imgNum <= 4){
@@ -85,7 +76,7 @@ public class CustomImage extends Fragment {
                 ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
                 customImageGrid.addView(imageTemp, i);
             }
-        }
+
     }
 
     public ImageView setImageView(int resId, int width, int height){
@@ -97,12 +88,4 @@ public class CustomImage extends Fragment {
         return imageTemp;
     }
 
-    public TextView setAnswerView(CharSequence charSequence, float textSize){
-        TextView text = new TextView(getActivity());
-        text.setTextSize(textSize);
-        text.setTextColor(getResources().getColor(R.color.blue));
-        text.setText(charSequence);
-
-        return text;
-    }
 }

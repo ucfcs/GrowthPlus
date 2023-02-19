@@ -17,6 +17,7 @@ import android.widget.Button;
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.fragment.CustomEquation;
 import com.GrowthPlus.fragment.CustomImage;
 import com.GrowthPlus.fragment.CustomImageOperator;
 import com.GrowthPlus.fragment.FlashcardAnswer;
@@ -30,7 +31,7 @@ public class Flashcard extends AppCompatActivity {
 
     private String dataBaseLessonId;
     private String childId;
-    private ChildSchema child;
+    private ChildSchema child; // Need this to update score
     private LessonSchema lesson;
     private Realm realm;
     private RealmList<FlashcardSchema> lessonFlashcards;
@@ -80,9 +81,7 @@ public class Flashcard extends AppCompatActivity {
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", image);
-                    bundle.putString("firstNumber", firstNumber);
                     bundle.putString("answer", flashcardAnswer);
-                    bundle.putBoolean("isAnimationDone", false);
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImage.class, bundle);
@@ -101,8 +100,6 @@ public class Flashcard extends AppCompatActivity {
                     bundle.putString("firstNumber", firstNumber);
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
-                    bundle.putString("answer", flashcardAnswer);
-                    bundle.putBoolean("isAnimationDone", false);
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -112,7 +109,20 @@ public class Flashcard extends AppCompatActivity {
             }
 
             case "customEquation":{
-                Log.i("equation", "customEquation");
+                firstNumber = flashcard.getFirstNumber();
+                firstOperator = flashcard.getFirstOperator();
+                secondNumber = flashcard.getSecondNumber();
+                if (savedInstanceState == null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("image", image);
+                    bundle.putString("firstNumber", firstNumber);
+                    bundle.putString("firstOperator", firstOperator);
+                    bundle.putString("secondNumber", secondNumber);
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.setReorderingAllowed(true);
+                    transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
+                    transaction.commit();
+                }
                 break;
             }
 
@@ -125,8 +135,6 @@ public class Flashcard extends AppCompatActivity {
          * Handles the answer verification logic.
          * If child taps the flashcard the animate() method fires up and rotates the flashcard 360 degrees.
          * Then, the onAnimationEnd sets the corresponding logic after the animation is done.
-         * Once animation is done, the boolean flag isAnimationDone is set to true.
-         * With this fragment, the fragment clears out the images and replaces it with only the answer.
          * Refer to figma for clarification.
          * */
         flashcardContainer.setOnClickListener(view -> {
@@ -227,7 +235,20 @@ public class Flashcard extends AppCompatActivity {
                     }
 
                     case "customEquation":{
-                        Log.i("equation", "customEquation");
+                        firstNumber = flashcard.getFirstNumber();
+                        firstOperator = flashcard.getFirstOperator();
+                        secondNumber = flashcard.getSecondNumber();
+                        if (savedInstanceState == null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("image", image);
+                            bundle.putString("firstNumber", firstNumber);
+                            bundle.putString("firstOperator", firstOperator);
+                            bundle.putString("secondNumber", secondNumber);
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.setReorderingAllowed(true);
+                            transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
+                            transaction.commit();
+                        }
                         break;
                     }
 
@@ -235,11 +256,8 @@ public class Flashcard extends AppCompatActivity {
                         Log.i("default", "The category does not fit the case, check the return value");
                     }
                 }
-
-
             }
         });
-
     }
 
     private void init(){
@@ -261,6 +279,5 @@ public class Flashcard extends AppCompatActivity {
         correctAnswerColor = ContextCompat.getColorStateList(this, R.color.light_green);
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
-
     }
 }

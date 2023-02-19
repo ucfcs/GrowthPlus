@@ -30,6 +30,13 @@ public class CustomEquation extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        String firstNumberAr = requireArguments().getString("firstNumber");
+        String operatorAr = requireArguments().getString("firstOperator");
+        String secondNumberAr = requireArguments().getString("secondNumber");
+
+        firstNumber.setText(firstNumberAr);
+        operator.setText(operatorAr);
+        secondNumber.setText(secondNumberAr);
 
     }
 }
