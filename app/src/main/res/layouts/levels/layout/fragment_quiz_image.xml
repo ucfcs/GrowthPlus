@@ -6,14 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".fragment.QuizImage">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="320dp"
-        android:layout_height="210dp"
-        android:src="@mipmap/elephant_foreground"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/quizImageGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@id/rightConstraint"
         app:layout_constraintStart_toStartOf="@id/leftConstraint"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/rightConstraint"/>
+        app:columnCount="4"
+        app:rowCount="3"
+        >
+    </androidx.gridlayout.widget.GridLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftConstraint"

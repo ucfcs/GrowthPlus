@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.QuizCircle;
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
 import com.GrowthPlus.dataAccessLayer.QuizContent.QuizContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
@@ -59,6 +61,12 @@ public class Quiz extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
 
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        Translator trans = new Translator(langId);
+
         contentLength = contents.size();
         counter = 0;
 
@@ -69,6 +77,9 @@ public class Quiz extends AppCompatActivity {
             case "String": {
                 String word = contents.get(twenty.get(counter)).getQuestion();
                 setAnswers();
+                if(!trans.getString(word).equals("empty")){
+                    word = trans.getString(word);
+                }
 
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
@@ -84,14 +95,16 @@ public class Quiz extends AppCompatActivity {
 
             case "Image": {
                 String picture = contents.get(twenty.get(counter)).getImage();
+                String num = contents.get(twenty.get(counter)).getQuestion();
+                int numOfImg = Integer.valueOf(num);
                 setAnswers();
-                Log.i(
-                        "Picture", picture
-                );
+                Log.i("num", String.valueOf(numOfImg));
+                Log.i("image", picture);
 
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", picture);
+                    bundle.putInt("imgNum", numOfImg);
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
@@ -111,7 +124,7 @@ public class Quiz extends AppCompatActivity {
             countDownTimer.cancel();
             setTimer();
 
-            counter++;
+            counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
                 Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
@@ -130,6 +143,9 @@ public class Quiz extends AppCompatActivity {
                     case "String": {
                         String word = contents.get(twenty.get(counter)).getQuestion();
                         setAnswers();
+                        if(!trans.getString(word).equals("empty")){
+                            word = trans.getString(word);
+                        }
 
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
@@ -145,21 +161,20 @@ public class Quiz extends AppCompatActivity {
 
                     case "Image": {
                         String picture = contents.get(twenty.get(counter)).getImage();
+                        String num = contents.get(twenty.get(counter)).getQuestion();
+                        int numOfImg = Integer.valueOf(num);
                         setAnswers();
-                        Log.i(
-                                "Picture", picture
-                        );
 
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("image", picture);
+                            bundle.putInt("imgNum", numOfImg);
 
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(R.id.frame_layout, QuizImage.class, bundle);
                             transaction.commit();
                         }
-                        break;
                     }
 
                     default:
@@ -172,7 +187,6 @@ public class Quiz extends AppCompatActivity {
     private void init(){
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            // TODO: Need quiz database ID
             childId = extras.getString("childId");
             databaseQuizId = extras.getString("databaseQuizId");
         }
@@ -193,8 +207,9 @@ public class Quiz extends AppCompatActivity {
             twenty.add(i);
         Collections.shuffle(twenty); // Randomize question selection
 
-        // quizName = quiz.getQuizName(); // TODO: Should go to location_intro before this
-
+        // TODO: Should go to location_intro before this
+        // quizName = quiz.getQuizName();
+        //image = quiz.getImage();
 
     }
 

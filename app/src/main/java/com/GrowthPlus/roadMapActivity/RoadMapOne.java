@@ -187,13 +187,13 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             roadMapOneLessonTrail.setSelectedState(tile4, child);
         }
 
-//        tile9.setOnClickListener(this);
-//        if(roadMapQuizes.get(1).getCompleted()){
-//            tile9.setCompletedState();
-//        }
-//        if(roadMapQuizes.get(1).getCurrent()){
-//            roadMapOneLessonTrail.setSelectedState(tile9, child);
-//        }
+        tile9.setOnClickListener(this);
+        if(roadMapQuizes.get(1).getCompleted()){
+            tile9.setCompletedState();
+        }
+        if(roadMapQuizes.get(1).getCurrent()){
+            roadMapOneLessonTrail.setSelectedState(tile9, child);
+        }
 
         tile13.setOnClickListener(this);
         if(game.getCompleted()){
@@ -278,10 +278,10 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         // This tile is a quiz!
         // Put the quiz id
         else if(viewId == tile9.getId()){
-            /*IntentIntro = new Intent(RoadMapOne.this, Quiz.class);
+            IntentIntro = new Intent(RoadMapOne.this, Quiz.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
-            startActivity(IntentIntro);*/
+            startActivity(IntentIntro);
         }
 
         else if(viewId == tile10.getId()){
