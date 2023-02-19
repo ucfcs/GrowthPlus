@@ -22,7 +22,6 @@ public class FlashcardAnswer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_flashcard_answer, container, false);
         answer = view.findViewById(R.id.flashcardAnswer);
-
         return view;
     }
 

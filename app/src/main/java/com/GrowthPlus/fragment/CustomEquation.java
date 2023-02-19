@@ -37,6 +37,5 @@ public class CustomEquation extends Fragment {
         firstNumber.setText(firstNumberAr);
         operator.setText(operatorAr);
         secondNumber.setText(secondNumberAr);
-
     }
 }
