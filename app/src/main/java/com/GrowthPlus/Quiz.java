@@ -44,7 +44,6 @@ public class Quiz extends AppCompatActivity {
 
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
-    private boolean timerFinished = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +52,14 @@ public class Quiz extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            countDownTimer.cancel(); //since the user is exiting the quiz we need to stop the timer
             Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class);
             // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
         });
         setTopBar();
+        setTimer();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -72,7 +73,6 @@ public class Quiz extends AppCompatActivity {
         counter = 0;
 
         // This loads the first question only before needing to click the next button ---------------------------------
-        setTimer();
         String category = contents.get(twenty.get(counter)).getQuizCategory();
         switch(category){
             case "String": {
@@ -127,6 +127,8 @@ public class Quiz extends AppCompatActivity {
 
             counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
+                countDownTimer.cancel();//since we are exiting the activity we need to stop the timer
+
                 Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
@@ -221,7 +223,7 @@ public class Quiz extends AppCompatActivity {
     private void setAnswers(){
         cir1.setAnswer(contents.get(twenty.get(counter)).getAnswerOne());
         cir1.setOnClickListener(v -> {
-            countDownTimer.cancel();
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir1.correct();
@@ -246,7 +248,7 @@ public class Quiz extends AppCompatActivity {
 
         cir2.setAnswer(contents.get(twenty.get(counter)).getAnswerTwo());
         cir2.setOnClickListener(v -> {
-            countDownTimer.cancel();
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir2.correct();
@@ -271,7 +273,7 @@ public class Quiz extends AppCompatActivity {
 
         cir3.setAnswer(contents.get(twenty.get(counter)).getAnswerThree());
         cir3.setOnClickListener(v -> {
-            countDownTimer.cancel();
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir3.correct();
@@ -296,7 +298,7 @@ public class Quiz extends AppCompatActivity {
 
         cir4.setAnswer(contents.get(twenty.get(counter)).getAnswerFour());
         cir4.setOnClickListener(v -> {
-            countDownTimer.cancel();
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir4.correct();
@@ -327,18 +329,19 @@ public class Quiz extends AppCompatActivity {
         cir4.setOnClickListener(null);
     }
 
+    //sets a timer that counts down from 30 and moves on if the user doesn't choose an answer in time
     private void setTimer() {
         customTimerComponent = findViewById(R.id.countdownTimer);
+        //TODO: change from 5000 to 30000 (have it at 5000 milliseconds right now for quicker testing)
         countDownTimer = new CountDownTimer(5000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
             }
             public void onFinish() {
-                customTimerComponent.setTimerText("0");
-                timerFinished = true;
-                nextContent.setVisibility(View.VISIBLE);
-                nextContent.performClick();
+                countDownTimer.cancel();
+                nextContent.setVisibility(View.VISIBLE); //make the next button visible
+                nextContent.performClick(); //and programmatically click it
             }
         }.start();
     }
