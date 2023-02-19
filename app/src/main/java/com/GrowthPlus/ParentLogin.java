@@ -36,9 +36,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     private Integer parentSignupPIN;
     Integer loginPinInputInteger;
 
-    private CountDownTimer countDownTimer;
-    private CustomTimerComponent customTimerComponent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,17 +56,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         loginParentService = new ParentSchemaService(realm);
         loginParent = loginParentService.getAllParentSchemas().get(0); //gets the parent
         parentSignupPIN = loginParent.getPIN(); //and their PIN
-
-        customTimerComponent = findViewById(R.id.countdownTimer);
-        countDownTimer = new CountDownTimer(30000, 1000) {
-
-            public void onTick(long millisUntilFinished) {
-                customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
-            }
-            public void onFinish() {
-                startLandingPageActivity();
-            }
-        }.start();
     }
 
     @Override

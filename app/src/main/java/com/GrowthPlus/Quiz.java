@@ -44,6 +44,7 @@ public class Quiz extends AppCompatActivity {
 
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
+    private boolean timerFinished = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -220,6 +221,8 @@ public class Quiz extends AppCompatActivity {
     private void setAnswers(){
         cir1.setAnswer(contents.get(twenty.get(counter)).getAnswerOne());
         cir1.setOnClickListener(v -> {
+            countDownTimer.cancel();
+
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir1.correct();
             }
@@ -243,6 +246,8 @@ public class Quiz extends AppCompatActivity {
 
         cir2.setAnswer(contents.get(twenty.get(counter)).getAnswerTwo());
         cir2.setOnClickListener(v -> {
+            countDownTimer.cancel();
+
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir2.correct();
             }
@@ -266,6 +271,8 @@ public class Quiz extends AppCompatActivity {
 
         cir3.setAnswer(contents.get(twenty.get(counter)).getAnswerThree());
         cir3.setOnClickListener(v -> {
+            countDownTimer.cancel();
+
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir3.correct();
             }
@@ -289,6 +296,8 @@ public class Quiz extends AppCompatActivity {
 
         cir4.setAnswer(contents.get(twenty.get(counter)).getAnswerFour());
         cir4.setOnClickListener(v -> {
+            countDownTimer.cancel();
+
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir4.correct();
             }
@@ -327,6 +336,9 @@ public class Quiz extends AppCompatActivity {
             }
             public void onFinish() {
                 customTimerComponent.setTimerText("0");
+                timerFinished = true;
+                nextContent.setVisibility(View.VISIBLE);
+                nextContent.performClick();
             }
         }.start();
     }
