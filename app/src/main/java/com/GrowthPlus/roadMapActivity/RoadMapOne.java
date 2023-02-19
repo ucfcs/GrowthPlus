@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.GrowthPlus.ChildPortal;
+import com.GrowthPlus.IntroScreen;
 import com.GrowthPlus.Quiz;
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
@@ -238,10 +239,8 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-        // This tile is a quiz!
-        // Put the quiz id
         else if(viewId == tile4.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, Quiz.class);
+            IntentIntro = new Intent(RoadMapOne.this, IntroScreen.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(0).getDatabaseQuizId());
             startActivity(IntentIntro);
@@ -275,10 +274,8 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-        // This tile is a quiz!
-        // Put the quiz id
         else if(viewId == tile9.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, Quiz.class);
+            IntentIntro = new Intent(RoadMapOne.this, IntroScreen.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
             startActivity(IntentIntro);
@@ -305,8 +302,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-        // This is a scenario game!
-        // Put scenario game id
+        // TODO: Implement this to location_intro to Game
         else if(viewId == tile13.getId()){
             IntentIntro = new Intent(RoadMapOne.this, Game.class);
             IntentIntro.putExtra("childId", childID);

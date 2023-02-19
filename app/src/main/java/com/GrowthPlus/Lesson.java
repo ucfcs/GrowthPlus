@@ -7,11 +7,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 
-import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
@@ -28,7 +26,6 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class Lesson extends AppCompatActivity {
-
     private String dataBaseLessonId;
     private String childId;
     private ChildSchema child;
@@ -39,13 +36,9 @@ public class Lesson extends AppCompatActivity {
     private Button introBackBtn;
     private int contentLength;
     private Button nextContent;
-    int counter;
-
+    private int counter;
     private String lessonName;
     private String image;
-
-    private CountDownTimer countDownTimer1;
-    private CustomTimerComponent customTimerComponent1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -270,17 +263,6 @@ public class Lesson extends AppCompatActivity {
         nextContent = findViewById(R.id.next_button_lesson);
         lessonName = lesson.getLessonName();
         image = lesson.getImage();
-
-//        customTimerComponent1 = findViewById(R.id.countdownTimer);
-//        countDownTimer1 = new CountDownTimer(30000, 1000) {
-//
-//            public void onTick(long millisUntilFinished) {
-//                customTimerComponent1.setTimerText(""+millisUntilFinished / 1000);
-//            }
-//            public void onFinish() {
-//                customTimerComponent1.setTimerText("0");
-//            }
-//        }.start();
     }
 
     private void setTopBar(){
