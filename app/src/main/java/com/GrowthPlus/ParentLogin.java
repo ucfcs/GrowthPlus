@@ -1,7 +1,5 @@
 package com.GrowthPlus;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
@@ -157,4 +157,5 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         startActivity(landingPageActivity);
         this.finish();
     }
+
 }
