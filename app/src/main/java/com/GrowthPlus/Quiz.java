@@ -332,8 +332,7 @@ public class Quiz extends AppCompatActivity {
     //sets a timer that counts down from 30 and moves on if the user doesn't choose an answer in time
     private void setTimer() {
         customTimerComponent = findViewById(R.id.countdownTimer);
-        //TODO: change from 5000 to 30000 (have it at 5000 milliseconds right now for quicker testing)
-        countDownTimer = new CountDownTimer(5000, 1000) {
+        countDownTimer = new CountDownTimer(31000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
