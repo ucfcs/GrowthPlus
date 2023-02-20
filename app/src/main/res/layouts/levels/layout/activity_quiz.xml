@@ -58,6 +58,17 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".13" />
 
+    <com.GrowthPlus.customViews.CustomTimerComponent
+        android:id="@+id/countdownTimer"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.988"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.108" />
+
     <com.GrowthPlus.customViews.QuizCircle
         android:id="@+id/circleFour"
         android:layout_width="wrap_content"

@@ -47,12 +47,12 @@ public class QuizImage extends Fragment {
             imageGrid.setRowCount(2);
             imageGrid.setColumnCount(3);
         }
-        if(num == 9){
+        else if(num == 9){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
             imageGrid.setRowCount(3);
             imageGrid.setColumnCount(3);
         }
-        if(num == 10){
+        else if(num == 10){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
             imageGrid.setRowCount(2);
             imageGrid.setColumnCount(5);

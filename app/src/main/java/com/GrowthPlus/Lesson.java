@@ -26,7 +26,6 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class Lesson extends AppCompatActivity {
-
     private String dataBaseLessonId;
     private String childId;
     private ChildSchema child;
@@ -37,11 +36,9 @@ public class Lesson extends AppCompatActivity {
     private Button introBackBtn;
     private int contentLength;
     private Button nextContent;
-    int counter;
-
+    private int counter;
     private String lessonName;
     private String image;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -66,16 +63,18 @@ public class Lesson extends AppCompatActivity {
         // Create language translator and set up the Lesson string
         Translator trans = new Translator(langId);
         String lessonTranslated = trans.getString("Lesson") + " "+ lessonName;
+        int numOfImages = Integer.valueOf(lessonName);
 
         // Fragment for Lesson intro
         if (savedInstanceState == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("locationIntroText", lessonTranslated);
-            bundle.putString("locationIntroImage", image);
+            bundle.putString("wordMD", lessonTranslated);
+            bundle.putString("imageMD", image);
+            bundle.putInt("numMD", numOfImages);
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
-            transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
+            transaction.replace(R.id.frame_layout_lesson, WordGrid.class, bundle);
             transaction.commit();
         }
 
@@ -272,5 +271,6 @@ public class Lesson extends AppCompatActivity {
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
+        topBar.setToTriangle();
     }
 }

@@ -57,11 +57,22 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".88" />
 
+    <com.GrowthPlus.customViews.TopBar
+        android:id="@+id/flashcardTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.GrowthPlus.customViews.TopBar>
+
 
     <com.GrowthPlus.customViews.Flashcard
         android:id="@+id/flashcardContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/frame_bottom"
         app:layout_constraintEnd_toStartOf="@+id/guide_right"
         app:layout_constraintStart_toStartOf="@+id/guide_left"

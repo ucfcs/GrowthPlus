@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
 
+import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
@@ -48,6 +49,7 @@ public class Flashcard extends AppCompatActivity {
     private ColorStateList wrongAnswerColor;
     private ColorStateList resetColor;
     private ColorStateList resetInputTint;
+    private TopBar flashcardTopBar;
     private final int TEXT_INPUT_ONLY = 1;
     private final int NUMBER_INPUT_ONLY = 2;
     int counter = 0;
@@ -63,6 +65,7 @@ public class Flashcard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
         init();
+        setTopBar();
 
         /*
         * Switch statement for first flashcard, we don't have an intro so we start at index 0
@@ -278,6 +281,7 @@ public class Flashcard extends AppCompatActivity {
             image = extras.getString("lessonImage");
         }
         imageSrcIdentifier = new ImageSrcIdentifier();
+        flashcardTopBar = findViewById(R.id.flashcardTopBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         assert lesson != null;
@@ -289,5 +293,10 @@ public class Flashcard extends AppCompatActivity {
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         resetInputTint = ContextCompat.getColorStateList(this, R.color.grey);
+    }
+
+    private void setTopBar(){
+        flashcardTopBar.setPoints(String.valueOf(child.getScore()));
+        flashcardTopBar.setToTriangle();
     }
 }

@@ -24,19 +24,20 @@
 
     <TextView
         android:id="@+id/topBarTriangle"
-        android:layout_width="50dp"
-        android:layout_height="55dp"
+        android:layout_width="80dp"
+        android:layout_height="85dp"
+        android:gravity="center_horizontal|center_vertical"
         android:rotationX="180"
         android:text="▼"
+        android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="50sp"
+        android:textSize="60sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/pointsIcon"
+        app:layout_constraintStart_toEndOf="@id/goBackBtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/topBarCircle"
@@ -46,8 +47,8 @@
         android:backgroundTint="@color/dark_green"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/pointsIcon"
+        app:layout_constraintStart_toEndOf="@id/goBackBtn"
         app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -59,8 +60,8 @@
         android:backgroundTint="@color/yellow"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/pointsIcon"
+        app:layout_constraintStart_toEndOf="@id/goBackBtn"
         app:layout_constraintTop_toTopOf="parent"
         />
 
