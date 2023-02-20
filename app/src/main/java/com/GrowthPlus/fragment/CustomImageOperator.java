@@ -44,6 +44,34 @@ public class CustomImageOperator extends Fragment {
         int secondNumber = Integer.parseInt(requireArguments().getString("secondNumber"));
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
+        // Adjust grid rows and columns based on num of images
+        if(firstNumber <= 4){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+            topGrid.setRowCount(2);
+            topGrid.setColumnCount(2);
+        }
+        if(firstNumber <= 6){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+            topGrid.setRowCount(2);
+            topGrid.setColumnCount(3);
+        }
+        if(firstNumber <= 9){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
+            topGrid.setRowCount(3);
+            topGrid.setColumnCount(3);
+        }
+        if(firstNumber == 10){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+            topGrid.setRowCount(2);
+            topGrid.setColumnCount(5);
+        }
+
+        if (firstNumber <= 20){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+            topGrid.setRowCount(5);
+            topGrid.setColumnCount(4);
+        }
+
         // Setting top grid
         for(int i=0; i<firstNumber; i++){
             ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
@@ -52,6 +80,34 @@ public class CustomImageOperator extends Fragment {
 
         // Setting operator
         operator.setText(firstOperator);
+
+        // Adjust grid rows and columns based on num of images
+        if(secondNumber <= 4){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+            bottomGrid.setRowCount(2);
+            bottomGrid.setColumnCount(2);
+        }
+        if(secondNumber <= 6){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+            bottomGrid.setRowCount(2);
+            bottomGrid.setColumnCount(3);
+        }
+        if(secondNumber <= 9){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
+            bottomGrid.setRowCount(3);
+            bottomGrid.setColumnCount(3);
+        }
+        if(secondNumber == 10){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+            bottomGrid.setRowCount(2);
+            bottomGrid.setColumnCount(5);
+        }
+
+        if (secondNumber <= 20){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+            bottomGrid.setRowCount(5);
+            bottomGrid.setColumnCount(4);
+        }
 
         // Setting bottom grid
         for(int i=0; i<secondNumber; i++){

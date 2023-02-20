@@ -69,6 +69,9 @@ public class CustomImage extends Fragment {
                 customImageGrid.setColumnCount(4);
             }
 
+            if(image.equals("unitOfTen")){
+                imgNum = imgNum / 10;
+            }
 
             // Check num of image and map to the size of images
             for(int i=0; i<imgNum; i++){

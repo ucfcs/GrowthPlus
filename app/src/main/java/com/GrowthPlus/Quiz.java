@@ -120,6 +120,7 @@ public class Quiz extends AppCompatActivity {
                 Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
+                this.finish();
                 // TODO: Must pass with at least 7/10 correct otherwise has to do it again
             }
             else{

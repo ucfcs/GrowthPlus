@@ -1,4 +1,4 @@
-package com.GrowthPlus.realmImporter;
+package com.GrowthPlus.roadMapActivity.realmImporter;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import java.io.InputStream;
 import io.realm.Realm;
