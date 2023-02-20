@@ -2,6 +2,7 @@ package com.GrowthPlus.roadMapActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -160,6 +161,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
 
     private void setLessonTiles(ChildSchema child){
 
+        Log.i("lessons", String.valueOf(lessonCompleted));
         // Loop thru the lessons completed
         for(int i = 0; i <= lessonCompleted; i++){
             RoadMapLesson roadMapLessonTemp = roadMapLessons.get(i);
@@ -222,6 +224,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 0);
             startActivity(IntentIntro);
         }
 
@@ -229,6 +232,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 1);
             startActivity(IntentIntro);
         }
 
@@ -236,6 +240,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 2);
             startActivity(IntentIntro);
         }
 
@@ -251,6 +256,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 3);
             startActivity(IntentIntro);
         }
 
@@ -258,6 +264,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 4);
             startActivity(IntentIntro);
         }
 
@@ -265,6 +272,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 5);
             startActivity(IntentIntro);
         }
 
@@ -272,6 +280,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 6);
             startActivity(IntentIntro);
         }
 
@@ -287,6 +296,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 7);
             startActivity(IntentIntro);
         }
 
@@ -294,6 +304,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 8);
             startActivity(IntentIntro);
         }
 
@@ -301,6 +312,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 9);
             startActivity(IntentIntro);
         }
 

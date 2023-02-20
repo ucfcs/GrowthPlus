@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -39,6 +40,8 @@ public class Lesson extends AppCompatActivity {
     private int counter;
     private String lessonName;
     private String image;
+    private int currentScore;
+    private int lessonIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -91,6 +94,7 @@ public class Lesson extends AppCompatActivity {
                     flashcardIntent.putExtra("dataBaseLessonId", dataBaseLessonId);
                     flashcardIntent.putExtra("childId", childId);
                     flashcardIntent.putExtra("lessonImage", image);
+                    flashcardIntent.putExtra("lessonIndex", lessonIndex);
                     startActivity(flashcardIntent);
                     finish();
                 }
@@ -258,6 +262,7 @@ public class Lesson extends AppCompatActivity {
         if(extras != null){
             dataBaseLessonId = extras.getString("dataBaseLessonId");
             childId = extras.getString("childId");
+            lessonIndex = extras.getInt("lessonIndex");
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();

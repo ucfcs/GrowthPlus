@@ -55,8 +55,8 @@ public class CreateAccount extends AppCompatActivity {
                 "Roadmap One Lesson 1",
                 "elephant",
                 "numbers",
-                false,
                 true,
+                false,
                 7,
                 10,
                 "RmOneLessonOne",
@@ -70,7 +70,7 @@ public class CreateAccount extends AppCompatActivity {
                 "elephant",
                 "addition",
                 false,
-                true,
+                false,
                 7,
                 10,
                 "RmOneLessonTwo",
@@ -84,7 +84,7 @@ public class CreateAccount extends AppCompatActivity {
                 "unit",
                 "units",
                 false,
-                true,
+                false,
                 7,
                 10,
                 "RmOneLessonThree",
@@ -98,7 +98,7 @@ public class CreateAccount extends AppCompatActivity {
                 "elephant",
                 "numbers",
                 false,
-                true,
+                false,
                 7,
                 10,
                 "RmOneLessonFour",
@@ -112,7 +112,7 @@ public class CreateAccount extends AppCompatActivity {
                 "elephant",
                 "subtraction",
                 false,
-                true,
+                false,
                 7,
                 10,
                 "RmOneLessonFive",
@@ -126,7 +126,7 @@ public class CreateAccount extends AppCompatActivity {
                 "elephant",
                 "multiplication",
                 false,
-                true,
+                false,
                 7,
                 10,
                 "RmOneLessonSix",
@@ -140,7 +140,7 @@ public class CreateAccount extends AppCompatActivity {
                 "elephant",
                 "division",
                 false,
-                true,
+                false,
                 7,
                 10,
                 "RmOneLessonSeven",
@@ -154,7 +154,7 @@ public class CreateAccount extends AppCompatActivity {
                 "elephant",
                 "multiplication",
                 false,
-                true,
+                false,
                 7,
                 10,
                 "RmOneLessonEight",
@@ -168,7 +168,7 @@ public class CreateAccount extends AppCompatActivity {
                 "elephant",
                 "division",
                 false,
-                true,
+                false,
                 7,
                 10,
                 "RmOneLessonNine",
@@ -181,7 +181,7 @@ public class CreateAccount extends AppCompatActivity {
                 "Roadmap One Lesson 10",
                 null,
                 null,
-                true,
+                false,
                 false,
                 7,
                 10,
@@ -210,7 +210,7 @@ public class CreateAccount extends AppCompatActivity {
                 10,
                 7,
                 false,
-                true,
+                false,
                 "RmOneQuizOne",
                 0
         );
@@ -220,7 +220,7 @@ public class CreateAccount extends AppCompatActivity {
                 10,
                 7,
                 false,
-                true,
+                false,
                 "RmOneQuizTwo",
                 0
         );
@@ -241,7 +241,7 @@ public class CreateAccount extends AppCompatActivity {
 
         ChildRoadMap childRoadMapOne = new ChildRoadMap(
                 "roadMapOne",
-                9,
+                0,
                 true,
                 false,
                 false,
@@ -305,14 +305,14 @@ public class CreateAccount extends AppCompatActivity {
                     parent.getChildren().add(child);
 
                 }, ()->{
-                        Intent intent = new Intent(CreateAccount.this, MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        overridePendingTransition(0, 0);
-                        startActivity(intent);
-                        overridePendingTransition(0, 0);
-                        finish();
+                    Intent intent = new Intent(CreateAccount.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    overridePendingTransition(0, 0);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                    finish();
                 }, error -> {
-                        Log.i("Error", "Could not add child to parent " + error);
+                    Log.i("Error", "Could not add child to parent " + error);
                 });
 
             }

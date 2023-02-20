@@ -37,7 +37,7 @@ public class Quiz extends AppCompatActivity {
     Button nextContent, introBackBtn;
     String childId, databaseQuizId;
     QuizSchema quiz;
-    int contentLength, counter, score;
+    int contentLength, counter, thisScore, childScore;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
@@ -128,10 +128,14 @@ public class Quiz extends AppCompatActivity {
 
             counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
-                if(score >= 7){
+                if(thisScore >= 7){
                     // TODO: make quiz completed and is NOT current
+                    realm.executeTransactionAsync(realm1 -> {
+                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                        child.setScore(childScore);
+                    });
                 }
-                if(score > 7) {
+                if(thisScore > 7) {
                     // TODO: update highest score achieved on quiz if > currentPoints
                 }
 
@@ -214,7 +218,8 @@ public class Quiz extends AppCompatActivity {
         topBar = findViewById(R.id.topBar);
         introBackBtn = topBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button);
-        score = 0;
+        thisScore = 0;
+        childScore = child.getScore();
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);
@@ -233,7 +238,8 @@ public class Quiz extends AppCompatActivity {
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir1.correct();
-                score++;
+                thisScore++;
+                childScore++;
             }
             else{
                 cir1.incorrect();
@@ -259,7 +265,8 @@ public class Quiz extends AppCompatActivity {
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir2.correct();
-                score++;
+                thisScore++;
+                childScore++;
             }
             else{
                 cir2.incorrect();
@@ -285,7 +292,8 @@ public class Quiz extends AppCompatActivity {
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir3.correct();
-                score++;
+                thisScore++;
+                childScore++;
             }
             else{
                 cir3.incorrect();
@@ -311,7 +319,8 @@ public class Quiz extends AppCompatActivity {
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir4.correct();
-                score++;
+                thisScore++;
+                childScore++;
             }
             else{
                 cir4.incorrect();

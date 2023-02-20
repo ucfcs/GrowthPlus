@@ -17,6 +17,8 @@ import android.widget.Button;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
+import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomEquation;
 import com.GrowthPlus.fragment.CustomImage;
@@ -29,7 +31,6 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class Flashcard extends AppCompatActivity {
-
     private String dataBaseLessonId;
     private String childId;
     private ChildSchema child; // Need this to update score
@@ -48,23 +49,27 @@ public class Flashcard extends AppCompatActivity {
     private ColorStateList wrongAnswerColor;
     private ColorStateList resetColor;
     private Button flashcardBackBtn;
-    private ColorStateList resetInputTint;
     private TopBar flashcardTopBar;
     private final int TEXT_INPUT_ONLY = 1;
     private final int NUMBER_INPUT_ONLY = 2;
     int counter = 0;
     final int MAX = 5;
-    String flashcardAnswer;
-    String firstNumber;
-    String firstOperator;
-    String secondNumber;
-    String category;
+    private int currentScore;
+    private int numberCorrect;
+    private String flashcardAnswer;
+    private String firstNumber;
+    private String firstOperator;
+    private String secondNumber;
+    private String category;
+    private int childLessonsCompleted;
+    private int lessonIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
         init();
+        Log.i("lessonIndex", String.valueOf(lessonIndex));
 
         flashcardBackBtn.setOnClickListener(view -> {
             Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class);
@@ -158,6 +163,8 @@ public class Flashcard extends AppCompatActivity {
             }else{
                 if(childAnswer.equals(flashcardAnswer)){
                     answerColor = correctAnswerColor;
+                    numberCorrect ++ ;
+                    currentScore += 2;
                 }
                 else {
                     answerColor = wrongAnswerColor;
@@ -192,6 +199,36 @@ public class Flashcard extends AppCompatActivity {
         nextFlashcard.setOnClickListener(view -> {
             counter++;
             if(counter >= MAX){
+                // If score > 4 then update isCurrent & isCompleted only and only if current lesson is not already completed (if child came back to play)
+                if(numberCorrect >=4){
+                    // Update child score
+                    if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
+                        // Don't increase the lessonCompleted count
+                        realm.executeTransactionAsync(realm1 -> {
+                            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                            child.setScore(currentScore);
+                        });
+                    }else{
+                        realm.executeTransactionAsync(realm1 -> {
+                            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+
+                            RoadMapLesson currentLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                            currentLesson.setCurrent(false);
+                            currentLesson.setCompleted(true);
+
+                            child.setScore(currentScore);
+                            childLessonsCompleted ++;
+                            child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+
+                            RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                            nextLesson.setCurrent(true);
+                            nextLesson.setCompleted(false);
+
+                        });
+
+                    }
+
+                }
                 Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
@@ -286,10 +323,13 @@ public class Flashcard extends AppCompatActivity {
             dataBaseLessonId = extras.getString("dataBaseLessonId");
             childId = extras.getString("childId");
             image = extras.getString("lessonImage");
+            lessonIndex = extras.getInt("lessonIndex");
         }
         imageSrcIdentifier = new ImageSrcIdentifier();
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+        currentScore = child.getScore();
+        numberCorrect = 0;
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         assert lesson != null;
         lessonFlashcards = lesson.getFlashcards();
@@ -300,7 +340,7 @@ public class Flashcard extends AppCompatActivity {
         correctAnswerColor = ContextCompat.getColorStateList(this, R.color.light_green);
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
-        resetInputTint = ContextCompat.getColorStateList(this, R.color.grey);
+        childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
     }
 
     private void setTopBar(){
