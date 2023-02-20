@@ -125,12 +125,12 @@
         app:layout_constraintBottom_toTopOf="@id/nameBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintTop_toBottomOf="@id/bunnyBottom"></EditText>
+        app:layout_constraintTop_toBottomOf="@id/bunnyBottom" />
 
     <android.widget.Button
         android:id="@+id/loginBtn"
         android:layout_width="150dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/play_large"
@@ -139,7 +139,5 @@
         app:layout_constraintTop_toBottomOf="@id/playTop"
         app:layout_constraintBottom_toTopOf="@id/playBottom"
         app:layout_constraintStart_toEndOf="@id/playStart"
-        app:layout_constraintEnd_toStartOf="@id/playEnd"
-        ></android.widget.Button>
-
+        app:layout_constraintEnd_toStartOf="@id/playEnd" />
 </androidx.constraintlayout.widget.ConstraintLayout>
