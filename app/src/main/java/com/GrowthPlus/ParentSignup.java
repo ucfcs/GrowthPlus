@@ -138,12 +138,10 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         String input1String = input1.getText().toString();
         String input2String = input2.getText().toString();
 
-        if (!input1String.equals(null) &&
-            !input1String.equals("") &&
-            !input2String.equals(null) &&
-            !input2String.equals("") &&
-            Integer.valueOf(input1String) >= 1000 &&
-            Integer.valueOf(input2String) >= 1000)
+        if(!input1String.equals(null) &&
+           !input2String.equals(null) &&
+           input1String.length() == 4 &&
+           input2String.length() == 4)
         {
             return true;
         }
