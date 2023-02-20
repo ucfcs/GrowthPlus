@@ -51,6 +51,7 @@ public class Lesson extends AppCompatActivity {
             // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
+            this.finish();
         });
         setTopBar();
 

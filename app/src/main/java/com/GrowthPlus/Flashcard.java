@@ -12,7 +12,6 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
@@ -48,6 +47,7 @@ public class Flashcard extends AppCompatActivity {
     private ColorStateList correctAnswerColor;
     private ColorStateList wrongAnswerColor;
     private ColorStateList resetColor;
+    private Button flashcardBackBtn;
     private ColorStateList resetInputTint;
     private TopBar flashcardTopBar;
     private final int TEXT_INPUT_ONLY = 1;
@@ -65,6 +65,13 @@ public class Flashcard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
         init();
+
+        flashcardBackBtn.setOnClickListener(view -> {
+            Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class);
+            lessonIntent.putExtra("childIdentify", childId);
+            startActivity(lessonIntent);
+            this.finish();
+        });
         setTopBar();
 
         /*
@@ -288,6 +295,7 @@ public class Flashcard extends AppCompatActivity {
         lessonFlashcards = lesson.getFlashcards();
         flashcardContainer = findViewById(R.id.flashcardContainer);
         nextFlashcard = findViewById(R.id.next_button_flashcard);
+        flashcardBackBtn = flashcardTopBar.findViewById(R.id.goBackBtn);
         fragmentManager = getSupportFragmentManager();
         correctAnswerColor = ContextCompat.getColorStateList(this, R.color.light_green);
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
