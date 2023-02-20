@@ -26,6 +26,7 @@ public class Game extends AppCompatActivity {
     private void init(){
         topBar = findViewById(R.id.topBar);
     }
+
     private void setTopBar(){
         //topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToStar();
