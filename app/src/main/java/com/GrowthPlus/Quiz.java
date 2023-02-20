@@ -57,6 +57,7 @@ public class Quiz extends AppCompatActivity {
             // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
+            this.finish();
         });
         setTopBar();
         setTimer();
@@ -139,6 +140,8 @@ public class Quiz extends AppCompatActivity {
                 Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
+                this.finish();
+                // TODO: Must pass with at least 7/10 correct otherwise has to do it again
             }
             else{
                 // Reset all circles to neutral color

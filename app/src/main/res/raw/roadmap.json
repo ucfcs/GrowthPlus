@@ -171,7 +171,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "1",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonOneFlashTwo",
@@ -181,7 +181,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "3",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonOneFlashThree",
@@ -191,7 +191,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "6",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonOneFlashFour",
@@ -201,7 +201,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "8",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonOneFlashFive",
@@ -211,7 +211,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "9",
-            "category": ""
+            "category": "customImage"
           }
         ]
       },
@@ -368,7 +368,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "4",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashTwo",
@@ -378,7 +378,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "6",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashThree",
@@ -388,7 +388,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "8",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashFour",
@@ -398,7 +398,7 @@
             "secondNumber": "3",
             "secondOperator": null,
             "answer": "6",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashFive",
@@ -408,7 +408,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customEquation"
           }
         ]
       },
@@ -550,17 +550,17 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "1",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashTwo",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashThree",
@@ -570,7 +570,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashFour",
@@ -580,17 +580,17 @@
             "secondNumber": "4",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashFive",
             "image": "unit",
-            "firstNumber": "83",
+            "firstNumber": "3",
             "firstOperator": "+",
             "secondNumber": "7",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customImageOperator"
           }
         ]
       },
@@ -762,7 +762,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "12",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonFourFlashTwo",
@@ -772,7 +772,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "14",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonFourFlashThree",
@@ -782,7 +782,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "15",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonFourFlashFour",
@@ -792,17 +792,17 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "17",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonFourFlashFive",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": "2",
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "answer": "20",
-            "category": ""
+            "category": "customImage"
           }
         ]
       },
@@ -974,7 +974,7 @@
             "secondNumber": "4",
             "secondOperator": null,
             "answer": "1",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonFiveFlashTwo",
@@ -984,7 +984,7 @@
             "secondNumber": "7",
             "secondOperator": null,
             "answer": "3",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonFiveFlashThree",
@@ -994,7 +994,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "17",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonFiveFlashFour",
@@ -1004,7 +1004,7 @@
             "secondNumber": "4",
             "secondOperator": null,
             "answer": "11",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonFiveFlashFive",
@@ -1014,7 +1014,7 @@
             "secondNumber": "3",
             "secondOperator": null,
             "answer": "3",
-            "category": ""
+            "category": "customEquation"
           }
         ]
       },
@@ -1186,7 +1186,7 @@
             "secondNumber": "1",
             "secondOperator": null,
             "answer": "2",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSixFlashTwo",
@@ -1196,7 +1196,7 @@
             "secondNumber": "4",
             "secondOperator": null,
             "answer": "8",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSixFlashThree",
@@ -1206,7 +1206,7 @@
             "secondNumber": "6",
             "secondOperator": null,
             "answer": "12",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSixFlashFour",
@@ -1216,7 +1216,7 @@
             "secondNumber": "9",
             "secondOperator": null,
             "answer": "18",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSixFlashFive",
@@ -1226,7 +1226,7 @@
             "secondNumber": "10",
             "secondOperator": null,
             "answer": "20",
-            "category": ""
+            "category": "customEquation"
           }
         ]
       },
@@ -1398,7 +1398,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "2",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSevenFlashTwo",
@@ -1408,7 +1408,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "4",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSevenFlashThree",
@@ -1418,7 +1418,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "5",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSevenFlashFour",
@@ -1428,7 +1428,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "9",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSevenFlashFive",
@@ -1438,7 +1438,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customEquation"
           }
         ]
       },
@@ -1520,7 +1520,7 @@
             "secondNumber": "1",
             "secondOperator": null,
             "answer": "5",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonEightFlashTwo",
@@ -1530,7 +1530,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonEightFlashThree",
@@ -1540,7 +1540,7 @@
             "secondNumber": "3",
             "secondOperator": null,
             "answer": "15",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonEightFlashFour",
@@ -1550,7 +1550,7 @@
             "secondNumber": "4",
             "secondOperator": null,
             "answer": "20",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonEightFlashFive",
@@ -1560,7 +1560,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customEquation"
           }
         ]
       },
@@ -1642,7 +1642,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "1",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonNineFlashTwo",
@@ -1652,7 +1652,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "2",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonNineFlashThree",
@@ -1662,7 +1662,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "3",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonNineFlashFour",
@@ -1672,7 +1672,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "4",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonNineFlashFive",
@@ -1682,7 +1682,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "1",
-            "category": ""
+            "category": "customEquation"
           }
         ]
       },
@@ -1703,7 +1703,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "3",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonTenFlashTwo",
@@ -1713,17 +1713,17 @@
             "secondNumber": "4",
             "secondOperator": null,
             "answer": "8",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTenFlashThree",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": "1",
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonTenFlashFour",
@@ -1733,7 +1733,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "answer": "17",
-            "category": ""
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonTenFlashFive",
@@ -1743,7 +1743,7 @@
             "secondNumber": "4",
             "secondOperator": null,
             "answer": "6",
-            "category": ""
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTenFlashSix",
@@ -1753,7 +1753,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "10",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTenFlashSeven",
@@ -1763,7 +1763,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "6",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTenFlashEight",
@@ -1773,7 +1773,7 @@
             "secondNumber": "1",
             "secondOperator": null,
             "answer": "5",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTenFlashNine",
@@ -1783,7 +1783,7 @@
             "secondNumber": "5",
             "secondOperator": null,
             "answer": "3",
-            "category": ""
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTenFlashTen",
@@ -1793,7 +1793,7 @@
             "secondNumber": "2",
             "secondOperator": null,
             "answer": "4",
-            "category": ""
+            "category": "customEquation"
           }
         ]
       }
