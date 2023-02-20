@@ -25,6 +25,11 @@ public class ImageSrcIdentifier {
         imageSrcId.put("unitOfOneThousand", R.mipmap.unit_of_one_thousand_foreground);
         imageSrcId.put("twoElephants", R.mipmap.two_elephants_foreground);
         imageSrcId.put("fiveElephants", R.mipmap.five_elephants_foreground);
+        imageSrcId.put("fiveFrancs", R.mipmap.five_fcfa_foreground);
+        imageSrcId.put("tenFrancs", R.mipmap.ten_fcfa_foreground);
+        imageSrcId.put("twentyFiveFrancs", R.mipmap.twenty_five_fcfa_foreground);
+        imageSrcId.put("fiftyFrancs", R.mipmap.fifty_fcfa_foreground);
+        imageSrcId.put("oneHundredFrancs", R.mipmap.one_hundred_fcfa_foreground);
     }
 
     public Integer getImageSrcId(String imageName){
