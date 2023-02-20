@@ -19,9 +19,9 @@ public class Conversion extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_conversion, container, false);
-        text1 = view.findViewById(R.id.first_text);
+        text1 = view.findViewById(R.id.conversion_first_text);
         operator = view.findViewById(R.id.operator);
-        text2 = view.findViewById(R.id.second_text);
+        text2 = view.findViewById(R.id.conversion_second_text);
 
         return view;
     }
@@ -29,10 +29,12 @@ public class Conversion extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String t1 = requireArguments().getString("text1");
-        String t2 = requireArguments().getString("text2");
+        String getText1 = requireArguments().getString("text1");
+        String getOperator = requireArguments().getString("operator");
+        String getText2 = requireArguments().getString("text2");
 
-        text1.setText(t1);
-        text2.setText(t2);
+        text1.setText(getText1);
+        operator.setText(getOperator);
+        text2.setText(getText2);
     }
 }
