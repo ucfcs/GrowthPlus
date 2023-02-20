@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
@@ -124,8 +126,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         String inputString = input.getText().toString();
 
         if (!inputString.equals(null) &&
-            !inputString.equals("")   &&
-            Integer.valueOf(inputString) >= 1000) {
+            inputString.length() == 4) {
             return true;
         }
         else{
