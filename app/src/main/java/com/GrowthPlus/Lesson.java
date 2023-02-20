@@ -51,6 +51,7 @@ public class Lesson extends AppCompatActivity {
             // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
+            this.finish();
         });
         setTopBar();
 
@@ -86,8 +87,12 @@ public class Lesson extends AppCompatActivity {
             public void onClick(View v) {
                 // Reached the end of the contents and need to start looking at flashcards or the Lesson is 10 (which is all flashcards)
                 if(counter >= contentLength){
-                    Intent lessonIntent = new Intent(Lesson.this, Flashcard.class);
-                    startActivity(lessonIntent);
+                    Intent flashcardIntent = new Intent(Lesson.this, Flashcard.class);
+                    flashcardIntent.putExtra("dataBaseLessonId", dataBaseLessonId);
+                    flashcardIntent.putExtra("childId", childId);
+                    flashcardIntent.putExtra("lessonImage", image);
+                    startActivity(flashcardIntent);
+                    finish();
                 }
                 else{
                     String category = contents.get(counter).getCategory();
@@ -267,5 +272,6 @@ public class Lesson extends AppCompatActivity {
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
+        topBar.setToTriangle();
     }
 }

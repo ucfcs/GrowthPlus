@@ -4,4 +4,5 @@
     <dimen name="elephantSmall">20dp</dimen>
     <dimen name="elephantLarge">70dp</dimen>
     <dimen name="elephantXLarge">95dp</dimen>
+    <dimen name="flashcardAnswerSize">120dp</dimen>
 </resources>
