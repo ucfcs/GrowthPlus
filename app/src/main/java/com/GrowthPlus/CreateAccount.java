@@ -191,6 +191,20 @@ public class CreateAccount extends AppCompatActivity {
                 true,
                 false,
                 0);
+        RoadMapLesson roadMapLesson11 = new RoadMapLesson(
+                "Roadmap Two Lesson 1",
+                null,
+                null,
+                true,
+                false,
+                7,
+                10,
+                "RmTwoLessonOne",
+                null,
+                "RmOneLessonOneFlashOne",
+                true,
+                false,
+                0);
         RealmList<RoadMapLesson> roadMapLessons = new RealmList<>();
         roadMapLessons.add(roadMapLesson1);
         roadMapLessons.add(roadMapLesson2);
@@ -202,6 +216,7 @@ public class CreateAccount extends AppCompatActivity {
         roadMapLessons.add(roadMapLesson8);
         roadMapLessons.add(roadMapLesson9);
         roadMapLessons.add(roadMapLesson10);
+        roadMapLessons.add(roadMapLesson11);
 
 
         RoadMapQuiz roadMapQuiz1 = new RoadMapQuiz(
@@ -242,8 +257,8 @@ public class CreateAccount extends AppCompatActivity {
         ChildRoadMap childRoadMapOne = new ChildRoadMap(
                 "roadMapOne",
                 9,
-                true,
                 false,
+                true,
                 false,
                 roadMapLessons,
                 roadMapQuizzes,
@@ -253,9 +268,9 @@ public class CreateAccount extends AppCompatActivity {
         ChildRoadMap childRoadMapTwo = new ChildRoadMap(
                 "roadMapTwo",
                 0,
-                false,
-                false,
                 true,
+                false,
+                false,
                 null,
                 null,
                 null,

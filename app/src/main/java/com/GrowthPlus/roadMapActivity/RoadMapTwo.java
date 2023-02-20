@@ -40,7 +40,12 @@ public class RoadMapTwo extends AppCompatActivity {
         }
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
         init(child);
-        initState();
+
+//        initState();
+          // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
+        roadMapTwoLessonTrail.unLockRoadMap();
+        //setLessonTiles(child);
+
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap2item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -90,7 +95,11 @@ public class RoadMapTwo extends AppCompatActivity {
 
     }
 
+    // Used for initial state when roadmap is locked
     private void initState(){
         roadMapTwoLessonTrail.setAlpha(.7f);
     }
 }
+
+
+//counting, verticalEquation, wordImage, wordImageEquation, ImageWord, conversion, conversionTable
