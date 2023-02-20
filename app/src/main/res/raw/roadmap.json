@@ -554,7 +554,7 @@
           },
           {
             "flashCardId": "RmOneLessonThreeFlashTwo",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
@@ -796,7 +796,7 @@
           },
           {
             "flashCardId": "RmOneLessonFourFlashFive",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": "2",
             "firstOperator": null,
             "secondNumber": null,
@@ -1717,7 +1717,7 @@
           },
           {
             "flashCardId": "RmOneLessonTenFlashThree",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": "1",
             "firstOperator": null,
             "secondNumber": null,
