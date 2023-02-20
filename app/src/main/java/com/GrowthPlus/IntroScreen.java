@@ -99,5 +99,6 @@ public class IntroScreen extends AppCompatActivity {
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
+        topBar.setToCircle();
     }
 }
