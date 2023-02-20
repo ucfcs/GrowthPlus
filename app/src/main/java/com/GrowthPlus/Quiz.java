@@ -33,9 +33,9 @@ public class Quiz extends AppCompatActivity {
     Realm realm;
     TopBar topBar;
     Button nextContent, introBackBtn;
-    String childId, quizName, image, databaseQuizId;
+    String childId, databaseQuizId;
     QuizSchema quiz;
-    int contentLength, counter;
+    int contentLength, counter, score;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
@@ -117,10 +117,16 @@ public class Quiz extends AppCompatActivity {
         nextContent.setOnClickListener(v -> {
             counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
+                if(score >= 7){
+                    // TODO: make quiz completed and is NOT current
+                }
+                if(score > 7) {
+                    // TODO: update highest score achieved on quiz if > currentPoints
+                }
+
                 Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
-                // TODO: Must pass with at least 7/10 correct otherwise has to do it again
             }
             else{
                 // Reset all circles to neutral color
@@ -193,14 +199,11 @@ public class Quiz extends AppCompatActivity {
         topBar = findViewById(R.id.topBar);
         introBackBtn = topBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button);
+        score = 0;
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);
         Collections.shuffle(twenty); // Randomize question selection
-
-        // TODO: Should go to location_intro before this
-        // quizName = quiz.getQuizName();
-        //image = quiz.getImage();
     }
 
     private void setTopBar(){
@@ -212,6 +215,7 @@ public class Quiz extends AppCompatActivity {
         cir1.setOnClickListener(v -> {
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir1.correct();
+                score++;
             }
             else{
                 cir1.incorrect();
@@ -235,6 +239,7 @@ public class Quiz extends AppCompatActivity {
         cir2.setOnClickListener(v -> {
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir2.correct();
+                score++;
             }
             else{
                 cir2.incorrect();
@@ -258,6 +263,7 @@ public class Quiz extends AppCompatActivity {
         cir3.setOnClickListener(v -> {
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir3.correct();
+                score++;
             }
             else{
                 cir3.incorrect();
@@ -281,6 +287,7 @@ public class Quiz extends AppCompatActivity {
         cir4.setOnClickListener(v -> {
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir4.correct();
+                score++;
             }
             else{
                 cir4.incorrect();

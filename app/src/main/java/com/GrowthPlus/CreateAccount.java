@@ -285,8 +285,7 @@ public class CreateAccount extends AppCompatActivity {
 
         // Go to main page with update new child
         View.OnClickListener goNext = v -> {
-            if (!nameInput.getText().toString().equals(null) && !nameInput.getText().toString().equals("")){
-
+            if (nameInput.getText().toString() != null && !nameInput.getText().toString().equals("")){
                 newChild = new ChildSchemaService(realm,
                         nameInput.getText().toString(),
                         animalName,

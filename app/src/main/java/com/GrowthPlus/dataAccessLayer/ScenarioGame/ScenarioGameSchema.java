@@ -17,6 +17,9 @@ public class ScenarioGameSchema extends RealmObject{
     private String secondOperator;
     private String thirdOperand;
 
+    public void getContents(){
+
+    }
     public String getScenarioGameId() {
         return scenarioGameId;
     }
