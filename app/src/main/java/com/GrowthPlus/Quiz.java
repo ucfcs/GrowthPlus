@@ -205,6 +205,7 @@ public class Quiz extends AppCompatActivity {
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
+        topBar.setToCircle();
     }
 
     private void setAnswers(){

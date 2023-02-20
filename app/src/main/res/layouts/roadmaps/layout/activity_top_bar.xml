@@ -29,6 +29,8 @@
         android:rotationX="180"
         android:text="▼"
         android:textColor="@color/light_green"
+        android:textAlignment="center"
+        android:gravity="center_horizontal|center_vertical"
         android:textSize="50sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
