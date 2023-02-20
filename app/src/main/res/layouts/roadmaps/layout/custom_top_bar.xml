@@ -24,19 +24,20 @@
 
     <TextView
         android:id="@+id/topBarTriangle"
-        android:layout_width="50dp"
-        android:layout_height="55dp"
+        android:layout_width="80dp"
+        android:layout_height="85dp"
+        android:gravity="center_horizontal|center_vertical"
         android:rotationX="180"
         android:text="▼"
-        android:textColor="@color/light_green"
         android:textAlignment="center"
-        android:gravity="center_horizontal|center_vertical"
-        android:textSize="50sp"
+        android:textColor="@color/light_green"
+        android:textSize="60sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pointsIcon"
         app:layout_constraintStart_toEndOf="@id/goBackBtn"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/topBarCircle"
