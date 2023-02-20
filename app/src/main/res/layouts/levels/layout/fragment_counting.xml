@@ -4,39 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".fragment.Counting" >
+    tools:context=".fragment.Counting">
 
     <TextView
-        android:id="@+id/number"
-        android:layout_width="350dp"
+        android:id="@+id/numberCounting"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
         android:text="1"
         android:textAlignment="center"
         android:textColor="@color/light_green"
         android:textSize="80sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toTopOf="@id/guideline4" />
 
     <TextView
-        android:id="@+id/word"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="one
-"
+        android:id="@+id/wordCounting"
+        android:layout_width="320dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:autoSizeTextType="uniform"
+        android:text="one"
         android:textAlignment="center"
         android:textColor="@color/yellow"
-        android:textSize="62sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number" />
+        android:textSize="50sp"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/numberCounting" />
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="350dp"
-        android:layout_height="210dp"
-        android:layout_marginTop="40dp"
-        android:src="@mipmap/elephant_foreground"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/word" />
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayoutCounting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/wordCounting"
+        app:columnCount="5"
+        app:rowCount="4"
+        >
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

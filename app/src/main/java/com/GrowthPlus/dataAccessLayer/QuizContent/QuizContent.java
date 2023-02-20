@@ -13,6 +13,7 @@ public class QuizContent extends RealmObject {
     private String answerThree;
     private String answerFour;
     private String answer;
+    private String quizCategory;
 
     public String getQuizContentId() {
         return quizContentId;
@@ -78,4 +79,11 @@ public class QuizContent extends RealmObject {
         this.answer = answer;
     }
 
+    public String getQuizCategory() {
+        return quizCategory;
+    }
+
+    public void setQuizCategory(String quizCategory) {
+        this.quizCategory = quizCategory;
+    }
 }

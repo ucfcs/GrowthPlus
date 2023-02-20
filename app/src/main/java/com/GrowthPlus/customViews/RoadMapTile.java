@@ -98,7 +98,9 @@ public class RoadMapTile extends ConstraintLayout {
     }
 
     public void hideShape(){
-        // TODO: HIDE SHAPE BRO
+        triangle.setVisibility(View.INVISIBLE);
+        circle.setVisibility(View.INVISIBLE);
+        star.setVisibility(View.INVISIBLE);
     }
 
     public void setSelectedState(ChildSchema child){
@@ -108,7 +110,7 @@ public class RoadMapTile extends ConstraintLayout {
         setAvatar(child.getAvatarName());
     }
 
-    // Completed state once the child has reached the goal of the lesson
+    // Completed state once the child has reached the goal of the Lesson
     public void setCompletedState(){
         setTileSelectedState();
         setTriangleSelectedState();

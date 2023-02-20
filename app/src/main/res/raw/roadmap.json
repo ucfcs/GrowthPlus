@@ -7,7 +7,7 @@
         "lessonId": "RmOneLessonOne",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 1",
+        "lessonName": "1",
         "category": "numbers",
         "image": "elephant",
         "contents": [
@@ -23,7 +23,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentTwo",
@@ -37,7 +38,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentThree",
@@ -51,7 +53,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentFour",
@@ -65,7 +68,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentFive",
@@ -79,7 +83,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentSix",
@@ -93,7 +98,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentSeven",
@@ -107,7 +113,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentEight",
@@ -121,7 +128,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentNine",
@@ -135,7 +143,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonOneContentTen",
@@ -149,7 +158,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           }
         ],
         "flashcards": [
@@ -160,7 +170,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "1"
+            "answer": "1",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonOneFlashTwo",
@@ -169,7 +180,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "3"
+            "answer": "3",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonOneFlashThree",
@@ -178,7 +190,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "6"
+            "answer": "6",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonOneFlashFour",
@@ -187,7 +200,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "8"
+            "answer": "8",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonOneFlashFive",
@@ -196,7 +210,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "9"
+            "answer": "9",
+            "category": "customImage"
           }
         ]
       },
@@ -204,7 +219,7 @@
         "lessonId": "RmOneLessonTwo",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 2",
+        "lessonName": "2",
         "category": "addition",
         "image": "elephant",
         "contents": [
@@ -220,7 +235,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonTwoContentTwo",
@@ -234,7 +250,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonTwoContentThree",
@@ -248,7 +265,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonTwoContentFour",
@@ -262,7 +280,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonTwoContentFive",
@@ -276,7 +295,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonTwoContentSix",
@@ -290,7 +310,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonTwoContentSeven",
@@ -304,7 +325,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonTwoContentEight",
@@ -318,7 +340,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonTwoContentNine",
@@ -332,7 +355,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           }
         ],
         "flashcards": [
@@ -343,7 +367,8 @@
             "firstOperator": "+",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "4"
+            "answer": "4",
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashTwo",
@@ -352,7 +377,8 @@
             "firstOperator": "+",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "6"
+            "answer": "6",
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashThree",
@@ -361,7 +387,8 @@
             "firstOperator": "+",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "8"
+            "answer": "8",
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashFour",
@@ -370,7 +397,8 @@
             "firstOperator": "+",
             "secondNumber": "3",
             "secondOperator": null,
-            "answer": "6"
+            "answer": "6",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTwoFlashFive",
@@ -379,7 +407,8 @@
             "firstOperator": "+",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customEquation"
           }
         ]
       },
@@ -387,13 +416,13 @@
         "lessonId": "RmOneLessonThree",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 3",
+        "lessonName": "3",
         "category": "units",
-        "image": "unit",
+        "image": "elephant",
         "contents": [
           {
             "lessonContentId": "RmOneLessonThreeContentOne",
-            "word":"une unité",
+            "word":"unit",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
@@ -403,105 +432,113 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordImage"
           },
           {
             "lessonContentId": "RmOneLessonThreeContentTwo",
             "word": null,
-            "firstNumber": "dix unités",
+            "firstNumber": "unit",
             "firstOperator": "=",
-            "secondNumber": "une dizaine",
+            "secondNumber": "unitOfTen",
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "tenOneUnits",
-            "imgTwo": "tenUnit",
-            "imgThree": null,
+            "imgOne": "10",
+            "imgTwo": "unitOfTen",
+            "imgThree": "unit",
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordImageEquation"
           },
           {
             "lessonContentId": "RmOneLessonThreeContentThree",
-            "word":"une dizaine",
+            "word":"unitOfTen",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "tenUnit",
+            "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordImage"
           },
           {
             "lessonContentId": "RmOneLessonThreeContentFour",
-            "word": null,
-            "firstNumber": "5",
-            "firstOperator": "+",
-            "secondNumber": "5",
-            "secondOperator": "=",
+            "word": "5 + 5 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
             "thirdNumber": null,
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordImage"
           },
           {
             "lessonContentId": "RmOneLessonThreeContentFive",
-            "word": null,
-            "firstNumber": "4",
-            "firstOperator": "+",
-            "secondNumber": "6",
-            "secondOperator": "=",
+            "word": "4 + 6 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
             "thirdNumber": null,
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordImage"
           },
           {
             "lessonContentId": "RmOneLessonThreeContentSix",
-            "word": null,
-            "firstNumber": "7",
-            "firstOperator": "+",
-            "secondNumber": "3",
-            "secondOperator": "=",
+            "word": "7 + 3 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
             "thirdNumber": null,
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordImage"
           },
           {
             "lessonContentId": "RmOneLessonThreeContentSeven",
-            "word": null,
-            "firstNumber": "2",
-            "firstOperator": "+",
-            "secondNumber": "8",
-            "secondOperator": "=",
+            "word": "8 + 2 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
             "thirdNumber": null,
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordImage"
           },
           {
             "lessonContentId": "RmOneLessonThreeContentEight",
-            "word": null,
-            "firstNumber": "1",
-            "firstOperator": "+",
-            "secondNumber": "9",
-            "secondOperator": "=",
+            "word": "1 + 9 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
             "thirdNumber": null,
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordImage"
           }
         ],
         "flashcards": [
@@ -512,16 +549,18 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "1"
+            "answer": "1",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashTwo",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashThree",
@@ -530,7 +569,8 @@
             "firstOperator": "+",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashFour",
@@ -539,16 +579,18 @@
             "firstOperator": "+",
             "secondNumber": "4",
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonThreeFlashFive",
             "image": "unit",
-            "firstNumber": "83",
+            "firstNumber": "3",
             "firstOperator": "+",
             "secondNumber": "7",
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customImageOperator"
           }
         ]
       },
@@ -556,7 +598,7 @@
         "lessonId": "RmOneLessonFour",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 4",
+        "lessonName": "4",
         "category": "numbers",
         "image": "elephant",
         "contents": [
@@ -572,7 +614,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentTwo",
@@ -586,7 +629,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentThree",
@@ -600,7 +644,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentFour",
@@ -614,7 +659,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentFive",
@@ -628,7 +674,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentSix",
@@ -642,7 +689,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentSeven",
@@ -656,7 +704,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentEight",
@@ -670,7 +719,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentNine",
@@ -684,7 +734,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           },
           {
             "lessonContentId": "RmOneLessonFourContentTen",
@@ -698,7 +749,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "counting"
           }
         ],
         "flashcards": [
@@ -709,7 +761,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "12"
+            "answer": "12",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonFourFlashTwo",
@@ -718,7 +771,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "14"
+            "answer": "14",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonFourFlashThree",
@@ -727,7 +781,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "15"
+            "answer": "15",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonFourFlashFour",
@@ -736,16 +791,18 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "17"
+            "answer": "17",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonFourFlashFive",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": "2",
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "20"
+            "answer": "20",
+            "category": "customImage"
           }
         ]
       },
@@ -753,7 +810,7 @@
         "lessonId": "RmOneLessonFive",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 5",
+        "lessonName": "5",
         "category": "subtraction",
         "image": "elephant",
         "contents": [
@@ -769,7 +826,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentTwo",
@@ -783,7 +841,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentThree",
@@ -797,7 +856,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentFour",
@@ -811,7 +871,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentFive",
@@ -825,7 +886,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentSix",
@@ -839,7 +901,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentSeven",
@@ -853,7 +916,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentEight",
@@ -867,7 +931,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentNine",
@@ -881,7 +946,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           },
           {
             "lessonContentId": "RmOneLessonFiveContentTen",
@@ -895,7 +961,8 @@
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "horizontalEquation"
           }
         ],
         "flashcards": [
@@ -906,7 +973,8 @@
             "firstOperator": "-",
             "secondNumber": "4",
             "secondOperator": null,
-            "answer": "1"
+            "answer": "1",
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonFiveFlashTwo",
@@ -915,7 +983,8 @@
             "firstOperator": "-",
             "secondNumber": "7",
             "secondOperator": null,
-            "answer": "3"
+            "answer": "3",
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonFiveFlashThree",
@@ -924,7 +993,8 @@
             "firstOperator": "-",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "17"
+            "answer": "17",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonFiveFlashFour",
@@ -933,7 +1003,8 @@
             "firstOperator": "-",
             "secondNumber": "4",
             "secondOperator": null,
-            "answer": "11"
+            "answer": "11",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonFiveFlashFive",
@@ -942,7 +1013,8 @@
             "firstOperator": "-",
             "secondNumber": "3",
             "secondOperator": null,
-            "answer": "3"
+            "answer": "3",
+            "category": "customEquation"
           }
         ]
       },
@@ -950,7 +1022,7 @@
         "lessonId": "RmOneLessonSix",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 6",
+        "lessonName": "6",
         "category": "multiplication",
         "image": "elephant",
         "contents": [
@@ -962,11 +1034,12 @@
             "secondNumber": "1",
             "secondOperator": "=",
             "thirdNumber": "2",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentTwo",
@@ -976,11 +1049,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "4",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentThree",
@@ -990,11 +1064,12 @@
             "secondNumber": "3",
             "secondOperator": "=",
             "thirdNumber": "6",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentFour",
@@ -1004,11 +1079,12 @@
             "secondNumber": "4",
             "secondOperator": "=",
             "thirdNumber": "8",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentFive",
@@ -1018,11 +1094,12 @@
             "secondNumber": "5",
             "secondOperator": "=",
             "thirdNumber": "10",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentSix",
@@ -1032,11 +1109,12 @@
             "secondNumber": "6",
             "secondOperator": "=",
             "thirdNumber": "12",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentSeven",
@@ -1046,11 +1124,12 @@
             "secondNumber": "7",
             "secondOperator": "=",
             "thirdNumber": "14",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentEight",
@@ -1060,11 +1139,12 @@
             "secondNumber": "8",
             "secondOperator": "=",
             "thirdNumber": "16",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentNine",
@@ -1074,11 +1154,12 @@
             "secondNumber": "9",
             "secondOperator": "=",
             "thirdNumber": "18",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSixContentTen",
@@ -1088,11 +1169,12 @@
             "secondNumber": "10",
             "secondOperator": "=",
             "thirdNumber": "20",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           }
         ],
         "flashcards": [
@@ -1103,7 +1185,8 @@
             "firstOperator": "x",
             "secondNumber": "1",
             "secondOperator": null,
-            "answer": "2"
+            "answer": "2",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSixFlashTwo",
@@ -1112,7 +1195,8 @@
             "firstOperator": "x",
             "secondNumber": "4",
             "secondOperator": null,
-            "answer": "8"
+            "answer": "8",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSixFlashThree",
@@ -1121,7 +1205,8 @@
             "firstOperator": "x",
             "secondNumber": "6",
             "secondOperator": null,
-            "answer": "12"
+            "answer": "12",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSixFlashFour",
@@ -1130,7 +1215,8 @@
             "firstOperator": "x",
             "secondNumber": "9",
             "secondOperator": null,
-            "answer": "18"
+            "answer": "18",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSixFlashFive",
@@ -1139,7 +1225,8 @@
             "firstOperator": "x",
             "secondNumber": "10",
             "secondOperator": null,
-            "answer": "20"
+            "answer": "20",
+            "category": "customEquation"
           }
         ]
       },
@@ -1147,7 +1234,7 @@
         "lessonId": "RmOneLessonSeven",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 7",
+        "lessonName": "7",
         "category": "division",
         "image": "elephant",
         "contents": [
@@ -1159,11 +1246,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "1",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentTwo",
@@ -1173,11 +1261,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "2",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentThree",
@@ -1187,11 +1276,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "3",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentFour",
@@ -1201,11 +1291,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "4",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentFive",
@@ -1215,11 +1306,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "5",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentSix",
@@ -1229,11 +1321,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "6",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentSeven",
@@ -1243,11 +1336,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "7",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentEight",
@@ -1257,11 +1351,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "8",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentNine",
@@ -1271,11 +1366,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "9",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonSevenContentTen",
@@ -1285,11 +1381,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "10",
-            "imgOne": null,
+            "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           }
         ],
         "flashcards": [
@@ -1300,7 +1397,8 @@
             "firstOperator": ":",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "2"
+            "answer": "2",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSevenFlashTwo",
@@ -1309,7 +1407,8 @@
             "firstOperator": ":",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "4"
+            "answer": "4",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSevenFlashThree",
@@ -1318,7 +1417,8 @@
             "firstOperator": ":",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "5"
+            "answer": "5",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSevenFlashFour",
@@ -1327,7 +1427,8 @@
             "firstOperator": ":",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "9"
+            "answer": "9",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonSevenFlashFive",
@@ -1336,7 +1437,8 @@
             "firstOperator": ":",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customEquation"
           }
         ]
       },
@@ -1344,7 +1446,7 @@
         "lessonId": "RmOneLessonEight",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 8",
+        "lessonName": "8",
         "category": "multiplication",
         "image": "elephant",
         "contents": [
@@ -1356,11 +1458,12 @@
             "secondNumber": "1",
             "secondOperator": "=",
             "thirdNumber": "5",
-            "imgOne": null,
+            "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonEightContentTwo",
@@ -1370,11 +1473,12 @@
             "secondNumber": "2",
             "secondOperator": "=",
             "thirdNumber": "10",
-            "imgOne": null,
+            "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonEightContentThree",
@@ -1384,11 +1488,12 @@
             "secondNumber": "3",
             "secondOperator": "=",
             "thirdNumber": "15",
-            "imgOne": null,
+            "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonEightContentFour",
@@ -1398,11 +1503,12 @@
             "secondNumber": "4",
             "secondOperator": "=",
             "thirdNumber": "20",
-            "imgOne": null,
+            "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           }
         ],
         "flashcards": [
@@ -1413,7 +1519,8 @@
             "firstOperator": "x",
             "secondNumber": "1",
             "secondOperator": null,
-            "answer": "5"
+            "answer": "5",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonEightFlashTwo",
@@ -1422,7 +1529,8 @@
             "firstOperator": "x",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonEightFlashThree",
@@ -1431,7 +1539,8 @@
             "firstOperator": "x",
             "secondNumber": "3",
             "secondOperator": null,
-            "answer": "15"
+            "answer": "15",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonEightFlashFour",
@@ -1440,7 +1549,8 @@
             "firstOperator": "x",
             "secondNumber": "4",
             "secondOperator": null,
-            "answer": "20"
+            "answer": "20",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonEightFlashFive",
@@ -1449,7 +1559,8 @@
             "firstOperator": "x",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customEquation"
           }
         ]
       },
@@ -1457,7 +1568,7 @@
         "lessonId": "RmOneLessonNine",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 9",
+        "lessonName": "9",
         "category": "division",
         "image": "elephant",
         "contents": [
@@ -1469,11 +1580,12 @@
             "secondNumber": "5",
             "secondOperator": "=",
             "thirdNumber": "1",
-            "imgOne": null,
+            "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonNineContentTwo",
@@ -1483,11 +1595,12 @@
             "secondNumber": "5",
             "secondOperator": "=",
             "thirdNumber": "2",
-            "imgOne": null,
+            "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonNineContentThree",
@@ -1497,11 +1610,12 @@
             "secondNumber": "5",
             "secondOperator": "=",
             "thirdNumber": "3",
-            "imgOne": null,
+            "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           },
           {
             "lessonContentId": "RmOneLessonNineContentFour",
@@ -1511,11 +1625,12 @@
             "secondNumber": "5",
             "secondOperator": "=",
             "thirdNumber": "4",
-            "imgOne": null,
+            "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
-            "imgFive": null
+            "imgFive": null,
+            "category" : "wordGrid"
           }
         ],
         "flashcards": [
@@ -1526,7 +1641,8 @@
             "firstOperator": ":",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "1"
+            "answer": "1",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonNineFlashTwo",
@@ -1535,7 +1651,8 @@
             "firstOperator": ":",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "2"
+            "answer": "2",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonNineFlashThree",
@@ -1544,7 +1661,8 @@
             "firstOperator": ":",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "3"
+            "answer": "3",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonNineFlashFour",
@@ -1553,7 +1671,8 @@
             "firstOperator": ":",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "4"
+            "answer": "4",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonNineFlashFive",
@@ -1562,7 +1681,8 @@
             "firstOperator": ":",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "1"
+            "answer": "1",
+            "category": "customEquation"
           }
         ]
       },
@@ -1570,9 +1690,9 @@
         "lessonId": "RmOneLessonTen",
         "maxPoints": 10,
         "minPoints": 7,
-        "lessonName": "Lesson 10",
+        "lessonName": "10",
         "category": null,
-        "image": null,
+        "image": "elephant",
         "contents": null,
         "flashcards":[
           {
@@ -1582,7 +1702,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "3"
+            "answer": "3",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonTenFlashTwo",
@@ -1591,16 +1712,18 @@
             "firstOperator": "+",
             "secondNumber": "4",
             "secondOperator": null,
-            "answer": "8"
+            "answer": "8",
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTenFlashThree",
-            "image": "tenUnit",
+            "image": "unitOfTen",
             "firstNumber": "1",
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonTenFlashFour",
@@ -1609,7 +1732,8 @@
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "17"
+            "answer": "17",
+            "category": "customImage"
           },
           {
             "flashCardId": "RmOneLessonTenFlashFive",
@@ -1618,7 +1742,8 @@
             "firstOperator": "-",
             "secondNumber": "4",
             "secondOperator": null,
-            "answer": "6"
+            "answer": "6",
+            "category": "customImageOperator"
           },
           {
             "flashCardId": "RmOneLessonTenFlashSix",
@@ -1627,7 +1752,8 @@
             "firstOperator": "x",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "10"
+            "answer": "10",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTenFlashSeven",
@@ -1636,7 +1762,8 @@
             "firstOperator": ":",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "6"
+            "answer": "6",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTenFlashEight",
@@ -1645,7 +1772,8 @@
             "firstOperator": "x",
             "secondNumber": "1",
             "secondOperator": null,
-            "answer": "5"
+            "answer": "5",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTenFlashNine",
@@ -1654,7 +1782,8 @@
             "firstOperator": ":",
             "secondNumber": "5",
             "secondOperator": null,
-            "answer": "3"
+            "answer": "3",
+            "category": "customEquation"
           },
           {
             "flashCardId": "RmOneLessonTenFlashTen",
@@ -1663,7 +1792,8 @@
             "firstOperator": "x",
             "secondNumber": "2",
             "secondOperator": null,
-            "answer": "4"
+            "answer": "4",
+            "category": "customEquation"
           }
         ]
       }
@@ -1672,6 +1802,7 @@
       {
         "quizId": "RmOneQuizOne",
         "quizName": "Quiz 1",
+        "image": "elephant",
         "maxPoints": 10,
         "minPoints": 7,
         "quizContents": [
@@ -1683,7 +1814,8 @@
             "answerTwo": "3",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "1"
+            "answer": "1",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwo",
@@ -1693,7 +1825,8 @@
             "answerTwo": "8",
             "answerThree": "4",
             "answerFour": "2",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentThree",
@@ -1703,7 +1836,8 @@
             "answerTwo": "6",
             "answerThree": "3",
             "answerFour": "5",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentFour",
@@ -1713,7 +1847,8 @@
             "answerTwo": "5",
             "answerThree": "4",
             "answerFour": "7",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentFive",
@@ -1723,7 +1858,8 @@
             "answerTwo": "2",
             "answerThree": "1",
             "answerFour": "7",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentSix",
@@ -1733,7 +1869,8 @@
             "answerTwo": "3",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizOneContentSeven",
@@ -1743,7 +1880,8 @@
             "answerTwo": "7",
             "answerThree": "1",
             "answerFour": "6",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentEight",
             "image": null,
@@ -1752,7 +1890,8 @@
             "answerTwo": "10",
             "answerThree": "3",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentNine",
             "image": null,
@@ -1761,7 +1900,8 @@
             "answerTwo": "9",
             "answerThree": "4",
             "answerFour": "8",
-            "answer": "9"
+            "answer": "9",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentTen",
             "image": null,
@@ -1770,7 +1910,8 @@
             "answerTwo": "10",
             "answerThree": "8",
             "answerFour": "6",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizOneContentEleven",
             "image": "elephant",
@@ -1779,7 +1920,8 @@
             "answerTwo": "1",
             "answerThree": "6",
             "answerFour": "5",
-            "answer": "1"
+            "answer": "1",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwelve",
@@ -1789,7 +1931,8 @@
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "1",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentThirteen",
@@ -1799,7 +1942,8 @@
             "answerTwo": "10",
             "answerThree": "3",
             "answerFour": "6",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentFourteen",
@@ -1809,17 +1953,19 @@
             "answerTwo": "10",
             "answerThree": "5",
             "answerFour": "2",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentFifteen",
             "image": "elephant",
             "question": "5",
             "answerOne": "4",
-            "answerTwo": "1",
+            "answerTwo": "5",
             "answerThree": "7",
             "answerFour": "3",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentSixteen",
@@ -1829,7 +1975,8 @@
             "answerTwo": "3",
             "answerThree": "1",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentSeventeen",
@@ -1839,7 +1986,8 @@
             "answerTwo": "7",
             "answerThree": "3",
             "answerFour": "2",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentEighteen",
@@ -1849,7 +1997,8 @@
             "answerTwo": "3",
             "answerThree": "5",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentNineteen",
@@ -1859,7 +2008,8 @@
             "answerTwo": "9",
             "answerThree": "7",
             "answerFour": "2",
-            "answer": "9"
+            "answer": "9",
+            "quizCategory": "Image"
           },
           {
             "quizContentId": "RmOneQuizOneContentTwenty",
@@ -1869,211 +2019,233 @@
             "answerTwo": "8",
             "answerThree": "6",
             "answerFour": "10",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "Image"
           }
         ]
       },
       {
         "quizId": "RmOneQuizTwo",
         "quizName": "Quiz 2",
+        "image": "elephant",
         "maxPoints": 10,
         "minPoints": 7,
         "quizContents": [
           {
             "quizContentId": "RmOneQuizTwoContentOne",
             "image": null,
-            "question": "6+13",
+            "question": "6 + 13",
             "answerOne": "7",
             "answerTwo": "20",
             "answerThree": "15",
             "answerFour": "19",
-            "answer": "19"
+            "answer": "19",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwo",
             "image": null,
-            "question": "3+12",
+            "question": "3 + 12",
             "answerOne": "15",
             "answerTwo": "8",
             "answerThree": "9",
             "answerFour": "16",
-            "answer": "15"
+            "answer": "15",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentThree",
             "image": null,
-            "question": "5+7",
+            "question": "5 + 7",
             "answerOne": "2",
             "answerTwo": "12",
             "answerThree": "8",
             "answerFour": "6",
-            "answer": "12"
+            "answer": "12",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFour",
             "image": null,
-            "question": "4+9",
+            "question": "4 + 9",
             "answerOne": "13",
             "answerTwo": "8",
             "answerThree": "5",
             "answerFour": "11",
-            "answer": "13"
+            "answer": "13",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFive",
             "image": null,
-            "question": "13+3",
+            "question": "13 + 3",
             "answerOne": "15",
             "answerTwo": "12",
             "answerThree": "10",
             "answerFour": "16",
-            "answer": "16"
+            "answer": "16",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSix",
             "image": null,
-            "question": "16-5",
+            "question": "16 - 5",
             "answerOne": "8",
             "answerTwo": "10",
             "answerThree": "11",
             "answerFour": "6",
-            "answer": "11"
+            "answer": "11",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSeven",
             "image": null,
-            "question": "12-8",
+            "question": "12 - 8",
             "answerOne": "4",
             "answerTwo": "20",
             "answerThree": "11",
             "answerFour": "7",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentEight",
             "image": null,
-            "question": "8-3",
+            "question": "8 - 3",
             "answerOne": "5",
             "answerTwo": "10",
             "answerThree": "11",
             "answerFour": "6",
-            "answer": "5"
+            "answer": "5",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentNine",
             "image": null,
-            "question": "11-4",
+            "question": "11 - 4",
             "answerOne": "5",
             "answerTwo": "9",
             "answerThree": "7",
             "answerFour": "8",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentTen",
             "image": null,
-            "question": "20-3",
+            "question": "20 - 3",
             "answerOne": "13",
             "answerTwo": "19",
             "answerThree": "8",
             "answerFour": "17",
-            "answer": "17"
+            "answer": "17",
+            "quizCategory": "String"
           },{
             "quizContentId": "RmOneQuizTwoContentEleven",
             "image": null,
-            "question": "2x1",
+            "question": "2 x 1",
             "answerOne": "3",
             "answerTwo": "1",
             "answerThree": "2",
             "answerFour": "5",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwelve",
             "image": null,
-            "question": "2x2",
+            "question": "2 x 2",
             "answerOne": "1",
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "8",
-            "answer": "4"
+            "answer": "4",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentThirteen",
             "image": null,
-            "question": "2x3",
+            "question": "2 x 3",
             "answerOne": "5",
             "answerTwo": "8",
             "answerThree": "3",
             "answerFour": "6",
-            "answer": "6"
+            "answer": "6",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFourteen",
             "image": null,
-            "question": "2x4",
+            "question": "2 x 4",
             "answerOne": "4",
             "answerTwo": "10",
             "answerThree": "8",
             "answerFour": "16",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentFifteen",
             "image": null,
-            "question": "2x5",
+            "question": "2 x 5",
             "answerOne": "10",
             "answerTwo": "5",
             "answerThree": "12",
             "answerFour": "15",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSixteen",
             "image": null,
-            "question": "20:2",
+            "question": "20 : 2",
             "answerOne": "8",
             "answerTwo": "1",
             "answerThree": "10",
             "answerFour": "4",
-            "answer": "10"
+            "answer": "10",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentSeventeen",
             "image": null,
-            "question": "6:2",
+            "question": "6 : 2",
             "answerOne": "2",
             "answerTwo": "5",
             "answerThree": "3",
             "answerFour": "1",
-            "answer": "3"
+            "answer": "3",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentEighteen",
             "image": null,
-            "question": "16:2",
+            "question": "16 : 2",
             "answerOne": "6",
             "answerTwo": "4",
             "answerThree": "2",
             "answerFour": "8",
-            "answer": "8"
+            "answer": "8",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentNineteen",
             "image": null,
-            "question": "4:2",
+            "question": "4 : 2",
             "answerOne": "3",
             "answerTwo": "8",
             "answerThree": "20",
             "answerFour": "2",
-            "answer": "2"
+            "answer": "2",
+            "quizCategory": "String"
           },
           {
             "quizContentId": "RmOneQuizTwoContentTwenty",
             "image": null,
-            "question": "14:2",
+            "question": "14 : 2",
             "answerOne": "7",
             "answerTwo": "8",
             "answerThree": "4",
             "answerFour": "6",
-            "answer": "7"
+            "answer": "7",
+            "quizCategory": "String"
           }
         ]
       }
@@ -2081,9 +2253,10 @@
     "scenarioGame":
     {
         "scenarioGameId": "RmOneScenarioGame",
-        "scenarioGameName": "",
-        "minPoints": 0,
-        "maxPoints": 0,
+        "scenarioGameName": "Game 1",
+        "image": "elephant",
+        "minPoints": 14,
+        "maxPoints": 20,
         "firstOperand": "",
         "firstOperator": "",
         "secondOperand": "",
@@ -2095,7 +2268,1742 @@
   {
     "roadMapId": "RoadMapTwo",
     "roadMapName": "Level 2",
-    "lessons": null,
+    "lessons": [
+      {
+        "lessonId": "RmTwoLessonOne",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "1",
+        "category": "numbers",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonOneContentOne",
+            "word": "twenty",
+            "firstNumber": "20",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonOneContentTwo",
+            "word": "twentyFive",
+            "firstNumber": "25",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": "unit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonOneContentThree",
+            "word": "thirty",
+            "firstNumber": "30",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonOneContentFour",
+            "word": "thirtyFive",
+            "firstNumber": "35",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": "unit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonOneContentFive",
+            "word": "forty",
+            "firstNumber": "40",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonOneContentSix",
+            "word": "fortyFive",
+            "firstNumber": "45",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": "unit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonOneContentSeven",
+            "word": "fifty",
+            "firstNumber": "50",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonOneContentEight",
+            "word": "fiftyFive",
+            "firstNumber": "55",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": "unit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonOneContentNine",
+            "word": "sixty",
+            "firstNumber": "60",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonOneFlashOne",
+            "image": "unitOfTen",
+            "firstNumber": "2",
+            "firstOperator": "+",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "40",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonOneFlashTwo",
+            "image": "unitOfTen",
+            "firstNumber": "2",
+            "firstOperator": "+",
+            "secondNumber": "1",
+            "secondOperator": null,
+            "answer": "30",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonOneFlashThree",
+            "image": "unit",
+            "firstNumber": "15",
+            "firstOperator": "+",
+            "secondNumber": "10",
+            "secondOperator": null,
+            "answer": "25",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonOneFlashFour",
+            "image": "unitOfTen",
+            "firstNumber": "4",
+            "firstOperator": "+",
+            "secondNumber": "1",
+            "secondOperator": null,
+            "answer": "50",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonOneFlashFive",
+            "image": "unit",
+            "firstNumber": "10",
+            "firstOperator": "+",
+            "secondNumber": "25",
+            "secondOperator": null,
+            "answer": "35",
+            "category": "customImageOperator"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonTwo",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "2",
+        "category": "addition",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonTwoContentOne",
+            "word": null,
+            "firstNumber": "10",
+            "firstOperator": "+",
+            "secondNumber": "10",
+            "secondOperator": "=",
+            "thirdNumber": "20",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonTwoContentTwo",
+            "word": null,
+            "firstNumber": "20",
+            "firstOperator": "+",
+            "secondNumber": "30",
+            "secondOperator": "=",
+            "thirdNumber": "50",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonTwoContentThree",
+            "word": null,
+            "firstNumber": "21",
+            "firstOperator": "+",
+            "secondNumber": "21",
+            "secondOperator": "=",
+            "thirdNumber": "42",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonTwoContentFour",
+            "word": null,
+            "firstNumber": "43",
+            "firstOperator": "+",
+            "secondNumber": "12",
+            "secondOperator": "=",
+            "thirdNumber": "55",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonTwoContentFive",
+            "word": null,
+            "firstNumber": "34",
+            "firstOperator": "+",
+            "secondNumber": "22",
+            "secondOperator": "=",
+            "thirdNumber": "56",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonTwoContentSix",
+            "word": null,
+            "firstNumber": "15",
+            "firstOperator": "+",
+            "secondNumber": "15",
+            "secondOperator": "=",
+            "thirdNumber": "30",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonTwoContentSeven",
+            "word": null,
+            "firstNumber": "27",
+            "firstOperator": "+",
+            "secondNumber": "23",
+            "secondOperator": "=",
+            "thirdNumber": "50",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonTwoContentEight",
+            "word": null,
+            "firstNumber": "18",
+            "firstOperator": "+",
+            "secondNumber": "19",
+            "secondOperator": "=",
+            "thirdNumber": "37",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonTwoContentNine",
+            "word": null,
+            "firstNumber": "42",
+            "firstOperator": "+",
+            "secondNumber": "9",
+            "secondOperator": "=",
+            "thirdNumber": "51",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonTwoFlashOne",
+            "image": null,
+            "firstNumber": "36",
+            "firstOperator": "+",
+            "secondNumber": "15",
+            "secondOperator": null,
+            "answer": "51",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonTwoFlashTwo",
+            "image": null,
+            "firstNumber": "20",
+            "firstOperator": "+",
+            "secondNumber": "40",
+            "secondOperator": null,
+            "answer": "60",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonTwoFlashThree",
+            "image": null,
+            "firstNumber": "9",
+            "firstOperator": "+",
+            "secondNumber": "28",
+            "secondOperator": null,
+            "answer": "37",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonTwoFlashFour",
+            "image": null,
+            "firstNumber": "51",
+            "firstOperator": "+",
+            "secondNumber": "8",
+            "secondOperator": null,
+            "answer": "59",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonTwoFlashFive",
+            "image": null,
+            "firstNumber": "12",
+            "firstOperator": "+",
+            "secondNumber": "24",
+            "secondOperator": null,
+            "answer": "36",
+            "category": "customEquation"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonThree",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "3",
+        "category": "units",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonThreeContentOne",
+            "word":"unitOfTen",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "wordImage"
+          },
+          {
+            "lessonContentId": "RmTwoLessonThreeContentTwo",
+            "word": null,
+            "firstNumber": "unitOfTen",
+            "firstOperator": "=",
+            "secondNumber": "unitOfOneHundred",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "10",
+            "imgTwo": "unitOfOneHundred",
+            "imgThree": "unitOfTen",
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "wordImageEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonThreeContentThree",
+            "word":"unitOfOneHundred",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfOneHundred",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "wordImage"
+          },
+          {
+            "lessonContentId": "RmTwoLessonThreeContentFour",
+            "word": "50 + 50 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "CDUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "wordImage"
+          },
+          {
+            "lessonContentId": "RmTwoLessonThreeContentFive",
+            "word": "40 + 60 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "CDUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "wordImage"
+          },
+          {
+            "lessonContentId": "RmTwoLessonThreeContentSix",
+            "word": "70 + 30 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "CDUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "wordImage"
+          },
+          {
+            "lessonContentId": "RmTwoLessonThreeContentSeven",
+            "word": "80 + 20 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "CDUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "wordImage"
+          },
+          {
+            "lessonContentId": "RmTwoLessonThreeContentEight",
+            "word": "10 + 90 =",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "CDUimg",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "wordImage"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonThreeFlashOne",
+            "image": "unitOfTen",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "10",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmTwoLessonThreeFlashTwo",
+            "image": "unitOfOneHundred",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "100",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmTwoLessonThreeFlashThree",
+            "image": "unitOfTen",
+            "firstNumber": "50",
+            "firstOperator": "+",
+            "secondNumber": "50",
+            "secondOperator": null,
+            "answer": "100",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonThreeFlashFour",
+            "image": null,
+            "firstNumber": "30",
+            "firstOperator": "+",
+            "secondNumber": "70",
+            "secondOperator": null,
+            "answer": "100",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonThreeFlashFive",
+            "image": null,
+            "firstNumber": "10",
+            "firstOperator": "+",
+            "secondNumber": "90",
+            "secondOperator": null,
+            "answer": "100",
+            "category": "customEquation"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonFour",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "4",
+        "category": "numbers",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonFourContentOne",
+            "word": "sixtyFive",
+            "firstNumber": "65",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": "unit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFourContentTwo",
+            "word": "seventy",
+            "firstNumber": "70",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFourContentThree",
+            "word": "seventyFive",
+            "firstNumber": "75",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": "unit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFourContentFour",
+            "word": "eighty",
+            "firstNumber": "80",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFourContentFive",
+            "word": "eightyFive",
+            "firstNumber": "85",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": "unit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFourContentSix",
+            "word": "ninety",
+            "firstNumber": "90",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFourContentSeven",
+            "word": "ninetyFive",
+            "firstNumber": "95",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfTen",
+            "imgTwo": "unit",
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFourContentEight",
+            "word": "oneHundred",
+            "firstNumber": "100",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "unitOfOneHundred",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "counting"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonFourFlashOne",
+            "image": "unitOfTen",
+            "firstNumber": "3",
+            "firstOperator": "+",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "70",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonFourFlashTwo",
+            "image": "unitOfTen",
+            "firstNumber": "2",
+            "firstOperator": "+",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "60",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonFourFlashThree",
+            "image": "unitOfOneHundred",
+            "firstNumber": "1",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "100",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmTwoLessonFourFlashFour",
+            "image": "unitOfTen",
+            "firstNumber": "4",
+            "firstOperator": "+",
+            "secondNumber": "5",
+            "secondOperator": null,
+            "answer": "90",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonFourFlashFive",
+            "image": null,
+            "firstNumber": "45",
+            "firstOperator": "+",
+            "secondNumber": "40",
+            "secondOperator": null,
+            "answer": "85",
+            "category": "customEquation"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonFive",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "5",
+        "category": "subtraction",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonFiveContentOne",
+            "word": null,
+            "firstNumber": "20",
+            "firstOperator": "-",
+            "secondNumber": "10",
+            "secondOperator": "=",
+            "thirdNumber": "10",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFiveContentTwo",
+            "word": null,
+            "firstNumber": "50",
+            "firstOperator": "-",
+            "secondNumber": "30",
+            "secondOperator": "=",
+            "thirdNumber": "20",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFiveContentThree",
+            "word": null,
+            "firstNumber": "42",
+            "firstOperator": "-",
+            "secondNumber": "21",
+            "secondOperator": "=",
+            "thirdNumber": "21",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFiveContentFour",
+            "word": null,
+            "firstNumber": "100",
+            "firstOperator": "-",
+            "secondNumber": "90",
+            "secondOperator": "=",
+            "thirdNumber": "10",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFiveContentFive",
+            "word": null,
+            "firstNumber": "55",
+            "firstOperator": "-",
+            "secondNumber": "30",
+            "secondOperator": "=",
+            "thirdNumber": "25",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFiveContentSix",
+            "word": null,
+            "firstNumber": "88",
+            "firstOperator": "-",
+            "secondNumber": "18",
+            "secondOperator": "=",
+            "thirdNumber": "70",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFiveContentSeven",
+            "word": null,
+            "firstNumber": "80",
+            "firstOperator": "-",
+            "secondNumber": "35",
+            "secondOperator": "=",
+            "thirdNumber": "45",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFiveContentEight",
+            "word": null,
+            "firstNumber": "100",
+            "firstOperator": "-",
+            "secondNumber": "45",
+            "secondOperator": "=",
+            "thirdNumber": "55",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          },
+          {
+            "lessonContentId": "RmTwoLessonFiveContentNine",
+            "word": null,
+            "firstNumber": "96",
+            "firstOperator": "-",
+            "secondNumber": "37",
+            "secondOperator": "=",
+            "thirdNumber": "59",
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "verticalEquation"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonFiveFlashOne",
+            "image": null,
+            "firstNumber": "60",
+            "firstOperator": "-",
+            "secondNumber": "40",
+            "secondOperator": null,
+            "answer": "20",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonFiveFlashTwo",
+            "image": null,
+            "firstNumber": "85",
+            "firstOperator": "-",
+            "secondNumber": "55",
+            "secondOperator": null,
+            "answer": "30",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonFiveFlashThree",
+            "image": null,
+            "firstNumber": "100",
+            "firstOperator": "-",
+            "secondNumber": "67",
+            "secondOperator": null,
+            "answer": "33",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonFiveFlashFour",
+            "image": null,
+            "firstNumber": "43",
+            "firstOperator": "-",
+            "secondNumber": "24",
+            "secondOperator": null,
+            "answer": "19",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonFiveFlashFive",
+            "image": null,
+            "firstNumber": "85",
+            "firstOperator": "-",
+            "secondNumber": "68",
+            "secondOperator": null,
+            "answer": "17",
+            "category": "customEquation"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonSix",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "6",
+        "category": "money",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonSixContentOne",
+            "word": "5 francs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "fiveFrancs",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSixContentTwo",
+            "word": "10 francs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "tenFrancs",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSixContentThree",
+            "word": "25 francs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "twentyFiveFrancs",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSixContentFour",
+            "word": "50 francs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "fiftyFrancs",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSixContentFive",
+            "word": "100 francs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "oneHundredFrancs",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonSixFlashOne",
+            "image": "tenFrancs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "10",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmTwoLessonSixFlashTwo",
+            "image": "oneHundredFrancs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "100",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmTwoLessonSixFlashThree",
+            "image": "twentyFiveFrancs",
+            "firstNumber": "1",
+            "firstOperator": "+",
+            "secondNumber": "1",
+            "secondOperator": null,
+            "answer": "50",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonSixFlashFour",
+            "image": "fiftyFrancs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "50",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmTwoLessonSixFlashFive",
+            "image": "fiveFrancs",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "5",
+            "category": "customImage"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonSeven",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "7",
+        "category": "length",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonSevenContentOne",
+            "word": "centimter (cm)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "centimeter",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSevenContentTwo",
+            "word": "decimeter (dm)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "decimeter",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSevenContentThree",
+            "word": null,
+            "firstNumber": "10 cm",
+            "firstOperator": "=",
+            "secondNumber": "1 dm",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversion"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSevenContentFour",
+            "word": "meter (m)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "meter",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSevenContentFive",
+            "word": null,
+            "firstNumber": "10 dm",
+            "firstOperator": "=",
+            "secondNumber": "1 m",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversion"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSevenContentSix",
+            "word": "decameter (dam)",
+            "firstNumber": "10",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "meter",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonSevenContentSeven",
+            "word": null,
+            "firstNumber": "100 cm = 1 m",
+            "firstOperator": "1 dm = 1 m",
+            "secondNumber": "1 dam = 10 m",
+            "secondOperator": "1 hm = 100 m",
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversionTable"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonSevenFlashOne",
+            "image": "hectometer",
+            "firstNumber": "1 hm",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "m",
+            "answer": "100",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonSevenFlashTwo",
+            "image": "decimeter",
+            "firstNumber": "10 dm",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "m",
+            "answer": "1",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonSevenFlashThree",
+            "image": "meter",
+            "firstNumber": "1 dam",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "m",
+            "answer": "10",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonSevenFlashFour",
+            "image": "centimeter",
+            "firstNumber": "100 cm",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "m",
+            "answer": "1",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonSevenFlashFive",
+            "image": "decimeter",
+            "firstNumber": "1 m",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "dm",
+            "answer": "10",
+            "category": "customImageOperator"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonEight",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "8",
+        "category": "weight",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonEightContentOne",
+            "word": "centigram (cg)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "centigram",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentTwo",
+            "word": "decigram (dg)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "decigram",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentThree",
+            "word": null,
+            "firstNumber": "10 cg",
+            "firstOperator": "=",
+            "secondNumber": "1 dg",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversion"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentFour",
+            "word": "gram (g)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "gram",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentFive",
+            "word": null,
+            "firstNumber": "10 dg",
+            "firstOperator": "=",
+            "secondNumber": "1 g",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversion"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentSix",
+            "word": "decagram (dag)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "decagram",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentSeven",
+            "word": null,
+            "firstNumber": "10 g",
+            "firstOperator": "=",
+            "secondNumber": "1 dag",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversion"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentEight",
+            "word": "hectogram (hg)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "decagram",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentNine",
+            "word": null,
+            "firstNumber": "10 dag",
+            "firstOperator": "=",
+            "secondNumber": "1 hg",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversion"
+          },
+          {
+            "lessonContentId": "RmTwoLessonEightContentTen",
+            "word": null,
+            "firstNumber": "100 cg = 1 g",
+            "firstOperator": "1 dg = 1 g",
+            "secondNumber": "1 dag = 10 g",
+            "secondOperator": "1 hg = 100 g",
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversionTable"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonEightFlashOne",
+            "image": "hectogram",
+            "firstNumber": "1 hg",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "g",
+            "answer": "100",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonEightFlashTwo",
+            "image": "decigram",
+            "firstNumber": "10 dg",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "g",
+            "answer": "1",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonEightFlashThree",
+            "image": "gram",
+            "firstNumber": "1 dag",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "g",
+            "answer": "10",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonEightFlashFour",
+            "image": "centigram",
+            "firstNumber": "100 cg",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "g",
+            "answer": "1",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonEightFlashFive",
+            "image": "decigram",
+            "firstNumber": "1 g",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "dg",
+            "answer": "10",
+            "category": "customImageOperator"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonNine",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "9",
+        "category": "weight",
+        "image": "camel",
+        "contents": [
+          {
+            "lessonContentId": "RmTwoLessonNineContentOne",
+            "word": "centiliter (cl)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "centiliter",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonNineContentTwo",
+            "word": "deciliter (dl)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "deciliter",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonNineContentThree",
+            "word": null,
+            "firstNumber": "10 cl",
+            "firstOperator": "=",
+            "secondNumber": "1 dl",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversion"
+          },
+          {
+            "lessonContentId": "RmTwoLessonNineContentFour",
+            "word": "liter (l)",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": "liter",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "imageWord"
+          },
+          {
+            "lessonContentId": "RmTwoLessonNineContentFive",
+            "word": null,
+            "firstNumber": "10 dl",
+            "firstOperator": "=",
+            "secondNumber": "1 l",
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversion"
+          },
+          {
+            "lessonContentId": "RmTwoLessonNineContentSix",
+            "word": null,
+            "firstNumber": "100 cl = 1 l",
+            "firstOperator": "1 dl = 1 l",
+            "secondNumber": null,
+            "secondOperator": null,
+            "thirdNumber": null,
+            "imgOne": null,
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "conversionTable"
+          }
+        ],
+        "flashcards": [
+          {
+            "flashCardId": "RmTwoLessonNineFlashOne",
+            "image": "centiliter",
+            "firstNumber": "100 cl",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "l",
+            "answer": "1",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonNineFlashTwo",
+            "image": "liter",
+            "firstNumber": "1 l",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "cl",
+            "answer": "100",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonNineFlashThree",
+            "image": "liter",
+            "firstNumber": "1 l",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "dl",
+            "answer": "10",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonNineFlashFour",
+            "image": "centiliter",
+            "firstNumber": "100 cg",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "l",
+            "answer": "1",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonNineFlashFive",
+            "image": "deciliter",
+            "firstNumber": "1 l",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "lg",
+            "answer": "10",
+            "category": "customImageOperator"
+          }
+        ]
+      },
+      {
+        "lessonId": "RmTwoLessonTen",
+        "maxPoints": 10,
+        "minPoints": 7,
+        "lessonName": "10",
+        "category": null,
+        "image": "camel",
+        "contents": null,
+        "flashcards":[
+          {
+            "flashCardId": "RmTwoLessonTenFlashOne",
+            "image": "unitOfTen",
+            "firstNumber": "1",
+            "firstOperator": "+",
+            "secondNumber": "2",
+            "secondOperator": null,
+            "answer": "30",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashTwo",
+            "image": "unitOfTen",
+            "firstNumber": "6",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "60",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashThree",
+            "image": "unitOfTen",
+            "firstNumber": "8",
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "80",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashFour",
+            "image": "unitOfTen",
+            "firstNumber": "3",
+            "firstOperator": "+",
+            "secondNumber": "4",
+            "secondOperator": null,
+            "answer": "70",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashFive",
+            "image": null,
+            "firstNumber": "42",
+            "firstOperator": "+",
+            "secondNumber": "34",
+            "secondOperator": null,
+            "answer": "76",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashSix",
+            "image": null,
+            "firstNumber": "100",
+            "firstOperator": "-",
+            "secondNumber": "84",
+            "secondOperator": null,
+            "answer": "16",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashSeven",
+            "image": null,
+            "firstNumber": "55",
+            "firstOperator": "+",
+            "secondNumber": "30",
+            "secondOperator": null,
+            "answer": "85",
+            "category": "customEquation"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashEight",
+            "image": "centimeter",
+            "firstNumber": "100 cm",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "m",
+            "answer": "1",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashNine",
+            "image": "gram",
+            "firstNumber": "1 dag",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "g",
+            "answer": "10",
+            "category": "customImageOperator"
+          },
+          {
+            "flashCardId": "RmTwoLessonTenFlashTen",
+            "image": "deciliter",
+            "firstNumber": "1 l",
+            "firstOperator": "=",
+            "secondNumber": "_",
+            "secondOperator": "lg",
+            "answer": "10",
+            "category": "customImageOperator"
+          }
+        ]
+      }
+    ],
     "quizzes": null,
     "scenarioGame": null
   },

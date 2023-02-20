@@ -117,7 +117,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
             else { //input was not valid -> display a toast
                 Context context = getApplicationContext();
-                CharSequence text = "At least one PIN was blank or null. Please enter a 4-digit number.";
+                CharSequence text = "Please enter a 4-digit number for both PIN's.";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
@@ -138,10 +138,11 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         String input1String = input1.getText().toString();
         String input2String = input2.getText().toString();
 
-        if (!input1String.equals(null) &&
-            !input1String.equals("") &&
-            !input2String.equals(null) &&
-            !input2String.equals("")){
+        if(!input1String.equals(null) &&
+           !input2String.equals(null) &&
+           input1String.length() == 4 &&
+           input2String.length() == 4)
+        {
             return true;
         }
         else{
@@ -151,10 +152,8 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
     //simple method to see if two pins match
     private boolean confirmPinMatch(Integer pin1, Integer pin2){
-
         if(pin1.equals(pin2))
             return true;
-
         else
             return false;
     }

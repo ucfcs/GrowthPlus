@@ -10,6 +10,7 @@ public class QuizSchema extends RealmObject {
     @PrimaryKey
     private String quizId;
     private String quizName;
+    private String image;
     private Integer maxPoints;
     private Integer minPoints;
     private RealmList<QuizContent> quizContents;
@@ -30,6 +31,14 @@ public class QuizSchema extends RealmObject {
         this.quizName = quizName;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Integer getMaxPoints() {
         return maxPoints;
     }
@@ -46,8 +55,7 @@ public class QuizSchema extends RealmObject {
         this.minPoints = minPoints;
     }
 
-    public RealmList<QuizContent> getQuizContentsContents() { return quizContents; }
+    public RealmList<QuizContent> getContents() { return quizContents; }
 
     public void setQuizContents(RealmList<QuizContent> quizContents) { this.quizContents = quizContents; }
-
 }

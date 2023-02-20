@@ -1,5 +1,7 @@
 package com.GrowthPlus;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
@@ -98,7 +98,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
             else {//input was not valid -> display a toast
                 Context context = getApplicationContext();
-                CharSequence text = "The PIN you entered was blank or null. Please enter a 4-digit number.";
+                CharSequence text = "Please enter a 4-digit number for the PIN.";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
@@ -123,7 +123,8 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     private boolean validInput(EditText input) {
         String inputString = input.getText().toString();
 
-        if (!inputString.equals(null) && !inputString.equals("")) {
+        if (!inputString.equals(null) &&
+            inputString.length() == 4) {
             return true;
         }
         else{
