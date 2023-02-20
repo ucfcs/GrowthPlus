@@ -267,5 +267,6 @@ public class Lesson extends AppCompatActivity {
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
+        topBar.setToTriangle();
     }
 }
