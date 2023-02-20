@@ -243,6 +243,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, IntroScreen.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(0).getDatabaseQuizId());
+            IntentIntro.putExtra("whichOne", "Quiz");
             startActivity(IntentIntro);
         }
 
@@ -278,6 +279,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro = new Intent(RoadMapOne.this, IntroScreen.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
+            IntentIntro.putExtra("whichOne", "Quiz");
             startActivity(IntentIntro);
         }
 
@@ -304,9 +306,10 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
 
         // TODO: Implement this to location_intro to Game
         else if(viewId == tile13.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, Game.class);
+            IntentIntro = new Intent(RoadMapOne.this, IntroScreen.class);
             IntentIntro.putExtra("childId", childID);
-            IntentIntro.putExtra("databaseGameId", game.getDatabaseScenarioGameId());
+            IntentIntro.putExtra("databaseQuizId", game.getDatabaseScenarioGameId());
+            IntentIntro.putExtra("whichOne", "Game");
             startActivity(IntentIntro);
         }
     }
