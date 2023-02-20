@@ -26,7 +26,6 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class Lesson extends AppCompatActivity {
-
     private String dataBaseLessonId;
     private String childId;
     private ChildSchema child;
@@ -37,11 +36,9 @@ public class Lesson extends AppCompatActivity {
     private Button introBackBtn;
     private int contentLength;
     private Button nextContent;
-    int counter;
-
+    private int counter;
     private String lessonName;
     private String image;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
