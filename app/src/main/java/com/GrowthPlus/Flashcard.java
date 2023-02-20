@@ -12,6 +12,7 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
@@ -46,6 +47,7 @@ public class Flashcard extends AppCompatActivity {
     private ColorStateList correctAnswerColor;
     private ColorStateList wrongAnswerColor;
     private ColorStateList resetColor;
+    private ColorStateList resetInputTint;
     private final int TEXT_INPUT_ONLY = 1;
     private final int NUMBER_INPUT_ONLY = 2;
     int counter = 0;
@@ -139,33 +141,40 @@ public class Flashcard extends AppCompatActivity {
          * */
         flashcardContainer.setOnClickListener(view -> {
             childAnswer = flashcardContainer.getAnswer();
-            if(childAnswer.equals(flashcardAnswer)){
-                answerColor = correctAnswerColor;
-            }
-            else {
-                answerColor = wrongAnswerColor;
-            }
-            flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    super.onAnimationEnd(animation);
-
-                    if (savedInstanceState == null) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("answer", flashcardAnswer);
-                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.setReorderingAllowed(true);
-                        transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
-                        transaction.commit();
-                    }
-
-                    flashcardContainer.setFlashcardColor(answerColor);
-                    flashcardContainer.setAnswerOpacity(0.7f); // opacity
-                    flashcardContainer.setEnabled(false);
-                    flashcardContainer.setAnswerEnabled(false);
-                    nextFlashcard.setVisibility(View.VISIBLE);
+            // Don't take empty input
+            if((childAnswer == null) || childAnswer.equals("")){
+               // Maybe have a red field around it to indicate it needs input
+                flashcardContainer.setAnswerOpacity(1f); // Doesn't do anything, it's just so that there is no empty field.
+            }else{
+                if(childAnswer.equals(flashcardAnswer)){
+                    answerColor = correctAnswerColor;
                 }
-            });
+                else {
+                    answerColor = wrongAnswerColor;
+                }
+
+                flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+
+                        if (savedInstanceState == null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("answer", flashcardAnswer);
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.setReorderingAllowed(true);
+                            transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
+                            transaction.commit();
+                        }
+
+                        flashcardContainer.setFlashcardColor(answerColor);
+                        flashcardContainer.setAnswerOpacity(0.7f); // opacity
+                        flashcardContainer.setEnabled(false);
+                        flashcardContainer.setAnswerEnabled(false);
+                        nextFlashcard.setVisibility(View.VISIBLE);
+                    }
+                });
+            }
         });
 
         // Now handle the next flashcard onClick, increment the counter to go to next flashcard
@@ -279,5 +288,6 @@ public class Flashcard extends AppCompatActivity {
         correctAnswerColor = ContextCompat.getColorStateList(this, R.color.light_green);
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
+        resetInputTint = ContextCompat.getColorStateList(this, R.color.grey);
     }
 }

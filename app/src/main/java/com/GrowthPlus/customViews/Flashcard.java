@@ -82,4 +82,8 @@ public class Flashcard extends ConstraintLayout {
     public void setAnswerOpacity(float alpha){
         answer.setAlpha(alpha);
     }
+
+    public void setInputBackgroundTint(ColorStateList color){
+        answer.setBackgroundTintList(color);
+    }
 }
