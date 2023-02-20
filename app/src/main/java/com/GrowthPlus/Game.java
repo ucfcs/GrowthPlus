@@ -19,10 +19,15 @@ public class Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+A        init();
+        setTopBar();
     }
 
+    private void init(){
+        topBar = findViewById(R.id.topBar);
+    }
     private void setTopBar(){
-        topBar.setPoints(String.valueOf(child.getScore()));
+        //topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToStar();
     }
 }
