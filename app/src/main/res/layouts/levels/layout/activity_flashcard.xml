@@ -9,10 +9,9 @@
     tools:context=".Flashcard">
 
     <android.widget.Button
-        android:id="@+id/next_button"
+        android:id="@+id/next_button_flashcard"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginTop="-40dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/arrow_large"
@@ -42,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".15" />
+        app:layout_constraintGuide_percent="0.15" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/frame_bottom"
@@ -59,15 +58,21 @@
         app:layout_constraintGuide_percent=".88" />
 
     <com.GrowthPlus.customViews.TopBar
-        android:id="@+id/topBar"
+        android:id="@+id/flashcardTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.GrowthPlus.customViews.TopBar>
+
 
     <com.GrowthPlus.customViews.Flashcard
+        android:id="@+id/flashcardContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/frame_bottom"
         app:layout_constraintEnd_toStartOf="@+id/guide_right"
         app:layout_constraintStart_toStartOf="@+id/guide_left"

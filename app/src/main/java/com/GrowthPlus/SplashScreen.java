@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
-import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
+import com.GrowthPlus.roadMapActivity.realmImporter.LanguagesRealmImporter;
 
 import java.io.InputStream;
 
