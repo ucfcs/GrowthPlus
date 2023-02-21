@@ -26,6 +26,7 @@ public class IntroScreen extends AppCompatActivity {
     private Button next, back;
     private QuizSchema quizContent;
     private ScenarioGameSchema gameContent;
+    private int quizIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class IntroScreen extends AppCompatActivity {
             Intent intent;
             if(whichOne.equals("Quiz")){
                 intent = new Intent(IntroScreen.this, Quiz.class);
+                intent.putExtra("quizIndex", quizIndex);
             }
             else{
                 intent = new Intent(IntroScreen.this, Game.class);
@@ -73,6 +75,7 @@ public class IntroScreen extends AppCompatActivity {
             childId = extras.getString("childId");
             data = extras.getString("databaseQuizId");
             whichOne = extras.getString("whichOne");
+            quizIndex = extras.getInt("quizIndex");
             // TODO: Need String to determine if quiz or game extras.getString | QuizID or GameID
         }
         realm = Realm.getDefaultInstance();

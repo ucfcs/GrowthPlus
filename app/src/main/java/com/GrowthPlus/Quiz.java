@@ -18,6 +18,8 @@ import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
 import com.GrowthPlus.dataAccessLayer.QuizContent.QuizContent;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
+import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.QuizImage;
 import com.GrowthPlus.fragment.QuizText;
@@ -33,11 +35,11 @@ public class Quiz extends AppCompatActivity {
     final int MAX = 10;
     ChildSchema child;
     Realm realm;
-    TopBar topBar;
+    TopBar quizTopBar;
     Button nextContent, introBackBtn;
     String childId, databaseQuizId;
     QuizSchema quiz;
-    int contentLength, counter, thisScore, childScore;
+    int contentLength, counter, thisScore, childScore, quizIndex, childLessonsCompleted;;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
@@ -54,7 +56,6 @@ public class Quiz extends AppCompatActivity {
         introBackBtn.setOnClickListener(view -> {
             countDownTimer.cancel(); //since the user is exiting the quiz we need to stop the timer
             Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class);
-            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
@@ -125,27 +126,40 @@ public class Quiz extends AppCompatActivity {
         nextContent.setOnClickListener(v -> {
             countDownTimer.cancel();
             setTimer();
+            // Update top bar scoring
+            quizTopBar.setPoints(String.valueOf(childScore));
 
             counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
+                // Child passes the quiz
                 if(thisScore >= 7){
-                    // TODO: make quiz completed and is NOT current
                     realm.executeTransactionAsync(realm1 -> {
                         ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                        assert child != null;
+                        RoadMapQuiz currentQuiz = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex);
+                        assert currentQuiz != null;
+                        // If quiz was not previously completed, set the state, otherwise just update score
+                        // Update the completed lessons counter to move to next tile
+                        if(!currentQuiz.getCompleted()){
+                            currentQuiz.setCurrent(false);
+                            currentQuiz.setCompleted(true);
+                            childLessonsCompleted ++;
+                            child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+                            RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                            assert nextLesson != null;
+                            nextLesson.setCurrent(true);
+                            nextLesson.setCompleted(false);
+                        }
                         child.setScore(childScore);
                     });
-                }
-                if(thisScore > 7) {
-                    // TODO: update highest score achieved on quiz if > currentPoints
                 }
 
                 countDownTimer.cancel();//since we are exiting the activity we need to stop the timer
 
-                Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class); // TODO: Dynamically change location address
+                Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class);
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
                 this.finish();
-                // TODO: Must pass with at least 7/10 correct otherwise has to do it again
             }
             else{
                 // Reset all circles to neutral color
@@ -192,7 +206,6 @@ public class Quiz extends AppCompatActivity {
                             transaction.commit();
                         }
                     }
-
                     default:
                 }
             }
@@ -205,6 +218,7 @@ public class Quiz extends AppCompatActivity {
         if(extras != null){
             childId = extras.getString("childId");
             databaseQuizId = extras.getString("databaseQuizId");
+            quizIndex = extras.getInt("quizIndex");
         }
 
         cir1 = findViewById(R.id.circleOne);
@@ -215,11 +229,12 @@ public class Quiz extends AppCompatActivity {
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         quiz = realm.where(QuizSchema.class).equalTo("quizId", databaseQuizId).findFirst();
         contents = quiz.getContents();
-        topBar = findViewById(R.id.topBar);
-        introBackBtn = topBar.findViewById(R.id.goBackBtn);
+        quizTopBar = findViewById(R.id.quizTopBar);
+        introBackBtn = quizTopBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button);
         thisScore = 0;
         childScore = child.getScore();
+        childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);
@@ -227,8 +242,8 @@ public class Quiz extends AppCompatActivity {
     }
 
     private void setTopBar(){
-        topBar.setPoints(String.valueOf(child.getScore()));
-        topBar.setToCircle();
+        quizTopBar.setPoints(String.valueOf(child.getScore()));
+        quizTopBar.setToCircle();
     }
 
     private void setAnswers(){
@@ -240,6 +255,11 @@ public class Quiz extends AppCompatActivity {
                 cir1.correct();
                 thisScore++;
                 childScore++;
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                    assert child != null;
+                    child.setScore(childScore);
+                });
             }
             else{
                 cir1.incorrect();
@@ -267,6 +287,11 @@ public class Quiz extends AppCompatActivity {
                 cir2.correct();
                 thisScore++;
                 childScore++;
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                    assert child != null;
+                    child.setScore(childScore);
+                });
             }
             else{
                 cir2.incorrect();
@@ -294,6 +319,11 @@ public class Quiz extends AppCompatActivity {
                 cir3.correct();
                 thisScore++;
                 childScore++;
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                    assert child != null;
+                    child.setScore(childScore);
+                });
             }
             else{
                 cir3.incorrect();
@@ -321,6 +351,11 @@ public class Quiz extends AppCompatActivity {
                 cir4.correct();
                 thisScore++;
                 childScore++;
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                    assert child != null;
+                    child.setScore(childScore);
+                });
             }
             else{
                 cir4.incorrect();

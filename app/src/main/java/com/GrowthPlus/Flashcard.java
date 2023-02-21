@@ -25,7 +25,6 @@ import com.GrowthPlus.fragment.CustomImage;
 import com.GrowthPlus.fragment.CustomImageOperator;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
-import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -33,12 +32,11 @@ import io.realm.RealmList;
 public class Flashcard extends AppCompatActivity {
     private String dataBaseLessonId;
     private String childId;
-    private ChildSchema child; // Need this to update score
+    private ChildSchema child;
     private LessonSchema lesson;
     private Realm realm;
     private RealmList<FlashcardSchema> lessonFlashcards;
     private String image;
-    private ImageSrcIdentifier imageSrcIdentifier;
     private com.GrowthPlus.customViews.Flashcard flashcardContainer;
     private Button nextFlashcard;
     private FlashcardSchema flashcard;
@@ -50,11 +48,9 @@ public class Flashcard extends AppCompatActivity {
     private ColorStateList resetColor;
     private Button flashcardBackBtn;
     private TopBar flashcardTopBar;
-    private final int TEXT_INPUT_ONLY = 1;
     private final int NUMBER_INPUT_ONLY = 2;
     int counter = 0;
     final int MAX = 5;
-    final int MAX_NUM_LESSONS = 10;
     private int currentScore;
     private int numberCorrect;
     private String flashcardAnswer;
@@ -160,13 +156,17 @@ public class Flashcard extends AppCompatActivity {
             childAnswer = flashcardContainer.getAnswer();
             // Don't take empty input
             if((childAnswer == null) || childAnswer.equals("")){
-               // Maybe have a red field around it to indicate it needs input
                 flashcardContainer.setAnswerOpacity(1f); // Doesn't do anything, it's just so that there is no empty field.
             }else{
                 if(childAnswer.equals(flashcardAnswer)){
                     answerColor = correctAnswerColor;
                     numberCorrect ++ ;
                     currentScore += 2;
+                    realm.executeTransactionAsync(realm1 -> {
+                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                        assert child != null;
+                        child.setScore(currentScore);
+                    });
                 }
                 else {
                     answerColor = wrongAnswerColor;
@@ -184,6 +184,7 @@ public class Flashcard extends AppCompatActivity {
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
                             transaction.commit();
+                            flashcardTopBar.setPoints(String.valueOf(currentScore));
                         }
 
                         flashcardContainer.setFlashcardColor(answerColor);
@@ -201,21 +202,24 @@ public class Flashcard extends AppCompatActivity {
         nextFlashcard.setOnClickListener(view -> {
             counter++;
             if(counter >= MAX){
-                // Check if childLessonsCompleted >= 9 stop adding to prevent out of bound
-                // If score > 4 then update isCurrent & isCompleted only and only if current lesson is not already completed (if child came back to play)
+                // If number of correct ones >= 4 then update isCurrent & isCompleted only and only if current lesson was not already completed
                 if(numberCorrect >=4){
+                    // This is the case if lesson is completed and child came back to play it again
                     // Update child score
-                    // Don't increase the lessonCompleted count if lesson is already completed
+                    // Don't increase the lessonCompleted count
                     if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
                         realm.executeTransactionAsync(realm1 -> {
                             ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                            assert child != null;
                             child.setScore(currentScore);
                         });
                     }else{
                         realm.executeTransactionAsync(realm1 -> {
                             ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
 
+                            assert child != null;
                             RoadMapLesson currentLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                            assert currentLesson != null;
                             currentLesson.setCurrent(false);
                             currentLesson.setCompleted(true);
 
@@ -223,17 +227,28 @@ public class Flashcard extends AppCompatActivity {
                             if (childLessonsCompleted < 9){
                                 childLessonsCompleted ++;
 
-                                child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+                                if(childLessonsCompleted == 3){
+                                    // Set the quiz state
+                                    RoadMapQuiz quizOne = child.getRoadMapOne().getRoadMapQuizzes().get(0);
+                                    assert quizOne != null;
+                                    quizOne.setCompleted(false);
+                                    quizOne.setCurrent(true);
+                                }else if(childLessonsCompleted == 7){
+                                    RoadMapQuiz quizTwo = child.getRoadMapOne().getRoadMapQuizzes().get(1);
+                                    assert quizTwo != null;
+                                    quizTwo.setCompleted(false);
+                                    quizTwo.setCurrent(true);
+                                }else{
 
-                                RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
-                                nextLesson.setCurrent(true);
-                                nextLesson.setCompleted(false);
+                                    child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+                                    RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                                    assert nextLesson != null;
+                                    nextLesson.setCurrent(true);
+                                    nextLesson.setCompleted(false);
+                                }
                             }
-
                         });
-
                     }
-
                 }
                 Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
@@ -331,7 +346,6 @@ public class Flashcard extends AppCompatActivity {
             image = extras.getString("lessonImage");
             lessonIndex = extras.getInt("lessonIndex");
         }
-        imageSrcIdentifier = new ImageSrcIdentifier();
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         currentScore = child.getScore();

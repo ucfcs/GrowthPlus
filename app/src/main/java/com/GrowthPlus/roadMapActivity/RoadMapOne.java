@@ -183,19 +183,25 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         }
 
         tile4.setOnClickListener(this);
+        tile4.setEnabled(false);
         if(roadMapQuizes.get(0).getCompleted()){
             tile4.setCompletedState();
+            tile4.setEnabled(true);
         }
         if(roadMapQuizes.get(0).getCurrent()){
             roadMapOneLessonTrail.setSelectedState(tile4, child);
+            tile4.setEnabled(true);
         }
 
         tile9.setOnClickListener(this);
+        tile9.setEnabled(false);
         if(roadMapQuizes.get(1).getCompleted()){
             tile9.setCompletedState();
+            tile9.setEnabled(true);
         }
         if(roadMapQuizes.get(1).getCurrent()){
             roadMapOneLessonTrail.setSelectedState(tile9, child);
+            tile9.setEnabled(true);
         }
 
         tile13.setOnClickListener(this);
@@ -249,6 +255,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(0).getDatabaseQuizId());
             IntentIntro.putExtra("whichOne", "Quiz");
+            IntentIntro.putExtra("quizIndex", 0);
             startActivity(IntentIntro);
         }
 
@@ -289,6 +296,7 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
             IntentIntro.putExtra("whichOne", "Quiz");
+            IntentIntro.putExtra("quizIndex", 1);
             startActivity(IntentIntro);
         }
 
