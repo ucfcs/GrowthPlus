@@ -51,6 +51,8 @@ public class CreateAccount extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         init();
 
+        // ROADMAP 1 : lessons, quizzes, and game
+
         RoadMapLesson roadMapLesson1 = new RoadMapLesson(
                 "Roadmap One Lesson 1",
                 "elephant",
@@ -191,6 +193,54 @@ public class CreateAccount extends AppCompatActivity {
                 true,
                 false,
                 0);
+        RealmList<RoadMapLesson> roadMapLessons = new RealmList<>();
+        roadMapLessons.add(roadMapLesson1);
+        roadMapLessons.add(roadMapLesson2);
+        roadMapLessons.add(roadMapLesson3);
+        roadMapLessons.add(roadMapLesson4);
+        roadMapLessons.add(roadMapLesson5);
+        roadMapLessons.add(roadMapLesson6);
+        roadMapLessons.add(roadMapLesson7);
+        roadMapLessons.add(roadMapLesson8);
+        roadMapLessons.add(roadMapLesson9);
+        roadMapLessons.add(roadMapLesson10);
+
+        RoadMapQuiz roadMapQuiz1 = new RoadMapQuiz(
+                "RoadMap One Quiz One",
+                "elephant",
+                10,
+                7,
+                false,
+                true,
+                "RmOneQuizOne",
+                0
+        );
+        RoadMapQuiz roadMapQuiz2 = new RoadMapQuiz(
+                "RoadMap One Quiz Two",
+                "elephant",
+                10,
+                7,
+                false,
+                true,
+                "RmOneQuizTwo",
+                0
+        );
+        RealmList<RoadMapQuiz> roadMapQuizzes = new RealmList<>();
+        roadMapQuizzes.add(roadMapQuiz1);
+        roadMapQuizzes.add(roadMapQuiz2);
+
+        RoadMapScenarioGame roadMapOneScenarioGame = new RoadMapScenarioGame(
+                "Game 1",
+                "elephant",
+                20,
+                17,
+                false,
+                "RmOneScenarioGame",
+                0
+        );
+
+        // ROADMAP 2 : lessons, quizzes, and game
+
         RoadMapLesson roadMapLesson11 = new RoadMapLesson(
                 "Roadmap Two Lesson 1",
                 "camel",
@@ -331,18 +381,7 @@ public class CreateAccount extends AppCompatActivity {
                 true,
                 false,
                 0);
-        RealmList<RoadMapLesson> roadMapLessons = new RealmList<>();
         RealmList<RoadMapLesson> roadMapLessons2 = new RealmList<>();
-        roadMapLessons.add(roadMapLesson1);
-        roadMapLessons.add(roadMapLesson2);
-        roadMapLessons.add(roadMapLesson3);
-        roadMapLessons.add(roadMapLesson4);
-        roadMapLessons.add(roadMapLesson5);
-        roadMapLessons.add(roadMapLesson6);
-        roadMapLessons.add(roadMapLesson7);
-        roadMapLessons.add(roadMapLesson8);
-        roadMapLessons.add(roadMapLesson9);
-        roadMapLessons.add(roadMapLesson10);
         roadMapLessons2.add(roadMapLesson11);
         roadMapLessons2.add(roadMapLesson12);
         roadMapLessons2.add(roadMapLesson13);
@@ -354,40 +393,20 @@ public class CreateAccount extends AppCompatActivity {
         roadMapLessons2.add(roadMapLesson19);
         roadMapLessons2.add(roadMapLesson20);
 
-        RoadMapQuiz roadMapQuiz1 = new RoadMapQuiz(
-                "RoadMap One Quiz One",
-                "elephant",
+        RoadMapQuiz roadMapQuiz3 = new RoadMapQuiz(
+                "RoadMap Two Quiz One",
+                "camel",
                 10,
                 7,
                 false,
                 true,
-                "RmOneQuizOne",
+                "RmTwoQuizOne",
                 0
         );
-        RoadMapQuiz roadMapQuiz2 = new RoadMapQuiz(
-                "RoadMap One Quiz Two",
-                "elephant",
-                10,
-                7,
-                false,
-                true,
-                "RmOneQuizTwo",
-                0
-        );
-        RealmList<RoadMapQuiz> roadMapQuizzes = new RealmList<>();
-        roadMapQuizzes.add(roadMapQuiz1);
-        roadMapQuizzes.add(roadMapQuiz2);
+        RealmList<RoadMapQuiz> roadMapQuizzes2 = new RealmList<>();
+        roadMapQuizzes2.add(roadMapQuiz3);
 
-        RoadMapScenarioGame roadMapOneScenarioGame = new RoadMapScenarioGame(
-                "Game 1",
-                "elephant",
-                20,
-                17,
-                false,
-                "RmOneScenarioGame",
-                0
-        );
-
+        // EMBEDDED CHILD ROADMAPS
 
         ChildRoadMap childRoadMapOne = new ChildRoadMap(
                 "roadMapOne",
@@ -407,7 +426,7 @@ public class CreateAccount extends AppCompatActivity {
                 false,
                 false,
                 roadMapLessons2,
-                null,
+                roadMapQuizzes2,
                 null,
                 "RoadMapTwo");
 
