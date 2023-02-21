@@ -8,7 +8,7 @@
     tools:context=".fragment.Conversion">
 
     <TextView
-        android:id="@+id/first_text"
+        android:id="@+id/conversion_first_text"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:text="100 cm"
@@ -28,10 +28,10 @@
         android:textColor="@color/blue"
         android:textSize="65sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_text" />
+        app:layout_constraintTop_toBottomOf="@+id/conversion_first_text" />
 
     <TextView
-        android:id="@+id/second_text"
+        android:id="@+id/conversion_second_text"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
