@@ -8,20 +8,6 @@
     android:background="@drawable/game1"
     tools:context=".Game">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".9" />
-
     <android.widget.Button
         android:id="@+id/nextQuestion"
         android:layout_width="70dp"
@@ -44,22 +30,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.29" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.11" />
-
-    <FrameLayout
-        android:id="@+id/game_frame_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="@id/guide_top"
-        app:layout_constraintStart_toStartOf="@id/guide_left"
-        app:layout_constraintEnd_toEndOf="@id/guide_right"
-        app:layout_constraintBottom_toTopOf="@id/guide_middle"/>
 
     <com.GrowthPlus.customViews.TopBar
         android:id="@+id/topBar"

@@ -119,7 +119,7 @@ public class Game extends AppCompatActivity {
         move1.start();
 
         // Fish 2
-        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -110f);
+        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -130f);
         move3 = ObjectAnimator.ofFloat(fish2, "translationY", -50f);
         move2.setDuration(10000);
         move3.setDuration(10000);
