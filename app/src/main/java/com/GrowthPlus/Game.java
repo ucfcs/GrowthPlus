@@ -57,7 +57,7 @@ public class Game extends AppCompatActivity {
 
             if(counter >= MAX){
                 if(score >= 14){
-                    // TODO: Make Game completed and load next RoadMap
+                    // TODO: Make Game isCompleted(true), load next RoadMap, and update ChildScore
                 }
 
                 Intent intent = new Intent(Game.this, RoadMapOne.class); // TODO: Dynamically change location address
