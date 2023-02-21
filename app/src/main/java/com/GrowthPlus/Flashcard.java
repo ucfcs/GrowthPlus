@@ -49,8 +49,8 @@ public class Flashcard extends AppCompatActivity {
     private Button flashcardBackBtn;
     private TopBar flashcardTopBar;
     private final int NUMBER_INPUT_ONLY = 2;
-    int counter = 0;
-    final int MAX = 5;
+    private int counter = 0;
+    private int MAX;
     private int currentScore;
     private int numberCorrect;
     private String flashcardAnswer;
@@ -60,6 +60,7 @@ public class Flashcard extends AppCompatActivity {
     private String category;
     private int childLessonsCompleted;
     private int lessonIndex;
+    private int minToPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +81,6 @@ public class Flashcard extends AppCompatActivity {
         /*
         * Switch statement for first flashcard, we don't have an intro so we start at index 0
         * */
-        assert lessonFlashcards.get(counter) != null;
         category = lessonFlashcards.get(counter).getCategory();
         flashcard = lessonFlashcards.get(counter);
 
@@ -201,9 +201,10 @@ public class Flashcard extends AppCompatActivity {
         // Make sure to reset the flashcardContainer state
         nextFlashcard.setOnClickListener(view -> {
             counter++;
+            Log.i("completed", String.valueOf(childLessonsCompleted));
             if(counter >= MAX){
                 // If number of correct ones >= 4 then update isCurrent & isCompleted only and only if current lesson was not already completed
-                if(numberCorrect >=4){
+                if(numberCorrect >= minToPass){
                     // This is the case if lesson is completed and child came back to play it again
                     // Update child score
                     // Don't increase the lessonCompleted count
@@ -239,14 +240,16 @@ public class Flashcard extends AppCompatActivity {
                                     quizTwo.setCompleted(false);
                                     quizTwo.setCurrent(true);
                                 }else{
-
                                     child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
                                     RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
                                     assert nextLesson != null;
                                     nextLesson.setCurrent(true);
                                     nextLesson.setCompleted(false);
                                 }
-                            }
+                            } /*TODO: Handle childLessonCompleted == 9,
+                                If lessons completed is 9, then all lessons are completed
+                                the count starts at zero, hence 9 and if so, enable roadmap game
+                                Roadmap game is not implemented yet so it is open for now. */
                         });
                     }
                 }
@@ -348,6 +351,7 @@ public class Flashcard extends AppCompatActivity {
         }
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+        assert child != null;
         currentScore = child.getScore();
         numberCorrect = 0;
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
@@ -361,6 +365,14 @@ public class Flashcard extends AppCompatActivity {
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
+
+        if(lessonIndex == 9){
+            MAX = 10;
+            minToPass = 7;
+        }else{
+            MAX = 5;
+            minToPass = 4;
+        }
     }
 
     private void setTopBar(){
