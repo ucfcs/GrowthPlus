@@ -22,10 +22,10 @@ public class ConversionTable extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_conversion_table, container, false);
-        conversionText1 = view.findViewById(R.id.first_text);
-        conversionText2 = view.findViewById(R.id.second_text);
-        conversionText3 = view.findViewById(R.id.third_text);
-        conversionText4 = view.findViewById(R.id.fourth_text);
+        conversionText1 = view.findViewById(R.id.conversion_first_text);
+        conversionText2 = view.findViewById(R.id.conversion_second_text);
+        conversionText3 = view.findViewById(R.id.conversion_table_third_text);
+        conversionText4 = view.findViewById(R.id.conversion_table_fourth_text);
 
         return view;
     }
