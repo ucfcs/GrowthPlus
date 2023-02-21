@@ -181,8 +181,8 @@ public class CreateAccount extends AppCompatActivity {
                 "Roadmap One Lesson 10",
                 null,
                 null,
-                true,
                 false,
+                true,
                 7,
                 10,
                 "RmOneLessonTen",
@@ -229,8 +229,8 @@ public class CreateAccount extends AppCompatActivity {
         roadMapQuizzes.add(roadMapQuiz2);
 
         RoadMapScenarioGame roadMapOneScenarioGame = new RoadMapScenarioGame(
-                "Fishing",
-                "fish",
+                "Game 1",
+                "elephant",
                 20,
                 17,
                 false,
