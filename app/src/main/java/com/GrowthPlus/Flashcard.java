@@ -54,6 +54,7 @@ public class Flashcard extends AppCompatActivity {
     private final int NUMBER_INPUT_ONLY = 2;
     int counter = 0;
     final int MAX = 5;
+    final int MAX_NUM_LESSONS = 10;
     private int currentScore;
     private int numberCorrect;
     private String flashcardAnswer;
@@ -70,6 +71,7 @@ public class Flashcard extends AppCompatActivity {
         setContentView(R.layout.activity_flashcard);
         init();
         Log.i("lessonIndex", String.valueOf(lessonIndex));
+        Log.i("completed", String.valueOf(childLessonsCompleted));
 
         flashcardBackBtn.setOnClickListener(view -> {
             Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class);
@@ -199,11 +201,12 @@ public class Flashcard extends AppCompatActivity {
         nextFlashcard.setOnClickListener(view -> {
             counter++;
             if(counter >= MAX){
+                // Check if childLessonsCompleted >= 9 stop adding to prevent out of bound
                 // If score > 4 then update isCurrent & isCompleted only and only if current lesson is not already completed (if child came back to play)
                 if(numberCorrect >=4){
                     // Update child score
+                    // Don't increase the lessonCompleted count if lesson is already completed
                     if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
-                        // Don't increase the lessonCompleted count
                         realm.executeTransactionAsync(realm1 -> {
                             ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                             child.setScore(currentScore);
@@ -217,12 +220,15 @@ public class Flashcard extends AppCompatActivity {
                             currentLesson.setCompleted(true);
 
                             child.setScore(currentScore);
-                            childLessonsCompleted ++;
-                            child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+                            if (childLessonsCompleted < 9){
+                                childLessonsCompleted ++;
 
-                            RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
-                            nextLesson.setCurrent(true);
-                            nextLesson.setCompleted(false);
+                                child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+
+                                RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                                nextLesson.setCurrent(true);
+                                nextLesson.setCompleted(false);
+                            }
 
                         });
 
