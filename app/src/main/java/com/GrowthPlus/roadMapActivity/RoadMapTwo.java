@@ -5,12 +5,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.GrowthPlus.ChildPortal;
-import com.GrowthPlus.IntroScreen;
-import com.GrowthPlus.Lesson;
 import com.GrowthPlus.Lesson2;
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
@@ -49,6 +48,7 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
     RoadMapScenarioGame game;
     HashMap<Integer, String> mapLessonId;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +62,11 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             childID = extras.getString("childIdentify");
         }
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
+
+        Log.i("childName:", child.getName());
+        Log.i("rooadmapCompleted:", String.valueOf(child.getRoadMapTwo().getLessonsCompleted()));
         init(child);
+
 
 //        initState();
           // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
@@ -110,18 +114,13 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
 
     private void init(ChildSchema child){
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
-
-
         roadMapTwo = findViewById(R.id.roadMapTwo);
         topBarTwo = roadMapTwo.findViewById(R.id.topBarTwo);
         topBarTwo.setPoints(String.valueOf(child.getScore()));
         goBackButton = topBarTwo.findViewById(R.id.goBackBtn);
         roadMapTwoLessonTrail = roadMapTwo.findViewById(R.id.roadMapTwoLessonTrail);
 
-//        roadMapOne = findViewById(R.id.roadMapOne);
-//        goBackButton = roadMapOne.findViewById(R.id.goBackBtn);
-//        topBarOne = findViewById(R.id.topBarOne);
-//        topBarOne.setPoints(String.valueOf(child.getScore())); // Update points for specific child
+
         childRoadMapTwo = child.getRoadMapTwo();
         lessonCompleted = childRoadMapTwo.getLessonsCompleted();
         roadMapLessons = childRoadMapTwo.getRoadMapLessons();
@@ -173,7 +172,7 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             RoadMapLesson roadMapLessonTemp = roadMapLessons.get(i);
             assert roadMapLessonTemp != null;
             String dataBaseLessonId = roadMapLessonTemp.getDatabaseLessonId();
-
+            Log.i("rooadmapCompleted:", dataBaseLessonId);
             Integer tileIdTemp = Objects.requireNonNull(mapTiles.get(i)).getId();
 
             if(roadMapLessonTemp.getCompleted()){
@@ -321,6 +320,9 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
 //            startActivity(IntentIntro);
 //        }
     }
+
+
+
 }
 
 

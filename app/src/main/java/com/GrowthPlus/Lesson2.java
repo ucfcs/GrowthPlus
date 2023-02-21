@@ -1,11 +1,13 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +23,7 @@ import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
+import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -39,6 +42,7 @@ public class Lesson2 extends AppCompatActivity {
     private int counter;
     private String lessonName;
     private String image;
+    ConstraintLayout lessonBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -47,13 +51,14 @@ public class Lesson2 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
-            Intent lessonIntent = new Intent(Lesson2.this, RoadMapOne.class);
+            Intent lessonIntent = new Intent(Lesson2.this, RoadMapTwo.class);
             // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
         });
         setTopBar();
+        setLevelColor();
 
         // Create one fragment that we will dynamically change
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -239,10 +244,14 @@ public class Lesson2 extends AppCompatActivity {
         nextContent = findViewById(R.id.next_button_lesson);
         lessonName = lesson.getLessonName();
         image = lesson.getImage();
+        lessonBackground = findViewById(R.id.lesson2);
     }
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToTriangle();
+    }
+    public void setLevelColor(){
+        lessonBackground.setBackgroundColor(Color.rgb(232, 160, 78));
     }
 }
