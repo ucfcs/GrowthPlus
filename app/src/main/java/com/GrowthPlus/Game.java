@@ -2,6 +2,7 @@ package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,7 @@ public class Game extends AppCompatActivity {
     ArrayList<Integer> forty = new ArrayList<>(40);
     Fish fish1, fish2, fish3;
     TextView question;
+    ObjectAnimator move1, move2, move3, move4, move5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +113,27 @@ public class Game extends AppCompatActivity {
         fish2.setNumber(contents.get(forty.get(counter)).getOptionTwo());
         fish3.setNumber(contents.get(forty.get(counter)).getOptionThree());
 
+        // Fish 1
+        move1 = ObjectAnimator.ofFloat(fish1, "translationX", 650f);
+        move1.setDuration(10000);
+        move1.start();
+
+        // Fish 2
+        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -110f);
+        move3 = ObjectAnimator.ofFloat(fish2, "translationY", -50f);
+        move2.setDuration(10000);
+        move3.setDuration(10000);
+        move2.start();
+        move3.start();
+
+        // Fish 3
+        move4 = ObjectAnimator.ofFloat(fish3, "translationX", 350f);
+        move5 = ObjectAnimator.ofFloat(fish3, "translationY", 250f);
+        move4.setDuration(10000);
+        move5.setDuration(10000);
+        move4.start();
+        move5.start();
+
         fish1.setOnClickListener(v -> {
             if(fish1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())){ // CORRECT
                 score++;
@@ -127,6 +150,7 @@ public class Game extends AppCompatActivity {
                     fish2.setVisibility(View.INVISIBLE);
                 }
             }
+            resetAnimation();
             deactivate();
             nextContent.setVisibility(View.VISIBLE);
         });
@@ -147,6 +171,7 @@ public class Game extends AppCompatActivity {
                     fish2.setVisibility(View.INVISIBLE);
                 }
             }
+            resetAnimation();
             deactivate();
             nextContent.setVisibility(View.VISIBLE);
         });
@@ -167,6 +192,7 @@ public class Game extends AppCompatActivity {
                     fish3.setVisibility(View.INVISIBLE);
                 }
             }
+            resetAnimation();
             deactivate();
             nextContent.setVisibility(View.VISIBLE);
         });
@@ -176,5 +202,19 @@ public class Game extends AppCompatActivity {
         fish1.setOnClickListener(null);
         fish2.setOnClickListener(null);
         fish3.setOnClickListener(null);
+    }
+
+    public void resetAnimation(){
+        move1.end();
+        fish1.animate().translationX(0);
+        move2.end();
+        move3.end();
+        fish2.animate().translationX(0);
+        fish2.animate().translationY(0);
+        move4.end();
+        move5.end();
+        fish3.animate().translationX(0);
+        fish3.animate().translationY(0);
+
     }
 }
