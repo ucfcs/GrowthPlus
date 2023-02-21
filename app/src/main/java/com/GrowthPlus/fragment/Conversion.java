@@ -29,9 +29,9 @@ public class Conversion extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String getText1 = requireArguments().getString("text1");
+        String getText1 = requireArguments().getString("conversionText1");
         String getOperator = requireArguments().getString("operator");
-        String getText2 = requireArguments().getString("text2");
+        String getText2 = requireArguments().getString("conversionText2");
 
         text1.setText(getText1);
         operator.setText(getOperator);
