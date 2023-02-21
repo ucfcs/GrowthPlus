@@ -27,7 +27,7 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
-import com.GrowthPlus.roadMapActivity.realmImporter.JsonSampleData;
+import com.GrowthPlus.realmImporter.JsonSampleData;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 

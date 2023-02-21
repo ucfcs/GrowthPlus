@@ -11,15 +11,8 @@ public class ScenarioGameSchema extends RealmObject{
     private String image;
     private Integer minPoints;
     private Integer maxPoints;
-    private String firstOperand;
-    private String firstOperator;
-    private String secondOperand;
-    private String secondOperator;
-    private String thirdOperand;
+    private RealmList<ScenarioGameContent> questions;
 
-    public void getContents(){
-
-    }
     public String getScenarioGameId() {
         return scenarioGameId;
     }
@@ -60,43 +53,11 @@ public class ScenarioGameSchema extends RealmObject{
         this.maxPoints = maxPoints;
     }
 
-    public String getFirstOperand() {
-        return firstOperand;
+    public RealmList<ScenarioGameContent> getQuestions() {
+        return questions;
     }
 
-    public void setFirstOperand(String firstOperand) {
-        this.firstOperand = firstOperand;
-    }
-
-    public String getFirstOperator() {
-        return firstOperator;
-    }
-
-    public void setFirstOperator(String firstOperator) {
-        this.firstOperator = firstOperator;
-    }
-
-    public String getSecondOperand() {
-        return secondOperand;
-    }
-
-    public void setSecondOperand(String secondOperand) {
-        this.secondOperand = secondOperand;
-    }
-
-    public String getSecondOperator() {
-        return secondOperator;
-    }
-
-    public void setSecondOperator(String secondOperator) {
-        this.secondOperator = secondOperator;
-    }
-
-    public String getThirdOperand() {
-        return thirdOperand;
-    }
-
-    public void setThirdOperand(String thirdOperand) {
-        this.thirdOperand = thirdOperand;
+    public void setQuestions(RealmList<ScenarioGameContent> questions) {
+        this.questions = questions;
     }
 }

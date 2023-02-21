@@ -1,4 +1,4 @@
-package com.GrowthPlus.roadMapActivity.realmImporter;
+package com.GrowthPlus.realmImporter;
 
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.RoadMap.RoadMapSchema;

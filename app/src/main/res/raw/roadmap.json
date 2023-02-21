@@ -2257,11 +2257,16 @@
         "image": "elephant",
         "minPoints": 14,
         "maxPoints": 20,
-        "firstOperand": "",
-        "firstOperator": "",
-        "secondOperand": "",
-        "secondOperator": null,
-        "thirdOperand": null
+        "questions": [
+          {
+            "idGameContent": "RmOneScenarioGameContentOne",
+            "question": "5 + 3",
+            "optionOne": "8",
+            "optionTwo": "7",
+            "optionThree": "9",
+            "answer": "8"
+          }
+        ]
     }
 
   },
