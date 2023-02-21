@@ -12,7 +12,6 @@
         android:id="@+id/next_button_lesson"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginTop="-40dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/arrow_large"
@@ -58,12 +57,12 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".88" />
 
-    <!--<com.GrowthPlus.customViews.TopBar
+    <com.GrowthPlus.customViews.TopBar
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/frame_layout_lesson"
