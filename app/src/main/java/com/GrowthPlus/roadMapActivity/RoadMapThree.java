@@ -9,23 +9,40 @@ import android.widget.Button;
 
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
+import com.GrowthPlus.customViews.RoadMapTile;
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
+import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
+import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.HashMap;
+
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class RoadMapThree extends AppCompatActivity {
 
     Button goBackButton;
     BottomNavigationView bottomNavigationView;
-    ConstraintLayout roadMapThree;
     RoadMapLessonTrail roadMapThreeLessonTrail;
+    ConstraintLayout roadMapThree;
+    RoadMapTile tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9, tile10, tile11, tile12, tile13;
     TopBar topBarThree;
+    Intent IntentIntro; // Leads to Lesson page
     String childID;
     ChildSchemaService childSchemaService;
     Realm realm;
+    ChildRoadMap childRoadMapThree;
+    HashMap<Integer, RoadMapTile> mapTiles;
+    Integer lessonCompleted;
+    RealmList<RoadMapLesson> roadMapLessons;
+    RealmList<RoadMapQuiz> roadMapQuizes;
+    RoadMapScenarioGame game;
+    HashMap<Integer, String> mapLessonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
