@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,6 +25,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/sg1background" />
 
+    <android.widget.Button
+        android:id="@+id/nextQuestion"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/back_arrow"
+        android:paddingStart="23dp"
+        android:paddingEnd="20sp"
+        android:scaleX="-1"
+        app:layout_constraintBottom_toTopOf="@+id/guide_middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gameQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_middle"
         android:layout_width="wrap_content"
@@ -42,4 +57,62 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <com.GrowthPlus.customViews.Fish
+        android:id="@+id/fish1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:rotation="-5"
+        android:scaleX="1.3"
+        android:scaleY="1.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideTop" />
+
+    <com.GrowthPlus.customViews.Fish
+        android:id="@+id/fish2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="50dp"
+        android:rotation="-25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideTop" />
+
+    <com.GrowthPlus.customViews.Fish
+        android:id="@+id/fish3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:rotation="15"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:layout_constraintBottom_toTopOf="@id/guideBottom"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/gameQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20 x 2"
+        android:textColor="@color/blue"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toTopOf="@+id/guide_middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
