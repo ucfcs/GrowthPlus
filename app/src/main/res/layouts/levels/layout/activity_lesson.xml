@@ -12,7 +12,6 @@
         android:id="@+id/next_button_lesson"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginTop="-40dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/arrow_large"

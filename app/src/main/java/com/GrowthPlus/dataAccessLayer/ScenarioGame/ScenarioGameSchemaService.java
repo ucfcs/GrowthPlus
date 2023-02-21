@@ -5,6 +5,7 @@ import android.util.Log;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 public class ScenarioGameSchemaService {
@@ -13,11 +14,7 @@ public class ScenarioGameSchemaService {
     private String scenarioGameName;
     private Integer minPoints;
     private Integer maxPoints;
-    private String firstOperand;
-    private String firstOperator;
-    private String secondOperand;
-    private String secondOperator;
-    private String thirdOperand;
+    private RealmList<ScenarioGameContent> questions;
 
     /**
      * @param realm
@@ -36,11 +33,7 @@ public class ScenarioGameSchemaService {
      * @param scenarioGameName
      * @param minPoints
      * @param maxPoints
-     * @param firstOperand
-     * @param firstOperator
-     * @param secondOperand
-     * @param secondOperator
-     * @param thirdOperand
+     * @param questions
      */
     /*
      * This constructor should be used for the creating of a brand new realm object.
@@ -52,22 +45,14 @@ public class ScenarioGameSchemaService {
             String scenarioGameName,
             Integer minPoints,
             Integer maxPoints,
-            String firstOperand,
-            String firstOperator,
-            String secondOperand,
-            String secondOperator,
-            String thirdOperand
+            RealmList<ScenarioGameContent> questions
     ) {
         this.realm = realm;
         this.scenarioGameId = scenarioGameId;
         this.scenarioGameName = scenarioGameName;
         this.minPoints = minPoints;
         this.maxPoints = maxPoints;
-        this.firstOperand = firstOperand;
-        this.firstOperator = firstOperator;
-        this.secondOperand = secondOperand;
-        this.secondOperator = secondOperator;
-        this.thirdOperand = thirdOperand;
+        this.questions = questions;
     }
 
     public void createScenarioGame(){
@@ -76,11 +61,7 @@ public class ScenarioGameSchemaService {
             newScenarioGame.setScenarioGameName(scenarioGameName);
             newScenarioGame.setMinPoints(minPoints);
             newScenarioGame.setMaxPoints(maxPoints);
-            newScenarioGame.setFirstOperand(firstOperand);
-            newScenarioGame.setFirstOperator(firstOperator);
-            newScenarioGame.setSecondOperand(secondOperand);
-            newScenarioGame.setSecondOperator(secondOperator);
-            newScenarioGame.setThirdOperand(thirdOperand);
+            newScenarioGame.setQuestions(questions);
         }, () -> {
             Log.i("Success", "New Scenario Game added to realm");
         }, error -> {

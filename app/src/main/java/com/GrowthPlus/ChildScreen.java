@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -58,6 +62,14 @@ public class ChildScreen extends AppCompatActivity {
     private ChildSchemaService childSchemaService;
     private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
+    //this is for the delete child confirmation popup screen
+    private AlertDialog.Builder dialogueBuilder;
+    private AlertDialog dialogue;
+    private Button confirmChildDelete;
+    private Button cancelChildDelete;
+    private ImageView childAvatarDel;
+    private TextView childNameDel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,20 +93,7 @@ public class ChildScreen extends AppCompatActivity {
         });
 
         deleteChildButton.setOnClickListener(view -> {
-            realm.executeTransactionAsync(realm -> {
-                ChildSchema deleteChild = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                deleteChild.deleteFromRealm();
-
-            },()->{
-                Intent intent = new Intent(ChildScreen.this, ParentPortal.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                overridePendingTransition(0, 0);
-                startActivity(new Intent(ChildScreen.this, ParentPortal.class));
-                overridePendingTransition(0, 0);
-                this.finish();
-            }, error -> {
-                Log.i("Error", "Could not delete child from realm " + error);
-            });
+            createDeleteChildDialogue(child);
         });
 
     }
@@ -174,5 +173,67 @@ public class ChildScreen extends AppCompatActivity {
         Integer score = 100;
         setChildAvatar(avatarName, color);
         setChildNameAndScore(name, score);
+    }
+
+    //this creates the delete child popup
+    public void createDeleteChildDialogue(ChildSchema deleteChild){
+        //create the dialogue builder using this context
+        dialogueBuilder = new AlertDialog.Builder(this);
+
+        //to create the view we have an inflator that calls our custom xml file
+        View deleteChildPopupView = getLayoutInflater().
+                inflate(R.layout.delete_child_confirmation_popup,
+                        null);
+
+        //here we want to grab the confirm and cancel buttons from the view
+        //this is important so that we can set up the proper logic for the
+        //onClickListeners
+        confirmChildDelete = deleteChildPopupView.findViewById(R.id.confirmBtn);
+        cancelChildDelete = deleteChildPopupView.findViewById(R.id.cancelBtn);
+
+        //here we grab the fields in the custom PopUp xml file that we want to change
+        //based on the child that is being deleted
+        childNameDel = deleteChildPopupView.findViewById(R.id.childName);
+        childAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
+
+        //here we set the child name and avatar to the popUp so that the parent can
+        //know which child they are or are not deleting
+        childNameDel.setText(deleteChild.getName());
+        childAvatarDel.setImageResource(imageSrcIdentifier.getImageSrcId(deleteChild.getAvatarName()));
+
+        //in the dialogue builder we have to set this view
+        dialogueBuilder.setView(deleteChildPopupView);
+
+        //now we create and build this view
+        dialogue = dialogueBuilder.create();
+        dialogue.show();
+
+        //this is the logic if the parent confirms that they want to delete the child
+        //we grab the child using their unique ID, delete the child, and verify that the
+        //deletion was sucessful and eventually dismiss the popUp
+        confirmChildDelete.setOnClickListener(view -> {
+            realm.executeTransactionAsync(realm -> {
+                ChildSchema childDel = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                childDel.deleteFromRealm();
+            },()->{
+                Intent intent = new Intent(ChildScreen.this, ParentPortal.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                overridePendingTransition(0, 0);
+                startActivity(new Intent(ChildScreen.this, ParentPortal.class));
+                overridePendingTransition(0, 0);
+                this.finish();
+            }, error -> {
+                Log.i("Error", "Could not delete child from realm " + error);
+            });
+            dialogue.dismiss();
+        });
+
+        //here the parent does not wish to delete the child so we simply dismiss our popUp
+        cancelChildDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogue.dismiss();
+            }
+        });
     }
 }

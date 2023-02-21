@@ -102,6 +102,11 @@ public class IntroScreen extends AppCompatActivity {
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
-        topBar.setToCircle();
+        if(whichOne.equals("Quiz")){
+            topBar.setToCircle();
+        }
+        else if(whichOne.equals("Game")){
+            topBar.setToStar();
+        }
     }
 }
