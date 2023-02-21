@@ -17,6 +17,8 @@ import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.fragment.Conversion;
+import com.GrowthPlus.fragment.ConversionTable;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.WordGrid;
@@ -220,7 +222,54 @@ public class Lesson2 extends AppCompatActivity {
                                 transaction.replace(R.id.frame_layout_lesson, WordGrid.class, bundle);
                                 transaction.commit();
                             }
+                            break;
                         }
+
+                        case "conversion" :{
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+
+                            lessonImg = lesson.getImage();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionText1", firstNumber);
+                                bundle.putString("operator", firstOperator);
+                                bundle.putString("conversionText2", secondNumber);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, Conversion.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversionTable" :{
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
+
+                            lessonImg = lesson.getImage();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionTableText1", firstNumber);
+                                bundle.putString("conversionTableText2", firstOperator);
+                                bundle.putString("conversionTableText3", secondNumber);
+                                bundle.putString("conversionTableText4", secondOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ConversionTable.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+
                         default:
                     }
                     counter++;
