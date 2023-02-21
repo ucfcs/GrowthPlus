@@ -73,7 +73,6 @@ public class IntroScreen extends AppCompatActivity {
             childId = extras.getString("childId");
             data = extras.getString("databaseQuizId");
             whichOne = extras.getString("whichOne");
-            // TODO: Need String to determine if quiz or game extras.getString | QuizID or GameID
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
@@ -99,6 +98,11 @@ public class IntroScreen extends AppCompatActivity {
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
-        topBar.setToCircle();
+        if(whichOne.equals("Quiz")){
+            topBar.setToCircle();
+        }
+        else if(whichOne.equals("Game")){
+            topBar.setToStar();
+        }
     }
 }
