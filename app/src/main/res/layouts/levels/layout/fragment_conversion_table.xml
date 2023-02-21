@@ -7,9 +7,10 @@
     tools:context=".fragment.ConversionTable">
 
     <TextView
-        android:id="@+id/first_text"
+        android:id="@+id/conversion_table_first_text"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="100 cm = 1 m"
         android:textAlignment="center"
         android:textColor="@color/blue"
@@ -19,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/second_text"
+        android:id="@+id/conversion_table_second_text"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -29,10 +30,10 @@
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/first_text" />
+        app:layout_constraintTop_toBottomOf="@+id/conversion_table_first_text" />
 
     <TextView
-        android:id="@+id/third_text"
+        android:id="@+id/conversion_table_third_text"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -42,10 +43,10 @@
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/second_text" />
+        app:layout_constraintTop_toBottomOf="@+id/conversion_table_second_text" />
 
     <TextView
-        android:id="@+id/fourth_text"
+        android:id="@+id/conversion_table_fourth_text"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -55,44 +56,44 @@
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/third_text" />
+        app:layout_constraintTop_toBottomOf="@+id/conversion_table_third_text" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="320dp"
         android:layout_height="5dp"
         android:background="@color/yellow"
-        app:layout_constraintBottom_toTopOf="@+id/second_text"
+        app:layout_constraintBottom_toTopOf="@+id/conversion_table_second_text"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/first_text" />
+        app:layout_constraintTop_toBottomOf="@+id/conversion_table_first_text" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="320dp"
         android:layout_height="5dp"
         android:background="@color/yellow"
-        app:layout_constraintBottom_toTopOf="@+id/third_text"
+        app:layout_constraintBottom_toTopOf="@+id/conversion_table_third_text"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/second_text" />
+        app:layout_constraintTop_toBottomOf="@+id/conversion_table_second_text" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="320dp"
         android:layout_height="5dp"
         android:background="@color/yellow"
-        app:layout_constraintBottom_toTopOf="@+id/fourth_text"
+        app:layout_constraintBottom_toTopOf="@+id/conversion_table_fourth_text"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/third_text" />
+        app:layout_constraintTop_toBottomOf="@+id/conversion_table_third_text" />
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="320dp"
         android:layout_height="5dp"
         android:background="@color/yellow"
-        app:layout_constraintTop_toBottomOf="@id/fourth_text"
+        app:layout_constraintTop_toBottomOf="@id/conversion_table_fourth_text"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintStart_toStartOf="@id/guideline10" />
 

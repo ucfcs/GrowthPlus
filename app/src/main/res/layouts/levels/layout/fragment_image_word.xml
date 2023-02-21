@@ -7,7 +7,7 @@
     tools:context=".fragment.ImageWord">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imageWordImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/five_fcfa_foreground"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/word"
+        android:id="@+id/imageWordWord"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -26,7 +26,7 @@
         android:textSize="65sp"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/image" />
+        app:layout_constraintTop_toBottomOf="@+id/imageWordImage" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
