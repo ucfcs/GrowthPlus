@@ -8,22 +8,38 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="350dp"
-        android:layout_height="320dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@mipmap/five_fcfa_foreground"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline10"
+        app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/word"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="5 francs"
         android:textAlignment="center"
         android:textColor="@color/yellow"
         android:textSize="65sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline10"
+        app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/image" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".1"  />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9"  />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
