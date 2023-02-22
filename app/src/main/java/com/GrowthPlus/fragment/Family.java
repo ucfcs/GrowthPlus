@@ -70,7 +70,7 @@ public class Family extends Fragment {
             familyText8.setText("8 x " + getFamilySecondNumber + " = " + 8*Integer.valueOf(getFamilySecondNumber));
             familyText9.setText("9 x " + getFamilySecondNumber + " = " + 9*Integer.valueOf(getFamilySecondNumber));
             familyText10.setText("10 x " + getFamilySecondNumber + " = " + 10*Integer.valueOf(getFamilySecondNumber));
-            familyText11.setText("11 x " + getFamilySecondNumber + " = " + 111*Integer.valueOf(getFamilySecondNumber));
+            familyText11.setText("11 x " + getFamilySecondNumber + " = " + 11*Integer.valueOf(getFamilySecondNumber));
             familyText12.setText("12 x " + getFamilySecondNumber + " = " + 12*Integer.valueOf(getFamilySecondNumber));
 
         }
@@ -91,7 +91,7 @@ public class Family extends Fragment {
         }
 
         else{
-            //we shouldn't get here
+            //we shouldn't get here!
         }
 
 
