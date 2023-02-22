@@ -35,7 +35,6 @@ public class WordImage extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         String getText = requireArguments().getString("locationIntroText");
         String getImage = requireArguments().getString("locationIntroImage");
-
         text.setText(getText);
         image.setImageResource(imageSrcIdentifier.getImageSrcId(getImage));
     }
