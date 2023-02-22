@@ -1,12 +1,14 @@
 package com.GrowthPlus.roadMapActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Button;
-
+import com.GrowthPlus.Lesson4;
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
 import com.GrowthPlus.customViews.RoadMapTile;
@@ -18,11 +20,12 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmList;
 
-public class RoadMapFour extends AppCompatActivity{
+public class RoadMapFour extends AppCompatActivity implements View.OnClickListener{
     Button goBackButton;
     BottomNavigationView bottomNavigationView;
     ConstraintLayout roadMapFour;
@@ -57,7 +60,8 @@ public class RoadMapFour extends AppCompatActivity{
         initState();
 
         // WHEN TO UNLOCK LESSON 4 TRAIL ???
-        // setLessonTiles(child);
+        roadMapFourLessonTrail.unLockRoadMap();
+        setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap4item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -100,11 +104,10 @@ public class RoadMapFour extends AppCompatActivity{
         goBackButton = topBarFour.findViewById(R.id.goBackBtn);
         roadMapFourLessonTrail = findViewById(R.id.roadMapFourLessonTrail);
 
-        /*
         childRoadMapFour = child.getRoadMapFour();
         lessonCompleted = childRoadMapFour.getLessonsCompleted();
         roadMapLessons = childRoadMapFour.getRoadMapLessons();
-        IntentIntro = new Intent(RoadMapFour.this, Lesson.class);
+        IntentIntro = new Intent(RoadMapFour.this, Lesson4.class);
 
         tile1 = roadMapFourLessonTrail.getRoadMapTile1();
         tile2 = roadMapFourLessonTrail.getRoadMapTile2();
@@ -123,10 +126,9 @@ public class RoadMapFour extends AppCompatActivity{
         mapTiles = new HashMap<>();
         mapLessonId = new HashMap<>();
         mapRoadMapTiles();
-         */
+
     }
 
-    /*
     private void mapRoadMapTiles(){
         mapTiles.put(0, tile1);
         mapTiles.put(1, tile2);
@@ -233,7 +235,6 @@ public class RoadMapFour extends AppCompatActivity{
             startActivity(IntentIntro);
         }
     }
-     */
 
     // Initial state is locked. Check if previous 3 levels completed before unlocking
     private void initState(){
