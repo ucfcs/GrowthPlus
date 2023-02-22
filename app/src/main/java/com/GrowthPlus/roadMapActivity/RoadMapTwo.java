@@ -321,6 +321,3 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
         }
     }
 }
-
-
-//counting, verticalEquation, wordImage, wordImageEquation, ImageWord, conversion, conversionTable

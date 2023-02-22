@@ -255,3 +255,6 @@ public class Lesson2 extends AppCompatActivity {
         lessonBackground.setBackgroundColor(Color.rgb(232, 160, 78));
     }
 }
+
+// ROADMAP 2 fragments: counting, verticalEquation, wordImage, wordImageEquation, ImageWord, conversion, conversionTable
+// ROADMAP 3 fragments: Counting, family, imageWord, conversion, conversionTable, perimeterArea, shape
