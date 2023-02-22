@@ -8037,14 +8037,14 @@
           },
           {
             "lessonContentId": "RmFourLessonFourContentTwo",
-            "word": "perpendicularLines",
+            "word": "rightAngle",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "perLineOne",
-            "imgTwo": "perLineTwo",
+            "imgOne": "rightAngle",
+            "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
             "imgFive": null,
@@ -8053,97 +8053,97 @@
         ],
         "flashcards": [
           {
-            "flashCardId": "RmThreeLessonFourFlashOne",
-            "image": "fiveHundredFrancs",
-            "firstNumber": "1",
-            "firstOperator": "+",
-            "secondNumber": "1",
-            "secondOperator": null,
-            "answer": "1000",
-            "category": "customImageOperator"
-          },
-          {
-            "flashCardId": "RmThreeLessonFourFlashTwo",
-            "image": "oneHundredFrancs",
-            "firstNumber": "2",
-            "firstOperator": "+",
-            "secondNumber": "2",
-            "secondOperator": null,
-            "answer": "400",
-            "category": "customImageOperator"
-          },
-          {
-            "flashCardId": "RmThreeLessonFourFlashThree",
-            "image": "twentyFiveFrancs",
-            "firstNumber": "1",
-            "firstOperator": "+",
-            "secondNumber": "1",
-            "secondOperator": null,
-            "answer": "50",
-            "category": "customImageOperator"
-          },
-          {
-            "flashCardId": "RmThreeLessonFourFlashFour",
-            "image": "oneThousandFrancs",
-            "firstNumber": "1",
-            "firstOperator": "-",
-            "secondNumber": "1",
-            "secondOperator": null,
+            "flashCardId": "RmFourLessonFourFlashOne",
+            "image": "PLOne",
+            "firstNumber": "0 =",
+            "firstOperator": "parallelLines",
+            "secondNumber": "1 = ",
+            "secondOperator": "perpendicularLines",
             "answer": "0",
-            "category": "customImageOperator"
+            "category": "customImageWord"
           },
           {
-            "flashCardId": "RmThreeLessonFourFlashFive",
-            "image": "fiveHundredCoin",
-            "firstNumber": "1",
-            "firstOperator": "+",
-            "secondNumber": "1",
-            "secondOperator": null,
-            "answer": "1000",
-            "category": "customImageOperator"
+            "flashCardId": "RmFourLessonFourFlashTwo",
+            "image": "PLTwo",
+            "firstNumber": "0 =",
+            "firstOperator": "parallelLines",
+            "secondNumber": "1 = ",
+            "secondOperator": "perpendicularLines",
+            "answer": "0",
+            "category": "customImageWord"
+          },
+          {
+            "flashCardId": "RmFourLessonFourFlashThree",
+            "image": "PLThree",
+            "firstNumber": "0 =",
+            "firstOperator": "parallelLines",
+            "secondNumber": "1 = ",
+            "secondOperator": "perpendicularLines",
+            "answer": "0",
+            "category": "customImageWord"
+          },
+          {
+            "flashCardId": "RmFourLessonFourFlashFour",
+            "image": "perLineOne",
+            "firstNumber": "0 =",
+            "firstOperator": "parallelLines",
+            "secondNumber": "1 = ",
+            "secondOperator": "perpendicularLines",
+            "answer": "1",
+            "category": "customImageWord"
+          },
+          {
+            "flashCardId": "RmFourLessonFourFlashFive",
+            "image": "perLineThree",
+            "firstNumber": "0 =",
+            "firstOperator": "parallelLines",
+            "secondNumber": "1 = ",
+            "secondOperator": "perpendicularLines",
+            "answer": "1",
+            "category": "customImageWord"
           }
         ]
       },
       {
-        "lessonId": "RmThreeLessonFive",
+        "lessonId": "RmFourLessonFive",
         "maxPoints": 10,
         "minPoints": 7,
         "lessonName": "5",
-        "category": "length",
-        "image": "squirrel",
+        "category": "shapes",
+        "image": "giraffe",
         "contents": [
           {
-            "lessonContentId": "RmThreeLessonFiveContentOne",
-            "word": "millimeter (mm)",
-            "firstNumber": null,
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
-            "thirdNumber": null,
-            "imgOne": "millimeter",
-            "imgTwo": null,
-            "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
-            "category" : "imageWord"
-          },
-          {
-            "lessonContentId": "RmThreeLessonFiveContentTwo",
-            "word": null,
-            "firstNumber": "1000 mm",
+            "lessonContentId": "RmFourLessonFiveContentOne",
+            "word": "area",
+            "firstNumber": "a",
             "firstOperator": "=",
-            "secondNumber": "1 m",
-            "secondOperator": null,
-            "thirdNumber": null,
-            "imgOne": null,
+            "secondNumber": "length",
+            "secondOperator": "x",
+            "thirdNumber": "width",
+            "imgOne": "rectangle",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
             "imgFive": null,
-            "category" : "conversion"
+            "category" : "perimeterArea"
           },
           {
-            "lessonContentId": "RmThreeLessonFiveContentThree",
+            "lessonContentId": "RmFourLessonFiveContentTwo",
+            "word": "area",
+            "firstNumber": "a",
+            "firstOperator": "=",
+            "secondNumber": "side",
+            "secondOperator": "x",
+            "thirdNumber": "side",
+            "imgOne": "square",
+            "imgTwo": null,
+            "imgThree": null,
+            "imgFour": null,
+            "imgFive": null,
+            "category" : "perimeterArea"
+          },
+          {
+            "lessonContentId": "RmFourLessonFiveContentThree",
             "word": "kilometer (km)",
             "firstNumber": null,
             "firstOperator": null,
@@ -8158,7 +8158,7 @@
             "category" : "imageWord"
           },
           {
-            "lessonContentId": "RmThreeLessonFiveContentFour",
+            "lessonContentId": "RmFourLessonFiveContentFour",
             "word": null,
             "firstNumber": "1000 m",
             "firstOperator": "=",
@@ -8173,7 +8173,7 @@
             "category" : "conversion"
           },
           {
-            "lessonContentId": "RmThreeLessonFiveContentFive",
+            "lessonContentId": "RmFourLessonFiveContentFive",
             "word": null,
             "firstNumber": "1000 mm = 1 m",
             "firstOperator": "1000 m = 1 km",
@@ -8190,7 +8190,7 @@
         ],
         "flashcards": [
           {
-            "flashCardId": "RmThreeLessonFiveFlashOne",
+            "flashCardId": "RmFourLessonFiveFlashOne",
             "image": "millimeter",
             "firstNumber": "1000 mm = _ m",
             "firstOperator": null,
@@ -8200,7 +8200,7 @@
             "category": "customImageWord"
           },
           {
-            "flashCardId": "RmThreeLessonFiveFlashTwo",
+            "flashCardId": "RmFourLessonFiveFlashTwo",
             "image": "kilometer",
             "firstNumber": "1000 m = _ km",
             "firstOperator": null,
@@ -8210,7 +8210,7 @@
             "category": "customImageWord"
           },
           {
-            "flashCardId": "RmThreeLessonFiveFlashThree",
+            "flashCardId": "RmFourLessonFiveFlashThree",
             "image": "meter",
             "firstNumber": "1 m = _ mm",
             "firstOperator": null,
@@ -8220,7 +8220,7 @@
             "category": "customImageWord"
           },
           {
-            "flashCardId": "RmThreeLessonFiveFlashFour",
+            "flashCardId": "RmFourLessonFiveFlashFour",
             "image": "meter",
             "firstNumber": "1000 m = _ km",
             "firstOperator": null,
@@ -8230,7 +8230,7 @@
             "category": "customImageWord"
           },
           {
-            "flashCardId": "RmThreeLessonFiveFlashFive",
+            "flashCardId": "RmFourLessonFiveFlashFive",
             "image": "millimeter",
             "firstNumber": "1000 mm = _ m",
             "firstOperator": null,
@@ -8743,7 +8743,7 @@
         ]
       },
       {
-        "lessonId": "RmThreeLessonNine",
+        "lessonId": "RmFourLessonNine",
         "maxPoints": 10,
         "minPoints": 7,
         "lessonName": "9",
