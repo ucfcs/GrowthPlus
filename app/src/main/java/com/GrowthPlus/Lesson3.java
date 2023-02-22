@@ -20,6 +20,7 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Conversion;
 import com.GrowthPlus.fragment.ConversionTable;
 import com.GrowthPlus.fragment.Counting;
+import com.GrowthPlus.fragment.Family;
 import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.WordGrid;
@@ -136,7 +137,26 @@ public class Lesson3 extends AppCompatActivity {
                         }
 
                         case "family": {
+                            word = contents.get(counter).getWord();
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
 
+                            lessonImg = lesson.getImage();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("familyWord", word);
+                                bundle.putString("familyFirstNumber", firstNumber);
+                                bundle.putString("familyFirstOperator", firstOperator);
+                                bundle.putString("familySecondNumber", secondNumber);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, Family.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
                         }
 
                         case "imageWord" : {
