@@ -25,11 +25,47 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Game2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Game3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Game4"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Quiz"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Quiz2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Quiz3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Quiz4"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Flashcard"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Flashcard2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Flashcard3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Flashcard4"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
