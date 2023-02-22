@@ -71,6 +71,10 @@ public class CustomImage extends Fragment {
             if(image.equals("unitOfTen")){
                 imgNum = imgNum / 10;
             }
+            if(image.equals("unitOfOneHundred")){
+                imgNum = imgNum / 100;
+            }
+
 
             // Check num of image and map to the size of images
             for(int i=0; i<imgNum; i++){

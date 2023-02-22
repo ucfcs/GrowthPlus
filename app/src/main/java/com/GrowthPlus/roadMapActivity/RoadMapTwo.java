@@ -195,15 +195,15 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
         if(roadMapQuizes.get(0).getCurrent()){
             roadMapTwoLessonTrail.setSelectedState(tile4, child);
         }
-//
-//        tile9.setOnClickListener(this);
-//        if(roadMapQuizes.get(1).getCompleted()){
-//            tile9.setCompletedState();
-//        }
-//        if(roadMapQuizes.get(1).getCurrent()){
-//            roadMapTwoLessonTrail.setSelectedState(tile9, child);
-//        }
-//
+
+        tile9.setOnClickListener(this);
+        if(roadMapQuizes.get(1).getCompleted()){
+            tile9.setCompletedState();
+        }
+        if(roadMapQuizes.get(1).getCurrent()){
+            roadMapTwoLessonTrail.setSelectedState(tile9, child);
+        }
+
 //        tile13.setOnClickListener(this);
 //        if(game.getCompleted()){
 //            tile13.setCompletedState();
@@ -283,13 +283,13 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-//        else if(viewId == tile9.getId()){
-//            IntentIntro = new Intent(RoadMapTwo.this, IntroScreen.class);
-//            IntentIntro.putExtra("childId", childID);
-//            IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
-//            IntentIntro.putExtra("whichOne", "Quiz");
-//            startActivity(IntentIntro);
-//        }
+        else if(viewId == tile9.getId()){
+            IntentIntro = new Intent(RoadMapTwo.this, IntroScreen.class);
+            IntentIntro.putExtra("childId", childID);
+            IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
+            IntentIntro.putExtra("whichOne", "Quiz");
+            startActivity(IntentIntro);
+        }
 
         else if(viewId == tile10.getId()){
             IntentIntro = new Intent(RoadMapTwo.this, Lesson2.class);
