@@ -17,8 +17,11 @@ import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.fragment.Conversion;
+import com.GrowthPlus.fragment.ConversionTable;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.HorizontalEquation;
+import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
@@ -131,97 +134,82 @@ public class Lesson3 extends AppCompatActivity {
                             }
                             break;
                         }
-                        // This category can be found on the roadmap.json file
-                        case "wordImageEquation": {
-                            // Reference the fragment_word_image_equation.xml file to see which components we need
 
-                            // Methods attached to contents.get(counter) can all be found in the DAL of the application
-                            // Reference the roadmap.json to see which methods are the correct ones to call
+                        case "family": {
 
-                            // Access top text and bottom text
-                            firstNumber = contents.get(counter).getFirstNumber();
-                            secondNumber = contents.get(counter).getSecondNumber();
-                            // Translate to respective words
-                            String firstWord = "10 " + trans.getString(firstNumber);
-                            String secondWord = trans.getString(secondNumber);
+                        }
 
-                            // Multiple image is many images of one tile with small numbers
-                            // Single image is one image with one large number
+                        case "imageWord" : {
                             imgOne = contents.get(counter).getImgOne();
-                            imgTwo = contents.get(counter).getImgTwo();
-                            imgThree = contents.get(counter).getImgThree();
+                            word = contents.get(counter).getWord();
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
 
-                            // Access the operator as shown on the xml file and Lesson image
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("imageWordText", word);
+                                bundle.putString("imageWordImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ImageWord.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversion" :{
+                            firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+
                             lessonImg = lesson.getImage();
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                // Add the proper components to the bundle using uniquely set IDs and the content that we accessed
-                                bundle.putString("topText", firstWord);
-                                bundle.putString("bottomText", secondWord);
-                                bundle.putString("multipliedImage", imgOne);
-                                bundle.putString("singleImage", imgTwo);
-                                bundle.putString("operatorSymbol", firstOperator);
-                                bundle.putString("multipleImage", imgThree);
+                                bundle.putString("conversionText1", firstNumber);
+                                bundle.putString("operator", firstOperator);
+                                bundle.putString("conversionText2", secondNumber);
 
-                                // Make the fragment transaction and commit it
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordImageEquation.class, bundle);
+                                transaction.replace(R.id.frame_layout_lesson, Conversion.class, bundle);
                                 transaction.commit();
                             }
                             break;
                         }
-                        case "wordImage" : {
-                            word = contents.get(counter).getWord();
-                            if(!trans.getString(word).equals("empty")){
-                                word = trans.getString(word);
-                            }
-                            imgOne = contents.get(counter).getImgOne();
-                            // TODO: look into how we're storing images for the wordImage lessons
 
-                            if (savedInstanceState == null) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("locationIntroText", word);
-                                bundle.putString("locationIntroImage", imgOne);
-
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
-                                transaction.commit();
-                            }
-                            break;
-                        }
-                        case "wordGrid" :{
+                        case "conversionTable": {
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
                             secondOperator = contents.get(counter).getSecondOperator();
-                            thirdNumber = contents.get(counter).getThirdNumber();
-                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
-                            imgOne = contents.get(counter).getImgOne();
 
-                            int numImg = 0;
-                            if(lesson.getCategory().equals("division")){
-                                numImg = Integer.valueOf(thirdNumber);
-                            }
-                            else if(lesson.getCategory().equals("multiplication")){
-                                numImg = Integer.valueOf(secondNumber);
-                            }
+                            lessonImg = lesson.getImage();
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("wordMD", equation);
-                                bundle.putString("imageMD", imgOne);
-                                bundle.putInt("numMD", numImg);
+                                bundle.putString("conversionTableText1", firstNumber);
+                                bundle.putString("conversionTableText2", firstOperator);
+                                bundle.putString("conversionTableText3", secondNumber);
+                                bundle.putString("conversionTableText4", secondOperator);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordGrid.class, bundle);
+                                transaction.replace(R.id.frame_layout_lesson, ConversionTable.class, bundle);
                                 transaction.commit();
                             }
+                            break;
                         }
+
+//                        case "perimeterArea": {
+//                            break;
+//                        }
+//
+//                        case "shape":{
+//                            break;
+//                        }
                         default:
                     }
                     counter++;
