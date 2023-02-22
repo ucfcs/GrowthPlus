@@ -54,6 +54,7 @@ public class ImageSrcIdentifier {
         imageSrcId.put("clock", R.mipmap.clock_foreground);
         imageSrcId.put("circle", R.mipmap.circle_foreground);
         imageSrcId.put("rectangle", R.mipmap.rectangle_foreground);
+        imageSrcId.put("square", R.mipmap.square_foreground);
         imageSrcId.put("triangleYellow", R.mipmap.triangle_foreground);
         imageSrcId.put("triangleGreen", R.mipmap.triangle_green_foreground);
 
