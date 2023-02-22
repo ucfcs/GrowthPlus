@@ -57,11 +57,11 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
         }
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
         init(child);
-        initState();
+//        initState();
 
         // WHEN TO UNLOCK LESSON 4 TRAIL ???
         roadMapFourLessonTrail.unLockRoadMap();
-        setLessonTiles(child);
+//        setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap4item);
         bottomNavigationView.setOnItemSelectedListener(item -> {

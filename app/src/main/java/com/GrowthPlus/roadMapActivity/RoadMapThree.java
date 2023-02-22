@@ -67,10 +67,10 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         Log.i("rooadmapCompleted:", String.valueOf(child.getRoadMapThree().getLessonsCompleted()));
         init(child);
 
-        //initState();
+//        initState();
         // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
         roadMapThreeLessonTrail.unLockRoadMap();
-        setLessonTiles(child);
+//        setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap3item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
