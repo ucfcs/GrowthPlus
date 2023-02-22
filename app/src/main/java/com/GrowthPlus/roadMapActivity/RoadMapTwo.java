@@ -126,7 +126,7 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
         lessonCompleted = childRoadMapTwo.getLessonsCompleted();
         roadMapLessons = childRoadMapTwo.getRoadMapLessons();
         roadMapQuizes = childRoadMapTwo.getRoadMapQuizzes();
-//        game = childRoadMapTwo.getScenarioGame();
+        game = childRoadMapTwo.getScenarioGame();
 
         tile1 = roadMapTwoLessonTrail.getRoadMapTile1();
         tile2 = roadMapTwoLessonTrail.getRoadMapTile2();
@@ -204,10 +204,10 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             roadMapTwoLessonTrail.setSelectedState(tile9, child);
         }
 
-//        tile13.setOnClickListener(this);
-//        if(game.getCompleted()){
-//            tile13.setCompletedState();
-//        }
+        tile13.setOnClickListener(this);
+        if(game.getCompleted()){
+            tile13.setCompletedState();
+        }
     }
 
     /*
@@ -312,18 +312,14 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-//        // TODO: Implement this to location_intro to Game
-//        else if(viewId == tile13.getId()){
-//            IntentIntro = new Intent(RoadMapTwo.this, IntroScreen.class);
-//            IntentIntro.putExtra("childId", childID);
-//            IntentIntro.putExtra("databaseQuizId", game.getDatabaseScenarioGameId());
-//            IntentIntro.putExtra("whichOne", "Game");
-//            startActivity(IntentIntro);
-//        }
+        else if(viewId == tile13.getId()){
+            IntentIntro = new Intent(RoadMapTwo.this, IntroScreen.class);
+            IntentIntro.putExtra("childId", childID);
+            IntentIntro.putExtra("databaseQuizId", game.getDatabaseScenarioGameId());
+            IntentIntro.putExtra("whichOne", "Game");
+            startActivity(IntentIntro);
+        }
     }
-
-
-
 }
 
 

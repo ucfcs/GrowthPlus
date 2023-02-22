@@ -417,6 +417,16 @@ public class CreateAccount extends AppCompatActivity {
         roadMapQuizzes2.add(roadMapQuiz3);
         roadMapQuizzes2.add(roadMapQuiz4);
 
+        RoadMapScenarioGame roadMapTwoScenarioGame = new RoadMapScenarioGame(
+                "Game 1",
+                "camel",
+                20,
+                17,
+                false,
+                "RmTwoScenarioGame",
+                0
+        );
+
         // EMBEDDED CHILD ROADMAPS
 
         ChildRoadMap childRoadMapOne = new ChildRoadMap(
@@ -438,7 +448,7 @@ public class CreateAccount extends AppCompatActivity {
                 false,
                 roadMapLessons2,
                 roadMapQuizzes2,
-                null,
+                roadMapTwoScenarioGame,
                 "RoadMapTwo");
 
         ChildRoadMap childRoadMapThree = new ChildRoadMap(
