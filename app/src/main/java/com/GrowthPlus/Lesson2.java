@@ -21,6 +21,7 @@ import com.GrowthPlus.fragment.Conversion;
 import com.GrowthPlus.fragment.ConversionTable;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.HorizontalEquation;
+import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
@@ -269,6 +270,25 @@ public class Lesson2 extends AppCompatActivity {
                             break;
                         }
 
+                        case "imageWord" : {
+                            imgOne = contents.get(counter).getImgOne();
+                            word = contents.get(counter).getWord();
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("imageWordText", word);
+                                bundle.putString("imageWordImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ImageWord.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
 
                         default:
                     }
