@@ -118,6 +118,7 @@ public class Lesson3 extends AppCompatActivity {
                             word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
                             lessonImg = lesson.getImage();
+
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
                             }
@@ -141,8 +142,11 @@ public class Lesson3 extends AppCompatActivity {
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
-
                             lessonImg = lesson.getImage();
+
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
@@ -230,7 +234,9 @@ public class Lesson3 extends AppCompatActivity {
                         case "shape":{
                             word = contents.get(counter).getWord();
                             imgOne = contents.get(counter).getImgOne();
-                            word = contents.get(counter).getWord();
+                            imgTwo = contents.get(counter).getImgTwo();
+                            imgThree = contents.get(counter).getImgThree();
+
                             if (!trans.getString(word).equals("empty")) {
                                 word = trans.getString(word);
                             }

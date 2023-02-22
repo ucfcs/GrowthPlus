@@ -37,6 +37,15 @@ public class Shape extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        String getShapeText = requireArguments().getString("shapeText");
+        String getShapeImage1 = requireArguments().getString("shapeImage1");
+        String getShapeImage2 = requireArguments().getString("shapeImage2");
+        String getShapeImage3 = requireArguments().getString("shapeImage3");
+
+        shapeText.setText(getShapeText);
+        shapeImage1.setImageResource(imageSrcIdentifier.getImageSrcId(getShapeImage1));
+        shapeImage2.setImageResource(imageSrcIdentifier.getImageSrcId(getShapeImage2));
+        shapeImage3.setImageResource(imageSrcIdentifier.getImageSrcId(getShapeImage3));
 
     }
 }
