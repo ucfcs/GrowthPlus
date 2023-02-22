@@ -54,6 +54,28 @@ public class Quiz extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            // Child passes the quiz
+            if(thisScore >= 7){
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                    assert child != null;
+                    RoadMapQuiz currentQuiz = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex);
+                    assert currentQuiz != null;
+                    // If quiz was not previously completed, set the state, otherwise just update score
+                    // Update the completed lessons counter to move to next tile
+                    if(!currentQuiz.getCompleted()){
+                        currentQuiz.setCurrent(false);
+                        currentQuiz.setCompleted(true);
+                        childLessonsCompleted ++;
+                        child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+                        RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                        assert nextLesson != null;
+                        nextLesson.setCurrent(true);
+                        nextLesson.setCompleted(false);
+                    }
+                });
+            }
+
             countDownTimer.cancel(); //since the user is exiting the quiz we need to stop the timer
             Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class);
             lessonIntent.putExtra("childIdentify", childId);

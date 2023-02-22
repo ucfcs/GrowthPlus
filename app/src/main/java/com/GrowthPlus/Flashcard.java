@@ -61,6 +61,7 @@ public class Flashcard extends AppCompatActivity {
     private int childLessonsCompleted;
     private int lessonIndex;
     private int minToPass;
+    private int minScoreToPass;
     private final int MAX_LESSON_SCORE = 10;
     private int currentLessonScore;
 
@@ -75,6 +76,53 @@ public class Flashcard extends AppCompatActivity {
         Log.i("lessonScore", String.valueOf(currentLessonScore));
 
         flashcardBackBtn.setOnClickListener(view -> {
+            if(currentLessonScore >= minScoreToPass){
+                // This is the case if lesson is completed and child came back to play it again
+                // Don't increase the lessonCompleted count
+                if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
+                    realm.executeTransactionAsync(realm1 -> {
+                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                        assert child != null;
+                    });
+                }else{
+                    realm.executeTransactionAsync(realm1 -> {
+                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+
+                        assert child != null;
+                        RoadMapLesson currentLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                        assert currentLesson != null;
+                        currentLesson.setCurrent(false);
+                        currentLesson.setCompleted(true);
+
+                        if (childLessonsCompleted < 9){
+                            childLessonsCompleted ++;
+
+                            if(childLessonsCompleted == 3){
+                                // Set the quiz state
+                                RoadMapQuiz quizOne = child.getRoadMapOne().getRoadMapQuizzes().get(0);
+                                assert quizOne != null;
+                                quizOne.setCompleted(false);
+                                quizOne.setCurrent(true);
+                            }else if(childLessonsCompleted == 7){
+                                RoadMapQuiz quizTwo = child.getRoadMapOne().getRoadMapQuizzes().get(1);
+                                assert quizTwo != null;
+                                quizTwo.setCompleted(false);
+                                quizTwo.setCurrent(true);
+                            }else{
+                                child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+                                RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                                assert nextLesson != null;
+                                nextLesson.setCurrent(true);
+                                nextLesson.setCompleted(false);
+                            }
+                        } /*TODO: Handle childLessonCompleted == 9,
+                                If lessons completed is 9, then all lessons are completed
+                                the count starts at zero, hence 9 and if so, enable roadmap game
+                                Roadmap game is not implemented yet so it is open for now. */
+                    });
+                }
+            }
+
             Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -375,9 +423,11 @@ public class Flashcard extends AppCompatActivity {
         if(lessonIndex == 9){
             MAX = 10;
             minToPass = 7;
+            minScoreToPass = 14;
         }else{
             MAX = 5;
             minToPass = 4;
+            minScoreToPass = 7;
         }
     }
 
