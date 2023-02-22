@@ -51,7 +51,7 @@ public class Flashcard extends AppCompatActivity {
     private final int NUMBER_INPUT_ONLY = 2;
     private int counter = 0;
     private int MAX;
-    private int currentScore;
+    private int currentChildScore;
     private int numberCorrect;
     private String flashcardAnswer;
     private String firstNumber;
@@ -61,14 +61,18 @@ public class Flashcard extends AppCompatActivity {
     private int childLessonsCompleted;
     private int lessonIndex;
     private int minToPass;
+    private int MAX_LESSON_SCORE = 10;
+    private int currentLessonScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
         init();
+
         Log.i("lessonIndex", String.valueOf(lessonIndex));
-        Log.i("completed", String.valueOf(childLessonsCompleted));
+        Log.i("lessonsCompleted", String.valueOf(childLessonsCompleted));
+        Log.i("lessonScore", String.valueOf(currentLessonScore));
 
         flashcardBackBtn.setOnClickListener(view -> {
             Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class);
@@ -150,6 +154,7 @@ public class Flashcard extends AppCompatActivity {
          * Handles the answer verification logic.
          * If child taps the flashcard the animate() method fires up and rotates the flashcard 360 degrees.
          * Then, the onAnimationEnd sets the corresponding logic after the animation is done.
+         * Child can earn a max of 10 points, currentLessonScore will only increase if < 10 to prevent point farming
          * Refer to figma for clarification.
          * */
         flashcardContainer.setOnClickListener(view -> {
@@ -161,12 +166,17 @@ public class Flashcard extends AppCompatActivity {
                 if(childAnswer.equals(flashcardAnswer)){
                     answerColor = correctAnswerColor;
                     numberCorrect ++ ;
-                    currentScore += 2;
-                    realm.executeTransactionAsync(realm1 -> {
-                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                        assert child != null;
-                        child.setScore(currentScore);
-                    });
+                    if(currentLessonScore < MAX_LESSON_SCORE){
+                        currentLessonScore+= 2;
+                        currentChildScore+= 2;
+
+                        realm.executeTransactionAsync(realm1 -> {
+                            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                            assert child != null;
+                            child.setScore(currentChildScore);
+                            child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).setCurrentScore(currentLessonScore);
+                        });
+                    }
                 }
                 else {
                     answerColor = wrongAnswerColor;
@@ -184,7 +194,7 @@ public class Flashcard extends AppCompatActivity {
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
                             transaction.commit();
-                            flashcardTopBar.setPoints(String.valueOf(currentScore));
+                            flashcardTopBar.setPoints(String.valueOf(currentChildScore));
                         }
 
                         flashcardContainer.setFlashcardColor(answerColor);
@@ -201,18 +211,14 @@ public class Flashcard extends AppCompatActivity {
         // Make sure to reset the flashcardContainer state
         nextFlashcard.setOnClickListener(view -> {
             counter++;
-            Log.i("completed", String.valueOf(childLessonsCompleted));
             if(counter >= MAX){
-                // If number of correct ones >= 4 then update isCurrent & isCompleted only and only if current lesson was not already completed
                 if(numberCorrect >= minToPass){
                     // This is the case if lesson is completed and child came back to play it again
-                    // Update child score
                     // Don't increase the lessonCompleted count
                     if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
                         realm.executeTransactionAsync(realm1 -> {
                             ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                             assert child != null;
-                            child.setScore(currentScore);
                         });
                     }else{
                         realm.executeTransactionAsync(realm1 -> {
@@ -224,7 +230,6 @@ public class Flashcard extends AppCompatActivity {
                             currentLesson.setCurrent(false);
                             currentLesson.setCompleted(true);
 
-                            child.setScore(currentScore);
                             if (childLessonsCompleted < 9){
                                 childLessonsCompleted ++;
 
@@ -352,7 +357,7 @@ public class Flashcard extends AppCompatActivity {
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         assert child != null;
-        currentScore = child.getScore();
+        currentChildScore = child.getScore();
         numberCorrect = 0;
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         assert lesson != null;
@@ -365,6 +370,7 @@ public class Flashcard extends AppCompatActivity {
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
+        currentLessonScore = child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCurrentScore();
 
         if(lessonIndex == 9){
             MAX = 10;

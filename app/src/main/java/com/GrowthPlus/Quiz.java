@@ -39,7 +39,7 @@ public class Quiz extends AppCompatActivity {
     Button nextContent, introBackBtn;
     String childId, databaseQuizId;
     QuizSchema quiz;
-    int contentLength, counter, thisScore, childScore, quizIndex, childLessonsCompleted;;
+    int contentLength, counter, thisScore, childScore, quizIndex, childLessonsCompleted;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
@@ -126,9 +126,6 @@ public class Quiz extends AppCompatActivity {
         nextContent.setOnClickListener(v -> {
             countDownTimer.cancel();
             setTimer();
-            // Update top bar scoring
-            quizTopBar.setPoints(String.valueOf(childScore));
-
             counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
                 // Child passes the quiz
@@ -150,7 +147,7 @@ public class Quiz extends AppCompatActivity {
                             nextLesson.setCurrent(true);
                             nextLesson.setCompleted(false);
                         }
-                        child.setScore(childScore);
+                       // child.setScore(childScore);
                     });
                 }
 
@@ -232,9 +229,9 @@ public class Quiz extends AppCompatActivity {
         quizTopBar = findViewById(R.id.quizTopBar);
         introBackBtn = quizTopBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button);
-        thisScore = 0;
         childScore = child.getScore();
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
+        thisScore = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);
@@ -253,13 +250,20 @@ public class Quiz extends AppCompatActivity {
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir1.correct();
-                thisScore++;
-                childScore++;
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                    assert child != null;
-                    child.setScore(childScore);
-                });
+                if(thisScore < MAX){
+                    thisScore++;
+                    childScore++;
+
+                    realm.executeTransactionAsync(realm1 -> {
+                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                        assert child != null;
+                        child.setScore(childScore);
+                        child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(thisScore);
+                    });
+
+                    //Update top bar scoring
+                    quizTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             else{
                 cir1.incorrect();
@@ -285,13 +289,20 @@ public class Quiz extends AppCompatActivity {
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir2.correct();
-                thisScore++;
-                childScore++;
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                    assert child != null;
-                    child.setScore(childScore);
-                });
+                if(thisScore < MAX){
+                    thisScore++;
+                    childScore++;
+
+                    realm.executeTransactionAsync(realm1 -> {
+                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                        assert child != null;
+                        child.setScore(childScore);
+                        child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(thisScore);
+                    });
+
+                    //Update top bar scoring
+                    quizTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             else{
                 cir2.incorrect();
@@ -317,13 +328,20 @@ public class Quiz extends AppCompatActivity {
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir3.correct();
-                thisScore++;
-                childScore++;
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                    assert child != null;
-                    child.setScore(childScore);
-                });
+                if(thisScore < MAX){
+                    thisScore++;
+                    childScore++;
+
+                    realm.executeTransactionAsync(realm1 -> {
+                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                        assert child != null;
+                        child.setScore(childScore);
+                        child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(thisScore);
+                    });
+
+                    //Update top bar scoring
+                    quizTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             else{
                 cir3.incorrect();
@@ -349,13 +367,20 @@ public class Quiz extends AppCompatActivity {
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir4.correct();
-                thisScore++;
-                childScore++;
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                    assert child != null;
-                    child.setScore(childScore);
-                });
+                if(thisScore < MAX){
+                    thisScore++;
+                    childScore++;
+
+                    realm.executeTransactionAsync(realm1 -> {
+                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                        assert child != null;
+                        child.setScore(childScore);
+                        child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(thisScore);
+                    });
+
+                    //Update top bar scoring
+                    quizTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             else{
                 cir4.incorrect();
