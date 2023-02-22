@@ -61,7 +61,7 @@ public class Flashcard extends AppCompatActivity {
     private int childLessonsCompleted;
     private int lessonIndex;
     private int minToPass;
-    private int MAX_LESSON_SCORE = 10;
+    private final int MAX_LESSON_SCORE = 10;
     private int currentLessonScore;
 
     @Override

@@ -147,7 +147,6 @@ public class Quiz extends AppCompatActivity {
                             nextLesson.setCurrent(true);
                             nextLesson.setCompleted(false);
                         }
-                       // child.setScore(childScore);
                     });
                 }
 
