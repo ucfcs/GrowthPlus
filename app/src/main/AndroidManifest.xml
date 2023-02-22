@@ -37,6 +37,18 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Lesson2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Lesson3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Lesson4"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ParentLogin"
             android:exported="false"
             android:screenOrientation="portrait">

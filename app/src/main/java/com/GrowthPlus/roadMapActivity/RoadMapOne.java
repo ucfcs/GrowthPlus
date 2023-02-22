@@ -304,7 +304,6 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             startActivity(IntentIntro);
         }
 
-        // TODO: Implement this to location_intro to Game
         else if(viewId == tile13.getId()){
             IntentIntro = new Intent(RoadMapOne.this, IntroScreen.class);
             IntentIntro.putExtra("childId", childID);
