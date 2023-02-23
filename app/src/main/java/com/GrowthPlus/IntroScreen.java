@@ -21,7 +21,7 @@ import io.realm.Realm;
 public class IntroScreen extends AppCompatActivity {
     private Realm realm;
     private ChildSchema child;
-    private String childId, data, image, name, whichOne;
+    private String childId, data, image, name, whichOne, whichRoadMap;
     private TopBar topBar;
     private Button next, back;
     private QuizSchema quizContent;
@@ -54,12 +54,38 @@ public class IntroScreen extends AppCompatActivity {
         });
 
         next.setOnClickListener(v -> {
-            Intent intent;
+            Intent intent = null;
             if(whichOne.equals("Quiz")){
-                intent = new Intent(IntroScreen.this, Quiz.class);
+                //for each quiz we want to check which roadMap we're on to set the correct
+                //quiz class
+                if(whichRoadMap.equals("1")){
+                    intent = new Intent(IntroScreen.this, Quiz.class);
+                }
+                else if(whichRoadMap.equals("2")){
+                    intent = new Intent(IntroScreen.this, Quiz2.class);
+                }
+                else if(whichRoadMap.equals("3")){
+                    intent = new Intent(IntroScreen.this, Quiz3.class);
+                }
+                else if(whichRoadMap.equals("4")){
+                    intent = new Intent(IntroScreen.this, Quiz4.class);
+                }
             }
             else{
-                intent = new Intent(IntroScreen.this, Game.class);
+                //for each game we want to check which roadMap we're on to set
+                //the correct Game class
+                if(whichRoadMap.equals("1")){
+                    intent = new Intent(IntroScreen.this, Game.class);
+                }
+                else if(whichRoadMap.equals("2")){
+                    intent = new Intent(IntroScreen.this, Game2.class);
+                }
+                else if(whichRoadMap.equals("3")){
+                    intent = new Intent(IntroScreen.this, Game3.class);
+                }
+                else if(whichRoadMap.equals("4")){
+                    intent = new Intent(IntroScreen.this, Game4.class);
+                }
             }
             intent.putExtra("childId", childId);
             intent.putExtra("databaseQuizId", data);
@@ -73,6 +99,7 @@ public class IntroScreen extends AppCompatActivity {
             childId = extras.getString("childId");
             data = extras.getString("databaseQuizId");
             whichOne = extras.getString("whichOne");
+            whichRoadMap = extras.getString("whichRoadMap");
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
