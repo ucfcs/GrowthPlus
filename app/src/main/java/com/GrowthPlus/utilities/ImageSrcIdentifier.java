@@ -52,12 +52,32 @@ public class ImageSrcIdentifier {
         imageSrcId.put("kiloliter", R.mipmap.kiloliter_foreground);
         imageSrcId.put("fiveHundredFrancs", R.mipmap.five_hundred_fcfa_foreground);
         imageSrcId.put("oneThousandFrancs", R.mipmap.one_thousand_fcfa_foreground);
+        imageSrcId.put("twoThousandFrancs", R.mipmap.two_thousand_fcfa_foreground);
+        imageSrcId.put("fiveThousandFrancs", R.mipmap.five_thousand_fcfa_foreground);
+        imageSrcId.put("tenThousandFrancs", R.mipmap.ten_thousand_fcfa_foreground);
         imageSrcId.put("clock", R.mipmap.clock_foreground);
+        imageSrcId.put("clockLargeHand", R.mipmap.clock_large_hand_foreground);
+        imageSrcId.put("clockSmallHand", R.mipmap.clock_small_hand_foreground);
         imageSrcId.put("circle", R.mipmap.circle_foreground);
         imageSrcId.put("rectangle", R.mipmap.rectangle_foreground);
         imageSrcId.put("square", R.mipmap.square_foreground);
         imageSrcId.put("triangleYellow", R.mipmap.triangle_foreground);
         imageSrcId.put("triangleGreen", R.mipmap.triangle_green_foreground);
+        imageSrcId.put("rectangleAngles", R.mipmap.rectangle_angles_foreground);
+        imageSrcId.put("squareAngles", R.mipmap.square_angles_foreground);
+        imageSrcId.put("rightTriangleAngles", R.mipmap.right_triangle_angles_foreground);
+        imageSrcId.put("equTriangleAngles", R.mipmap.equ_triangle_angles_foreground);
+        imageSrcId.put("perLineOne", R.mipmap.per_line_one_foreground);
+        imageSrcId.put("perLineTwo", R.mipmap.per_line_two_foreground);
+        imageSrcId.put("PLOne", R.mipmap.per_line_one_foreground);
+        imageSrcId.put("PLTwo", R.mipmap.pl_two_foreground);
+        imageSrcId.put("PLThree", R.mipmap.pl_three_foreground);
+        imageSrcId.put("rightAngle", R.mipmap.right_angle_foreground);
+
+
+
+
+
     }
 
     public Integer getImageSrcId(String imageName){
