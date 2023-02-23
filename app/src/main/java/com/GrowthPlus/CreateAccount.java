@@ -530,7 +530,7 @@ public class CreateAccount extends AppCompatActivity {
         RoadMapLesson roadMapLesson28 = new RoadMapLesson(
                 "Roadmap Three Lesson 8",
                 "squirrel",
-                "shape",
+                "shapes",
                 false,
                 true,
                 7,
@@ -544,7 +544,7 @@ public class CreateAccount extends AppCompatActivity {
         RoadMapLesson roadMapLesson29 = new RoadMapLesson(
                 "Roadmap Three Lesson 9",
                 "squirrel",
-                "shape",
+                "shapes",
                 false,
                 true,
                 7,
@@ -570,16 +570,16 @@ public class CreateAccount extends AppCompatActivity {
                 false,
                 0);
         RealmList<RoadMapLesson> roadMapLessons3 = new RealmList<>();
-        roadMapLessons2.add(roadMapLesson21);
-        roadMapLessons2.add(roadMapLesson22);
-        roadMapLessons2.add(roadMapLesson23);
-        roadMapLessons2.add(roadMapLesson24);
-        roadMapLessons2.add(roadMapLesson25);
-        roadMapLessons2.add(roadMapLesson26);
-        roadMapLessons2.add(roadMapLesson27);
-        roadMapLessons2.add(roadMapLesson28);
-        roadMapLessons2.add(roadMapLesson29);
-        roadMapLessons2.add(roadMapLesson30);
+        roadMapLessons3.add(roadMapLesson21);
+        roadMapLessons3.add(roadMapLesson22);
+        roadMapLessons3.add(roadMapLesson23);
+        roadMapLessons3.add(roadMapLesson24);
+        roadMapLessons3.add(roadMapLesson25);
+        roadMapLessons3.add(roadMapLesson26);
+        roadMapLessons3.add(roadMapLesson27);
+        roadMapLessons3.add(roadMapLesson28);
+        roadMapLessons3.add(roadMapLesson29);
+        roadMapLessons3.add(roadMapLesson30);
 
         RoadMapQuiz roadMapQuiz6 = new RoadMapQuiz(
                 "RoadMap Three Quiz One",
@@ -602,8 +602,8 @@ public class CreateAccount extends AppCompatActivity {
                 0
         );
         RealmList<RoadMapQuiz> roadMapQuizzes3 = new RealmList<>();
-        roadMapQuizzes2.add(roadMapQuiz6);
-        roadMapQuizzes2.add(roadMapQuiz7);
+        roadMapQuizzes3.add(roadMapQuiz6);
+        roadMapQuizzes3.add(roadMapQuiz7);
 
         RoadMapScenarioGame roadMapThreeScenarioGame = new RoadMapScenarioGame(
                 "Game 1",
@@ -615,7 +615,159 @@ public class CreateAccount extends AppCompatActivity {
                 0
         );
 
-        // EMBEDDED CHILD ROADMAPS
+        // ROADMAP 3 : lessons, quizzes, and game
+
+        RoadMapLesson roadMapLesson31 = new RoadMapLesson(
+                "Roadmap Four Lesson 1",
+                "giraffe",
+                "numbers",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonOne",
+                "RmFourLessonOneContentOne",
+                "RmFourLessonOneFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson32 = new RoadMapLesson(
+                "Roadmap Four Lesson 2",
+                "giraffe",
+                "multiplication",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonTwo",
+                "RmFourLessonTwoContentOne",
+                "RmFourLessonTwoFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson33 = new RoadMapLesson(
+                "Roadmap Four Lesson 3",
+                "giraffe",
+                "division",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonThree",
+                "RmFourLessonThreeContentOne",
+                "RmFourLessonThreeFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson34 = new RoadMapLesson(
+                "Roadmap Four Lesson 4",
+                "giraffe",
+                "angles",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonFour",
+                "RmFourLessonFourContentOne",
+                "RmFourLessonFourFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson35 = new RoadMapLesson(
+                "Roadmap Four Lesson 5",
+                "giraffe",
+                "shapes",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonFive",
+                "RmFourLessonFiveContentOne",
+                "RmFourLessonFiveFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson36 = new RoadMapLesson(
+                "Roadmap Four Lesson 6",
+                "giraffe",
+                "money",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonSix",
+                "RmFourLessonSixContentOne",
+                "RmFourLessonSixFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson37 = new RoadMapLesson(
+                "Roadmap Four Lesson 7",
+                "giraffe",
+                "angles",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonSeven",
+                "RmFourLessonSevenContentOne",
+                "RmFourLessonSevenFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson38 = new RoadMapLesson(
+                "Roadmap Four Lesson 8",
+                "giraffe",
+                "multiplication",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonEight",
+                "RmFourLessonEightContentOne",
+                "RmFourLessonEightFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson39 = new RoadMapLesson(
+                "Roadmap Four Lesson 9",
+                "giraffe",
+                "division",
+                false,
+                true,
+                7,
+                10,
+                "RmFourLessonNine",
+                "RmFourLessonNineContentOne",
+                "RmFourLessonNineFlashOne",
+                true,
+                false,
+                0);
+        RoadMapLesson roadMapLesson40 = new RoadMapLesson(
+                "Roadmap Four Lesson 10",
+                "giraffe",
+                null,
+                true,
+                false,
+                7,
+                10,
+                "RmFourLessonTen",
+                null,
+                "RmFourLessonTenFlashOne",
+                true,
+                false,
+                0);
+        RealmList<RoadMapLesson> roadMapLessons4 = new RealmList<>();
+        roadMapLessons4.add(roadMapLesson31);
+        roadMapLessons4.add(roadMapLesson32);
+        roadMapLessons4.add(roadMapLesson33);
+        roadMapLessons4.add(roadMapLesson34);
+        roadMapLessons4.add(roadMapLesson35);
+        roadMapLessons4.add(roadMapLesson36);
+        roadMapLessons4.add(roadMapLesson37);
+        roadMapLessons4.add(roadMapLesson38);
+        roadMapLessons4.add(roadMapLesson39);
+        roadMapLessons4.add(roadMapLesson40);
 
         // EMBEDDED CHILD ROADMAPS
 
@@ -644,8 +796,8 @@ public class CreateAccount extends AppCompatActivity {
         ChildRoadMap childRoadMapThree = new ChildRoadMap(
                 "roadMapThree",
                 9,
-                true,
                 false,
+                true,
                 false,
                 roadMapLessons3,
                 roadMapQuizzes3,
@@ -654,11 +806,11 @@ public class CreateAccount extends AppCompatActivity {
 
         ChildRoadMap childRoadMapFour = new ChildRoadMap(
                 "roadMapFour",
-                0,
+                9,
+                true,
                 false,
                 false,
-                false,
-                null,
+                roadMapLessons4,
                 null,
                 null,
                 "RoadMapFour");

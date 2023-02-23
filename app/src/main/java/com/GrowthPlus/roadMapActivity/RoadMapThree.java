@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.GrowthPlus.ChildPortal;
 import com.GrowthPlus.IntroScreen;
-import com.GrowthPlus.Lesson2;
 import com.GrowthPlus.Lesson3;
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
@@ -66,13 +65,13 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
 
         Log.i("childName:", child.getName());
-        Log.i("rooadmapCompleted:", String.valueOf(child.getRoadMapThree().getLessonsCompleted()));
+        Log.i("rooadmapCompleted:", String.valueOf(child.getRoadMapThree()));
         init(child);
 
 //        initState();
         // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
         roadMapThreeLessonTrail.unLockRoadMap();
-//        setLessonTiles(child);
+        setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap3item);
         bottomNavigationView.setOnItemSelectedListener(item -> {

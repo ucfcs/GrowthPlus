@@ -68,7 +68,7 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
 
         // WHEN TO UNLOCK LESSON 4 TRAIL ???
         roadMapFourLessonTrail.unLockRoadMap();
-//        setLessonTiles(child);
+        setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap4item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -204,14 +204,14 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
             startActivity(IntentIntro);
         }
 
-        else if(viewId == tile4.getId()){
-            IntentIntro = new Intent(RoadMapFour.this, IntroScreen.class);
-            IntentIntro.putExtra("childId", childID);
-            IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(0).getDatabaseQuizId());
-            IntentIntro.putExtra("whichOne", "Quiz");
-            IntentIntro.putExtra("whichRoadMap", "3");
-            startActivity(IntentIntro);
-        }
+//        else if(viewId == tile4.getId()){
+//            IntentIntro = new Intent(RoadMapFour.this, IntroScreen.class);
+//            IntentIntro.putExtra("childId", childID);
+//            IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(0).getDatabaseQuizId());
+//            IntentIntro.putExtra("whichOne", "Quiz");
+//            IntentIntro.putExtra("whichRoadMap", "3");
+//            startActivity(IntentIntro);
+//        }
 
         else if(viewId == tile5.getId()){
             IntentIntro = new Intent(RoadMapFour.this, Lesson4.class);
@@ -241,14 +241,14 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
             startActivity(IntentIntro);
         }
 
-        else if(viewId == tile9.getId()){
-            IntentIntro = new Intent(RoadMapFour.this, IntroScreen.class);
-            IntentIntro.putExtra("childId", childID);
-            IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
-            IntentIntro.putExtra("whichOne", "Quiz");
-            IntentIntro.putExtra("whichRoadMap", "4");
-            startActivity(IntentIntro);
-        }
+//        else if(viewId == tile9.getId()){
+//            IntentIntro = new Intent(RoadMapFour.this, IntroScreen.class);
+//            IntentIntro.putExtra("childId", childID);
+//            IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
+//            IntentIntro.putExtra("whichOne", "Quiz");
+//            IntentIntro.putExtra("whichRoadMap", "4");
+//            startActivity(IntentIntro);
+//        }
 
         else if(viewId == tile10.getId()){
             IntentIntro = new Intent(RoadMapFour.this, Lesson3.class);
@@ -272,14 +272,14 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
         }
 
 
-        else if(viewId == tile13.getId()){
-            IntentIntro = new Intent(RoadMapFour.this, IntroScreen.class);
-            IntentIntro.putExtra("childId", childID);
-            IntentIntro.putExtra("databaseQuizId", game.getDatabaseScenarioGameId());
-            IntentIntro.putExtra("whichOne", "Game");
-            IntentIntro.putExtra("whichRoadMap", "3");
-            startActivity(IntentIntro);
-        }
+//        else if(viewId == tile13.getId()){
+//            IntentIntro = new Intent(RoadMapFour.this, IntroScreen.class);
+//            IntentIntro.putExtra("childId", childID);
+//            IntentIntro.putExtra("databaseQuizId", game.getDatabaseScenarioGameId());
+//            IntentIntro.putExtra("whichOne", "Game");
+//            IntentIntro.putExtra("whichRoadMap", "3");
+//            startActivity(IntentIntro);
+//        }
     }
 
     // Initial state is locked. Check if previous 3 levels completed before unlocking

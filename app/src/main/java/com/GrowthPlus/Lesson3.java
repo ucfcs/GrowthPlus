@@ -53,7 +53,6 @@ public class Lesson3 extends AppCompatActivity {
 
         introBackBtn.setOnClickListener(view -> {
             Intent lessonIntent = new Intent(Lesson3.this, RoadMapThree.class);
-            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
@@ -113,7 +112,7 @@ public class Lesson3 extends AppCompatActivity {
                         case "counting": {
                             word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
-                            lessonImg = lesson.getImage();
+                            imgOne = contents.get(counter).getImgOne();
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
                             }
@@ -122,7 +121,7 @@ public class Lesson3 extends AppCompatActivity {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("lessonWord", word);
                                 bundle.putString("lessonNumber", firstNumber);
-                                bundle.putString("lessonImage", lessonImg);
+                                bundle.putString("lessonImage", imgOne);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
@@ -254,6 +253,5 @@ public class Lesson3 extends AppCompatActivity {
     }
     public void setLevelColor(){
         lessonBackground.setBackgroundColor(Color.rgb(198, 192, 18));
-
     }
 }
