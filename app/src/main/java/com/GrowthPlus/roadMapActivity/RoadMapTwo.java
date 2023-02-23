@@ -251,6 +251,7 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(0).getDatabaseQuizId());
             IntentIntro.putExtra("whichOne", "Quiz");
+            IntentIntro.putExtra("whichRoadMap", "2");
             startActivity(IntentIntro);
         }
 
@@ -287,6 +288,7 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
             IntentIntro.putExtra("whichOne", "Quiz");
+            IntentIntro.putExtra("whichRoadMap", "2");
             startActivity(IntentIntro);
         }
 
@@ -316,6 +318,7 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", game.getDatabaseScenarioGameId());
             IntentIntro.putExtra("whichOne", "Game");
+            IntentIntro.putExtra("whichRoadMap", "2");
             startActivity(IntentIntro);
         }
     }

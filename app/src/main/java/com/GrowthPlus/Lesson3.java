@@ -97,7 +97,7 @@ public class Lesson3 extends AppCompatActivity {
             public void onClick(View v) {
                 // Reached the end of the contents and need to start looking at flashcards or the Lesson is 10 (which is all flashcards)
                 if(counter >= contentLength){
-                    Intent flashcardIntent = new Intent(Lesson3.this, Flashcard.class);
+                    Intent flashcardIntent = new Intent(Lesson3.this, Flashcard3.class);
                     flashcardIntent.putExtra("dataBaseLessonId", dataBaseLessonId);
                     flashcardIntent.putExtra("childId", childId);
                     flashcardIntent.putExtra("lessonImage", image);
