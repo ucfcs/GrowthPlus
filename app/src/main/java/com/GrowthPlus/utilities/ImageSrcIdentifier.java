@@ -58,7 +58,6 @@ public class ImageSrcIdentifier {
         imageSrcId.put("square", R.mipmap.square_foreground);
         imageSrcId.put("triangleYellow", R.mipmap.triangle_foreground);
         imageSrcId.put("triangleGreen", R.mipmap.triangle_green_foreground);
-
     }
 
     public Integer getImageSrcId(String imageName){
