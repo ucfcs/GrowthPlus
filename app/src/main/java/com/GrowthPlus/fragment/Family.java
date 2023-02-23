@@ -50,7 +50,7 @@ public class Family extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        String getConversionTableText1 = requireArguments().getString("conversionTableText1");
+        //String getConversionTableText1 = requireArguments().getString("conversionTableText1");
 
         String getFamilyWord = requireArguments().getString("familyWord");
         String getFamilyFirstNumber = requireArguments().getString("familyFirstNumber");
