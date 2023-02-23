@@ -23,6 +23,7 @@ import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.Family;
 import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.ImageWord;
+import com.GrowthPlus.fragment.Shape;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
@@ -243,12 +244,14 @@ public class Lesson3 extends AppCompatActivity {
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("imageWordText", word);
-                                bundle.putString("imageWordImage", imgOne);
+                                bundle.putString("shapeText", word);
+                                bundle.putString("shapeImageOne", imgOne);
+                                bundle.putString("shapeImageTwo", imgOne);
+                                bundle.putString("shapeImageThree", imgOne);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, ImageWord.class, bundle);
+                                transaction.replace(R.id.frame_layout_lesson, Shape.class, bundle);
                                 transaction.commit();
                             }
                             break;
