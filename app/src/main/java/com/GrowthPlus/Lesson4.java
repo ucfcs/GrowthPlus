@@ -16,6 +16,10 @@ import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Counting;
+import com.GrowthPlus.fragment.Family;
+import com.GrowthPlus.fragment.ImageWord;
+import com.GrowthPlus.fragment.LinesAngles;
+import com.GrowthPlus.fragment.Shape;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
@@ -125,97 +129,115 @@ public class Lesson4 extends AppCompatActivity {
                             }
                             break;
                         }
-                        // This category can be found on the roadmap.json file
-                        case "wordImageEquation": {
-                            // Reference the fragment_word_image_equation.xml file to see which components we need
 
-                            // Methods attached to contents.get(counter) can all be found in the DAL of the application
-                            // Reference the roadmap.json to see which methods are the correct ones to call
+                        //TODO: Add Vertical Equation case
 
-                            // Access top text and bottom text
-                            firstNumber = contents.get(counter).getFirstNumber();
-                            secondNumber = contents.get(counter).getSecondNumber();
-                            // Translate to respective words
-                            String firstWord = "10 " + trans.getString(firstNumber);
-                            String secondWord = trans.getString(secondNumber);
+                        //TODO: Add division case
+                        case "division":{
 
-                            // Multiple image is many images of one tile with small numbers
-                            // Single image is one image with one large number
+                            break;
+                        }
+
+//                        case "shape":{
+//                            word = contents.get(counter).getWord();
+//                            imgOne = contents.get(counter).getImgOne();
+//                            imgTwo = contents.get(counter).getImgTwo();
+//                            imgThree = contents.get(counter).getImgThree();
+//
+//                            if (!trans.getString(word).equals("empty")) {
+//                                word = trans.getString(word);
+//                            }
+//
+//                            if (savedInstanceState == null) {
+//                                Bundle bundle = new Bundle();
+//                                bundle.putString("shapeText", word);
+//                                bundle.putString("shapeImageOne", imgOne);
+//                                bundle.putString("shapeImageTwo", imgTwo);
+//                                bundle.putString("shapeImageThree", imgThree);
+//
+//                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+//                                transaction.setReorderingAllowed(true);
+//                                transaction.replace(R.id.frame_layout_lesson, Shape.class, bundle);
+//                                transaction.commit();
+//                            }
+//                            break;
+//                        }
+
+                        case "linesAngles":{
+                            word = contents.get(counter).getWord();
                             imgOne = contents.get(counter).getImgOne();
                             imgTwo = contents.get(counter).getImgTwo();
-                            imgThree = contents.get(counter).getImgThree();
 
-                            // Access the operator as shown on the xml file and Lesson image
-                            firstOperator = contents.get(counter).getFirstOperator();
-                            lessonImg = lesson.getImage();
-
-                            if (savedInstanceState == null) {
-                                Bundle bundle = new Bundle();
-                                // Add the proper components to the bundle using uniquely set IDs and the content that we accessed
-                                bundle.putString("topText", firstWord);
-                                bundle.putString("bottomText", secondWord);
-                                bundle.putString("multipliedImage", imgOne);
-                                bundle.putString("singleImage", imgTwo);
-                                bundle.putString("operatorSymbol", firstOperator);
-                                bundle.putString("multipleImage", imgThree);
-
-                                // Make the fragment transaction and commit it
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordImageEquation.class, bundle);
-                                transaction.commit();
-                            }
-                            break;
-                        }
-                        case "wordImage" : {
-                            word = contents.get(counter).getWord();
-                            if(!trans.getString(word).equals("empty")){
+                            if (!trans.getString(word).equals("empty")) {
                                 word = trans.getString(word);
                             }
-                            imgOne = contents.get(counter).getImgOne();
-                            // TODO: look into how we're storing images for the wordImage lessons
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("locationIntroText", word);
-                                bundle.putString("locationIntroImage", imgOne);
+                                bundle.putString("LAText", word);
+                                bundle.putString("LAImage1", imgOne);
+                                bundle.putString("LAImage2", imgTwo);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
+                                transaction.replace(R.id.frame_layout_lesson, LinesAngles.class, bundle);
                                 transaction.commit();
                             }
                             break;
                         }
-                        case "wordGrid" :{
+
+//                      case "perimeterArea": {
+//                            break;
+//                        }
+
+                        case "imageWord" : {
+                            imgOne = contents.get(counter).getImgOne();
+                            word = contents.get(counter).getWord();
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("imageWordText", word);
+                                bundle.putString("imageWordImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ImageWord.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        //TODO: Add shapes angles case
+
+                        case "family": {
+                            word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
-                            secondOperator = contents.get(counter).getSecondOperator();
-                            thirdNumber = contents.get(counter).getThirdNumber();
-                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
-                            imgOne = contents.get(counter).getImgOne();
+                            lessonImg = lesson.getImage();
 
-                            int numImg = 0;
-                            if(lesson.getCategory().equals("division")){
-                                numImg = Integer.valueOf(thirdNumber);
-                            }
-                            else if(lesson.getCategory().equals("multiplication")){
-                                numImg = Integer.valueOf(secondNumber);
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
                             }
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("wordMD", equation);
-                                bundle.putString("imageMD", imgOne);
-                                bundle.putInt("numMD", numImg);
+                                bundle.putString("familyWord", word);
+                                bundle.putString("familyFirstNumber", firstNumber);
+                                bundle.putString("familyFirstOperator", firstOperator);
+                                bundle.putString("familySecondNumber", secondNumber);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordGrid.class, bundle);
+                                transaction.replace(R.id.frame_layout_lesson, Family.class, bundle);
                                 transaction.commit();
                             }
+                            break;
                         }
+
                         default:
                     }
                     counter++;

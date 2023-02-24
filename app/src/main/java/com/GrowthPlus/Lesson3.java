@@ -226,34 +226,34 @@ public class Lesson3 extends AppCompatActivity {
                             break;
                         }
 
+//                        case "shape":{
+//                            word = contents.get(counter).getWord();
+//                            imgOne = contents.get(counter).getImgOne();
+//                            imgTwo = contents.get(counter).getImgTwo();
+//                            imgThree = contents.get(counter).getImgThree();
+//
+//                            if (!trans.getString(word).equals("empty")) {
+//                                word = trans.getString(word);
+//                            }
+//
+//                            if (savedInstanceState == null) {
+//                                Bundle bundle = new Bundle();
+//                                bundle.putString("shapeText", word);
+//                                bundle.putString("shapeImageOne", imgOne);
+//                                bundle.putString("shapeImageTwo", imgTwo);
+//                                bundle.putString("shapeImageThree", imgThree);
+//
+//                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+//                                transaction.setReorderingAllowed(true);
+//                                transaction.replace(R.id.frame_layout_lesson, Shape.class, bundle);
+//                                transaction.commit();
+//                            }
+//                            break;
+//                        }
 //                        case "perimeterArea": {
 //                            break;
 //                        }
-//
-                        case "shape":{
-                            word = contents.get(counter).getWord();
-                            imgOne = contents.get(counter).getImgOne();
-                            imgTwo = contents.get(counter).getImgTwo();
-                            imgThree = contents.get(counter).getImgThree();
 
-                            if (!trans.getString(word).equals("empty")) {
-                                word = trans.getString(word);
-                            }
-
-                            if (savedInstanceState == null) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("shapeText", word);
-                                bundle.putString("shapeImageOne", imgOne);
-                                bundle.putString("shapeImageTwo", imgOne);
-                                bundle.putString("shapeImageThree", imgOne);
-
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, Shape.class, bundle);
-                                transaction.commit();
-                            }
-                            break;
-                        }
                         default:
                     }
                     counter++;

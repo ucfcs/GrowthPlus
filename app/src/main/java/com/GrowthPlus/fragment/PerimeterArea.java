@@ -46,6 +46,7 @@ public class PerimeterArea extends Fragment {
         perimeterAreaText2.setText("");
         perimeterAreaImage.setImageResource(imageSrcIdentifier.getImageSrcId(getPAImage));
 
+        //TODO: handle the cases and generate the proper text for perimeterAreaText1 and perimeterAreaText2
         if(getPAWord.equals("perimeter")){
 
             switch(getPAImage){
