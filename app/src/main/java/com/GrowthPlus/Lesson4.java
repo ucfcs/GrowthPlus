@@ -16,6 +16,7 @@ import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Counting;
+import com.GrowthPlus.fragment.Division;
 import com.GrowthPlus.fragment.Family;
 import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.LinesAngles;
@@ -134,6 +135,24 @@ public class Lesson4 extends AppCompatActivity {
 
                         //TODO: Add division case
                         case "division":{
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            secondNumber = contents.get(counter).getSecondNumber();
+                            thirdNumber = contents.get(counter).getThirdNumber();
+
+                            firstOperator = contents.get(counter).getFirstOperator();//not useful
+                            secondOperator = contents.get(counter).getSecondOperator();//not useful
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("divisor", secondNumber);
+                                bundle.putString("dividend", firstNumber);
+                                bundle.putString("quotient", thirdNumber);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, Division.class, bundle);
+                                transaction.commit();
+                            }
 
                             break;
                         }
