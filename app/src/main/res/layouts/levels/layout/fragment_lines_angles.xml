@@ -21,7 +21,7 @@
         android:id="@+id/first_image"
         android:layout_width="230dp"
         android:layout_height="190dp"
-        android:src="@mipmap/triangle2_foreground"
+        android:src="@mipmap/triangle_foreground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text" />
 
@@ -29,8 +29,9 @@
         android:id="@+id/second_image"
         android:layout_width="230dp"
         android:layout_height="190dp"
-        android:src="@mipmap/square_angles_foreground"
+        android:src="@mipmap/rectangle_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_image" />
+        app:layout_constraintTop_toBottomOf="@+id/first_image"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

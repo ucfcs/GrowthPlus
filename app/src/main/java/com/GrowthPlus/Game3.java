@@ -40,9 +40,9 @@ public class Game3 extends AppCompatActivity {
 
         introBackBtn.setOnClickListener(view -> {
             Intent lessonIntent = new Intent(Game3.this, RoadMapThree.class);
-            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
+            this.finish();
         });
         setTopBar();
     }

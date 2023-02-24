@@ -19,6 +19,7 @@ import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
+import com.GrowthPlus.roadMapActivity.RoadMapFour;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 
 import io.realm.Realm;
@@ -47,8 +48,7 @@ public class Lesson4 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
-            Intent lessonIntent = new Intent(Lesson4.this, RoadMapOne.class);
-            // TODO: Dynamically change return address based on child's progress
+            Intent lessonIntent = new Intent(Lesson4.this, RoadMapFour.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
@@ -107,7 +107,7 @@ public class Lesson4 extends AppCompatActivity {
                         case "counting": {
                             word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
-                            lessonImg = lesson.getImage();
+                            imgOne = contents.get(counter).getImgOne();
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
                             }
@@ -116,7 +116,7 @@ public class Lesson4 extends AppCompatActivity {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("lessonWord", word);
                                 bundle.putString("lessonNumber", firstNumber);
-                                bundle.putString("lessonImage", lessonImg);
+                                bundle.putString("lessonImage", imgOne);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);

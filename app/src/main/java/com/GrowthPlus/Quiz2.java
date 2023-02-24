@@ -54,7 +54,6 @@ public class Quiz2 extends AppCompatActivity {
         introBackBtn.setOnClickListener(view -> {
             countDownTimer.cancel(); //since the user is exiting the quiz we need to stop the timer
             Intent lessonIntent = new Intent(Quiz2.this, RoadMapTwo.class);
-            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
