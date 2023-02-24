@@ -21,6 +21,7 @@ import com.GrowthPlus.fragment.Family;
 import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.LinesAngles;
 import com.GrowthPlus.fragment.Shape;
+import com.GrowthPlus.fragment.ShapesAngles;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
@@ -133,7 +134,6 @@ public class Lesson4 extends AppCompatActivity {
 
                         //TODO: Add Vertical Equation case
 
-                        //TODO: Add division case
                         case "division":{
                             firstNumber = contents.get(counter).getFirstNumber();
                             secondNumber = contents.get(counter).getSecondNumber();
@@ -156,6 +156,8 @@ public class Lesson4 extends AppCompatActivity {
 
                             break;
                         }
+
+                          //TODO: figure out why shape case isn't working
 
 //                        case "shape":{
 //                            word = contents.get(counter).getWord();
@@ -230,6 +232,32 @@ public class Lesson4 extends AppCompatActivity {
                         }
 
                         //TODO: Add shapes angles case
+
+                        case "shapesAngles":{
+                            imgOne = contents.get(counter).getImgOne();
+                            imgTwo = contents.get(counter).getImgTwo();
+                            word = contents.get(counter).getWord();
+                            firstNumber = contents.get(counter).getFirstNumber();
+
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("firstImage", imgOne);
+                                bundle.putString("secondImage", imgTwo);
+                                bundle.putString("word", word);
+                                bundle.putString("degree", firstNumber);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ShapesAngles.class, bundle);
+                                transaction.commit();
+                            }
+
+                            break;
+                        }
 
                         case "family": {
                             word = contents.get(counter).getWord();
