@@ -559,8 +559,8 @@ public class CreateAccount extends AppCompatActivity {
                 "Roadmap Three Lesson 10",
                 "squirrel",
                 null,
-                true,
                 false,
+                true,
                 7,
                 10,
                 "RmThreeLessonTen",
@@ -769,6 +769,40 @@ public class CreateAccount extends AppCompatActivity {
         roadMapLessons4.add(roadMapLesson39);
         roadMapLessons4.add(roadMapLesson40);
 
+        RoadMapQuiz roadMapQuiz8 = new RoadMapQuiz(
+                "RoadMap Four Quiz One",
+                "giraffe",
+                10,
+                7,
+                false,
+                true,
+                "RmFourQuizOne",
+                0
+        );
+        RoadMapQuiz roadMapQuiz9 = new RoadMapQuiz(
+                "RoadMap Four Quiz Two",
+                "giraffe",
+                10,
+                7,
+                false,
+                true,
+                "RmFourQuizTwo",
+                0
+        );
+        RealmList<RoadMapQuiz> roadMapQuizzes4 = new RealmList<>();
+        roadMapQuizzes4.add(roadMapQuiz8);
+        roadMapQuizzes4.add(roadMapQuiz9);
+
+        RoadMapScenarioGame roadMapFourScenarioGame = new RoadMapScenarioGame(
+                "Game 1",
+                "giraffe",
+                20,
+                17,
+                false,
+                "RmFourScenarioGame",
+                0
+        );
+
         // EMBEDDED CHILD ROADMAPS
 
         ChildRoadMap childRoadMapOne = new ChildRoadMap(
@@ -811,8 +845,8 @@ public class CreateAccount extends AppCompatActivity {
                 false,
                 false,
                 roadMapLessons4,
-                null,
-                null,
+                roadMapQuizzes4,
+                roadMapFourScenarioGame,
                 "RoadMapFour");
 
         // Go to main page with update new child

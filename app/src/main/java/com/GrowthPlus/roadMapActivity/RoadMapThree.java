@@ -184,7 +184,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             Objects.requireNonNull(mapTiles.get(i)).setOnClickListener(this);
             mapLessonId.put(tileIdTemp, dataBaseLessonId);
         }
-        //this was previously commented------------
+
         tile4.setOnClickListener(this);
         if(roadMapQuizes.get(0).getCompleted()){
             tile4.setCompletedState();
@@ -205,7 +205,6 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         if(game.getCompleted()){
             tile13.setCompletedState();
         }
-        //-------------------------------------------
     }
 
     /*
