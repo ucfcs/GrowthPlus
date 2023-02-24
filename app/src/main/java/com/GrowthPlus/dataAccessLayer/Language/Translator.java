@@ -52,6 +52,9 @@ public class Translator {
             case "create":
                 value = languageSchema.getCreate();
                 break;
+            case "delete":
+                value = languageSchema.getDelete();
+                break;
             case "confirm":
                 value = languageSchema.getConfirm();
                 break;
@@ -97,8 +100,11 @@ public class Translator {
             case "Lesson":
                 value = languageSchema.getLesson();
                 break;
-            case "Game":
+            case "game":
                 value = languageSchema.getGame();
+                break;
+            case "quiz":
+                value = languageSchema.getQuiz();
                 break;
             case "roadmap":
                 value = languageSchema.getRoadmap();
@@ -207,6 +213,12 @@ public class Translator {
                 break;
             case "length":
                 value = languageSchema.getLength();
+                break;
+            case "base":
+                value = languageSchema.getBase();
+                break;
+            case "height":
+                value = languageSchema.getHeight();
                 break;
             case "side":
                 value = languageSchema.getSide();

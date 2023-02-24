@@ -5,23 +5,28 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.WordImage;
+import com.GrowthPlus.roadMapActivity.RoadMapFour;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
+import com.GrowthPlus.roadMapActivity.RoadMapThree;
+import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import io.realm.Realm;
 
 public class IntroScreen extends AppCompatActivity {
     private Realm realm;
     private ChildSchema child;
-    private String childId, data, image, name, whichOne;
+    private String childId, data, image, name, whichOne, whichRoadMap;
     private TopBar topBar;
     private Button next, back;
     private QuizSchema quizContent;
@@ -33,6 +38,18 @@ public class IntroScreen extends AppCompatActivity {
         setContentView(R.layout.activity_intro_screen);
         init();
         setTopBar();
+
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        Translator trans = new Translator(langId);
+        if(whichOne.equals("Quiz")){
+            name = trans.getString("quiz") + " "+name;
+        }
+        else{
+            name = trans.getString("game") + " "+name;
+        }
 
         // Load fragment for Intro to Quiz/Game
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -48,22 +65,62 @@ public class IntroScreen extends AppCompatActivity {
         }
 
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(IntroScreen.this, RoadMapOne.class);
+            Intent intent = null;
+            if(whichRoadMap.equals("1")){
+                intent = new Intent(IntroScreen.this, RoadMapOne.class);
+            }
+            else if(whichRoadMap.equals("2")){
+                intent = new Intent(IntroScreen.this, RoadMapTwo.class);
+            }
+            else if(whichRoadMap.equals("3")){
+                intent = new Intent(IntroScreen.this, RoadMapThree.class);
+            }
+            else if(whichRoadMap.equals("4")){
+                intent = new Intent(IntroScreen.this, RoadMapFour.class);
+            }
             intent.putExtra("childIdentify", childId);
             startActivity(intent);
+            this.finish();
         });
 
         next.setOnClickListener(v -> {
-            Intent intent;
+            Intent intent = null;
             if(whichOne.equals("Quiz")){
-                intent = new Intent(IntroScreen.this, Quiz.class);
+                //for each quiz we want to check which roadMap we're on to set the correct
+                //quiz class
+                if(whichRoadMap.equals("1")){
+                    intent = new Intent(IntroScreen.this, Quiz.class);
+                }
+                else if(whichRoadMap.equals("2")){
+                    intent = new Intent(IntroScreen.this, Quiz2.class);
+                }
+                else if(whichRoadMap.equals("3")){
+                    intent = new Intent(IntroScreen.this, Quiz3.class);
+                }
+                else if(whichRoadMap.equals("4")){
+                    intent = new Intent(IntroScreen.this, Quiz4.class);
+                }
             }
             else{
-                intent = new Intent(IntroScreen.this, Game.class);
+                //for each game we want to check which roadMap we're on to set
+                //the correct Game class
+                if(whichRoadMap.equals("1")){
+                    intent = new Intent(IntroScreen.this, Game.class);
+                }
+                else if(whichRoadMap.equals("2")){
+                    intent = new Intent(IntroScreen.this, Game2.class);
+                }
+                else if(whichRoadMap.equals("3")){
+                    intent = new Intent(IntroScreen.this, Game3.class);
+                }
+                else if(whichRoadMap.equals("4")){
+                    intent = new Intent(IntroScreen.this, Game4.class);
+                }
             }
             intent.putExtra("childId", childId);
             intent.putExtra("databaseQuizId", data);
             startActivity(intent);
+            finish();
         });
     }
 
@@ -73,6 +130,7 @@ public class IntroScreen extends AppCompatActivity {
             childId = extras.getString("childId");
             data = extras.getString("databaseQuizId");
             whichOne = extras.getString("whichOne");
+            whichRoadMap = extras.getString("whichRoadMap");
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
