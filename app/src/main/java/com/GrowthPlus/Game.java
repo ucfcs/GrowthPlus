@@ -25,7 +25,7 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class Game extends AppCompatActivity {
-    final int MAX = 20; // TODO: Change this back to 20
+    final int MAX = 20;
     ChildSchema child;
     Realm realm;
     TopBar topBar;
@@ -174,13 +174,13 @@ public class Game extends AppCompatActivity {
         });
     }
 
-    public void deactivate(){
+    private void deactivate(){
         fish1.setOnClickListener(null);
         fish2.setOnClickListener(null);
         fish3.setOnClickListener(null);
     }
 
-    public void resetAnimation(){
+    private void resetAnimation(){
         move1.end();
         move6.end();
         move7.end();
@@ -197,7 +197,7 @@ public class Game extends AppCompatActivity {
         fish3.animate().translationY(0);
     }
 
-    public void showCorrect(){
+    private void showCorrect(){
         correctFish.setVisibility(View.VISIBLE);
         fish1.setVisibility(View.INVISIBLE);
         fish2.setVisibility(View.INVISIBLE);
