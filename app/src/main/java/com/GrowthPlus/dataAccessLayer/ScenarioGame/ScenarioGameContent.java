@@ -59,5 +59,4 @@ public class ScenarioGameContent extends RealmObject {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
-
 }

@@ -64,7 +64,18 @@ public class ChildSchemaService {
             newChild.setRoadMapTwo(childRoadMapTwo);
             newChild.setRoadMapThree(childRoadMapThree);
             newChild.setRoadMapFour(childRoadMapFour);
-
+            newChild.setCatCountNumbers(0);
+            newChild.setCatCountUnits(0);
+            newChild.setCatCountAddition(0);
+            newChild.setCatCountSubtraction(0);
+            newChild.setCatCountMultiplication(0);
+            newChild.setCatCountDivision(0);
+            newChild.setCatCountLength(0);
+            newChild.setCatCountWeightVolume(0);
+            newChild.setCatCountMoney(0);
+            newChild.setCatCountTime(0);
+            newChild.setCatCountShapes(0);
+            newChild.setCatCountAngles(0);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New child added to realm!");

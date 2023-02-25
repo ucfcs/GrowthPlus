@@ -41,5 +41,11 @@ public class Fish extends ConstraintLayout {
         number = findViewById(R.id.number);
     }
 
-    // TODO: Add method to change number
+    public void setNumber(String question){
+        number.setText(question);
+    }
+
+    public String getNumber(){
+        return String.valueOf(number.getText());
+    }
 }

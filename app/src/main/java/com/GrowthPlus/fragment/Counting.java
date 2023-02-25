@@ -42,6 +42,17 @@ public class Counting extends Fragment {
         String getImg = requireArguments().getString("lessonImage");
         int imgNum = Integer.parseInt(getNumber);
 
+
+        if(imgNum >= 1000){
+            imgNum /= 1000;
+        }
+        else if(imgNum >= 100){
+            imgNum /= 100;
+        }
+        else if(imgNum > 10){
+            imgNum /= 10;
+        }
+
         word.setText(getWord);
         number.setText(getNumber);
 

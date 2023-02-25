@@ -40,10 +40,10 @@ public class Quiz extends AppCompatActivity {
     String childId, databaseQuizId;
     QuizSchema quiz;
     int contentLength, counter, thisScore, childScore, quizIndex, childLessonsCompleted;
+    int score;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
-
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
 
@@ -93,7 +93,6 @@ public class Quiz extends AppCompatActivity {
         // Create language translator and set up the Lesson string
         Translator trans = new Translator(langId);
 
-        contentLength = contents.size();
         counter = 0;
 
         // This loads the first question only before needing to click the next button ---------------------------------
