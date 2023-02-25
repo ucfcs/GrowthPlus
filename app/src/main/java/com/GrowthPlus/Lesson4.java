@@ -20,6 +20,7 @@ import com.GrowthPlus.fragment.Division;
 import com.GrowthPlus.fragment.Family;
 import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.LinesAngles;
+import com.GrowthPlus.fragment.PerimeterArea;
 import com.GrowthPlus.fragment.Shape;
 import com.GrowthPlus.fragment.ShapesAngles;
 import com.GrowthPlus.fragment.WordGrid;
@@ -207,9 +208,33 @@ public class Lesson4 extends AppCompatActivity {
                             break;
                         }
 
-//                      case "perimeterArea": {
-//                            break;
-//                        }
+                      case "perimeterArea": {
+
+                          word = contents.get(counter).getWord();
+                          firstNumber = contents.get(counter).getFirstNumber();
+                          firstOperator = contents.get(counter).getFirstOperator();
+                          secondNumber = contents.get(counter).getSecondNumber();
+                          secondOperator = contents.get(counter).getSecondOperator();
+                          thirdNumber = contents.get(counter).getThirdNumber();
+                          imgOne = contents.get(counter).getImgOne();
+
+                          if (savedInstanceState == null) {
+                              Bundle bundle = new Bundle();
+                              bundle.putString("PAWord", word);
+                              bundle.putString("PAFirstNumber", firstNumber);
+                              bundle.putString("PAFirstOperator", firstOperator);
+                              bundle.putString("PASecondNumber", secondNumber);
+                              bundle.putString("PASecondOperator", secondOperator);
+                              bundle.putString("PAThirdNumber", thirdNumber);
+                              bundle.putString("PAImage", imgOne);
+
+                              FragmentTransaction transaction = fragmentManager.beginTransaction();
+                              transaction.setReorderingAllowed(true);
+                              transaction.replace(R.id.frame_layout_lesson, PerimeterArea.class, bundle);
+                              transaction.commit();
+                          }
+                          break;
+                        }
 
                         case "imageWord" : {
                             imgOne = contents.get(counter).getImgOne();

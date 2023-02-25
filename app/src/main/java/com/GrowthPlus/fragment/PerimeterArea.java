@@ -40,26 +40,32 @@ public class PerimeterArea extends Fragment {
         String getPASecondNumber = requireArguments().getString("PASecondNumber");
         String getPASecondOperator = requireArguments().getString("PASecondOperator");
         String getPAThirdNumber = requireArguments().getString("PAThirdNumber");
-        String getPAImage = requireArguments().getString("perimeterAreaImage");
+        String getPAImage = requireArguments().getString("PAImage");
 
-        perimeterAreaText1.setText("");
-        perimeterAreaText2.setText("");
+        perimeterAreaText1.setText(getPAWord);
         perimeterAreaImage.setImageResource(imageSrcIdentifier.getImageSrcId(getPAImage));
+        String getPerimeterAreaText2 = "";
 
-        //TODO: handle the cases and generate the proper text for perimeterAreaText1 and perimeterAreaText2
+        //TODO: handle the cases and generate the proper text for perimeterAreaText2
         if(getPAWord.equals("perimeter")){
 
             switch(getPAImage){
 
                 case "square":{
+                    getPerimeterAreaText2 += "" + getPAFirstNumber + " " + getPAFirstOperator + " " + getPASecondNumber + " " + getPASecondOperator + " " + getPAThirdNumber +
+                    " " + getPASecondOperator + " " + getPASecondNumber + " " + getPASecondOperator + " " + getPAThirdNumber;
                     break;
                 }
 
                 case "rectangle":{
+                    getPerimeterAreaText2 += "" + getPAFirstNumber + " " + getPAFirstOperator + " " + getPASecondNumber + " " + getPASecondOperator + " " + getPAThirdNumber +
+                    " " + getPASecondOperator + " " + getPASecondNumber + " " + getPASecondOperator + " " + getPAThirdNumber;
                     break;
                 }
 
-                case "triangle":{
+                case "triangleYellow":{
+                    getPerimeterAreaText2 += "" + getPAFirstNumber + " " + getPAFirstOperator + " " + getPASecondNumber + " " + getPASecondOperator + " " + getPAThirdNumber +
+                    " " + getPASecondOperator + " " + getPASecondNumber;
                    break;
                 }
 
@@ -73,15 +79,20 @@ public class PerimeterArea extends Fragment {
             switch(getPAImage){
 
                 case "square":{
+                    getPerimeterAreaText2 += "" + getPAFirstNumber + " " + getPAFirstOperator + " " + getPASecondNumber + " "
+                    + getPASecondOperator + " " + getPAThirdNumber;
                     break;
                 }
 
                 case "rectangle":{
+                    getPerimeterAreaText2 += "" + getPAFirstNumber + " " + getPAFirstOperator + " " + getPASecondNumber + " "
+                    + getPASecondOperator + " " + getPAThirdNumber;
                     break;
                 }
 
-                case "triangle":{
-                    //isn't needed, but maybe it will be? idk
+                case "triangleGreen":{
+                    getPerimeterAreaText2 += "" + getPAFirstNumber + " " + getPAFirstOperator + " " + getPASecondNumber
+                    + getPASecondOperator + " " + getPAThirdNumber;
                     break;
                 }
 
@@ -90,9 +101,19 @@ public class PerimeterArea extends Fragment {
             }
         }
 
+        else if(getPAWord.equals("square")){
+            getPerimeterAreaText2 += "" + getPAFirstNumber;
+        }
+
+        else if(getPAWord.equals("rectangle")){
+            getPerimeterAreaText2 += "" + getPAFirstNumber;
+        }
+
         else{
             //we shouldn't get here: word must be perimeter or area
         }
+
+        perimeterAreaText2.setText(getPerimeterAreaText2);
 
     }
 }
