@@ -2,4 +2,7 @@
 /shelf/
 /workspace.xml
 /vcs.xml
-
+/compiler.xml
+/deploymentTargetDropDown.xml
+/gradle.xml
+/misc.xml
