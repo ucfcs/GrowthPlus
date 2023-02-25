@@ -45,6 +45,7 @@ public class Lesson2 extends AppCompatActivity {
     private int counter;
     private String lessonName;
     private String image;
+    private int lessonIndex;
     ConstraintLayout lessonBackground;
 
     @Override
@@ -98,6 +99,7 @@ public class Lesson2 extends AppCompatActivity {
                     flashcardIntent.putExtra("dataBaseLessonId", dataBaseLessonId);
                     flashcardIntent.putExtra("childId", childId);
                     flashcardIntent.putExtra("lessonImage", image);
+                    flashcardIntent.putExtra("lessonIndex", lessonIndex);
                     startActivity(flashcardIntent);
                     finish();
                 }
@@ -302,6 +304,7 @@ public class Lesson2 extends AppCompatActivity {
         if(extras != null){
             dataBaseLessonId = extras.getString("dataBaseLessonId");
             childId = extras.getString("childId");
+            lessonIndex = extras.getInt("lessonIndex");
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();

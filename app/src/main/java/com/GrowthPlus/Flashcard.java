@@ -76,53 +76,8 @@ public class Flashcard extends AppCompatActivity {
         Log.i("lessonScore", String.valueOf(currentLessonScore));
 
         flashcardBackBtn.setOnClickListener(view -> {
-            if(currentLessonScore >= minScoreToPass){
-                // This is the case if lesson is completed and child came back to play it again
-                // Don't increase the lessonCompleted count
-                if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
-                    realm.executeTransactionAsync(realm1 -> {
-                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                        assert child != null;
-                    });
-                }else{
-                    realm.executeTransactionAsync(realm1 -> {
-                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-
-                        assert child != null;
-                        RoadMapLesson currentLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
-                        assert currentLesson != null;
-                        currentLesson.setCurrent(false);
-                        currentLesson.setCompleted(true);
-
-                        if (childLessonsCompleted < 9){
-                            childLessonsCompleted ++;
-
-                            if(childLessonsCompleted == 3){
-                                // Set the quiz state
-                                RoadMapQuiz quizOne = child.getRoadMapOne().getRoadMapQuizzes().get(0);
-                                assert quizOne != null;
-                                quizOne.setCompleted(false);
-                                quizOne.setCurrent(true);
-                            }else if(childLessonsCompleted == 7){
-                                RoadMapQuiz quizTwo = child.getRoadMapOne().getRoadMapQuizzes().get(1);
-                                assert quizTwo != null;
-                                quizTwo.setCompleted(false);
-                                quizTwo.setCurrent(true);
-                            }else{
-                                child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
-                                RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
-                                assert nextLesson != null;
-                                nextLesson.setCurrent(true);
-                                nextLesson.setCompleted(false);
-                            }
-                        } /*TODO: Handle childLessonCompleted == 9,
-                                If lessons completed is 9, then all lessons are completed
-                                the count starts at zero, hence 9 and if so, enable roadmap game
-                                Roadmap game is not implemented yet so it is open for now. */
-                    });
-                }
-            }
-
+            // Passing condition by score
+            setPointSystem(currentLessonScore, minScoreToPass);
             Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -194,7 +149,11 @@ public class Flashcard extends AppCompatActivity {
             }
 
             default:{
-                Log.i("default", "The category does not fit the case, check the return value");
+                try {
+                    throw new Exception("The category does not fit a case, check the return value");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -232,6 +191,12 @@ public class Flashcard extends AppCompatActivity {
 
                 flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
                     @Override
+                    public void onAnimationStart (Animator animation){
+                        super.onAnimationStart(animation);
+                        flashcardContainer.setEnabled(false);
+                        flashcardContainer.setAnswerEnabled(false);
+                    }
+                    @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
 
@@ -260,52 +225,8 @@ public class Flashcard extends AppCompatActivity {
         nextFlashcard.setOnClickListener(view -> {
             counter++;
             if(counter >= MAX){
-                if(numberCorrect >= minToPass){
-                    // This is the case if lesson is completed and child came back to play it again
-                    // Don't increase the lessonCompleted count
-                    if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
-                        realm.executeTransactionAsync(realm1 -> {
-                            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                            assert child != null;
-                        });
-                    }else{
-                        realm.executeTransactionAsync(realm1 -> {
-                            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-
-                            assert child != null;
-                            RoadMapLesson currentLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
-                            assert currentLesson != null;
-                            currentLesson.setCurrent(false);
-                            currentLesson.setCompleted(true);
-
-                            if (childLessonsCompleted < 9){
-                                childLessonsCompleted ++;
-
-                                if(childLessonsCompleted == 3){
-                                    // Set the quiz state
-                                    RoadMapQuiz quizOne = child.getRoadMapOne().getRoadMapQuizzes().get(0);
-                                    assert quizOne != null;
-                                    quizOne.setCompleted(false);
-                                    quizOne.setCurrent(true);
-                                }else if(childLessonsCompleted == 7){
-                                    RoadMapQuiz quizTwo = child.getRoadMapOne().getRoadMapQuizzes().get(1);
-                                    assert quizTwo != null;
-                                    quizTwo.setCompleted(false);
-                                    quizTwo.setCurrent(true);
-                                }else{
-                                    child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
-                                    RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
-                                    assert nextLesson != null;
-                                    nextLesson.setCurrent(true);
-                                    nextLesson.setCompleted(false);
-                                }
-                            } /*TODO: Handle childLessonCompleted == 9,
-                                If lessons completed is 9, then all lessons are completed
-                                the count starts at zero, hence 9 and if so, enable roadmap game
-                                Roadmap game is not implemented yet so it is open for now. */
-                        });
-                    }
-                }
+                // Passing condition number of correct flashcards
+                setPointSystem(numberCorrect, minToPass);
                 Intent lessonIntent = new Intent(Flashcard.this, RoadMapOne.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
@@ -386,7 +307,11 @@ public class Flashcard extends AppCompatActivity {
                     }
 
                     default:{
-                        Log.i("default", "The category does not fit the case, check the return value");
+                        try {
+                            throw new Exception("The category does not fit a case, check the return value");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -436,5 +361,54 @@ public class Flashcard extends AppCompatActivity {
     private void setTopBar(){
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
+    }
+
+    private void setPointSystem(int currentScore, int minToPass){
+        if(currentScore >= minToPass){
+            // This is the case if lesson is completed and child came back to play it again
+            // Don't increase the lessonCompleted count
+            if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                    assert child != null;
+                });
+            }else{
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+
+                    assert child != null;
+                    RoadMapLesson currentLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                    assert currentLesson != null;
+                    currentLesson.setCurrent(false);
+                    currentLesson.setCompleted(true);
+
+                    if (childLessonsCompleted < 9){
+                        childLessonsCompleted ++;
+
+                        if(childLessonsCompleted == 3){
+                            // Set the quiz state
+                            RoadMapQuiz quizOne = child.getRoadMapOne().getRoadMapQuizzes().get(0);
+                            assert quizOne != null;
+                            quizOne.setCompleted(false);
+                            quizOne.setCurrent(true);
+                        }else if(childLessonsCompleted == 7){
+                            RoadMapQuiz quizTwo = child.getRoadMapOne().getRoadMapQuizzes().get(1);
+                            assert quizTwo != null;
+                            quizTwo.setCompleted(false);
+                            quizTwo.setCurrent(true);
+                        }else{
+                            child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+                            RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                            assert nextLesson != null;
+                            nextLesson.setCurrent(true);
+                            nextLesson.setCompleted(false);
+                        }
+                    } /*TODO: Handle childLessonCompleted == 9,
+                                If lessons completed is 9, then all lessons are completed
+                                the count starts at zero, hence 9 and if so, enable roadmap game
+                                Roadmap game is not implemented yet so it is open for now. */
+                });
+            }
+        }
     }
 }

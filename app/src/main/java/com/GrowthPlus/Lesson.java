@@ -40,7 +40,6 @@ public class Lesson extends AppCompatActivity {
     private int counter;
     private String lessonName;
     private String image;
-    private int currentScore;
     private int lessonIndex;
 
     @Override
