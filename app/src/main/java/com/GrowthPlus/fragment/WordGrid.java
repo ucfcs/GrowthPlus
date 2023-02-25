@@ -46,7 +46,6 @@ public class WordGrid extends Fragment {
             gridLayoutMD.setRowCount(3);
             gridLayoutMD.setColumnCount(1);
         }
-
         else if(num <= 5){
             sizeInPixels = getResources().getDimension(R.dimen.elephantXLarge);
             gridLayoutMD.setRowCount(3);

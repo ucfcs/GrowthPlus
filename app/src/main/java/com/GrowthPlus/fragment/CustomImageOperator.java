@@ -46,27 +46,26 @@ public class CustomImageOperator extends Fragment {
 
         // Adjust grid rows and columns based on num of images
         if(firstNumber <= 4){
-            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantMLarge);
             topGrid.setRowCount(2);
             topGrid.setColumnCount(2);
         }
-        if(firstNumber <= 6){
-            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+        else if(firstNumber <= 6){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantMLarge);
             topGrid.setRowCount(2);
             topGrid.setColumnCount(3);
         }
-        if(firstNumber <= 9){
+        else if(firstNumber <= 9){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
             topGrid.setRowCount(3);
             topGrid.setColumnCount(3);
         }
-        if(firstNumber == 10){
+        else if(firstNumber == 10){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
             topGrid.setRowCount(2);
             topGrid.setColumnCount(5);
         }
-
-        if (firstNumber <= 20){
+        else if (firstNumber <= 20){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
             topGrid.setRowCount(5);
             topGrid.setColumnCount(4);
@@ -83,27 +82,26 @@ public class CustomImageOperator extends Fragment {
 
         // Adjust grid rows and columns based on num of images
         if(secondNumber <= 4){
-            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantMLarge);
             bottomGrid.setRowCount(2);
             bottomGrid.setColumnCount(2);
         }
-        if(secondNumber <= 6){
-            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+        else if(secondNumber <= 6){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantMLarge);
             bottomGrid.setRowCount(2);
             bottomGrid.setColumnCount(3);
         }
-        if(secondNumber <= 9){
+        else if(secondNumber <= 9){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
             bottomGrid.setRowCount(3);
             bottomGrid.setColumnCount(3);
         }
-        if(secondNumber == 10){
+        else if(secondNumber == 10){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
             bottomGrid.setRowCount(2);
             bottomGrid.setColumnCount(5);
         }
-
-        if (secondNumber <= 20){
+        else if (secondNumber <= 20){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
             bottomGrid.setRowCount(5);
             bottomGrid.setColumnCount(4);
