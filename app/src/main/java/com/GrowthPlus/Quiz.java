@@ -39,8 +39,7 @@ public class Quiz extends AppCompatActivity {
     Button nextContent, introBackBtn;
     String childId, databaseQuizId;
     QuizSchema quiz;
-    int contentLength, counter, thisScore, childScore, quizIndex, childLessonsCompleted;
-    int score;
+    int counter, thisScore, childScore, quizIndex, childLessonsCompleted, minScoreToPass;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
@@ -55,27 +54,7 @@ public class Quiz extends AppCompatActivity {
 
         introBackBtn.setOnClickListener(view -> {
             // Child passes the quiz
-            if(thisScore >= 7){
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                    assert child != null;
-                    RoadMapQuiz currentQuiz = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex);
-                    assert currentQuiz != null;
-                    // If quiz was not previously completed, set the state, otherwise just update score
-                    // Update the completed lessons counter to move to next tile
-                    if(!currentQuiz.getCompleted()){
-                        currentQuiz.setCurrent(false);
-                        currentQuiz.setCompleted(true);
-                        childLessonsCompleted ++;
-                        child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
-                        RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
-                        assert nextLesson != null;
-                        nextLesson.setCurrent(true);
-                        nextLesson.setCompleted(false);
-                    }
-                });
-            }
-
+            setPointSystem(thisScore, minScoreToPass);
             countDownTimer.cancel(); //since the user is exiting the quiz we need to stop the timer
             Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class);
             lessonIntent.putExtra("childIdentify", childId);
@@ -143,36 +122,14 @@ public class Quiz extends AppCompatActivity {
         // First question is loaded ------------------------------------------------------------------------------------
 
         nextContent.setVisibility(View.INVISIBLE); // Hide nextQuestion until a circle is selected
-
         nextContent.setOnClickListener(v -> {
             countDownTimer.cancel();
             setTimer();
             counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
                 // Child passes the quiz
-                if(thisScore >= 7){
-                    realm.executeTransactionAsync(realm1 -> {
-                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                        assert child != null;
-                        RoadMapQuiz currentQuiz = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex);
-                        assert currentQuiz != null;
-                        // If quiz was not previously completed, set the state, otherwise just update score
-                        // Update the completed lessons counter to move to next tile
-                        if(!currentQuiz.getCompleted()){
-                            currentQuiz.setCurrent(false);
-                            currentQuiz.setCompleted(true);
-                            childLessonsCompleted ++;
-                            child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
-                            RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
-                            assert nextLesson != null;
-                            nextLesson.setCurrent(true);
-                            nextLesson.setCompleted(false);
-                        }
-                    });
-                }
-
+                setPointSystem(thisScore, minScoreToPass);
                 countDownTimer.cancel();//since we are exiting the activity we need to stop the timer
-
                 Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class);
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
@@ -252,6 +209,7 @@ public class Quiz extends AppCompatActivity {
         childScore = child.getScore();
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
         thisScore = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
+        minScoreToPass = 7;
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);
@@ -273,13 +231,7 @@ public class Quiz extends AppCompatActivity {
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
-
-                    realm.executeTransactionAsync(realm1 -> {
-                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                        assert child != null;
-                        child.setScore(childScore);
-                        child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(thisScore);
-                    });
+                    setChildAndQuizScoreInRealm(childScore, thisScore);
 
                     //Update top bar scoring
                     quizTopBar.setPoints(String.valueOf(childScore));
@@ -312,13 +264,7 @@ public class Quiz extends AppCompatActivity {
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
-
-                    realm.executeTransactionAsync(realm1 -> {
-                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                        assert child != null;
-                        child.setScore(childScore);
-                        child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(thisScore);
-                    });
+                    setChildAndQuizScoreInRealm(childScore, thisScore);
 
                     //Update top bar scoring
                     quizTopBar.setPoints(String.valueOf(childScore));
@@ -351,13 +297,7 @@ public class Quiz extends AppCompatActivity {
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
-
-                    realm.executeTransactionAsync(realm1 -> {
-                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                        assert child != null;
-                        child.setScore(childScore);
-                        child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(thisScore);
-                    });
+                    setChildAndQuizScoreInRealm(childScore, thisScore);
 
                     //Update top bar scoring
                     quizTopBar.setPoints(String.valueOf(childScore));
@@ -390,13 +330,7 @@ public class Quiz extends AppCompatActivity {
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
-
-                    realm.executeTransactionAsync(realm1 -> {
-                        ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                        assert child != null;
-                        child.setScore(childScore);
-                        child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(thisScore);
-                    });
+                    setChildAndQuizScoreInRealm(childScore, thisScore);
 
                     //Update top bar scoring
                     quizTopBar.setPoints(String.valueOf(childScore));
@@ -443,4 +377,38 @@ public class Quiz extends AppCompatActivity {
             }
         }.start();
     }
+
+    private void setPointSystem(int currentScore, int minToPass){
+        if(currentScore >= minToPass){ //minToPass = 7
+            realm.executeTransactionAsync(realm1 -> {
+                ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                assert child != null;
+                RoadMapQuiz currentQuiz = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex);
+                assert currentQuiz != null;
+                // If quiz was not previously completed, set the state, otherwise just update score
+                // Update the completed lessons counter to move to next tile
+                if(!currentQuiz.getCompleted()){
+                    currentQuiz.setCurrent(false);
+                    currentQuiz.setCompleted(true);
+                    childLessonsCompleted ++;
+                    child.getRoadMapOne().setLessonsCompleted(childLessonsCompleted);
+                    RoadMapLesson nextLesson = child.getRoadMapOne().getRoadMapLessons().get(childLessonsCompleted);
+                    assert nextLesson != null;
+                    nextLesson.setCurrent(true);
+                    nextLesson.setCompleted(false);
+                }
+            });
+        }
+    }
+
+    private void setChildAndQuizScoreInRealm(int childScore, int quizScore){
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+            assert child != null;
+            child.setScore(childScore);
+            child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(quizScore);
+        });
+    }
+
+
 }

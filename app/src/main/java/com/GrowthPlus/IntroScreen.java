@@ -87,8 +87,6 @@ public class IntroScreen extends AppCompatActivity {
         next.setOnClickListener(v -> {
             Intent intent = null;
             if(whichOne.equals("Quiz")){
-                intent = new Intent(IntroScreen.this, Quiz.class);
-                intent.putExtra("quizIndex", quizIndex);
                 //for each quiz we want to check which roadMap we're on to set the correct
                 //quiz class
                 if(whichRoadMap.equals("1")){
@@ -122,6 +120,7 @@ public class IntroScreen extends AppCompatActivity {
             }
             intent.putExtra("childId", childId);
             intent.putExtra("databaseQuizId", data);
+            intent.putExtra("quizIndex", quizIndex);
             startActivity(intent);
             finish();
         });
