@@ -38,7 +38,6 @@ public class Flashcard2 extends AppCompatActivity {
     private Realm realm;
     private RealmList<FlashcardSchema> lessonFlashcards;
     private String image;
-    private ImageSrcIdentifier imageSrcIdentifier;
     private com.GrowthPlus.customViews.Flashcard flashcardContainer;
     private Button nextFlashcard;
     private FlashcardSchema flashcard;
@@ -147,7 +146,11 @@ public class Flashcard2 extends AppCompatActivity {
             }
 
             default:{
-                Log.i("default", "The category does not fit the case, check the return value");
+                try {
+                    throw new Exception("The category does not fit a case, check the return value");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -317,7 +320,6 @@ public class Flashcard2 extends AppCompatActivity {
             image = extras.getString("lessonImage");
             lessonIndex = extras.getInt("lessonIndex");
         }
-        imageSrcIdentifier = new ImageSrcIdentifier();
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         assert child != null;

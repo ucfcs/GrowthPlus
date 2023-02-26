@@ -53,6 +53,8 @@ public class Quiz2 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            // Child passes the quiz
+            setPointSystem(thisScore, minScoreToPass);
             countDownTimer.cancel(); //since the user is exiting the quiz we need to stop the timer
             Intent lessonIntent = new Intent(Quiz2.this, RoadMapTwo.class);
             lessonIntent.putExtra("childIdentify", childId);

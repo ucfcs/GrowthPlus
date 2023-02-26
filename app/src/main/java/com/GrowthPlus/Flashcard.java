@@ -26,6 +26,8 @@ import com.GrowthPlus.fragment.CustomImageOperator;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 
+import java.util.Objects;
+
 import io.realm.Realm;
 import io.realm.RealmList;
 
@@ -88,7 +90,7 @@ public class Flashcard extends AppCompatActivity {
         /*
         * Switch statement for first flashcard, we don't have an intro so we start at index 0
         * */
-        category = lessonFlashcards.get(counter).getCategory();
+        category = Objects.requireNonNull(lessonFlashcards.get(counter)).getCategory();
         flashcard = lessonFlashcards.get(counter);
 
         assert flashcard != null;
@@ -181,7 +183,7 @@ public class Flashcard extends AppCompatActivity {
                             ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                             assert child != null;
                             child.setScore(currentChildScore);
-                            child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).setCurrentScore(currentLessonScore);
+                            Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).setCurrentScore(currentLessonScore);
                         });
                     }
                 }
@@ -242,7 +244,6 @@ public class Flashcard extends AppCompatActivity {
                 flashcardContainer.setAnswerEnabled(true);
                 flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
 
-                assert lessonFlashcards.get(counter) != null;
                 flashcard = lessonFlashcards.get(counter);
 
                 assert flashcard != null;
@@ -343,7 +344,7 @@ public class Flashcard extends AppCompatActivity {
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
-        currentLessonScore = child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCurrentScore();
+        currentLessonScore = Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).getCurrentScore();
 
         if(lessonIndex == 9){
             MAX = 10;
@@ -367,7 +368,7 @@ public class Flashcard extends AppCompatActivity {
         if(currentScore >= minToPass){
             // This is the case if lesson is completed and child came back to play it again
             // Don't increase the lessonCompleted count
-            if(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex).getCompleted()){
+            if(Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).getCompleted()){
                 realm.executeTransactionAsync(realm1 -> {
                     ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                     assert child != null;

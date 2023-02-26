@@ -40,6 +40,8 @@ public class IntroScreen extends AppCompatActivity {
         init();
         setTopBar();
 
+        Log.i("quizIndex", String.valueOf(quizIndex));
+
         // Create instance of shared preferences and save current language id
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
         String langId = langPrefs.getString("languageId", "frenchZero");
@@ -134,7 +136,6 @@ public class IntroScreen extends AppCompatActivity {
             whichOne = extras.getString("whichOne");
             whichRoadMap = extras.getString("whichRoadMap");
             quizIndex = extras.getInt("quizIndex");
-            // TODO: Need String to determine if quiz or game extras.getString | QuizID or GameID
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
