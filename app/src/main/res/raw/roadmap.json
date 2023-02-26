@@ -8163,7 +8163,7 @@
             "firstNumber": "a",
             "firstOperator": "= (",
             "secondNumber": "base",
-            "secondOperator": ":2) x",
+            "secondOperator": " : 2) x",
             "thirdNumber": "height",
             "imgOne": "triangleGreen",
             "imgTwo": null,
