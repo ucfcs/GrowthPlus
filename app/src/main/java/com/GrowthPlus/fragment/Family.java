@@ -89,13 +89,5 @@ public class Family extends Fragment {
             familyText11.setText(11*Integer.valueOf(getFamilySecondNumber) + " : " + getFamilySecondNumber + " = 11");
             familyText12.setText(12*Integer.valueOf(getFamilySecondNumber) + " : " + getFamilySecondNumber + " = 12");
         }
-
-        else{
-            //we shouldn't get here!
-        }
-
-
-
     }
-
 }

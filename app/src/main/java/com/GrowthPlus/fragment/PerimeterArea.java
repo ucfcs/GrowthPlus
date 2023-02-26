@@ -109,10 +109,6 @@ public class PerimeterArea extends Fragment {
             getPerimeterAreaText2 += "" + getPAFirstNumber;
         }
 
-        else{
-            //we shouldn't get here: word must be perimeter or area
-        }
-
         perimeterAreaText2.setText(getPerimeterAreaText2);
 
     }

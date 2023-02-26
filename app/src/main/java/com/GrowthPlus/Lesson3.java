@@ -19,6 +19,7 @@ import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Conversion;
 import com.GrowthPlus.fragment.ConversionTable;
+import com.GrowthPlus.fragment.ConversionTableTwo;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.Family;
 import com.GrowthPlus.fragment.HorizontalEquation;
@@ -210,8 +211,6 @@ public class Lesson3 extends AppCompatActivity {
                             secondNumber = contents.get(counter).getSecondNumber();
                             secondOperator = contents.get(counter).getSecondOperator();
 
-                            lessonImg = lesson.getImage();
-
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("conversionTableText1", firstNumber);
@@ -222,6 +221,23 @@ public class Lesson3 extends AppCompatActivity {
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, ConversionTable.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversionTableTwo" :{
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionTableText1", firstNumber);
+                                bundle.putString("conversionTableText2", firstOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ConversionTableTwo.class, bundle);
                                 transaction.commit();
                             }
                             break;

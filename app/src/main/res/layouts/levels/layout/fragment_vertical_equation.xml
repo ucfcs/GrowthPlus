@@ -15,7 +15,8 @@
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:src="@drawable/round_button"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline10"
+        app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/round_button" />
 
@@ -27,9 +28,9 @@
         android:layout_marginEnd="50dp"
         android:text="17"
         android:textAlignment="center"
-        android:textColor="@color/yellow"
+        android:textColor="@color/blue"
         android:textSize="75sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -40,21 +41,36 @@
         android:layout_marginBottom="27dp"
         android:text="23"
         android:textAlignment="center"
-        android:textColor="@color/yellow"
+        android:textColor="@color/blue"
         android:textSize="75sp"
         app:layout_constraintBottom_toTopOf="@+id/bar"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/guideline11" />
 
     <TextView
         android:id="@+id/operator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="27dp"
         android:text="+"
         android:textAlignment="center"
-        android:textColor="@color/yellow"
+        android:textColor="@color/blue"
         android:textSize="75sp"
         app:layout_constraintBottom_toTopOf="@+id/bar"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/guideline10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".1"  />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9"  />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

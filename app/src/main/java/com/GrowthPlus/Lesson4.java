@@ -2,11 +2,13 @@ package com.GrowthPlus;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -47,6 +49,7 @@ public class Lesson4 extends AppCompatActivity {
     private int counter;
     private String lessonName;
     private String image;
+    ConstraintLayout lessonBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -61,6 +64,7 @@ public class Lesson4 extends AppCompatActivity {
             this.finish();
         });
         setTopBar();
+        setLevelColor();
 
         // Create one fragment that we will dynamically change
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -331,10 +335,14 @@ public class Lesson4 extends AppCompatActivity {
         nextContent = findViewById(R.id.next_button_lesson);
         lessonName = lesson.getLessonName();
         image = lesson.getImage();
+        lessonBackground = findViewById(R.id.lesson2);
     }
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToTriangle();
+    }
+    public void setLevelColor(){
+        lessonBackground.setBackgroundColor(Color.rgb(252, 209, 70));
     }
 }

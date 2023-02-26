@@ -37,6 +37,14 @@ public class WordImage extends Fragment {
         String getImage = requireArguments().getString("locationIntroImage");
 
         text.setText(getText);
+        if(getImage.equals("DUimg") || getImage.equals("CDUimg")){
+            image.getLayoutParams().height = (int) getResources().getDimension(R.dimen.largeImages);
+            image.getLayoutParams().width = (int) getResources().getDimension(R.dimen.largeImages);
+        }
+        else{
+            image.getLayoutParams().height = (int) getResources().getDimension(R.dimen.flashcardAnswerSize);
+            image.getLayoutParams().width = (int) getResources().getDimension(R.dimen.flashcardAnswerSize);
+        }
         image.setImageResource(imageSrcIdentifier.getImageSrcId(getImage));
     }
 }

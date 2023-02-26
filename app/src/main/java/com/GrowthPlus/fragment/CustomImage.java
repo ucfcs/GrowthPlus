@@ -50,6 +50,11 @@ public class CustomImage extends Fragment {
         else if(image.equals("unitOfTenThousand")){
             imgNum = imgNum / 10000;
         }
+        else if(image.equals("fiveFrancs") || image.equals("tenFrancs") || image.equals("fiftyFrancs") || image.equals("oneHundredFrancs") || image.equals("fiveThousandFrancs") || image.equals("tenThousandFrancs")
+        || image.equals("rectangleAngles") || image.equals("equTriangleAngles") || image.equals("squareAngles") || image.equals("rightTriangleAngles")){
+            imgNum = 1;
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+        }
 
         // Adjust grid rows and columns based on num of images
         // TODO: Make bigger sizes for this fragment
@@ -59,7 +64,7 @@ public class CustomImage extends Fragment {
             customImageGrid.setColumnCount(2);
         }
         else if(imgNum <= 6){
-            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantMLarge);
             customImageGrid.setRowCount(2);
             customImageGrid.setColumnCount(3);
         }

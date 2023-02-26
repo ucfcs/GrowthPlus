@@ -19,6 +19,7 @@ import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Conversion;
 import com.GrowthPlus.fragment.ConversionTable;
+import com.GrowthPlus.fragment.ConversionTableTwo;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.ImageWord;
@@ -246,8 +247,6 @@ public class Lesson2 extends AppCompatActivity {
                             secondNumber = contents.get(counter).getSecondNumber();
                             secondOperator = contents.get(counter).getSecondOperator();
 
-                            lessonImg = lesson.getImage();
-
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("conversionTableText1", firstNumber);
@@ -258,6 +257,23 @@ public class Lesson2 extends AppCompatActivity {
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, ConversionTable.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversionTableTwo" :{
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionTableText1", firstNumber);
+                                bundle.putString("conversionTableText2", firstOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ConversionTableTwo.class, bundle);
                                 transaction.commit();
                             }
                             break;
@@ -297,6 +313,3 @@ public class Lesson2 extends AppCompatActivity {
         lessonBackground.setBackgroundColor(Color.rgb(232, 160, 78));
     }
 }
-
-// ROADMAP 2 fragments: counting, verticalEquation, wordImage, wordImageEquation, ImageWord, conversion, conversionTable
-// ROADMAP 3 fragments: Counting, family, imageWord, conversion, conversionTable, perimeterArea, shape

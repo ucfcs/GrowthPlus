@@ -3070,9 +3070,9 @@
           {
             "flashCardId": "RmTwoLessonThreeFlashThree",
             "image": "unitOfTen",
-            "firstNumber": "50",
+            "firstNumber": "5",
             "firstOperator": "+",
-            "secondNumber": "50",
+            "secondNumber": "5",
             "secondOperator": null,
             "answer": "100",
             "category": "customImageOperator"
@@ -3674,9 +3674,9 @@
             "flashCardId": "RmTwoLessonSevenFlashOne",
             "image": "hectometer",
             "firstNumber": "1 hm = _ m",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "100",
             "category": "customImageWord"
           },
@@ -3684,9 +3684,9 @@
             "flashCardId": "RmTwoLessonSevenFlashTwo",
             "image": "decimeter",
             "firstNumber": "10 dm = _ m",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -3694,9 +3694,9 @@
             "flashCardId": "RmTwoLessonSevenFlashThree",
             "image": "meter",
             "firstNumber": "1 dam = _ m",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           },
@@ -3704,9 +3704,9 @@
             "flashCardId": "RmTwoLessonSevenFlashFour",
             "image": "centimeter",
             "firstNumber": "100 cm = _ m",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -3714,9 +3714,9 @@
             "flashCardId": "RmTwoLessonSevenFlashFive",
             "image": "decimeter",
             "firstNumber": "1 m = _ dm",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           }
@@ -3886,9 +3886,9 @@
             "flashCardId": "RmTwoLessonEightFlashOne",
             "image": "hectogram",
             "firstNumber": "1 hg = _ g",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "100",
             "category": "customImageWord"
           },
@@ -3896,9 +3896,9 @@
             "flashCardId": "RmTwoLessonEightFlashTwo",
             "image": "decigram",
             "firstNumber": "10 dg = _ g",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -3906,9 +3906,9 @@
             "flashCardId": "RmTwoLessonEightFlashThree",
             "image": "gram",
             "firstNumber": "1 dag = _ g",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           },
@@ -3916,9 +3916,9 @@
             "flashCardId": "RmTwoLessonEightFlashFour",
             "image": "centigram",
             "firstNumber": "100 cg = _ g",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -3926,9 +3926,9 @@
             "flashCardId": "RmTwoLessonEightFlashFive",
             "image": "decigram",
             "firstNumber": "1 g = _ dg",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           }
@@ -4030,7 +4030,7 @@
             "imgThree": null,
             "imgFour": null,
             "imgFive": null,
-            "category" : "conversionTable"
+            "category" : "conversionTableTwo"
           }
         ],
         "flashcards": [
@@ -4038,9 +4038,9 @@
             "flashCardId": "RmTwoLessonNineFlashOne",
             "image": "centiliter",
             "firstNumber": "100 cl = _ l",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -4048,9 +4048,9 @@
             "flashCardId": "RmTwoLessonNineFlashTwo",
             "image": "liter",
             "firstNumber": "1 l = _ cl",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "100",
             "category": "customImageWord"
           },
@@ -4058,9 +4058,9 @@
             "flashCardId": "RmTwoLessonNineFlashThree",
             "image": "liter",
             "firstNumber": "1 l = _ dl",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           },
@@ -4068,9 +4068,9 @@
             "flashCardId": "RmTwoLessonNineFlashFour",
             "image": "centiliter",
             "firstNumber": "100 cl = _ l",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -4078,9 +4078,9 @@
             "flashCardId": "RmTwoLessonNineFlashFive",
             "image": "deciliter",
             "firstNumber": "1 l = _ dl",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           }
@@ -4169,9 +4169,9 @@
             "flashCardId": "RmTwoLessonTenFlashEight",
             "image": "centimeter",
             "firstNumber": "100 cm = _ m",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -4179,9 +4179,9 @@
             "flashCardId": "RmTwoLessonTenFlashNine",
             "image": "gram",
             "firstNumber": "1 dag = _ g",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           },
@@ -4189,9 +4189,9 @@
             "flashCardId": "RmTwoLessonTenFlashTen",
             "image": "deciliter",
             "firstNumber": "1 l = _ dl",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           }
@@ -5796,7 +5796,7 @@
             "imgThree": null,
             "imgFour": null,
             "imgFive": null,
-            "category" : "conversionTable"
+            "category" : "conversionTableTwo"
           }
         ],
         "flashcards": [
@@ -5804,9 +5804,9 @@
             "flashCardId": "RmThreeLessonFiveFlashOne",
             "image": "millimeter",
             "firstNumber": "1000 mm = _ m",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -5814,9 +5814,9 @@
             "flashCardId": "RmThreeLessonFiveFlashTwo",
             "image": "kilometer",
             "firstNumber": "1000 m = _ km",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -5824,9 +5824,9 @@
             "flashCardId": "RmThreeLessonFiveFlashThree",
             "image": "meter",
             "firstNumber": "1 m = _ mm",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1000",
             "category": "customImageWord"
           },
@@ -5834,9 +5834,9 @@
             "flashCardId": "RmThreeLessonFiveFlashFour",
             "image": "meter",
             "firstNumber": "1000 m = _ km",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -5844,9 +5844,9 @@
             "flashCardId": "RmThreeLessonFiveFlashFive",
             "image": "millimeter",
             "firstNumber": "1000 mm = _ m",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           }
@@ -5933,7 +5933,7 @@
             "imgThree": null,
             "imgFour": null,
             "imgFive": null,
-            "category" : "conversionTable"
+            "category" : "conversionTableTwo"
           },
           {
             "lessonContentId": "RmThreeLessonSixContentSix",
@@ -6008,7 +6008,7 @@
             "imgThree": null,
             "imgFour": null,
             "imgFive": null,
-            "category" : "conversionTable"
+            "category" : "conversionTableTwo"
           }
         ],
         "flashcards": [
@@ -6016,9 +6016,9 @@
             "flashCardId": "RmThreeLessonSixFlashOne",
             "image": "milligram",
             "firstNumber": "1000 mg = _ g",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -6026,9 +6026,9 @@
             "flashCardId": "RmThreeLessonSixFlashTwo",
             "image": "gram",
             "firstNumber": "1000 g = _ kg",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1",
             "category": "customImageWord"
           },
@@ -6036,9 +6036,9 @@
             "flashCardId": "RmThreeLessonSixFlashThree",
             "image": "liter",
             "firstNumber": "1 l = _ ml",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1000",
             "category": "customImageWord"
           },
@@ -6046,9 +6046,9 @@
             "flashCardId": "RmThreeLessonSixFlashFour",
             "image": "kiloliter",
             "firstNumber": "1000 l = _ kl",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1000",
             "category": "customImageWord"
           },
@@ -6056,9 +6056,9 @@
             "flashCardId": "RmThreeLessonSixFlashFive",
             "image": "gram",
             "firstNumber": "1 g = _ mg",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1000",
             "category": "customImageWord"
           }
@@ -6427,9 +6427,9 @@
             "flashCardId": "RmThreeLessonNineFlashOne",
             "image": "triangleYellow",
             "firstNumber": "p = 4 + 4 + 3",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "11",
             "category": "customImageWord"
           },
@@ -6437,9 +6437,9 @@
             "flashCardId": "RmThreeLessonNineFlashTwo",
             "image": "rectangle",
             "firstNumber": "p = 3 + 3 + 4 + 4",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "14",
             "category": "customImageWord"
           },
@@ -6447,9 +6447,9 @@
             "flashCardId": "RmThreeLessonNineFlashThree",
             "image": "square",
             "firstNumber": "p = 2 + 2 + 2 + 2",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "8",
             "category": "customImageWord"
           },
@@ -6457,9 +6457,9 @@
             "flashCardId": "RmThreeLessonNineFlashFour",
             "image": "rectangle",
             "firstNumber": "p = 13 + 13 + 8 + 8",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "42",
             "category": "customImageWord"
           },
@@ -6467,9 +6467,9 @@
             "flashCardId": "RmThreeLessonNineFlashFive",
             "image": "triangleYellow",
             "firstNumber": "p = 6 + 6 + 3",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "15",
             "category": "customImageWord"
           }
@@ -6568,9 +6568,9 @@
             "flashCardId": "RmThreeLessonTenFlashNine",
             "image": "gram",
             "firstNumber": "1 g = _ mg",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "1000",
             "category": "customImageWord"
           },
@@ -6578,9 +6578,9 @@
             "flashCardId": "RmThreeLessonTenFlashTen",
             "image": "triangleYellow",
             "firstNumber": "p = 5 + 5 + 4",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "14",
             "category": "customImageWord"
           }
@@ -8055,9 +8055,9 @@
           {
             "flashCardId": "RmFourLessonFourFlashOne",
             "image": "PLOne",
-            "firstNumber": "0 =",
+            "firstNumber": "0 = ",
             "firstOperator": "parallelLines",
-            "secondNumber": "1 = ",
+            "secondNumber": " 1 = ",
             "secondOperator": "perpendicularLines",
             "answer": "0",
             "category": "customImageWord"
@@ -8065,9 +8065,9 @@
           {
             "flashCardId": "RmFourLessonFourFlashTwo",
             "image": "PLTwo",
-            "firstNumber": "0 =",
+            "firstNumber": "0 = ",
             "firstOperator": "parallelLines",
-            "secondNumber": "1 = ",
+            "secondNumber": " 1 = ",
             "secondOperator": "perpendicularLines",
             "answer": "0",
             "category": "customImageWord"
@@ -8075,9 +8075,9 @@
           {
             "flashCardId": "RmFourLessonFourFlashThree",
             "image": "PLThree",
-            "firstNumber": "0 =",
+            "firstNumber": "0 = ",
             "firstOperator": "parallelLines",
-            "secondNumber": "1 = ",
+            "secondNumber": " 1 = ",
             "secondOperator": "perpendicularLines",
             "answer": "0",
             "category": "customImageWord"
@@ -8085,9 +8085,9 @@
           {
             "flashCardId": "RmFourLessonFourFlashFour",
             "image": "perLineOne",
-            "firstNumber": "0 =",
+            "firstNumber": "0 = ",
             "firstOperator": "parallelLines",
-            "secondNumber": "1 = ",
+            "secondNumber": " 1 = ",
             "secondOperator": "perpendicularLines",
             "answer": "1",
             "category": "customImageWord"
@@ -8095,9 +8095,9 @@
           {
             "flashCardId": "RmFourLessonFourFlashFive",
             "image": "perLineTwo",
-            "firstNumber": "0 =",
+            "firstNumber": "0 = ",
             "firstOperator": "parallelLines",
-            "secondNumber": "1 = ",
+            "secondNumber": " 1 = ",
             "secondOperator": "perpendicularLines",
             "answer": "1",
             "category": "customImageWord"
@@ -8178,9 +8178,9 @@
             "flashCardId": "RmFourLessonFiveFlashOne",
             "image": "triangleGreen",
             "firstNumber": "a = (4:2) x 5",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "10",
             "category": "customImageWord"
           },
@@ -8188,9 +8188,9 @@
             "flashCardId": "RmFourLessonFiveFlashTwo",
             "image": "rectangle",
             "firstNumber": "a = 4 x 5",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "20",
             "category": "customImageWord"
           },
@@ -8198,9 +8198,9 @@
             "flashCardId": "RmFourLessonFiveFlashThree",
             "image": "triangleGreen",
             "firstNumber": "a = (2:2) x 6",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "6",
             "category": "customImageWord"
           },
@@ -8208,9 +8208,9 @@
             "flashCardId": "RmFourLessonFiveFlashFour",
             "image": "rectangle",
             "firstNumber": "a = 8 x 3",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "24",
             "category": "customImageWord"
           },
@@ -8218,9 +8218,9 @@
             "flashCardId": "RmFourLessonFiveFlashFive",
             "image": "square",
             "firstNumber": "a = 3 x 3",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "9",
             "category": "customImageWord"
           }
@@ -8288,7 +8288,7 @@
             "firstOperator": "-",
             "secondNumber": "1",
             "secondOperator": null,
-            "answer": "3000",
+            "answer": "2000",
             "category": "customImageOperator"
           },
           {
@@ -8906,9 +8906,9 @@
           {
             "flashCardId": "RmFourLessonTenFlashFour",
             "image": "PLThree",
-            "firstNumber": "0 =",
+            "firstNumber": "0 = ",
             "firstOperator": "parallelLines",
-            "secondNumber": "1 = ",
+            "secondNumber": " 1 = ",
             "secondOperator": "perpendicularLines",
             "answer": "0",
             "category": "customImageWord"
@@ -8917,9 +8917,9 @@
             "flashCardId": "RmFourLessonTenFlashFive",
             "image": "square",
             "firstNumber": "a = 4 x 4",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
             "answer": "16",
             "category": "customImageWord"
           },
