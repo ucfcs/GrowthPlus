@@ -128,6 +128,58 @@ public class Lesson extends AppCompatActivity {
                             }
                             break;
                         }
+
+                        case "horizontalEquation": {
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
+                            thirdNumber = contents.get(counter).getThirdNumber();
+                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
+
+                            lessonImg = lesson.getImage();
+
+                            int firstNumInt = Integer.valueOf(firstNumber);
+                            int secondNumInt = Integer.valueOf(secondNumber);
+                            int thirdNumInt = Integer.valueOf(thirdNumber);
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("text1", equation);
+                                bundle.putString("lessonImg", lessonImg);
+                                bundle.putInt("num1", firstNumInt);
+                                bundle.putInt("num2", secondNumInt);
+                                bundle.putInt("num3", thirdNumInt);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, HorizontalEquation.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "wordImage" : {
+                            word = contents.get(counter).getWord();
+                            if(!trans.getString(word).equals("empty")){
+                                word = trans.getString(word);
+                            }
+                            imgOne = contents.get(counter).getImgOne();
+                            // TODO: look into how we're storing images for the wordImage lessons
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("locationIntroText", word);
+                                bundle.putString("locationIntroImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
                         // This category can be found on the roadmap.json file
                         case "wordImageEquation": {
                             // Reference the fragment_word_image_equation.xml file to see which components we need
@@ -170,55 +222,7 @@ public class Lesson extends AppCompatActivity {
                             }
                             break;
                         }
-                        case "horizontalEquation": {
-                            firstNumber = contents.get(counter).getFirstNumber();
-                            firstOperator = contents.get(counter).getFirstOperator();
-                            secondNumber = contents.get(counter).getSecondNumber();
-                            secondOperator = contents.get(counter).getSecondOperator();
-                            thirdNumber = contents.get(counter).getThirdNumber();
-                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
 
-                            lessonImg = lesson.getImage();
-
-                            int firstNumInt = Integer.valueOf(firstNumber);
-                            int secondNumInt = Integer.valueOf(secondNumber);
-                            int thirdNumInt = Integer.valueOf(thirdNumber);
-
-                            if (savedInstanceState == null) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("text1", equation);
-                                bundle.putString("lessonImg", lessonImg);
-                                bundle.putInt("num1", firstNumInt);
-                                bundle.putInt("num2", secondNumInt);
-                                bundle.putInt("num3", thirdNumInt);
-
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, HorizontalEquation.class, bundle);
-                                transaction.commit();
-                            }
-                            break;
-                        }
-                        case "wordImage" : {
-                            word = contents.get(counter).getWord();
-                            if(!trans.getString(word).equals("empty")){
-                                word = trans.getString(word);
-                            }
-                            imgOne = contents.get(counter).getImgOne();
-                            // TODO: look into how we're storing images for the wordImage lessons
-
-                            if (savedInstanceState == null) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("locationIntroText", word);
-                                bundle.putString("locationIntroImage", imgOne);
-
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
-                                transaction.commit();
-                            }
-                            break;
-                        }
                         case "wordGrid" :{
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
