@@ -56,8 +56,6 @@ public class ImageSrcIdentifier {
         imageSrcId.put("fiveThousandFrancs", R.mipmap.five_thousand_fcfa_foreground);
         imageSrcId.put("tenThousandFrancs", R.mipmap.ten_thousand_fcfa_foreground);
         imageSrcId.put("clock", R.mipmap.clock_foreground);
-        imageSrcId.put("clockLargeHand", R.mipmap.clock_large_hand_foreground);
-        imageSrcId.put("clockSmallHand", R.mipmap.clock_small_hand_foreground);
         imageSrcId.put("circle", R.mipmap.circle_foreground);
         imageSrcId.put("rectangle", R.mipmap.rectangle_foreground);
         imageSrcId.put("square", R.mipmap.square_foreground);
