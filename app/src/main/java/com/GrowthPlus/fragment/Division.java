@@ -43,13 +43,13 @@ public class Division extends Fragment {
         dividend.setText(getDividend);
         quotient.setText(getQuotient);
         
-        int getSubtractNumber = Integer.valueOf(getDivisor)*Integer.valueOf(getQuotient);
-        subtractNumber.setText(String.valueOf(getSubtractNumber));
+//        int getSubtractNumber = Integer.valueOf(getDivisor)*Integer.valueOf(getQuotient);
+//        subtractNumber.setText(String.valueOf(getSubtractNumber));
         
         operator.setText("-"); //operator is always gonna be -
         
-        int getRemainder = Integer.valueOf(getDividend)%Integer.valueOf(getDivisor);
-        remainder.setText(String.valueOf(getRemainder));
+//        int getRemainder = Integer.valueOf(getDividend)%Integer.valueOf(getDivisor);
+//        remainder.setText(String.valueOf(getRemainder));
 
     }
     
