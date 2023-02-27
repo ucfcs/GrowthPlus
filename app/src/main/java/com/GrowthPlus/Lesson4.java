@@ -2,6 +2,7 @@ package com.GrowthPlus;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -49,8 +50,9 @@ public class Lesson4 extends AppCompatActivity {
     private int counter;
     private String lessonName;
     private String image;
-    ConstraintLayout lessonBackground;
     private int lessonIndex;
+    ConstraintLayout lessonBackground;
+    ConstraintLayout topBarBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -66,6 +68,7 @@ public class Lesson4 extends AppCompatActivity {
         });
         setTopBar();
         setLevelColor();
+        setButtonColor();
 
         // Create one fragment that we will dynamically change
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -333,20 +336,26 @@ public class Lesson4 extends AppCompatActivity {
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         contents = lesson.getContents();
-        topBar = findViewById(R.id.topBar);
+        topBar = findViewById(R.id.lessonTopBar);
         introBackBtn = topBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button_lesson);
         lessonName = lesson.getLessonName();
         image = lesson.getImage();
         lessonBackground = findViewById(R.id.lesson2);
+        topBarBackground = findViewById(R.id.topBar);
     }
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToTriangle();
+        topBarBackground.setBackgroundColor(Color.rgb(232, 160, 78));
     }
 
     public void setLevelColor(){
         lessonBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+    }
+
+    private void setButtonColor(){
+        nextContent.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(232, 160, 78)));
     }
 }

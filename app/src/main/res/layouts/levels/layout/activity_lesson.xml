@@ -59,7 +59,7 @@
         app:layout_constraintGuide_percent=".88" />
 
     <com.GrowthPlus.customViews.TopBar
-        android:id="@+id/topBar"
+        android:id="@+id/lessonTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

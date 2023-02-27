@@ -372,7 +372,7 @@ public class Flashcard4 extends AppCompatActivity {
     }
 
     public void setFlashcardBackgroundColor(){
-        flashcardBackground.setBackgroundColor(Color.rgb(252, 209, 70   ));
+        flashcardBackground.setBackgroundColor(Color.rgb(252, 209, 70));
     }
 
     private void setPointSystem(int currentScore, int minToPass){
