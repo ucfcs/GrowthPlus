@@ -56,6 +56,7 @@ public class Game extends AppCompatActivity {
         Log.i("gameChildScore", String.valueOf(childScore));
 
         introBackBtn.setOnClickListener(view -> {
+            setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game.this, RoadMapOne.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -108,10 +109,10 @@ public class Game extends AppCompatActivity {
         fish3.setNumber(contents.get(forty.get(counter)).getOptionThree());
 
         // Fish 1
-        move1 = ObjectAnimator.ofFloat(fish1, "translationX", 600f);
-        move1.setDuration(25000);
+        move1 = ObjectAnimator.ofFloat(fish1, "translationX", 500f);
+        move1.setDuration(20000);
         move6 = ObjectAnimator.ofFloat(fish1, "translationY", 150f);
-        move6.setDuration(25000);
+        move6.setDuration(20000);
 
         if(rand.nextInt(2) == 0){
             move1.start();
@@ -122,12 +123,12 @@ public class Game extends AppCompatActivity {
         }
 
         // Fish 2
-        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -225f);
+        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -250f);
         move3 = ObjectAnimator.ofFloat(fish2, "translationY", -100f);
-        move2.setDuration(25000);
-        move3.setDuration(25000);
+        move2.setDuration(15000);
+        move3.setDuration(15000);
         move7 = ObjectAnimator.ofFloat(fish2, "translationY", 100f);
-        move7.setDuration(25000);
+        move7.setDuration(15000);
 
         if(rand.nextInt(2) == 0){
             move2.start();
@@ -141,10 +142,10 @@ public class Game extends AppCompatActivity {
         // Fish 3
         move4 = ObjectAnimator.ofFloat(fish3, "translationX", 400f);
         move5 = ObjectAnimator.ofFloat(fish3, "translationY", 250f);
-        move4.setDuration(25000);
-        move5.setDuration(25000);
+        move4.setDuration(8000);
+        move5.setDuration(8000);
         move8 = ObjectAnimator.ofFloat(fish3, "translationY", -10f);
-        move8.setDuration(25000);
+        move8.setDuration(8000);
 
         if(rand.nextInt(2) == 0){
             move4.start();
@@ -204,13 +205,13 @@ public class Game extends AppCompatActivity {
         });
     }
 
-    public void deactivate(){
+    private void deactivate(){
         fish1.setOnClickListener(null);
         fish2.setOnClickListener(null);
         fish3.setOnClickListener(null);
     }
 
-    public void resetAnimation(){
+    private void resetAnimation(){
         move1.end();
         move6.end();
         move7.end();
@@ -227,7 +228,7 @@ public class Game extends AppCompatActivity {
         fish3.animate().translationY(0);
     }
 
-    public void showCorrect(){
+    private void showCorrect(){
         correctFish.setVisibility(View.VISIBLE);
         fish1.setVisibility(View.INVISIBLE);
         fish2.setVisibility(View.INVISIBLE);
@@ -247,7 +248,7 @@ public class Game extends AppCompatActivity {
                 correctFish.setVisibility(View.INVISIBLE);
                 setContent();
             }
-        }, 5000);
+        }, 2500);
     }
 
     private void setChildAndGameScoreInRealm(int childScore, int gameScore){
