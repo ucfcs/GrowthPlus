@@ -48,6 +48,7 @@ public class Quiz2 extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
     ConstraintLayout quizBackground;
+    ConstraintLayout topBarBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,6 +215,7 @@ public class Quiz2 extends AppCompatActivity {
         introBackBtn = quizTopBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button);
         quizBackground = findViewById(R.id.quiz);
+        topBarBackground = findViewById(R.id.topBar);
         childScore = child.getScore();
         childLessonsCompleted = child.getRoadMapTwo().getLessonsCompleted();
         thisScore = child.getRoadMapTwo().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
@@ -227,6 +229,7 @@ public class Quiz2 extends AppCompatActivity {
     private void setTopBar(){
         quizTopBar.setPoints(String.valueOf(child.getScore()));
         quizTopBar.setToCircle();
+        topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
     }
 
     public void setQuizColor(){

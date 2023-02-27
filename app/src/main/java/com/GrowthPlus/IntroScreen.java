@@ -35,13 +35,15 @@ public class IntroScreen extends AppCompatActivity {
     private ScenarioGameSchema gameContent;
     private int quizIndex;
     ConstraintLayout introScreenBackground;
+    ConstraintLayout topBarBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro_screen);
         init();
-        setTopBar();
+        setTopBarShape();
+        setTopBarBackground();
         setIntroScreenBackground();
 
         Log.i("quizIndex", String.valueOf(quizIndex));
@@ -147,7 +149,7 @@ public class IntroScreen extends AppCompatActivity {
         back = topBar.findViewById(R.id.goBackBtn);
         next = findViewById(R.id.next_button_intro);
         introScreenBackground = findViewById(R.id.introScreen);
-
+        topBarBackground = findViewById(R.id.topBar);
 
         // Quiz or Game database
         if(whichOne.equals("Quiz")){
@@ -165,13 +167,28 @@ public class IntroScreen extends AppCompatActivity {
         }
     }
 
-    private void setTopBar(){
+    private void setTopBarShape(){
         topBar.setPoints(String.valueOf(child.getScore()));
         if(whichOne.equals("Quiz")){
             topBar.setToCircle();
         }
         else if(whichOne.equals("Game")){
             topBar.setToStar();
+        }
+    }
+
+    private void setTopBarBackground() {
+        if(whichRoadMap.equals("1")){
+            //then its already the right color
+        }
+        else if(whichRoadMap.equals("2")){
+            topBarBackground.setBackgroundColor(Color.rgb(252,209,70));
+        }
+        else if(whichRoadMap.equals("3")){
+            topBarBackground.setBackgroundColor(Color.rgb(252,209,70));
+        }
+        else if(whichRoadMap.equals("4")){
+            topBarBackground.setBackgroundColor(Color.rgb(232,160,78));
         }
     }
 
