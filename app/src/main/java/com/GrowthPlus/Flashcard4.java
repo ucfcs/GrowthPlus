@@ -1,6 +1,7 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -9,6 +10,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -67,6 +69,8 @@ public class Flashcard4 extends AppCompatActivity {
     private int minScoreToPass;
     private int MAX_LESSON_SCORE;
     private int currentLessonScore;
+    ConstraintLayout flashcardBackground;
+    ConstraintLayout topBarBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +89,7 @@ public class Flashcard4 extends AppCompatActivity {
             this.finish();
         });
         setTopBar();
+        setFlashcardBackgroundColor();
 
         /*
          * Switch statement for first flashcard, we don't have an intro so we start at index 0
@@ -328,6 +333,8 @@ public class Flashcard4 extends AppCompatActivity {
             lessonIndex = extras.getInt("lessonIndex");
         }
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
+        flashcardBackground = findViewById(R.id.flashcardLayout);
+        topBarBackground = findViewById(R.id.topBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         assert child != null;
         currentChildScore = child.getScore();
@@ -361,6 +368,11 @@ public class Flashcard4 extends AppCompatActivity {
     private void setTopBar(){
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
+        topBarBackground.setBackgroundColor(Color.rgb(232, 160, 78));
+    }
+
+    public void setFlashcardBackgroundColor(){
+        flashcardBackground.setBackgroundColor(Color.rgb(252, 209, 70   ));
     }
 
     private void setPointSystem(int currentScore, int minToPass){
