@@ -6,22 +6,22 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/soccer"
+        android:id="@+id/coconut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/soccer_ball_foreground" />
+        app:srcCompat="@mipmap/coconut_foreground" />
 
     <TextView
         android:id="@+id/number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="7"
-        android:textColor="@color/dark_green"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="@+id/soccer"
+        android:text="10"
+        android:textColor="@color/orange"
+        android:textSize="38sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/soccer" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

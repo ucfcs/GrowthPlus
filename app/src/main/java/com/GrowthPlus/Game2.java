@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.GrowthPlus.customViews.Banana;
-import com.GrowthPlus.customViews.Fish;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
@@ -22,7 +21,6 @@ import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -40,7 +38,6 @@ public class Game2 extends AppCompatActivity {
     ArrayList<Integer> forty = new ArrayList<>(40);
     Banana b1, b2, b3, correctB;
     TextView question;
-    Random rand;
     Handler handler;
     ObjectAnimator animator1, animator2, animator3;
 
@@ -76,7 +73,6 @@ public class Game2 extends AppCompatActivity {
         score = 0;
         counter = 0;
         question = findViewById(R.id.gameQuestion);
-        rand = new Random();
         handler = new Handler();
         b1 = findViewById(R.id.banana1);
         b2 = findViewById(R.id.banana2);
@@ -160,7 +156,7 @@ public class Game2 extends AppCompatActivity {
                 correctB.setVisibility(View.INVISIBLE);
                 setContent();
             }
-        }, 5000);
+        }, 2500);
     }
 
     private void bounceAnimation(View target1, View target2,  View target3){
@@ -178,8 +174,8 @@ public class Game2 extends AppCompatActivity {
         animator2.setDuration(2000);
         animator3.setDuration(1500);
         animator1.setRepeatCount(30);
-        animator2.setRepeatCount(30);
-        animator3.setRepeatCount(30);
+        animator2.setRepeatCount(15);
+        animator3.setRepeatCount(20);
         animator1.start();
         animator2.start();
         animator3.start();

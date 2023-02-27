@@ -20,7 +20,6 @@ import com.GrowthPlus.roadMapActivity.RoadMapThree;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -38,7 +37,6 @@ public class Game3 extends AppCompatActivity {
     ArrayList<Integer> forty = new ArrayList<>(40);
     Soccer ball1, ball2, ball3;
     TextView question;
-    Random rand;
     Handler handler;
     ObjectAnimator move1a, move1b, move2a, move2b, move3a, move3b, move4a, move4b, move5a, move5b, move6a, move6b;
 
@@ -75,7 +73,6 @@ public class Game3 extends AppCompatActivity {
         score = 0;
         counter = 0;
         question = findViewById(R.id.gameQuestion);
-        rand = new Random();
         handler = new Handler();
         ball1 = findViewById(R.id.soccer1);
         ball2 = findViewById(R.id.soccer2);
@@ -88,12 +85,12 @@ public class Game3 extends AppCompatActivity {
         move2b = ObjectAnimator.ofFloat(ball2, "translationY", -850f);
         move3a = ObjectAnimator.ofFloat(ball3, "translationX", -360f);
         move3b = ObjectAnimator.ofFloat(ball3, "translationY", -850f);
-        move1a.setDuration(2000);
-        move1b.setDuration(2000);
-        move2a.setDuration(2000);
-        move2b.setDuration(2000);
-        move3a.setDuration(2000);
-        move3b.setDuration(2000);
+        move1a.setDuration(1000);
+        move1b.setDuration(1000);
+        move2a.setDuration(1000);
+        move2b.setDuration(1000);
+        move3a.setDuration(1000);
+        move3b.setDuration(1000);
 
         // Incorrect Animation
         move4a = ObjectAnimator.ofFloat(ball1, "translationX", 2000f);
@@ -208,6 +205,6 @@ public class Game3 extends AppCompatActivity {
                 ball3.setVisibility(View.VISIBLE);
                 setContent();
             }
-        }, 5000);
+        }, 3000);
     }
 }
