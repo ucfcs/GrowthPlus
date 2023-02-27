@@ -52,9 +52,6 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         init();
 
-        Log.i("gameScore", String.valueOf(gameScore));
-        Log.i("gameChildScore", String.valueOf(childScore));
-
         introBackBtn.setOnClickListener(view -> {
             setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game.this, RoadMapOne.class);
