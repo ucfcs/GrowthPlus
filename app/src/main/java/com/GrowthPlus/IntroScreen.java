@@ -31,6 +31,7 @@ public class IntroScreen extends AppCompatActivity {
     private Button next, back;
     private QuizSchema quizContent;
     private ScenarioGameSchema gameContent;
+    private int quizIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class IntroScreen extends AppCompatActivity {
         setContentView(R.layout.activity_intro_screen);
         init();
         setTopBar();
+
+        Log.i("quizIndex", String.valueOf(quizIndex));
 
         // Create instance of shared preferences and save current language id
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
@@ -119,6 +122,7 @@ public class IntroScreen extends AppCompatActivity {
             }
             intent.putExtra("childId", childId);
             intent.putExtra("databaseQuizId", data);
+            intent.putExtra("quizIndex", quizIndex);
             startActivity(intent);
             finish();
         });
@@ -131,6 +135,7 @@ public class IntroScreen extends AppCompatActivity {
             data = extras.getString("databaseQuizId");
             whichOne = extras.getString("whichOne");
             whichRoadMap = extras.getString("whichRoadMap");
+            quizIndex = extras.getInt("quizIndex");
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();

@@ -22,16 +22,11 @@ import com.GrowthPlus.fragment.ConversionTable;
 import com.GrowthPlus.fragment.ConversionTableTwo;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.Family;
-import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.PerimeterArea;
 import com.GrowthPlus.fragment.Shape;
 import com.GrowthPlus.fragment.WordGrid;
-import com.GrowthPlus.fragment.WordImage;
-import com.GrowthPlus.fragment.WordImageEquation;
-import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapThree;
-import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -51,6 +46,7 @@ public class Lesson3 extends AppCompatActivity {
     private String lessonName;
     private String image;
     ConstraintLayout lessonBackground;
+    private int lessonIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -103,6 +99,7 @@ public class Lesson3 extends AppCompatActivity {
                     flashcardIntent.putExtra("dataBaseLessonId", dataBaseLessonId);
                     flashcardIntent.putExtra("childId", childId);
                     flashcardIntent.putExtra("lessonImage", image);
+                    flashcardIntent.putExtra("lessonIndex", lessonIndex);
                     startActivity(flashcardIntent);
                     finish();
                 }
@@ -352,6 +349,7 @@ public class Lesson3 extends AppCompatActivity {
         if(extras != null){
             dataBaseLessonId = extras.getString("dataBaseLessonId");
             childId = extras.getString("childId");
+            lessonIndex = extras.getInt("lessonIndex");
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();

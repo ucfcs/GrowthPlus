@@ -73,7 +73,7 @@ public class VerticalEquation extends Fragment {
             carryNum.setText(carryNumber);
             carryNum.setVisibility(View.VISIBLE);
             carry.setVisibility(View.VISIBLE);
-            carry.setBackgroundTintList(green);
+            carry.setBackgroundTintList(blue);
         }
         if(num.equals("carried")){
             barOne.setVisibility(View.VISIBLE);
@@ -83,12 +83,12 @@ public class VerticalEquation extends Fragment {
         }
         else if(num.equals("two")){
             barTwo.setVisibility(View.VISIBLE);
-            carry.setBackgroundTintList(blue);
+            carry.setBackgroundTintList(green);
         }
         else if(num.equals("diagonal")){
             boxOne.setVisibility(View.VISIBLE);
             boxTwo.setVisibility(View.VISIBLE);
-            carry.setBackgroundTintList(blue);
+            carry.setBackgroundTintList(green);
         }
     }
 }
