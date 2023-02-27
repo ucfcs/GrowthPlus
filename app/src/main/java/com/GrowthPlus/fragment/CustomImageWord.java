@@ -43,7 +43,7 @@ public class CustomImageWord extends Fragment {
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
         img.setImageResource(resId);
-        operator.setText(firstNumber + firstOperator + secondNumber + secondOperator);
+        operator.setText(firstNumber + firstOperator +"\n"+ secondNumber + secondOperator);
     }
 
 

@@ -5,7 +5,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -64,9 +63,6 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             childID = extras.getString("childIdentify");
         }
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
-
-        Log.i("childName:", child.getName());
-        Log.i("rooadmapCompleted:", String.valueOf(child.getRoadMapTwo().getLessonsCompleted()));
         init(child);
 
 
@@ -173,7 +169,6 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             RoadMapLesson roadMapLessonTemp = roadMapLessons.get(i);
             assert roadMapLessonTemp != null;
             String dataBaseLessonId = roadMapLessonTemp.getDatabaseLessonId();
-            Log.i("rooadmapCompleted:", dataBaseLessonId);
             Integer tileIdTemp = Objects.requireNonNull(mapTiles.get(i)).getId();
 
             if(roadMapLessonTemp.getCompleted()){

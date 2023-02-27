@@ -21,6 +21,7 @@ import com.GrowthPlus.fragment.Conversion;
 import com.GrowthPlus.fragment.ConversionTable;
 import com.GrowthPlus.fragment.ConversionTableTwo;
 import com.GrowthPlus.fragment.Counting;
+import com.GrowthPlus.fragment.GridWord;
 import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.WordGrid;
@@ -134,15 +135,12 @@ public class Lesson2 extends AppCompatActivity {
                             break;
                         }
 
-                        //TODO: Add the VerticalEquation case
-
                         case "wordImage" : {
                             word = contents.get(counter).getWord();
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
                             }
                             imgOne = contents.get(counter).getImgOne();
-                            // TODO: look into how we're storing images for the wordImage lessons
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
@@ -203,8 +201,15 @@ public class Lesson2 extends AppCompatActivity {
                         case "imageWord" : {
                             imgOne = contents.get(counter).getImgOne();
                             word = contents.get(counter).getWord();
-                            if (!trans.getString(word).equals("empty")) {
-                                word = trans.getString(word);
+
+                            String first, second;
+
+                            if(word.contains(" ")){
+                                first = word.substring(0, word.indexOf(" "));
+                                second = word.substring(word.indexOf(" "));
+                                if (!trans.getString(first).equals("empty")) {
+                                    word = trans.getString(first) + second;
+                                }
                             }
 
                             if (savedInstanceState == null) {
@@ -224,8 +229,6 @@ public class Lesson2 extends AppCompatActivity {
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
-
-                            lessonImg = lesson.getImage();
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
@@ -274,6 +277,35 @@ public class Lesson2 extends AppCompatActivity {
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, ConversionTableTwo.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "gridWord" :{
+                            word = contents.get(counter).getWord();
+                            int firstNumberGrid = Integer.valueOf(contents.get(counter).getFirstNumber());
+                            imgOne = contents.get(counter).getImgOne();
+
+                            String first, second;
+
+                            if(word.contains(" ")){
+                                first = word.substring(0, word.indexOf(" "));
+                                second = word.substring(word.indexOf(" "));
+                                if (!trans.getString(first).equals("empty")) {
+                                    word = trans.getString(first) + second;
+                                }
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("gridWord", word);
+                                bundle.putString("gridImg", imgOne);
+                                bundle.putInt("gridNum", firstNumberGrid);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, GridWord.class, bundle);
                                 transaction.commit();
                             }
                             break;

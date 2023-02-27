@@ -10,7 +10,7 @@
         android:id="@+id/text"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:text="perpindicular lines"
+        android:text="perpendicular lines"
         android:textColor="@color/blue"
         android:textAlignment="center"
         android:textSize="40sp"

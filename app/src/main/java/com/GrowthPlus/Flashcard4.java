@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomEquation;
@@ -75,6 +77,12 @@ public class Flashcard4 extends AppCompatActivity {
             this.finish();
         });
         setTopBar();
+
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        Translator trans = new Translator(langId);
 
         /*
          * Switch statement for first flashcard, we don't have an intro so we start at index 0
@@ -145,6 +153,14 @@ public class Flashcard4 extends AppCompatActivity {
                 firstOperator = flashcard.getFirstOperator();
                 secondNumber = flashcard.getSecondNumber();
                 secondOperator = flashcard.getSecondOperator();
+
+                if (!trans.getString(firstOperator).equals("empty")) {
+                    firstOperator = trans.getString(firstOperator);
+                }
+                if (!trans.getString(secondOperator).equals("empty")) {
+                    secondOperator = trans.getString(secondOperator);
+                }
+
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", image);
@@ -298,6 +314,14 @@ public class Flashcard4 extends AppCompatActivity {
                         firstOperator = flashcard.getFirstOperator();
                         secondNumber = flashcard.getSecondNumber();
                         secondOperator = flashcard.getSecondOperator();
+
+                        if (!trans.getString(firstOperator).equals("empty")) {
+                            firstOperator = trans.getString(firstOperator);
+                        }
+                        if (!trans.getString(secondOperator).equals("empty")) {
+                            secondOperator = trans.getString(secondOperator);
+                        }
+
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("image", image);

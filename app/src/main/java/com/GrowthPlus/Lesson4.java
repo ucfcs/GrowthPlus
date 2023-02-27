@@ -26,11 +26,7 @@ import com.GrowthPlus.fragment.PerimeterArea;
 import com.GrowthPlus.fragment.Shape;
 import com.GrowthPlus.fragment.ShapesAngles;
 import com.GrowthPlus.fragment.WordGrid;
-import com.GrowthPlus.fragment.WordImage;
-import com.GrowthPlus.fragment.WordImageEquation;
 import com.GrowthPlus.roadMapActivity.RoadMapFour;
-import com.GrowthPlus.roadMapActivity.RoadMapOne;
-
 import io.realm.Realm;
 import io.realm.RealmList;
 
@@ -144,9 +140,6 @@ public class Lesson4 extends AppCompatActivity {
                             secondNumber = contents.get(counter).getSecondNumber();
                             thirdNumber = contents.get(counter).getThirdNumber();
 
-                            firstOperator = contents.get(counter).getFirstOperator();//not useful
-                            secondOperator = contents.get(counter).getSecondOperator();//not useful
-
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("divisor", secondNumber);
@@ -211,7 +204,7 @@ public class Lesson4 extends AppCompatActivity {
                         }
 
                       case "perimeterArea": {
-
+                          String identify = contents.get(counter).getWord();
                           word = contents.get(counter).getWord();
                           firstNumber = contents.get(counter).getFirstNumber();
                           firstOperator = contents.get(counter).getFirstOperator();
@@ -220,8 +213,19 @@ public class Lesson4 extends AppCompatActivity {
                           thirdNumber = contents.get(counter).getThirdNumber();
                           imgOne = contents.get(counter).getImgOne();
 
+                          if (!trans.getString(word).equals("empty")) {
+                              word = trans.getString(word);
+                          }
+                          if (!trans.getString(secondNumber).equals("empty")) {
+                              secondNumber = trans.getString(secondNumber);
+                          }
+                          if (!trans.getString(thirdNumber).equals("empty")) {
+                              thirdNumber = trans.getString(thirdNumber);
+                          }
+
                           if (savedInstanceState == null) {
                               Bundle bundle = new Bundle();
+                              bundle.putString("PAIdentify", identify);
                               bundle.putString("PAWord", word);
                               bundle.putString("PAFirstNumber", firstNumber);
                               bundle.putString("PAFirstOperator", firstOperator);
@@ -258,8 +262,6 @@ public class Lesson4 extends AppCompatActivity {
                             break;
                         }
 
-                        //TODO: Add shapes angles case
-
                         case "shapesAngles":{
                             imgOne = contents.get(counter).getImgOne();
                             imgTwo = contents.get(counter).getImgTwo();
@@ -291,7 +293,6 @@ public class Lesson4 extends AppCompatActivity {
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
-                            lessonImg = lesson.getImage();
 
                             if (!trans.getString(word).equals("empty")) {
                                 word = trans.getString(word);

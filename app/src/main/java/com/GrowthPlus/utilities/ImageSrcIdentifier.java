@@ -69,15 +69,10 @@ public class ImageSrcIdentifier {
         imageSrcId.put("equTriangleAngles", R.mipmap.equ_triangle_angles_foreground);
         imageSrcId.put("perLineOne", R.mipmap.per_line_one_foreground);
         imageSrcId.put("perLineTwo", R.mipmap.per_line_two_foreground);
-        imageSrcId.put("PLOne", R.mipmap.per_line_one_foreground);
+        imageSrcId.put("PLOne", R.mipmap.pl_one_foreground);
         imageSrcId.put("PLTwo", R.mipmap.pl_two_foreground);
         imageSrcId.put("PLThree", R.mipmap.pl_three_foreground);
         imageSrcId.put("rightAngle", R.mipmap.right_angle_foreground);
-
-
-
-
-
     }
 
     public Integer getImageSrcId(String imageName){

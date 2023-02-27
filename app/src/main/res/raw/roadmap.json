@@ -3565,7 +3565,7 @@
         "contents": [
           {
             "lessonContentId": "RmTwoLessonSevenContentOne",
-            "word": "centimter (cm)",
+            "word": "centimeter (cm)",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
@@ -3651,7 +3651,7 @@
             "imgThree": null,
             "imgFour": null,
             "imgFive": null,
-            "category" : "imageWord"
+            "category" : "gridWord"
           },
           {
             "lessonContentId": "RmTwoLessonSevenContentSeven",
@@ -6074,10 +6074,10 @@
         "contents": [
           {
             "lessonContentId": "RmThreeLessonSevenContentOne",
-            "word": "clock 1 hour = 60 minutes 1 day =  24 hours",
-            "firstNumber": null,
-            "firstOperator": null,
-            "secondNumber": null,
+            "word": "clock",
+            "firstNumber": "hour",
+            "firstOperator": "minute",
+            "secondNumber": "day",
             "secondOperator": null,
             "thirdNumber": null,
             "imgOne": "clock",
@@ -8036,7 +8036,7 @@
             "category" : "linesAngles"
           },
           {
-            "lessonContentId": "RmFourLessonFourContentTwo",
+            "lessonContentId": "RmFourLessonFourContentThree",
             "word": "rightAngle",
             "firstNumber": null,
             "firstOperator": null,
@@ -8360,10 +8360,10 @@
             "lessonContentId": "RmFourLessonSevenContentTwo",
             "word": "square",
             "firstNumber": "360°",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
-            "thirdNumber": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
+            "thirdNumber": "",
             "imgOne": "squareAngles",
             "imgTwo": null,
             "imgThree": null,
@@ -8375,10 +8375,10 @@
             "lessonContentId": "RmFourLessonSevenContentThree",
             "word": "rectangle",
             "firstNumber": "360°",
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
-            "thirdNumber": null,
+            "firstOperator": "",
+            "secondNumber": "",
+            "secondOperator": "",
+            "thirdNumber": "",
             "imgOne": "rectangleAngles",
             "imgTwo": null,
             "imgThree": null,

@@ -34,6 +34,7 @@ public class PerimeterArea extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        String identify = requireArguments().getString("PAIdentify");
         String getPAWord = requireArguments().getString("PAWord");
         String getPAFirstNumber = requireArguments().getString("PAFirstNumber");
         String getPAFirstOperator = requireArguments().getString("PAFirstOperator");
@@ -47,7 +48,7 @@ public class PerimeterArea extends Fragment {
         String getPerimeterAreaText2 = "";
 
         //TODO: handle the cases and generate the proper text for perimeterAreaText2
-        if(getPAWord.equals("perimeter")){
+        if(identify.equals("perimeter")){
 
             switch(getPAImage){
 
@@ -74,7 +75,7 @@ public class PerimeterArea extends Fragment {
             }
         }
 
-        else if(getPAWord.equals("area")){
+        else if(identify.equals("area")){
 
             switch(getPAImage){
 
@@ -101,11 +102,11 @@ public class PerimeterArea extends Fragment {
             }
         }
 
-        else if(getPAWord.equals("square")){
+        else if(identify.equals("square")){
             getPerimeterAreaText2 += "" + getPAFirstNumber;
         }
 
-        else if(getPAWord.equals("rectangle")){
+        else if(identify.equals("rectangle")){
             getPerimeterAreaText2 += "" + getPAFirstNumber;
         }
 
