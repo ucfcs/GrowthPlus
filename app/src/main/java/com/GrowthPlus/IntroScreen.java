@@ -1,11 +1,13 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -32,6 +34,7 @@ public class IntroScreen extends AppCompatActivity {
     private QuizSchema quizContent;
     private ScenarioGameSchema gameContent;
     private int quizIndex;
+    ConstraintLayout introScreenBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class IntroScreen extends AppCompatActivity {
         setContentView(R.layout.activity_intro_screen);
         init();
         setTopBar();
+        setIntroScreenBackground();
 
         Log.i("quizIndex", String.valueOf(quizIndex));
 
@@ -142,6 +146,8 @@ public class IntroScreen extends AppCompatActivity {
         topBar = findViewById(R.id.topBarIntroScreen);
         back = topBar.findViewById(R.id.goBackBtn);
         next = findViewById(R.id.next_button_intro);
+        introScreenBackground = findViewById(R.id.introScreen);
+
 
         // Quiz or Game database
         if(whichOne.equals("Quiz")){
@@ -166,6 +172,21 @@ public class IntroScreen extends AppCompatActivity {
         }
         else if(whichOne.equals("Game")){
             topBar.setToStar();
+        }
+    }
+
+    public void setIntroScreenBackground(){
+        if(whichRoadMap.equals("1")){
+            //then its already the right color
+        }
+        else if(whichRoadMap.equals("2")){
+            introScreenBackground.setBackgroundColor(Color.rgb(232, 160, 78));
+        }
+        else if(whichRoadMap.equals("3")){
+            introScreenBackground.setBackgroundColor(Color.rgb(198, 192, 18));
+        }
+        else if(whichRoadMap.equals("4")){
+            introScreenBackground.setBackgroundColor(Color.rgb(252, 209, 70));
         }
     }
 }
