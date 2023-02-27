@@ -30,7 +30,6 @@
         android:backgroundTint="@color/blue"
         android:src="@drawable/round_button"
         app:layout_constraintStart_toStartOf="@id/guideline10"
-        app:layout_constraintEnd_toEndOf="@id/dividend"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

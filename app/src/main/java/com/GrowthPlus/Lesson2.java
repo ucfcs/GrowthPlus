@@ -24,6 +24,7 @@ import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.GridWord;
 import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.ImageWord;
+import com.GrowthPlus.fragment.VerticalEquation;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
@@ -306,6 +307,31 @@ public class Lesson2 extends AppCompatActivity {
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, GridWord.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "verticalEquation":{
+                            word = contents.get(counter).getWord();
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
+                            thirdNumber = contents.get(counter).getThirdNumber();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("wordEqu", word);
+                                bundle.putString("firstNum", firstNumber);
+                                bundle.putString("secondNum", secondNumber);
+                                bundle.putString("carry", secondOperator);
+                                bundle.putString("answer", thirdNumber);
+                                bundle.putString("opt", firstOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, VerticalEquation.class, bundle);
                                 transaction.commit();
                             }
                             break;
