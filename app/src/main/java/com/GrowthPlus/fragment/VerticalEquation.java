@@ -23,6 +23,8 @@ public class VerticalEquation extends Fragment {
     TextView operator;
     ImageView barOne;
     ImageView barTwo;
+    ImageView boxOne;
+    ImageView boxTwo;
     ImageView carry;
     ColorStateList blue, green;
 
@@ -41,6 +43,8 @@ public class VerticalEquation extends Fragment {
         carryNum = view.findViewById(R.id.carryInputNum);
         barOne = view.findViewById(R.id.barOne);
         barTwo = view.findViewById(R.id.barTwo);
+        boxOne = view.findViewById(R.id.boxOne);
+        boxTwo = view.findViewById(R.id.boxTwo);
         carry = view.findViewById(R.id.carryInput);
         blue = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.blue));
         green = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.light_green));
@@ -60,7 +64,7 @@ public class VerticalEquation extends Fragment {
         ans.setText(answer);
         operator.setText(opt);
 
-        if(carryNumber.equals("1")){
+        if(carryNumber.equals("1") || carryNumber.equals("2") || carryNumber.equals("+1") || carryNumber.equals("+2") ){
             carryNum.setText(carryNumber);
             carryNum.setVisibility(View.VISIBLE);
             carry.setVisibility(View.VISIBLE);
@@ -70,17 +74,20 @@ public class VerticalEquation extends Fragment {
             carryNum.setVisibility(View.VISIBLE);
             carry.setVisibility(View.VISIBLE);
             carry.setBackgroundTintList(green);
-
         }
         if(num.equals("carried")){
             barOne.setVisibility(View.VISIBLE);
-            barOne.setMaxWidth(200);
         }
         else if(num.equals("one")){
             barOne.setVisibility(View.VISIBLE);
         }
         else if(num.equals("two")){
             barTwo.setVisibility(View.VISIBLE);
+            carry.setBackgroundTintList(blue);
+        }
+        else if(num.equals("diagonal")){
+            boxOne.setVisibility(View.VISIBLE);
+            boxTwo.setVisibility(View.VISIBLE);
             carry.setBackgroundTintList(blue);
         }
     }
