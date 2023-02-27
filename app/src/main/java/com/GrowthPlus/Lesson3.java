@@ -312,6 +312,7 @@ public class Lesson3 extends AppCompatActivity {
         topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToTriangle();
         topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+        topBar.setShapeColor(Color.rgb(3, 71, 50));
     }
     public void setLevelColor(){
         lessonBackground.setBackgroundColor(Color.rgb(198, 192, 18));

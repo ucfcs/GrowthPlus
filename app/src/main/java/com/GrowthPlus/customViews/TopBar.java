@@ -1,6 +1,7 @@
 package com.GrowthPlus.customViews;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -74,5 +75,11 @@ public class TopBar extends ConstraintLayout {
         triangle.setVisibility(View.INVISIBLE);
         circle.setVisibility(View.INVISIBLE);
         star.setVisibility(View.VISIBLE);
+    }
+
+    public void setShapeColor(int color){
+        triangle.setBackgroundTintList(ColorStateList.valueOf(color));
+        circle.setBackgroundTintList(ColorStateList.valueOf(color));
+        star.setBackgroundTintList(ColorStateList.valueOf(color));
     }
 }
