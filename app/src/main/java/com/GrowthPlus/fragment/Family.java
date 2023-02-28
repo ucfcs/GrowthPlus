@@ -50,10 +50,7 @@ public class Family extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        //String getConversionTableText1 = requireArguments().getString("conversionTableText1");
-
         String getFamilyWord = requireArguments().getString("familyWord");
-        String getFamilyFirstNumber = requireArguments().getString("familyFirstNumber");
         String getFamilyFirstOperator = requireArguments().getString("familyFirstOperator");
         String getFamilySecondNumber = requireArguments().getString("familySecondNumber");
 
@@ -72,7 +69,6 @@ public class Family extends Fragment {
             familyText10.setText("10 x " + getFamilySecondNumber + " = " + 10*Integer.valueOf(getFamilySecondNumber));
             familyText11.setText("11 x " + getFamilySecondNumber + " = " + 11*Integer.valueOf(getFamilySecondNumber));
             familyText12.setText("12 x " + getFamilySecondNumber + " = " + 12*Integer.valueOf(getFamilySecondNumber));
-
         }
 
         else if(getFamilyFirstOperator.equals(":")){

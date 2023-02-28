@@ -28,7 +28,6 @@ public class PerimeterArea extends Fragment {
         perimeterAreaImage = view.findViewById(R.id.image);
         perimeterAreaText2 = view.findViewById(R.id.text2);
         imageSrcIdentifier = new ImageSrcIdentifier();
-
         return view;
     }
 
@@ -47,7 +46,6 @@ public class PerimeterArea extends Fragment {
         perimeterAreaImage.setImageResource(imageSrcIdentifier.getImageSrcId(getPAImage));
         String getPerimeterAreaText2 = "";
 
-        //TODO: handle the cases and generate the proper text for perimeterAreaText2
         if(identify.equals("perimeter")){
 
             switch(getPAImage){

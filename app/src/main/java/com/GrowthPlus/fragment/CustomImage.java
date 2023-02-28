@@ -58,7 +58,6 @@ public class CustomImage extends Fragment {
         }
 
         // Adjust grid rows and columns based on num of images
-        // TODO: Make bigger sizes for this fragment
         if(imgNum <= 4){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
             customImageGrid.setRowCount(2);

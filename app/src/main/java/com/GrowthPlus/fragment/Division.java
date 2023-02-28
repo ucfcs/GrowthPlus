@@ -20,7 +20,6 @@ public class Division extends Fragment {
     TextView subtractNumber;
     TextView operator;
     TextView remainder;
-    ImageView barOne;
     ImageView barTwo;
 
     @Override
@@ -32,7 +31,6 @@ public class Division extends Fragment {
         subtractNumber = view.findViewById(R.id.subtractNumber);
         operator = view.findViewById(R.id.operator);
         remainder = view.findViewById(R.id.remainder);
-        barOne = view.findViewById(R.id.barOneDivision);
         barTwo = view.findViewById(R.id.barTwoDivision);
         return view;
     }
@@ -45,22 +43,6 @@ public class Division extends Fragment {
         String getSubtractedNum = requireArguments().getString("subtractedNum");
         String getSubtractedAns = requireArguments().getString("subtractedAns");
         String getType = requireArguments().getString("type");
-
-
-
-//        bundle.putString("divisor", secondNumber);
-//        bundle.putString("dividend", firstNumber);
-//        bundle.putString("quotient", thirdNumber);
-//        bundle.putString("subtractedNum", secondOperator);
-//        bundle.putString("subtractedAns", firstOperator);
-//        bundle.putString("type", word);
-//
-//        "word": "one",
-//                "firstNumber": "1 5 0 0",
-//                "firstOperator": "0",
-//                "secondNumber": "1 5",
-//                "secondOperator": "1 5",
-//                "thirdNumber": "1",
         
         divisor.setText(getDivisor);
         dividend.setText(getDividend);
@@ -68,10 +50,9 @@ public class Division extends Fragment {
         subtractNumber.setText(getSubtractedNum);
         remainder.setText(getSubtractedAns);
         operator.setText("-"); //operator is always gonna be -
-        if(getType.equals("one")){
-            barOne.setVisibility(View.VISIBLE);
-        }
-        else if (getType.equals("two")){
+
+
+        if (getType.equals("two")){
             barTwo.setVisibility(View.VISIBLE);
         }
     }

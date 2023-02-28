@@ -68,16 +68,13 @@ public class CustomImageOperator extends Fragment {
             }
         }
 
-
         // Setting top grid
         for(int i=0; i<firstNumber; i++){
             ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());
             topGrid.addView(imageTemp, i);
         }
-
         // Setting operator
         operator.setText(firstOperator);
-
 
         // Setting bottom grid
         for(int i=0; i<secondNumber; i++){
