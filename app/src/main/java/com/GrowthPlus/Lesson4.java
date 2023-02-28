@@ -81,6 +81,7 @@ public class Lesson4 extends AppCompatActivity {
             bundle.putString("wordMD", lessonTranslated);
             bundle.putString("imageMD", image);
             bundle.putInt("numMD", numOfImages);
+            bundle.putInt("level", 4);
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -136,11 +137,12 @@ public class Lesson4 extends AppCompatActivity {
                             break;
                         }
 
-                        //TODO: Add Vertical Equation case
-
                         case "division":{
+                            word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
                             thirdNumber = contents.get(counter).getThirdNumber();
 
                             if (savedInstanceState == null) {
@@ -148,6 +150,9 @@ public class Lesson4 extends AppCompatActivity {
                                 bundle.putString("divisor", secondNumber);
                                 bundle.putString("dividend", firstNumber);
                                 bundle.putString("quotient", thirdNumber);
+                                bundle.putString("subtractedNum", secondOperator);
+                                bundle.putString("subtractedAns", firstOperator);
+                                bundle.putString("type", word);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);

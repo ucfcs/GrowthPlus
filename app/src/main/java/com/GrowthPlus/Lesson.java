@@ -74,6 +74,7 @@ public class Lesson extends AppCompatActivity {
             bundle.putString("wordMD", lessonTranslated);
             bundle.putString("imageMD", image);
             bundle.putInt("numMD", numOfImages);
+            bundle.putInt("level", 1);
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -245,6 +246,7 @@ public class Lesson extends AppCompatActivity {
                                 bundle.putString("wordMD", equation);
                                 bundle.putString("imageMD", imgOne);
                                 bundle.putInt("numMD", numImg);
+                                bundle.putInt("level", 1);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);

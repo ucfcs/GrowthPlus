@@ -51,7 +51,8 @@ public class CustomImage extends Fragment {
             imgNum = imgNum / 10000;
         }
         else if(image.equals("fiveFrancs") || image.equals("tenFrancs") || image.equals("fiftyFrancs") || image.equals("oneHundredFrancs") || image.equals("fiveThousandFrancs") || image.equals("tenThousandFrancs")
-        || image.equals("rectangleAngles") || image.equals("equTriangleAngles") || image.equals("squareAngles") || image.equals("rightTriangleAngles")){
+        || image.equals("rectangleAngles") || image.equals("equTriangleAngles") || image.equals("squareAngles") || image.equals("rightTriangleAngles") || image.equals("clockOne") || image.equals("clockThree")
+        || image.equals("clockSix") || image.equals("clockNine") || image.equals("clockTwelve")){
             imgNum = 1;
             sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
         }

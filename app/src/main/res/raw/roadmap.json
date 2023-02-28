@@ -396,7 +396,7 @@
             "firstNumber": "3",
             "firstOperator": "+",
             "secondNumber": "3",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "6",
             "category": "customEquation"
           },
@@ -406,7 +406,7 @@
             "firstNumber": "8",
             "firstOperator": "+",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "10",
             "category": "customEquation"
           }
@@ -578,7 +578,7 @@
             "firstNumber": "6",
             "firstOperator": "+",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "10",
             "category": "customEquation"
           },
@@ -992,7 +992,7 @@
             "firstNumber": "19",
             "firstOperator": "-",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "17",
             "category": "customEquation"
           },
@@ -1002,7 +1002,7 @@
             "firstNumber": "15",
             "firstOperator": "-",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "11",
             "category": "customEquation"
           },
@@ -1012,7 +1012,7 @@
             "firstNumber": "6",
             "firstOperator": "-",
             "secondNumber": "3",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "3",
             "category": "customEquation"
           }
@@ -1184,7 +1184,7 @@
             "firstNumber": "2",
             "firstOperator": "x",
             "secondNumber": "1",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "2",
             "category": "customEquation"
           },
@@ -1194,7 +1194,7 @@
             "firstNumber": "2",
             "firstOperator": "x",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "8",
             "category": "customEquation"
           },
@@ -1204,7 +1204,7 @@
             "firstNumber": "2",
             "firstOperator": "x",
             "secondNumber": "6",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "12",
             "category": "customEquation"
           },
@@ -1214,7 +1214,7 @@
             "firstNumber": "2",
             "firstOperator": "x",
             "secondNumber": "9",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "18",
             "category": "customEquation"
           },
@@ -1224,7 +1224,7 @@
             "firstNumber": "2",
             "firstOperator": "x",
             "secondNumber": "10",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "20",
             "category": "customEquation"
           }
@@ -1396,7 +1396,7 @@
             "firstNumber": "4",
             "firstOperator": ":",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "2",
             "category": "customEquation"
           },
@@ -1406,7 +1406,7 @@
             "firstNumber": "8",
             "firstOperator": ":",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "4",
             "category": "customEquation"
           },
@@ -1416,7 +1416,7 @@
             "firstNumber": "10",
             "firstOperator": ":",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "5",
             "category": "customEquation"
           },
@@ -1426,7 +1426,7 @@
             "firstNumber": "18",
             "firstOperator": ":",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "9",
             "category": "customEquation"
           },
@@ -1436,7 +1436,7 @@
             "firstNumber": "20",
             "firstOperator": ":",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "10",
             "category": "customEquation"
           }
@@ -1518,7 +1518,7 @@
             "firstNumber": "5",
             "firstOperator": "x",
             "secondNumber": "1",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "5",
             "category": "customEquation"
           },
@@ -1528,7 +1528,7 @@
             "firstNumber": "5",
             "firstOperator": "x",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "10",
             "category": "customEquation"
           },
@@ -1538,7 +1538,7 @@
             "firstNumber": "5",
             "firstOperator": "x",
             "secondNumber": "3",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "15",
             "category": "customEquation"
           },
@@ -1548,7 +1548,7 @@
             "firstNumber": "5",
             "firstOperator": "x",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "20",
             "category": "customEquation"
           },
@@ -1558,7 +1558,7 @@
             "firstNumber": "5",
             "firstOperator": "x",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "10",
             "category": "customEquation"
           }
@@ -1640,7 +1640,7 @@
             "firstNumber": "5",
             "firstOperator": ":",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "1",
             "category": "customEquation"
           },
@@ -1650,7 +1650,7 @@
             "firstNumber": "10",
             "firstOperator": ":",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "2",
             "category": "customEquation"
           },
@@ -1660,7 +1660,7 @@
             "firstNumber": "15",
             "firstOperator": ":",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "3",
             "category": "customEquation"
           },
@@ -1670,7 +1670,7 @@
             "firstNumber": "20",
             "firstOperator": ":",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "4",
             "category": "customEquation"
           },
@@ -1680,7 +1680,7 @@
             "firstNumber": "5",
             "firstOperator": ":",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "1",
             "category": "customEquation"
           }
@@ -1751,7 +1751,7 @@
             "firstNumber": "2",
             "firstOperator": "x",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "10",
             "category": "customEquation"
           },
@@ -1761,7 +1761,7 @@
             "firstNumber": "12",
             "firstOperator": ":",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "6",
             "category": "customEquation"
           },
@@ -1771,7 +1771,7 @@
             "firstNumber": "5",
             "firstOperator": "x",
             "secondNumber": "1",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "5",
             "category": "customEquation"
           },
@@ -1781,7 +1781,7 @@
             "firstNumber": "15",
             "firstOperator": ":",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "3",
             "category": "customEquation"
           },
@@ -1791,7 +1791,7 @@
             "firstNumber": "2",
             "firstOperator": "x",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "4",
             "category": "customEquation"
           }
@@ -2886,7 +2886,7 @@
             "firstNumber": "36",
             "firstOperator": "+",
             "secondNumber": "15",
-            "secondOperator": null,
+            "secondOperator": "carry",
             "answer": "51",
             "category": "customEquation"
           },
@@ -2896,17 +2896,17 @@
             "firstNumber": "20",
             "firstOperator": "+",
             "secondNumber": "40",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "60",
             "category": "customEquation"
           },
           {
             "flashCardId": "RmTwoLessonTwoFlashThree",
             "image": null,
-            "firstNumber": "9",
+            "firstNumber": "28",
             "firstOperator": "+",
-            "secondNumber": "28",
-            "secondOperator": null,
+            "secondNumber": "9",
+            "secondOperator": "carry",
             "answer": "37",
             "category": "customEquation"
           },
@@ -2916,7 +2916,7 @@
             "firstNumber": "51",
             "firstOperator": "+",
             "secondNumber": "8",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "59",
             "category": "customEquation"
           },
@@ -2926,7 +2926,7 @@
             "firstNumber": "12",
             "firstOperator": "+",
             "secondNumber": "24",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "36",
             "category": "customEquation"
           }
@@ -3098,7 +3098,7 @@
             "firstNumber": "30",
             "firstOperator": "+",
             "secondNumber": "70",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "100",
             "category": "customEquation"
           },
@@ -3108,7 +3108,7 @@
             "firstNumber": "10",
             "firstOperator": "+",
             "secondNumber": "90",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "100",
             "category": "customEquation"
           }
@@ -3230,7 +3230,7 @@
             "firstNumber": "45",
             "firstOperator": "+",
             "secondNumber": "40",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "85",
             "category": "customEquation"
           }
@@ -3433,7 +3433,7 @@
             "firstNumber": "60",
             "firstOperator": "-",
             "secondNumber": "40",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "20",
             "category": "customEquation"
           },
@@ -3443,7 +3443,7 @@
             "firstNumber": "85",
             "firstOperator": "-",
             "secondNumber": "55",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "30",
             "category": "customEquation"
           },
@@ -3453,7 +3453,7 @@
             "firstNumber": "100",
             "firstOperator": "-",
             "secondNumber": "67",
-            "secondOperator": null,
+            "secondOperator": "carry",
             "answer": "33",
             "category": "customEquation"
           },
@@ -3463,7 +3463,7 @@
             "firstNumber": "43",
             "firstOperator": "-",
             "secondNumber": "24",
-            "secondOperator": null,
+            "secondOperator": "carry",
             "answer": "19",
             "category": "customEquation"
           },
@@ -3473,7 +3473,7 @@
             "firstNumber": "85",
             "firstOperator": "-",
             "secondNumber": "68",
-            "secondOperator": null,
+            "secondOperator": "carry",
             "answer": "17",
             "category": "customEquation"
           }
@@ -4202,7 +4202,7 @@
             "firstNumber": "42",
             "firstOperator": "+",
             "secondNumber": "34",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "76",
             "category": "customEquation"
           },
@@ -4212,7 +4212,7 @@
             "firstNumber": "100",
             "firstOperator": "-",
             "secondNumber": "84",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "16",
             "category": "customEquation"
           },
@@ -4222,7 +4222,7 @@
             "firstNumber": "55",
             "firstOperator": "+",
             "secondNumber": "30",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "85",
             "category": "customEquation"
           },
@@ -5426,7 +5426,7 @@
             "firstNumber": "10",
             "firstOperator": "x",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "40",
             "category": "customEquation"
           },
@@ -5436,7 +5436,7 @@
             "firstNumber": "4",
             "firstOperator": "x",
             "secondNumber": "12",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "48",
             "category": "customEquation"
           },
@@ -5446,7 +5446,7 @@
             "firstNumber": "5",
             "firstOperator": "x",
             "secondNumber": "6",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "30",
             "category": "customEquation"
           },
@@ -5456,7 +5456,7 @@
             "firstNumber": "7",
             "firstOperator": "x",
             "secondNumber": "3",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "21",
             "category": "customEquation"
           },
@@ -5466,7 +5466,7 @@
             "firstNumber": "8",
             "firstOperator": "x",
             "secondNumber": "6",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "42",
             "category": "customEquation"
           }
@@ -5638,7 +5638,7 @@
             "firstNumber": "10",
             "firstOperator": ":",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "2",
             "category": "customEquation"
           },
@@ -5648,7 +5648,7 @@
             "firstNumber": "12",
             "firstOperator": ":",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "3",
             "category": "customEquation"
           },
@@ -5658,7 +5658,7 @@
             "firstNumber": "108",
             "firstOperator": ":",
             "secondNumber": "9",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "12",
             "category": "customEquation"
           },
@@ -5668,7 +5668,7 @@
             "firstNumber": "22",
             "firstOperator": ":",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "11",
             "category": "customEquation"
           },
@@ -5678,7 +5678,7 @@
             "firstNumber": "36",
             "firstOperator": ":",
             "secondNumber": "6",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "6",
             "category": "customEquation"
           }
@@ -6141,7 +6141,7 @@
             "secondNumber": "day",
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "clock",
+            "imgOne": "clockOne",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
@@ -6150,13 +6150,13 @@
           },
           {
             "lessonContentId": "RmThreeLessonSevenContentTwo",
-            "word": "3:00",
+            "word": "1:00",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "clock",
+            "imgOne": "clockOne",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
@@ -6165,13 +6165,13 @@
           },
           {
             "lessonContentId": "RmThreeLessonSevenContentThree",
-            "word": "3:05",
+            "word": "3:00",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "clock",
+            "imgOne": "clockThree",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
@@ -6180,13 +6180,13 @@
           },
           {
             "lessonContentId": "RmThreeLessonSevenContentFour",
-            "word": "3:15",
+            "word": "6:00",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "clock",
+            "imgOne": "clockSix",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
@@ -6195,13 +6195,13 @@
           },
           {
             "lessonContentId": "RmThreeLessonSevenContentFive",
-            "word": "4:00",
+            "word": "9:00",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "clock",
+            "imgOne": "clockNine",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
@@ -6210,39 +6210,44 @@
           },
           {
             "lessonContentId": "RmThreeLessonSevenContentSix",
-            "word": "2:00",
+            "word": "12:00",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "clock",
+            "imgOne": "clockTwelve",
             "imgTwo": null,
             "imgThree": null,
             "imgFour": null,
             "imgFive": null,
-            "category" : "imageWord"
-          },
-          {
-            "lessonContentId": "RmThreeLessonSevenContentSeven",
-            "word": "5:00",
-            "firstNumber": null,
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
-            "thirdNumber": null,
-            "imgOne": "clock",
-            "imgTwo": null,
-            "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
-            "category" : "imageWord"
+            "category": "imageWord"
           }
         ],
         "flashcards": [
           {
             "flashCardId": "RmThreeLessonSevenFlashOne",
-            "image": "clock",
+            "image": "clockNine",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "9",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmThreeLessonSevenFlashTwo",
+            "image": "clockThree",
+            "firstNumber": null,
+            "firstOperator": null,
+            "secondNumber": null,
+            "secondOperator": null,
+            "answer": "3",
+            "category": "customImage"
+          },
+          {
+            "flashCardId": "RmThreeLessonSevenFlashThree",
+            "image": "clockOne",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
@@ -6251,28 +6256,8 @@
             "category": "customImage"
           },
           {
-            "flashCardId": "RmThreeLessonSevenFlashTwo",
-            "image": "clock",
-            "firstNumber": null,
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
-            "answer": "5",
-            "category": "customImage"
-          },
-          {
-            "flashCardId": "RmThreeLessonSevenFlashThree",
-            "image": "clock",
-            "firstNumber": null,
-            "firstOperator": null,
-            "secondNumber": null,
-            "secondOperator": null,
-            "answer": "4",
-            "category": "customImage"
-          },
-          {
             "flashCardId": "RmThreeLessonSevenFlashFour",
-            "image": "clock",
+            "image": "clockSix",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
@@ -6282,12 +6267,12 @@
           },
           {
             "flashCardId": "RmThreeLessonSevenFlashFive",
-            "image": "clock",
+            "image": "clockTwelve",
             "firstNumber": null,
             "firstOperator": null,
             "secondNumber": null,
             "secondOperator": null,
-            "answer": "8",
+            "answer": "12",
             "category": "customImage"
           }
         ]
@@ -6581,7 +6566,7 @@
             "firstNumber": "5",
             "firstOperator": "x",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "20",
             "category": "customEquation"
           },
@@ -6591,7 +6576,7 @@
             "firstNumber": "10",
             "firstOperator": "x",
             "secondNumber": "7",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "70",
             "category": "customEquation"
           },
@@ -6601,7 +6586,7 @@
             "firstNumber": "12",
             "firstOperator": ":",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "3",
             "category": "customEquation"
           },
@@ -6611,7 +6596,7 @@
             "firstNumber": "55",
             "firstOperator": ":",
             "secondNumber": "5",
-            "secondOperator": null,
+            "secondOperator":  "",
             "answer": "11",
             "category": "customEquation"
           },
@@ -7815,7 +7800,7 @@
             "firstNumber": "40",
             "firstOperator": "x",
             "secondNumber": "6",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "240",
             "category": "customEquation"
           },
@@ -7825,7 +7810,7 @@
             "firstNumber": "15",
             "firstOperator": "x",
             "secondNumber": "8",
-            "secondOperator": null,
+            "secondOperator": "carry",
             "answer": "120",
             "category": "customEquation"
           },
@@ -7835,7 +7820,7 @@
             "firstNumber": "20",
             "firstOperator": "x",
             "secondNumber": "9",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "180",
             "category": "customEquation"
           },
@@ -7845,7 +7830,7 @@
             "firstNumber": "17",
             "firstOperator": "x",
             "secondNumber": "13",
-            "secondOperator": null,
+            "secondOperator": "carry",
             "answer": "221",
             "category": "customEquation"
           },
@@ -7855,7 +7840,7 @@
             "firstNumber": "14",
             "firstOperator": "x",
             "secondNumber": "8",
-            "secondOperator": null,
+            "secondOperator": "carry",
             "answer": "112",
             "category": "customEquation"
           }
@@ -7871,12 +7856,12 @@
         "contents": [
           {
             "lessonContentId": "RmFourLessonThreeContentOne",
-            "word": null,
+            "word": "one",
             "firstNumber": "1 5 0 0",
-            "firstOperator": ":",
+            "firstOperator": "0",
             "secondNumber": "1 5",
-            "secondOperator": "=",
-            "thirdNumber": "1 0 0",
+            "secondOperator": "1 5",
+            "thirdNumber": "1",
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
@@ -7886,12 +7871,12 @@
           },
           {
             "lessonContentId": "RmFourLessonThreeContentTwo",
-            "word": null,
-            "firstNumber": "2000",
-            "firstOperator": ":",
-            "secondNumber": "10",
-            "secondOperator": "=",
-            "thirdNumber": "200",
+            "word": "two",
+            "firstNumber": "1 5 0 0",
+            "firstOperator": "0 0",
+            "secondNumber": "1 5",
+            "secondOperator": "1 5",
+            "thirdNumber": "1",
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
@@ -7901,12 +7886,12 @@
           },
           {
             "lessonContentId": "RmFourLessonThreeContentThree",
-            "word": null,
-            "firstNumber": "1500",
-            "firstOperator": ":",
-            "secondNumber": "15",
-            "secondOperator": "=",
-            "thirdNumber": "100",
+            "word": "three",
+            "firstNumber": "1 5 0 0",
+            "firstOperator": "0 0 0",
+            "secondNumber": "1 5",
+            "secondOperator": "1 5",
+            "thirdNumber": "1 0 0",
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
@@ -8027,7 +8012,7 @@
             "firstNumber": "789",
             "firstOperator": ":",
             "secondNumber": "3",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "263",
             "category": "customEquation"
           },
@@ -8037,7 +8022,7 @@
             "firstNumber": "1250",
             "firstOperator": ":",
             "secondNumber": "50",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "25",
             "category": "customEquation"
           },
@@ -8047,7 +8032,7 @@
             "firstNumber": "500",
             "firstOperator": ":",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "250",
             "category": "customEquation"
           },
@@ -8057,7 +8042,7 @@
             "firstNumber": "1460",
             "firstOperator": ":",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "365",
             "category": "customEquation"
           },
@@ -8067,7 +8052,7 @@
             "firstNumber": "5400",
             "firstOperator": ":",
             "secondNumber": "80",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "675",
             "category": "customEquation"
           }
@@ -8682,7 +8667,7 @@
             "firstNumber": "30",
             "firstOperator": "x",
             "secondNumber": "12",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "360",
             "category": "customEquation"
           },
@@ -8692,7 +8677,7 @@
             "firstNumber": "80",
             "firstOperator": "x",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "160",
             "category": "customEquation"
           },
@@ -8702,7 +8687,7 @@
             "firstNumber": "70",
             "firstOperator": "x",
             "secondNumber": "7",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "490",
             "category": "customEquation"
           },
@@ -8712,7 +8697,7 @@
             "firstNumber": "50",
             "firstOperator": "x",
             "secondNumber": "2",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "100",
             "category": "customEquation"
           },
@@ -8722,7 +8707,7 @@
             "firstNumber": "10",
             "firstOperator": "x",
             "secondNumber": "6",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "60",
             "category": "customEquation"
           }
@@ -8894,7 +8879,7 @@
             "firstNumber": "100",
             "firstOperator": ":",
             "secondNumber": "50",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "2",
             "category": "customEquation"
           },
@@ -8904,7 +8889,7 @@
             "firstNumber": "490",
             "firstOperator": ":",
             "secondNumber": "70",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "7",
             "category": "customEquation"
           },
@@ -8914,7 +8899,7 @@
             "firstNumber": "630",
             "firstOperator": ":",
             "secondNumber": "70",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "9",
             "category": "customEquation"
           },
@@ -8924,7 +8909,7 @@
             "firstNumber": "180",
             "firstOperator": ":",
             "secondNumber": "90",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "2",
             "category": "customEquation"
           },
@@ -8934,7 +8919,7 @@
             "firstNumber": "160",
             "firstOperator": ":",
             "secondNumber": "40",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "4",
             "category": "customEquation"
           }
@@ -8965,7 +8950,7 @@
             "firstNumber": "30",
             "firstOperator": "x",
             "secondNumber": "9",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "270",
             "category": "customEquation"
           },
@@ -8975,7 +8960,7 @@
             "firstNumber": "1460",
             "firstOperator": ":",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "365",
             "category": "customEquation"
           },
@@ -9025,7 +9010,7 @@
             "firstNumber": "50",
             "firstOperator": "x",
             "secondNumber": "4",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "200",
             "category": "customEquation"
           },
@@ -9035,7 +9020,7 @@
             "firstNumber": "630",
             "firstOperator": ":",
             "secondNumber": "70",
-            "secondOperator": null,
+            "secondOperator": "",
             "answer": "9",
             "category": "customEquation"
           },
@@ -9511,7 +9496,7 @@
     "scenarioGame":
     {
       "scenarioGameId": "RmFourScenarioGame",
-      "scenarioGameName": "3",
+      "scenarioGameName": "4",
       "image": "giraffe",
       "minPoints": 14,
       "maxPoints": 20,
