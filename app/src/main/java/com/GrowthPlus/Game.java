@@ -6,12 +6,15 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.GrowthPlus.customViews.Fish;
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
+import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
@@ -26,13 +29,14 @@ import io.realm.RealmList;
 
 public class Game extends AppCompatActivity {
     final int MAX = 20;
+    final int MIN_TO_PASS = 14;
     ChildSchema child;
     Realm realm;
-    TopBar topBar;
+    TopBar gameTopBar;
     Button introBackBtn;
     String childId, databaseGameId;
     ScenarioGameSchema game;
-    int score, counter;
+    int gameScore, counter, childScore;
     RealmList<ScenarioGameContent> contents;
     ArrayList<Integer> forty = new ArrayList<>(40);
     Fish fish1, fish2, fish3, correctFish;
@@ -41,6 +45,7 @@ public class Game extends AppCompatActivity {
     Random rand;
     Handler handler;
 
+    // Same scoring logic as quiz
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +53,7 @@ public class Game extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game.this, RoadMapOne.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -66,11 +72,12 @@ public class Game extends AppCompatActivity {
 
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+        childScore = child.getScore();
         game = realm.where(ScenarioGameSchema.class).equalTo("scenarioGameId", databaseGameId).findFirst();
         contents = game.getQuestions();
-        topBar = findViewById(R.id.topBar);
-        introBackBtn = topBar.findViewById(R.id.goBackBtn);
-        score = 0;
+        gameTopBar = findViewById(R.id.gameTopBar);
+        introBackBtn = gameTopBar.findViewById(R.id.goBackBtn);
+        gameScore = child.getRoadMapOne().getScenarioGame().getCurrentPoints();
         counter = 0;
         fish1 = findViewById(R.id.fish1);
         fish2 = findViewById(R.id.fish2);
@@ -86,8 +93,8 @@ public class Game extends AppCompatActivity {
     }
 
     private void setTopBar(){
-        topBar.setPoints(String.valueOf(child.getScore()));
-        topBar.setToStar();
+        gameTopBar.setPoints(String.valueOf(child.getScore()));
+        gameTopBar.setToStar();
     }
 
     private void setContent(){
@@ -148,7 +155,14 @@ public class Game extends AppCompatActivity {
 
         fish1.setOnClickListener(v -> {
             if(fish1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
-                score++;
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             resetAnimation();
             deactivate();
@@ -157,7 +171,14 @@ public class Game extends AppCompatActivity {
 
         fish2.setOnClickListener(v -> {
             if(fish2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
-                score++;
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             resetAnimation();
             deactivate();
@@ -166,7 +187,14 @@ public class Game extends AppCompatActivity {
 
         fish3.setOnClickListener(v -> {
             if(fish3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
-                score++;
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             resetAnimation();
             deactivate();
@@ -205,10 +233,7 @@ public class Game extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
-                if(score >= 14){
-                    // TODO: Make Game isCompleted(true), load next RoadMap, and update ChildScore
-                }
-
+                setCompletedState(gameScore, MIN_TO_PASS);
                 Intent intent = new Intent(Game.this, RoadMapOne.class); // TODO: Dynamically change location address
                 intent.putExtra("childIdentify", childId);
                 startActivity(intent);
@@ -221,5 +246,29 @@ public class Game extends AppCompatActivity {
                 setContent();
             }
         }, 2500);
+    }
+
+    private void setChildAndGameScoreInRealm(int childScore, int gameScore){
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+            assert child != null;
+            child.setScore(childScore);
+            child.getRoadMapOne().getScenarioGame().setCurrentPoints(gameScore);
+        });
+    }
+
+    private void setCompletedState(int currentScore, int minToPass){
+        if(currentScore >= minToPass){
+            realm.executeTransactionAsync(realm1 -> {
+                ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                assert child != null;
+                if(!child.getRoadMapOne().getScenarioGame().getCompleted()){
+                    child.getRoadMapOne().getScenarioGame().setCompleted(true);
+                }
+                if(!child.getRoadMapTwo().getLocked()){
+                    child.getRoadMapTwo().setLocked(false);
+                }
+            });
+        }
     }
 }
