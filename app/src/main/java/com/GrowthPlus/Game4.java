@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.Button;
@@ -26,13 +27,14 @@ import io.realm.RealmList;
 
 public class Game4 extends AppCompatActivity {
     final int MAX = 20;
+    final int MIN_TO_PASS = 14;
     ChildSchema child;
     Realm realm;
-    TopBar topBar;
+    TopBar gameTopBar;
     Button introBackBtn;
     String childId, databaseGameId;
     ScenarioGameSchema game;
-    int score, counter;
+    int gameScore, counter, childScore;
     RealmList<ScenarioGameContent> contents;
     ArrayList<Integer> forty = new ArrayList<>(40);
     Coconut c1, c2, c3;
@@ -47,6 +49,7 @@ public class Game4 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game4.this, RoadMapFour.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -65,11 +68,12 @@ public class Game4 extends AppCompatActivity {
 
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+        childScore = child.getScore();
         game = realm.where(ScenarioGameSchema.class).equalTo("scenarioGameId", databaseGameId).findFirst();
         contents = game.getQuestions();
-        topBar = findViewById(R.id.topBar);
-        introBackBtn = topBar.findViewById(R.id.goBackBtn);
-        score = 0;
+        gameTopBar = findViewById(R.id.topBar);
+        introBackBtn = gameTopBar.findViewById(R.id.goBackBtn);
+        gameScore = child.getRoadMapFour().getScenarioGame().getCurrentPoints();
         counter = 0;
         question = findViewById(R.id.gameQuestion);
         handler = new Handler();
@@ -83,8 +87,8 @@ public class Game4 extends AppCompatActivity {
     }
 
     private void setTopBar(){
-        topBar.setPoints(String.valueOf(child.getScore()));
-        topBar.setToStar();
+        gameTopBar.setPoints(String.valueOf(child.getScore()));
+        gameTopBar.setToStar();
     }
 
     private void setContent(){
@@ -96,7 +100,14 @@ public class Game4 extends AppCompatActivity {
 
         c1.setOnClickListener(v -> {
             if(c1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
-                score++;
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             deactivate();
             showCorrect();
@@ -104,7 +115,14 @@ public class Game4 extends AppCompatActivity {
 
         c2.setOnClickListener(v -> {
             if(c2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
-                score++;
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             deactivate();
             showCorrect();
@@ -112,7 +130,14 @@ public class Game4 extends AppCompatActivity {
 
         c3.setOnClickListener(v -> {
             if(c3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
-                score++;
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             deactivate();
             showCorrect();
@@ -150,10 +175,7 @@ public class Game4 extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
-                if(score >= 14){
-                    // TODO: Make Game isCompleted(true), load next RoadMap, and update ChildScore
-                }
-
+                setCompletedState(gameScore, MIN_TO_PASS);
                 Intent intent = new Intent(Game4.this, RoadMapFour.class); // TODO: Dynamically change location address
                 intent.putExtra("childIdentify", childId);
                 startActivity(intent);
@@ -199,5 +221,26 @@ public class Game4 extends AppCompatActivity {
 
     private float getPowOut(float time, double pow){
         return (float)((float)1 - Math.pow(1 - time, pow));
+    }
+
+    private void setChildAndGameScoreInRealm(int childScore, int gameScore){
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+            assert child != null;
+            child.setScore(childScore);
+            child.getRoadMapFour().getScenarioGame().setCurrentPoints(gameScore);
+        });
+    }
+
+    private void setCompletedState(int currentScore, int minToPass){
+        if(currentScore >= minToPass){
+            realm.executeTransactionAsync(realm1 -> {
+                ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                assert child != null;
+                if(!child.getRoadMapFour().getScenarioGame().getCompleted()){
+                    child.getRoadMapFour().getScenarioGame().setCompleted(true);
+                }
+            });
+        }
     }
 }

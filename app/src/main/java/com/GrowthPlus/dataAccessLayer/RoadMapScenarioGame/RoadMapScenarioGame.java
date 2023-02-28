@@ -82,4 +82,12 @@ public class RoadMapScenarioGame extends RealmObject {
     public void setDatabaseScenarioGameId(String databaseScenarioGameId) {
         this.databaseScenarioGameId = databaseScenarioGameId;
     }
+
+    public Integer getCurrentPoints() {
+        return currentPoints;
+    }
+
+    public void setCurrentPoints(Integer currentPoints) {
+        this.currentPoints = currentPoints;
+    }
 }
