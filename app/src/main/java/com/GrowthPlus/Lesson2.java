@@ -45,6 +45,7 @@ public class Lesson2 extends AppCompatActivity {
     private int counter;
     private String lessonName;
     private String image;
+    private int lessonIndex;
     ConstraintLayout lessonBackground;
 
     @Override
@@ -55,7 +56,6 @@ public class Lesson2 extends AppCompatActivity {
 
         introBackBtn.setOnClickListener(view -> {
             Intent lessonIntent = new Intent(Lesson2.this, RoadMapTwo.class);
-            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
@@ -99,6 +99,7 @@ public class Lesson2 extends AppCompatActivity {
                     flashcardIntent.putExtra("dataBaseLessonId", dataBaseLessonId);
                     flashcardIntent.putExtra("childId", childId);
                     flashcardIntent.putExtra("lessonImage", image);
+                    flashcardIntent.putExtra("lessonIndex", lessonIndex);
                     startActivity(flashcardIntent);
                     finish();
                 }
@@ -133,6 +134,30 @@ public class Lesson2 extends AppCompatActivity {
                             }
                             break;
                         }
+
+                        //TODO: Add the VerticalEquation case
+
+                        case "wordImage" : {
+                            word = contents.get(counter).getWord();
+                            if(!trans.getString(word).equals("empty")){
+                                word = trans.getString(word);
+                            }
+                            imgOne = contents.get(counter).getImgOne();
+                            // TODO: look into how we're storing images for the wordImage lessons
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("locationIntroText", word);
+                                bundle.putString("locationIntroImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
                         // This category can be found on the roadmap.json file
                         case "wordImageEquation": {
                             // Reference the fragment_word_image_equation.xml file to see which components we need
@@ -175,52 +200,22 @@ public class Lesson2 extends AppCompatActivity {
                             }
                             break;
                         }
-                        case "wordImage" : {
+
+                        case "imageWord" : {
+                            imgOne = contents.get(counter).getImgOne();
                             word = contents.get(counter).getWord();
-                            if(!trans.getString(word).equals("empty")){
+                            if (!trans.getString(word).equals("empty")) {
                                 word = trans.getString(word);
                             }
-                            imgOne = contents.get(counter).getImgOne();
-                            // TODO: look into how we're storing images for the wordImage lessons
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
-                                bundle.putString("locationIntroText", word);
-                                bundle.putString("locationIntroImage", imgOne);
+                                bundle.putString("imageWordText", word);
+                                bundle.putString("imageWordImage", imgOne);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
-                                transaction.commit();
-                            }
-                            break;
-                        }
-                        case "wordGrid" :{
-                            firstNumber = contents.get(counter).getFirstNumber();
-                            firstOperator = contents.get(counter).getFirstOperator();
-                            secondNumber = contents.get(counter).getSecondNumber();
-                            secondOperator = contents.get(counter).getSecondOperator();
-                            thirdNumber = contents.get(counter).getThirdNumber();
-                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
-                            imgOne = contents.get(counter).getImgOne();
-
-                            int numImg = 0;
-                            if(lesson.getCategory().equals("division")){
-                                numImg = Integer.valueOf(thirdNumber);
-                            }
-                            else if(lesson.getCategory().equals("multiplication")){
-                                numImg = Integer.valueOf(secondNumber);
-                            }
-
-                            if (savedInstanceState == null) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("wordMD", equation);
-                                bundle.putString("imageMD", imgOne);
-                                bundle.putInt("numMD", numImg);
-
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, WordGrid.class, bundle);
+                                transaction.replace(R.id.frame_layout_lesson, ImageWord.class, bundle);
                                 transaction.commit();
                             }
                             break;
@@ -270,26 +265,6 @@ public class Lesson2 extends AppCompatActivity {
                             break;
                         }
 
-                        case "imageWord" : {
-                            imgOne = contents.get(counter).getImgOne();
-                            word = contents.get(counter).getWord();
-                            if (!trans.getString(word).equals("empty")) {
-                                word = trans.getString(word);
-                            }
-
-                            if (savedInstanceState == null) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("imageWordText", word);
-                                bundle.putString("imageWordImage", imgOne);
-
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                transaction.setReorderingAllowed(true);
-                                transaction.replace(R.id.frame_layout_lesson, ImageWord.class, bundle);
-                                transaction.commit();
-                            }
-                            break;
-                        }
-
                         default:
                     }
                     counter++;
@@ -303,6 +278,7 @@ public class Lesson2 extends AppCompatActivity {
         if(extras != null){
             dataBaseLessonId = extras.getString("dataBaseLessonId");
             childId = extras.getString("childId");
+            lessonIndex = extras.getInt("lessonIndex");
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();

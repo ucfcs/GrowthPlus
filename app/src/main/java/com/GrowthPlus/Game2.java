@@ -2,16 +2,22 @@ package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.view.animation.Interpolator;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.GrowthPlus.customViews.QuizCircle;
+import com.GrowthPlus.customViews.Banana;
 import com.GrowthPlus.customViews.TopBar;
-import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
-import com.GrowthPlus.dataAccessLayer.QuizContent.QuizContent;
+import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import java.util.ArrayList;
@@ -21,30 +27,37 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class Game2 extends AppCompatActivity {
-    final int MAX = 10;
+    final int MAX = 20;
+    final int MIN_TO_PASS = 14;
     ChildSchema child;
     Realm realm;
-    TopBar topBar;
-    Button nextContent, introBackBtn;
+    TopBar gameTopBar;
+    Button introBackBtn;
     String childId, databaseGameId;
     ScenarioGameSchema game;
-    int contentLength, counter, score;
-    RealmList<QuizContent> contents;
-    ArrayList<Integer> twenty = new ArrayList<>(20);
+    int gameScore, counter, childScore;
+    RealmList<ScenarioGameContent> contents;
+    ArrayList<Integer> forty = new ArrayList<>(40);
+    Banana b1, b2, b3, correctB;
+    TextView question;
+    Handler handler;
+    ObjectAnimator animator1, animator2, animator3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_game2);
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game2.this, RoadMapTwo.class);
-            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
+            this.finish();
         });
         setTopBar();
+        setContent();
     }
 
     private void init(){
@@ -56,20 +69,165 @@ public class Game2 extends AppCompatActivity {
 
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+        childScore = child.getScore();
         game = realm.where(ScenarioGameSchema.class).equalTo("scenarioGameId", databaseGameId).findFirst();
-        // contents = game.getContents();
-        topBar = findViewById(R.id.topBar);
-        introBackBtn = topBar.findViewById(R.id.goBackBtn);
-        nextContent = findViewById(R.id.next_button);
-        score = 0;
+        contents = game.getQuestions();
+        gameTopBar = findViewById(R.id.topBar);
+        introBackBtn = gameTopBar.findViewById(R.id.goBackBtn);
+        gameScore = child.getRoadMapTwo().getScenarioGame().getCurrentPoints();
+        counter = 0;
+        question = findViewById(R.id.gameQuestion);
+        handler = new Handler();
+        b1 = findViewById(R.id.banana1);
+        b2 = findViewById(R.id.banana2);
+        b3 = findViewById(R.id.banana3);
+        correctB = findViewById(R.id.correctBanana);
 
-        for(int i = 0; i <= 19; i++)
-            twenty.add(i);
-        Collections.shuffle(twenty); // Randomize question selection
+        for(int i = 0; i <= 39; i++)
+            forty.add(i);
+        Collections.shuffle(forty); // Randomize question selection
     }
 
     private void setTopBar(){
-        topBar.setPoints(String.valueOf(child.getScore()));
-        topBar.setToStar();
+        gameTopBar.setPoints(String.valueOf(child.getScore()));
+        gameTopBar.setToStar();
+    }
+
+    private void setContent(){
+        correctB.setVisibility(View.INVISIBLE);
+        correctB.setNumber(contents.get(forty.get(counter)).getAnswer());
+        question.setText(contents.get(forty.get(counter)).getQuestion());
+        b1.setNumber(contents.get(forty.get(counter)).getOptionOne());
+        b2.setNumber(contents.get(forty.get(counter)).getOptionTwo());
+        b3.setNumber(contents.get(forty.get(counter)).getOptionThree());
+
+        bounceAnimation(b1, b2, b3);
+
+        b1.setOnClickListener(v -> {
+            if(b1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
+            }
+            deactivate();
+            showCorrect();
+        });
+
+        b2.setOnClickListener(v -> {
+            if(b2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
+            }
+            deactivate();
+            showCorrect();
+        });
+
+        b3.setOnClickListener(v -> {
+            if(b3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                if(gameScore < MAX){
+                    gameScore++;
+                    childScore++;
+                    setChildAndGameScoreInRealm(childScore, gameScore);
+
+                    //Update top bar scoring
+                    gameTopBar.setPoints(String.valueOf(childScore));
+                }
+            }
+            deactivate();
+            showCorrect();
+        });
+    }
+
+    private void deactivate(){
+        b1.setOnClickListener(null);
+        b2.setOnClickListener(null);
+        b3.setOnClickListener(null);
+    }
+
+    private void showCorrect(){
+        animator1.end();
+        animator2.end();
+        animator3.end();
+        correctB.setVisibility(View.VISIBLE);
+        b1.setVisibility(View.INVISIBLE);
+        b2.setVisibility(View.INVISIBLE);
+        b3.setVisibility(View.INVISIBLE);
+        handler.postDelayed(() -> {
+            counter++;
+            if(counter >= MAX){
+                setCompletedState(gameScore, MIN_TO_PASS);
+                Intent intent = new Intent(Game2.this, RoadMapOne.class); // TODO: Dynamically change location address
+                intent.putExtra("childIdentify", childId);
+                startActivity(intent);
+            }
+            else{
+                b1.setVisibility(View.VISIBLE);
+                b2.setVisibility(View.VISIBLE);
+                b3.setVisibility(View.VISIBLE);
+                correctB.setVisibility(View.INVISIBLE);
+                setContent();
+            }
+        }, 2500);
+    }
+
+    private void bounceAnimation(View target1, View target2,  View target3){
+        Interpolator interpolator = input -> getPowOut(input, 3);
+        animator1 = ObjectAnimator.ofFloat(target1, "translationY", 0, 35, 0);
+        animator2 = ObjectAnimator.ofFloat(target2, "translationY", 0, 35, 0);
+        animator3 = ObjectAnimator.ofFloat(target3, "translationY", 0, 35, 0);
+        animator1.setInterpolator(interpolator);
+        animator2.setInterpolator(interpolator);
+        animator3.setInterpolator(interpolator);
+        animator1.setStartDelay(200);
+        animator2.setStartDelay(200);
+        animator3.setStartDelay(200);
+        animator1.setDuration(1000);
+        animator2.setDuration(2000);
+        animator3.setDuration(1500);
+        animator1.setRepeatCount(30);
+        animator2.setRepeatCount(15);
+        animator3.setRepeatCount(20);
+        animator1.start();
+        animator2.start();
+        animator3.start();
+    }
+
+    private float getPowOut(float time, double pow){
+        return (float)((float)1 - Math.pow(1 - time, pow));
+    }
+
+    private void setChildAndGameScoreInRealm(int childScore, int gameScore){
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+            assert child != null;
+            child.setScore(childScore);
+            child.getRoadMapTwo().getScenarioGame().setCurrentPoints(gameScore);
+        });
+    }
+
+    private void setCompletedState(int currentScore, int minToPass){
+        if(currentScore >= minToPass){
+            realm.executeTransactionAsync(realm1 -> {
+                ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                assert child != null;
+                if(!child.getRoadMapTwo().getScenarioGame().getCompleted()){
+                    child.getRoadMapTwo().getScenarioGame().setCompleted(true);
+                }
+                if(!child.getRoadMapThree().getLocked()){
+                    child.getRoadMapThree().setLocked(false);
+                }
+            });
+        }
     }
 }

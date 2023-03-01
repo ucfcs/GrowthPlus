@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.GrowthPlus.ChildPortal;
 import com.GrowthPlus.IntroScreen;
-import com.GrowthPlus.Lesson2;
 import com.GrowthPlus.Lesson3;
 import com.GrowthPlus.R;
 import com.GrowthPlus.customViews.RoadMapLessonTrail;
@@ -66,13 +65,13 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
 
         Log.i("childName:", child.getName());
-        Log.i("rooadmapCompleted:", String.valueOf(child.getRoadMapThree().getLessonsCompleted()));
+        Log.i("rooadmapCompleted:", String.valueOf(child.getRoadMapThree()));
         init(child);
 
 //        initState();
         // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
         roadMapThreeLessonTrail.unLockRoadMap();
-//        setLessonTiles(child);
+        setLessonTiles(child);
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap3item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -185,7 +184,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             Objects.requireNonNull(mapTiles.get(i)).setOnClickListener(this);
             mapLessonId.put(tileIdTemp, dataBaseLessonId);
         }
-        //this was previously commented------------
+
         tile4.setOnClickListener(this);
         if(roadMapQuizes.get(0).getCompleted()){
             tile4.setCompletedState();
@@ -206,7 +205,6 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         if(game.getCompleted()){
             tile13.setCompletedState();
         }
-        //-------------------------------------------
     }
 
     /*
@@ -229,6 +227,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 0);
             startActivity(IntentIntro);
         }
 
@@ -236,6 +235,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 1);
             startActivity(IntentIntro);
         }
 
@@ -243,6 +243,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 2);
             startActivity(IntentIntro);
         }
 
@@ -251,6 +252,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(0).getDatabaseQuizId());
             IntentIntro.putExtra("whichOne", "Quiz");
+            IntentIntro.putExtra("quizIndex", 0);
             IntentIntro.putExtra("whichRoadMap", "3");
             startActivity(IntentIntro);
         }
@@ -259,6 +261,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 3);
             startActivity(IntentIntro);
         }
 
@@ -266,6 +269,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 4);
             startActivity(IntentIntro);
         }
 
@@ -273,6 +277,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 5);
             startActivity(IntentIntro);
         }
 
@@ -280,6 +285,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 6);
             startActivity(IntentIntro);
         }
 
@@ -288,6 +294,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("databaseQuizId", roadMapQuizes.get(1).getDatabaseQuizId());
             IntentIntro.putExtra("whichOne", "Quiz");
+            IntentIntro.putExtra("quizIndex", 1);
             IntentIntro.putExtra("whichRoadMap", "3");
             startActivity(IntentIntro);
         }
@@ -296,6 +303,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 7);
             startActivity(IntentIntro);
         }
 
@@ -303,6 +311,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 8);
             startActivity(IntentIntro);
         }
 
@@ -310,9 +319,9 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
             IntentIntro.putExtra("childId", childID);
             IntentIntro.putExtra("dataBaseLessonId", mapLessonId.get(viewId));
+            IntentIntro.putExtra("lessonIndex", 9);
             startActivity(IntentIntro);
         }
-
 
         else if(viewId == tile13.getId()){
             IntentIntro = new Intent(RoadMapThree.this, IntroScreen.class);
