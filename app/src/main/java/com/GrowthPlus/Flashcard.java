@@ -232,7 +232,6 @@ public class Flashcard extends AppCompatActivity {
         // Now handle the next flashcard onClick, increment the counter to go to next flashcard
         // Make sure to reset the flashcardContainer state
         nextFlashcard.setOnClickListener(view -> {
-            Log.i("lessonCounter", String.valueOf(counter));
             counter++;
             if (counter >= MAX) {
                 if (currentLessonScore >= minScoreToPass && !isCompleted){
@@ -362,11 +361,11 @@ public class Flashcard extends AppCompatActivity {
            backToRoadMap();
         };
 
-        if (lessonIndex == 9) {
+        if(lessonIndex == 9) {
             MAX = 10;
             MAX_LESSON_SCORE = 20;
             minScoreToPass = 14;
-        } else {
+        }else {
             MAX = 5;
             MAX_LESSON_SCORE = 10;
             minScoreToPass = 7;

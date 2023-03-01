@@ -206,8 +206,14 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
         }
 
         tile13.setOnClickListener(this);
+        tile13.setEnabled(false);
         if(game.getCompleted()){
             tile13.setCompletedState();
+            tile13.setEnabled(true);
+        }
+        if(game.getCurrent()){
+            roadMapTwoLessonTrail.setSelectedState(tile13, child);
+            tile13.setEnabled(true);
         }
     }
 

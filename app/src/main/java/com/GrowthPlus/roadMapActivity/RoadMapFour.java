@@ -189,8 +189,14 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
         }
 
         tile13.setOnClickListener(this);
+        tile13.setEnabled(false);
         if(game.getCompleted()){
             tile13.setCompletedState();
+            tile13.setEnabled(true);
+        }
+        if(game.getCurrent()){
+            roadMapFourLessonTrail.setSelectedState(tile13, child);
+            tile13.setEnabled(true);
         }
     }
 

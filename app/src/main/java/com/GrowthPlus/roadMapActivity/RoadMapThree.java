@@ -201,8 +201,14 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         }
 
         tile13.setOnClickListener(this);
+        tile13.setEnabled(false);
         if(game.getCompleted()){
             tile13.setCompletedState();
+            tile13.setEnabled(true);
+        }
+        if(game.getCurrent()){
+            roadMapThreeLessonTrail.setSelectedState(tile13, child);
+            tile13.setEnabled(true);
         }
     }
 

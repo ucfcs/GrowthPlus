@@ -19,6 +19,7 @@ import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
+import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomEquation;
 import com.GrowthPlus.fragment.CustomImage;
@@ -405,11 +406,16 @@ public class Flashcard2 extends AppCompatActivity {
                     nextLesson.setCurrent(true);
                     nextLesson.setCompleted(false);
                 }
-            } /*TODO: Handle childLessonCompleted == 9,
-                If lessons completed is 9, then all lessons are completed
-                the count starts at zero, hence 9 and if so, enable roadmap game
-                Roadmap game is not implemented yet so it is open for now. */
+            } else {
+                setGameState(child);
+            }
         });
+    }
+
+    private void setGameState(ChildSchema child){
+        RoadMapScenarioGame game = child.getRoadMapTwo().getScenarioGame();
+        game.setCompleted(false);
+        game.setCurrent(true);
     }
 
     private void backToRoadMap(){
@@ -502,6 +508,10 @@ public class Flashcard2 extends AppCompatActivity {
                     }
                 }
             }
+        } else{
+            int catCount = child.getCatCountReview();
+            catCount++;
+            child.setCatCountReview(catCount);
         }
     }
 
