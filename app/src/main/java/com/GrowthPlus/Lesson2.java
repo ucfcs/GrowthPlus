@@ -19,13 +19,15 @@ import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Conversion;
 import com.GrowthPlus.fragment.ConversionTable;
+import com.GrowthPlus.fragment.ConversionTableTwo;
 import com.GrowthPlus.fragment.Counting;
+import com.GrowthPlus.fragment.GridWord;
 import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.ImageWord;
+import com.GrowthPlus.fragment.VerticalEquation;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
-import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import io.realm.Realm;
@@ -80,6 +82,7 @@ public class Lesson2 extends AppCompatActivity {
             bundle.putString("wordMD", lessonTranslated);
             bundle.putString("imageMD", image);
             bundle.putInt("numMD", numOfImages);
+            bundle.putInt("level", 2);
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -135,18 +138,17 @@ public class Lesson2 extends AppCompatActivity {
                             break;
                         }
 
-                        //TODO: Add the VerticalEquation case
-
                         case "wordImage" : {
+                            String name = contents.get(counter).getWord();
                             word = contents.get(counter).getWord();
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
                             }
                             imgOne = contents.get(counter).getImgOne();
-                            // TODO: look into how we're storing images for the wordImage lessons
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
+                                bundle.putString("name", name);
                                 bundle.putString("locationIntroText", word);
                                 bundle.putString("locationIntroImage", imgOne);
 
@@ -204,8 +206,15 @@ public class Lesson2 extends AppCompatActivity {
                         case "imageWord" : {
                             imgOne = contents.get(counter).getImgOne();
                             word = contents.get(counter).getWord();
-                            if (!trans.getString(word).equals("empty")) {
-                                word = trans.getString(word);
+
+                            String first, second;
+
+                            if(word.contains(" ")){
+                                first = word.substring(0, word.indexOf(" "));
+                                second = word.substring(word.indexOf(" "));
+                                if (!trans.getString(first).equals("empty")) {
+                                    word = trans.getString(first) + second;
+                                }
                             }
 
                             if (savedInstanceState == null) {
@@ -225,8 +234,6 @@ public class Lesson2 extends AppCompatActivity {
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
-
-                            lessonImg = lesson.getImage();
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
@@ -248,8 +255,6 @@ public class Lesson2 extends AppCompatActivity {
                             secondNumber = contents.get(counter).getSecondNumber();
                             secondOperator = contents.get(counter).getSecondOperator();
 
-                            lessonImg = lesson.getImage();
-
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("conversionTableText1", firstNumber);
@@ -260,6 +265,77 @@ public class Lesson2 extends AppCompatActivity {
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, ConversionTable.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversionTableTwo" :{
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionTableText1", firstNumber);
+                                bundle.putString("conversionTableText2", firstOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ConversionTableTwo.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "gridWord" :{
+                            word = contents.get(counter).getWord();
+                            int firstNumberGrid = Integer.valueOf(contents.get(counter).getFirstNumber());
+                            imgOne = contents.get(counter).getImgOne();
+
+                            String first, second;
+
+                            if(word.contains(" ")){
+                                first = word.substring(0, word.indexOf(" "));
+                                second = word.substring(word.indexOf(" "));
+                                if (!trans.getString(first).equals("empty")) {
+                                    word = trans.getString(first) + second;
+                                }
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("gridWord", word);
+                                bundle.putString("gridImg", imgOne);
+                                bundle.putInt("gridNum", firstNumberGrid);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, GridWord.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "verticalEquation":{
+                            word = contents.get(counter).getWord();
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
+                            thirdNumber = contents.get(counter).getThirdNumber();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("wordEqu", word);
+                                bundle.putString("firstNum", firstNumber);
+                                bundle.putString("secondNum", secondNumber);
+                                bundle.putString("carry", secondOperator);
+                                bundle.putString("answer", thirdNumber);
+                                bundle.putString("opt", firstOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, VerticalEquation.class, bundle);
                                 transaction.commit();
                             }
                             break;
@@ -300,6 +376,3 @@ public class Lesson2 extends AppCompatActivity {
         lessonBackground.setBackgroundColor(Color.rgb(232, 160, 78));
     }
 }
-
-// ROADMAP 2 fragments: counting, verticalEquation, wordImage, wordImageEquation, ImageWord, conversion, conversionTable
-// ROADMAP 3 fragments: Counting, family, imageWord, conversion, conversionTable, perimeterArea, shape

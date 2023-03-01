@@ -37,10 +37,8 @@ public class LinesAngles extends Fragment {
         String getLAImage1 = requireArguments().getString("LAImage1");
         String getLAImage2 = requireArguments().getString("LAImage2");
 
-
         LAText.setText(getLAText);
         LAImage1.setImageResource(imageSrcIdentifier.getImageSrcId(getLAImage1));
         LAImage2.setImageResource(imageSrcIdentifier.getImageSrcId(getLAImage2));
-
     }
 }

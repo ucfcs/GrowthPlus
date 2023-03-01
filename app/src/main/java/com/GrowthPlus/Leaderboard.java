@@ -35,8 +35,9 @@ public class Leaderboard extends AppCompatActivity {
         init();
         RealmResults<ChildSchema> children = childrenLeaderBoard.getAllChildSchemas();
 
+        children = children.sort("score");
         //loop through the children and add them to the view
-        for(int i = 0; i<children.size(); i++){
+        for(int i = children.size() - 1; i>=0; i--){
             ChildSchema curr = children.get(i);
             LeaderboardChildView C = setLeaderboardChildView(curr.getName(), String.valueOf(curr.getScore()),
                     curr.getAvatarName(), curr.getColorName());
@@ -66,7 +67,6 @@ public class Leaderboard extends AppCompatActivity {
 
     private void init(){
         realm = Realm.getDefaultInstance();
-
         backChildPortalBtn = findViewById(R.id.backChildPortal);
         leaderBoardGridLayout = findViewById(R.id.leaderBoardGridLayout);
         childrenLeaderBoard = new ChildSchemaService(realm);
