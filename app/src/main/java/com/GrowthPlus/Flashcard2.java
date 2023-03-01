@@ -65,6 +65,7 @@ public class Flashcard2 extends AppCompatActivity {
     private int minScoreToPass;
     private int MAX_LESSON_SCORE;
     private int currentLessonScore;
+    private String lessonCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -401,6 +402,92 @@ public class Flashcard2 extends AppCompatActivity {
                                 the count starts at zero, hence 9 and if so, enable roadmap game
                                 Roadmap game is not implemented yet so it is open for now. */
                 });
+            }
+        }
+    }
+
+    private void updateCatCount(ChildSchema child){
+        if(lessonCategory!= null){
+            switch (lessonCategory){
+                case "numbers":{
+                    int catCount = child.getCatCountNumbers();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "units":{
+                    int catCount = child.getCatCountUnits();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "addition":{
+                    int catCount = child.getCatCountAddition();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "subtraction":{
+                    int catCount = child.getCatCountSubtraction();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "multiplication":{
+                    int catCount = child.getCatCountMultiplication();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "division":{
+                    int catCount = child.getCatCountDivision();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "length":{
+                    int catCount = child.getCatCountLength();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "weight":{
+                    int catCount = child.getCatCountWeightVolume();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "money":{
+                    int catCount = child.getCatCountMoney();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "time":{
+                    int catCount = child.getCatCountTime();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "shapes":{
+                    int catCount = child.getCatCountShapes();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "angles":{
+                    int catCount = child.getCatCountAngles();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                default:{
+                    try {
+                        throw new Exception("Category does not exist, check return value");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }

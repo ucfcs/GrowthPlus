@@ -66,10 +66,12 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
         init(child);
 
-        // initState();
-        // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
-        roadMapTwoLessonTrail.unLockRoadMap();
-        setLessonTiles(child);
+        if(child.getRoadMapTwo().getLocked()){
+            initState();
+        }else{
+            roadMapTwoLessonTrail.unLockRoadMap();
+            setLessonTiles(child);
+        }
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap2item);
         bottomNavigationView.setOnItemSelectedListener(item -> {

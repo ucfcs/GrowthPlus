@@ -63,15 +63,14 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             childID = extras.getString("childIdentify");
         }
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
-
-        Log.i("childName:", child.getName());
-        Log.i("rooadmapCompleted:", String.valueOf(child.getRoadMapThree()));
         init(child);
 
-//        initState();
-        // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
-        roadMapThreeLessonTrail.unLockRoadMap();
-        setLessonTiles(child);
+        if(child.getRoadMapThree().getLocked()){
+            initState();
+        }else{
+            roadMapThreeLessonTrail.unLockRoadMap();
+            setLessonTiles(child);
+        }
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap3item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
