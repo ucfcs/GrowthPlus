@@ -28,6 +28,11 @@ public class FlashcardAnswer extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         String answerText = requireArguments().getString("answer");
+        int ans = Integer.valueOf(answerText);
+
+        if(ans > 900){
+            answer.setTextSize(90);
+        }
         answer.setText(answerText);
     }
 

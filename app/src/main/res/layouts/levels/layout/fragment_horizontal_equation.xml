@@ -24,33 +24,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:columnCount="3"
+        app:columnCount="2"
         app:layout_constraintEnd_toStartOf="@id/guideline8"
         app:layout_constraintStart_toStartOf="@id/guide0"
         app:layout_constraintTop_toBottomOf="@+id/equation"
-        app:rowCount="7"></androidx.gridlayout.widget.GridLayout>
+        app:rowCount="10"></androidx.gridlayout.widget.GridLayout>
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayoutHorizontalEquationTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:columnCount="3"
+        app:columnCount="2"
         app:layout_constraintEnd_toStartOf="@id/guideline9"
         app:layout_constraintStart_toStartOf="@id/guideline8"
         app:layout_constraintTop_toBottomOf="@+id/equation"
-        app:rowCount="7"></androidx.gridlayout.widget.GridLayout>
+        app:rowCount="10"></androidx.gridlayout.widget.GridLayout>
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayoutHorizontalEquationThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:columnCount="3"
+        app:columnCount="2"
         app:layout_constraintEnd_toStartOf="@id/guide10"
         app:layout_constraintStart_toEndOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/equation"
-        app:rowCount="7"></androidx.gridlayout.widget.GridLayout>
+        app:rowCount="10"></androidx.gridlayout.widget.GridLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide0"

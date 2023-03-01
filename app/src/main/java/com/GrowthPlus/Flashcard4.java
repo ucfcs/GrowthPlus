@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
@@ -23,6 +25,7 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomEquation;
 import com.GrowthPlus.fragment.CustomImage;
 import com.GrowthPlus.fragment.CustomImageOperator;
+import com.GrowthPlus.fragment.CustomImageWord;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapFour;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
@@ -60,6 +63,7 @@ public class Flashcard4 extends AppCompatActivity {
     private String firstNumber;
     private String firstOperator;
     private String secondNumber;
+    private String secondOperator;
     private String category;
     private int childLessonsCompleted;
     private int lessonIndex;
@@ -85,6 +89,12 @@ public class Flashcard4 extends AppCompatActivity {
             this.finish();
         });
         setTopBar();
+
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        Translator trans = new Translator(langId);
 
         /*
          * Switch statement for first flashcard, we don't have an intro so we start at index 0
@@ -135,15 +145,45 @@ public class Flashcard4 extends AppCompatActivity {
                 firstNumber = flashcard.getFirstNumber();
                 firstOperator = flashcard.getFirstOperator();
                 secondNumber = flashcard.getSecondNumber();
+                secondOperator = flashcard.getSecondOperator();
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", image);
                     bundle.putString("firstNumber", firstNumber);
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
+                    bundle.putString("carryInput", secondOperator);
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
+                    transaction.commit();
+                }
+                break;
+            }
+
+            case "customImageWord":{
+                firstNumber = flashcard.getFirstNumber();
+                firstOperator = flashcard.getFirstOperator();
+                secondNumber = flashcard.getSecondNumber();
+                secondOperator = flashcard.getSecondOperator();
+
+                if (!trans.getString(firstOperator).equals("empty")) {
+                    firstOperator = trans.getString(firstOperator);
+                }
+                if (!trans.getString(secondOperator).equals("empty")) {
+                    secondOperator = trans.getString(secondOperator);
+                }
+
+                if (savedInstanceState == null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("image", image);
+                    bundle.putString("firstNumber", firstNumber);
+                    bundle.putString("firstOperator", firstOperator);
+                    bundle.putString("secondNumber", secondNumber);
+                    bundle.putString("secondOperator", secondOperator);
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.setReorderingAllowed(true);
+                    transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
                     transaction.commit();
                 }
                 break;
@@ -292,15 +332,45 @@ public class Flashcard4 extends AppCompatActivity {
                         firstNumber = flashcard.getFirstNumber();
                         firstOperator = flashcard.getFirstOperator();
                         secondNumber = flashcard.getSecondNumber();
+                        secondOperator = flashcard.getSecondOperator();
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("image", image);
                             bundle.putString("firstNumber", firstNumber);
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
+                            bundle.putString("carryInput", secondOperator);
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
+                            transaction.commit();
+                        }
+                        break;
+                    }
+
+                    case "customImageWord":{
+                        firstNumber = flashcard.getFirstNumber();
+                        firstOperator = flashcard.getFirstOperator();
+                        secondNumber = flashcard.getSecondNumber();
+                        secondOperator = flashcard.getSecondOperator();
+
+                        if (!trans.getString(firstOperator).equals("empty")) {
+                            firstOperator = trans.getString(firstOperator);
+                        }
+                        if (!trans.getString(secondOperator).equals("empty")) {
+                            secondOperator = trans.getString(secondOperator);
+                        }
+
+                        if (savedInstanceState == null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("image", image);
+                            bundle.putString("firstNumber", firstNumber);
+                            bundle.putString("firstOperator", firstOperator);
+                            bundle.putString("secondNumber", secondNumber);
+                            bundle.putString("secondOperator", secondOperator);
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.setReorderingAllowed(true);
+                            transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
                             transaction.commit();
                         }
                         break;
