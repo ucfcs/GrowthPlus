@@ -61,6 +61,7 @@ public class Flashcard extends AppCompatActivity {
     private String firstNumber;
     private String firstOperator;
     private String secondNumber;
+    private String secondOperator;
     private String category;
     private int childLessonsCompleted;
     private int lessonIndex;
@@ -143,12 +144,14 @@ public class Flashcard extends AppCompatActivity {
                 firstNumber = flashcard.getFirstNumber();
                 firstOperator = flashcard.getFirstOperator();
                 secondNumber = flashcard.getSecondNumber();
+                secondOperator = flashcard.getSecondOperator();
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", image);
                     bundle.putString("firstNumber", firstNumber);
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
+                    bundle.putString("carryInput", secondOperator);
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
@@ -302,12 +305,14 @@ public class Flashcard extends AppCompatActivity {
                         firstNumber = flashcard.getFirstNumber();
                         firstOperator = flashcard.getFirstOperator();
                         secondNumber = flashcard.getSecondNumber();
+                        secondOperator = flashcard.getSecondOperator();
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("image", image);
                             bundle.putString("firstNumber", firstNumber);
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
+                            bundle.putString("carryInput", secondOperator);
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);

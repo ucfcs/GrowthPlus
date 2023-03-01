@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.GrowthPlus.R;
@@ -18,6 +19,7 @@ public class CustomEquation extends Fragment {
     TextView firstNumber;
     TextView secondNumber;
     TextView operator;
+    EditText carryInput;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class CustomEquation extends Fragment {
         firstNumber = view.findViewById(R.id.first_number);
         secondNumber = view.findViewById(R.id.second_number);
         operator = view.findViewById(R.id.operator);
+        carryInput = view.findViewById(R.id.carryInputHolder);
         return view;
     }
 
@@ -33,9 +36,13 @@ public class CustomEquation extends Fragment {
         String firstNumberAr = requireArguments().getString("firstNumber");
         String operatorAr = requireArguments().getString("firstOperator");
         String secondNumberAr = requireArguments().getString("secondNumber");
+        String carryString = requireArguments().getString("carryInput");
 
         firstNumber.setText(firstNumberAr);
         operator.setText(operatorAr);
         secondNumber.setText(secondNumberAr);
+        if(carryString.equals("carry")){
+            carryInput.setVisibility(View.VISIBLE);
+        }
     }
 }

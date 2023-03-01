@@ -1,6 +1,7 @@
 package com.GrowthPlus;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.GrowthPlus.customViews.ChildAvatarComponent;
 import com.GrowthPlus.customViews.ChildNameScoreComponent;
 import com.GrowthPlus.customViews.HorizontalProgressBar;
 import com.GrowthPlus.customViews.SubjectCompletionComponent;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
@@ -69,6 +71,7 @@ public class ChildScreen extends AppCompatActivity {
     private Button cancelChildDelete;
     private ImageView childAvatarDel;
     private TextView childNameDel;
+    private TextView deleteText;
 
 
     @Override
@@ -195,11 +198,21 @@ public class ChildScreen extends AppCompatActivity {
         //based on the child that is being deleted
         childNameDel = deleteChildPopupView.findViewById(R.id.childName);
         childAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
+        deleteText = deleteChildPopupView.findViewById(R.id.delete);
+
 
         //here we set the child name and avatar to the popUp so that the parent can
         //know which child they are or are not deleting
         childNameDel.setText(deleteChild.getName());
         childAvatarDel.setImageResource(imageSrcIdentifier.getImageSrcId(deleteChild.getAvatarName()));
+
+        // Grab the current language selection and update the delete text with that language
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        Translator trans = new Translator(langId);
+        deleteText.setText(trans.getString("delete")+"?");
 
         //in the dialogue builder we have to set this view
         dialogueBuilder.setView(deleteChildPopupView);

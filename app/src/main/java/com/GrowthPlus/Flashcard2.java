@@ -24,6 +24,7 @@ import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomEquation;
 import com.GrowthPlus.fragment.CustomImage;
 import com.GrowthPlus.fragment.CustomImageOperator;
+import com.GrowthPlus.fragment.CustomImageWord;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
@@ -61,6 +62,7 @@ public class Flashcard2 extends AppCompatActivity {
     private String firstNumber;
     private String firstOperator;
     private String secondNumber;
+    private String secondOperator;
     private String category;
     private int childLessonsCompleted;
     private int lessonIndex;
@@ -139,15 +141,37 @@ public class Flashcard2 extends AppCompatActivity {
                 firstNumber = flashcard.getFirstNumber();
                 firstOperator = flashcard.getFirstOperator();
                 secondNumber = flashcard.getSecondNumber();
+                secondOperator = flashcard.getSecondOperator();
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", image);
                     bundle.putString("firstNumber", firstNumber);
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
+                    bundle.putString("carryInput", secondOperator);
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
+                    transaction.commit();
+                }
+                break;
+            }
+
+            case "customImageWord":{
+                firstNumber = flashcard.getFirstNumber();
+                firstOperator = flashcard.getFirstOperator();
+                secondNumber = flashcard.getSecondNumber();
+                secondOperator = flashcard.getSecondOperator();
+                if (savedInstanceState == null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("image", image);
+                    bundle.putString("firstNumber", firstNumber);
+                    bundle.putString("firstOperator", firstOperator);
+                    bundle.putString("secondNumber", secondNumber);
+                    bundle.putString("secondOperator", secondOperator);
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.setReorderingAllowed(true);
+                    transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
                     transaction.commit();
                 }
                 break;
@@ -299,15 +323,37 @@ public class Flashcard2 extends AppCompatActivity {
                         firstNumber = flashcard.getFirstNumber();
                         firstOperator = flashcard.getFirstOperator();
                         secondNumber = flashcard.getSecondNumber();
+                        secondOperator = flashcard.getSecondOperator();
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("image", image);
                             bundle.putString("firstNumber", firstNumber);
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
+                            bundle.putString("carryInput", secondOperator);
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
+                            transaction.commit();
+                        }
+                        break;
+                    }
+
+                    case "customImageWord":{
+                        firstNumber = flashcard.getFirstNumber();
+                        firstOperator = flashcard.getFirstOperator();
+                        secondNumber = flashcard.getSecondNumber();
+                        secondOperator = flashcard.getSecondOperator();
+                        if (savedInstanceState == null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("image", image);
+                            bundle.putString("firstNumber", firstNumber);
+                            bundle.putString("firstOperator", firstOperator);
+                            bundle.putString("secondNumber", secondNumber);
+                            bundle.putString("secondOperator", secondOperator);
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.setReorderingAllowed(true);
+                            transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
                             transaction.commit();
                         }
                         break;

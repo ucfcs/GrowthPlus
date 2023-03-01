@@ -5,7 +5,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -169,7 +168,6 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             RoadMapLesson roadMapLessonTemp = roadMapLessons.get(i);
             assert roadMapLessonTemp != null;
             String dataBaseLessonId = roadMapLessonTemp.getDatabaseLessonId();
-            Log.i("roadmapCompleted:", dataBaseLessonId);
             Integer tileIdTemp = Objects.requireNonNull(mapTiles.get(i)).getId();
 
             if(roadMapLessonTemp.getCompleted()){

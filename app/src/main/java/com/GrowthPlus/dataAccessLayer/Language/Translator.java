@@ -58,6 +58,9 @@ public class Translator {
             case "confirm":
                 value = languageSchema.getConfirm();
                 break;
+            case "phoneNumber":
+                value = languageSchema.getPhoneNumber();
+                break;
             case "numbers":
                 value = languageSchema.getNumbers();
                 break;
