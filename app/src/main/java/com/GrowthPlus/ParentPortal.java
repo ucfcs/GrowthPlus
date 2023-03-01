@@ -28,8 +28,10 @@ import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import java.util.HashMap;
+import java.util.Objects;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 
@@ -69,6 +71,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent_portal);
         init();
+        Log.i("parent", parentId);
 
         /*
           Temp variables to hold relative data about the child object
@@ -143,11 +146,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         childCardId = new HashMap<>();
         childId = new HashMap<>();
         progressBarIds = new HashMap<>();
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            parentId = extras.getString("parentId");
-        }
+        parentId = parent.getParentId();
 
         setChildCardIds();
         setProgressBarIds();
@@ -316,8 +315,12 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         //deletion was sucessful and eventually dismiss the popUp
         confirmParentDelete.setOnClickListener(view -> {
             realm.executeTransactionAsync(realm -> {
-                Log.i("parent", parentId);
                 ParentSchema parentDel = realm.where(ParentSchema.class).equalTo("parentId", parentId).findFirst();
+                assert parentDel != null;
+                RealmList<ChildSchema> children = parentDel.getChildren();
+                if(children.size()>0){
+                    children.deleteAllFromRealm();
+                }
                 parentDel.deleteFromRealm();
             },()->{
                 Intent intent = new Intent(ParentPortal.this, MainActivity.class);
