@@ -414,6 +414,9 @@ public class Flashcard3 extends AppCompatActivity {
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
         topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+        flashcardTopBar.setShapeColor(Color.rgb(3, 71, 50));
+        flashcardTopBar.setPointIconBackground(Color.rgb(252, 209, 70));
+        flashcardTopBar.setPointsTextColor(Color.rgb(3, 71, 50));
     }
 
     public void setFlashcardBackgroundColor(){

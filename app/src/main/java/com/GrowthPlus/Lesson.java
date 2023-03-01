@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -285,5 +286,6 @@ public class Lesson extends AppCompatActivity {
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToTriangle();
+        topBar.setShapeColor(Color.rgb(252, 209, 70));
     }
 }

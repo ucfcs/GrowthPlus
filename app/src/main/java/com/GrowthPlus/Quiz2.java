@@ -230,6 +230,9 @@ public class Quiz2 extends AppCompatActivity {
         quizTopBar.setPoints(String.valueOf(child.getScore()));
         quizTopBar.setToCircle();
         topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+        quizTopBar.setShapeColor(Color.rgb(96, 163, 200));
+        quizTopBar.setPointIconBackground(Color.rgb(252, 209, 70));
+        quizTopBar.setPointsTextColor(Color.rgb(96, 163, 200));
     }
 
     public void setQuizColor(){

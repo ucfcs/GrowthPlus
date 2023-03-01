@@ -9,7 +9,7 @@
     tools:context=".Game4">
 
     <com.GrowthPlus.customViews.TopBar
-        android:id="@+id/topBar"
+        android:id="@+id/game4TopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintVertical_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+        app:layout_constraintTop_toBottomOf="@+id/game4TopBar" />
 
     <com.GrowthPlus.customViews.Coconut
         android:id="@+id/coconut1"

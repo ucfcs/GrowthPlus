@@ -42,8 +42,7 @@ public class IntroScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro_screen);
         init();
-        setTopBarShape();
-        setTopBarBackground();
+        setTopBar();
         setIntroScreenBackground();
 
         Log.i("quizIndex", String.valueOf(quizIndex));
@@ -178,18 +177,30 @@ public class IntroScreen extends AppCompatActivity {
         }
     }
 
-    private void setTopBarBackground() {
+    private void setTopBar() {
+        setTopBarShape();
         if(whichRoadMap.equals("1")){
-            //then its already the right color
+            //then the background is already the right color
+            topBar.setShapeColor(Color.rgb(252, 209, 70));
+
         }
         else if(whichRoadMap.equals("2")){
             topBarBackground.setBackgroundColor(Color.rgb(252,209,70));
+            topBar.setShapeColor(Color.rgb(96, 163, 200));
+            topBar.setPointIconBackground(Color.rgb(252, 209, 70));
+            topBar.setPointsTextColor(Color.rgb(96, 163, 200));
         }
         else if(whichRoadMap.equals("3")){
             topBarBackground.setBackgroundColor(Color.rgb(252,209,70));
+            topBar.setShapeColor(Color.rgb(3, 71, 50));
+            topBar.setPointIconBackground(Color.rgb(252, 209, 70));
+            topBar.setPointsTextColor(Color.rgb(3, 71, 50));
         }
         else if(whichRoadMap.equals("4")){
             topBarBackground.setBackgroundColor(Color.rgb(232,160,78));
+            topBar.setShapeColor(Color.rgb(96, 163, 200));
+            topBar.setPointIconBackground(Color.rgb( 232, 160, 78));
+            topBar.setPointsTextColor(Color.rgb(96, 163, 200));
         }
     }
 

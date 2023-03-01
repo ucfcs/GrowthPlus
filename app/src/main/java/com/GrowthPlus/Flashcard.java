@@ -9,6 +9,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -367,6 +368,7 @@ public class Flashcard extends AppCompatActivity {
     private void setTopBar(){
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
+        flashcardTopBar.setShapeColor(Color.rgb(252, 209, 70));
     }
 
     private void setPointSystem(int currentScore, int minToPass){
