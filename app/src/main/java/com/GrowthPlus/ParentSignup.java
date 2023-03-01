@@ -168,6 +168,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     //moves to the login page, passing over the parentId
     public void startLoginActivity(){
         Intent parentLogin = new Intent(ParentSignup.this, ParentLogin.class);
+        parentLogin.putExtra("parentId",parentIdString);
         startActivity(parentLogin);
         this.finish();
     }

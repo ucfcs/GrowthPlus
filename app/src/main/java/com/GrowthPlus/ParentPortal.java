@@ -1,23 +1,30 @@
 package com.GrowthPlus;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.gridlayout.widget.GridLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.GrowthPlus.customViews.ChildCard;
 import com.GrowthPlus.customViews.ChildCardAdd;
 import com.GrowthPlus.customViews.VerticalProgressBar;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import java.util.HashMap;
@@ -33,6 +40,7 @@ import io.realm.RealmResults;
 public class ParentPortal extends AppCompatActivity implements View.OnClickListener {
     private final int MAX_CHILDREN = 6;
     private Button buttonBackChild;
+    private Button deleteParent;
     private GridLayout parentPortalGridLayout;
     private LinearLayout parentPortalLinearLayout;
     private ChildSchemaService childSchemaService;
@@ -41,7 +49,20 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     private HashMap<Integer, Integer> progressBarIds;
     public ColorIdentifier colorIdentifier;
     public ImageSrcIdentifier imageSrcIdentifier;
+    private ParentSchemaService parentService;
+    private ParentSchema parent;
+    private String parentId;
+
     private Realm realm;
+
+    //this is for the delete child confirmation popup screen
+    private AlertDialog.Builder dialogueBuilder;
+    private AlertDialog dialogue;
+    private Button confirmParentDelete;
+    private Button cancelParentDelete;
+    private ImageView parentAvatarDel;
+    private TextView parentNameDel;
+    private TextView deleteText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +120,10 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         }
 
         buttonBackChild.setOnClickListener(this);
+
+        deleteParent.setOnClickListener(view -> {
+            createDeleteParentDialogue(parent);
+        });
     }
 
     /**
@@ -107,14 +132,22 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     private void init(){
         realm = Realm.getDefaultInstance();
         buttonBackChild = findViewById(R.id.backChild);
+        deleteParent = findViewById(R.id.deleteParentButton);
         parentPortalGridLayout = findViewById(R.id.parentPortalGrid);
         parentPortalLinearLayout = findViewById(R.id.parentPortalPB);
         childSchemaService = new ChildSchemaService(realm);
         colorIdentifier = new ColorIdentifier();
         imageSrcIdentifier = new ImageSrcIdentifier();
+        parentService = new ParentSchemaService(realm);
+        parent = parentService.getAllParentSchemas().get(0);
         childCardId = new HashMap<>();
         childId = new HashMap<>();
         progressBarIds = new HashMap<>();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            parentId = extras.getString("parentId");
+        }
 
         setChildCardIds();
         setProgressBarIds();
@@ -232,5 +265,79 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         Intent landingPage = new Intent(ParentPortal.this, MainActivity.class);
         startActivity(landingPage);
         this.finish();
+    }
+
+    //this creates the delete child popup
+    public void createDeleteParentDialogue(ParentSchema deleteParent){
+        //create the dialogue builder using this context
+        dialogueBuilder = new AlertDialog.Builder(this);
+
+        //to create the view we have an inflator that calls our custom xml file
+        View deleteChildPopupView = getLayoutInflater().
+                inflate(R.layout.delete_child_confirmation_popup,
+                        null);
+
+        //here we want to grab the confirm and cancel buttons from the view
+        //this is important so that we can set up the proper logic for the
+        //onClickListeners
+        confirmParentDelete = deleteChildPopupView.findViewById(R.id.confirmBtn);
+        cancelParentDelete = deleteChildPopupView.findViewById(R.id.cancelBtn);
+
+        //here we grab the fields in the custom PopUp xml file that we want to change
+        //based on the child that is being deleted
+        parentNameDel = deleteChildPopupView.findViewById(R.id.childName);
+        parentAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
+        deleteText = deleteChildPopupView.findViewById(R.id.delete);
+
+
+        //here we set the child name and avatar to the popUp so that the parent can
+        //know which child they are or are not deleting
+
+        parentAvatarDel.setImageResource(imageSrcIdentifier.getImageSrcId("parent"));
+
+        // Grab the current language selection and update the delete text with that language
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        Translator trans = new Translator(langId);
+        deleteText.setText(trans.getString("delete")+"?");
+        parentNameDel.setText(trans.getString("parent"));
+
+        //in the dialogue builder we have to set this view
+        dialogueBuilder.setView(deleteChildPopupView);
+
+        //now we create and build this view
+        dialogue = dialogueBuilder.create();
+        dialogue.show();
+
+        //this is the logic if the parent confirms that they want to delete the child
+        //we grab the child using their unique ID, delete the child, and verify that the
+        //deletion was sucessful and eventually dismiss the popUp
+        confirmParentDelete.setOnClickListener(view -> {
+            realm.executeTransactionAsync(realm -> {
+                Log.i("parent", parentId);
+                ParentSchema parentDel = realm.where(ParentSchema.class).equalTo("parentId", parentId).findFirst();
+                parentDel.deleteFromRealm();
+            },()->{
+                Intent intent = new Intent(ParentPortal.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                overridePendingTransition(0, 0);
+                startActivity(new Intent(ParentPortal.this, MainActivity.class));
+                overridePendingTransition(0, 0);
+                this.finish();
+            }, error -> {
+                Log.i("Error", "Could not delete parent from realm " + error);
+            });
+            dialogue.dismiss();
+        });
+
+        //here the parent does not wish to delete the child so we simply dismiss our popUp
+        cancelParentDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogue.dismiss();
+            }
+        });
     }
 }

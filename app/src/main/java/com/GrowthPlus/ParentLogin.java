@@ -32,7 +32,9 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     private ParentSchemaService loginParentService;
     private ParentSchema loginParent;
     private Integer parentSignupPIN;
+    private String parentId;
     Integer loginPinInputInteger;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,11 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         loginParentService = new ParentSchemaService(realm);
         loginParent = loginParentService.getAllParentSchemas().get(0); //gets the parent
         parentSignupPIN = loginParent.getPIN(); //and their PIN
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            parentId = extras.getString("parentId");
+        }
     }
 
     @Override
@@ -148,6 +155,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     public void startParentPortalActivity(){
         Intent parentPortal = new Intent(ParentLogin.this, ParentPortal.class);
+        parentPortal.putExtra("parentId",parentId);
         startActivity(parentPortal);
         this.finish();
     }
