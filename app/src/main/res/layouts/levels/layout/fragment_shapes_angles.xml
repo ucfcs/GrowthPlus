@@ -22,7 +22,7 @@
         android:id="@+id/first_image"
         android:layout_width="220dp"
         android:layout_height="171dp"
-        android:src="@mipmap/triangle_angles_foreground"
+        android:src="@mipmap/triangle_foreground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/word" />
 
@@ -30,7 +30,7 @@
         android:id="@+id/second_image"
         android:layout_width="220dp"
         android:layout_height="171dp"
-        android:src="@mipmap/triangle2_foreground"
+        android:src="@mipmap/triangle_foreground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_image" />
 

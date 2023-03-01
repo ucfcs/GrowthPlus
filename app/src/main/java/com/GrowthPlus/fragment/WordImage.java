@@ -37,16 +37,17 @@ public class WordImage extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        String name = requireArguments().getString("name");
         String getText = requireArguments().getString("locationIntroText");
         String getImage = requireArguments().getString("locationIntroImage");
 
         //we want to determine which, if any, background we would like to make visible on screen
-        if(getText.contains("Game")){
+        if(name.contains("Game")){
             //here we're at the last day of the level so we want to star to be visible
             gameBackground.setVisibility(View.VISIBLE);
             quizAndMiniGameBackground.setVisibility(View.INVISIBLE);
         }
-        else if(getText.contains("Quiz")){
+        else if(name.contains("Quiz")){
             //here we're at a quiz so we want to set the circle background to visible
             gameBackground.setVisibility(View.INVISIBLE);
             quizAndMiniGameBackground.setVisibility(View.VISIBLE);

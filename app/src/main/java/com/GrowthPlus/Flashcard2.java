@@ -17,6 +17,8 @@ import android.widget.Button;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
+import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomEquation;
 import com.GrowthPlus.fragment.CustomImage;
@@ -29,7 +31,6 @@ import io.realm.Realm;
 import io.realm.RealmList;
 
 public class Flashcard2 extends AppCompatActivity {
-
     private String dataBaseLessonId;
     private String childId;
     private ChildSchema child; // Need this to update score
@@ -37,7 +38,6 @@ public class Flashcard2 extends AppCompatActivity {
     private Realm realm;
     private RealmList<FlashcardSchema> lessonFlashcards;
     private String image;
-    private ImageSrcIdentifier imageSrcIdentifier;
     private com.GrowthPlus.customViews.Flashcard flashcardContainer;
     private Button nextFlashcard;
     private FlashcardSchema flashcard;
@@ -48,17 +48,23 @@ public class Flashcard2 extends AppCompatActivity {
     private ColorStateList wrongAnswerColor;
     private ColorStateList resetColor;
     private Button flashcardBackBtn;
-    private ColorStateList resetInputTint;
     private TopBar flashcardTopBar;
-    private final int TEXT_INPUT_ONLY = 1;
     private final int NUMBER_INPUT_ONLY = 2;
-    int counter = 0;
-    final int MAX = 5;
-    String flashcardAnswer;
-    String firstNumber;
-    String firstOperator;
-    String secondNumber;
-    String category;
+    private int counter = 0;
+    private int MAX;
+    private int currentChildScore;
+    private int numberCorrect;
+    private String flashcardAnswer;
+    private String firstNumber;
+    private String firstOperator;
+    private String secondNumber;
+    private String category;
+    private int childLessonsCompleted;
+    private int lessonIndex;
+    private int minToPass;
+    private int minScoreToPass;
+    private int MAX_LESSON_SCORE;
+    private int currentLessonScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,7 @@ public class Flashcard2 extends AppCompatActivity {
         init();
 
         flashcardBackBtn.setOnClickListener(view -> {
+            setPointSystem(currentLessonScore, minScoreToPass);
             Intent lessonIntent = new Intent(Flashcard2.this, RoadMapTwo.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -139,7 +146,11 @@ public class Flashcard2 extends AppCompatActivity {
             }
 
             default:{
-                Log.i("default", "The category does not fit the case, check the return value");
+                try {
+                    throw new Exception("The category does not fit a case, check the return value");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -158,12 +169,30 @@ public class Flashcard2 extends AppCompatActivity {
             }else{
                 if(childAnswer.equals(flashcardAnswer)){
                     answerColor = correctAnswerColor;
+                    numberCorrect ++ ;
+                    if(currentLessonScore < MAX_LESSON_SCORE){
+                        currentLessonScore+= 2;
+                        currentChildScore+= 2;
+
+                        realm.executeTransactionAsync(realm1 -> {
+                            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                            assert child != null;
+                            child.setScore(currentChildScore);
+                            child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex).setCurrentScore(currentLessonScore);
+                        });
+                    }
                 }
                 else {
                     answerColor = wrongAnswerColor;
                 }
 
                 flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationStart (Animator animation){
+                        super.onAnimationStart(animation);
+                        flashcardContainer.setEnabled(false);
+                        flashcardContainer.setAnswerEnabled(false);
+                    }
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
@@ -175,6 +204,7 @@ public class Flashcard2 extends AppCompatActivity {
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
                             transaction.commit();
+                            flashcardTopBar.setPoints(String.valueOf(currentChildScore));
                         }
 
                         flashcardContainer.setFlashcardColor(answerColor);
@@ -192,6 +222,8 @@ public class Flashcard2 extends AppCompatActivity {
         nextFlashcard.setOnClickListener(view -> {
             counter++;
             if(counter >= MAX){
+                // Passing condition number of correct flashcards
+                setPointSystem(numberCorrect, minToPass);
                 Intent lessonIntent = new Intent(Flashcard2.this, RoadMapTwo.class); // TODO: Dynamically change location address
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
@@ -286,10 +318,13 @@ public class Flashcard2 extends AppCompatActivity {
             dataBaseLessonId = extras.getString("dataBaseLessonId");
             childId = extras.getString("childId");
             image = extras.getString("lessonImage");
+            lessonIndex = extras.getInt("lessonIndex");
         }
-        imageSrcIdentifier = new ImageSrcIdentifier();
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+        assert child != null;
+        currentChildScore = child.getScore();
+        numberCorrect = 0;
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         assert lesson != null;
         lessonFlashcards = lesson.getFlashcards();
@@ -300,11 +335,73 @@ public class Flashcard2 extends AppCompatActivity {
         correctAnswerColor = ContextCompat.getColorStateList(this, R.color.light_green);
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
-        resetInputTint = ContextCompat.getColorStateList(this, R.color.grey);
+        childLessonsCompleted = child.getRoadMapTwo().getLessonsCompleted();
+        currentLessonScore = child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex).getCurrentScore();
+
+        if(lessonIndex == 9){
+            MAX = 10;
+            MAX_LESSON_SCORE = 20;
+            minToPass = 7;
+            minScoreToPass = 14;
+        }else{
+            MAX = 5;
+            MAX_LESSON_SCORE = 10;
+            minToPass = 4;
+            minScoreToPass = 7;
+        }
     }
 
     private void setTopBar(){
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
+    }
+
+    private void setPointSystem(int currentScore, int minToPass){
+        if(currentScore >= minToPass){
+            // This is the case if lesson is completed and child came back to play it again
+            // Don't increase the lessonCompleted count
+            if(child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex).getCompleted()){
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                    assert child != null;
+                });
+            }else{
+                realm.executeTransactionAsync(realm1 -> {
+                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+
+                    assert child != null;
+                    RoadMapLesson currentLesson = child.getRoadMapTwo().getRoadMapLessons().get(childLessonsCompleted);
+                    assert currentLesson != null;
+                    currentLesson.setCurrent(false);
+                    currentLesson.setCompleted(true);
+
+                    if (childLessonsCompleted < 9){
+                        childLessonsCompleted ++;
+
+                        if(childLessonsCompleted == 3){
+                            // Set the quiz state
+                            RoadMapQuiz quizOne = child.getRoadMapTwo().getRoadMapQuizzes().get(0);
+                            assert quizOne != null;
+                            quizOne.setCompleted(false);
+                            quizOne.setCurrent(true);
+                        }else if(childLessonsCompleted == 7){
+                            RoadMapQuiz quizTwo = child.getRoadMapTwo().getRoadMapQuizzes().get(1);
+                            assert quizTwo != null;
+                            quizTwo.setCompleted(false);
+                            quizTwo.setCurrent(true);
+                        }else{
+                            child.getRoadMapTwo().setLessonsCompleted(childLessonsCompleted);
+                            RoadMapLesson nextLesson = child.getRoadMapTwo().getRoadMapLessons().get(childLessonsCompleted);
+                            assert nextLesson != null;
+                            nextLesson.setCurrent(true);
+                            nextLesson.setCompleted(false);
+                        }
+                    } /*TODO: Handle childLessonCompleted == 9,
+                                If lessons completed is 9, then all lessons are completed
+                                the count starts at zero, hence 9 and if so, enable roadmap game
+                                Roadmap game is not implemented yet so it is open for now. */
+                });
+            }
+        }
     }
 }

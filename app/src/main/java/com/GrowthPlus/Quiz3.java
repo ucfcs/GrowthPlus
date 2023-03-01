@@ -18,6 +18,8 @@ import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
 import com.GrowthPlus.dataAccessLayer.QuizContent.QuizContent;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
+import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.QuizImage;
 import com.GrowthPlus.fragment.QuizText;
@@ -33,11 +35,11 @@ public class Quiz3 extends AppCompatActivity {
     final int MAX = 10;
     ChildSchema child;
     Realm realm;
-    TopBar topBar;
+    TopBar quizTopBar;
     Button nextContent, introBackBtn;
     String childId, databaseQuizId;
     QuizSchema quiz;
-    int contentLength, counter, score;
+    int counter, thisScore, childScore, quizIndex, childLessonsCompleted, minScoreToPass;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
@@ -51,10 +53,14 @@ public class Quiz3 extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         init();
 
+        Log.i("quizIndex", String.valueOf(quizIndex));
+        Log.i("quizScore", String.valueOf(thisScore));
+
         introBackBtn.setOnClickListener(view -> {
+            // Child passes the quiz
+            setPointSystem(thisScore, minScoreToPass);
             countDownTimer.cancel(); //since the user is exiting the quiz we need to stop the timer
             Intent lessonIntent = new Intent(Quiz3.this, RoadMapThree.class);
-            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
@@ -70,7 +76,6 @@ public class Quiz3 extends AppCompatActivity {
         // Create language translator and set up the Lesson string
         Translator trans = new Translator(langId);
 
-        contentLength = contents.size();
         counter = 0;
 
         // This loads the first question only before needing to click the next button ---------------------------------
@@ -128,20 +133,13 @@ public class Quiz3 extends AppCompatActivity {
 
             counter++; // Display 10 questions then exit activity
             if(counter >= MAX){
-                if(score >= 7){
-                    // TODO: make quiz completed and is NOT current
-                }
-                if(score > 7) {
-                    // TODO: update highest score achieved on quiz if > currentPoints
-                }
-
+                // Child passes the quiz
+                setPointSystem(thisScore, minScoreToPass);
                 countDownTimer.cancel();//since we are exiting the activity we need to stop the timer
-
-                Intent lessonIntent = new Intent(Quiz3.this, RoadMapThree.class); // TODO: Dynamically change location address
+                Intent lessonIntent = new Intent(Quiz3.this, RoadMapThree.class);
                 lessonIntent.putExtra("childIdentify", childId);
                 startActivity(lessonIntent);
                 this.finish();
-                // TODO: Must pass with at least 7/10 correct otherwise has to do it again
             }
             else{
                 // Reset all circles to neutral color
@@ -201,6 +199,7 @@ public class Quiz3 extends AppCompatActivity {
         if(extras != null){
             childId = extras.getString("childId");
             databaseQuizId = extras.getString("databaseQuizId");
+            quizIndex = extras.getInt("quizIndex");
         }
 
         cir1 = findViewById(R.id.circleOne);
@@ -211,10 +210,13 @@ public class Quiz3 extends AppCompatActivity {
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         quiz = realm.where(QuizSchema.class).equalTo("quizId", databaseQuizId).findFirst();
         contents = quiz.getContents();
-        topBar = findViewById(R.id.topBar);
-        introBackBtn = topBar.findViewById(R.id.goBackBtn);
+        quizTopBar = findViewById(R.id.quizTopBar);
+        introBackBtn = quizTopBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button);
-        score = 0;
+        childScore = child.getScore();
+        childLessonsCompleted = child.getRoadMapThree().getLessonsCompleted();
+        thisScore = child.getRoadMapThree().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
+        minScoreToPass = 7;
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);
@@ -222,8 +224,8 @@ public class Quiz3 extends AppCompatActivity {
     }
 
     private void setTopBar(){
-        topBar.setPoints(String.valueOf(child.getScore()));
-        topBar.setToCircle();
+        quizTopBar.setPoints(String.valueOf(child.getScore()));
+        quizTopBar.setToCircle();
     }
 
     private void setAnswers(){
@@ -233,7 +235,14 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir1.correct();
-                score++;
+                if(thisScore < MAX){
+                    thisScore++;
+                    childScore++;
+                    setChildAndQuizScoreInRealm(childScore, thisScore);
+
+                    //Update top bar scoring
+                    quizTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             else{
                 cir1.incorrect();
@@ -259,7 +268,14 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir2.correct();
-                score++;
+                if(thisScore < MAX){
+                    thisScore++;
+                    childScore++;
+                    setChildAndQuizScoreInRealm(childScore, thisScore);
+
+                    //Update top bar scoring
+                    quizTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             else{
                 cir2.incorrect();
@@ -285,7 +301,14 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir3.correct();
-                score++;
+                if(thisScore < MAX){
+                    thisScore++;
+                    childScore++;
+                    setChildAndQuizScoreInRealm(childScore, thisScore);
+
+                    //Update top bar scoring
+                    quizTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             else{
                 cir3.incorrect();
@@ -311,7 +334,14 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir4.correct();
-                score++;
+                if(thisScore < MAX){
+                    thisScore++;
+                    childScore++;
+                    setChildAndQuizScoreInRealm(childScore, thisScore);
+
+                    //Update top bar scoring
+                    quizTopBar.setPoints(String.valueOf(childScore));
+                }
             }
             else{
                 cir4.incorrect();
@@ -353,5 +383,37 @@ public class Quiz3 extends AppCompatActivity {
                 nextContent.performClick(); //and programmatically click it
             }
         }.start();
+    }
+
+    private void setPointSystem(int currentScore, int minToPass){
+        if(currentScore >= minToPass){ //minToPass = 7
+            realm.executeTransactionAsync(realm1 -> {
+                ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                assert child != null;
+                RoadMapQuiz currentQuiz = child.getRoadMapThree().getRoadMapQuizzes().get(quizIndex);
+                assert currentQuiz != null;
+                // If quiz was not previously completed, set the state, otherwise just update score
+                // Update the completed lessons counter to move to next tile
+                if(!currentQuiz.getCompleted()){
+                    currentQuiz.setCurrent(false);
+                    currentQuiz.setCompleted(true);
+                    childLessonsCompleted ++;
+                    child.getRoadMapThree().setLessonsCompleted(childLessonsCompleted);
+                    RoadMapLesson nextLesson = child.getRoadMapThree().getRoadMapLessons().get(childLessonsCompleted);
+                    assert nextLesson != null;
+                    nextLesson.setCurrent(true);
+                    nextLesson.setCompleted(false);
+                }
+            });
+        }
+    }
+
+    private void setChildAndQuizScoreInRealm(int childScore, int quizScore){
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+            assert child != null;
+            child.setScore(childScore);
+            child.getRoadMapThree().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(quizScore);
+        });
     }
 }

@@ -5,16 +5,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Quiz.QuizSchema;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.WordImage;
+import com.GrowthPlus.roadMapActivity.RoadMapFour;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
+import com.GrowthPlus.roadMapActivity.RoadMapThree;
+import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import io.realm.Realm;
 
@@ -26,6 +31,7 @@ public class IntroScreen extends AppCompatActivity {
     private Button next, back;
     private QuizSchema quizContent;
     private ScenarioGameSchema gameContent;
+    private int quizIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +40,25 @@ public class IntroScreen extends AppCompatActivity {
         init();
         setTopBar();
 
+        Log.i("quizIndex", String.valueOf(quizIndex));
+
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        Translator trans = new Translator(langId);
+        if(whichOne.equals("Quiz")){
+            name = trans.getString("quiz") + " "+name;
+        }
+        else{
+            name = trans.getString("game") + " "+name;
+        }
+
         // Load fragment for Intro to Quiz/Game
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (savedInstanceState == null) {
             Bundle bundle = new Bundle();
+            bundle.putString("name", whichOne);
             bundle.putString("locationIntroText", name);
             bundle.putString("locationIntroImage", image);
 
@@ -48,9 +69,22 @@ public class IntroScreen extends AppCompatActivity {
         }
 
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(IntroScreen.this, RoadMapOne.class);
+            Intent intent = null;
+            if(whichRoadMap.equals("1")){
+                intent = new Intent(IntroScreen.this, RoadMapOne.class);
+            }
+            else if(whichRoadMap.equals("2")){
+                intent = new Intent(IntroScreen.this, RoadMapTwo.class);
+            }
+            else if(whichRoadMap.equals("3")){
+                intent = new Intent(IntroScreen.this, RoadMapThree.class);
+            }
+            else if(whichRoadMap.equals("4")){
+                intent = new Intent(IntroScreen.this, RoadMapFour.class);
+            }
             intent.putExtra("childIdentify", childId);
             startActivity(intent);
+            this.finish();
         });
 
         next.setOnClickListener(v -> {
@@ -89,7 +123,9 @@ public class IntroScreen extends AppCompatActivity {
             }
             intent.putExtra("childId", childId);
             intent.putExtra("databaseQuizId", data);
+            intent.putExtra("quizIndex", quizIndex);
             startActivity(intent);
+            finish();
         });
     }
 
@@ -99,6 +135,8 @@ public class IntroScreen extends AppCompatActivity {
             childId = extras.getString("childId");
             data = extras.getString("databaseQuizId");
             whichOne = extras.getString("whichOne");
+            whichRoadMap = extras.getString("whichRoadMap");
+            quizIndex = extras.getInt("quizIndex");
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();

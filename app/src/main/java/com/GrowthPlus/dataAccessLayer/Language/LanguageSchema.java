@@ -5,18 +5,19 @@ import io.realm.annotations.PrimaryKey;
 
 public class LanguageSchema extends RealmObject {
     @PrimaryKey
-    String languageId;
-    String languageName;
-    String language;
-    String english;
-    String french;
+    String  languageId;
+    String  languageName;
+    String  language;
+    String  english;
+    String  french;
     String	growthPlus;
     String	parent;
     String	child;
     String	points;
     String	pin;
-    String forgotPin;
+    String  forgotPin;
     String	create;
+    String  delete;
     String	confirm;
     String	numbers;
     String	addition;
@@ -33,6 +34,7 @@ public class LanguageSchema extends RealmObject {
     String	level ;
     String	lesson;
     String	game;
+    String  quiz;
     String	roadmap;
     String	francs;
     String	cfa;
@@ -69,6 +71,8 @@ public class LanguageSchema extends RealmObject {
     String	rectangle;
     String	width;
     String	length;
+    String  base;
+    String  height;
     String	side;
     String	square;
     String	triangle;
@@ -290,6 +294,14 @@ public class LanguageSchema extends RealmObject {
         this.create = create;
     }
 
+    public String getDelete() {
+        return delete;
+    }
+
+    public void setDelete(String delete) {
+        this.delete = delete;
+    }
+
     public String getConfirm() {
         return confirm;
     }
@@ -416,6 +428,14 @@ public class LanguageSchema extends RealmObject {
 
     public void setGame(String game) {
         this.game = game;
+    }
+
+    public String getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(String quiz) {
+        this.quiz = quiz;
     }
 
     public String getRoadmap() {
@@ -704,6 +724,22 @@ public class LanguageSchema extends RealmObject {
 
     public void setLength(String length) {
         this.length = length;
+    }
+
+    public String getBase() {
+        return base;
+    }
+
+    public void setBase(String base) {
+        this.base = base;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
     }
 
     public String getSide() {
