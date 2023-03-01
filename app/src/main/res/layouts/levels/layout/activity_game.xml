@@ -15,7 +15,7 @@
         app:layout_constraintGuide_percent="0.29" />
 
     <com.GrowthPlus.customViews.TopBar
-        android:id="@+id/topBar"
+        android:id="@+id/gameTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +79,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guide_middle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+        app:layout_constraintTop_toBottomOf="@+id/gameTopBar" />
 
     <com.GrowthPlus.customViews.Fish
         android:id="@+id/correctFish"

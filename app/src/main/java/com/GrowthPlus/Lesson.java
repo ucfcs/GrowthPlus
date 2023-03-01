@@ -74,6 +74,7 @@ public class Lesson extends AppCompatActivity {
             bundle.putString("wordMD", lessonTranslated);
             bundle.putString("imageMD", image);
             bundle.putInt("numMD", numOfImages);
+            bundle.putInt("level", 1);
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -104,7 +105,7 @@ public class Lesson extends AppCompatActivity {
                     // Same vars as are found in the roadmap.json for lessons
                     String lessonImg, word, firstNumber, firstOperator, secondNumber,
                             secondOperator, thirdNumber, imgOne, imgTwo, imgThree,
-                            imgFour, imgFive;
+                            imgFour, imgFive, name;
 
                     switch (category){
                         case "counting": {
@@ -160,6 +161,7 @@ public class Lesson extends AppCompatActivity {
                         }
 
                         case "wordImage" : {
+                            name = contents.get(counter).getWord();
                             word = contents.get(counter).getWord();
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
@@ -169,6 +171,7 @@ public class Lesson extends AppCompatActivity {
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
+                                bundle.putString("name", name);
                                 bundle.putString("locationIntroText", word);
                                 bundle.putString("locationIntroImage", imgOne);
 
@@ -245,6 +248,7 @@ public class Lesson extends AppCompatActivity {
                                 bundle.putString("wordMD", equation);
                                 bundle.putString("imageMD", imgOne);
                                 bundle.putInt("numMD", numImg);
+                                bundle.putInt("level", 1);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);

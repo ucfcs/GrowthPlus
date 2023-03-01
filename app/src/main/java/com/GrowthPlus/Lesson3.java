@@ -20,6 +20,7 @@ import com.GrowthPlus.dataAccessLayer.LessonContent.LessonContent;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.Conversion;
 import com.GrowthPlus.fragment.ConversionTable;
+import com.GrowthPlus.fragment.ConversionTableTwo;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.Family;
 import com.GrowthPlus.fragment.ImageWord;
@@ -82,6 +83,7 @@ public class Lesson3 extends AppCompatActivity {
             bundle.putString("wordMD", lessonTranslated);
             bundle.putString("imageMD", image);
             bundle.putInt("numMD", numOfImages);
+            bundle.putInt("level", 3);
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -166,7 +168,39 @@ public class Lesson3 extends AppCompatActivity {
                         case "imageWord" : {
                             imgOne = contents.get(counter).getImgOne();
                             word = contents.get(counter).getWord();
-                            if (!trans.getString(word).equals("empty")) {
+
+                            if(word.equals("clock")){
+                                firstNumber = contents.get(counter).getFirstNumber();
+                                firstOperator = contents.get(counter).getFirstOperator();
+                                secondNumber = contents.get(counter).getSecondNumber();
+
+                                if (!trans.getString(firstNumber).equals("empty")) {
+                                    firstNumber = trans.getString(firstNumber);
+                                }
+                                if (!trans.getString(secondNumber).equals("empty")) {
+                                    secondNumber = trans.getString(secondNumber);
+                                }
+                                if (!trans.getString(firstOperator).equals("empty")) {
+                                    firstOperator = trans.getString(firstOperator);
+                                }
+                                if (!trans.getString(word).equals("empty")) {
+                                    word = trans.getString(word);
+                                }
+
+                                word = word + "\n 1 "+firstNumber+" = 60 "+firstOperator+"\n 1 "+secondNumber+" = 24 "+firstNumber;
+
+                            }
+
+                            String first, second;
+
+                            if(word.contains(" ")){
+                                first = word.substring(0, word.indexOf(" "));
+                                second = word.substring(word.indexOf(" "));
+                                if (!trans.getString(first).equals("empty")) {
+                                    word = trans.getString(first) + second;
+                                }
+                            }
+                            else if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
                             }
 
@@ -210,8 +244,6 @@ public class Lesson3 extends AppCompatActivity {
                             secondNumber = contents.get(counter).getSecondNumber();
                             secondOperator = contents.get(counter).getSecondOperator();
 
-                            lessonImg = lesson.getImage();
-
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("conversionTableText1", firstNumber);
@@ -222,6 +254,23 @@ public class Lesson3 extends AppCompatActivity {
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, ConversionTable.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversionTableTwo" :{
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionTableText1", firstNumber);
+                                bundle.putString("conversionTableText2", firstOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ConversionTableTwo.class, bundle);
                                 transaction.commit();
                             }
                             break;
@@ -253,7 +302,7 @@ public class Lesson3 extends AppCompatActivity {
                         }
 
                         case "perimeterArea": {
-
+                            String identify = contents.get(counter).getWord();
                             word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
@@ -262,8 +311,19 @@ public class Lesson3 extends AppCompatActivity {
                             thirdNumber = contents.get(counter).getThirdNumber();
                             imgOne = contents.get(counter).getImgOne();
 
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
+                            if (!trans.getString(secondNumber).equals("empty")) {
+                                secondNumber = trans.getString(secondNumber);
+                            }
+                            if (!trans.getString(thirdNumber).equals("empty")) {
+                                thirdNumber = trans.getString(thirdNumber);
+                            }
+
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
+                                bundle.putString("PAIdentify", identify);
                                 bundle.putString("PAWord", word);
                                 bundle.putString("PAFirstNumber", firstNumber);
                                 bundle.putString("PAFirstOperator", firstOperator);

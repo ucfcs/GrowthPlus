@@ -2,6 +2,7 @@ package com.GrowthPlus;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -26,12 +27,9 @@ import com.GrowthPlus.fragment.LinesAngles;
 import com.GrowthPlus.fragment.PerimeterArea;
 import com.GrowthPlus.fragment.Shape;
 import com.GrowthPlus.fragment.ShapesAngles;
+import com.GrowthPlus.fragment.VerticalEquation;
 import com.GrowthPlus.fragment.WordGrid;
-import com.GrowthPlus.fragment.WordImage;
-import com.GrowthPlus.fragment.WordImageEquation;
 import com.GrowthPlus.roadMapActivity.RoadMapFour;
-import com.GrowthPlus.roadMapActivity.RoadMapOne;
-
 import io.realm.Realm;
 import io.realm.RealmList;
 
@@ -87,6 +85,7 @@ public class Lesson4 extends AppCompatActivity {
             bundle.putString("wordMD", lessonTranslated);
             bundle.putString("imageMD", image);
             bundle.putInt("numMD", numOfImages);
+            bundle.putInt("level", 4);
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -142,21 +141,22 @@ public class Lesson4 extends AppCompatActivity {
                             break;
                         }
 
-                        //TODO: Add Vertical Equation case
-
                         case "division":{
+                            word = contents.get(counter).getWord();
                             firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
                             thirdNumber = contents.get(counter).getThirdNumber();
-
-                            firstOperator = contents.get(counter).getFirstOperator();//not useful
-                            secondOperator = contents.get(counter).getSecondOperator();//not useful
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
                                 bundle.putString("divisor", secondNumber);
                                 bundle.putString("dividend", firstNumber);
                                 bundle.putString("quotient", thirdNumber);
+                                bundle.putString("subtractedNum", secondOperator);
+                                bundle.putString("subtractedAns", firstOperator);
+                                bundle.putString("type", word);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
@@ -216,7 +216,7 @@ public class Lesson4 extends AppCompatActivity {
                         }
 
                       case "perimeterArea": {
-
+                          String identify = contents.get(counter).getWord();
                           word = contents.get(counter).getWord();
                           firstNumber = contents.get(counter).getFirstNumber();
                           firstOperator = contents.get(counter).getFirstOperator();
@@ -225,8 +225,19 @@ public class Lesson4 extends AppCompatActivity {
                           thirdNumber = contents.get(counter).getThirdNumber();
                           imgOne = contents.get(counter).getImgOne();
 
+                          if (!trans.getString(word).equals("empty")) {
+                              word = trans.getString(word);
+                          }
+                          if (!trans.getString(secondNumber).equals("empty")) {
+                              secondNumber = trans.getString(secondNumber);
+                          }
+                          if (!trans.getString(thirdNumber).equals("empty")) {
+                              thirdNumber = trans.getString(thirdNumber);
+                          }
+
                           if (savedInstanceState == null) {
                               Bundle bundle = new Bundle();
+                              bundle.putString("PAIdentify", identify);
                               bundle.putString("PAWord", word);
                               bundle.putString("PAFirstNumber", firstNumber);
                               bundle.putString("PAFirstOperator", firstOperator);
@@ -263,8 +274,6 @@ public class Lesson4 extends AppCompatActivity {
                             break;
                         }
 
-                        //TODO: Add shapes angles case
-
                         case "shapesAngles":{
                             imgOne = contents.get(counter).getImgOne();
                             imgTwo = contents.get(counter).getImgTwo();
@@ -296,7 +305,6 @@ public class Lesson4 extends AppCompatActivity {
                             firstNumber = contents.get(counter).getFirstNumber();
                             firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
-                            lessonImg = lesson.getImage();
 
                             if (!trans.getString(word).equals("empty")) {
                                 word = trans.getString(word);
@@ -312,6 +320,31 @@ public class Lesson4 extends AppCompatActivity {
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
                                 transaction.replace(R.id.frame_layout_lesson, Family.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "verticalEquation":{
+                            word = contents.get(counter).getWord();
+                            firstNumber = contents.get(counter).getFirstNumber();
+                            firstOperator = contents.get(counter).getFirstOperator();
+                            secondNumber = contents.get(counter).getSecondNumber();
+                            secondOperator = contents.get(counter).getSecondOperator();
+                            thirdNumber = contents.get(counter).getThirdNumber();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("wordEqu", word);
+                                bundle.putString("firstNum", firstNumber);
+                                bundle.putString("secondNum", secondNumber);
+                                bundle.putString("carry", secondOperator);
+                                bundle.putString("answer", thirdNumber);
+                                bundle.putString("opt", firstOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, VerticalEquation.class, bundle);
                                 transaction.commit();
                             }
                             break;

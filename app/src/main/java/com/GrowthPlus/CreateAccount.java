@@ -851,6 +851,8 @@ public class CreateAccount extends AppCompatActivity {
 
         // Go to main page with update new child
         View.OnClickListener goNext = v -> {
+            loginButton.setOnClickListener(null);
+            backButton.setOnClickListener(null);
             if (nameInput.getText().toString() != null && !nameInput.getText().toString().equals("")){
                 newChild = new ChildSchemaService(realm,
                         nameInput.getText().toString(),

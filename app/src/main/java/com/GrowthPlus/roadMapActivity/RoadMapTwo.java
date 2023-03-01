@@ -5,7 +5,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -70,8 +69,8 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
         // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
         roadMapTwoLessonTrail.unLockRoadMap();
         setLessonTiles(child);
-        bottomNavigationView.setSelectedItemId(R.id.roadMap2item);
 
+        bottomNavigationView.setSelectedItemId(R.id.roadMap2item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
