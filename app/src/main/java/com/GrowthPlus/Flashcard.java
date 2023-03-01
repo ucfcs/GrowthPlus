@@ -55,7 +55,7 @@ public class Flashcard extends AppCompatActivity {
     private int counter = 0;
     private int MAX;
     private int currentChildScore;
-    private int numberCorrect;
+    private int numberCorrect; // Keep for displaying number of correct ones at the end
     private String flashcardAnswer;
     private String firstNumber;
     private String firstOperator;
@@ -68,7 +68,7 @@ public class Flashcard extends AppCompatActivity {
     private int currentLessonScore;
     private boolean isCompleted;
     private String lessonCategory;
-    private RealmChangeListener realmListener;
+    private RealmChangeListener<ChildSchema> realmListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +82,9 @@ public class Flashcard extends AppCompatActivity {
 
         flashcardBackBtn.setOnClickListener(view -> {
             if (currentLessonScore >= minScoreToPass && !isCompleted){
-                realm.addChangeListener(realmListener);
+                Objects.requireNonNull(
+                        realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                        .addChangeListener(realmListener);
                 setLessonState();
             }else{
                 backToRoadMap();
@@ -178,7 +180,6 @@ public class Flashcard extends AppCompatActivity {
                 if (childAnswer.equals(flashcardAnswer)) {
                     answerColor = correctAnswerColor;
                     numberCorrect++;
-                    Log.i("lessonCorrect", String.valueOf(numberCorrect));
                     if (currentLessonScore < MAX_LESSON_SCORE) {
                         currentLessonScore += 2;
                         currentChildScore += 2;
@@ -232,7 +233,9 @@ public class Flashcard extends AppCompatActivity {
             counter++;
             if (counter >= MAX) {
                 if (currentLessonScore >= minScoreToPass && !isCompleted){
-                    realm.addChangeListener(realmListener);
+                    Objects.requireNonNull(
+                            realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                            .addChangeListener(realmListener);
                     setLessonState();
                 }
                 else {
@@ -351,7 +354,7 @@ public class Flashcard extends AppCompatActivity {
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
         currentLessonScore = Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).getCurrentScore();
         isCompleted = Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).getCompleted();
-        realmListener = (RealmChangeListener<Realm>) realm -> {
+        realmListener = (RealmChangeListener<ChildSchema>) realm -> {
             // Navigate back to RoadMap after realm is finished performing tasks in the background thread
            backToRoadMap();
         };
@@ -508,9 +511,10 @@ public class Flashcard extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         // Remove the listener.
-        realm.removeChangeListener(realmListener);
+        Objects.requireNonNull(
+                realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                .removeChangeListener(realmListener);
         // Close the Realm instance.
         realm.close();
-
     }
 }

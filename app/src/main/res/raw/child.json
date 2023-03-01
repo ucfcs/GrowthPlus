@@ -7,7 +7,7 @@
     "score": 0,
     "roadMapOne": {
       "roadMapName": "roadMapOne",
-      "lessonsCompleted": 0,
+      "lessonsCompleted": 8,
       "isCurrent": true,
       "isCompleted": false,
       "isLocked": false,
@@ -16,8 +16,8 @@
           "lessonName": "Roadmap One Lesson 1",
           "image": "elephant",
           "category": "numbers",
-          "isCurrent": true,
-          "isCompleted": false,
+          "isCurrent": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonOne",
@@ -25,14 +25,14 @@
           "currentFlashcardId": "RmOneLessonOneFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 2",
           "image": "elephant",
           "category": "addition",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonTwo",
@@ -40,14 +40,14 @@
           "currentFlashcardId": "RmOneLessonTwoFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 3",
           "image": "unit",
           "category": "units",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonThree",
@@ -55,14 +55,14 @@
           "currentFlashcardId": "RmOneLessonThreeFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 4",
           "image": "elephant",
           "category": "numbers",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonFour",
@@ -70,14 +70,14 @@
           "currentFlashcardId": "RmOneLessonFourFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 5",
           "image": "elephant",
           "category": "subtraction",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonFive",
@@ -85,14 +85,14 @@
           "currentFlashcardId": "RmOneLessonFiveFlashFive",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 6",
           "image": "elephant",
           "category": "multiplication",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonSix",
@@ -100,14 +100,14 @@
           "currentFlashcardId": "RmOneLessonSixFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 7",
           "image": "elephant",
           "category": "division",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonSeven",
@@ -115,14 +115,14 @@
           "currentFlashcardId": "RmOneLessonSevenFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 8",
           "image": "elephant",
           "category": "multiplication",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonEight",
@@ -130,13 +130,13 @@
           "currentFlashcardId": "RmOneLessonEightFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 9",
           "image": "elephant",
           "category": "division",
-          "isCurrent": false,
+          "isCurrent": true,
           "isCompleted": false,
           "minScore": 7,
           "maxScore": 10,
