@@ -19,6 +19,7 @@ public class LanguageSchema extends RealmObject {
     String	create;
     String  delete;
     String	confirm;
+    String  phoneNumber;
     String	numbers;
     String	addition;
     String	subtraction;
@@ -308,6 +309,14 @@ public class LanguageSchema extends RealmObject {
 
     public void setConfirm(String confirm) {
         this.confirm = confirm;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getNumbers() {
