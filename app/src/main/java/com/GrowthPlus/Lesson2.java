@@ -28,7 +28,6 @@ import com.GrowthPlus.fragment.VerticalEquation;
 import com.GrowthPlus.fragment.WordGrid;
 import com.GrowthPlus.fragment.WordImage;
 import com.GrowthPlus.fragment.WordImageEquation;
-import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import io.realm.Realm;
@@ -140,6 +139,7 @@ public class Lesson2 extends AppCompatActivity {
                         }
 
                         case "wordImage" : {
+                            String name = contents.get(counter).getWord();
                             word = contents.get(counter).getWord();
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
@@ -148,6 +148,7 @@ public class Lesson2 extends AppCompatActivity {
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
+                                bundle.putString("name", name);
                                 bundle.putString("locationIntroText", word);
                                 bundle.putString("locationIntroImage", imgOne);
 

@@ -105,7 +105,7 @@ public class Lesson extends AppCompatActivity {
                     // Same vars as are found in the roadmap.json for lessons
                     String lessonImg, word, firstNumber, firstOperator, secondNumber,
                             secondOperator, thirdNumber, imgOne, imgTwo, imgThree,
-                            imgFour, imgFive;
+                            imgFour, imgFive, name;
 
                     switch (category){
                         case "counting": {
@@ -161,6 +161,7 @@ public class Lesson extends AppCompatActivity {
                         }
 
                         case "wordImage" : {
+                            name = contents.get(counter).getWord();
                             word = contents.get(counter).getWord();
                             if(!trans.getString(word).equals("empty")){
                                 word = trans.getString(word);
@@ -170,6 +171,7 @@ public class Lesson extends AppCompatActivity {
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
+                                bundle.putString("name", name);
                                 bundle.putString("locationIntroText", word);
                                 bundle.putString("locationIntroImage", imgOne);
 

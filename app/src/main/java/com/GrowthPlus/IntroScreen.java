@@ -58,6 +58,7 @@ public class IntroScreen extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (savedInstanceState == null) {
             Bundle bundle = new Bundle();
+            bundle.putString("name", whichOne);
             bundle.putString("locationIntroText", name);
             bundle.putString("locationIntroImage", image);
 
