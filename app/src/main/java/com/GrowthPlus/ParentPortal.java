@@ -71,7 +71,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent_portal);
         init();
-        Log.i("parent", parentId);
 
         /*
           Temp variables to hold relative data about the child object
