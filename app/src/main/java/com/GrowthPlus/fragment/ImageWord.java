@@ -26,7 +26,6 @@ public class ImageWord extends Fragment {
         image = view.findViewById(R.id.imageWordImage);
         text = view.findViewById(R.id.imageWordWord);
         imageSrcIdentifier = new ImageSrcIdentifier();
-
         return view;
     }
 
@@ -35,6 +34,8 @@ public class ImageWord extends Fragment {
         String getText = requireArguments().getString("imageWordText");
         String getImage = requireArguments().getString("imageWordImage");
 
+        image.getLayoutParams().height = (int) getResources().getDimension(R.dimen.largeImages);
+        image.getLayoutParams().width = (int) getResources().getDimension(R.dimen.largeImages);
         image.setImageResource(imageSrcIdentifier.getImageSrcId(getImage));
         text.setText(getText);
     }

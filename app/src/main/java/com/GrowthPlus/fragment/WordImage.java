@@ -58,6 +58,14 @@ public class WordImage extends Fragment {
             quizAndMiniGameBackground.setVisibility(View.INVISIBLE);
         }
         text.setText(getText);
+        if(getImage.equals("DUimg") || getImage.equals("CDUimg")){
+            image.getLayoutParams().height = (int) getResources().getDimension(R.dimen.largeImages);
+            image.getLayoutParams().width = (int) getResources().getDimension(R.dimen.largeImages);
+        }
+        else{
+            image.getLayoutParams().height = (int) getResources().getDimension(R.dimen.flashcardAnswerSize);
+            image.getLayoutParams().width = (int) getResources().getDimension(R.dimen.flashcardAnswerSize);
+        }
         image.setImageResource(imageSrcIdentifier.getImageSrcId(getImage));
     }
 }

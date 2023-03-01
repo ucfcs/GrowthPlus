@@ -42,15 +42,40 @@ public class Counting extends Fragment {
         String getImg = requireArguments().getString("lessonImage");
         int imgNum = Integer.parseInt(getNumber);
 
-
         if(imgNum >= 1000){
             imgNum /= 1000;
         }
         else if(imgNum >= 100){
             imgNum /= 100;
         }
-        else if(imgNum > 10){
+        else if(imgNum >= 20 && !getImg.equals("elephant")){
             imgNum /= 10;
+        }
+
+        if(imgNum <= 4){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantMLarge);
+            gridLayoutCounting.setRowCount(2);
+            gridLayoutCounting.setColumnCount(2);
+        }
+        else if(imgNum <= 6){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantMLarge);
+            gridLayoutCounting.setRowCount(2);
+            gridLayoutCounting.setColumnCount(3);
+        }
+        else if(imgNum <= 9){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+            gridLayoutCounting.setRowCount(3);
+            gridLayoutCounting.setColumnCount(3);
+        }
+        else if(imgNum == 10){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+            gridLayoutCounting.setRowCount(2);
+            gridLayoutCounting.setColumnCount(5);
+        }
+        else {
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+            gridLayoutCounting.setRowCount(5);
+            gridLayoutCounting.setColumnCount(5);
         }
 
         word.setText(getWord);

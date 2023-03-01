@@ -13,7 +13,7 @@
         android:autoSizeTextType="uniform"
         android:text="one unit"
         android:textAlignment="center"
-        android:textColor="@color/light_green"
+        android:textColor="@color/blue"
         android:textSize="65sp"
         app:layout_constraintEnd_toStartOf="@id/guide2"
         app:layout_constraintStart_toStartOf="@id/guide1"
