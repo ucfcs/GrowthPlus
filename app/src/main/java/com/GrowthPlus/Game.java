@@ -36,7 +36,7 @@ public class Game extends AppCompatActivity {
     Button introBackBtn;
     String childId, databaseGameId;
     ScenarioGameSchema game;
-    int gameScore, counter, childScore;
+    int gameScore, counter, childScore, numberCorrect;
     RealmList<ScenarioGameContent> contents;
     ArrayList<Integer> forty = new ArrayList<>(40);
     Fish fish1, fish2, fish3, correctFish;
