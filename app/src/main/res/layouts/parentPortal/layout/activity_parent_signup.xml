@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/yellow"
+    android:id="@+id/parentSignUpActivityID"
     tools:context=".ParentSignup">
 
 
@@ -137,7 +138,7 @@
         app:layout_constraintBottom_toTopOf="@id/bunnyBottomLine"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
-        app:layout_constraintTop_toBottomOf="@id/parentImgTop"></ImageView>
+        app:layout_constraintTop_toBottomOf="@id/parentImgTop"/>
 
     <ImageView
         android:id="@+id/parentImg"
@@ -225,6 +226,6 @@
         app:layout_constraintBottom_toTopOf="@id/playBottom"
         app:layout_constraintStart_toEndOf="@id/playStart"
         app:layout_constraintEnd_toStartOf="@id/playEnd"
-        ></android.widget.Button>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_green"
+    android:id="@+id/languageSettingsID"
     tools:context=".LanguageSettingActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -120,12 +121,12 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"
+            android:gravity="center_vertical"
+            android:paddingStart="40dp"
             android:text="English"
             android:textAllCaps="false"
-            android:textSize="25sp"
-            android:paddingStart="40dp"
-            android:gravity="center_vertical"
-            android:textColor="@color/blue"></TextView>
+            android:textColor="@color/blue"
+            android:textSize="25sp"></TextView>
 
     </RelativeLayout>
 

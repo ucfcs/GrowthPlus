@@ -1,7 +1,7 @@
 [
   {
     "parentId": "parentZero",
-    "PIN": 123456,
+    "PIN": 1234,
     "children": [
       {
         "childId": "childZero",
