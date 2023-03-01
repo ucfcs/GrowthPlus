@@ -235,6 +235,7 @@ public class CreateAccount extends AppCompatActivity {
                 20,
                 17,
                 false,
+                false,
                 "RmOneScenarioGame",
                 0
         );
@@ -422,6 +423,7 @@ public class CreateAccount extends AppCompatActivity {
                 "camel",
                 20,
                 17,
+                false,
                 false,
                 "RmTwoScenarioGame",
                 0
@@ -611,6 +613,7 @@ public class CreateAccount extends AppCompatActivity {
                 20,
                 17,
                 false,
+                false,
                 "RmThreeScenarioGame",
                 0
         );
@@ -798,6 +801,7 @@ public class CreateAccount extends AppCompatActivity {
                 "giraffe",
                 20,
                 17,
+                false,
                 false,
                 "RmFourScenarioGame",
                 0

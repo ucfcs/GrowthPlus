@@ -7,7 +7,7 @@
     "score": 0,
     "roadMapOne": {
       "roadMapName": "roadMapOne",
-      "lessonsCompleted": 8,
+      "lessonsCompleted": 9,
       "isCurrent": true,
       "isCompleted": false,
       "isLocked": false,
@@ -136,8 +136,8 @@
           "lessonName": "Roadmap One Lesson 9",
           "image": "elephant",
           "category": "division",
-          "isCurrent": true,
-          "isCompleted": false,
+          "isCurrent": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonNine",
@@ -145,13 +145,13 @@
           "currentFlashcardId": "RmOneLessonNineFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap One Lesson 10",
           "image": "elephant",
           "category": null,
-          "isCurrent": false,
+          "isCurrent": true,
           "isCompleted": false,
           "minScore": 7,
           "maxScore": 10,
@@ -170,9 +170,9 @@
           "maxPoints": 10,
           "minPoints": 7,
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "databaseQuizId": "RmOneQuizOne",
-          "currentPoints": 0
+          "currentPoints": 10
         },
         {
           "quizName": "RoadMap One Quiz Two",
@@ -180,9 +180,9 @@
           "maxPoints": 10,
           "minPoints": 7,
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "databaseQuizId": "RmOneQuizTwo",
-          "currentPoints": 0
+          "currentPoints": 10
         }
       ],
       "scenarioGame": {
@@ -190,6 +190,7 @@
         "image": "elephant",
         "maxScore": 20,
         "minScore": 17,
+        "isCurrent": false,
         "isCompleted": false,
         "databaseScenarioGameId": "RmOneScenarioGame",
         "currentPoints": 0
@@ -381,6 +382,7 @@
         "image": "camel",
         "maxScore": 20,
         "minScore": 17,
+        "isCurrent": false,
         "isCompleted": false,
         "databaseScenarioGameId": "RmTwoScenarioGame",
         "currentPoints": 0
@@ -572,6 +574,7 @@
         "image": "squirrel",
         "maxScore": 20,
         "minScore": 17,
+        "isCurrent": false,
         "isCompleted": false,
         "databaseScenarioGameId": "RmThreeScenarioGame",
         "currentPoints": 0
@@ -763,6 +766,7 @@
         "image": "giraffe",
         "maxScore": 20,
         "minScore": 17,
+        "isCurrent": false,
         "isCompleted": false,
         "databaseScenarioGameId": "RmFourScenarioGame",
         "currentPoints": 0
@@ -780,6 +784,7 @@
     "catCountMoney": 0,
     "catCountTime": 0,
     "catCountShapes": 0,
-    "catCountAngles": 0
+    "catCountAngles": 0,
+    "catCountReview" : 0
   }
 ]
