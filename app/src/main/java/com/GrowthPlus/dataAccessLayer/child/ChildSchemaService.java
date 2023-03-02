@@ -76,6 +76,7 @@ public class ChildSchemaService {
             newChild.setCatCountTime(0);
             newChild.setCatCountShapes(0);
             newChild.setCatCountAngles(0);
+            newChild.setCatCountReview(0);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New child added to realm!");
