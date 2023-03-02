@@ -273,7 +273,7 @@ public class Flashcard4 extends AppCompatActivity {
             if(counter >= MAX){
                 if (currentLessonScore >= minScoreToPass && !isCompleted){
                     Objects.requireNonNull(
-                                    realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                            realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
                             .addChangeListener(realmListener);
                     setLessonState();
                 }
@@ -423,7 +423,7 @@ public class Flashcard4 extends AppCompatActivity {
         childLessonsCompleted = child.getRoadMapFour().getLessonsCompleted();
         currentLessonScore = Objects.requireNonNull(child.getRoadMapFour().getRoadMapLessons().get(lessonIndex)).getCurrentScore();
         isCompleted = Objects.requireNonNull(child.getRoadMapFour().getRoadMapLessons().get(lessonIndex)).getCompleted();
-        realmListener = (RealmChangeListener<ChildSchema>) realm -> {
+        realmListener = realmChildSchema -> {
             // Navigate back to RoadMap after realm is finished performing tasks in the background thread
             backToRoadMap();
         };
@@ -594,6 +594,7 @@ public class Flashcard4 extends AppCompatActivity {
                         realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
                 .removeChangeListener(realmListener);
         // Close the Realm instance.
+        realm.removeAllChangeListeners();
         realm.close();
     }
 }

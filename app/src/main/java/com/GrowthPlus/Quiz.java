@@ -210,6 +210,7 @@ public class Quiz extends AppCompatActivity {
         childScore = child.getScore();
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
         thisScore = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
+        numberCorrect = 0;
         minScoreToPass = 7;
 
         for(int i = 0; i <= 19; i++)

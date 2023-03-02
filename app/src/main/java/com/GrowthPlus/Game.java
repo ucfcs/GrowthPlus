@@ -153,7 +153,6 @@ public class Game extends AppCompatActivity {
         fish1.setOnClickListener(v -> {
             if(fish1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
-                Log.i("numCorrect", String.valueOf(numberCorrect));
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -171,7 +170,6 @@ public class Game extends AppCompatActivity {
         fish2.setOnClickListener(v -> {
             if(fish2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
-                Log.i("numCorrect", String.valueOf(numberCorrect));
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -189,7 +187,6 @@ public class Game extends AppCompatActivity {
         fish3.setOnClickListener(v -> {
             if(fish3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
-                Log.i("numCorrect", String.valueOf(numberCorrect));
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
