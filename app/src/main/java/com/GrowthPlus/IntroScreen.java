@@ -36,6 +36,7 @@ public class IntroScreen extends AppCompatActivity {
     private int quizIndex;
     ConstraintLayout introScreenBackground;
     ConstraintLayout topBarBackground;
+    int bgColorRed, bgColorGreen, bgColorBlue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,12 @@ public class IntroScreen extends AppCompatActivity {
             bundle.putString("name", whichOne);
             bundle.putString("locationIntroText", name);
             bundle.putString("locationIntroImage", image);
+
+            //need to figure out what color
+            bundle.putInt("bgColorRed", bgColorRed);
+            bundle.putInt("bgColorGreen", bgColorGreen);
+            bundle.putInt("bgColorBlue", bgColorBlue);
+
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -206,16 +213,36 @@ public class IntroScreen extends AppCompatActivity {
 
     public void setIntroScreenBackground(){
         if(whichRoadMap.equals("1")){
-            //then its already the right color
+            //then background is already the right color
+
+            //set the rgb values of the background shape defined in WordImage
+            bgColorRed = 252;
+            bgColorGreen = 209;
+            bgColorBlue = 70;
         }
         else if(whichRoadMap.equals("2")){
             introScreenBackground.setBackgroundColor(Color.rgb(232, 160, 78));
+
+            //set the rgb values of the background shape defined in WordImage
+            bgColorRed = 96;
+            bgColorGreen = 163;
+            bgColorBlue = 200;
         }
         else if(whichRoadMap.equals("3")){
             introScreenBackground.setBackgroundColor(Color.rgb(198, 192, 18));
+
+            //set the rgb values of the background shape defined in WordImage
+            bgColorRed = 3;
+            bgColorGreen = 71;
+            bgColorBlue = 50;
         }
         else if(whichRoadMap.equals("4")){
             introScreenBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+
+            //set the rgb values of the background shape defined in WordImage
+            bgColorRed = 96;
+            bgColorGreen = 163;
+            bgColorBlue = 200;
         }
     }
 }
