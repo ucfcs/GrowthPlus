@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.media.MediaPlayer;
@@ -28,6 +27,8 @@ import com.GrowthPlus.fragment.CustomImageOperator;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
 import io.realm.Realm;
@@ -68,8 +69,9 @@ public class Flashcard extends AppCompatActivity {
     private int minToPass;
     private int minScoreToPass;
     private int MAX_LESSON_SCORE;
-    private int currentLessonScore;
+    private int currentLessonScore, howMany;
     private MediaPlayer correct, incorrect;
+    ArrayList<Integer> randomizer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +96,8 @@ public class Flashcard extends AppCompatActivity {
         /*
         * Switch statement for first flashcard, we don't have an intro so we start at index 0
         * */
-        category = Objects.requireNonNull(lessonFlashcards.get(counter)).getCategory();
-        flashcard = lessonFlashcards.get(counter);
+        category = Objects.requireNonNull(lessonFlashcards.get(randomizer.get(counter))).getCategory();
+        flashcard = lessonFlashcards.get(randomizer.get(counter));
 
         assert flashcard != null;
         flashcardAnswer = flashcard.getAnswer();
@@ -252,7 +254,7 @@ public class Flashcard extends AppCompatActivity {
                 flashcardContainer.setAnswerEnabled(true);
                 flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
 
-                flashcard = lessonFlashcards.get(counter);
+                flashcard = lessonFlashcards.get(randomizer.get(counter));
 
                 assert flashcard != null;
                 category = flashcard.getCategory();
@@ -357,6 +359,11 @@ public class Flashcard extends AppCompatActivity {
         currentLessonScore = Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).getCurrentScore();
         correct = MediaPlayer.create(this, R.raw.correct);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        howMany = lessonFlashcards.size();
+        randomizer = new ArrayList<>(howMany);
+        for(int i = 0; i < howMany; i++)
+            randomizer.add(i);
+        Collections.shuffle(randomizer); // Randomize question selection
 
         if(lessonIndex == 9){
             MAX = 10;

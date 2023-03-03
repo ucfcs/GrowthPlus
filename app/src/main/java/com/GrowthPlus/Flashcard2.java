@@ -27,7 +27,9 @@ import com.GrowthPlus.fragment.CustomImageOperator;
 import com.GrowthPlus.fragment.CustomImageWord;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapTwo;
-import com.GrowthPlus.utilities.ImageSrcIdentifier;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -67,8 +69,9 @@ public class Flashcard2 extends AppCompatActivity {
     private int minToPass;
     private int minScoreToPass;
     private int MAX_LESSON_SCORE;
-    private int currentLessonScore;
+    private int currentLessonScore, howMany;
     private MediaPlayer correct, incorrect;
+    ArrayList<Integer> randomizer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,9 +91,9 @@ public class Flashcard2 extends AppCompatActivity {
         /*
          * Switch statement for first flashcard, we don't have an intro so we start at index 0
          * */
-        assert lessonFlashcards.get(counter) != null;
-        category = lessonFlashcards.get(counter).getCategory();
-        flashcard = lessonFlashcards.get(counter);
+        assert lessonFlashcards.get(randomizer.get(counter)) != null;
+        category = lessonFlashcards.get(randomizer.get(counter)).getCategory();
+        flashcard = lessonFlashcards.get(randomizer.get(counter));
 
         assert flashcard != null;
         flashcardAnswer = flashcard.getAnswer();
@@ -267,8 +270,8 @@ public class Flashcard2 extends AppCompatActivity {
                 flashcardContainer.setAnswerEnabled(true);
                 flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
 
-                assert lessonFlashcards.get(counter) != null;
-                flashcard = lessonFlashcards.get(counter);
+                assert lessonFlashcards.get(randomizer.get(counter)) != null;
+                flashcard = lessonFlashcards.get(randomizer.get(counter));
 
                 assert flashcard != null;
                 category = flashcard.getCategory();
@@ -389,6 +392,11 @@ public class Flashcard2 extends AppCompatActivity {
         currentLessonScore = child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex).getCurrentScore();
         correct = MediaPlayer.create(this, R.raw.correct);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        howMany = lessonFlashcards.size();
+        randomizer = new ArrayList<>(howMany);
+        for(int i = 0; i < howMany; i++)
+            randomizer.add(i);
+        Collections.shuffle(randomizer); // Randomize question selection
 
         if(lessonIndex == 9){
             MAX = 10;
