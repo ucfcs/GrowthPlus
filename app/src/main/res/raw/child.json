@@ -1,10 +1,11 @@
 [
   {
     "childId": "63fe5df25866ec1e543186f9",
-    "name": "lili",
+    "name": "Lili",
     "avatarName": "guinea_fowl",
     "colorName": "light_green",
     "score": 0,
+    "totalLessonsCompleted": 9,
     "roadMapOne": {
       "roadMapName": "roadMapOne",
       "lessonsCompleted": 9,

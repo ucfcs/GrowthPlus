@@ -41,6 +41,7 @@ import io.realm.RealmResults;
  */
 public class ParentPortal extends AppCompatActivity implements View.OnClickListener {
     private final int MAX_CHILDREN = 6;
+    private final Integer TOTAL_LESSONS = 40;
     private Button buttonBackChild;
     private Button deleteParent;
     private GridLayout parentPortalGridLayout;
@@ -86,6 +87,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         String childNameTemp;
         String avatarNameTemp;
         String colorNameTemp;
+        Integer totalLessonsCompleted;
+        Integer lessonProgress;
 
         // Looping through the number of children from the realm result
         // Dynamically add the child card components with their corresponding data to the grid layout
@@ -97,11 +100,16 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
             childNameTemp = childRealmObjectTemp.getName();
             avatarNameTemp = childRealmObjectTemp.getAvatarName();
             colorNameTemp = childRealmObjectTemp.getColorName();
+            totalLessonsCompleted = childRealmObjectTemp.getTotalLessonsCompleted();
+
+            lessonProgress = calculateLessonProgress(totalLessonsCompleted);
+            Log.i("lessonCompleted", String.valueOf(totalLessonsCompleted));
+            Log.i("lessonProgress", String.valueOf(lessonProgress));
 
             childCardTemp = setChildCard(childCardId.get(i), childNameTemp, avatarNameTemp, colorNameTemp);
             parentPortalGridLayout.addView(childCardTemp, i);
 
-            verticalProgressBarTemp = setVerticalProgressBar(progressBarIds.get(i), avatarNameTemp, colorNameTemp);
+            verticalProgressBarTemp = setVerticalProgressBar(progressBarIds.get(i), avatarNameTemp, colorNameTemp, lessonProgress);
             parentPortalLinearLayout.addView(verticalProgressBarTemp, i);
 
             // Map the child card component ids to their corresponding child schema ids from realm
@@ -168,13 +176,14 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     }
 
     @Nullable
-    public VerticalProgressBar setVerticalProgressBar(Integer id, String avatarName, String colorName){
+    public VerticalProgressBar setVerticalProgressBar(Integer id, String avatarName, String colorName, Integer lessonProgress){
         ColorStateList color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(colorName));
         VerticalProgressBar temp = new VerticalProgressBar(this);
 
         temp.setId(id);
         temp.setImageResource(imageSrcIdentifier.getImageSrcId(avatarName));
         temp.setBackgroundTintList(color);
+        temp.setProgress(lessonProgress);
 
         return temp;
     }
@@ -341,5 +350,14 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
                 dialogue.dismiss();
             }
         });
+    }
+
+    private Integer calculateLessonProgress(Integer lessonsCompleted){
+        Double percentage = (lessonsCompleted.doubleValue() / TOTAL_LESSONS.doubleValue());
+        Log.i("percent", String.valueOf(percentage));
+        Double progress = percentage * 100;
+        Log.i("progress", String.valueOf(progress));
+
+        return progress.intValue();
     }
 }
