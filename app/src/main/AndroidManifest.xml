@@ -21,6 +21,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <!--<activity
+            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+            android:label="InstrumentationActivityInvoker$BootstrapActivity" />-->
         <activity
             android:name=".Game"
             android:exported="false"
