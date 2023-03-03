@@ -249,8 +249,7 @@ public class Quiz3 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
-                cir1.correct();
-                cir1.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
+                cir1.correctQuiz3();
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -265,13 +264,13 @@ public class Quiz3 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -283,7 +282,7 @@ public class Quiz3 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
-                cir2.correct();
+                cir2.correctQuiz3();
                 cir2.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 if(thisScore < MAX){
                     thisScore++;
@@ -299,13 +298,13 @@ public class Quiz3 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -317,7 +316,7 @@ public class Quiz3 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
-                cir3.correct();
+                cir3.correctQuiz3();
                 cir3.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 if(thisScore < MAX){
                     thisScore++;
@@ -333,13 +332,13 @@ public class Quiz3 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -351,7 +350,7 @@ public class Quiz3 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
-                cir4.correct();
+                cir4.correctQuiz3();
                 cir4.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 if(thisScore < MAX){
                     thisScore++;
@@ -367,13 +366,13 @@ public class Quiz3 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else{
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
             }
             deactivate();
