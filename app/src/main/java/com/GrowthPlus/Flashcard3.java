@@ -149,6 +149,7 @@ public class Flashcard3 extends AppCompatActivity {
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
                     bundle.putString("carryInput", secondOperator);
+                    bundle.putInt("textColor", Color.rgb(252, 209, 70));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
@@ -328,6 +329,7 @@ public class Flashcard3 extends AppCompatActivity {
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("carryInput", secondOperator);
+                            bundle.putInt("textColor", Color.rgb(252, 209, 70));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
