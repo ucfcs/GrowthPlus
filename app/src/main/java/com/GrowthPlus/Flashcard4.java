@@ -279,7 +279,7 @@ public class Flashcard4 extends AppCompatActivity {
                 lessonIntent.putExtra("whichOne", "Flash");
                 lessonIntent.putExtra("points", numberCorrect);
                 lessonIntent.putExtra("max", MAX);
-                lessonIntent.putExtra("whichRoadMap", "One");
+                lessonIntent.putExtra("whichRoadMap", "Four");
                 if(numberCorrect >= minToPass){
                     lessonIntent.putExtra("passOrNot", 1);
                 }

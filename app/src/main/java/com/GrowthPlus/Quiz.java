@@ -132,8 +132,18 @@ public class Quiz extends AppCompatActivity {
                 // Child passes the quiz
                 setPointSystem(thisScore, minScoreToPass);
                 countDownTimer.cancel();//since we are exiting the activity we need to stop the timer
-                Intent lessonIntent = new Intent(Quiz.this, RoadMapOne.class);
-                lessonIntent.putExtra("childIdentify", childId);
+                Intent lessonIntent = new Intent(Quiz.this, Results.class);
+                lessonIntent.putExtra("childId", childId);
+                lessonIntent.putExtra("whichOne", "Quiz");
+                lessonIntent.putExtra("points", thisScore);
+                lessonIntent.putExtra("max", MAX);
+                lessonIntent.putExtra("whichRoadMap", "One");
+                if(thisScore >= minScoreToPass){
+                    lessonIntent.putExtra("passOrNot", 1);
+                }
+                else{
+                    lessonIntent.putExtra("passOrNot", 0);
+                }
                 startActivity(lessonIntent);
                 this.finish();
             }

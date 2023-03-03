@@ -71,12 +71,13 @@
         android:id="@+id/firstNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:text="14"
+        android:layout_marginStart="12dp"
+        android:text="8"
         android:textColor="@color/dark_green"
         android:textSize="70sp"
         app:layout_constraintBottom_toBottomOf="@+id/box"
         app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/box"
         app:layout_constraintTop_toTopOf="@+id/box" />
 
     <TextView
@@ -85,7 +86,7 @@
         android:layout_height="wrap_content"
         android:text="/"
         android:textColor="@color/dark_green"
-        android:textSize="70sp"
+        android:textSize="75sp"
         app:layout_constraintBottom_toBottomOf="@+id/box"
         app:layout_constraintEnd_toEndOf="@+id/box"
         app:layout_constraintStart_toStartOf="@+id/box"
@@ -95,11 +96,12 @@
         android:id="@+id/secondNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:text="20"
+        android:layout_marginEnd="12dp"
+        android:text="10"
         android:textColor="@color/dark_green"
         android:textSize="70sp"
         app:layout_constraintBottom_toBottomOf="@+id/box"
+        app:layout_constraintEnd_toEndOf="@+id/box"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/box" />
 </androidx.constraintlayout.widget.ConstraintLayout>
