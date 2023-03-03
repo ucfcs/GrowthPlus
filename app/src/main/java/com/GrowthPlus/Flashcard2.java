@@ -255,8 +255,18 @@ public class Flashcard2 extends AppCompatActivity {
             if(counter >= MAX){
                 // Passing condition number of correct flashcards
                 setPointSystem(numberCorrect, minToPass);
-                Intent lessonIntent = new Intent(Flashcard2.this, RoadMapTwo.class); // TODO: Dynamically change location address
-                lessonIntent.putExtra("childIdentify", childId);
+                Intent lessonIntent = new Intent(Flashcard2.this, Results.class);
+                lessonIntent.putExtra("childId", childId);
+                lessonIntent.putExtra("whichOne", "Flash");
+                lessonIntent.putExtra("points", numberCorrect);
+                lessonIntent.putExtra("max", MAX);
+                lessonIntent.putExtra("whichRoadMap", "One");
+                if(numberCorrect >= minToPass){
+                    lessonIntent.putExtra("passOrNot", 1);
+                }
+                else{
+                    lessonIntent.putExtra("passOrNot", 0);
+                }
                 startActivity(lessonIntent);
                 this.finish();
 
