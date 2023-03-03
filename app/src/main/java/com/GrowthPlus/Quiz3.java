@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -249,6 +250,7 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir1.correct();
+                cir1.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -282,6 +284,7 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir2.correct();
+                cir2.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -315,6 +318,7 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir3.correct();
+                cir3.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -348,6 +352,7 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir4.correct();
+                cir4.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
