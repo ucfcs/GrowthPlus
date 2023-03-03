@@ -28,7 +28,7 @@ import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import io.realm.Realm;
 
 public class ChildScreen extends AppCompatActivity {
-
+    private final Integer MAX_LESSONS_RM = 10;
     private Button backParentPortal;
     private Button deleteChildButton;
     private ChildAvatarComponent childAvatar;
@@ -83,11 +83,32 @@ public class ChildScreen extends AppCompatActivity {
         ChildSchema child = childSchemaService.getChildSchemaById(childId);
         setChildMetaData(child);
 
-        // TODO: Progress is hardcoded for now, need to figure out the correct point system
-        setProgressBar(horizontalProgressBarOne, "1", progressBarOneColor, 50);
-        setProgressBar(horizontalProgressBarTwo, "2", progressBarTwoColor, 50);
-        setProgressBar(horizontalProgressBarThree, "3", progressBarThreeColor, 50);
-        setProgressBar(horizontalProgressBarFour, "4", progressBarFourColor, 50);
+        setProgressBar(
+                horizontalProgressBarOne,
+                "1",
+                progressBarOneColor,
+                        child.getRoadMapOne().getLessonsCompleted() == 9 ?
+                        child.getRoadMapOne().getLessonsCompleted() + 1 :
+                        child.getRoadMapOne().getLessonsCompleted()
+        );
+        setProgressBar(
+                horizontalProgressBarTwo,
+                "2",
+                progressBarTwoColor,
+                child.getRoadMapTwo().getLessonsCompleted()
+        );
+        setProgressBar(
+                horizontalProgressBarThree,
+                "3",
+                progressBarThreeColor,
+                child.getRoadMapThree().getLessonsCompleted()
+        );
+        setProgressBar(
+                horizontalProgressBarFour,
+                "4",
+                progressBarFourColor,
+                child.getRoadMapFour().getLessonsCompleted()
+        );
 
         backParentPortal.setOnClickListener(view -> {
             view.startAnimation(buttonClick);
@@ -149,6 +170,15 @@ public class ChildScreen extends AppCompatActivity {
         super.onDestroy();
     }
 
+    private Integer calculateLessonProgress(Integer lessonsCompleted){
+        Double percentage = (lessonsCompleted.doubleValue() / MAX_LESSONS_RM.doubleValue());
+        Log.i("percent", String.valueOf(percentage));
+        Double progress = percentage * 100;
+        Log.i("progress", String.valueOf(progress));
+
+        return progress.intValue();
+    }
+
     private void setProgressBar(HorizontalProgressBar temp,  CharSequence text, ColorStateList tint, Integer progress){
         temp.setBarLevelText(text);
         temp.setBarLevelColor(tint);
@@ -172,8 +202,7 @@ public class ChildScreen extends AppCompatActivity {
         String name = child.getName();
         String avatarName = child.getAvatarName();
 
-        //TODO: CHANGE CHILD SCHEMA
-        Integer score = 100;
+        Integer score = child.getScore();
         setChildAvatar(avatarName, color);
         setChildNameAndScore(name, score);
     }
@@ -212,7 +241,8 @@ public class ChildScreen extends AppCompatActivity {
         String langId = langPrefs.getString("languageId", "frenchZero");
         // Create language translator and set up the Lesson string
         Translator trans = new Translator(langId);
-        deleteText.setText(trans.getString("delete")+"?");
+        String text = trans.getString("delete")+"?";
+        deleteText.setText(text);
 
         //in the dialogue builder we have to set this view
         dialogueBuilder.setView(deleteChildPopupView);
@@ -227,6 +257,7 @@ public class ChildScreen extends AppCompatActivity {
         confirmChildDelete.setOnClickListener(view -> {
             realm.executeTransactionAsync(realm -> {
                 ChildSchema childDel = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                assert childDel != null;
                 childDel.deleteFromRealm();
             },()->{
                 Intent intent = new Intent(ChildScreen.this, ParentPortal.class);
@@ -235,18 +266,11 @@ public class ChildScreen extends AppCompatActivity {
                 startActivity(new Intent(ChildScreen.this, ParentPortal.class));
                 overridePendingTransition(0, 0);
                 this.finish();
-            }, error -> {
-                Log.i("Error", "Could not delete child from realm " + error);
-            });
+            }, error -> Log.i("Error", "Could not delete child from realm " + error));
             dialogue.dismiss();
         });
 
         //here the parent does not wish to delete the child so we simply dismiss our popUp
-        cancelChildDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogue.dismiss();
-            }
-        });
+        cancelChildDelete.setOnClickListener(v -> dialogue.dismiss());
     }
 }
