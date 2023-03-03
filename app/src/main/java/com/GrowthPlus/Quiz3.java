@@ -50,6 +50,7 @@ public class Quiz3 extends AppCompatActivity {
     private CustomTimerComponent customTimerComponent;
     ConstraintLayout quizBackground;
     ConstraintLayout topBarBackground;
+    //QuizText quizText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,11 +97,13 @@ public class Quiz3 extends AppCompatActivity {
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("text", word);
+                    bundle.putInt("textColor", Color.rgb(3,71,58));
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(R.id.frame_layout, QuizText.class, bundle);
                     transaction.commit();
+                    //quizText.setTextColor(Color.rgb(3, 71, 50));
                 }
                 break;
             }
@@ -165,6 +168,7 @@ public class Quiz3 extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("text", word);
+                            bundle.putInt("textColor", Color.rgb(3,71,58));
 
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
@@ -224,6 +228,7 @@ public class Quiz3 extends AppCompatActivity {
         childLessonsCompleted = child.getRoadMapThree().getLessonsCompleted();
         thisScore = child.getRoadMapThree().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
         minScoreToPass = 7;
+        //quizText = new QuizText();
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);

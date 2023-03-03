@@ -95,6 +95,7 @@ public class Quiz4 extends AppCompatActivity {
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("text", word);
+                    bundle.putInt("textColor", Color.rgb(232, 160, 78));
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
@@ -164,6 +165,7 @@ public class Quiz4 extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("text", word);
+                            bundle.putInt("textColor", Color.rgb(232, 160, 78));
 
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
