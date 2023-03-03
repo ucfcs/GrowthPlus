@@ -27,6 +27,7 @@ public class ChildSchema extends RealmObject {
     private Integer catCountTime;
     private Integer catCountShapes;
     private Integer catCountAngles;
+    private Integer catCountReview;
 
     public String getChildId() {
         return childId;
@@ -194,5 +195,13 @@ public class ChildSchema extends RealmObject {
 
     public void setCatCountAngles(Integer catCountAngles) {
         this.catCountAngles = catCountAngles;
+    }
+
+    public Integer getCatCountReview() {
+        return catCountReview;
+    }
+
+    public void setCatCountReview(Integer catCountReview) {
+        this.catCountReview = catCountReview;
     }
 }

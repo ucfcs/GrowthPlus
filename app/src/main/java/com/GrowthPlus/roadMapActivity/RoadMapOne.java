@@ -67,9 +67,12 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
         init(child);
 
-        // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
-        roadMapOneLessonTrail.unLockRoadMap();
-        setLessonTiles(child);
+        if(child.getRoadMapOne().getLocked()){
+            initState();
+        }else{
+            roadMapOneLessonTrail.unLockRoadMap();
+            setLessonTiles(child);
+        }
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap1item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -205,8 +208,14 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         }
 
         tile13.setOnClickListener(this);
+        tile13.setEnabled(false);
         if(game.getCompleted()){
             tile13.setCompletedState();
+            tile13.setEnabled(true);
+        }
+        if(game.getCurrent()){
+            roadMapOneLessonTrail.setSelectedState(tile13, child);
+            tile13.setEnabled(true);
         }
     }
 
@@ -334,5 +343,15 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
             IntentIntro.putExtra("whichRoadMap", "1");
             startActivity(IntentIntro);
         }
+    }
+
+    private void initState(){
+        roadMapOneLessonTrail.setAlpha(.7f);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (!realm.isClosed()) realm.close();
+        super.onDestroy();
     }
 }

@@ -40,4 +40,11 @@ public class JsonSampleData {
         roadMapImporter.importRoadMapFromJson();
 
     }
+
+    public void importChildData(){
+        // Child data
+        InputStream childInputStream = resources.openRawResource(R.raw.child);
+        ChildRealmImporter childRealmImporter = new ChildRealmImporter(realm, childInputStream);
+        childRealmImporter.importChildFromJson();
+    }
 }
