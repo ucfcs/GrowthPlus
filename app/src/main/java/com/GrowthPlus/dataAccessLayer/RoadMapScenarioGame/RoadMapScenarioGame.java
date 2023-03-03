@@ -10,6 +10,7 @@ public class RoadMapScenarioGame extends RealmObject {
     String image;
     Integer maxScore;
     Integer minScore;
+    Boolean isCurrent;
     Boolean isCompleted;
     String databaseScenarioGameId;
     Integer currentPoints;
@@ -23,6 +24,7 @@ public class RoadMapScenarioGame extends RealmObject {
             Integer maxScore,
             Integer minScore,
             Boolean isCompleted,
+            Boolean isCurrent,
             String databaseScenarioGameId,
             Integer currentPoints
     ) {
@@ -33,6 +35,7 @@ public class RoadMapScenarioGame extends RealmObject {
         this.isCompleted = isCompleted;
         this.databaseScenarioGameId = databaseScenarioGameId;
         this.currentPoints = currentPoints;
+        this.isCurrent = isCurrent;
     }
 
     public String getGameName() {
@@ -89,5 +92,13 @@ public class RoadMapScenarioGame extends RealmObject {
 
     public void setCurrentPoints(Integer currentPoints) {
         this.currentPoints = currentPoints;
+    }
+
+    public Boolean getCurrent() {
+        return isCurrent;
+    }
+
+    public void setCurrent(Boolean current) {
+        isCurrent = current;
     }
 }

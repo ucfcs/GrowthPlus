@@ -13,11 +13,15 @@ import android.widget.TextView;
 
 import com.GrowthPlus.customViews.Soccer;
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.roadMapActivity.RoadMapFour;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapThree;
+import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,7 +38,7 @@ public class Game3 extends AppCompatActivity {
     Button introBackBtn;
     String childId, databaseGameId;
     ScenarioGameSchema game;
-    int gameScore, counter, childScore;
+    int gameScore, counter, childScore, numberCorrect;
     RealmList<ScenarioGameContent> contents;
     ArrayList<Integer> forty = new ArrayList<>(40);
     Soccer ball1, ball2, ball3;
@@ -49,11 +53,7 @@ public class Game3 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
-            setCompletedState(gameScore, MIN_TO_PASS);
-            Intent lessonIntent = new Intent(Game3.this, RoadMapThree.class);
-            lessonIntent.putExtra("childIdentify", childId);
-            startActivity(lessonIntent);
-            this.finish();
+            setCompletedState(gameScore);
         });
         setTopBar();
         setContent();
@@ -75,6 +75,7 @@ public class Game3 extends AppCompatActivity {
         introBackBtn = gameTopBar.findViewById(R.id.goBackBtn);
         gameScore = child.getRoadMapThree().getScenarioGame().getCurrentPoints();
         counter = 0;
+        numberCorrect = 0;
         question = findViewById(R.id.gameQuestion);
         handler = new Handler();
         ball1 = findViewById(R.id.soccer1);
@@ -131,6 +132,7 @@ public class Game3 extends AppCompatActivity {
             deactivate();
 
             if(ball1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -155,6 +157,7 @@ public class Game3 extends AppCompatActivity {
             deactivate();
 
             if(ball2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -179,6 +182,7 @@ public class Game3 extends AppCompatActivity {
             deactivate();
 
             if(ball3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -208,10 +212,7 @@ public class Game3 extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
-                setCompletedState(gameScore, MIN_TO_PASS);
-                Intent intent = new Intent(Game3.this, RoadMapOne.class); // TODO: Dynamically change location address
-                intent.putExtra("childIdentify", childId);
-                startActivity(intent);
+                setCompletedState(gameScore);
             }
             else{
                 ball1.animate().translationX(0);
@@ -238,18 +239,49 @@ public class Game3 extends AppCompatActivity {
         });
     }
 
-    private void setCompletedState(int currentScore, int minToPass){
-        if(currentScore >= minToPass){
+    private void setCompletedState(int currentScore){
+        if(currentScore >= MIN_TO_PASS){
             realm.executeTransactionAsync(realm1 -> {
                 ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                 assert child != null;
                 if(!child.getRoadMapThree().getScenarioGame().getCompleted()){
                     child.getRoadMapThree().getScenarioGame().setCompleted(true);
+                    child.getRoadMapThree().getScenarioGame().setCurrent(false);
                 }
-                if(!child.getRoadMapFour().getLocked()){
-                    child.getRoadMapFour().setLocked(false);
+                if(child.getRoadMapFour().getLocked()){
+                    ChildRoadMap nextRoadMap = child.getRoadMapFour();
+                    nextRoadMap.setLocked(false);
+                    nextRoadMap.setCurrent(true);
+                    RealmList<RoadMapLesson> nextLessons = nextRoadMap.getRoadMapLessons();
+                    RoadMapLesson firstLesson = nextLessons.get(0);
+                    assert firstLesson != null;
+                    firstLesson.setCurrent(true);
+                    firstLesson.setCompleted(false);
                 }
             });
+            goToNextRoadMap();
+        }else {
+            stayCurrentRoadMap();
         }
+    }
+
+    private void goToNextRoadMap(){
+        Intent intent = new Intent(Game3.this, RoadMapFour.class);
+        intent.putExtra("childIdentify", childId);
+        startActivity(intent);
+        this.finish();
+    }
+
+    private void stayCurrentRoadMap(){
+        Intent intent = new Intent(Game3.this, RoadMapThree.class);
+        intent.putExtra("childIdentify", childId);
+        startActivity(intent);
+        this.finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (!realm.isClosed()) realm.close();
+        super.onDestroy();
     }
 }

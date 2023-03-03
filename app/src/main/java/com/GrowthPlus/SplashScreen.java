@@ -22,7 +22,6 @@ public class SplashScreen extends AppCompatActivity {
 
     private Realm realm;
     private Resources resources;
-
     private TextView appName;
 
     @Override
