@@ -264,9 +264,19 @@ public class Game extends AppCompatActivity {
             if(counter >= MAX){
                 background.stop();
                 setCompletedState(gameScore, MIN_TO_PASS);
-                Intent intent = new Intent(Game.this, RoadMapOne.class); // TODO: Dynamically change location address
-                intent.putExtra("childIdentify", childId);
-                startActivity(intent);
+                Intent lessonIntent = new Intent(Game.this, Results.class);
+                lessonIntent.putExtra("childId", childId);
+                lessonIntent.putExtra("whichOne", "Game");
+                lessonIntent.putExtra("points", gameScore);
+                lessonIntent.putExtra("max", MAX);
+                lessonIntent.putExtra("whichRoadMap", "One");
+                if(gameScore >= MIN_TO_PASS){
+                    lessonIntent.putExtra("passOrNot", 1);
+                }
+                else{
+                    lessonIntent.putExtra("passOrNot", 0);
+                }
+                startActivity(lessonIntent);
             }
             else{
                 fish1.setVisibility(View.VISIBLE);

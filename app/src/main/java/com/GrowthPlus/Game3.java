@@ -234,9 +234,19 @@ public class Game3 extends AppCompatActivity {
             if(counter >= MAX){
                 background.stop();
                 setCompletedState(gameScore, MIN_TO_PASS);
-                Intent intent = new Intent(Game3.this, RoadMapThree.class); // TODO: Dynamically change location address
-                intent.putExtra("childIdentify", childId);
-                startActivity(intent);
+                Intent lessonIntent = new Intent(Game3.this, Results.class);
+                lessonIntent.putExtra("childId", childId);
+                lessonIntent.putExtra("whichOne", "Game");
+                lessonIntent.putExtra("points", gameScore);
+                lessonIntent.putExtra("max", MAX);
+                lessonIntent.putExtra("whichRoadMap", "Three");
+                if(gameScore >= MIN_TO_PASS){
+                    lessonIntent.putExtra("passOrNot", 1);
+                }
+                else{
+                    lessonIntent.putExtra("passOrNot", 0);
+                }
+                startActivity(lessonIntent);
             }
             else{
                 ball1.animate().translationX(0);
