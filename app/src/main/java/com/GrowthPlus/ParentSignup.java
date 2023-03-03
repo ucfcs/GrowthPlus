@@ -63,7 +63,6 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         createText = findViewById(R.id.createPinText);
         confirmText = findViewById(R.id.confirmPinText);
         parentId = new ObjectId();
-        parentIdString = parentId.toString();
     }
 
     @Override
