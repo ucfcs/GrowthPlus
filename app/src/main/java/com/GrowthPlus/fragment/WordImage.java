@@ -42,9 +42,7 @@ public class WordImage extends Fragment {
         String name = requireArguments().getString("name");
         String getText = requireArguments().getString("locationIntroText");
         String getImage = requireArguments().getString("locationIntroImage");
-        int backgroundColorR = requireArguments().getInt("bgColorRed");
-        int backgroundColorG = requireArguments().getInt("bgColorGreen");
-        int backgroundColorB = requireArguments().getInt("bgColorBlue");
+        int backgroundColorRGB = requireArguments().getInt("bgColorRGB");
 
 
         //we want to determine which, if any, background we would like to make visible on screen
@@ -52,13 +50,13 @@ public class WordImage extends Fragment {
             //here we're at the last day of the level so we want to star to be visible
             gameBackground.setVisibility(View.VISIBLE);
             quizAndMiniGameBackground.setVisibility(View.INVISIBLE);
-            gameBackground.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(backgroundColorR, backgroundColorG, backgroundColorB)));
+            gameBackground.setBackgroundTintList(ColorStateList.valueOf(backgroundColorRGB));
         }
         else if(name.contains("Quiz")){
             //here we're at a quiz so we want to set the circle background to visible
             gameBackground.setVisibility(View.INVISIBLE);
             quizAndMiniGameBackground.setVisibility(View.VISIBLE);
-            quizAndMiniGameBackground.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(backgroundColorR, backgroundColorG, backgroundColorB)));
+            gameBackground.setBackgroundTintList(ColorStateList.valueOf(backgroundColorRGB));
         }
         else{
             //otherwise we are in a lesson and want no visible backgrounds

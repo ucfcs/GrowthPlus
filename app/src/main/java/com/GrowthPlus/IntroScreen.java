@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,7 +37,7 @@ public class IntroScreen extends AppCompatActivity {
     private int quizIndex;
     ConstraintLayout introScreenBackground;
     ConstraintLayout topBarBackground;
-    int bgColorRed, bgColorGreen, bgColorBlue;
+    int bgColorRGB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +69,8 @@ public class IntroScreen extends AppCompatActivity {
             bundle.putString("locationIntroText", name);
             bundle.putString("locationIntroImage", image);
 
-            //need to figure out what color
-            bundle.putInt("bgColorRed", bgColorRed);
-            bundle.putInt("bgColorGreen", bgColorGreen);
-            bundle.putInt("bgColorBlue", bgColorBlue);
+            //need to figure out what color to make the background shape
+            bundle.putInt("bgColorRGB", bgColorRGB);
 
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -216,33 +215,25 @@ public class IntroScreen extends AppCompatActivity {
             //then background is already the right color
 
             //set the rgb values of the background shape defined in WordImage
-            bgColorRed = 252;
-            bgColorGreen = 209;
-            bgColorBlue = 70;
+            bgColorRGB = Color.rgb(252,209,70);
         }
         else if(whichRoadMap.equals("2")){
             introScreenBackground.setBackgroundColor(Color.rgb(232, 160, 78));
 
             //set the rgb values of the background shape defined in WordImage
-            bgColorRed = 96;
-            bgColorGreen = 163;
-            bgColorBlue = 200;
+            bgColorRGB = Color.rgb(96,163,200);
         }
         else if(whichRoadMap.equals("3")){
             introScreenBackground.setBackgroundColor(Color.rgb(198, 192, 18));
 
             //set the rgb values of the background shape defined in WordImage
-            bgColorRed = 3;
-            bgColorGreen = 71;
-            bgColorBlue = 50;
+            bgColorRGB = Color.rgb(3,71,50);
         }
         else if(whichRoadMap.equals("4")){
             introScreenBackground.setBackgroundColor(Color.rgb(252, 209, 70));
 
             //set the rgb values of the background shape defined in WordImage
-            bgColorRed = 96;
-            bgColorGreen = 163;
-            bgColorBlue = 200;
+            bgColorRGB = Color.rgb(96,163,200);
         }
     }
 }
