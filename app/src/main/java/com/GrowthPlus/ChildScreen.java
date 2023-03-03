@@ -20,6 +20,7 @@ import com.GrowthPlus.customViews.ChildNameScoreComponent;
 import com.GrowthPlus.customViews.HorizontalProgressBar;
 import com.GrowthPlus.customViews.SubjectCompletionComponent;
 import com.GrowthPlus.dataAccessLayer.Language.Translator;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
@@ -83,31 +84,41 @@ public class ChildScreen extends AppCompatActivity {
         ChildSchema child = childSchemaService.getChildSchemaById(childId);
         setChildMetaData(child);
 
+        RoadMapLesson lastLesson = child.getRoadMapOne().getRoadMapLessons().last();
+        Integer lessonsCompleted = roadMapLessonProgress(lastLesson, child.getRoadMapOne().getLessonsCompleted());
+
         setProgressBar(
                 horizontalProgressBarOne,
                 "1",
                 progressBarOneColor,
-                        child.getRoadMapOne().getLessonsCompleted() == 9 ?
-                        child.getRoadMapOne().getLessonsCompleted() + 1 :
-                        child.getRoadMapOne().getLessonsCompleted()
+                lessonsCompleted
         );
+
+        lastLesson = child.getRoadMapTwo().getRoadMapLessons().last();
+        lessonsCompleted = roadMapLessonProgress(lastLesson, child.getRoadMapTwo().getLessonsCompleted());
         setProgressBar(
                 horizontalProgressBarTwo,
                 "2",
                 progressBarTwoColor,
-                child.getRoadMapTwo().getLessonsCompleted()
+                lessonsCompleted
         );
+
+        lastLesson = child.getRoadMapThree().getRoadMapLessons().last();
+        lessonsCompleted = roadMapLessonProgress(lastLesson, child.getRoadMapThree().getLessonsCompleted());
         setProgressBar(
                 horizontalProgressBarThree,
                 "3",
                 progressBarThreeColor,
-                child.getRoadMapThree().getLessonsCompleted()
+                lessonsCompleted
         );
+
+        lastLesson = child.getRoadMapFour().getRoadMapLessons().last();
+        lessonsCompleted = roadMapLessonProgress(lastLesson, child.getRoadMapFour().getLessonsCompleted());
         setProgressBar(
                 horizontalProgressBarFour,
                 "4",
                 progressBarFourColor,
-                child.getRoadMapFour().getLessonsCompleted()
+                lessonsCompleted
         );
 
         backParentPortal.setOnClickListener(view -> {
@@ -170,8 +181,10 @@ public class ChildScreen extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private Integer calculateLessonProgress(Integer lessonsCompleted){
-        Double percentage = (lessonsCompleted.doubleValue() / MAX_LESSONS_RM.doubleValue());
+    private Integer roadMapLessonProgress(RoadMapLesson lastLesson, Integer lessons){
+
+        int lessonsCompleted = lessons == 9 && lastLesson.getCompleted() ? lessons + 1 : lessons;
+        Double percentage = ((double) lessonsCompleted / MAX_LESSONS_RM.doubleValue());
         Log.i("percent", String.valueOf(percentage));
         Double progress = percentage * 100;
         Log.i("progress", String.valueOf(progress));
