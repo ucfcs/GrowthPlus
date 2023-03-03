@@ -353,11 +353,9 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     }
 
     private Integer calculateLessonProgress(Integer lessonsCompleted){
-        Double percentage = (lessonsCompleted.doubleValue() / TOTAL_LESSONS.doubleValue());
-        Log.i("percent", String.valueOf(percentage));
-        Double progress = percentage * 100;
-        Log.i("progress", String.valueOf(progress));
+        double percentage = (lessonsCompleted.doubleValue() / TOTAL_LESSONS.doubleValue());
+        double progress = percentage * 100;
 
-        return progress.intValue();
+        return (int) progress;
     }
 }

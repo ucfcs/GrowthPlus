@@ -29,7 +29,6 @@ import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import io.realm.Realm;
 
 public class ChildScreen extends AppCompatActivity {
-    private final Integer MAX_LESSONS_RM = 10;
     private Button backParentPortal;
     private Button deleteChildButton;
     private ChildAvatarComponent childAvatar;
@@ -63,7 +62,7 @@ public class ChildScreen extends AppCompatActivity {
 
     private Realm realm;
     private ChildSchemaService childSchemaService;
-    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     //this is for the delete child confirmation popup screen
     private AlertDialog.Builder dialogueBuilder;
@@ -121,15 +120,15 @@ public class ChildScreen extends AppCompatActivity {
                 lessonsCompleted
         );
 
+        setSubjectsCompletion(child);
+
         backParentPortal.setOnClickListener(view -> {
             view.startAnimation(buttonClick);
             startActivity(new Intent(ChildScreen.this, ParentPortal.class));
             this.finish();
         });
 
-        deleteChildButton.setOnClickListener(view -> {
-            createDeleteChildDialogue(child);
-        });
+        deleteChildButton.setOnClickListener(view -> createDeleteChildDialogue(child));
 
     }
 
@@ -137,8 +136,7 @@ public class ChildScreen extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String id = extras.getString("childIdParentPortal");
-            childId = id;
+            childId = extras.getString("childIdParentPortal");
         }
 
         childSchemaService = new ChildSchemaService(realm);
@@ -182,14 +180,12 @@ public class ChildScreen extends AppCompatActivity {
     }
 
     private Integer roadMapLessonProgress(RoadMapLesson lastLesson, Integer lessons){
-
         int lessonsCompleted = lessons == 9 && lastLesson.getCompleted() ? lessons + 1 : lessons;
-        Double percentage = ((double) lessonsCompleted / MAX_LESSONS_RM.doubleValue());
-        Log.i("percent", String.valueOf(percentage));
-        Double progress = percentage * 100;
-        Log.i("progress", String.valueOf(progress));
+        int MAX_LESSONS_RM = 10;
+        double percentage = ((double) lessonsCompleted / (double) MAX_LESSONS_RM);
+        double progress = percentage * 100;
 
-        return progress.intValue();
+        return (int) progress;
     }
 
     private void setProgressBar(HorizontalProgressBar temp,  CharSequence text, ColorStateList tint, Integer progress){
@@ -208,7 +204,6 @@ public class ChildScreen extends AppCompatActivity {
         childNameAndScore.setChildNameText(childName);
         childNameAndScore.setChildScoreText(String.valueOf(score));
     }
-
 
     private void setChildMetaData(ChildSchema child){
         ColorStateList color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(child.getColorName()));
@@ -266,7 +261,7 @@ public class ChildScreen extends AppCompatActivity {
 
         //this is the logic if the parent confirms that they want to delete the child
         //we grab the child using their unique ID, delete the child, and verify that the
-        //deletion was sucessful and eventually dismiss the popUp
+        //deletion was successful and eventually dismiss the popUp
         confirmChildDelete.setOnClickListener(view -> {
             realm.executeTransactionAsync(realm -> {
                 ChildSchema childDel = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
@@ -285,5 +280,68 @@ public class ChildScreen extends AppCompatActivity {
 
         //here the parent does not wish to delete the child so we simply dismiss our popUp
         cancelChildDelete.setOnClickListener(v -> dialogue.dismiss());
+    }
+
+    private void setSubjectsCompletion(ChildSchema child){
+        numbers.setSubjectCompletion(
+                "Numbers",
+                6,
+                child.getCatCountNumbers()
+        );
+        unit.setSubjectCompletion(
+                "Units",
+                2,
+                child.getCatCountUnits()
+        );
+        addition.setSubjectCompletion("Addition",
+                2,
+                child.getCatCountAddition()
+        );
+        subtraction.setSubjectCompletion(
+                "Subtraction",
+                2,
+                child.getCatCountSubtraction()
+        );
+        multiplication.setSubjectCompletion(
+                "Multiplication",
+                5,
+                child.getCatCountMultiplication()
+        );
+        division.setSubjectCompletion(
+                "Division",
+                5,
+                child.getCatCountDivision()
+        );
+        length.setSubjectCompletion(
+                "Length",
+                2,
+                child.getCatCountLength()
+        );
+        weight.setSubjectCompletion(
+                "Weight",
+                3,
+                child.getCatCountWeightVolume()
+        );
+        money.setSubjectCompletion(
+                "Money",
+                3,
+                child.getCatCountMoney()
+        );
+        time.setSubjectCompletion(
+                "Time",
+                3,
+                child.getCatCountTime()
+        );
+        shapes.setSubjectCompletion(
+                "Time",
+                1,
+                child.getCatCountTime()
+        );
+        angles.setSubjectCompletion(
+                "Angles",
+                2,
+                child.getCatCountAngles()
+        );
+
     }
 }
