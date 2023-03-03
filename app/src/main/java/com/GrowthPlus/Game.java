@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -44,6 +45,7 @@ public class Game extends AppCompatActivity {
     ObjectAnimator move1, move2, move3, move4, move5, move6, move7, move8;
     Random rand;
     Handler handler;
+    private MediaPlayer correct, incorrect, background;
 
     // Same scoring logic as quiz
     @Override
@@ -51,8 +53,10 @@ public class Game extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         init();
+        playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            background.stop();
             setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game.this, RoadMapOne.class);
             lessonIntent.putExtra("childIdentify", childId);
@@ -86,10 +90,26 @@ public class Game extends AppCompatActivity {
         question = findViewById(R.id.gameQuestion);
         rand = new Random();
         handler = new Handler();
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        background = MediaPlayer.create(this, R.raw.sea);
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
         Collections.shuffle(forty); // Randomize question selection
+    }
+
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
+    }
+
+    private void playBackground(){
+        background.start();
+        background.setLooping(true);
     }
 
     private void setTopBar(){
@@ -155,6 +175,7 @@ public class Game extends AppCompatActivity {
 
         fish1.setOnClickListener(v -> {
             if(fish1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -164,6 +185,8 @@ public class Game extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             resetAnimation();
             deactivate();
             showCorrect();
@@ -171,6 +194,7 @@ public class Game extends AppCompatActivity {
 
         fish2.setOnClickListener(v -> {
             if(fish2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -180,6 +204,8 @@ public class Game extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             resetAnimation();
             deactivate();
             showCorrect();
@@ -187,6 +213,7 @@ public class Game extends AppCompatActivity {
 
         fish3.setOnClickListener(v -> {
             if(fish3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -196,6 +223,8 @@ public class Game extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             resetAnimation();
             deactivate();
             showCorrect();
@@ -233,6 +262,7 @@ public class Game extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
+                background.stop();
                 setCompletedState(gameScore, MIN_TO_PASS);
                 Intent intent = new Intent(Game.this, RoadMapOne.class); // TODO: Dynamically change location address
                 intent.putExtra("childIdentify", childId);

@@ -9,6 +9,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -68,6 +69,7 @@ public class Flashcard3 extends AppCompatActivity {
     private int minScoreToPass;
     private int MAX_LESSON_SCORE;
     private int currentLessonScore;
+    private MediaPlayer correct, incorrect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -195,6 +197,7 @@ public class Flashcard3 extends AppCompatActivity {
                 flashcardContainer.setAnswerOpacity(1f); // Doesn't do anything, it's just so that there is no empty field.
             }else{
                 if(childAnswer.equals(flashcardAnswer)){
+                    playCorrect();
                     answerColor = correctAnswerColor;
                     numberCorrect ++ ;
                     if(currentLessonScore < MAX_LESSON_SCORE){
@@ -210,6 +213,7 @@ public class Flashcard3 extends AppCompatActivity {
                     }
                 }
                 else {
+                    playIncorrect();
                     answerColor = wrongAnswerColor;
                 }
 
@@ -389,6 +393,8 @@ public class Flashcard3 extends AppCompatActivity {
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         childLessonsCompleted = child.getRoadMapThree().getLessonsCompleted();
         currentLessonScore = child.getRoadMapThree().getRoadMapLessons().get(lessonIndex).getCurrentScore();
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
 
         if(lessonIndex == 9){
             MAX = 10;
@@ -401,6 +407,14 @@ public class Flashcard3 extends AppCompatActivity {
             minToPass = 4;
             minScoreToPass = 7;
         }
+    }
+
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
     }
 
     private void setTopBar(){

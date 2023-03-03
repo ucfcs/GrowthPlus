@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -40,14 +41,17 @@ public class Game4 extends AppCompatActivity {
     TextView question;
     Handler handler;
     ObjectAnimator animator1, animator2, animator3, animator4;
+    private MediaPlayer correct, incorrect, background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game4);
         init();
+        playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            background.stop();
             setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game4.this, RoadMapFour.class);
             lessonIntent.putExtra("childIdentify", childId);
@@ -79,10 +83,26 @@ public class Game4 extends AppCompatActivity {
         c1 = findViewById(R.id.coconut1);
         c2 = findViewById(R.id.coconut2);
         c3 = findViewById(R.id.coconut3);
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        background = MediaPlayer.create(this, R.raw.wind);
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
         Collections.shuffle(forty); // Randomize question selection
+    }
+
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
+    }
+
+    private void playBackground(){
+        background.start();
+        background.setLooping(true);
     }
 
     private void setTopBar(){
@@ -99,6 +119,7 @@ public class Game4 extends AppCompatActivity {
 
         c1.setOnClickListener(v -> {
             if(c1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -108,12 +129,15 @@ public class Game4 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             deactivate();
             showCorrect();
         });
 
         c2.setOnClickListener(v -> {
             if(c2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -123,12 +147,15 @@ public class Game4 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             deactivate();
             showCorrect();
         });
 
         c3.setOnClickListener(v -> {
             if(c3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -138,6 +165,8 @@ public class Game4 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             deactivate();
             showCorrect();
         });
@@ -174,6 +203,7 @@ public class Game4 extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
+                background.stop();
                 setCompletedState(gameScore, MIN_TO_PASS);
                 Intent intent = new Intent(Game4.this, RoadMapFour.class); // TODO: Dynamically change location address
                 intent.putExtra("childIdentify", childId);

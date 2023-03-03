@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,7 +16,6 @@ import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
-import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapThree;
 
 import java.util.ArrayList;
@@ -41,14 +40,17 @@ public class Game3 extends AppCompatActivity {
     TextView question;
     Handler handler;
     ObjectAnimator move1a, move1b, move2a, move2b, move3a, move3b, move4a, move4b, move5a, move5b, move6a, move6b;
+    private MediaPlayer correct, incorrect, background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game3);
         init();
+        playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            background.stop();
             setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game3.this, RoadMapThree.class);
             lessonIntent.putExtra("childIdentify", childId);
@@ -80,6 +82,9 @@ public class Game3 extends AppCompatActivity {
         ball1 = findViewById(R.id.soccer1);
         ball2 = findViewById(R.id.soccer2);
         ball3 = findViewById(R.id.soccer3);
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        background = MediaPlayer.create(this, R.raw.soccer);
 
         // Correct Animation
         move1a = ObjectAnimator.ofFloat(ball1, "translationX", 360f);
@@ -114,6 +119,19 @@ public class Game3 extends AppCompatActivity {
         Collections.shuffle(forty); // Randomize question selection
     }
 
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
+    }
+
+    private void playBackground(){
+        background.start();
+        background.setLooping(true);
+    }
+
     private void setTopBar(){
         gameTopBar.setPoints(String.valueOf(child.getScore()));
         gameTopBar.setToStar();
@@ -131,6 +149,7 @@ public class Game3 extends AppCompatActivity {
             deactivate();
 
             if(ball1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -143,6 +162,7 @@ public class Game3 extends AppCompatActivity {
                 move1b.start();
             }
             else{
+                playIncorrect();
                 move4a.start();
                 move4b.start();
             }
@@ -155,6 +175,7 @@ public class Game3 extends AppCompatActivity {
             deactivate();
 
             if(ball2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -167,6 +188,7 @@ public class Game3 extends AppCompatActivity {
                 move2b.start();
             }
             else{
+                playIncorrect();
                 move5a.start();
                 move5b.start();
             }
@@ -179,6 +201,7 @@ public class Game3 extends AppCompatActivity {
             deactivate();
 
             if(ball3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -191,6 +214,7 @@ public class Game3 extends AppCompatActivity {
                 move3b.start();
             }
             else{
+                playIncorrect();
                 move6a.start();
                 move6b.start();
             }
@@ -208,8 +232,9 @@ public class Game3 extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
+                background.stop();
                 setCompletedState(gameScore, MIN_TO_PASS);
-                Intent intent = new Intent(Game3.this, RoadMapOne.class); // TODO: Dynamically change location address
+                Intent intent = new Intent(Game3.this, RoadMapThree.class); // TODO: Dynamically change location address
                 intent.putExtra("childIdentify", childId);
                 startActivity(intent);
             }

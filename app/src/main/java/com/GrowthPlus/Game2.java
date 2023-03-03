@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.Button;
@@ -17,7 +17,6 @@ import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
-import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import java.util.ArrayList;
@@ -42,14 +41,17 @@ public class Game2 extends AppCompatActivity {
     TextView question;
     Handler handler;
     ObjectAnimator animator1, animator2, animator3;
+    private MediaPlayer correct, incorrect, background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
         init();
+        playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            background.stop();
             setCompletedState(gameScore, MIN_TO_PASS);
             Intent lessonIntent = new Intent(Game2.this, RoadMapTwo.class);
             lessonIntent.putExtra("childIdentify", childId);
@@ -82,10 +84,26 @@ public class Game2 extends AppCompatActivity {
         b2 = findViewById(R.id.banana2);
         b3 = findViewById(R.id.banana3);
         correctB = findViewById(R.id.correctBanana);
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        background = MediaPlayer.create(this, R.raw.market);
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
         Collections.shuffle(forty); // Randomize question selection
+    }
+
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
+    }
+
+    private void playBackground(){
+        background.start();
+        background.setLooping(true);
     }
 
     private void setTopBar(){
@@ -105,6 +123,7 @@ public class Game2 extends AppCompatActivity {
 
         b1.setOnClickListener(v -> {
             if(b1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -114,12 +133,15 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             deactivate();
             showCorrect();
         });
 
         b2.setOnClickListener(v -> {
             if(b2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -129,12 +151,15 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             deactivate();
             showCorrect();
         });
 
         b3.setOnClickListener(v -> {
             if(b3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -144,6 +169,8 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else
+                playIncorrect();
             deactivate();
             showCorrect();
         });
@@ -166,8 +193,9 @@ public class Game2 extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
+                background.stop();
                 setCompletedState(gameScore, MIN_TO_PASS);
-                Intent intent = new Intent(Game2.this, RoadMapOne.class); // TODO: Dynamically change location address
+                Intent intent = new Intent(Game2.this, RoadMapTwo.class); // TODO: Dynamically change location address
                 intent.putExtra("childIdentify", childId);
                 startActivity(intent);
             }
