@@ -15,9 +15,6 @@ public class LessonContent extends RealmObject {
     private String imgOne;
     private String imgTwo;
     private String imgThree;
-    private String imgFour;
-    private String imgFive;
-
     private String category;
 
     public String getLessonContentId() { return lessonContentId; }
@@ -59,14 +56,6 @@ public class LessonContent extends RealmObject {
     public String getImgThree() { return imgThree; }
 
     public void setImgThree(String imgThree) { this.imgThree = imgThree; }
-
-    public String getImgFour() { return imgFour; }
-
-    public void setImgFour(String imgFour) { this.imgFour = imgFour; }
-
-    public String getImgFive() { return imgFive; }
-
-    public void setImgFive(String imgFive) { this.imgFive = imgFive; }
 
     public String getCategory() {
         return category;
