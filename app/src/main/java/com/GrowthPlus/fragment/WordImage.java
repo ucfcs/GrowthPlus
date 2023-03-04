@@ -56,7 +56,7 @@ public class WordImage extends Fragment {
             //here we're at a quiz so we want to set the circle background to visible
             gameBackground.setVisibility(View.INVISIBLE);
             quizAndMiniGameBackground.setVisibility(View.VISIBLE);
-            gameBackground.setBackgroundTintList(ColorStateList.valueOf(backgroundColorRGB));
+            quizAndMiniGameBackground.setBackgroundTintList(ColorStateList.valueOf(backgroundColorRGB));
         }
         else{
             //otherwise we are in a lesson and want no visible backgrounds
