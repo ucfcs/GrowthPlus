@@ -249,6 +249,9 @@ public class Game3 extends AppCompatActivity {
                 startActivity(lessonIntent);
             }
             else{
+                ball1.clearAnimation();
+                ball2.clearAnimation();
+                ball3.clearAnimation();
                 ball1.animate().translationX(0);
                 ball1.animate().translationY(0);
                 ball2.animate().translationX(0);

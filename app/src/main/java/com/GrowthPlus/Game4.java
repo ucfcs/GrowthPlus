@@ -208,6 +208,9 @@ public class Game4 extends AppCompatActivity {
                 startActivity(lessonIntent);
             }
             else{
+                c1.clearAnimation();
+                c2.clearAnimation();
+                c3.clearAnimation();
                 c1.animate().translationX(0);
                 c1.animate().translationY(0);
                 c2.animate().translationX(0);

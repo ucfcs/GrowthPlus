@@ -219,12 +219,12 @@ public class Game2 extends AppCompatActivity {
                 startActivity(lessonIntent);
             }
             else{
+                b1.clearAnimation();
+                b2.clearAnimation();
+                b3.clearAnimation();
                 b1.animate().translationX(0);
-                b1.animate().translationY(0);
                 b2.animate().translationX(0);
-                b2.animate().translationY(0);
                 b3.animate().translationX(0);
-                b3.animate().translationY(0);
                 b1.setVisibility(View.VISIBLE);
                 b2.setVisibility(View.VISIBLE);
                 b3.setVisibility(View.VISIBLE);
