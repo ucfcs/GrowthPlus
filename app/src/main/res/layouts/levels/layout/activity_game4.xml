@@ -24,42 +24,40 @@
         android:textSize="65sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.55"
-        app:layout_constraintVertical_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBar" />
+        app:layout_constraintTop_toBottomOf="@+id/topBar"
+        app:layout_constraintVertical_bias="0.9" />
 
     <com.GrowthPlus.customViews.Coconut
         android:id="@+id/coconut1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="15dp"
-        android:rotation="12"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="120dp"
+        android:rotation="20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
     <com.GrowthPlus.customViews.Coconut
         android:id="@+id/coconut2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="85dp"
-        android:scaleX="1.1"
-        android:scaleY="1.1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/coconut3"
-        app:layout_constraintStart_toEndOf="@+id/coconut1" />
+        android:layout_marginTop="170dp"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
 
     <com.GrowthPlus.customViews.Coconut
         android:id="@+id/coconut3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="40dp"
-        android:rotation="-12"
-        android:scaleX="0.9"
-        android:scaleY="0.9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="40dp"
+        android:rotation="-20"
+        android:scaleX="1.05"
+        android:scaleY="1.05"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
