@@ -7,15 +7,13 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.GrowthPlus.customViews.Fish;
+import com.GrowthPlus.customViews.FishMirror;
 import com.GrowthPlus.customViews.TopBar;
-import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
-import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
@@ -37,10 +35,11 @@ public class Game extends AppCompatActivity {
     Button introBackBtn;
     String childId, databaseGameId;
     ScenarioGameSchema game;
-    int gameScore, counter, childScore;
+    int gameScore, counter, childScore, selectedAnswer;
     RealmList<ScenarioGameContent> contents;
     ArrayList<Integer> forty = new ArrayList<>(40);
-    Fish fish1, fish2, fish3, correctFish;
+    Fish fish1, fish3, correctFish;
+    FishMirror fish2;
     TextView question;
     ObjectAnimator move1, move2, move3, move4, move5, move6, move7, move8;
     Random rand;
@@ -118,6 +117,7 @@ public class Game extends AppCompatActivity {
     }
 
     private void setContent(){
+        selectedAnswer = 0;
         correctFish.setVisibility(View.INVISIBLE);
         correctFish.setNumber(contents.get(forty.get(counter)).getAnswer());
         question.setText(contents.get(forty.get(counter)).getQuestion());
@@ -126,10 +126,10 @@ public class Game extends AppCompatActivity {
         fish3.setNumber(contents.get(forty.get(counter)).getOptionThree());
 
         // Fish 1
-        move1 = ObjectAnimator.ofFloat(fish1, "translationX", 500f);
-        move1.setDuration(20000);
-        move6 = ObjectAnimator.ofFloat(fish1, "translationY", 150f);
-        move6.setDuration(20000);
+        move1 = ObjectAnimator.ofFloat(fish1, "translationX", 1250f);
+        move1.setDuration(8000);
+        move6 = ObjectAnimator.ofFloat(fish1, "translationY", -150f);
+        move6.setDuration(8000);
 
         if(rand.nextInt(2) == 0){
             move1.start();
@@ -140,12 +140,12 @@ public class Game extends AppCompatActivity {
         }
 
         // Fish 2
-        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -250f);
+        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -1250f);
         move3 = ObjectAnimator.ofFloat(fish2, "translationY", -100f);
-        move2.setDuration(15000);
-        move3.setDuration(15000);
+        move2.setDuration(8000);
+        move3.setDuration(8000);
         move7 = ObjectAnimator.ofFloat(fish2, "translationY", 100f);
-        move7.setDuration(15000);
+        move7.setDuration(8000);
 
         if(rand.nextInt(2) == 0){
             move2.start();
@@ -157,11 +157,11 @@ public class Game extends AppCompatActivity {
         }
 
         // Fish 3
-        move4 = ObjectAnimator.ofFloat(fish3, "translationX", 400f);
-        move5 = ObjectAnimator.ofFloat(fish3, "translationY", 250f);
+        move4 = ObjectAnimator.ofFloat(fish3, "translationX", 1250f);
+        move5 = ObjectAnimator.ofFloat(fish3, "translationY", 300f);
         move4.setDuration(8000);
         move5.setDuration(8000);
-        move8 = ObjectAnimator.ofFloat(fish3, "translationY", -10f);
+        move8 = ObjectAnimator.ofFloat(fish3, "translationY", 100f);
         move8.setDuration(8000);
 
         if(rand.nextInt(2) == 0){
@@ -174,8 +174,10 @@ public class Game extends AppCompatActivity {
         }
 
         fish1.setOnClickListener(v -> {
+            selectedAnswer = 1;
             if(fish1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 playCorrect();
+                showCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -187,14 +189,14 @@ public class Game extends AppCompatActivity {
             }
             else
                 playIncorrect();
-            resetAnimation();
-            deactivate();
-            showCorrect();
+            showNext();
         });
 
         fish2.setOnClickListener(v -> {
+            selectedAnswer = 1;
             if(fish2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 playCorrect();
+                showCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -206,14 +208,14 @@ public class Game extends AppCompatActivity {
             }
             else
                 playIncorrect();
-            resetAnimation();
-            deactivate();
-            showCorrect();
+            showNext();
         });
 
         fish3.setOnClickListener(v -> {
+            selectedAnswer = 1;
             if(fish3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 playCorrect();
+                showCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -225,31 +227,24 @@ public class Game extends AppCompatActivity {
             }
             else
                 playIncorrect();
-            resetAnimation();
-            deactivate();
-            showCorrect();
+            showNext();
         });
-    }
 
-    private void deactivate(){
-        fish1.setOnClickListener(null);
-        fish2.setOnClickListener(null);
-        fish3.setOnClickListener(null);
+        handler.postDelayed(() -> {
+            if(selectedAnswer == 0){
+                showNext();
+            }
+        }, 8000);
     }
 
     private void resetAnimation(){
-        move1.end();
-        move6.end();
-        move7.end();
+        fish1.clearAnimation();
+        fish2.clearAnimation();
+        fish3.clearAnimation();
         fish1.animate().translationX(0);
         fish1.animate().translationY(0);
-        move2.end();
-        move3.end();
         fish2.animate().translationX(0);
         fish2.animate().translationY(0);
-        move4.end();
-        move5.end();
-        move8.end();
         fish3.animate().translationX(0);
         fish3.animate().translationY(0);
     }
@@ -259,6 +254,13 @@ public class Game extends AppCompatActivity {
         fish1.setVisibility(View.INVISIBLE);
         fish2.setVisibility(View.INVISIBLE);
         fish3.setVisibility(View.INVISIBLE);
+    }
+
+    private void showNext(){
+        fish1.setVisibility(View.INVISIBLE);
+        fish2.setVisibility(View.INVISIBLE);
+        fish3.setVisibility(View.INVISIBLE);
+
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
@@ -283,9 +285,10 @@ public class Game extends AppCompatActivity {
                 fish2.setVisibility(View.VISIBLE);
                 fish3.setVisibility(View.VISIBLE);
                 correctFish.setVisibility(View.INVISIBLE);
+                resetAnimation();
                 setContent();
             }
-        }, 2500);
+        }, 2000);
     }
 
     private void setChildAndGameScoreInRealm(int childScore, int gameScore){

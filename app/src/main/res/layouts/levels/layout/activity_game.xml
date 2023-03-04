@@ -39,33 +39,33 @@
         android:id="@+id/fish1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="-10dp"
         android:layout_marginTop="-45dp"
         android:rotation="-5"
-        android:scaleX="1.3"
-        android:scaleY="1.3"
+        android:scaleX="1.1"
+        android:scaleY="1.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideTop" />
 
-    <com.GrowthPlus.customViews.Fish
+    <com.GrowthPlus.customViews.FishMirror
         android:id="@+id/fish2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="150dp"
-        android:rotation="-25"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideTop" />
+        android:layout_marginEnd="-10dp"
+        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintTop_toTopOf="@id/guide_middle"
+        app:layout_constraintBottom_toTopOf="@id/guideBottom"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.GrowthPlus.customViews.Fish
         android:id="@+id/fish3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginStart="-10dp"
         android:rotation="20"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
+        android:scaleX="1.25"
+        android:scaleY="1.25"
         app:layout_constraintBottom_toTopOf="@id/guideBottom"
         app:layout_constraintStart_toStartOf="parent" />
 

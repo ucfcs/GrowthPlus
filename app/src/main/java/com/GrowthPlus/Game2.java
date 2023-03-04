@@ -124,6 +124,7 @@ public class Game2 extends AppCompatActivity {
         b1.setOnClickListener(v -> {
             if(b1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 playCorrect();
+                showCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -133,15 +134,18 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
-            else
+            else {
                 playIncorrect();
+                wrongAnimation(b1, b2, b3);
+            }
             deactivate();
-            showCorrect();
+            showNext();
         });
 
         b2.setOnClickListener(v -> {
             if(b2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 playCorrect();
+                showCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -151,15 +155,18 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
-            else
+            else {
                 playIncorrect();
+                wrongAnimation(b1, b2, b3);
+            }
             deactivate();
-            showCorrect();
+            showNext();
         });
 
         b3.setOnClickListener(v -> {
             if(b3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 playCorrect();
+                showCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -169,10 +176,12 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
-            else
+            else {
                 playIncorrect();
+                wrongAnimation(b1, b2, b3);
+            }
             deactivate();
-            showCorrect();
+            showNext();
         });
     }
 
@@ -183,13 +192,13 @@ public class Game2 extends AppCompatActivity {
     }
 
     private void showCorrect(){
-        animator1.end();
-        animator2.end();
-        animator3.end();
         correctB.setVisibility(View.VISIBLE);
         b1.setVisibility(View.INVISIBLE);
         b2.setVisibility(View.INVISIBLE);
         b3.setVisibility(View.INVISIBLE);
+    }
+
+    private void showNext(){
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
@@ -210,6 +219,12 @@ public class Game2 extends AppCompatActivity {
                 startActivity(lessonIntent);
             }
             else{
+                b1.animate().translationX(0);
+                b1.animate().translationY(0);
+                b2.animate().translationX(0);
+                b2.animate().translationY(0);
+                b3.animate().translationX(0);
+                b3.animate().translationY(0);
                 b1.setVisibility(View.VISIBLE);
                 b2.setVisibility(View.VISIBLE);
                 b3.setVisibility(View.VISIBLE);
@@ -217,6 +232,18 @@ public class Game2 extends AppCompatActivity {
                 setContent();
             }
         }, 2500);
+    }
+
+    private void wrongAnimation(View target1, View target2, View target3){
+        animator1 = ObjectAnimator.ofFloat(target1, "translationX", 2000f);
+        animator2 = ObjectAnimator.ofFloat(target2, "translationX", 1000f);
+        animator3 = ObjectAnimator.ofFloat(target3, "translationX", 2000f);
+        animator1.setDuration(1500);
+        animator2.setDuration(1500);
+        animator3.setDuration(1500);
+        animator1.start();
+        animator2.start();
+        animator3.start();
     }
 
     private void bounceAnimation(View target1, View target2,  View target3){
