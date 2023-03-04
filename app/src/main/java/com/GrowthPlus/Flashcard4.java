@@ -1,6 +1,7 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -10,6 +11,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -71,6 +73,8 @@ public class Flashcard4 extends AppCompatActivity {
     private int minScoreToPass;
     private int MAX_LESSON_SCORE;
     private int currentLessonScore;
+    ConstraintLayout flashcardBackground;
+    ConstraintLayout topBarBackground;
     private boolean isCompleted;
     private String lessonCategory;
     private RealmChangeListener<ChildSchema> realmListener;
@@ -94,6 +98,7 @@ public class Flashcard4 extends AppCompatActivity {
             }
         });
         setTopBar();
+        setFlashcardBackgroundColor();
 
         // Create instance of shared preferences and save current language id
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
@@ -138,6 +143,7 @@ public class Flashcard4 extends AppCompatActivity {
                     bundle.putString("firstNumber", firstNumber);
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
+                    bundle.putInt("textColor", Color.rgb(232, 160, 78));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -158,6 +164,7 @@ public class Flashcard4 extends AppCompatActivity {
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
                     bundle.putString("carryInput", secondOperator);
+                    bundle.putInt("textColor", Color.rgb(232, 160, 78));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
@@ -186,6 +193,7 @@ public class Flashcard4 extends AppCompatActivity {
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
                     bundle.putString("secondOperator", secondOperator);
+                    bundle.putInt("textColor", Color.rgb(232, 160, 78));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
@@ -249,6 +257,7 @@ public class Flashcard4 extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("answer", flashcardAnswer);
+                            bundle.putInt("answerTextColor", Color.rgb(232, 160, 78));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
@@ -327,6 +336,7 @@ public class Flashcard4 extends AppCompatActivity {
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("answer", flashcardAnswer);
                             bundle.putBoolean("isAnimationDone", false);
+                            bundle.putInt("textColor", Color.rgb(232, 160, 78));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -347,6 +357,7 @@ public class Flashcard4 extends AppCompatActivity {
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("carryInput", secondOperator);
+                            bundle.putInt("textColor", Color.rgb(232, 160, 78));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
@@ -375,6 +386,7 @@ public class Flashcard4 extends AppCompatActivity {
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("secondOperator", secondOperator);
+                            bundle.putInt("textColor", Color.rgb(232, 160, 78));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
@@ -405,6 +417,8 @@ public class Flashcard4 extends AppCompatActivity {
             lessonIndex = extras.getInt("lessonIndex");
         }
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
+        flashcardBackground = findViewById(R.id.flashcardLayout);
+        topBarBackground = findViewById(R.id.topBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         assert child != null;
         currentChildScore = child.getScore();
@@ -417,7 +431,7 @@ public class Flashcard4 extends AppCompatActivity {
         nextFlashcard = findViewById(R.id.next_button_flashcard);
         flashcardBackBtn = flashcardTopBar.findViewById(R.id.goBackBtn);
         fragmentManager = getSupportFragmentManager();
-        correctAnswerColor = ContextCompat.getColorStateList(this, R.color.light_green);
+        correctAnswerColor = ContextCompat.getColorStateList(this, R.color.dark_green);
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         childLessonsCompleted = child.getRoadMapFour().getLessonsCompleted();
@@ -442,6 +456,14 @@ public class Flashcard4 extends AppCompatActivity {
     private void setTopBar(){
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
+        topBarBackground.setBackgroundColor(Color.rgb(232, 160, 78));
+        flashcardTopBar.setShapeColor(Color.rgb(96, 163, 200));
+        flashcardTopBar.setPointIconBackground(Color.rgb( 232, 160, 78));
+        flashcardTopBar.setPointsTextColor(Color.rgb(96, 163, 200));
+    }
+
+    public void setFlashcardBackgroundColor(){
+        flashcardBackground.setBackgroundColor(Color.rgb(252, 209, 70));
     }
 
     private void setLessonState() {

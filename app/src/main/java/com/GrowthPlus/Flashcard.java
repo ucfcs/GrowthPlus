@@ -9,6 +9,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -132,6 +133,7 @@ public class Flashcard extends AppCompatActivity {
                     bundle.putString("firstNumber", firstNumber);
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
+                    bundle.putInt("textColor", Color.rgb(198, 192, 18));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -152,6 +154,7 @@ public class Flashcard extends AppCompatActivity {
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
                     bundle.putString("carryInput", secondOperator);
+                    bundle.putInt("textColor", Color.rgb(198, 192, 18));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
@@ -215,6 +218,7 @@ public class Flashcard extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("answer", flashcardAnswer);
+                            bundle.putInt("answerTextColor", Color.rgb(96, 163, 200));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
@@ -293,6 +297,7 @@ public class Flashcard extends AppCompatActivity {
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("answer", flashcardAnswer);
                             bundle.putBoolean("isAnimationDone", false);
+                            bundle.putInt("textColor", Color.rgb(198, 192, 18));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -313,6 +318,7 @@ public class Flashcard extends AppCompatActivity {
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("carryInput", secondOperator);
+                            bundle.putInt("textColor", Color.rgb(198, 192, 18));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
@@ -380,6 +386,7 @@ public class Flashcard extends AppCompatActivity {
     private void setTopBar() {
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
+        flashcardTopBar.setShapeColor(Color.rgb(252, 209, 70));
     }
 
     private void setLessonState() {

@@ -1,11 +1,14 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -32,6 +35,9 @@ public class IntroScreen extends AppCompatActivity {
     private QuizSchema quizContent;
     private ScenarioGameSchema gameContent;
     private int quizIndex;
+    ConstraintLayout introScreenBackground;
+    ConstraintLayout topBarBackground;
+    int bgColorRGB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,7 @@ public class IntroScreen extends AppCompatActivity {
         setContentView(R.layout.activity_intro_screen);
         init();
         setTopBar();
+        setIntroScreenBackground();
 
         Log.i("quizIndex", String.valueOf(quizIndex));
 
@@ -61,6 +68,10 @@ public class IntroScreen extends AppCompatActivity {
             bundle.putString("name", whichOne);
             bundle.putString("locationIntroText", name);
             bundle.putString("locationIntroImage", image);
+
+            //need to figure out what color to make the background shape
+            bundle.putInt("bgColorRGB", bgColorRGB);
+
 
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.setReorderingAllowed(true);
@@ -143,6 +154,8 @@ public class IntroScreen extends AppCompatActivity {
         topBar = findViewById(R.id.topBarIntroScreen);
         back = topBar.findViewById(R.id.goBackBtn);
         next = findViewById(R.id.next_button_intro);
+        introScreenBackground = findViewById(R.id.introScreen);
+        topBarBackground = findViewById(R.id.topBar);
 
         // Quiz or Game database
         if(whichOne.equals("Quiz")){
@@ -160,13 +173,67 @@ public class IntroScreen extends AppCompatActivity {
         }
     }
 
-    private void setTopBar(){
+    private void setTopBarShape(){
         topBar.setPoints(String.valueOf(child.getScore()));
         if(whichOne.equals("Quiz")){
             topBar.setToCircle();
         }
         else if(whichOne.equals("Game")){
             topBar.setToStar();
+        }
+    }
+
+    private void setTopBar() {
+        setTopBarShape();
+        if(whichRoadMap.equals("1")){
+            //then the background is already the right color
+            topBar.setShapeColor(Color.rgb(252, 209, 70));
+
+        }
+        else if(whichRoadMap.equals("2")){
+            topBarBackground.setBackgroundColor(Color.rgb(252,209,70));
+            topBar.setShapeColor(Color.rgb(96, 163, 200));
+            topBar.setPointIconBackground(Color.rgb(252, 209, 70));
+            topBar.setPointsTextColor(Color.rgb(96, 163, 200));
+        }
+        else if(whichRoadMap.equals("3")){
+            topBarBackground.setBackgroundColor(Color.rgb(252,209,70));
+            topBar.setShapeColor(Color.rgb(3, 71, 50));
+            topBar.setPointIconBackground(Color.rgb(252, 209, 70));
+            topBar.setPointsTextColor(Color.rgb(3, 71, 50));
+        }
+        else if(whichRoadMap.equals("4")){
+            topBarBackground.setBackgroundColor(Color.rgb(232,160,78));
+            topBar.setShapeColor(Color.rgb(96, 163, 200));
+            topBar.setPointIconBackground(Color.rgb( 232, 160, 78));
+            topBar.setPointsTextColor(Color.rgb(96, 163, 200));
+        }
+    }
+
+    public void setIntroScreenBackground(){
+        if(whichRoadMap.equals("1")){
+            //then background is already the right color
+
+            //set the rgb values of the background shape defined in WordImage
+            bgColorRGB = Color.rgb(252,209,70);
+        }
+        else if(whichRoadMap.equals("2")){
+            introScreenBackground.setBackgroundColor(Color.rgb(232, 160, 78));
+
+            //set the rgb values of the background shape defined in WordImage
+            bgColorRGB = Color.rgb(96,163,200);
+        }
+        else if(whichRoadMap.equals("3")){
+            introScreenBackground.setBackgroundColor(Color.rgb(198, 192, 18));
+
+            //set the rgb values of the background shape defined in WordImage
+            bgColorRGB = Color.rgb(3,71,50);
+        }
+        else if(whichRoadMap.equals("4")){
+            introScreenBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+
+            //set the rgb values of the background shape defined in WordImage
+            bgColorRGB = Color.rgb(96,163,200);
         }
     }
 }

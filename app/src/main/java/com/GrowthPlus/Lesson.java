@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -274,7 +275,7 @@ public class Lesson extends AppCompatActivity {
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         contents = lesson.getContents();
-        topBar = findViewById(R.id.topBar);
+        topBar = findViewById(R.id.lessonTopBar);
         introBackBtn = topBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button_lesson);
         lessonName = lesson.getLessonName();
@@ -284,5 +285,6 @@ public class Lesson extends AppCompatActivity {
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToTriangle();
+        topBar.setShapeColor(Color.rgb(252, 209, 70));
     }
 }

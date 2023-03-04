@@ -42,6 +42,7 @@ public class CustomImageOperator extends Fragment {
         int firstNumber = Integer.parseInt(requireArguments().getString("firstNumber"));
         String firstOperator = requireArguments().getString("firstOperator");
         int secondNumber = Integer.parseInt(requireArguments().getString("secondNumber"));
+        int textColor = requireArguments().getInt("textColor");
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
         // Adjust grid rows and columns based on num of images
@@ -75,6 +76,8 @@ public class CustomImageOperator extends Fragment {
         }
         // Setting operator
         operator.setText(firstOperator);
+        operator.setTextColor(textColor);
+
 
         // Setting bottom grid
         for(int i=0; i<secondNumber; i++){

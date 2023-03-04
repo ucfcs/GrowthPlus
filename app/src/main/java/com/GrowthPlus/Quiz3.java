@@ -1,11 +1,14 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -43,9 +46,10 @@ public class Quiz3 extends AppCompatActivity {
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
-
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
+    ConstraintLayout quizBackground;
+    ConstraintLayout topBarBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,7 @@ public class Quiz3 extends AppCompatActivity {
             this.finish();
         });
         setTopBar();
+        setQuizColor();
         setTimer();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -91,6 +96,7 @@ public class Quiz3 extends AppCompatActivity {
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("text", word);
+                    bundle.putInt("textColor", Color.rgb(3,71,58));
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
@@ -160,6 +166,7 @@ public class Quiz3 extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("text", word);
+                            bundle.putInt("textColor", Color.rgb(3,71,58));
 
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
@@ -213,6 +220,8 @@ public class Quiz3 extends AppCompatActivity {
         quizTopBar = findViewById(R.id.quizTopBar);
         introBackBtn = quizTopBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button);
+        quizBackground = findViewById(R.id.quiz);
+        topBarBackground = findViewById(R.id.topBar);
         childScore = child.getScore();
         childLessonsCompleted = child.getRoadMapThree().getLessonsCompleted();
         thisScore = child.getRoadMapThree().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
@@ -227,6 +236,14 @@ public class Quiz3 extends AppCompatActivity {
     private void setTopBar(){
         quizTopBar.setPoints(String.valueOf(child.getScore()));
         quizTopBar.setToCircle();
+        topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+        quizTopBar.setShapeColor(Color.rgb(3, 71, 50));
+        quizTopBar.setPointIconBackground(Color.rgb(252, 209, 70));
+        quizTopBar.setPointsTextColor(Color.rgb(3, 71, 50));
+    }
+
+    public void setQuizColor(){
+        quizBackground.setBackgroundColor(Color.rgb(198, 192, 18));
     }
 
     private void setAnswers(){
@@ -235,7 +252,7 @@ public class Quiz3 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
-                cir1.correct();
+                cir1.correctQuiz3();
                 numberCorrect++;
                 if(thisScore < MAX){
                     thisScore++;
@@ -251,13 +268,13 @@ public class Quiz3 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -269,7 +286,8 @@ public class Quiz3 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
-                cir2.correct();
+                cir2.correctQuiz3();
+                //cir2.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 numberCorrect++;
                 if(thisScore < MAX){
                     thisScore++;
@@ -285,13 +303,13 @@ public class Quiz3 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -303,7 +321,8 @@ public class Quiz3 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
-                cir3.correct();
+                cir3.correctQuiz3();
+                //cir3.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 numberCorrect++;
                 if(thisScore < MAX){
                     thisScore++;
@@ -319,13 +338,13 @@ public class Quiz3 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -337,7 +356,8 @@ public class Quiz3 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
-                cir4.correct();
+                cir4.correctQuiz3();
+                //cir4.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
                 numberCorrect++;
                 if(thisScore < MAX){
                     thisScore++;
@@ -353,13 +373,13 @@ public class Quiz3 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else{
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
             }
             deactivate();
