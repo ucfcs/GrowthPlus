@@ -23,6 +23,7 @@ import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
+import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomEquation;
 import com.GrowthPlus.fragment.CustomImage;
@@ -30,11 +31,11 @@ import com.GrowthPlus.fragment.CustomImageOperator;
 import com.GrowthPlus.fragment.CustomImageWord;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapFour;
-import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import java.util.Objects;
 
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 import io.realm.RealmList;
 
 public class Flashcard4 extends AppCompatActivity {
@@ -69,12 +70,14 @@ public class Flashcard4 extends AppCompatActivity {
     private String category;
     private int childLessonsCompleted;
     private int lessonIndex;
-    private int minToPass;
     private int minScoreToPass;
     private int MAX_LESSON_SCORE;
     private int currentLessonScore;
     ConstraintLayout flashcardBackground;
     ConstraintLayout topBarBackground;
+    private boolean isCompleted;
+    private String lessonCategory;
+    private RealmChangeListener<ChildSchema> realmListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,12 +88,14 @@ public class Flashcard4 extends AppCompatActivity {
         Log.i("lessonIndex", String.valueOf(lessonIndex));
         Log.i("lessonScore", String.valueOf(currentLessonScore));
         flashcardBackBtn.setOnClickListener(view -> {
-            // Passing condition by score
-            setPointSystem(currentLessonScore, minScoreToPass);
-            Intent lessonIntent = new Intent(Flashcard4.this, RoadMapFour.class);
-            lessonIntent.putExtra("childIdentify", childId);
-            startActivity(lessonIntent);
-            this.finish();
+            if (currentLessonScore >= minScoreToPass && !isCompleted){
+                Objects.requireNonNull(
+                                realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                        .addChangeListener(realmListener);
+                setLessonState();
+            }else{
+                backToRoadMap();
+            }
         });
         setTopBar();
         setFlashcardBackgroundColor();
@@ -230,7 +235,7 @@ public class Flashcard4 extends AppCompatActivity {
                             ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                             assert child != null;
                             child.setScore(currentChildScore);
-                            child.getRoadMapFour().getRoadMapLessons().get(lessonIndex).setCurrentScore(currentLessonScore);
+                            Objects.requireNonNull(child.getRoadMapFour().getRoadMapLessons().get(lessonIndex)).setCurrentScore(currentLessonScore);
                         });
                     }
                 }
@@ -275,13 +280,15 @@ public class Flashcard4 extends AppCompatActivity {
         nextFlashcard.setOnClickListener(view -> {
             counter++;
             if(counter >= MAX){
-                // Passing condition number of correct flashcards
-                setPointSystem(numberCorrect, minToPass);
-                Intent lessonIntent = new Intent(Flashcard4.this, RoadMapFour.class);
-                lessonIntent.putExtra("childIdentify", childId);
-                startActivity(lessonIntent);
-                this.finish();
-
+                if (currentLessonScore >= minScoreToPass && !isCompleted){
+                    Objects.requireNonNull(
+                            realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                            .addChangeListener(realmListener);
+                    setLessonState();
+                }
+                else {
+                    backToRoadMap();
+                }
             }else {
 
                 // Resetting state of flashcard
@@ -419,6 +426,7 @@ public class Flashcard4 extends AppCompatActivity {
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         assert lesson != null;
         lessonFlashcards = lesson.getFlashcards();
+        lessonCategory = lesson.getCategory();
         flashcardContainer = findViewById(R.id.flashcardContainer);
         nextFlashcard = findViewById(R.id.next_button_flashcard);
         flashcardBackBtn = flashcardTopBar.findViewById(R.id.goBackBtn);
@@ -427,17 +435,20 @@ public class Flashcard4 extends AppCompatActivity {
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         childLessonsCompleted = child.getRoadMapFour().getLessonsCompleted();
-        currentLessonScore = child.getRoadMapFour().getRoadMapLessons().get(lessonIndex).getCurrentScore();
+        currentLessonScore = Objects.requireNonNull(child.getRoadMapFour().getRoadMapLessons().get(lessonIndex)).getCurrentScore();
+        isCompleted = Objects.requireNonNull(child.getRoadMapFour().getRoadMapLessons().get(lessonIndex)).getCompleted();
+        realmListener = realmChildSchema -> {
+            // Navigate back to RoadMap after realm is finished performing tasks in the background thread
+            backToRoadMap();
+        };
 
         if(lessonIndex == 9){
             MAX = 10;
             MAX_LESSON_SCORE = 20;
-            minToPass = 7;
             minScoreToPass = 14;
         }else{
             MAX = 5;
             MAX_LESSON_SCORE = 10;
-            minToPass = 4;
             minScoreToPass = 7;
         }
     }
@@ -455,52 +466,157 @@ public class Flashcard4 extends AppCompatActivity {
         flashcardBackground.setBackgroundColor(Color.rgb(252, 209, 70));
     }
 
-    private void setPointSystem(int currentScore, int minToPass){
-        if(currentScore >= minToPass){
-            // This is the case if lesson is completed and child came back to play it again
-            // Don't increase the lessonCompleted count
-            if(child.getRoadMapFour().getRoadMapLessons().get(lessonIndex).getCompleted()){
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                    assert child != null;
-                });
-            }else{
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+    private void setLessonState() {
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
 
-                    assert child != null;
-                    RoadMapLesson currentLesson = child.getRoadMapFour().getRoadMapLessons().get(childLessonsCompleted);
-                    assert currentLesson != null;
-                    currentLesson.setCurrent(false);
-                    currentLesson.setCompleted(true);
+            assert child != null;
+            RoadMapLesson currentLesson = child.getRoadMapFour().getRoadMapLessons().get(childLessonsCompleted);
+            assert currentLesson != null;
+            currentLesson.setCurrent(false);
+            currentLesson.setCompleted(true);
+            updateCatCount(child);
 
-                    if (childLessonsCompleted < 9){
-                        childLessonsCompleted ++;
+            if (childLessonsCompleted < 9) {
+                childLessonsCompleted++;
 
-                        if(childLessonsCompleted == 3){
-                            // Set the quiz state
-                            RoadMapQuiz quizOne = child.getRoadMapFour().getRoadMapQuizzes().get(0);
-                            assert quizOne != null;
-                            quizOne.setCompleted(false);
-                            quizOne.setCurrent(true);
-                        }else if(childLessonsCompleted == 7){
-                            RoadMapQuiz quizTwo = child.getRoadMapFour().getRoadMapQuizzes().get(1);
-                            assert quizTwo != null;
-                            quizTwo.setCompleted(false);
-                            quizTwo.setCurrent(true);
-                        }else{
-                            child.getRoadMapFour().setLessonsCompleted(childLessonsCompleted);
-                            RoadMapLesson nextLesson = child.getRoadMapFour().getRoadMapLessons().get(childLessonsCompleted);
-                            assert nextLesson != null;
-                            nextLesson.setCurrent(true);
-                            nextLesson.setCompleted(false);
-                        }
-                    } /*TODO: Handle childLessonCompleted == 9,
-                                If lessons completed is 9, then all lessons are completed
-                                the count starts at zero, hence 9 and if so, enable roadmap game
-                                Roadmap game is not implemented yet so it is open for now. */
-                });
+                if (childLessonsCompleted == 3) {
+                    // Set the quiz state
+                    RoadMapQuiz quizOne = child.getRoadMapFour().getRoadMapQuizzes().get(0);
+                    assert quizOne != null;
+                    quizOne.setCompleted(false);
+                    quizOne.setCurrent(true);
+                } else if (childLessonsCompleted == 7) {
+                    RoadMapQuiz quizTwo = child.getRoadMapFour().getRoadMapQuizzes().get(1);
+                    assert quizTwo != null;
+                    quizTwo.setCompleted(false);
+                    quizTwo.setCurrent(true);
+                } else {
+                    child.getRoadMapFour().setLessonsCompleted(childLessonsCompleted);
+                    RoadMapLesson nextLesson = child.getRoadMapFour().getRoadMapLessons().get(childLessonsCompleted);
+                    assert nextLesson != null;
+                    nextLesson.setCurrent(true);
+                    nextLesson.setCompleted(false);
+                }
+            } else {
+                setGameState(child);
+            }
+        });
+    }
+
+    private void setGameState(ChildSchema child){
+        RoadMapScenarioGame game = child.getRoadMapFour().getScenarioGame();
+        game.setCompleted(false);
+        game.setCurrent(true);
+    }
+
+    private void backToRoadMap(){
+        Intent lessonIntent = new Intent(Flashcard4.this, RoadMapFour.class);
+        lessonIntent.putExtra("childIdentify", childId);
+        startActivity(lessonIntent);
+        this.finish();
+    }
+
+    private void updateCatCount(ChildSchema child) {
+        if (lessonCategory != null) {
+            switch (lessonCategory) {
+                case "numbers": {
+                    int catCount = child.getCatCountNumbers();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "units": {
+                    int catCount = child.getCatCountUnits();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "addition": {
+                    int catCount = child.getCatCountAddition();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "subtraction": {
+                    int catCount = child.getCatCountSubtraction();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "multiplication": {
+                    int catCount = child.getCatCountMultiplication();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "division": {
+                    int catCount = child.getCatCountDivision();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "length": {
+                    int catCount = child.getCatCountLength();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "weight": {
+                    int catCount = child.getCatCountWeightVolume();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "money": {
+                    int catCount = child.getCatCountMoney();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "time": {
+                    int catCount = child.getCatCountTime();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "shapes": {
+                    int catCount = child.getCatCountShapes();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "angles": {
+                    int catCount = child.getCatCountAngles();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                default: {
+                    try {
+                        throw new Exception("Category does not exist, check return value");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
+        else{
+            int catCount = child.getCatCountReview();
+            catCount++;
+            child.setCatCountReview(catCount);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Remove the listener.
+        Objects.requireNonNull(
+                        realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                .removeChangeListener(realmListener);
+        // Close the Realm instance.
+        realm.removeAllChangeListeners();
+        realm.close();
     }
 }

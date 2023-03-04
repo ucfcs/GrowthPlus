@@ -19,6 +19,7 @@ import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.roadMapActivity.RoadMapFour;
+import com.GrowthPlus.roadMapActivity.RoadMapThree;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,7 +36,7 @@ public class Game4 extends AppCompatActivity {
     Button introBackBtn;
     String childId, databaseGameId;
     ScenarioGameSchema game;
-    int gameScore, counter, childScore;
+    int gameScore, counter, childScore, numberCorrect;
     RealmList<ScenarioGameContent> contents;
     ArrayList<Integer> forty = new ArrayList<>(40);
     Coconut c1, c2, c3;
@@ -51,11 +52,7 @@ public class Game4 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
-            setCompletedState(gameScore, MIN_TO_PASS);
-            Intent lessonIntent = new Intent(Game4.this, RoadMapFour.class);
-            lessonIntent.putExtra("childIdentify", childId);
-            startActivity(lessonIntent);
-            this.finish();
+            setCompletedState(gameScore);
         });
         setTopBar();
         setContent();
@@ -78,6 +75,7 @@ public class Game4 extends AppCompatActivity {
         introBackBtn = gameTopBar.findViewById(R.id.goBackBtn);
         gameScore = child.getRoadMapFour().getScenarioGame().getCurrentPoints();
         counter = 0;
+        numberCorrect = 0;
         question = findViewById(R.id.gameQuestion);
         handler = new Handler();
         c1 = findViewById(R.id.coconut1);
@@ -107,6 +105,7 @@ public class Game4 extends AppCompatActivity {
 
         c1.setOnClickListener(v -> {
             if(c1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -122,6 +121,7 @@ public class Game4 extends AppCompatActivity {
 
         c2.setOnClickListener(v -> {
             if(c2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -137,6 +137,7 @@ public class Game4 extends AppCompatActivity {
 
         c3.setOnClickListener(v -> {
             if(c3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -182,10 +183,7 @@ public class Game4 extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
-                setCompletedState(gameScore, MIN_TO_PASS);
-                Intent intent = new Intent(Game4.this, RoadMapFour.class); // TODO: Dynamically change location address
-                intent.putExtra("childIdentify", childId);
-                startActivity(intent);
+                setCompletedState(gameScore);
             }
             else{
                 animator1.end();
@@ -239,15 +237,32 @@ public class Game4 extends AppCompatActivity {
         });
     }
 
-    private void setCompletedState(int currentScore, int minToPass){
-        if(currentScore >= minToPass){
+    private void setCompletedState(int currentScore){
+        if(currentScore >= MIN_TO_PASS){
             realm.executeTransactionAsync(realm1 -> {
                 ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                 assert child != null;
                 if(!child.getRoadMapFour().getScenarioGame().getCompleted()){
                     child.getRoadMapFour().getScenarioGame().setCompleted(true);
+                    child.getRoadMapFour().getScenarioGame().setCurrent(false);
                 }
             });
+            stayCurrentRoadMap();
+        }else {
+            stayCurrentRoadMap();
         }
+    }
+
+    private void stayCurrentRoadMap(){
+        Intent intent = new Intent(Game4.this, RoadMapFour.class);
+        intent.putExtra("childIdentify", childId);
+        startActivity(intent);
+        this.finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (!realm.isClosed()) realm.close();
+        super.onDestroy();
     }
 }

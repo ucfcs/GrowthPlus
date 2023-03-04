@@ -14,12 +14,13 @@ import android.widget.TextView;
 
 import com.GrowthPlus.customViews.Fish;
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
-import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
+import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,7 +38,7 @@ public class Game extends AppCompatActivity {
     Button introBackBtn;
     String childId, databaseGameId;
     ScenarioGameSchema game;
-    int gameScore, counter, childScore;
+    int gameScore, counter, childScore, numberCorrect;
     RealmList<ScenarioGameContent> contents;
     ArrayList<Integer> forty = new ArrayList<>(40);
     Fish fish1, fish2, fish3, correctFish;
@@ -54,11 +55,7 @@ public class Game extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
-            setCompletedState(gameScore, MIN_TO_PASS);
-            Intent lessonIntent = new Intent(Game.this, RoadMapOne.class);
-            lessonIntent.putExtra("childIdentify", childId);
-            startActivity(lessonIntent);
-            this.finish();
+            setCompletedState(gameScore);
         });
         setTopBar();
         setContent();
@@ -70,7 +67,6 @@ public class Game extends AppCompatActivity {
             childId = extras.getString("childId");
             databaseGameId = extras.getString("databaseQuizId");
         }
-
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         childScore = child.getScore();
@@ -80,6 +76,7 @@ public class Game extends AppCompatActivity {
         introBackBtn = gameTopBar.findViewById(R.id.goBackBtn);
         gameScore = child.getRoadMapOne().getScenarioGame().getCurrentPoints();
         counter = 0;
+        numberCorrect = 0;
         fish1 = findViewById(R.id.fish1);
         fish2 = findViewById(R.id.fish2);
         fish3 = findViewById(R.id.fish3);
@@ -157,6 +154,7 @@ public class Game extends AppCompatActivity {
 
         fish1.setOnClickListener(v -> {
             if(fish1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -173,6 +171,7 @@ public class Game extends AppCompatActivity {
 
         fish2.setOnClickListener(v -> {
             if(fish2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -189,6 +188,7 @@ public class Game extends AppCompatActivity {
 
         fish3.setOnClickListener(v -> {
             if(fish3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -235,10 +235,7 @@ public class Game extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
-                setCompletedState(gameScore, MIN_TO_PASS);
-                Intent intent = new Intent(Game.this, RoadMapOne.class); // TODO: Dynamically change location address
-                intent.putExtra("childIdentify", childId);
-                startActivity(intent);
+                setCompletedState(gameScore);
             }
             else{
                 fish1.setVisibility(View.VISIBLE);
@@ -259,18 +256,49 @@ public class Game extends AppCompatActivity {
         });
     }
 
-    private void setCompletedState(int currentScore, int minToPass){
-        if(currentScore >= minToPass){
+    private void setCompletedState(int currentScore){
+        if(currentScore >= MIN_TO_PASS){
             realm.executeTransactionAsync(realm1 -> {
                 ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                 assert child != null;
                 if(!child.getRoadMapOne().getScenarioGame().getCompleted()){
                     child.getRoadMapOne().getScenarioGame().setCompleted(true);
+                    child.getRoadMapOne().getScenarioGame().setCurrent(false);
                 }
-                if(!child.getRoadMapTwo().getLocked()){
-                    child.getRoadMapTwo().setLocked(false);
+                if(child.getRoadMapTwo().getLocked()){
+                    ChildRoadMap nextRoadMap = child.getRoadMapTwo();
+                    nextRoadMap.setLocked(false);
+                    nextRoadMap.setCurrent(true);
+                    RealmList<RoadMapLesson> nextLessons = nextRoadMap.getRoadMapLessons();
+                    RoadMapLesson firstLesson = nextLessons.get(0);
+                    assert firstLesson != null;
+                    firstLesson.setCurrent(true);
+                    firstLesson.setCompleted(false);
                 }
             });
+            goToNextRoadMap();
+        }else {
+            stayCurrentRoadMap();
         }
+    }
+
+    private void goToNextRoadMap(){
+        Intent intent = new Intent(Game.this, RoadMapTwo.class);
+        intent.putExtra("childIdentify", childId);
+        startActivity(intent);
+        this.finish();
+    }
+
+    private void stayCurrentRoadMap(){
+        Intent intent = new Intent(Game.this, RoadMapOne.class);
+        intent.putExtra("childIdentify", childId);
+        startActivity(intent);
+        this.finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (!realm.isClosed()) realm.close();
+        super.onDestroy();
     }
 }

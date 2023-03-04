@@ -42,7 +42,7 @@ public class Quiz3 extends AppCompatActivity {
     Button nextContent, introBackBtn;
     String childId, databaseQuizId;
     QuizSchema quiz;
-    int counter, thisScore, childScore, quizIndex, childLessonsCompleted, minScoreToPass;
+    int counter, thisScore, childScore, quizIndex, childLessonsCompleted, minScoreToPass, numberCorrect;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
@@ -227,6 +227,7 @@ public class Quiz3 extends AppCompatActivity {
         childScore = child.getScore();
         childLessonsCompleted = child.getRoadMapThree().getLessonsCompleted();
         thisScore = child.getRoadMapThree().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
+        numberCorrect = 0;
         minScoreToPass = 7;
         //quizText = new QuizText();
 
@@ -255,6 +256,7 @@ public class Quiz3 extends AppCompatActivity {
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir1.correctQuiz3();
+                numberCorrect++;
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -289,6 +291,7 @@ public class Quiz3 extends AppCompatActivity {
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir2.correctQuiz3();
                 cir2.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
+                numberCorrect++;
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -323,6 +326,7 @@ public class Quiz3 extends AppCompatActivity {
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir3.correctQuiz3();
                 cir3.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
+                numberCorrect++;
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -357,6 +361,7 @@ public class Quiz3 extends AppCompatActivity {
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 cir4.correctQuiz3();
                 cir4.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(3, 71, 50)));
+                numberCorrect++;
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;

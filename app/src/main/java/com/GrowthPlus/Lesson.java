@@ -51,7 +51,6 @@ public class Lesson extends AppCompatActivity {
 
         introBackBtn.setOnClickListener(view -> {
             Intent lessonIntent = new Intent(Lesson.this, RoadMapOne.class);
-            // TODO: Dynamically change return address based on child's progress
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
@@ -67,7 +66,7 @@ public class Lesson extends AppCompatActivity {
         // Create language translator and set up the Lesson string
         Translator trans = new Translator(langId);
         String lessonTranslated = trans.getString("Lesson") + " "+ lessonName;
-        int numOfImages = Integer.valueOf(lessonName);
+        int numOfImages = Integer.parseInt(lessonName);
 
         // Fragment for Lesson intro
         if (savedInstanceState == null) {
