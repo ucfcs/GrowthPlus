@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.Button;
@@ -167,6 +168,9 @@ public class Game2 extends AppCompatActivity {
         b3.setVisibility(View.INVISIBLE);
         handler.postDelayed(() -> {
             counter++;
+            Log.i("gameCounter", String.valueOf(counter));
+            Log.i("gameScore", String.valueOf(gameScore));
+            Log.i("gameMAX", String.valueOf(MAX));
             if(counter >= MAX){
                 setCompletedState(gameScore);
             }
@@ -245,14 +249,14 @@ public class Game2 extends AppCompatActivity {
         Intent intent = new Intent(Game2.this, RoadMapThree.class);
         intent.putExtra("childIdentify", childId);
         startActivity(intent);
-        this.finish();
+        finish();
     }
 
     private void stayCurrentRoadMap(){
         Intent intent = new Intent(Game2.this, RoadMapTwo.class);
         intent.putExtra("childIdentify", childId);
         startActivity(intent);
-        this.finish();
+        finish();
     }
 
     @Override

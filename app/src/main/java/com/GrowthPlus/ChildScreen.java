@@ -63,6 +63,7 @@ public class ChildScreen extends AppCompatActivity {
     private Realm realm;
     private ChildSchemaService childSchemaService;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    private Translator translator;
 
     //this is for the delete child confirmation popup screen
     private AlertDialog.Builder dialogueBuilder;
@@ -79,6 +80,12 @@ public class ChildScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child_screen);
         init();
+
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        translator = new Translator(langId);
 
         ChildSchema child = childSchemaService.getChildSchemaById(childId);
         setChildMetaData(child);
@@ -284,64 +291,64 @@ public class ChildScreen extends AppCompatActivity {
 
     private void setSubjectsCompletion(ChildSchema child){
         numbers.setSubjectCompletion(
-                "Numbers",
+                translator.getString("numbers"),
                 6,
                 child.getCatCountNumbers()
         );
         unit.setSubjectCompletion(
-                "Units",
+                translator.getString("unit"),
                 2,
                 child.getCatCountUnits()
         );
-        addition.setSubjectCompletion("Addition",
+        addition.setSubjectCompletion(
+                translator.getString("addition"),
                 2,
                 child.getCatCountAddition()
         );
         subtraction.setSubjectCompletion(
-                "Subtraction",
+                translator.getString("subtraction"),
                 2,
                 child.getCatCountSubtraction()
         );
         multiplication.setSubjectCompletion(
-                "Multiplication",
+                translator.getString("multiplication"),
                 5,
                 child.getCatCountMultiplication()
         );
         division.setSubjectCompletion(
-                "Division",
+                translator.getString("division"),
                 5,
                 child.getCatCountDivision()
         );
         length.setSubjectCompletion(
-                "Length",
+                translator.getString("length"),
                 2,
                 child.getCatCountLength()
         );
         weight.setSubjectCompletion(
-                "Weight",
+                translator.getString("weights"),
                 3,
                 child.getCatCountWeightVolume()
         );
         money.setSubjectCompletion(
-                "Money",
+                translator.getString("money"),
                 3,
                 child.getCatCountMoney()
         );
         time.setSubjectCompletion(
-                "Time",
+                translator.getString("time"),
                 3,
                 child.getCatCountTime()
         );
         shapes.setSubjectCompletion(
-                "Time",
+                translator.getString("shapes"),
                 1,
                 child.getCatCountTime()
         );
         angles.setSubjectCompletion(
-                "Angles",
+                translator.getString("angles"),
                 2,
                 child.getCatCountAngles()
         );
-
     }
 }
