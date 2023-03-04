@@ -22,13 +22,16 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     private Button backSet;
     private RelativeLayout english;
     private RelativeLayout french;
+    private RelativeLayout chad;
     private ImageView engCheck;
     private ImageView freCheck;
+    private ImageView chadCheck;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     private TextView name;
     private TextView englishText;
     private TextView frenchText;
+    private TextView chadText;
 
     Realm realm;
     Resources resources;
@@ -43,6 +46,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         backSet.setOnClickListener(this);
         english.setOnClickListener(this);
         french.setOnClickListener(this);
+        chad.setOnClickListener(this);
     }
 
     public void init(){
@@ -51,10 +55,13 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         backSet = findViewById(R.id.backLang);
         englishText = findViewById(R.id.englishText);
         frenchText = findViewById(R.id.frenchText);
+        chadText = findViewById(R.id.chadText);
         engCheck = findViewById(R.id.englishCheck);
         freCheck = findViewById(R.id.frenchCheck);
+        chadCheck = findViewById(R.id.chadCheck);
         english = findViewById(R.id.englishBtn);
         french = findViewById(R.id.frenchBtn);
+        chad = findViewById(R.id.chadBtn);
         name = findViewById(R.id.languageText);
     }
 
@@ -71,12 +78,20 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         if(langView == R.id.englishBtn){
             engCheck.setVisibility(View.VISIBLE);
             freCheck.setVisibility(View.INVISIBLE);
+            chadCheck.setVisibility(View.INVISIBLE);
             setEnglishText();
         }
         if(langView == R.id.frenchBtn){
             freCheck.setVisibility(View.VISIBLE);
             engCheck.setVisibility(View.INVISIBLE);
+            chadCheck.setVisibility(View.INVISIBLE);
             setFrenchText();
+        }
+        if(langView == R.id.chadBtn){
+            chadCheck.setVisibility(View.VISIBLE);
+            freCheck.setVisibility(View.INVISIBLE);
+            engCheck.setVisibility(View.INVISIBLE);
+            setChadText();
         }
     }
 
@@ -108,6 +123,20 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
 
     }
 
+    public void setChadText(){
+
+        // Create shared preferences class to save default language, french
+        SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+
+        // Add english as default lang
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString("languageId", "chadianArabicZero");
+        prefsEditor.commit();
+        // refresh UI
+        onResume();
+
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -122,13 +151,21 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         name.setText(lang.getLanguage());
         englishText.setText(lang.getEnglish());
         frenchText.setText(lang.getFrench());
+        chadText.setText(lang.getChadianArabic());
         if(langId.equals("englishZero")){
             engCheck.setVisibility(View.VISIBLE);
             freCheck.setVisibility(View.INVISIBLE);
+            chadCheck.setVisibility(View.INVISIBLE);
         }
-        else{
+        else if(langId.equals("frenchZero")){
             freCheck.setVisibility(View.VISIBLE);
             engCheck.setVisibility(View.INVISIBLE);
+            chadCheck.setVisibility(View.INVISIBLE);
+        }
+        else if(langId.equals("chadianArabicZero")){
+            chadCheck.setVisibility(View.VISIBLE);
+            engCheck.setVisibility(View.INVISIBLE);
+            freCheck.setVisibility(View.INVISIBLE);
         }
     }
 
