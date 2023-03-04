@@ -138,6 +138,7 @@ public class Flashcard4 extends AppCompatActivity {
                     bundle.putString("firstNumber", firstNumber);
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
+                    bundle.putInt("textColor", Color.rgb(232, 160, 78));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -187,6 +188,7 @@ public class Flashcard4 extends AppCompatActivity {
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
                     bundle.putString("secondOperator", secondOperator);
+                    bundle.putInt("textColor", Color.rgb(232, 160, 78));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
@@ -326,6 +328,7 @@ public class Flashcard4 extends AppCompatActivity {
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("answer", flashcardAnswer);
                             bundle.putBoolean("isAnimationDone", false);
+                            bundle.putInt("textColor", Color.rgb(232, 160, 78));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -375,6 +378,7 @@ public class Flashcard4 extends AppCompatActivity {
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("secondOperator", secondOperator);
+                            bundle.putInt("textColor", Color.rgb(232, 160, 78));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
