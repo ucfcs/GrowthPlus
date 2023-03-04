@@ -235,6 +235,7 @@ public class Flashcard3 extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("answer", flashcardAnswer);
+                            bundle.putInt("answerTextColor", Color.rgb(252, 209, 70));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
