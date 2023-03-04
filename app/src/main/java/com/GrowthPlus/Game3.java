@@ -1,9 +1,11 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -45,6 +47,7 @@ public class Game3 extends AppCompatActivity {
     TextView question;
     Handler handler;
     ObjectAnimator move1a, move1b, move2a, move2b, move3a, move3b, move4a, move4b, move5a, move5b, move6a, move6b;
+    ConstraintLayout topBarBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,8 @@ public class Game3 extends AppCompatActivity {
         childScore = child.getScore();
         game = realm.where(ScenarioGameSchema.class).equalTo("scenarioGameId", databaseGameId).findFirst();
         contents = game.getQuestions();
-        gameTopBar = findViewById(R.id.topBar);
+        gameTopBar = findViewById(R.id.game3TopBar);
+        topBarBackground = findViewById(R.id.topBar);
         introBackBtn = gameTopBar.findViewById(R.id.goBackBtn);
         gameScore = child.getRoadMapThree().getScenarioGame().getCurrentPoints();
         counter = 0;
@@ -118,6 +122,10 @@ public class Game3 extends AppCompatActivity {
     private void setTopBar(){
         gameTopBar.setPoints(String.valueOf(child.getScore()));
         gameTopBar.setToStar();
+        topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+        gameTopBar.setShapeColor(Color.rgb(3, 71, 50));
+        gameTopBar.setPointIconBackground(Color.rgb(252, 209, 70));
+        gameTopBar.setPointsTextColor(Color.rgb(3, 71, 50));
     }
 
     private void setContent(){

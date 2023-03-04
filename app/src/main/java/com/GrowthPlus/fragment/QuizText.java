@@ -1,5 +1,6 @@
 package com.GrowthPlus.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,13 @@ public class QuizText extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         String getWord = requireArguments().getString("text");
+        int textColor = requireArguments().getInt("textColor");
         text.setText(getWord);
+        setTextColor(textColor);
     }
+
+    public void setTextColor(int color){
+        text.setTextColor(color);
+    }
+
 }
