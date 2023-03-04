@@ -431,7 +431,7 @@ public class Flashcard4 extends AppCompatActivity {
         nextFlashcard = findViewById(R.id.next_button_flashcard);
         flashcardBackBtn = flashcardTopBar.findViewById(R.id.goBackBtn);
         fragmentManager = getSupportFragmentManager();
-        correctAnswerColor = ContextCompat.getColorStateList(this, R.color.light_green);
+        correctAnswerColor = ContextCompat.getColorStateList(this, R.color.dark_green);
         wrongAnswerColor = ContextCompat.getColorStateList(this, R.color.red);
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         childLessonsCompleted = child.getRoadMapFour().getLessonsCompleted();
