@@ -253,7 +253,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ChildSchema childTemp;
 
         int childrenNum = children.size();
-        Log.i("Num of children", String.valueOf(childrenNum));
         int random;
         String childIdTemp;
         String childNameTemp;

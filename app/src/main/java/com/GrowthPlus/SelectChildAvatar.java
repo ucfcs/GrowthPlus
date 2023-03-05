@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -21,8 +20,6 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_child_avatar);
         init();
-
-        Log.i("goBackTo", goBackTo);
 
         ImageView topLeft = (ImageView) findViewById(R.id.bunnyOption);
         topLeft.setOnClickListener(this);

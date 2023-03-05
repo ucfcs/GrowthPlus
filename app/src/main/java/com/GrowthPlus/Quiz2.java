@@ -1,14 +1,15 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -45,6 +46,8 @@ public class Quiz2 extends AppCompatActivity {
     ArrayList<Integer> twenty = new ArrayList<>(20);
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
+    ConstraintLayout quizBackground;
+    ConstraintLayout topBarBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,7 @@ public class Quiz2 extends AppCompatActivity {
             this.finish();
         });
         setTopBar();
+        setQuizColor();
         setTimer();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -87,6 +91,7 @@ public class Quiz2 extends AppCompatActivity {
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("text", word);
+                    bundle.putInt("textColor", Color.rgb(252, 209, 70));
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
@@ -101,8 +106,6 @@ public class Quiz2 extends AppCompatActivity {
                 String num = contents.get(twenty.get(counter)).getQuestion();
                 int numOfImg = Integer.valueOf(num);
                 setAnswers();
-                Log.i("num", String.valueOf(numOfImg));
-                Log.i("image", picture);
 
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
@@ -156,6 +159,7 @@ public class Quiz2 extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("text", word);
+                            bundle.putInt("textColor", Color.rgb(252, 209, 70));
 
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
@@ -209,6 +213,8 @@ public class Quiz2 extends AppCompatActivity {
         quizTopBar = findViewById(R.id.quizTopBar);
         introBackBtn = quizTopBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button);
+        quizBackground = findViewById(R.id.quiz);
+        topBarBackground = findViewById(R.id.topBar);
         childScore = child.getScore();
         childLessonsCompleted = child.getRoadMapTwo().getLessonsCompleted();
         thisScore = child.getRoadMapTwo().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
@@ -223,6 +229,14 @@ public class Quiz2 extends AppCompatActivity {
     private void setTopBar(){
         quizTopBar.setPoints(String.valueOf(child.getScore()));
         quizTopBar.setToCircle();
+        topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+        quizTopBar.setShapeColor(Color.rgb(96, 163, 200));
+        quizTopBar.setPointIconBackground(Color.rgb(252, 209, 70));
+        quizTopBar.setPointsTextColor(Color.rgb(96, 163, 200));
+    }
+
+    public void setQuizColor(){
+        quizBackground.setBackgroundColor(Color.rgb(232, 160, 78));
     }
 
     private void setAnswers(){

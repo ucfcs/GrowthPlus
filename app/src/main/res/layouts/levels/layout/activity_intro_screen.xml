@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_green"
-    tools:context=".IntroScreen">
+    tools:context=".IntroScreen"
+    android:id="@+id/introScreen">
 
     <android.widget.Button
         android:id="@+id/next_button_intro"

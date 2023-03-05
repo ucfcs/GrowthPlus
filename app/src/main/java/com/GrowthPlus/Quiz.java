@@ -6,9 +6,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -87,6 +87,7 @@ public class Quiz extends AppCompatActivity {
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("text", word);
+                    bundle.putInt("textColor", Color.rgb(198, 192, 18));
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
@@ -101,8 +102,6 @@ public class Quiz extends AppCompatActivity {
                 String num = contents.get(twenty.get(counter)).getQuestion();
                 int numOfImg = Integer.valueOf(num);
                 setAnswers();
-                Log.i("num", String.valueOf(numOfImg));
-                Log.i("image", picture);
 
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
@@ -126,7 +125,6 @@ public class Quiz extends AppCompatActivity {
             countDownTimer.cancel();
             setTimer();
             counter++; // Display 10 questions then exit activity
-            Log.i("numCorrect", String.valueOf(numberCorrect));
             if(counter >= MAX){
                 // Child passes the quiz
                 setPointSystem(thisScore, minScoreToPass);
@@ -155,6 +153,8 @@ public class Quiz extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("text", word);
+                            bundle.putInt("textColor", Color.rgb(198, 192, 18));
+
 
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
@@ -221,6 +221,7 @@ public class Quiz extends AppCompatActivity {
     private void setTopBar(){
         quizTopBar.setPoints(String.valueOf(child.getScore()));
         quizTopBar.setToCircle();
+        quizTopBar.setShapeColor(Color.rgb(252, 209, 70));
     }
 
     private void setAnswers(){

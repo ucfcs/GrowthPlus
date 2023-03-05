@@ -40,10 +40,12 @@ public class CustomImageWord extends Fragment {
         String firstOperator = requireArguments().getString("firstOperator");
         String secondNumber = requireArguments().getString("secondNumber");
         String secondOperator = requireArguments().getString("secondOperator");
+        int textColor = requireArguments().getInt("textColor");
         int resId = imageSrcIdentifier.getImageSrcId(image);
 
         img.setImageResource(resId);
         operator.setText(firstNumber + firstOperator +"\n"+ secondNumber + secondOperator);
+        operator.setTextColor(textColor);
     }
 
 
