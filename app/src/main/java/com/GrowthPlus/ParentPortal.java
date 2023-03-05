@@ -28,7 +28,6 @@ import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import java.util.HashMap;
-import java.util.Objects;
 
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -91,7 +90,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         // Dynamically add the child card components with their corresponding data to the grid layout
         for(int i = 0; i < childrenRealmResultSize; i++){
             childRealmObjectTemp = children.get(i);
-            Log.i("Child ", String.valueOf(childRealmObjectTemp));
             assert childRealmObjectTemp != null;
             childIdTemp = childRealmObjectTemp.getChildId();
             childNameTemp = childRealmObjectTemp.getName();

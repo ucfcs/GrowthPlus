@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,9 +20,7 @@ import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.roadMapActivity.RoadMapFour;
-import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapThree;
-import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 
 import java.util.ArrayList;
 import java.util.Collections;

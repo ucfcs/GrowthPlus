@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -104,8 +103,7 @@ public class Lesson extends AppCompatActivity {
                     // These variables as needed in each switch statement
                     // Same vars as are found in the roadmap.json for lessons
                     String lessonImg, word, firstNumber, firstOperator, secondNumber,
-                            secondOperator, thirdNumber, imgOne, imgTwo, imgThree,
-                            imgFour, imgFive, name;
+                            secondOperator, thirdNumber, imgOne, imgTwo, imgThree, name;
 
                     switch (category){
                         case "counting": {

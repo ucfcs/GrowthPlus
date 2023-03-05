@@ -167,4 +167,41 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/chadBtn"
+        android:clickable="true"
+        android:layout_width="280dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/yellow"
+        app:layout_constraintTop_toBottomOf="@id/frenchBtn"
+        app:layout_constraintStart_toStartOf="@id/rightGuide"
+        app:layout_constraintEnd_toEndOf="@id/leftGuide">
+
+        <ImageView
+            android:id="@+id/chadCheck"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_check_mark"
+            android:backgroundTint="@color/dark_green"
+            android:background="@drawable/circle"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="210dp"
+            android:visibility="invisible"></ImageView>
+
+        <TextView
+            android:id="@+id/chadText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/yellow"
+            android:text="Chadian Arabic"
+            android:textAllCaps="false"
+            android:textSize="25dp"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/blue"></TextView>
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

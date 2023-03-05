@@ -56,9 +56,6 @@ public class Quiz4 extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         init();
 
-        Log.i("quizIndex", String.valueOf(quizIndex));
-        Log.i("quizScore", String.valueOf(thisScore));
-
         introBackBtn.setOnClickListener(view -> {
             // Child passes the quiz
             setPointSystem(thisScore, minScoreToPass);
@@ -110,8 +107,6 @@ public class Quiz4 extends AppCompatActivity {
                 String num = contents.get(twenty.get(counter)).getQuestion();
                 int numOfImg = Integer.valueOf(num);
                 setAnswers();
-                Log.i("num", String.valueOf(numOfImg));
-                Log.i("image", picture);
 
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();

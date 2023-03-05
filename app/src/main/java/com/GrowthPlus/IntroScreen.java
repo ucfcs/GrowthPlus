@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,8 +45,6 @@ public class IntroScreen extends AppCompatActivity {
         init();
         setTopBar();
         setIntroScreenBackground();
-
-        Log.i("quizIndex", String.valueOf(quizIndex));
 
         // Create instance of shared preferences and save current language id
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);

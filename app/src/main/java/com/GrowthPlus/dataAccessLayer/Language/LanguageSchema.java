@@ -10,9 +10,9 @@ public class LanguageSchema extends RealmObject {
     String  language;
     String  english;
     String  french;
+    String  chadianArabic;
     String	growthPlus;
     String	parent;
-    String	child;
     String	points;
     String	pin;
     String  forgotPin;
@@ -36,9 +36,7 @@ public class LanguageSchema extends RealmObject {
     String	lesson;
     String	game;
     String  quiz;
-    String	roadmap;
     String	francs;
-    String	cfa;
     String	centimeter ;
     String	decimeter;
     String	meter;
@@ -66,9 +64,6 @@ public class LanguageSchema extends RealmObject {
     String	minute;
     String	day	;
     String	circle;
-    String	ray	;
-    String	diameter;
-    String	center;
     String	rectangle;
     String	width;
     String	length;
@@ -239,6 +234,14 @@ public class LanguageSchema extends RealmObject {
         this.french = french;
     }
 
+    public String getChadianArabic() {
+        return chadianArabic;
+    }
+
+    public void setChadianArabic(String chadianArabic) {
+        this.chadianArabic = chadianArabic;
+    }
+
     public String getGrowthPlus() {
         return growthPlus;
     }
@@ -253,14 +256,6 @@ public class LanguageSchema extends RealmObject {
 
     public void setParent(String parent) {
         this.parent = parent;
-    }
-
-    public String getChild() {
-        return child;
-    }
-
-    public void setChild(String child) {
-        this.child = child;
     }
 
     public String getPoints() {
@@ -447,28 +442,12 @@ public class LanguageSchema extends RealmObject {
         this.quiz = quiz;
     }
 
-    public String getRoadmap() {
-        return roadmap;
-    }
-
-    public void setRoadmap(String roadmap) {
-        this.roadmap = roadmap;
-    }
-
     public String getFrancs() {
         return francs;
     }
 
     public void setFrancs(String francs) {
         this.francs = francs;
-    }
-
-    public String getCfa() {
-        return cfa;
-    }
-
-    public void setCfa(String cfa) {
-        this.cfa = cfa;
     }
 
     public String getCentimeter() {
@@ -685,30 +664,6 @@ public class LanguageSchema extends RealmObject {
 
     public void setCircle(String circle) {
         this.circle = circle;
-    }
-
-    public String getRay() {
-        return ray;
-    }
-
-    public void setRay(String ray) {
-        this.ray = ray;
-    }
-
-    public String getDiameter() {
-        return diameter;
-    }
-
-    public void setDiameter(String diameter) {
-        this.diameter = diameter;
-    }
-
-    public String getCenter() {
-        return center;
-    }
-
-    public void setCenter(String center) {
-        this.center = center;
     }
 
     public String getRectangle() {

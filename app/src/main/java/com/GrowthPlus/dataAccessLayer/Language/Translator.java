@@ -31,14 +31,14 @@ public class Translator {
             case "french":
                 value = languageSchema.getFrench();
                 break;
+            case "chadianArabic":
+                value = languageSchema.getChadianArabic();
+                break;
             case "growthPlus":
                 value = languageSchema.getGrowthPlus();
                 break;
             case "parent":
                 value = languageSchema.getParent();
-                break;
-            case "child":
-                value = languageSchema.getChild();
                 break;
             case "points":
                 value = languageSchema.getPoints();
@@ -109,14 +109,8 @@ public class Translator {
             case "quiz":
                 value = languageSchema.getQuiz();
                 break;
-            case "roadmap":
-                value = languageSchema.getRoadmap();
-                break;
             case "francs":
                 value = languageSchema.getFrancs();
-                break;
-            case "cfa":
-                value = languageSchema.getCfa();
                 break;
             case "centimeter":
                 value = languageSchema.getCentimeter();
@@ -198,15 +192,6 @@ public class Translator {
                 break;
             case "circle":
                 value = languageSchema.getCircle();
-                break;
-            case "ray":
-                value = languageSchema.getRay();
-                break;
-            case "diameter":
-                value = languageSchema.getDiameter();
-                break;
-            case "center":
-                value = languageSchema.getCenter();
                 break;
             case "rectangle":
                 value = languageSchema.getRectangle();

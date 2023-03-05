@@ -1,7 +1,5 @@
 package com.GrowthPlus.dataAccessLayer.Language;
 
-import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
-
 import io.realm.Realm;
 
 public class LanguageSchemaService {

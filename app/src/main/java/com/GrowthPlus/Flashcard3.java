@@ -12,7 +12,6 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -82,11 +81,6 @@ public class Flashcard3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
         init();
-
-        Log.i("lessonIndex", String.valueOf(lessonIndex));
-        Log.i("lessonsCompleted", String.valueOf(childLessonsCompleted));
-        Log.i("lessonScore", String.valueOf(currentLessonScore));
-        Log.i("lessonCounter", String.valueOf(counter));
 
         flashcardBackBtn.setOnClickListener(view -> {
             if (currentLessonScore >= minScoreToPass && !isCompleted){
