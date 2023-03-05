@@ -12,6 +12,7 @@ public class ParentSchemaService {
 
     private String ID;
     private Integer PIN;
+    private String phoneNumber;
     private RealmList<ChildSchema> children;
     private Realm realm;
 
@@ -22,10 +23,11 @@ public class ParentSchemaService {
     public ParentSchemaService(Realm realm){
         this.realm = realm;
     }
-    public ParentSchemaService(Realm realm, String ID, Integer PIN, RealmList<ChildSchema> children){
+    public ParentSchemaService(Realm realm, String ID, Integer PIN, String phoneNumber, RealmList<ChildSchema> children){
         this.ID = ID;
         this.realm = realm;
         this.PIN = PIN;
+        this.phoneNumber = phoneNumber;
         this.children = children;
     }
 
@@ -37,6 +39,7 @@ public class ParentSchemaService {
             ParentSchema newParent = realm1.createObject(ParentSchema.class, ID);
             newParent.setPIN(PIN);
             newParent.setChildren(children);
+            newParent.setPhoneNumber(phoneNumber);
         }, () -> { //Lambda expression
             /* success actions */
             Log.i("Success", "New parent object added to realm!");

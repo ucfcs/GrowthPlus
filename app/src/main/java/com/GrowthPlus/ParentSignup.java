@@ -32,10 +32,14 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
     private EditText enterPinInput;
     private EditText confirmPinInput;
+    private EditText phoneNumberInput;
     private TextView createText;
     private TextView confirmText;
+    private TextView phoneNumberText;
     Integer enterPinInputInteger;
     Integer confirmPinInputInteger;
+    String phoneNumString;
+
 
     private ObjectId parentId;
     private String parentIdString;
@@ -60,9 +64,12 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         signupBackButton = findViewById(R.id.backParentSU);
         enterPinInput = findViewById(R.id.enterPin);
         confirmPinInput = findViewById(R.id.confirmPinInput);
+        phoneNumberInput = findViewById(R.id.phoneNumberInput);
         createText = findViewById(R.id.createPinText);
         confirmText = findViewById(R.id.confirmPinText);
+        phoneNumberText = findViewById(R.id.phoneNumberText);
         parentId = new ObjectId();
+        parentIdString = parentId.toString();
     }
 
     @Override
@@ -77,8 +84,10 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
         createText.setText(lang.getCreate());
         confirmText.setText(lang.getConfirm());
+        phoneNumberText.setText(lang.getPhoneNumber());
         enterPinInput.setHint(lang.getPin());
         confirmPinInput.setHint(lang.getPin());
+        phoneNumberInput.setHint(lang.getPhoneNumber());
     }
 
     @Override
@@ -89,12 +98,14 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         //if they click the signup button
         if(id == R.id.parentSignupBtn){
 
-            boolean inputValid = validInput(enterPinInput, confirmPinInput);//checks for null and blank input
+            //check for null input or input that is too short
+            boolean inputValid = validInput(enterPinInput, confirmPinInput, phoneNumberInput);
 
             if(inputValid == true){
                 //track what the user entered
                 enterPinInputInteger = Integer.parseInt(enterPinInput.getText().toString());
                 confirmPinInputInteger = Integer.parseInt(confirmPinInput.getText().toString());
+                phoneNumString = phoneNumberInput.getText().toString();
 
                 //if the PIN's match, start the parent portal activity
                 if(confirmPinMatch(enterPinInputInteger, confirmPinInputInteger) == true){
@@ -116,7 +127,8 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
             else { //input was not valid -> display a toast
                 Context context = getApplicationContext();
-                CharSequence text = "Please enter a 4-digit number for both PIN's.";
+                CharSequence text = "Please enter a 4-digit number for both PIN's, and a 10-digit " +
+                        "number for the phone number.";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
@@ -129,18 +141,22 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         }
 
         enterPinInput.setText("");
-        confirmPinInput.setText("");//clears the EditText(s)
+        confirmPinInput.setText("");
+        phoneNumberInput.setText("");//clears the EditText(s)
 
     }
 
-    private boolean validInput(EditText input1, EditText input2) {
-        String input1String = input1.getText().toString();
-        String input2String = input2.getText().toString();
+    private boolean validInput(EditText pin1, EditText pin2, EditText phoneNum) {
+        String pin1String = pin1.getText().toString();
+        String pin2String = pin2.getText().toString();
+        String phoneNumStr = phoneNum.getText().toString();
 
-        if(!input1String.equals(null) &&
-           !input2String.equals(null) &&
-           input1String.length() == 4 &&
-           input2String.length() == 4)
+        if(!pin1String.equals(null) &&
+           !pin2String.equals(null) &&
+           !phoneNumStr.equals(null) &&
+           pin1String.length() == 4 &&
+           pin2String.length() == 4 &&
+           phoneNumStr.length() >= 10)
         {
             return true;
         }
@@ -174,7 +190,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     //since the signup page involves about creating an account, we need a method to create a parent
     private void createParent(){
         RealmList <ChildSchema> children = new RealmList<>();
-        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, children);
+        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, phoneNumString, children);
         signupParentService.createParentSchema();
     }
 }
