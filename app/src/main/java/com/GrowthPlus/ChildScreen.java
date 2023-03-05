@@ -53,27 +53,16 @@ public class ChildScreen extends AppCompatActivity {
     private SubjectCompletionComponent angles;
     private ColorIdentifier colorIdentifier;
     private ImageSrcIdentifier imageSrcIdentifier;
-
     private String childId;
     private ColorStateList progressBarOneColor;
     private ColorStateList progressBarTwoColor;
     private ColorStateList progressBarThreeColor;
     private ColorStateList progressBarFourColor;
-
     private Realm realm;
     private ChildSchemaService childSchemaService;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
     private Translator translator;
-
-    //this is for the delete child confirmation popup screen
-    private AlertDialog.Builder dialogueBuilder;
     private AlertDialog dialogue;
-    private Button confirmChildDelete;
-    private Button cancelChildDelete;
-    private ImageView childAvatarDel;
-    private TextView childNameDel;
-    private TextView deleteText;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -225,7 +214,8 @@ public class ChildScreen extends AppCompatActivity {
     //this creates the delete child popup
     public void createDeleteChildDialogue(ChildSchema deleteChild){
         //create the dialogue builder using this context
-        dialogueBuilder = new AlertDialog.Builder(this);
+        //this is for the delete child confirmation popup screen
+        AlertDialog.Builder dialogueBuilder = new AlertDialog.Builder(this);
 
         //to create the view we have an inflator that calls our custom xml file
         View deleteChildPopupView = getLayoutInflater().
@@ -235,14 +225,14 @@ public class ChildScreen extends AppCompatActivity {
         //here we want to grab the confirm and cancel buttons from the view
         //this is important so that we can set up the proper logic for the
         //onClickListeners
-        confirmChildDelete = deleteChildPopupView.findViewById(R.id.confirmBtn);
-        cancelChildDelete = deleteChildPopupView.findViewById(R.id.cancelBtn);
+        Button confirmChildDelete = deleteChildPopupView.findViewById(R.id.confirmBtn);
+        Button cancelChildDelete = deleteChildPopupView.findViewById(R.id.cancelBtn);
 
         //here we grab the fields in the custom PopUp xml file that we want to change
         //based on the child that is being deleted
-        childNameDel = deleteChildPopupView.findViewById(R.id.childName);
-        childAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
-        deleteText = deleteChildPopupView.findViewById(R.id.delete);
+        TextView childNameDel = deleteChildPopupView.findViewById(R.id.childName);
+        ImageView childAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
+        TextView deleteText = deleteChildPopupView.findViewById(R.id.delete);
 
 
         //here we set the child name and avatar to the popUp so that the parent can

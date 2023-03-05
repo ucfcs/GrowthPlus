@@ -39,8 +39,6 @@ import io.realm.RealmResults;
  * It will provide onClick method that we can override and implement custom logic
  */
 public class ParentPortal extends AppCompatActivity implements View.OnClickListener {
-    private final int MAX_CHILDREN = 6;
-    private final Integer TOTAL_LESSONS = 40;
     private Button buttonBackChild;
     private Button deleteParent;
     private GridLayout parentPortalGridLayout;
@@ -51,20 +49,9 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     private HashMap<Integer, Integer> progressBarIds;
     public ColorIdentifier colorIdentifier;
     public ImageSrcIdentifier imageSrcIdentifier;
-    private ParentSchemaService parentService;
-    private ParentSchema parent;
     private String parentId;
-
     private Realm realm;
-
-    //this is for the delete child confirmation popup screen
-    private AlertDialog.Builder dialogueBuilder;
     private AlertDialog dialogue;
-    private Button confirmParentDelete;
-    private Button cancelParentDelete;
-    private ImageView parentAvatarDel;
-    private TextView parentNameDel;
-    private TextView deleteText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +64,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
           Temp ChildCard component to add to the grid layout
          */
         RealmResults<ChildSchema> children = childSchemaService.getAllChildSchemas();
-
         int childrenRealmResultSize = children.size();
+
         ChildSchema childRealmObjectTemp;
         ChildCard childCardTemp;
         VerticalProgressBar verticalProgressBarTemp;
@@ -101,8 +88,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
             totalLessonsCompleted = childRealmObjectTemp.getTotalLessonsCompleted();
 
             lessonProgress = calculateLessonProgress(totalLessonsCompleted);
-            Log.i("lessonCompleted", String.valueOf(totalLessonsCompleted));
-            Log.i("lessonProgress", String.valueOf(lessonProgress));
 
             childCardTemp = setChildCard(childCardId.get(i), childNameTemp, avatarNameTemp, colorNameTemp);
             parentPortalGridLayout.addView(childCardTemp, i);
@@ -112,14 +97,10 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
             // Map the child card component ids to their corresponding child schema ids from realm
             childId.put(childCardId.get(i), childIdTemp);
-
-            // Reset temp values
-            childRealmObjectTemp = null;
-            childCardTemp = null;
-            verticalProgressBarTemp = null;
         }
 
         // Make sure children do not surpass 6
+        int MAX_CHILDREN = 6;
         if(childrenRealmResultSize < MAX_CHILDREN){
             ChildCardAdd addChildCard1 = new ChildCardAdd(this);
             addChildCard1.setId(R.id.parentPortalChildCardAdd);
@@ -129,9 +110,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
         buttonBackChild.setOnClickListener(this);
 
-        deleteParent.setOnClickListener(view -> {
-            createDeleteParentDialogue(parent);
-        });
+        deleteParent.setOnClickListener(view -> createDeleteParentDialogue());
     }
 
     /**
@@ -146,8 +125,9 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         childSchemaService = new ChildSchemaService(realm);
         colorIdentifier = new ColorIdentifier();
         imageSrcIdentifier = new ImageSrcIdentifier();
-        parentService = new ParentSchemaService(realm);
-        parent = parentService.getAllParentSchemas().get(0);
+        ParentSchemaService parentService = new ParentSchemaService(realm);
+        ParentSchema parent = parentService.getAllParentSchemas().get(0);
+        assert parent != null;
         childCardId = new HashMap<>();
         childId = new HashMap<>();
         progressBarIds = new HashMap<>();
@@ -273,9 +253,10 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     }
 
     //this creates the delete child popup
-    public void createDeleteParentDialogue(ParentSchema deleteParent){
+    public void createDeleteParentDialogue(){
         //create the dialogue builder using this context
-        dialogueBuilder = new AlertDialog.Builder(this);
+        //this is for the delete child confirmation popup screen
+        AlertDialog.Builder dialogueBuilder = new AlertDialog.Builder(this);
 
         //to create the view we have an inflator that calls our custom xml file
         View deleteChildPopupView = getLayoutInflater().
@@ -285,14 +266,14 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         //here we want to grab the confirm and cancel buttons from the view
         //this is important so that we can set up the proper logic for the
         //onClickListeners
-        confirmParentDelete = deleteChildPopupView.findViewById(R.id.confirmBtn);
-        cancelParentDelete = deleteChildPopupView.findViewById(R.id.cancelBtn);
+        Button confirmParentDelete = deleteChildPopupView.findViewById(R.id.confirmBtn);
+        Button cancelParentDelete = deleteChildPopupView.findViewById(R.id.cancelBtn);
 
         //here we grab the fields in the custom PopUp xml file that we want to change
         //based on the child that is being deleted
-        parentNameDel = deleteChildPopupView.findViewById(R.id.childName);
-        parentAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
-        deleteText = deleteChildPopupView.findViewById(R.id.delete);
+        TextView parentNameDel = deleteChildPopupView.findViewById(R.id.childName);
+        ImageView parentAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
+        TextView deleteText = deleteChildPopupView.findViewById(R.id.delete);
 
 
         //here we set the child name and avatar to the popUp so that the parent can
@@ -306,7 +287,8 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
         String langId = langPrefs.getString("languageId", "frenchZero");
         // Create language translator and set up the Lesson string
         Translator trans = new Translator(langId);
-        deleteText.setText(trans.getString("delete")+"?");
+        String text = trans.getString("delete")+"?";
+        deleteText.setText(text);
         parentNameDel.setText(trans.getString("parent"));
 
         //in the dialogue builder we have to set this view
@@ -335,23 +317,17 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(ParentPortal.this, MainActivity.class));
                 overridePendingTransition(0, 0);
                 this.finish();
-            }, error -> {
-                Log.i("Error", "Could not delete parent from realm " + error);
-            });
+            }, error -> Log.i("Error", "Could not delete parent from realm " + error));
             dialogue.dismiss();
         });
 
         //here the parent does not wish to delete the child so we simply dismiss our popUp
-        cancelParentDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogue.dismiss();
-            }
-        });
+        cancelParentDelete.setOnClickListener(v -> dialogue.dismiss());
     }
 
     private Integer calculateLessonProgress(Integer lessonsCompleted){
-        double percentage = (lessonsCompleted.doubleValue() / TOTAL_LESSONS.doubleValue());
+        int TOTAL_LESSONS = 40;
+        double percentage = (lessonsCompleted.doubleValue() / (double) TOTAL_LESSONS);
         double progress = percentage * 100;
 
         return (int) progress;
