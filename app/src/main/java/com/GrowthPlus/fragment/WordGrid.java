@@ -53,9 +53,9 @@ public class WordGrid extends Fragment {
             wordMD.setTextColor(green);
         }
 
-        if(num <= 3){
+        if(num <= 2){
             sizeInPixels = getResources().getDimension(R.dimen.elephantXLarge);
-            gridLayoutMD.setRowCount(3);
+            gridLayoutMD.setRowCount(2);
             gridLayoutMD.setColumnCount(1);
         }
         else if(num <= 5){

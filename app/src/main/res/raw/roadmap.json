@@ -22,8 +22,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -37,8 +35,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -52,8 +48,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -67,8 +61,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -82,8 +74,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -97,8 +87,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -112,8 +100,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -127,8 +113,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -142,8 +126,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -157,8 +139,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           }
         ],
@@ -234,8 +214,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -249,8 +227,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -264,8 +240,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -279,8 +253,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -294,8 +266,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -309,8 +279,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -324,8 +292,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -339,8 +305,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -354,8 +318,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           }
         ],
@@ -431,8 +393,6 @@
             "imgOne": "unit",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -446,8 +406,6 @@
             "imgOne": "10",
             "imgTwo": "unitOfTen",
             "imgThree": "unit",
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImageEquation"
           },
           {
@@ -461,8 +419,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -476,8 +432,6 @@
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -491,8 +445,6 @@
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -506,8 +458,6 @@
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -521,8 +471,6 @@
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -536,8 +484,6 @@
             "imgOne": "DUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           }
         ],
@@ -613,8 +559,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -628,8 +572,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -643,8 +585,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -658,8 +598,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -673,8 +611,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -688,8 +624,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -703,8 +637,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -718,8 +650,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -733,8 +663,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -748,8 +676,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           }
         ],
@@ -825,8 +751,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -840,8 +764,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -855,8 +777,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -870,8 +790,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -885,8 +803,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -900,8 +816,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -915,8 +829,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -930,8 +842,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -945,8 +855,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           },
           {
@@ -960,8 +868,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "horizontalEquation"
           }
         ],
@@ -1037,8 +943,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1052,8 +956,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1067,8 +969,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1082,8 +982,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1097,8 +995,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1112,8 +1008,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1127,8 +1021,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1142,8 +1034,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1157,8 +1047,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1172,8 +1060,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           }
         ],
@@ -1249,8 +1135,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1264,8 +1148,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1279,8 +1161,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1294,8 +1174,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1309,8 +1187,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1324,8 +1200,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1339,8 +1213,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1354,8 +1226,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1369,8 +1239,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1384,8 +1252,6 @@
             "imgOne": "twoElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           }
         ],
@@ -1461,8 +1327,6 @@
             "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1476,8 +1340,6 @@
             "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1491,8 +1353,6 @@
             "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1506,8 +1366,6 @@
             "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           }
         ],
@@ -1583,8 +1441,6 @@
             "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1598,8 +1454,6 @@
             "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1613,8 +1467,6 @@
             "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           },
           {
@@ -1628,8 +1480,6 @@
             "imgOne": "fiveElephants",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordGrid"
           }
         ],
@@ -2602,8 +2452,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -2617,8 +2465,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -2632,8 +2478,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -2647,8 +2491,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -2662,8 +2504,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           }
         ],
@@ -2739,8 +2579,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2754,8 +2592,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2769,8 +2605,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2784,8 +2618,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2799,8 +2631,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2814,8 +2644,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2829,8 +2657,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2844,8 +2670,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2859,8 +2683,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -2874,8 +2696,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           }
         ],
@@ -2951,8 +2771,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -2966,8 +2784,6 @@
             "imgOne": "10",
             "imgTwo": "unitOfOneHundred",
             "imgThree": "unitOfTen",
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImageEquation"
           },
           {
@@ -2981,8 +2797,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -2996,8 +2810,6 @@
             "imgOne": "CDUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -3011,8 +2823,6 @@
             "imgOne": "CDUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -3026,8 +2836,6 @@
             "imgOne": "CDUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -3041,8 +2849,6 @@
             "imgOne": "CDUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           },
           {
@@ -3056,8 +2862,6 @@
             "imgOne": "CDUimg",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "wordImage"
           }
         ],
@@ -3133,8 +2937,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -3148,8 +2950,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -3163,8 +2963,6 @@
             "imgOne": "unitOfTen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -3178,8 +2976,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           }
         ],
@@ -3255,8 +3051,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3270,8 +3064,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3285,8 +3077,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3300,8 +3090,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3315,8 +3103,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3330,8 +3116,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3345,8 +3129,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3360,8 +3142,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3375,8 +3155,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           }
         ,
@@ -3391,8 +3169,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3406,8 +3182,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -3421,8 +3195,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           }
         ],
@@ -3498,8 +3270,6 @@
             "imgOne": "fiveFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3513,8 +3283,6 @@
             "imgOne": "tenFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3528,8 +3296,6 @@
             "imgOne": "twentyFiveFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3543,8 +3309,6 @@
             "imgOne": "fiftyFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3558,8 +3322,6 @@
             "imgOne": "oneHundredFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           }
         ],
@@ -3635,8 +3397,6 @@
             "imgOne": "centimeter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3650,8 +3410,6 @@
             "imgOne": "decimeter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3665,8 +3423,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -3680,8 +3436,6 @@
             "imgOne": "meter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3695,8 +3449,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -3710,8 +3462,6 @@
             "imgOne": "meter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "gridWord"
           },
           {
@@ -3725,8 +3475,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversionTable"
           }
         ],
@@ -3802,8 +3550,6 @@
             "imgOne": "centigram",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3817,8 +3563,6 @@
             "imgOne": "decigram",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3832,8 +3576,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -3847,8 +3589,6 @@
             "imgOne": "gram",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3862,8 +3602,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -3877,8 +3615,6 @@
             "imgOne": "decagram",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3892,8 +3628,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -3907,8 +3641,6 @@
             "imgOne": "decagram",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -3922,8 +3654,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -3937,8 +3667,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversionTable"
           }
         ],
@@ -4014,8 +3742,6 @@
             "imgOne": "centiliter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -4029,8 +3755,6 @@
             "imgOne": "deciliter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -4044,8 +3768,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -4059,8 +3781,6 @@
             "imgOne": "liter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -4074,8 +3794,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -4089,8 +3807,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversionTableTwo"
           }
         ],
@@ -5067,8 +4783,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5082,8 +4796,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5097,8 +4809,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5112,8 +4822,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5127,8 +4835,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5142,8 +4848,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5157,8 +4861,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5172,8 +4874,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5187,8 +4887,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -5202,8 +4900,6 @@
             "imgOne": "unitOfOneHundred",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           }
         ],
@@ -5279,8 +4975,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5294,8 +4988,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5309,8 +5001,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5324,8 +5014,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5339,8 +5027,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5354,8 +5040,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5369,8 +5053,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5384,8 +5066,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5399,8 +5079,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5414,8 +5092,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           }
         ],
@@ -5491,8 +5167,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5506,8 +5180,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5521,8 +5193,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5536,8 +5206,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5551,8 +5219,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5566,8 +5232,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5581,8 +5245,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5596,8 +5258,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5611,8 +5271,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -5626,8 +5284,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           }
         ],
@@ -5703,8 +5359,6 @@
             "imgOne": "fiveHundredFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -5718,8 +5372,6 @@
             "imgOne": "oneThousandFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           }
         ],
@@ -5795,8 +5447,6 @@
             "imgOne": "millimeter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -5810,8 +5460,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -5825,8 +5473,6 @@
             "imgOne": "kilometer",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -5840,8 +5486,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -5855,8 +5499,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversionTableTwo"
           }
         ],
@@ -5932,8 +5574,6 @@
             "imgOne": "milligram",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -5947,8 +5587,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -5962,8 +5600,6 @@
             "imgOne": "kilogram",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -5977,8 +5613,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -5992,8 +5626,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversionTableTwo"
           },
           {
@@ -6007,8 +5639,6 @@
             "imgOne": "milliliter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6022,8 +5652,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -6037,8 +5665,6 @@
             "imgOne": "kiloliter",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6052,8 +5678,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversion"
           },
           {
@@ -6067,8 +5691,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "conversionTableTwo"
           }
         ],
@@ -6144,8 +5766,6 @@
             "imgOne": "clockOne",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6159,8 +5779,6 @@
             "imgOne": "clockOne",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6174,8 +5792,6 @@
             "imgOne": "clockThree",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6189,8 +5805,6 @@
             "imgOne": "clockSix",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6204,8 +5818,6 @@
             "imgOne": "clockNine",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6219,8 +5831,6 @@
             "imgOne": "clockTwelve",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category": "imageWord"
           }
         ],
@@ -6296,8 +5906,6 @@
             "imgOne": "circle",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6311,8 +5919,6 @@
             "imgOne": "rectangle",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6326,8 +5932,6 @@
             "imgOne": "square",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -6341,8 +5945,6 @@
             "imgOne": "triangleYellow",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           }
         ],
@@ -6418,8 +6020,6 @@
             "imgOne": "rectangle",
             "imgTwo": "square",
             "imgThree": "triangleYellow",
-            "imgFour": null,
-            "imgFive": null,
             "category" : "shape"
           },
           {
@@ -6433,8 +6033,6 @@
             "imgOne": "rectangle",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "perimeterArea"
           },
           {
@@ -6448,8 +6046,6 @@
             "imgOne": "square",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "perimeterArea"
           },
           {
@@ -6463,8 +6059,6 @@
             "imgOne": "triangleYellow",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "perimeterArea"
           }
         ],
@@ -7441,8 +7035,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7456,8 +7048,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7471,8 +7061,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7486,8 +7074,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7501,8 +7087,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7516,8 +7100,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7531,8 +7113,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7546,8 +7126,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7561,8 +7139,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           },
           {
@@ -7576,8 +7152,6 @@
             "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "counting"
           }
         ],
@@ -7653,8 +7227,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7668,8 +7240,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7683,8 +7253,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7698,8 +7266,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7713,8 +7279,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7728,8 +7292,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7743,8 +7305,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7758,8 +7318,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7773,8 +7331,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           },
           {
@@ -7788,8 +7344,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "verticalEquation"
           }
         ],
@@ -7865,8 +7419,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           },
           {
@@ -7880,8 +7432,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           },
           {
@@ -7895,8 +7445,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           },
           {
@@ -7910,8 +7458,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           },
           {
@@ -7925,8 +7471,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           },
           {
@@ -7940,8 +7484,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           },
           {
@@ -7955,8 +7497,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           },
           {
@@ -7970,8 +7510,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           },
           {
@@ -7985,8 +7523,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "division"
           }
         ],
@@ -8062,8 +7598,6 @@
             "imgOne": "PLOne",
             "imgTwo": "PLTwo",
             "imgThree": "PLThree",
-            "imgFour": null,
-            "imgFive": null,
             "category" : "shape"
           },
           {
@@ -8077,8 +7611,6 @@
             "imgOne": "perLineOne",
             "imgTwo": "perLineTwo",
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "linesAngles"
           },
           {
@@ -8092,8 +7624,6 @@
             "imgOne": "rightAngle",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           }
         ],
@@ -8169,8 +7699,6 @@
             "imgOne": "rectangle",
             "imgTwo": "square",
             "imgThree": "triangleGreen",
-            "imgFour": null,
-            "imgFive": null,
             "category" : "shape"
           },
           {
@@ -8184,8 +7712,6 @@
             "imgOne": "rectangle",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "perimeterArea"
           },
           {
@@ -8199,8 +7725,6 @@
             "imgOne": "square",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "perimeterArea"
           },
           {
@@ -8214,8 +7738,6 @@
             "imgOne": "triangleGreen",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "perimeterArea"
           }
         ],
@@ -8291,8 +7813,6 @@
             "imgOne": "twoThousandFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -8306,8 +7826,6 @@
             "imgOne": "fiveThousandFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           },
           {
@@ -8321,8 +7839,6 @@
             "imgOne": "tenThousandFrancs",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "imageWord"
           }
         ],
@@ -8398,8 +7914,6 @@
             "imgOne": "equTriangleAngles",
             "imgTwo": "rightTriangleAngles",
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "shapesAngles"
           },
           {
@@ -8413,8 +7927,6 @@
             "imgOne": "squareAngles",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "perimeterArea"
           },
           {
@@ -8428,8 +7940,6 @@
             "imgOne": "rectangleAngles",
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "perimeterArea"
           }
         ],
@@ -8505,8 +8015,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8520,8 +8028,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8535,8 +8041,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8550,8 +8054,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8565,8 +8067,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8580,8 +8080,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8595,8 +8093,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8610,8 +8106,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8625,8 +8119,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8640,8 +8132,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           }
         ],
@@ -8717,8 +8207,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8732,8 +8220,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8747,8 +8233,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8762,8 +8246,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8777,8 +8259,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8792,8 +8272,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8807,8 +8285,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8822,8 +8298,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8837,8 +8311,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           },
           {
@@ -8852,8 +8324,6 @@
             "imgOne": null,
             "imgTwo": null,
             "imgThree": null,
-            "imgFour": null,
-            "imgFive": null,
             "category" : "family"
           }
         ],

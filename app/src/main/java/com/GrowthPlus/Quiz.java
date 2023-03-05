@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -103,8 +102,6 @@ public class Quiz extends AppCompatActivity {
                 String num = contents.get(twenty.get(counter)).getQuestion();
                 int numOfImg = Integer.valueOf(num);
                 setAnswers();
-                Log.i("num", String.valueOf(numOfImg));
-                Log.i("image", picture);
 
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
@@ -128,7 +125,6 @@ public class Quiz extends AppCompatActivity {
             countDownTimer.cancel();
             setTimer();
             counter++; // Display 10 questions then exit activity
-            Log.i("numCorrect", String.valueOf(numberCorrect));
             if(counter >= MAX){
                 // Child passes the quiz
                 setPointSystem(thisScore, minScoreToPass);
