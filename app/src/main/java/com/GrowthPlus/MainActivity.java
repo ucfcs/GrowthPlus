@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         init();
         importRoadMapData();
-        importChildData();
+        //importChildData();
         setAllLandingPageCards(children);
 
         parentPortal.setOnClickListener(this);
@@ -239,13 +239,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent childPortal = new Intent(MainActivity.this, ChildPortal.class);
         childPortal.putExtra("childIdLandingPage",childId);
         startActivity(childPortal);
+        this.finish();
 
     }
 
     public void startAddChildActivity(){
         Intent selectChildAvatar = new Intent(MainActivity.this, SelectChildAvatar.class);
-        selectChildAvatar.putExtra("comingFrom", "LandingPage");
+        selectChildAvatar.putExtra("comingFrom", "landingPage");
         startActivity(selectChildAvatar);
+        this.finish();
     }
 
     private void setAllLandingPageCards(RealmResults<ChildSchema> children){

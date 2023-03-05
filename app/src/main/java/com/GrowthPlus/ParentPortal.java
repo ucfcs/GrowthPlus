@@ -242,8 +242,9 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
     public void startSelectChildAvatarActivity(){
         Intent selectChildAvatar = new Intent(ParentPortal.this, SelectChildAvatar.class);
-        selectChildAvatar.putExtra("comingFrom", "ParentPortal");
+        selectChildAvatar.putExtra("comingFrom", "parentPortal");
         startActivity(selectChildAvatar);
+        this.finish();
     }
 
     public void startLandingPageActivity(){

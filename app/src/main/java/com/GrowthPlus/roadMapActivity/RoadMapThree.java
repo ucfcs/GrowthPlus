@@ -106,7 +106,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
             return false;
         });
 
-        goBackButton.setOnClickListener(v -> onBackPressed());
+        goBackButton.setOnClickListener(this);
 
     }
 
@@ -117,8 +117,6 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         topBarThree.setPoints(String.valueOf(child.getScore()));
         goBackButton = topBarThree.findViewById(R.id.goBackBtn);
         roadMapThreeLessonTrail = roadMapThree.findViewById(R.id.roadMapThreeLessonTrail);
-
-
         childRoadMapThree = child.getRoadMapThree();
         lessonCompleted = childRoadMapThree.getLessonsCompleted();
         roadMapLessons = childRoadMapThree.getRoadMapLessons();
@@ -220,10 +218,9 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         int viewId = view.getId();
 
         if(viewId == goBackButton.getId()){
-            IntentIntro = new Intent(RoadMapThree.this, Lesson3.class);
-            Intent lessonIntent = new Intent(RoadMapThree.this, ChildPortal.class);
-            lessonIntent.putExtra("childIdLandingPage", childID);
-            startActivity(lessonIntent);
+            Intent childPortal = new Intent(RoadMapThree.this, ChildPortal.class);
+            childPortal.putExtra("childIdLandingPage", childID);
+            startActivity(childPortal);
             this.finish();
         }
 

@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +20,6 @@ import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
-import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
@@ -29,7 +27,10 @@ import com.GrowthPlus.utilities.ImageSrcIdentifier;
 
 import org.bson.types.ObjectId;
 
+import java.util.Objects;
+
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 import io.realm.RealmList;
 
 public class CreateAccount extends AppCompatActivity {
@@ -40,10 +41,11 @@ public class CreateAccount extends AppCompatActivity {
     String colorName, animalName;
     ChildAvatarComponent childAvatar;
     ColorStateList color;
-    ChildSchemaService newChild;
     ParentSchemaService parentService;
     Realm realm;
     Resources resources;
+    private RealmChangeListener<ParentSchema> realmListener;
+    private String goBackTo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -857,44 +859,45 @@ public class CreateAccount extends AppCompatActivity {
         View.OnClickListener goNext = v -> {
             loginButton.setOnClickListener(null);
             backButton.setOnClickListener(null);
-            if (nameInput.getText().toString() != null && !nameInput.getText().toString().equals("")){
-                newChild = new ChildSchemaService(realm,
-                        nameInput.getText().toString(),
-                        animalName,
-                        colorName, 0,
-                        childRoadMapOne,
-                        childRoadMapTwo,
-                        childRoadMapThree,
-                        childRoadMapFour);
-
-                ObjectId childId = new ObjectId();
-                newChild.createChildSchema(String.valueOf(childId));
-
-                // Adding newly created child to parent's children
+            Objects.requireNonNull(realm.where(ParentSchema.class).findFirst()).addChangeListener(realmListener);
+            if (!nameInput.getText().toString().equals("")){
                 realm.executeTransactionAsync(realm -> {
-                    ChildSchema child = realm.where(ChildSchema.class).equalTo("childId", childId.toString()).findFirst();
                     ParentSchema parent = realm.where(ParentSchema.class).findFirst();
-                    parent.getChildren().add(child);
+                    assert parent != null;
 
-                }, ()->{
-                        Intent intent = new Intent(CreateAccount.this, MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        overridePendingTransition(0, 0);
-                        startActivity(intent);
-                        overridePendingTransition(0, 0);
-                        finish();
-                }, error -> {
-                        Log.i("Error", "Could not add child to parent " + error);
+                    ObjectId childId = new ObjectId();
+                    ChildSchema newChild = realm.createObject(ChildSchema.class, String.valueOf(childId));
+                    newChild.setName(nameInput.getText().toString());
+                    newChild.setAvatarName(animalName);
+                    newChild.setColorName(colorName);
+                    newChild.setScore(0);
+                    newChild.setRoadMapOne(childRoadMapOne);
+                    newChild.setRoadMapTwo(childRoadMapTwo);
+                    newChild.setRoadMapThree(childRoadMapThree);
+                    newChild.setRoadMapFour(childRoadMapFour);
+                    newChild.setCatCountNumbers(0);
+                    newChild.setCatCountUnits(0);
+                    newChild.setCatCountAddition(0);
+                    newChild.setCatCountSubtraction(0);
+                    newChild.setCatCountMultiplication(0);
+                    newChild.setCatCountDivision(0);
+                    newChild.setCatCountLength(0);
+                    newChild.setCatCountWeightVolume(0);
+                    newChild.setCatCountMoney(0);
+                    newChild.setCatCountTime(0);
+                    newChild.setCatCountShapes(0);
+                    newChild.setCatCountAngles(0);
+                    newChild.setCatCountReview(0);
+                    newChild.setTotalLessonsCompleted(0);
+
+                    parent.getChildren().add(newChild);
                 });
-
             }
         };
         loginButton.setOnClickListener(goNext);
 
         // Go back to select child avatar
-        View.OnClickListener goBack = v -> {
-            finish();
-        };
+        View.OnClickListener goBack = v -> backToSelectAvatar();
         backButton.setOnClickListener(goBack);
     }
 
@@ -908,17 +911,16 @@ public class CreateAccount extends AppCompatActivity {
         imageSrcIdentifier = new ImageSrcIdentifier();
         childAvatar = findViewById(R.id.childAvatar);
         parentService = new ParentSchemaService(realm);
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             colorName = extras.getString("selectColor"); // Get color
             animalName = extras.getString("selectAnimal"); // Get animal
+            goBackTo = extras.getString("comingFrom"); // Send back to select avatar
         }
         color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(colorName));
-
         backButton.setBackgroundTintList(color); // Set color
         loginButton.setBackgroundTintList(color);
-
+        realmListener = realm -> backToLandingPage();
         setChildAvatar();
     }
 
@@ -940,5 +942,28 @@ public class CreateAccount extends AppCompatActivity {
     public void setChildAvatar(){
         childAvatar.setImageResource(imageSrcIdentifier.getImageSrcId(animalName));
         childAvatar.setBackgroundTintList(color);
+    }
+
+    private void backToLandingPage(){
+        Intent intent = new Intent(CreateAccount.this, MainActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
+
+    private void backToSelectAvatar(){
+        Intent intent = new Intent(CreateAccount.this, SelectChildAvatar.class);
+        intent.putExtra("comingFrom", goBackTo);
+        startActivity(intent);
+        this.finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Remove the listener.
+        Objects.requireNonNull(realm.where(ParentSchema.class).findFirst()).removeChangeListener(realmListener);
+        realm.removeAllChangeListeners();
+        // Close the Realm instance.
+        realm.close();
     }
 }

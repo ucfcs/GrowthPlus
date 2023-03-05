@@ -101,13 +101,12 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
             return false;
         });
 
-        goBackButton.setOnClickListener(v -> onBackPressed());
+        goBackButton.setOnClickListener(this);
     }
 
     private void init(ChildSchema child){
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
-        roadMapFour = findViewById(R.id.roadMapFour);
-        topBarFour = roadMapFour.findViewById(R.id.topBarFour);
+        topBarFour = findViewById(R.id.topBarFour);
         topBarFour.setPoints(String.valueOf(child.getScore()));
         goBackButton = topBarFour.findViewById(R.id.goBackBtn);
         roadMapFourLessonTrail = findViewById(R.id.roadMapFourLessonTrail);
@@ -205,10 +204,9 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
         int viewId = view.getId();
 
         if(viewId == goBackButton.getId()){
-            IntentIntro = new Intent(RoadMapFour.this, Lesson4.class);
-            Intent lessonIntent = new Intent(RoadMapFour.this, ChildPortal.class);
-            lessonIntent.putExtra("childIdLandingPage", childID);
-            startActivity(lessonIntent);
+            Intent childPortal = new Intent(RoadMapFour.this, ChildPortal.class);
+            childPortal.putExtra("childIdLandingPage", childID);
+            startActivity(childPortal);
             this.finish();
         }
 
