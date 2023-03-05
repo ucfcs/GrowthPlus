@@ -105,7 +105,7 @@ public class Game extends AppCompatActivity {
         move3 = ObjectAnimator.ofFloat(fish2, "translationY", -200f);
         move2.setDuration(10000);
         move3.setDuration(10000);
-        move7 = ObjectAnimator.ofFloat(fish2, "translationY", 200f);
+        move7 = ObjectAnimator.ofFloat(fish2, "translationY", 300f);
         move7.setDuration(10000);
 
         // Fish 3
@@ -242,7 +242,7 @@ public class Game extends AppCompatActivity {
             showNextDelayed();
         });
 
-        // No answer selected in 8 seconds
+        // No answer selected in 10 seconds
         handler.postDelayed(() -> {
             if(!selectedAnswer){
                 showNext();
@@ -262,10 +262,13 @@ public class Game extends AppCompatActivity {
         fish3.clearAnimation();
         fish1.animate().translationX(0);
         fish1.animate().translationY(0);
+        fish1.animate().setDuration(0);
         fish2.animate().translationX(0);
-        fish1.animate().translationY(0);
+        fish2.animate().translationY(0);
+        fish2.animate().setDuration(0);
         fish3.animate().translationX(0);
-        fish1.animate().translationY(0);
+        fish3.animate().translationY(0);
+        fish3.animate().setDuration(0);
     }
 
     private void showCorrect(){

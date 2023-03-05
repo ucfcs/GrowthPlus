@@ -254,10 +254,13 @@ public class Game3 extends AppCompatActivity {
                 ball3.clearAnimation();
                 ball1.animate().translationX(0);
                 ball1.animate().translationY(0);
+                ball1.animate().setDuration(0);
                 ball2.animate().translationX(0);
                 ball2.animate().translationY(0);
+                ball2.animate().setDuration(0);
                 ball3.animate().translationX(0);
                 ball3.animate().translationY(0);
+                ball3.animate().setDuration(0);
 
                 ball1.setVisibility(View.VISIBLE);
                 ball2.setVisibility(View.VISIBLE);

@@ -223,8 +223,11 @@ public class Game2 extends AppCompatActivity {
                 b2.clearAnimation();
                 b3.clearAnimation();
                 b1.animate().translationX(0);
+                b1.animate().setDuration(0);
                 b2.animate().translationX(0);
+                b2.animate().setDuration(0);
                 b3.animate().translationX(0);
+                b3.animate().setDuration(0);
                 b1.setVisibility(View.VISIBLE);
                 b2.setVisibility(View.VISIBLE);
                 b3.setVisibility(View.VISIBLE);

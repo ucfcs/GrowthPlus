@@ -213,10 +213,13 @@ public class Game4 extends AppCompatActivity {
                 c3.clearAnimation();
                 c1.animate().translationX(0);
                 c1.animate().translationY(0);
+                c1.animate().setDuration(0);
                 c2.animate().translationX(0);
                 c2.animate().translationY(0);
+                c2.animate().setDuration(0);
                 c3.animate().translationX(0);
                 c3.animate().translationY(0);
+                c3.animate().setDuration(0);
                 setContent();
             }
         }, 2500);
