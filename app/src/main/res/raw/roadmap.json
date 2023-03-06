@@ -5143,7 +5143,7 @@
             "firstOperator": "x",
             "secondNumber": "6",
             "secondOperator":  "",
-            "answer": "42",
+            "answer": "48",
             "category": "customEquation"
           }
         ]
@@ -5732,7 +5732,7 @@
             "firstOperator": "",
             "secondNumber": "",
             "secondOperator": "",
-            "answer": "1000",
+            "answer": "1",
             "category": "customImageWord"
           },
           {
@@ -7572,7 +7572,7 @@
             "image": null,
             "firstNumber": "5400",
             "firstOperator": ":",
-            "secondNumber": "80",
+            "secondNumber": "8",
             "secondOperator": "",
             "answer": "675",
             "category": "customEquation"
