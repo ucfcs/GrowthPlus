@@ -264,6 +264,9 @@ public class Lesson extends AppCompatActivity {
                     }
                     counter++;
                     backCounter = counter -2;
+                    if(backCounter < 0){
+                        backButton.setVisibility(View.INVISIBLE);
+                    }
                 }
             }
         });
@@ -434,6 +437,9 @@ public class Lesson extends AppCompatActivity {
                     }
                     backCounter--;
                     counter = backCounter + 2;
+                    if(backCounter < 0){
+                        backButton.setVisibility(View.INVISIBLE);
+                    }
                 }
             }
         });
