@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
@@ -35,12 +36,15 @@ public class Lesson extends AppCompatActivity {
     private RealmList<LessonContent> contents;
     private TopBar topBar;
     private Button introBackBtn;
+    private Button backButton;
     private int contentLength;
     private Button nextContent;
     private int counter;
+    private int backCounter;
     private String lessonName;
     private String image;
     private int lessonIndex;
+    public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -84,9 +88,11 @@ public class Lesson extends AppCompatActivity {
         contentLength = contents.size();
         // Use the counter to access the contents of the appropriate Lesson
         counter = 0;
+        backCounter = counter - 2;
 
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                v.startAnimation(buttonClick);
                 // Reached the end of the contents and need to start looking at flashcards or the Lesson is 10 (which is all flashcards)
                 if(counter >= contentLength){
                     Intent flashcardIntent = new Intent(Lesson.this, Flashcard.class);
@@ -257,6 +263,177 @@ public class Lesson extends AppCompatActivity {
                         default:
                     }
                     counter++;
+                    backCounter = counter -2;
+                }
+            }
+        });
+
+        // Back button decrements the counter variable and display previous lesson content
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(backCounter >= 0){
+                    view.startAnimation(buttonClick);
+                    String category = contents.get(backCounter).getCategory();
+
+                    // These variables as needed in each switch statement
+                    // Same vars as are found in the roadmap.json for lessons
+                    String lessonImg, word, firstNumber, firstOperator, secondNumber,
+                            secondOperator, thirdNumber, imgOne, imgTwo, imgThree, name;
+
+                    switch (category){
+                        case "counting": {
+                            word = contents.get(backCounter).getWord();
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            lessonImg = lesson.getImage();
+                            if(!trans.getString(word).equals("empty")){
+                                word = trans.getString(word);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("lessonWord", word);
+                                bundle.putString("lessonNumber", firstNumber);
+                                bundle.putString("lessonImage", lessonImg);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, Counting.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "horizontalEquation": {
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            firstOperator = contents.get(backCounter).getFirstOperator();
+                            secondNumber = contents.get(backCounter).getSecondNumber();
+                            secondOperator = contents.get(backCounter).getSecondOperator();
+                            thirdNumber = contents.get(backCounter).getThirdNumber();
+                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
+
+                            lessonImg = lesson.getImage();
+
+                            int firstNumInt = Integer.valueOf(firstNumber);
+                            int secondNumInt = Integer.valueOf(secondNumber);
+                            int thirdNumInt = Integer.valueOf(thirdNumber);
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("text1", equation);
+                                bundle.putString("lessonImg", lessonImg);
+                                bundle.putInt("num1", firstNumInt);
+                                bundle.putInt("num2", secondNumInt);
+                                bundle.putInt("num3", thirdNumInt);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, HorizontalEquation.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "wordImage" : {
+                            name = contents.get(backCounter).getWord();
+                            word = contents.get(backCounter).getWord();
+                            if(!trans.getString(word).equals("empty")){
+                                word = trans.getString(word);
+                            }
+                            imgOne = contents.get(backCounter).getImgOne();
+                            // TODO: look into how we're storing images for the wordImage lessons
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("name", name);
+                                bundle.putString("locationIntroText", word);
+                                bundle.putString("locationIntroImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, WordImage.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        // This category can be found on the roadmap.json file
+                        case "wordImageEquation": {
+                            // Reference the fragment_word_image_equation.xml file to see which components we need
+
+                            // Methods attached to contents.get(counter) can all be found in the DAL of the application
+                            // Reference the roadmap.json to see which methods are the correct ones to call
+
+                            // Access top text and bottom text
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            secondNumber = contents.get(backCounter).getSecondNumber();
+                            // Translate to respective words
+                            String firstWord = "10 " + trans.getString(firstNumber);
+                            String secondWord = trans.getString(secondNumber);
+
+                            // Multiple image is many images of one tile with small numbers
+                            // Single image is one image with one large number
+                            imgOne = contents.get(backCounter).getImgOne();
+                            imgTwo = contents.get(backCounter).getImgTwo();
+                            imgThree = contents.get(backCounter).getImgThree();
+
+                            // Access the operator as shown on the xml file and Lesson image
+                            firstOperator = contents.get(backCounter).getFirstOperator();
+                            lessonImg = lesson.getImage();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                // Add the proper components to the bundle using uniquely set IDs and the content that we accessed
+                                bundle.putString("topText", firstWord);
+                                bundle.putString("bottomText", secondWord);
+                                bundle.putString("multipliedImage", imgOne);
+                                bundle.putString("singleImage", imgTwo);
+                                bundle.putString("operatorSymbol", firstOperator);
+                                bundle.putString("multipleImage", imgThree);
+
+                                // Make the fragment transaction and commit it
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, WordImageEquation.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "wordGrid" :{
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            firstOperator = contents.get(backCounter).getFirstOperator();
+                            secondNumber = contents.get(backCounter).getSecondNumber();
+                            secondOperator = contents.get(backCounter).getSecondOperator();
+                            thirdNumber = contents.get(backCounter).getThirdNumber();
+                            String equation = firstNumber + " " + firstOperator + " " + secondNumber + " " + secondOperator + " " + thirdNumber;
+                            imgOne = contents.get(backCounter).getImgOne();
+
+                            int numImg = 0;
+                            if(lesson.getCategory().equals("division")){
+                                numImg = Integer.valueOf(thirdNumber);
+                            }
+                            else if(lesson.getCategory().equals("multiplication")){
+                                numImg = Integer.valueOf(secondNumber);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("wordMD", equation);
+                                bundle.putString("imageMD", imgOne);
+                                bundle.putInt("numMD", numImg);
+                                bundle.putInt("level", 1);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, WordGrid.class, bundle);
+                                transaction.commit();
+                            }
+                        }
+                        default:
+                    }
+                    backCounter--;
+                    counter = backCounter + 2;
                 }
             }
         });
@@ -278,6 +455,7 @@ public class Lesson extends AppCompatActivity {
         nextContent = findViewById(R.id.next_button_lesson);
         lessonName = lesson.getLessonName();
         image = lesson.getImage();
+        backButton = findViewById(R.id.back_button_lesson);
     }
 
     private void setTopBar(){
