@@ -319,7 +319,7 @@ public class Game extends AppCompatActivity {
         counter++;
         if(counter >= MAX) {
             background.stop();
-            setCompletedState(gameScore, MIN_TO_PASS);
+            setCompletedState(gameScore);
             Intent lessonIntent = new Intent(Game.this, Results.class);
             lessonIntent.putExtra("childId", childId);
             lessonIntent.putExtra("whichOne", "Game");

@@ -188,7 +188,7 @@ public class Flashcard extends AppCompatActivity {
                 if(childAnswer.equals(flashcardAnswer)){
                     playCorrect();
                     answerColor = correctAnswerColor;
-                    numberCorrect ++ ;
+                    numberCorrect++ ;
                     if(currentLessonScore < MAX_LESSON_SCORE){
                         currentLessonScore+= 2;
                         currentChildScore+= 2;
@@ -245,14 +245,14 @@ public class Flashcard extends AppCompatActivity {
             counter++;
             if(counter >= MAX){
                 // Passing condition number of correct flashcards
-                setPointSystem(numberCorrect, minToPass);
+                setLessonState();
                 Intent lessonIntent = new Intent(Flashcard.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Flash");
                 lessonIntent.putExtra("points", numberCorrect);
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "One");
-                if(numberCorrect >= minToPass){
+                if(numberCorrect >= minScoreToPass){
                     lessonIntent.putExtra("passOrNot", 1);
                 }
                 else{

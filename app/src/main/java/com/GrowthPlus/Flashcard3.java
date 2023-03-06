@@ -269,14 +269,14 @@ public class Flashcard3 extends AppCompatActivity {
             counter++;
             if(counter >= MAX){
                 // Passing condition number of correct flashcards
-                setPointSystem(numberCorrect, minToPass);
+                setLessonState();
                 Intent lessonIntent = new Intent(Flashcard3.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Flash");
                 lessonIntent.putExtra("points", numberCorrect);
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "Three");
-                if(numberCorrect >= minToPass){
+                if(numberCorrect >= minScoreToPass){
                     lessonIntent.putExtra("passOrNot", 1);
                 }
                 else{
