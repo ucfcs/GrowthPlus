@@ -52,7 +52,6 @@ public class CreateAccount extends AppCompatActivity {
         init();
 
         // ROADMAP 1 : lessons, quizzes, and game
-
         RoadMapLesson roadMapLesson1 = new RoadMapLesson(
                 "Roadmap One Lesson 1",
                 "elephant",
@@ -193,6 +192,7 @@ public class CreateAccount extends AppCompatActivity {
                 true,
                 false,
                 0);
+
         RealmList<RoadMapLesson> roadMapLessons = new RealmList<>();
         roadMapLessons.add(roadMapLesson1);
         roadMapLessons.add(roadMapLesson2);
