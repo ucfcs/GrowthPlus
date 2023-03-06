@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -45,6 +46,7 @@ public class Game2 extends AppCompatActivity {
     TextView question;
     Handler handler;
     ObjectAnimator animator1, animator2, animator3;
+    private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
 
     @Override
@@ -52,9 +54,11 @@ public class Game2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
         init();
+        playBackground();
 
         introBackBtn.setOnClickListener(view -> {
             setCompletedState(gameScore);
+            background.stop();
         });
         setTopBar();
         setContent();
@@ -84,10 +88,26 @@ public class Game2 extends AppCompatActivity {
         b2 = findViewById(R.id.banana2);
         b3 = findViewById(R.id.banana3);
         correctB = findViewById(R.id.correctBanana);
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        background = MediaPlayer.create(this, R.raw.market);
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
         Collections.shuffle(forty); // Randomize question selection
+    }
+
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
+    }
+
+    private void playBackground(){
+        background.start();
+        background.setLooping(true);
     }
 
     private void setTopBar(){
@@ -111,6 +131,8 @@ public class Game2 extends AppCompatActivity {
 
         b1.setOnClickListener(v -> {
             if(b1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
+                showCorrect();
                 numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
@@ -121,13 +143,19 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else {
+                playIncorrect();
+                wrongAnimation(b1, b2, b3);
+            }
             deactivate();
-            showCorrect();
+            showNext();
         });
 
         b2.setOnClickListener(v -> {
             if(b2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
+                playCorrect();
+                showCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -137,13 +165,19 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else {
+                playIncorrect();
+                wrongAnimation(b1, b2, b3);
+            }
             deactivate();
-            showCorrect();
+            showNext();
         });
 
         b3.setOnClickListener(v -> {
             if(b3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
+                playCorrect();
+                showCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -153,8 +187,12 @@ public class Game2 extends AppCompatActivity {
                     gameTopBar.setPoints(String.valueOf(childScore));
                 }
             }
+            else {
+                playIncorrect();
+                wrongAnimation(b1, b2, b3);
+            }
             deactivate();
-            showCorrect();
+            showNext();
         });
     }
 
@@ -165,19 +203,42 @@ public class Game2 extends AppCompatActivity {
     }
 
     private void showCorrect(){
-        animator1.end();
-        animator2.end();
-        animator3.end();
         correctB.setVisibility(View.VISIBLE);
         b1.setVisibility(View.INVISIBLE);
         b2.setVisibility(View.INVISIBLE);
         b3.setVisibility(View.INVISIBLE);
+    }
+
+    private void showNext(){
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
+                background.stop();
                 setCompletedState(gameScore);
+                Intent lessonIntent = new Intent(Game2.this, Results.class);
+                lessonIntent.putExtra("childId", childId);
+                lessonIntent.putExtra("whichOne", "Game");
+                lessonIntent.putExtra("points", gameScore);
+                lessonIntent.putExtra("max", MAX);
+                lessonIntent.putExtra("whichRoadMap", "Two");
+                if(gameScore >= MIN_TO_PASS){
+                    lessonIntent.putExtra("passOrNot", 1);
+                }
+                else{
+                    lessonIntent.putExtra("passOrNot", 0);
+                }
+                startActivity(lessonIntent);
             }
             else{
+                b1.clearAnimation();
+                b2.clearAnimation();
+                b3.clearAnimation();
+                b1.animate().translationX(0);
+                b1.animate().setDuration(0);
+                b2.animate().translationX(0);
+                b2.animate().setDuration(0);
+                b3.animate().translationX(0);
+                b3.animate().setDuration(0);
                 b1.setVisibility(View.VISIBLE);
                 b2.setVisibility(View.VISIBLE);
                 b3.setVisibility(View.VISIBLE);
@@ -185,6 +246,18 @@ public class Game2 extends AppCompatActivity {
                 setContent();
             }
         }, 2500);
+    }
+
+    private void wrongAnimation(View target1, View target2, View target3){
+        animator1 = ObjectAnimator.ofFloat(target1, "translationX", 2000f);
+        animator2 = ObjectAnimator.ofFloat(target2, "translationX", 1000f);
+        animator3 = ObjectAnimator.ofFloat(target3, "translationX", 2000f);
+        animator1.setDuration(1500);
+        animator2.setDuration(1500);
+        animator3.setDuration(1500);
+        animator1.start();
+        animator2.start();
+        animator3.start();
     }
 
     private void bounceAnimation(View target1, View target2,  View target3){

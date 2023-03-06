@@ -17,8 +17,8 @@ import com.GrowthPlus.utilities.ColorIdentifier;
 public class QuizCircle extends ConstraintLayout {
     ImageView circle;
     TextView number;
-    ColorIdentifier colorIdentifier;
     ColorStateList green, red, blue, darkGreen;
+    ColorIdentifier colorIdentifier;
 
     public QuizCircle(@NonNull Context context) {
         super(context);
