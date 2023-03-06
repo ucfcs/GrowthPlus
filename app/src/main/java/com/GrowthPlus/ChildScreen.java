@@ -20,6 +20,7 @@ import com.GrowthPlus.customViews.ChildNameScoreComponent;
 import com.GrowthPlus.customViews.HorizontalProgressBar;
 import com.GrowthPlus.customViews.SubjectCompletionComponent;
 import com.GrowthPlus.dataAccessLayer.Language.Translator;
+import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
@@ -28,7 +29,6 @@ import com.GrowthPlus.utilities.ImageSrcIdentifier;
 import io.realm.Realm;
 
 public class ChildScreen extends AppCompatActivity {
-
     private Button backParentPortal;
     private Button deleteChildButton;
     private ChildAvatarComponent childAvatar;
@@ -53,26 +53,16 @@ public class ChildScreen extends AppCompatActivity {
     private SubjectCompletionComponent angles;
     private ColorIdentifier colorIdentifier;
     private ImageSrcIdentifier imageSrcIdentifier;
-
     private String childId;
     private ColorStateList progressBarOneColor;
     private ColorStateList progressBarTwoColor;
     private ColorStateList progressBarThreeColor;
     private ColorStateList progressBarFourColor;
-
     private Realm realm;
     private ChildSchemaService childSchemaService;
-    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
-
-    //this is for the delete child confirmation popup screen
-    private AlertDialog.Builder dialogueBuilder;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    private Translator translator;
     private AlertDialog dialogue;
-    private Button confirmChildDelete;
-    private Button cancelChildDelete;
-    private ImageView childAvatarDel;
-    private TextView childNameDel;
-    private TextView deleteText;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,14 +70,53 @@ public class ChildScreen extends AppCompatActivity {
         setContentView(R.layout.activity_child_screen);
         init();
 
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        translator = new Translator(langId);
+
         ChildSchema child = childSchemaService.getChildSchemaById(childId);
         setChildMetaData(child);
 
-        // TODO: Progress is hardcoded for now, need to figure out the correct point system
-        setProgressBar(horizontalProgressBarOne, "1", progressBarOneColor, 50);
-        setProgressBar(horizontalProgressBarTwo, "2", progressBarTwoColor, 50);
-        setProgressBar(horizontalProgressBarThree, "3", progressBarThreeColor, 50);
-        setProgressBar(horizontalProgressBarFour, "4", progressBarFourColor, 50);
+        RoadMapLesson lastLesson = child.getRoadMapOne().getRoadMapLessons().last();
+        Integer lessonsCompleted = roadMapLessonProgress(lastLesson, child.getRoadMapOne().getLessonsCompleted());
+
+        setProgressBar(
+                horizontalProgressBarOne,
+                "1",
+                progressBarOneColor,
+                lessonsCompleted
+        );
+
+        lastLesson = child.getRoadMapTwo().getRoadMapLessons().last();
+        lessonsCompleted = roadMapLessonProgress(lastLesson, child.getRoadMapTwo().getLessonsCompleted());
+        setProgressBar(
+                horizontalProgressBarTwo,
+                "2",
+                progressBarTwoColor,
+                lessonsCompleted
+        );
+
+        lastLesson = child.getRoadMapThree().getRoadMapLessons().last();
+        lessonsCompleted = roadMapLessonProgress(lastLesson, child.getRoadMapThree().getLessonsCompleted());
+        setProgressBar(
+                horizontalProgressBarThree,
+                "3",
+                progressBarThreeColor,
+                lessonsCompleted
+        );
+
+        lastLesson = child.getRoadMapFour().getRoadMapLessons().last();
+        lessonsCompleted = roadMapLessonProgress(lastLesson, child.getRoadMapFour().getLessonsCompleted());
+        setProgressBar(
+                horizontalProgressBarFour,
+                "4",
+                progressBarFourColor,
+                lessonsCompleted
+        );
+
+        setSubjectsCompletion(child);
 
         backParentPortal.setOnClickListener(view -> {
             view.startAnimation(buttonClick);
@@ -95,9 +124,7 @@ public class ChildScreen extends AppCompatActivity {
             this.finish();
         });
 
-        deleteChildButton.setOnClickListener(view -> {
-            createDeleteChildDialogue(child);
-        });
+        deleteChildButton.setOnClickListener(view -> createDeleteChildDialogue(child));
 
     }
 
@@ -105,8 +132,7 @@ public class ChildScreen extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String id = extras.getString("childIdParentPortal");
-            childId = id;
+            childId = extras.getString("childIdParentPortal");
         }
 
         childSchemaService = new ChildSchemaService(realm);
@@ -149,6 +175,15 @@ public class ChildScreen extends AppCompatActivity {
         super.onDestroy();
     }
 
+    private Integer roadMapLessonProgress(RoadMapLesson lastLesson, Integer lessons){
+        int lessonsCompleted = lessons == 9 && lastLesson.getCompleted() ? lessons + 1 : lessons;
+        int MAX_LESSONS_RM = 10;
+        double percentage = ((double) lessonsCompleted / (double) MAX_LESSONS_RM);
+        double progress = percentage * 100;
+
+        return (int) progress;
+    }
+
     private void setProgressBar(HorizontalProgressBar temp,  CharSequence text, ColorStateList tint, Integer progress){
         temp.setBarLevelText(text);
         temp.setBarLevelColor(tint);
@@ -166,14 +201,12 @@ public class ChildScreen extends AppCompatActivity {
         childNameAndScore.setChildScoreText(String.valueOf(score));
     }
 
-
     private void setChildMetaData(ChildSchema child){
         ColorStateList color = ContextCompat.getColorStateList(this, colorIdentifier.getColorIdentifier(child.getColorName()));
         String name = child.getName();
         String avatarName = child.getAvatarName();
 
-        //TODO: CHANGE CHILD SCHEMA
-        Integer score = 100;
+        Integer score = child.getScore();
         setChildAvatar(avatarName, color);
         setChildNameAndScore(name, score);
     }
@@ -181,7 +214,8 @@ public class ChildScreen extends AppCompatActivity {
     //this creates the delete child popup
     public void createDeleteChildDialogue(ChildSchema deleteChild){
         //create the dialogue builder using this context
-        dialogueBuilder = new AlertDialog.Builder(this);
+        //this is for the delete child confirmation popup screen
+        AlertDialog.Builder dialogueBuilder = new AlertDialog.Builder(this);
 
         //to create the view we have an inflator that calls our custom xml file
         View deleteChildPopupView = getLayoutInflater().
@@ -191,14 +225,14 @@ public class ChildScreen extends AppCompatActivity {
         //here we want to grab the confirm and cancel buttons from the view
         //this is important so that we can set up the proper logic for the
         //onClickListeners
-        confirmChildDelete = deleteChildPopupView.findViewById(R.id.confirmBtn);
-        cancelChildDelete = deleteChildPopupView.findViewById(R.id.cancelBtn);
+        Button confirmChildDelete = deleteChildPopupView.findViewById(R.id.confirmBtn);
+        Button cancelChildDelete = deleteChildPopupView.findViewById(R.id.cancelBtn);
 
         //here we grab the fields in the custom PopUp xml file that we want to change
         //based on the child that is being deleted
-        childNameDel = deleteChildPopupView.findViewById(R.id.childName);
-        childAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
-        deleteText = deleteChildPopupView.findViewById(R.id.delete);
+        TextView childNameDel = deleteChildPopupView.findViewById(R.id.childName);
+        ImageView childAvatarDel = deleteChildPopupView.findViewById(R.id.childAvatar);
+        TextView deleteText = deleteChildPopupView.findViewById(R.id.delete);
 
 
         //here we set the child name and avatar to the popUp so that the parent can
@@ -212,7 +246,8 @@ public class ChildScreen extends AppCompatActivity {
         String langId = langPrefs.getString("languageId", "frenchZero");
         // Create language translator and set up the Lesson string
         Translator trans = new Translator(langId);
-        deleteText.setText(trans.getString("delete")+"?");
+        String text = trans.getString("delete")+"?";
+        deleteText.setText(text);
 
         //in the dialogue builder we have to set this view
         dialogueBuilder.setView(deleteChildPopupView);
@@ -223,10 +258,11 @@ public class ChildScreen extends AppCompatActivity {
 
         //this is the logic if the parent confirms that they want to delete the child
         //we grab the child using their unique ID, delete the child, and verify that the
-        //deletion was sucessful and eventually dismiss the popUp
+        //deletion was successful and eventually dismiss the popUp
         confirmChildDelete.setOnClickListener(view -> {
             realm.executeTransactionAsync(realm -> {
                 ChildSchema childDel = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+                assert childDel != null;
                 childDel.deleteFromRealm();
             },()->{
                 Intent intent = new Intent(ChildScreen.this, ParentPortal.class);
@@ -235,18 +271,74 @@ public class ChildScreen extends AppCompatActivity {
                 startActivity(new Intent(ChildScreen.this, ParentPortal.class));
                 overridePendingTransition(0, 0);
                 this.finish();
-            }, error -> {
-                Log.i("Error", "Could not delete child from realm " + error);
-            });
+            }, error -> Log.i("Error", "Could not delete child from realm " + error));
             dialogue.dismiss();
         });
 
         //here the parent does not wish to delete the child so we simply dismiss our popUp
-        cancelChildDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogue.dismiss();
-            }
-        });
+        cancelChildDelete.setOnClickListener(v -> dialogue.dismiss());
+    }
+
+    private void setSubjectsCompletion(ChildSchema child){
+        numbers.setSubjectCompletion(
+                translator.getString("numbers"),
+                6,
+                child.getCatCountNumbers()
+        );
+        unit.setSubjectCompletion(
+                translator.getString("unit"),
+                2,
+                child.getCatCountUnits()
+        );
+        addition.setSubjectCompletion(
+                translator.getString("addition"),
+                2,
+                child.getCatCountAddition()
+        );
+        subtraction.setSubjectCompletion(
+                translator.getString("subtraction"),
+                2,
+                child.getCatCountSubtraction()
+        );
+        multiplication.setSubjectCompletion(
+                translator.getString("multiplication"),
+                5,
+                child.getCatCountMultiplication()
+        );
+        division.setSubjectCompletion(
+                translator.getString("division"),
+                5,
+                child.getCatCountDivision()
+        );
+        length.setSubjectCompletion(
+                translator.getString("length"),
+                2,
+                child.getCatCountLength()
+        );
+        weight.setSubjectCompletion(
+                translator.getString("weights"),
+                3,
+                child.getCatCountWeightVolume()
+        );
+        money.setSubjectCompletion(
+                translator.getString("money"),
+                3,
+                child.getCatCountMoney()
+        );
+        time.setSubjectCompletion(
+                translator.getString("time"),
+                3,
+                child.getCatCountTime()
+        );
+        shapes.setSubjectCompletion(
+                translator.getString("shapes"),
+                1,
+                child.getCatCountTime()
+        );
+        angles.setSubjectCompletion(
+                translator.getString("angles"),
+                2,
+                child.getCatCountAngles()
+        );
     }
 }

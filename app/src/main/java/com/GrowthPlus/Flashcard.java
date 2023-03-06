@@ -424,6 +424,7 @@ public class Flashcard extends AppCompatActivity {
             currentLesson.setCurrent(false);
             currentLesson.setCompleted(true);
             updateCatCount(child);
+            updateTotalLessonsCompleted(child);
 
             if (childLessonsCompleted < 9) {
                 childLessonsCompleted++;
@@ -447,7 +448,7 @@ public class Flashcard extends AppCompatActivity {
                     nextLesson.setCompleted(false);
                 }
             } else {
-               setGameState(child);
+                setGameState(child);
             }
         });
     }
@@ -463,6 +464,12 @@ public class Flashcard extends AppCompatActivity {
         lessonIntent.putExtra("childIdentify", childId);
         startActivity(lessonIntent);
         this.finish();
+    }
+
+    private void updateTotalLessonsCompleted(ChildSchema child){
+        Integer totalLessonsCompleted = child.getTotalLessonsCompleted();
+        totalLessonsCompleted++;
+        child.setTotalLessonsCompleted(totalLessonsCompleted);
     }
 
     private void updateCatCount(ChildSchema child) {
