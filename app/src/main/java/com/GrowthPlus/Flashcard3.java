@@ -71,6 +71,7 @@ public class Flashcard3 extends AppCompatActivity {
     private int childLessonsCompleted;
     private int lessonIndex;
     private int minScoreToPass;
+    private int minNumToPass;
     private int MAX_LESSON_SCORE;
     private int currentLessonScore, howMany;
     private MediaPlayer correct, incorrect;
@@ -276,7 +277,7 @@ public class Flashcard3 extends AppCompatActivity {
                 lessonIntent.putExtra("points", numberCorrect);
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "Three");
-                if(numberCorrect >= minScoreToPass){
+                if(numberCorrect >= minNumToPass){
                     lessonIntent.putExtra("passOrNot", 1);
                 }
                 else{
@@ -442,10 +443,12 @@ public class Flashcard3 extends AppCompatActivity {
             MAX = 10;
             MAX_LESSON_SCORE = 20;
             minScoreToPass = 14;
+            minNumToPass = 7;
         }else{
             MAX = 5;
             MAX_LESSON_SCORE = 10;
             minScoreToPass = 7;
+            minNumToPass = 4;
         }
     }
 
@@ -511,8 +514,10 @@ public class Flashcard3 extends AppCompatActivity {
 
     private void setGameState(ChildSchema child){
         RoadMapScenarioGame game = child.getRoadMapThree().getScenarioGame();
-        game.setCompleted(false);
-        game.setCurrent(true);
+        if(!game.getCompleted()){
+            game.setCompleted(false);
+            game.setCurrent(true);
+        }
     }
 
     private void backToRoadMap(){
