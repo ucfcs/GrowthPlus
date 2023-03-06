@@ -101,6 +101,9 @@ public class Lesson2 extends AppCompatActivity {
         // Use the counter to access the contents of the appropriate Lesson
         counter = 0;
         backCounter = counter - 2;
+        if(backCounter < 0){
+            backButton.getBackground().setAlpha(64);
+        }
 
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -353,6 +356,12 @@ public class Lesson2 extends AppCompatActivity {
                     }
                     counter++;
                     backCounter = counter -2;
+                    if(backCounter < 0){
+                        backButton.getBackground().setAlpha(64);
+                    }
+                    else{
+                        backButton.getBackground().setAlpha(255);
+                    }
                 }
             }
         });
@@ -362,6 +371,7 @@ public class Lesson2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(backCounter >= 0){
+                    backButton.getBackground().setAlpha(255);
                     view.startAnimation(buttonClick);
                     String category = contents.get(backCounter).getCategory();
 
@@ -599,6 +609,9 @@ public class Lesson2 extends AppCompatActivity {
                     }
                     backCounter--;
                     counter = backCounter + 2;
+                    if(backCounter < 0){
+                        backButton.getBackground().setAlpha(64);
+                    }
                 }
             }
         });

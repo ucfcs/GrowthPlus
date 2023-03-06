@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -89,6 +90,9 @@ public class Lesson extends AppCompatActivity {
         // Use the counter to access the contents of the appropriate Lesson
         counter = 0;
         backCounter = counter - 2;
+        if(backCounter < 0){
+            backButton.getBackground().setAlpha(64);
+        }
 
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -265,7 +269,10 @@ public class Lesson extends AppCompatActivity {
                     counter++;
                     backCounter = counter -2;
                     if(backCounter < 0){
-                        backButton.setVisibility(View.INVISIBLE);
+                        backButton.getBackground().setAlpha(64);
+                    }
+                    else{
+                        backButton.getBackground().setAlpha(255);
                     }
                 }
             }
@@ -276,6 +283,7 @@ public class Lesson extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(backCounter >= 0){
+                    backButton.getBackground().setAlpha(255);
                     view.startAnimation(buttonClick);
                     String category = contents.get(backCounter).getCategory();
 
@@ -438,7 +446,7 @@ public class Lesson extends AppCompatActivity {
                     backCounter--;
                     counter = backCounter + 2;
                     if(backCounter < 0){
-                        backButton.setVisibility(View.INVISIBLE);
+                        backButton.getBackground().setAlpha(64);
                     }
                 }
             }
