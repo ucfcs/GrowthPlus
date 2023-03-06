@@ -64,10 +64,12 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         ChildSchema child = childSchemaService.getChildSchemaById(childID);
         init(child);
 
-//        initState();
-        // TODO: Check the isLocked in roadmapmap object if lock, don't set the tiles
-        roadMapThreeLessonTrail.unLockRoadMap();
-        setLessonTiles(child);
+        if(child.getRoadMapThree().getLocked()){
+            initState();
+        }else{
+            roadMapThreeLessonTrail.unLockRoadMap();
+            setLessonTiles(child);
+        }
 
         bottomNavigationView.setSelectedItemId(R.id.roadMap3item);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -197,8 +199,14 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         }
 
         tile13.setOnClickListener(this);
+        tile13.setEnabled(false);
         if(game.getCompleted()){
             tile13.setCompletedState();
+            tile13.setEnabled(true);
+        }
+        if(game.getCurrent()){
+            roadMapThreeLessonTrail.setSelectedState(tile13, child);
+            tile13.setEnabled(true);
         }
     }
 

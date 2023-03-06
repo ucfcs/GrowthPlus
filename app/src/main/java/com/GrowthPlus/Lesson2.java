@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,6 @@ import com.GrowthPlus.fragment.ConversionTable;
 import com.GrowthPlus.fragment.ConversionTableTwo;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.GridWord;
-import com.GrowthPlus.fragment.HorizontalEquation;
 import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.VerticalEquation;
 import com.GrowthPlus.fragment.WordGrid;
@@ -49,6 +49,7 @@ public class Lesson2 extends AppCompatActivity {
     private String image;
     private int lessonIndex;
     ConstraintLayout lessonBackground;
+    ConstraintLayout topBarBackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -64,7 +65,7 @@ public class Lesson2 extends AppCompatActivity {
         });
         setTopBar();
         setLevelColor();
-
+        setButtonColor();
         // Create one fragment that we will dynamically change
         FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -112,8 +113,7 @@ public class Lesson2 extends AppCompatActivity {
                     // These variables as needed in each switch statement
                     // Same vars as are found in the roadmap.json for lessons
                     String lessonImg, word, firstNumber, firstOperator, secondNumber,
-                            secondOperator, thirdNumber, imgOne, imgTwo, imgThree,
-                            imgFour, imgFive;
+                            secondOperator, thirdNumber, imgOne, imgTwo, imgThree;
 
                     switch (category){
                         case "counting": {
@@ -360,19 +360,32 @@ public class Lesson2 extends AppCompatActivity {
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         contents = lesson.getContents();
-        topBar = findViewById(R.id.topBar);
+        topBar = findViewById(R.id.lessonTopBar);
         introBackBtn = topBar.findViewById(R.id.goBackBtn);
         nextContent = findViewById(R.id.next_button_lesson);
         lessonName = lesson.getLessonName();
         image = lesson.getImage();
         lessonBackground = findViewById(R.id.lesson2);
+        topBarBackground = findViewById(R.id.topBar);
     }
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
         topBar.setToTriangle();
+        topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+        topBar.setShapeColor(Color.rgb(96, 163, 200));
+        topBar.setPointIconBackground(Color.rgb(252, 209, 70));
+        topBar.setPointsTextColor(Color.rgb(96, 163, 200));
     }
     public void setLevelColor(){
         lessonBackground.setBackgroundColor(Color.rgb(232, 160, 78));
+    }
+
+    private void setButtonColor(){
+        nextContent.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(252, 209, 70)));
+//        ColorStateList yellow = ColorStateList.valueOf(Color.rgb(252, 209, 70));
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            nextContent.setCompoundDrawableTintList(yellow);
+//        }
     }
 }

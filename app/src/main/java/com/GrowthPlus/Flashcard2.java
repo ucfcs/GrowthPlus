@@ -1,6 +1,7 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -10,8 +11,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.media.MediaPlayer;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,6 +21,7 @@ import com.GrowthPlus.dataAccessLayer.Flashcard.FlashcardSchema;
 import com.GrowthPlus.dataAccessLayer.Lesson.LessonSchema;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
+import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.fragment.CustomEquation;
 import com.GrowthPlus.fragment.CustomImage;
@@ -31,7 +33,10 @@ import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import java.util.Objects;
+
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 import io.realm.RealmList;
 
 public class Flashcard2 extends AppCompatActivity {
@@ -66,12 +71,16 @@ public class Flashcard2 extends AppCompatActivity {
     private String category;
     private int childLessonsCompleted;
     private int lessonIndex;
-    private int minToPass;
     private int minScoreToPass;
     private int MAX_LESSON_SCORE;
     private int currentLessonScore, howMany;
     private MediaPlayer correct, incorrect;
     ArrayList<Integer> randomizer;
+    ConstraintLayout flashcardBackground;
+    ConstraintLayout topBarBackground;
+    private boolean isCompleted;
+    private String lessonCategory;
+    private RealmChangeListener<ChildSchema> realmListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +89,17 @@ public class Flashcard2 extends AppCompatActivity {
         init();
 
         flashcardBackBtn.setOnClickListener(view -> {
-            setPointSystem(currentLessonScore, minScoreToPass);
-            Intent lessonIntent = new Intent(Flashcard2.this, RoadMapTwo.class);
-            lessonIntent.putExtra("childIdentify", childId);
-            startActivity(lessonIntent);
-            this.finish();
+            if (currentLessonScore >= minScoreToPass && !isCompleted){
+                Objects.requireNonNull(
+                        realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                        .addChangeListener(realmListener);
+                setLessonState();
+            }else{
+                backToRoadMap();
+            }
         });
         setTopBar();
+        setFlashcardBackgroundColor();
 
         /*
          * Switch statement for first flashcard, we don't have an intro so we start at index 0
@@ -126,6 +139,7 @@ public class Flashcard2 extends AppCompatActivity {
                     bundle.putString("firstNumber", firstNumber);
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
+                    bundle.putInt("textColor", Color.rgb(252, 209, 70));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -146,6 +160,7 @@ public class Flashcard2 extends AppCompatActivity {
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
                     bundle.putString("carryInput", secondOperator);
+                    bundle.putInt("textColor", Color.rgb(252, 209, 70));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
@@ -166,6 +181,7 @@ public class Flashcard2 extends AppCompatActivity {
                     bundle.putString("firstOperator", firstOperator);
                     bundle.putString("secondNumber", secondNumber);
                     bundle.putString("secondOperator", secondOperator);
+                    bundle.putInt("textColor", Color.rgb(252, 209, 70));
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
                     transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
@@ -208,7 +224,7 @@ public class Flashcard2 extends AppCompatActivity {
                             ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                             assert child != null;
                             child.setScore(currentChildScore);
-                            child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex).setCurrentScore(currentLessonScore);
+                            Objects.requireNonNull(child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex)).setCurrentScore(currentLessonScore);
                         });
                     }
                 }
@@ -231,6 +247,7 @@ public class Flashcard2 extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("answer", flashcardAnswer);
+                            bundle.putInt("answerTextColor", Color.rgb(252, 209, 70));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
@@ -318,6 +335,7 @@ public class Flashcard2 extends AppCompatActivity {
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("answer", flashcardAnswer);
                             bundle.putBoolean("isAnimationDone", false);
+                            bundle.putInt("textColor", Color.rgb(252, 209, 70));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageOperator.class, bundle);
@@ -338,6 +356,7 @@ public class Flashcard2 extends AppCompatActivity {
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("carryInput", secondOperator);
+                            bundle.putInt("textColor", Color.rgb(252, 209, 70));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomEquation.class, bundle);
@@ -358,6 +377,7 @@ public class Flashcard2 extends AppCompatActivity {
                             bundle.putString("firstOperator", firstOperator);
                             bundle.putString("secondNumber", secondNumber);
                             bundle.putString("secondOperator", secondOperator);
+                            bundle.putInt("textColor", Color.rgb(252, 209, 70));
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), CustomImageWord.class, bundle);
@@ -367,7 +387,11 @@ public class Flashcard2 extends AppCompatActivity {
                     }
 
                     default:{
-                        Log.i("default", "The category does not fit the case, check the return value");
+                        try {
+                            throw new Exception("The category does not fit a case, check the return value");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -384,6 +408,8 @@ public class Flashcard2 extends AppCompatActivity {
             lessonIndex = extras.getInt("lessonIndex");
         }
         flashcardTopBar = findViewById(R.id.flashcardTopBar);
+        flashcardBackground = findViewById(R.id.flashcardLayout);
+        topBarBackground = findViewById(R.id.topBar);
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         assert child != null;
         currentChildScore = child.getScore();
@@ -391,6 +417,7 @@ public class Flashcard2 extends AppCompatActivity {
         lesson = realm.where(LessonSchema.class).equalTo("lessonId", dataBaseLessonId).findFirst();
         assert lesson != null;
         lessonFlashcards = lesson.getFlashcards();
+        lessonCategory = lesson.getCategory();
         flashcardContainer = findViewById(R.id.flashcardContainer);
         nextFlashcard = findViewById(R.id.next_button_flashcard);
         flashcardBackBtn = flashcardTopBar.findViewById(R.id.goBackBtn);
@@ -407,16 +434,20 @@ public class Flashcard2 extends AppCompatActivity {
         for(int i = 0; i < howMany; i++)
             randomizer.add(i);
         Collections.shuffle(randomizer); // Randomize question selection
+        currentLessonScore = Objects.requireNonNull(child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex)).getCurrentScore();
+        isCompleted = Objects.requireNonNull(child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex)).getCompleted();
+        realmListener = realmChildSchema -> {
+            // Navigate back to RoadMap after realm is finished performing tasks in the background thread
+            backToRoadMap();
+        };
 
         if(lessonIndex == 9){
             MAX = 10;
             MAX_LESSON_SCORE = 20;
-            minToPass = 7;
             minScoreToPass = 14;
         }else{
             MAX = 5;
             MAX_LESSON_SCORE = 10;
-            minToPass = 4;
             minScoreToPass = 7;
         }
     }
@@ -432,54 +463,168 @@ public class Flashcard2 extends AppCompatActivity {
     private void setTopBar(){
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
+        topBarBackground.setBackgroundColor(Color.rgb(252, 209, 70));
+        flashcardTopBar.setShapeColor(Color.rgb(96, 163, 200));
+        flashcardTopBar.setPointIconBackground(Color.rgb(252, 209, 70));
+        flashcardTopBar.setPointsTextColor(Color.rgb(96, 163, 200));
     }
 
-    private void setPointSystem(int currentScore, int minToPass){
-        if(currentScore >= minToPass){
-            // This is the case if lesson is completed and child came back to play it again
-            // Don't increase the lessonCompleted count
-            if(child.getRoadMapTwo().getRoadMapLessons().get(lessonIndex).getCompleted()){
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                    assert child != null;
-                });
-            }else{
-                realm.executeTransactionAsync(realm1 -> {
-                    ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+    public void setFlashcardBackgroundColor(){
+        flashcardBackground.setBackgroundColor(Color.rgb(232, 160, 78));
+    }
 
-                    assert child != null;
-                    RoadMapLesson currentLesson = child.getRoadMapTwo().getRoadMapLessons().get(childLessonsCompleted);
-                    assert currentLesson != null;
-                    currentLesson.setCurrent(false);
-                    currentLesson.setCompleted(true);
+    private void setLessonState() {
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
 
-                    if (childLessonsCompleted < 9){
-                        childLessonsCompleted ++;
+            assert child != null;
+            RoadMapLesson currentLesson = child.getRoadMapTwo().getRoadMapLessons().get(childLessonsCompleted);
+            assert currentLesson != null;
+            currentLesson.setCurrent(false);
+            currentLesson.setCompleted(true);
+            updateCatCount(child);
 
-                        if(childLessonsCompleted == 3){
-                            // Set the quiz state
-                            RoadMapQuiz quizOne = child.getRoadMapTwo().getRoadMapQuizzes().get(0);
-                            assert quizOne != null;
-                            quizOne.setCompleted(false);
-                            quizOne.setCurrent(true);
-                        }else if(childLessonsCompleted == 7){
-                            RoadMapQuiz quizTwo = child.getRoadMapTwo().getRoadMapQuizzes().get(1);
-                            assert quizTwo != null;
-                            quizTwo.setCompleted(false);
-                            quizTwo.setCurrent(true);
-                        }else{
-                            child.getRoadMapTwo().setLessonsCompleted(childLessonsCompleted);
-                            RoadMapLesson nextLesson = child.getRoadMapTwo().getRoadMapLessons().get(childLessonsCompleted);
-                            assert nextLesson != null;
-                            nextLesson.setCurrent(true);
-                            nextLesson.setCompleted(false);
-                        }
-                    } /*TODO: Handle childLessonCompleted == 9,
-                                If lessons completed is 9, then all lessons are completed
-                                the count starts at zero, hence 9 and if so, enable roadmap game
-                                Roadmap game is not implemented yet so it is open for now. */
-                });
+            if (childLessonsCompleted < 9) {
+                childLessonsCompleted++;
+
+                if (childLessonsCompleted == 3) {
+                    // Set the quiz state
+                    RoadMapQuiz quizOne = child.getRoadMapTwo().getRoadMapQuizzes().get(0);
+                    assert quizOne != null;
+                    quizOne.setCompleted(false);
+                    quizOne.setCurrent(true);
+                } else if (childLessonsCompleted == 7) {
+                    RoadMapQuiz quizTwo = child.getRoadMapTwo().getRoadMapQuizzes().get(1);
+                    assert quizTwo != null;
+                    quizTwo.setCompleted(false);
+                    quizTwo.setCurrent(true);
+                } else {
+                    child.getRoadMapTwo().setLessonsCompleted(childLessonsCompleted);
+                    RoadMapLesson nextLesson = child.getRoadMapTwo().getRoadMapLessons().get(childLessonsCompleted);
+                    assert nextLesson != null;
+                    nextLesson.setCurrent(true);
+                    nextLesson.setCompleted(false);
+                }
+            } else {
+                setGameState(child);
             }
+        });
+    }
+
+    private void setGameState(ChildSchema child){
+        RoadMapScenarioGame game = child.getRoadMapTwo().getScenarioGame();
+        game.setCompleted(false);
+        game.setCurrent(true);
+    }
+
+    private void backToRoadMap(){
+        Intent lessonIntent = new Intent(Flashcard2.this, RoadMapTwo.class);
+        lessonIntent.putExtra("childIdentify", childId);
+        startActivity(lessonIntent);
+        this.finish();
+    }
+
+    private void updateCatCount(ChildSchema child) {
+        if (lessonCategory != null) {
+            switch (lessonCategory) {
+                case "numbers": {
+                    int catCount = child.getCatCountNumbers();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "units": {
+                    int catCount = child.getCatCountUnits();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "addition": {
+                    int catCount = child.getCatCountAddition();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "subtraction": {
+                    int catCount = child.getCatCountSubtraction();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "multiplication": {
+                    int catCount = child.getCatCountMultiplication();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "division": {
+                    int catCount = child.getCatCountDivision();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "length": {
+                    int catCount = child.getCatCountLength();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "weight": {
+                    int catCount = child.getCatCountWeightVolume();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "money": {
+                    int catCount = child.getCatCountMoney();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "time": {
+                    int catCount = child.getCatCountTime();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "shapes": {
+                    int catCount = child.getCatCountShapes();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                case "angles": {
+                    int catCount = child.getCatCountAngles();
+                    catCount++;
+                    child.setCatCountNumbers(catCount);
+                    break;
+                }
+                default: {
+                    try {
+                        throw new Exception("Category does not exist, check return value");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } else{
+            int catCount = child.getCatCountReview();
+            catCount++;
+            child.setCatCountReview(catCount);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Remove the listener.
+        Objects.requireNonNull(
+                realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
+                .removeChangeListener(realmListener);
+        // Close the Realm instance.
+        realm.removeAllChangeListeners();
+        realm.close();
+
+    }
+
 }

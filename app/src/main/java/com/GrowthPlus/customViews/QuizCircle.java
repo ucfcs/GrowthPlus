@@ -17,7 +17,8 @@ import com.GrowthPlus.utilities.ColorIdentifier;
 public class QuizCircle extends ConstraintLayout {
     ImageView circle;
     TextView number;
-    ColorStateList green, red, blue;
+    ColorStateList green, red, blue, darkGreen;
+    ColorIdentifier colorIdentifier;
 
     public QuizCircle(@NonNull Context context) {
         super(context);
@@ -53,6 +54,7 @@ public class QuizCircle extends ConstraintLayout {
         green = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.light_green));
         red = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.red));
         blue = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.blue));
+        darkGreen = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.dark_green));
     }
 
     public void setAnswer(String answer){
@@ -62,9 +64,12 @@ public class QuizCircle extends ConstraintLayout {
     public String getAnswer(){
         return (String) number.getText();
     }
+
     public void correct(){
         circle.setBackgroundTintList(green);
     }
+
+    public void correctQuiz3(){circle.setBackgroundTintList(darkGreen);}
 
     public void incorrect(){
         circle.setBackgroundTintList(red);

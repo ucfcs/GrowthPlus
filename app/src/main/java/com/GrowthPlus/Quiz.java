@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -40,7 +40,7 @@ public class Quiz extends AppCompatActivity {
     Button nextContent, introBackBtn;
     String childId, databaseQuizId;
     QuizSchema quiz;
-    int counter, thisScore, childScore, quizIndex, childLessonsCompleted, minScoreToPass;
+    int counter, thisScore, childScore, quizIndex, childLessonsCompleted, minScoreToPass, numberCorrect;
     RealmList<QuizContent> contents;
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
@@ -89,6 +89,7 @@ public class Quiz extends AppCompatActivity {
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("text", word);
+                    bundle.putInt("textColor", Color.rgb(198, 192, 18));
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
@@ -103,8 +104,6 @@ public class Quiz extends AppCompatActivity {
                 String num = contents.get(twenty.get(counter)).getQuestion();
                 int numOfImg = Integer.valueOf(num);
                 setAnswers();
-                Log.i("num", String.valueOf(numOfImg));
-                Log.i("image", picture);
 
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
@@ -166,6 +165,8 @@ public class Quiz extends AppCompatActivity {
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("text", word);
+                            bundle.putInt("textColor", Color.rgb(198, 192, 18));
+
 
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
@@ -221,6 +222,7 @@ public class Quiz extends AppCompatActivity {
         childScore = child.getScore();
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
         thisScore = child.getRoadMapOne().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
+        numberCorrect = 0;
         minScoreToPass = 7;
         correct = MediaPlayer.create(this, R.raw.correct);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
@@ -241,6 +243,7 @@ public class Quiz extends AppCompatActivity {
     private void setTopBar(){
         quizTopBar.setPoints(String.valueOf(child.getScore()));
         quizTopBar.setToCircle();
+        quizTopBar.setShapeColor(Color.rgb(252, 209, 70));
     }
 
     private void setAnswers(){
@@ -251,6 +254,7 @@ public class Quiz extends AppCompatActivity {
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 playCorrect();
                 cir1.correct();
+                numberCorrect ++;
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -286,6 +290,7 @@ public class Quiz extends AppCompatActivity {
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 playCorrect();
                 cir2.correct();
+                numberCorrect ++;
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -321,6 +326,7 @@ public class Quiz extends AppCompatActivity {
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 playCorrect();
                 cir3.correct();
+                numberCorrect ++;
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;
@@ -356,6 +362,7 @@ public class Quiz extends AppCompatActivity {
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 playCorrect();
                 cir4.correct();
+                numberCorrect ++;
                 if(thisScore < MAX){
                     thisScore++;
                     childScore++;

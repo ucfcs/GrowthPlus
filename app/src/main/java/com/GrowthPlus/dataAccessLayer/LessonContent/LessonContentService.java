@@ -19,8 +19,6 @@ public class LessonContentService {
     private String imgOne;
     private String imgTwo;
     private String imgThree;
-    private String imgFour;
-    private String imgFive;
 
 
     public LessonContentService(Realm realm, String lessonContentId, String word, String firstNumber, String firstOperator, String secondNumber, String secondOperator, String thirdNumber, String imgOne, String imgTwo, String imgThree, String imgFour, String imgFive) {
@@ -35,8 +33,6 @@ public class LessonContentService {
         this.imgOne = imgOne;
         this.imgTwo = imgTwo;
         this.imgThree = imgThree;
-        this.imgFour = imgFour;
-        this.imgFive = imgFive;
     }
 
     public String getLessonContentId() {
@@ -56,8 +52,6 @@ public class LessonContentService {
             newLessonContent.setImgOne(imgOne);
             newLessonContent.setImgTwo(imgTwo);
             newLessonContent.setImgThree(imgThree);
-            newLessonContent.setImgFour(imgFour);
-            newLessonContent.setImgFive(imgFive);
         }, () ->{
             Log.i("Success", "New Lesson Content added to realm");
         }, error -> {
