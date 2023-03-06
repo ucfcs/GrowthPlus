@@ -4490,10 +4490,10 @@
         {
           "idGameContent": "RmTwoScenarioGameContentSeven",
           "question": "60 + 16",
-          "optionOne": "54",
-          "optionTwo": "56",
-          "optionThree": "66",
-          "answer": "66"
+          "optionOne": "64",
+          "optionTwo": "66",
+          "optionThree": "76",
+          "answer": "76"
         },
         {
           "idGameContent": "RmTwoScenarioGameContentEight",
@@ -9038,7 +9038,7 @@
         },
         {
           "idGameContent": "RmFourScenarioGameContentEleven",
-          "question": "150 : 30",
+          "question": "150 x 30",
           "optionOne": "4500",
           "optionTwo": "6000",
           "optionThree": "7000",
@@ -9264,7 +9264,7 @@
           "optionOne": "1644",
           "optionTwo": "1446",
           "optionThree": "1646",
-          "answer": "61446"
+          "answer": "1446"
         },
         {
           "idGameContent": "RmFourScenarioGameContentForty",

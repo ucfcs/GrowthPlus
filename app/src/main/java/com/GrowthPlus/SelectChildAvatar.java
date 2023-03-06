@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -13,31 +14,27 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
     private ImageView bunny, elephant, bird, camel, giraffe, squirrel;
     private Button backSelect;
     private String goBackTo;
-    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    private Intent goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_child_avatar);
         init();
+        Log.i("comingFrom", goBackTo);
 
-        ImageView topLeft = (ImageView) findViewById(R.id.bunnyOption);
-        topLeft.setOnClickListener(this);
+        bunny.setOnClickListener(this);
 
-        ImageView topRight = (ImageView) findViewById(R.id.elephantOption);
-        topRight.setOnClickListener(this);
+        elephant.setOnClickListener(this);
 
-        ImageView middleLeft = (ImageView) findViewById(R.id.birdOption);
-        middleLeft.setOnClickListener(this);
+        bird.setOnClickListener(this);
 
-        ImageView middleRight = (ImageView) findViewById(R.id.camelOption);
-        middleRight.setOnClickListener(this);
+        camel.setOnClickListener(this);
 
-        ImageView bottomLeft = (ImageView) findViewById(R.id.giraffeOption);
-        bottomLeft.setOnClickListener(this);
+        giraffe.setOnClickListener(this);
 
-        ImageView bottomRight = (ImageView) findViewById(R.id.squirrelOption);
-        bottomRight.setOnClickListener(this);
+        squirrel.setOnClickListener(this);
 
         backSelect.setOnClickListener(this);
     }
@@ -54,42 +51,45 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         if (extras != null) {
             goBackTo = extras.getString("comingFrom");
         }
+        if(goBackTo.equals("parentPortal")){
+            goBack = new Intent(SelectChildAvatar.this, ParentPortal.class);
+        }else{
+            goBack = new Intent(SelectChildAvatar.this, MainActivity.class);
+        }
     }
 
     @Override
     public void onClick(View v) {
         v.startAnimation(buttonClick);
+        int viewId = v.getId();
 
-        if(v.getId() == R.id.backSelectChild){
+        if(viewId == backSelect.getId()){
+            backToScreen();
             this.finish();
         }
 
-        switch(v.getId()){
-            case R.id.bunnyOption:
-                startNextScreen("yellow", "bunny");
-                break;
+        if(viewId == bunny.getId()){
+            startNextScreen("yellow", "bunny");
+        }
 
-            case R.id.elephantOption:
-                startNextScreen("orange", "elephant");
-                break;
+        if(viewId == elephant.getId()){
+            startNextScreen("orange", "elephant");
+        }
 
-            case R.id.birdOption:
-                startNextScreen("light_green", "guinea_fowl");
-                break;
+        if(viewId == bird.getId()){
+            startNextScreen("light_green", "guinea_fowl");
+        }
 
-            case R.id.camelOption:
-                startNextScreen("red", "camel");
-                break;
+        if(viewId == camel.getId()){
+            startNextScreen("red", "camel");
+        }
 
-            case R.id.giraffeOption:
-                startNextScreen("yellow", "giraffe");
-                break;
+        if(viewId == giraffe.getId()){
+            startNextScreen("yellow", "giraffe");
+        }
 
-            case R.id.squirrelOption:
-                startNextScreen("orange", "squirrel");
-                break;
-
-            default:
+        if(viewId == squirrel.getId()){
+            startNextScreen("orange", "squirrel");
         }
     }
 
@@ -97,6 +97,13 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         Intent myIntent = new Intent(SelectChildAvatar.this, CreateAccount.class);
         myIntent.putExtra("selectColor", colorName);
         myIntent.putExtra("selectAnimal", animalName);
+        myIntent.putExtra("comingFrom", goBackTo);
         startActivity(myIntent);
+        this.finish();
+    }
+
+    private void backToScreen(){
+        startActivity(goBack);
+        this.finish();
     }
 }
