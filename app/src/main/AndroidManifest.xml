@@ -105,6 +105,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ParentForgotPassword"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CreateAccount"
             android:exported="false"
             android:screenOrientation="portrait">

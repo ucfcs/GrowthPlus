@@ -43,6 +43,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
         loginButton.setOnClickListener(this);
         loginBackButton.setOnClickListener(this);
+        forgotPin.setOnClickListener(this);
     }
 
     private void init(){
@@ -118,6 +119,10 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
                 startParentSignupActivity();
             }
         }
+
+        if(id == R.id.forgotPinText){
+            startForgotPasswordActivity();
+        }
         loginPinInput.setText("");//clears the EditText
     }
 
@@ -159,5 +164,12 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         startActivity(landingPageActivity);
         this.finish();
     }
+
+    public void startForgotPasswordActivity(){
+        Intent forgotPasswordActivity = new Intent(ParentLogin.this, ParentForgotPassword.class);
+        startActivity(forgotPasswordActivity);
+        this.finish();
+    }
+
 
 }
