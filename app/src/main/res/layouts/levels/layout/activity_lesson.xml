@@ -19,8 +19,24 @@
         android:drawableTint="@color/dark_green"
         android:paddingStart="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guide_right"
-        app:layout_constraintStart_toStartOf="@+id/guide_left"
+        app:layout_constraintStart_toEndOf="@id/back_button_lesson"
+        app:layout_constraintEnd_toEndOf="@id/guide_right"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="@+id/guide_bottom" />
+
+    <android.widget.Button
+        android:id="@+id/back_button_lesson"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/arrow_back_large"
+        android:drawableTint="@color/dark_green"
+        android:paddingStart="18dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/next_button_lesson"
+        app:layout_constraintStart_toStartOf="@id/guide_left"
         app:layout_constraintTop_toTopOf="@+id/guide_bottom" />
 
     <androidx.constraintlayout.widget.Guideline
