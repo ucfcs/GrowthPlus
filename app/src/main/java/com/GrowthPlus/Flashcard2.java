@@ -483,6 +483,7 @@ public class Flashcard2 extends AppCompatActivity {
             currentLesson.setCurrent(false);
             currentLesson.setCompleted(true);
             updateCatCount(child);
+            updateTotalLessonsCompleted(child);
 
             if (childLessonsCompleted < 9) {
                 childLessonsCompleted++;
@@ -522,6 +523,12 @@ public class Flashcard2 extends AppCompatActivity {
         lessonIntent.putExtra("childIdentify", childId);
         startActivity(lessonIntent);
         this.finish();
+    }
+
+    private void updateTotalLessonsCompleted(ChildSchema child){
+        Integer totalLessonsCompleted = child.getTotalLessonsCompleted();
+        totalLessonsCompleted++;
+        child.setTotalLessonsCompleted(totalLessonsCompleted);
     }
 
     private void updateCatCount(ChildSchema child) {
