@@ -10,6 +10,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,8 @@ import com.GrowthPlus.fragment.CustomImageOperator;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
 import io.realm.Realm;
@@ -56,7 +59,7 @@ public class Flashcard extends AppCompatActivity {
     private int counter = 0;
     private int MAX;
     private int currentChildScore;
-    private int numberCorrect; // Keep for displaying number of correct ones at the end
+    private int numberCorrect;
     private String flashcardAnswer;
     private String firstNumber;
     private String firstOperator;
@@ -71,6 +74,9 @@ public class Flashcard extends AppCompatActivity {
     private boolean isCompleted;
     private String lessonCategory;
     private RealmChangeListener<ChildSchema> realmListener;
+    private int howMany;
+    private MediaPlayer correct, incorrect;
+    ArrayList<Integer> randomizer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,10 +97,10 @@ public class Flashcard extends AppCompatActivity {
         setTopBar();
 
         /*
-         * Switch statement for first flashcard, we don't have an intro so we start at index 0
-         * */
-        category = Objects.requireNonNull(lessonFlashcards.get(counter)).getCategory();
-        flashcard = lessonFlashcards.get(counter);
+        * Switch statement for first flashcard, we don't have an intro so we start at index 0
+        * */
+        category = Objects.requireNonNull(lessonFlashcards.get(randomizer.get(counter))).getCategory();
+        flashcard = lessonFlashcards.get(randomizer.get(counter));
 
         assert flashcard != null;
         flashcardAnswer = flashcard.getAnswer();
@@ -102,8 +108,8 @@ public class Flashcard extends AppCompatActivity {
         nextFlashcard.setVisibility(View.INVISIBLE);
 
         flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
-        switch (category) {
-            case "customImage": {
+        switch (category){
+            case "customImage":{
                 firstNumber = flashcard.getFirstNumber();
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
@@ -117,7 +123,7 @@ public class Flashcard extends AppCompatActivity {
                 break;
             }
 
-            case "customImageOperator": {
+            case "customImageOperator":{
                 firstNumber = flashcard.getFirstNumber();
                 firstOperator = flashcard.getFirstOperator();
                 secondNumber = flashcard.getSecondNumber();
@@ -136,7 +142,7 @@ public class Flashcard extends AppCompatActivity {
                 break;
             }
 
-            case "customEquation": {
+            case "customEquation":{
                 firstNumber = flashcard.getFirstNumber();
                 firstOperator = flashcard.getFirstOperator();
                 secondNumber = flashcard.getSecondNumber();
@@ -157,7 +163,7 @@ public class Flashcard extends AppCompatActivity {
                 break;
             }
 
-            default: {
+            default:{
                 try {
                     throw new Exception("The category does not fit a case, check the return value");
                 } catch (Exception e) {
@@ -176,15 +182,16 @@ public class Flashcard extends AppCompatActivity {
         flashcardContainer.setOnClickListener(view -> {
             childAnswer = flashcardContainer.getAnswer();
             // Don't take empty input
-            if ((childAnswer == null) || childAnswer.equals("")) {
+            if((childAnswer == null) || childAnswer.equals("")){
                 flashcardContainer.setAnswerOpacity(1f); // Doesn't do anything, it's just so that there is no empty field.
-            } else {
-                if (childAnswer.equals(flashcardAnswer)) {
+            }else{
+                if(childAnswer.equals(flashcardAnswer)){
+                    playCorrect();
                     answerColor = correctAnswerColor;
-                    numberCorrect++;
-                    if (currentLessonScore < MAX_LESSON_SCORE) {
-                        currentLessonScore += 2;
-                        currentChildScore += 2;
+                    numberCorrect++ ;
+                    if(currentLessonScore < MAX_LESSON_SCORE){
+                        currentLessonScore+= 2;
+                        currentChildScore+= 2;
 
                         realm.executeTransactionAsync(realm1 -> {
                             ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
@@ -193,13 +200,15 @@ public class Flashcard extends AppCompatActivity {
                             Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).setCurrentScore(currentLessonScore);
                         });
                     }
-                } else {
+                }
+                else {
+                    playIncorrect();
                     answerColor = wrongAnswerColor;
                 }
 
                 flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationStart(Animator animation) {
+                    public void onAnimationStart (Animator animation){
                         super.onAnimationStart(animation);
                         flashcardContainer.setEnabled(false);
                         flashcardContainer.setAnswerEnabled(false);
@@ -234,18 +243,25 @@ public class Flashcard extends AppCompatActivity {
         // Make sure to reset the flashcardContainer state
         nextFlashcard.setOnClickListener(view -> {
             counter++;
-            if (counter >= MAX) {
-                if (currentLessonScore >= minScoreToPass && !isCompleted){
-                    Objects.requireNonNull(
-                            realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
-                            .addChangeListener(realmListener);
-                    setLessonState();
+            if(counter >= MAX){
+                // Passing condition number of correct flashcards
+                setLessonState();
+                Intent lessonIntent = new Intent(Flashcard.this, Results.class);
+                lessonIntent.putExtra("childId", childId);
+                lessonIntent.putExtra("whichOne", "Flash");
+                lessonIntent.putExtra("points", numberCorrect);
+                lessonIntent.putExtra("max", MAX);
+                lessonIntent.putExtra("whichRoadMap", "One");
+                if(numberCorrect >= minScoreToPass){
+                    lessonIntent.putExtra("passOrNot", 1);
                 }
-                else {
-                    backToRoadMap();
+                else{
+                    lessonIntent.putExtra("passOrNot", 0);
                 }
-            } else {
-
+                startActivity(lessonIntent);
+                this.finish();
+            }
+            else{
                 // Resetting state of flashcard
                 flashcardContainer.setText(null);
                 flashcardContainer.setFlashcardColor(resetColor);
@@ -254,7 +270,7 @@ public class Flashcard extends AppCompatActivity {
                 flashcardContainer.setAnswerEnabled(true);
                 flashcardContainer.setRawInputType(NUMBER_INPUT_ONLY);
 
-                flashcard = lessonFlashcards.get(counter);
+                flashcard = lessonFlashcards.get(randomizer.get(counter));
 
                 assert flashcard != null;
                 category = flashcard.getCategory();
@@ -263,8 +279,8 @@ public class Flashcard extends AppCompatActivity {
 
                 nextFlashcard.setVisibility(View.INVISIBLE);
 
-                switch (category) {
-                    case "customImage": {
+                switch (category){
+                    case "customImage":{
                         firstNumber = flashcard.getFirstNumber();
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
@@ -279,7 +295,7 @@ public class Flashcard extends AppCompatActivity {
                         break;
                     }
 
-                    case "customImageOperator": {
+                    case "customImageOperator":{
                         firstNumber = flashcard.getFirstNumber();
                         firstOperator = flashcard.getFirstOperator();
                         secondNumber = flashcard.getSecondNumber();
@@ -300,7 +316,7 @@ public class Flashcard extends AppCompatActivity {
                         break;
                     }
 
-                    case "customEquation": {
+                    case "customEquation":{
                         firstNumber = flashcard.getFirstNumber();
                         firstOperator = flashcard.getFirstOperator();
                         secondNumber = flashcard.getSecondNumber();
@@ -321,7 +337,7 @@ public class Flashcard extends AppCompatActivity {
                         break;
                     }
 
-                    default: {
+                    default:{
                         try {
                             throw new Exception("The category does not fit a case, check the return value");
                         } catch (Exception e) {
@@ -333,10 +349,10 @@ public class Flashcard extends AppCompatActivity {
         });
     }
 
-    private void init() {
+    private void init(){
         realm = Realm.getDefaultInstance();
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
+        if(extras != null){
             dataBaseLessonId = extras.getString("dataBaseLessonId");
             childId = extras.getString("childId");
             image = extras.getString("lessonImage");
@@ -360,24 +376,39 @@ public class Flashcard extends AppCompatActivity {
         resetColor = ContextCompat.getColorStateList(this, R.color.blue);
         childLessonsCompleted = child.getRoadMapOne().getLessonsCompleted();
         currentLessonScore = Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).getCurrentScore();
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        howMany = lessonFlashcards.size();
+        randomizer = new ArrayList<>(howMany);
+        for(int i = 0; i < howMany; i++)
+            randomizer.add(i);
+        Collections.shuffle(randomizer); // Randomize question selection
         isCompleted = Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).getCompleted();
         realmListener = realmChildSchema -> {
             // Navigate back to RoadMap after realm is finished performing tasks in the background thread
            backToRoadMap();
         };
 
-        if(lessonIndex == 9) {
+        if(lessonIndex == 9){
             MAX = 10;
             MAX_LESSON_SCORE = 20;
             minScoreToPass = 14;
-        }else {
+        }else{
             MAX = 5;
             MAX_LESSON_SCORE = 10;
             minScoreToPass = 7;
         }
     }
 
-    private void setTopBar() {
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
+    }
+
+    private void setTopBar(){
         flashcardTopBar.setPoints(String.valueOf(child.getScore()));
         flashcardTopBar.setToTriangle();
         flashcardTopBar.setShapeColor(Color.rgb(252, 209, 70));
@@ -393,6 +424,7 @@ public class Flashcard extends AppCompatActivity {
             currentLesson.setCurrent(false);
             currentLesson.setCompleted(true);
             updateCatCount(child);
+            updateTotalLessonsCompleted(child);
 
             if (childLessonsCompleted < 9) {
                 childLessonsCompleted++;
@@ -416,7 +448,7 @@ public class Flashcard extends AppCompatActivity {
                     nextLesson.setCompleted(false);
                 }
             } else {
-               setGameState(child);
+                setGameState(child);
             }
         });
     }
@@ -432,6 +464,12 @@ public class Flashcard extends AppCompatActivity {
         lessonIntent.putExtra("childIdentify", childId);
         startActivity(lessonIntent);
         this.finish();
+    }
+
+    private void updateTotalLessonsCompleted(ChildSchema child){
+        Integer totalLessonsCompleted = child.getTotalLessonsCompleted();
+        totalLessonsCompleted++;
+        child.setTotalLessonsCompleted(totalLessonsCompleted);
     }
 
     private void updateCatCount(ChildSchema child) {

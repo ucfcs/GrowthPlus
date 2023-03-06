@@ -1,14 +1,15 @@
 [
   {
     "childId": "63fe5df25866ec1e543186f9",
-    "name": "lili",
+    "name": "Lili",
     "avatarName": "guinea_fowl",
     "colorName": "light_green",
-    "score": 0,
+    "score": 110,
+    "totalLessonsCompleted": 9,
     "roadMapOne": {
       "roadMapName": "roadMapOne",
       "lessonsCompleted": 9,
-      "isCurrent": true,
+      "isCurrent": false,
       "isCompleted": false,
       "isLocked": false,
       "roadMapLessons": [
@@ -151,8 +152,8 @@
           "lessonName": "Roadmap One Lesson 10",
           "image": "elephant",
           "category": null,
-          "isCurrent": true,
-          "isCompleted": false,
+          "isCurrent": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmOneLessonTen",
@@ -191,25 +192,25 @@
         "maxScore": 20,
         "minScore": 17,
         "isCurrent": false,
-        "isCompleted": false,
+        "isCompleted": true,
         "databaseScenarioGameId": "RmOneScenarioGame",
-        "currentPoints": 0
+        "currentPoints": 18
       },
       "databaseRoadMapId": "RoadMapOne"
     },
     "roadMapTwo": {
       "roadMapName": "roadMapTwo",
-      "lessonsCompleted": 0,
-      "isCurrent": false,
+      "lessonsCompleted": 9,
+      "isCurrent": true,
       "isCompleted": false,
-      "isLocked": true,
+      "isLocked": false,
       "roadMapLessons": [
         {
           "lessonName": "Roadmap Two Lesson 1",
           "image": "camel",
           "category": "numbers",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonOne",
@@ -217,14 +218,14 @@
           "currentFlashcardId": "RmTwoLessonOneFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 2",
           "image": "camel",
           "category": "addition",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonTwo",
@@ -232,14 +233,14 @@
           "currentFlashcardId": "RmTwoLessonTwoFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 3",
           "image": "camel",
           "category": "units",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonThree",
@@ -247,14 +248,14 @@
           "currentFlashcardId": "RmTwoLessonThreeFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 4",
           "image": "camel",
           "category": "numbers",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonFour",
@@ -262,14 +263,14 @@
           "currentFlashcardId": "RmTwoLessonFourFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 5",
           "image": "camel",
           "category": "subtraction",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonFive",
@@ -277,14 +278,14 @@
           "currentFlashcardId": "RmTwoLessonFiveFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 6",
           "image": "camel",
           "category": "money",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonSix",
@@ -292,14 +293,14 @@
           "currentFlashcardId": "RmTwoLessonSixFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 7",
           "image": "camel",
           "category": "length",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonSeven",
@@ -307,14 +308,14 @@
           "currentFlashcardId": "RmTwoLessonSevenFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 8",
           "image": "camel",
           "category": "weight",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonEight",
@@ -322,14 +323,14 @@
           "currentFlashcardId": "RmTwoLessonEightFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 9",
           "image": "camel",
           "category": "weight",
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "minScore": 7,
           "maxScore": 10,
           "databaseLessonId": "RmTwoLessonNine",
@@ -337,13 +338,13 @@
           "currentFlashcardId": "RmTwoLessonNineFlashOne",
           "inLesson": true,
           "inFlashcard": false,
-          "currentScore": 0
+          "currentScore": 10
         },
         {
           "lessonName": "Roadmap Two Lesson 10",
           "image": "camel",
           "category": null,
-          "isCurrent": false,
+          "isCurrent": true,
           "isCompleted": false,
           "minScore": 7,
           "maxScore": 10,
@@ -362,9 +363,9 @@
           "maxPoints": 10,
           "minPoints": 7,
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "databaseQuizId": "RmTwoQuizOne",
-          "currentPoints": 0
+          "currentPoints": 10
         },
         {
           "quizName": "RoadMap Two Quiz Two",
@@ -372,9 +373,9 @@
           "maxPoints": 10,
           "minPoints": 7,
           "isCurrent": false,
-          "isCompleted": false,
+          "isCompleted": true,
           "databaseQuizId": "RmTwoQuizTwo",
-          "currentPoints": 0
+          "currentPoints": 10
         }
       ],
       "scenarioGame": {
@@ -773,15 +774,15 @@
       },
       "databaseRoadMapId": "RoadMapFour"
     },
-    "catCountNumbers": 0,
-    "catCountUnits": 0,
-    "catCountAddition": 0,
-    "catCountSubtraction": 0,
-    "catCountMultiplication": 0,
-    "catCountDivision": 0,
-    "catCountLength": 0,
-    "catCountWeightVolume": 0,
-    "catCountMoney": 0,
+    "catCountNumbers": 4,
+    "catCountUnits": 2,
+    "catCountAddition": 2,
+    "catCountSubtraction": 2,
+    "catCountMultiplication": 2,
+    "catCountDivision": 2,
+    "catCountLength": 1,
+    "catCountWeightVolume": 2,
+    "catCountMoney": 1,
     "catCountTime": 0,
     "catCountShapes": 0,
     "catCountAngles": 0,

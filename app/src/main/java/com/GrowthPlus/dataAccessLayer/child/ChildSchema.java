@@ -11,6 +11,7 @@ public class ChildSchema extends RealmObject {
     private String avatarName;
     private String colorName;
     private Integer score;
+    private Integer totalLessonsCompleted;
     ChildRoadMap roadMapOne;
     ChildRoadMap roadMapTwo;
     ChildRoadMap roadMapThree;
@@ -203,5 +204,13 @@ public class ChildSchema extends RealmObject {
 
     public void setCatCountReview(Integer catCountReview) {
         this.catCountReview = catCountReview;
+    }
+
+    public Integer getTotalLessonsCompleted() {
+        return totalLessonsCompleted;
+    }
+
+    public void setTotalLessonsCompleted(Integer totalLessonsCompleted) {
+        this.totalLessonsCompleted = totalLessonsCompleted;
     }
 }

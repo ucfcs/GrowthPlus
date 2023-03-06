@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import com.GrowthPlus.R;
 
@@ -53,6 +54,21 @@ public class SubjectCompletionComponent extends ConstraintLayout {
 
     public void setImageResource (int resId){
         checkMark.setImageResource(resId);
+    }
+
+    public void setSubjectCompletion(CharSequence text, Integer totalNum ,Integer numCompleted){
+        setText(text);
+        double percentage = ((double) numCompleted / (double) totalNum);
+        double progress = percentage * 100;
+        boolean completed = progress >= 75;
+
+        if(completed){
+            setImageResource(R.drawable.ic_check_mark);
+            setBackgroundTintList(ContextCompat.getColorStateList(getContext(), R.color.light_green));
+        }else {
+            setImageResource(R.drawable.ic_baseline_close);
+            setBackgroundTintList(ContextCompat.getColorStateList(getContext(), R.color.red));
+        }
     }
 
 }
