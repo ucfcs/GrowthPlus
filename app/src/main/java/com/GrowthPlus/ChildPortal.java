@@ -9,7 +9,6 @@ import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.roadMapActivity.RoadMapFour;
@@ -17,7 +16,6 @@ import com.GrowthPlus.roadMapActivity.RoadMapOne;
 import com.GrowthPlus.roadMapActivity.RoadMapThree;
 import com.GrowthPlus.roadMapActivity.RoadMapTwo;
 import com.GrowthPlus.utilities.ImageSrcIdentifier;
-
 import io.realm.Realm;
 
 public class ChildPortal extends AppCompatActivity implements View.OnClickListener{
@@ -28,11 +26,10 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
     private TextView pointsNumber;
     private String childId;
     private ChildSchemaService childSchemaService;
-    private Realm realm;
     private ImageSrcIdentifier imageSrcIdentifier;
-    private AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
-    private String currentRoadMapId;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
     private ChildSchema child;
+    private Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,16 +75,17 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
 
             Intent intent;
 
-            if(child.getRoadMapOne().getCurrent() == true){
+            String currentRoadMapId;
+            if(child.getRoadMapOne().getCurrent()){
                 currentRoadMapId = "RoadMapOne";
                 intent = new Intent(ChildPortal.this, RoadMapOne.class);
-            }else if(child.getRoadMapTwo().getCurrent() == true){
+            }else if(child.getRoadMapTwo().getCurrent()){
                 currentRoadMapId = "RoadMapTwo";
                 intent = new Intent(ChildPortal.this, RoadMapTwo.class);
-            }else if(child.getRoadMapThree().getCurrent() == true){
+            }else if(child.getRoadMapThree().getCurrent()){
                 currentRoadMapId = "RoadMapThree";
                 intent = new Intent(ChildPortal.this, RoadMapThree.class);
-            }else if(child.getRoadMapFour().getCurrent() == true){
+            }else if(child.getRoadMapFour().getCurrent()){
                 currentRoadMapId = "RoadMapFour";
                 intent = new Intent(ChildPortal.this, RoadMapFour.class);
             }else{
@@ -98,13 +96,21 @@ public class ChildPortal extends AppCompatActivity implements View.OnClickListen
             intent.putExtra("childIdentify", childId); // Pass childID to Roadmap page
             intent.putExtra("roadMapId", currentRoadMapId);
             startActivity(intent);
+            this.finish();
         }
         if(viewId == R.id.leaderboardBtn){
             startActivity(new Intent(ChildPortal.this, Leaderboard.class));
         }
         if(viewId == R.id.backChild){
-            // TODO kill all other activities once we exit child portal
             startActivity(new Intent(ChildPortal.this, MainActivity.class));
+            this.finish();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
     }
 }
