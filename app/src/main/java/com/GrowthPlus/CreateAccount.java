@@ -857,10 +857,10 @@ public class CreateAccount extends AppCompatActivity {
 
         // Go to main page with update new child
         View.OnClickListener goNext = v -> {
-            loginButton.setOnClickListener(null);
-            backButton.setOnClickListener(null);
             Objects.requireNonNull(realm.where(ParentSchema.class).findFirst()).addChangeListener(realmListener);
             if (!nameInput.getText().toString().equals("")){
+                loginButton.setOnClickListener(null);
+                backButton.setOnClickListener(null);
                 realm.executeTransactionAsync(realm -> {
                     ParentSchema parent = realm.where(ParentSchema.class).findFirst();
                     assert parent != null;

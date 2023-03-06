@@ -65,7 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         init();
         importRoadMapData();
+
+        //UNCOMMENT FOR TESTING
         //importChildData();
+
         setAllLandingPageCards(children);
 
         parentPortal.setOnClickListener(this);
