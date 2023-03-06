@@ -1,6 +1,7 @@
 package com.GrowthPlus;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -30,7 +31,7 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
     Resources resources;
     TextView forgotPasswordTitle, phoneNumberText, yourPinIsText, pinText;
     EditText phoneNumberInput;
-    Button getPinButton;
+    Button getPinButton, backToLoginButton;
     String phoneNumberStr, parentPhoneNumberStr;
 
     private ParentSchemaService parentService;
@@ -44,7 +45,7 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         init();
 
         getPinButton.setOnClickListener(this);
-
+        backToLoginButton.setOnClickListener(this);
     }
 
     private void init(){
@@ -56,6 +57,8 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         pinText = findViewById(R.id.pinText);
         phoneNumberInput = findViewById(R.id.phoneNumberInput);
         getPinButton = findViewById(R.id.parentGetPinBtn);
+        backToLoginButton = findViewById(R.id.backToLoginButton);
+        backToLoginButton.setVisibility(View.INVISIBLE);
         parentService = new ParentSchemaService(realm);
         parent = parentService.getAllParentSchemas().get(0); //gets the parent,
         parentPIN = parent.getPIN(); //their PIN,
@@ -100,6 +103,8 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
                     Log.i("parent pin", parentPIN.toString());
                     //show pin
                     pinText.setText(parentPIN.toString());
+                    backToLoginButton.setVisibility(View.VISIBLE);
+                    getPinButton.setVisibility(View.INVISIBLE);
                 }
 
                 else{ //phone numbers don't match -> display a toast
@@ -118,8 +123,14 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
+        }//end if parentGetPinButton
+
+        if(id == R.id.backToLoginButton){
+            startLoginActivity();
         }
-    }
+
+
+        }//end onClick
 
     private boolean validInput(EditText input) {
         String inputString = String.valueOf(input.getText());
@@ -140,6 +151,13 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
 
         else //they don't match
             return false;
+    }
+
+    //moves to the login page
+    public void startLoginActivity(){
+        Intent parentLogin = new Intent(ParentForgotPassword.this, ParentLogin.class);
+        startActivity(parentLogin);
+        this.finish();
     }
 
 }
