@@ -117,8 +117,8 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         roadMapOneLessonTrail = findViewById(R.id.roadMapOneLessonTrail);
 
         roadMapOne = findViewById(R.id.roadMapOne);
-        goBackButton = roadMapOne.findViewById(R.id.goBackBtn);
         topBarOne = findViewById(R.id.topBarOne);
+        goBackButton = topBarOne.findViewById(R.id.goBackBtn);
         topBarOne.setPoints(String.valueOf(child.getScore())); // Update points for specific child
         childRoadMapOne = child.getRoadMapOne();
         lessonCompleted = childRoadMapOne.getLessonsCompleted();
@@ -229,10 +229,9 @@ public class RoadMapOne extends AppCompatActivity implements View.OnClickListene
         int viewId = view.getId();
 
         if(viewId == goBackButton.getId()){
-            IntentIntro = new Intent(RoadMapOne.this, Lesson.class);
-            Intent lessonIntent = new Intent(RoadMapOne.this, ChildPortal.class);
-            lessonIntent.putExtra("childIdLandingPage", childID);
-            startActivity(lessonIntent);
+            Intent childPortal = new Intent(RoadMapOne.this, ChildPortal.class);
+            childPortal.putExtra("childIdLandingPage", childID);
+            startActivity(childPortal);
             this.finish();
         }
 
