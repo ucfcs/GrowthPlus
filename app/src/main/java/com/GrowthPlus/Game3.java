@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,6 +45,7 @@ public class Game3 extends AppCompatActivity {
     TextView question;
     Handler handler;
     ObjectAnimator move1a, move1b, move2a, move2b, move3a, move3b, move4a, move4b, move5a, move5b, move6a, move6b;
+    private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
 
     @Override
@@ -51,9 +53,11 @@ public class Game3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game3);
         init();
+        playBackground();
 
         introBackBtn.setOnClickListener(view -> {
             setCompletedState(gameScore);
+            background.stop();
         });
         setTopBar();
         setContent();
@@ -82,6 +86,9 @@ public class Game3 extends AppCompatActivity {
         ball1 = findViewById(R.id.soccer1);
         ball2 = findViewById(R.id.soccer2);
         ball3 = findViewById(R.id.soccer3);
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        background = MediaPlayer.create(this, R.raw.soccer);
 
         // Correct Animation
         move1a = ObjectAnimator.ofFloat(ball1, "translationX", 360f);
@@ -116,6 +123,19 @@ public class Game3 extends AppCompatActivity {
         Collections.shuffle(forty); // Randomize question selection
     }
 
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
+    }
+
+    private void playBackground(){
+        background.start();
+        background.setLooping(true);
+    }
+
     private void setTopBar(){
         gameTopBar.setPoints(String.valueOf(child.getScore()));
         gameTopBar.setToStar();
@@ -138,6 +158,7 @@ public class Game3 extends AppCompatActivity {
 
             if(ball1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
+                playCorrect();
                 if(gameScore < MAX){
                     gameScore++;
                     childScore++;
@@ -150,6 +171,7 @@ public class Game3 extends AppCompatActivity {
                 move1b.start();
             }
             else{
+                playIncorrect();
                 move4a.start();
                 move4b.start();
             }
@@ -162,6 +184,7 @@ public class Game3 extends AppCompatActivity {
             deactivate();
 
             if(ball2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
@@ -175,6 +198,7 @@ public class Game3 extends AppCompatActivity {
                 move2b.start();
             }
             else{
+                playIncorrect();
                 move5a.start();
                 move5b.start();
             }
@@ -187,6 +211,7 @@ public class Game3 extends AppCompatActivity {
             deactivate();
 
             if(ball3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
+                playCorrect();
                 numberCorrect++;
                 if(gameScore < MAX){
                     gameScore++;
@@ -200,6 +225,7 @@ public class Game3 extends AppCompatActivity {
                 move3b.start();
             }
             else{
+                playIncorrect();
                 move6a.start();
                 move6b.start();
             }
@@ -217,15 +243,35 @@ public class Game3 extends AppCompatActivity {
         handler.postDelayed(() -> {
             counter++;
             if(counter >= MAX){
+                background.stop();
                 setCompletedState(gameScore);
+                Intent lessonIntent = new Intent(Game3.this, Results.class);
+                lessonIntent.putExtra("childId", childId);
+                lessonIntent.putExtra("whichOne", "Game");
+                lessonIntent.putExtra("points", gameScore);
+                lessonIntent.putExtra("max", MAX);
+                lessonIntent.putExtra("whichRoadMap", "Three");
+                if(gameScore >= MIN_TO_PASS){
+                    lessonIntent.putExtra("passOrNot", 1);
+                }
+                else{
+                    lessonIntent.putExtra("passOrNot", 0);
+                }
+                startActivity(lessonIntent);
             }
             else{
+                ball1.clearAnimation();
+                ball2.clearAnimation();
+                ball3.clearAnimation();
                 ball1.animate().translationX(0);
                 ball1.animate().translationY(0);
+                ball1.animate().setDuration(0);
                 ball2.animate().translationX(0);
                 ball2.animate().translationY(0);
+                ball2.animate().setDuration(0);
                 ball3.animate().translationX(0);
                 ball3.animate().translationY(0);
+                ball3.animate().setDuration(0);
 
                 ball1.setVisibility(View.VISIBLE);
                 ball2.setVisibility(View.VISIBLE);

@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -46,6 +47,7 @@ public class Quiz2 extends AppCompatActivity {
     ArrayList<Integer> twenty = new ArrayList<>(20);
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
+    private MediaPlayer correct, incorrect;
     ConstraintLayout quizBackground;
     ConstraintLayout topBarBackground;
 
@@ -135,8 +137,18 @@ public class Quiz2 extends AppCompatActivity {
                 // Child passes the quiz
                 setPointSystem(thisScore, minScoreToPass);
                 countDownTimer.cancel();//since we are exiting the activity we need to stop the timer
-                Intent lessonIntent = new Intent(Quiz2.this, RoadMapTwo.class);
-                lessonIntent.putExtra("childIdentify", childId);
+                Intent lessonIntent = new Intent(Quiz2.this, Results.class);
+                lessonIntent.putExtra("childId", childId);
+                lessonIntent.putExtra("whichOne", "Quiz");
+                lessonIntent.putExtra("points", thisScore);
+                lessonIntent.putExtra("max", MAX);
+                lessonIntent.putExtra("whichRoadMap", "Two");
+                if(thisScore >= minScoreToPass){
+                    lessonIntent.putExtra("passOrNot", 1);
+                }
+                else{
+                    lessonIntent.putExtra("passOrNot", 0);
+                }
                 startActivity(lessonIntent);
                 this.finish();
             }
@@ -220,10 +232,20 @@ public class Quiz2 extends AppCompatActivity {
         thisScore = child.getRoadMapTwo().getRoadMapQuizzes().get(quizIndex).getCurrentPoints();
         numberCorrect = 0;
         minScoreToPass = 7;
+        correct = MediaPlayer.create(this, R.raw.correct);
+        incorrect = MediaPlayer.create(this, R.raw.incorrect);
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);
         Collections.shuffle(twenty); // Randomize question selection
+    }
+
+    private void playCorrect(){
+        correct.start();
+    }
+
+    private void playIncorrect(){
+        incorrect.start();
     }
 
     private void setTopBar(){
@@ -245,6 +267,7 @@ public class Quiz2 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
+                playCorrect();
                 cir1.correct();
                 numberCorrect ++;
                 if(thisScore < MAX){
@@ -257,6 +280,7 @@ public class Quiz2 extends AppCompatActivity {
                 }
             }
             else{
+                playIncorrect();
                 cir1.incorrect();
 
                 // Now show correct answer
@@ -279,6 +303,7 @@ public class Quiz2 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
+                playCorrect();
                 cir2.correct();
                 numberCorrect ++;
                 if(thisScore < MAX){
@@ -291,6 +316,7 @@ public class Quiz2 extends AppCompatActivity {
                 }
             }
             else{
+                playIncorrect();
                 cir2.incorrect();
 
                 // Now show correct answer
@@ -313,6 +339,7 @@ public class Quiz2 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
+                playCorrect();
                 cir3.correct();
                 numberCorrect ++;
                 if(thisScore < MAX){
@@ -325,6 +352,7 @@ public class Quiz2 extends AppCompatActivity {
                 }
             }
             else{
+                playIncorrect();
                 cir3.incorrect();
 
                 // Now show correct answer
@@ -347,6 +375,7 @@ public class Quiz2 extends AppCompatActivity {
             countDownTimer.cancel(); //the user selected an answer so we can stop the timer
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
+                playCorrect();
                 cir4.correct();
                 numberCorrect ++;
                 if(thisScore < MAX){
@@ -359,6 +388,7 @@ public class Quiz2 extends AppCompatActivity {
                 }
             }
             else{
+                playIncorrect();
                 cir4.incorrect();
 
                 // Now show correct answer
