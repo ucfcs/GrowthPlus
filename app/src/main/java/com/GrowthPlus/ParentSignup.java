@@ -224,4 +224,11 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, phoneNumString, children);
         signupParentService.createParentSchema();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
 }

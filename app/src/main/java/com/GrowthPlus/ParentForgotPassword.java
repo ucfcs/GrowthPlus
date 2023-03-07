@@ -154,4 +154,10 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         this.finish();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
 }
