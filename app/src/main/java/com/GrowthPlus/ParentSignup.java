@@ -107,9 +107,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
             if(phoneNumValid == true){
                 //change the input box back to grey (in case it has been earlier changed to red)
                 phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
-                phoneNumString = phoneNumberInput.getText().toString();
             }
-
             else { //input was not valid -> change input box to red to indicate the phone number is wrong
                 phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
                 phoneNumberInput.setText("");
@@ -122,14 +120,20 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
                 confirmPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
 
                 //track what the user entered
-                enterPinInputInteger = Integer.parseInt(enterPinInput.getText().toString());
-                confirmPinInputInteger = Integer.parseInt(confirmPinInput.getText().toString());
+                Integer enterPinInputIntegerTemp = Integer.parseInt(enterPinInput.getText().toString());
+                Integer confirmPinInputIntegerTemp = Integer.parseInt(confirmPinInput.getText().toString());
 
                 //if the PIN's match and the phone number is valid start the parent portal activity
-                if(confirmPinMatch(enterPinInputInteger, confirmPinInputInteger) == true){
+                if(confirmPinMatch(enterPinInputIntegerTemp, confirmPinInputIntegerTemp) == true){
 
                     if(phoneNumValid == true) {//make sure the phoneNumber is valid before moving on
-                        //create a parent with the pin
+
+                        //track the phone number that was entered
+                        phoneNumString = phoneNumberInput.getText().toString();
+                        enterPinInputInteger = enterPinInputIntegerTemp;
+                        confirmPinInputInteger = confirmPinInputIntegerTemp;
+
+                        //create a parent with all the necessary fields
                         createParent();
 
                         //move on to the login screen
@@ -214,7 +218,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         this.finish();
     }
 
-    //since the signup page involves about creating an account, we need a method to create a parent
+    //create a parent with all the necessary fields including the id, pin, phone number, etc.
     private void createParent(){
         RealmList <ChildSchema> children = new RealmList<>();
         signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, phoneNumString, children);
