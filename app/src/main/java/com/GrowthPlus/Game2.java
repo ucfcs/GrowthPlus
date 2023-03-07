@@ -138,6 +138,8 @@ public class Game2 extends AppCompatActivity {
         bounceAnimation(b1, b2, b3);
 
         b1.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             if(b1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 playCorrect();
                 showCorrect();
@@ -160,6 +162,8 @@ public class Game2 extends AppCompatActivity {
         });
 
         b2.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             if(b2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
                 playCorrect();
@@ -182,6 +186,8 @@ public class Game2 extends AppCompatActivity {
         });
 
         b3.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             if(b3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
                 playCorrect();

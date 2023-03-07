@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.Soccer;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
@@ -47,6 +49,8 @@ public class Game3 extends AppCompatActivity {
     ObjectAnimator move1a, move1b, move2a, move2b, move3a, move3b, move4a, move4b, move5a, move5b, move6a, move6b;
     private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
+    private CountDownTimer countDownTimer;
+    private CustomTimerComponent customTimerComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +62,11 @@ public class Game3 extends AppCompatActivity {
         introBackBtn.setOnClickListener(view -> {
             setCompletedState(gameScore);
             background.stop();
+            countDownTimer.cancel(); //since the user is exiting the game we need to stop the timer
         });
         setTopBar();
         setContent();
+        setTimer();
     }
 
 
@@ -152,6 +158,8 @@ public class Game3 extends AppCompatActivity {
         ball3.setNumber(contents.get(forty.get(counter)).getOptionThree());
 
         ball1.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             ball2.setVisibility(View.INVISIBLE);
             ball3.setVisibility(View.INVISIBLE);
             deactivate();
@@ -179,6 +187,8 @@ public class Game3 extends AppCompatActivity {
         });
 
         ball2.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             ball1.setVisibility(View.INVISIBLE);
             ball3.setVisibility(View.INVISIBLE);
             deactivate();
@@ -206,6 +216,8 @@ public class Game3 extends AppCompatActivity {
         });
 
         ball3.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             ball1.setVisibility(View.INVISIBLE);
             ball2.setVisibility(View.INVISIBLE);
             deactivate();
@@ -277,6 +289,7 @@ public class Game3 extends AppCompatActivity {
                 ball2.setVisibility(View.VISIBLE);
                 ball3.setVisibility(View.VISIBLE);
                 setContent();
+                setTimer();
             }
         }, 3000);
     }
@@ -334,5 +347,28 @@ public class Game3 extends AppCompatActivity {
     protected void onDestroy() {
         if (!realm.isClosed()) realm.close();
         super.onDestroy();
+    }
+
+    //sets a timer that counts down from 30 and moves on if the user doesn't choose an answer in time
+    private void setTimer() {
+        customTimerComponent = findViewById(R.id.countdownTimer);
+        countDownTimer = new CountDownTimer(5000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
+            }
+            public void onFinish() {
+                countDownTimer.cancel();
+                playIncorrect();
+                move4a.start();
+                move4b.start();
+                move5a.start();
+                move5b.start();
+                move6a.start();
+                move6b.start();
+                deactivate();
+                showNext();
+            }
+        }.start();
     }
 }
