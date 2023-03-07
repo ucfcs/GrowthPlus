@@ -11,6 +11,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
@@ -23,10 +24,14 @@ import com.GrowthPlus.fragment.ConversionTable;
 import com.GrowthPlus.fragment.ConversionTableTwo;
 import com.GrowthPlus.fragment.Counting;
 import com.GrowthPlus.fragment.Family;
+import com.GrowthPlus.fragment.GridWord;
 import com.GrowthPlus.fragment.ImageWord;
 import com.GrowthPlus.fragment.PerimeterArea;
 import com.GrowthPlus.fragment.Shape;
+import com.GrowthPlus.fragment.VerticalEquation;
 import com.GrowthPlus.fragment.WordGrid;
+import com.GrowthPlus.fragment.WordImage;
+import com.GrowthPlus.fragment.WordImageEquation;
 import com.GrowthPlus.roadMapActivity.RoadMapThree;
 
 import io.realm.Realm;
@@ -41,14 +46,17 @@ public class Lesson3 extends AppCompatActivity {
     private RealmList<LessonContent> contents;
     private TopBar topBar;
     private Button introBackBtn;
+    private Button backButton;
     private int contentLength;
     private Button nextContent;
     private int counter;
+    private int backCounter;
     private String lessonName;
     private String image;
     private int lessonIndex;
     ConstraintLayout lessonBackground;
     ConstraintLayout topBarBackground;
+    public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -94,6 +102,10 @@ public class Lesson3 extends AppCompatActivity {
         contentLength = contents.size();
         // Use the counter to access the contents of the appropriate Lesson
         counter = 0;
+        backCounter = counter - 2;
+        if(backCounter < 0){
+            backButton.getBackground().setAlpha(64);
+        }
 
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -342,6 +354,262 @@ public class Lesson3 extends AppCompatActivity {
                         default:
                     }
                     counter++;
+                    backCounter = counter -2;
+                    if(backCounter < 0){
+                        backButton.getBackground().setAlpha(64);
+                    }
+                    else{
+                        backButton.getBackground().setAlpha(255);
+                    }
+                }
+            }
+        });
+
+        // Back button decrements the counter variable and display previous lesson content
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(backCounter >= 0){
+                    backButton.getBackground().setAlpha(255);
+                    view.startAnimation(buttonClick);
+                    String category = contents.get(backCounter).getCategory();
+
+                    // These variables as needed in each switch statement
+                    // Same vars as are found in the roadmap.json for lessons
+                    String lessonImg, word, firstNumber, firstOperator, secondNumber,
+                            secondOperator, thirdNumber, imgOne, imgTwo, imgThree, name;
+
+                    switch (category){
+                        case "counting": {
+                            word = contents.get(backCounter).getWord();
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            imgOne = contents.get(backCounter).getImgOne();
+                            if(!trans.getString(word).equals("empty")){
+                                word = trans.getString(word);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("lessonWord", word);
+                                bundle.putString("lessonNumber", firstNumber);
+                                bundle.putString("lessonImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, Counting.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "family": {
+                            word = contents.get(backCounter).getWord();
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            firstOperator = contents.get(backCounter).getFirstOperator();
+                            secondNumber = contents.get(backCounter).getSecondNumber();
+                            lessonImg = lesson.getImage();
+
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("familyWord", word);
+                                bundle.putString("familyFirstNumber", firstNumber);
+                                bundle.putString("familyFirstOperator", firstOperator);
+                                bundle.putString("familySecondNumber", secondNumber);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, Family.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "imageWord" : {
+                            imgOne = contents.get(backCounter).getImgOne();
+                            word = contents.get(backCounter).getWord();
+
+                            if(word.equals("clock")){
+                                firstNumber = contents.get(backCounter).getFirstNumber();
+                                firstOperator = contents.get(backCounter).getFirstOperator();
+                                secondNumber = contents.get(backCounter).getSecondNumber();
+
+                                if (!trans.getString(firstNumber).equals("empty")) {
+                                    firstNumber = trans.getString(firstNumber);
+                                }
+                                if (!trans.getString(secondNumber).equals("empty")) {
+                                    secondNumber = trans.getString(secondNumber);
+                                }
+                                if (!trans.getString(firstOperator).equals("empty")) {
+                                    firstOperator = trans.getString(firstOperator);
+                                }
+                                if (!trans.getString(word).equals("empty")) {
+                                    word = trans.getString(word);
+                                }
+
+                                word = word + "\n 1 "+firstNumber+" = 60 "+firstOperator+"\n 1 "+secondNumber+" = 24 "+firstNumber;
+
+                            }
+
+                            String first, second;
+
+                            if(word.contains(" ")){
+                                first = word.substring(0, word.indexOf(" "));
+                                second = word.substring(word.indexOf(" "));
+                                if (!trans.getString(first).equals("empty")) {
+                                    word = trans.getString(first) + second;
+                                }
+                            }
+                            else if(!trans.getString(word).equals("empty")){
+                                word = trans.getString(word);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("imageWordText", word);
+                                bundle.putString("imageWordImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ImageWord.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversion" :{
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            firstOperator = contents.get(backCounter).getFirstOperator();
+                            secondNumber = contents.get(backCounter).getSecondNumber();
+
+                            lessonImg = lesson.getImage();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionText1", firstNumber);
+                                bundle.putString("operator", firstOperator);
+                                bundle.putString("conversionText2", secondNumber);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, Conversion.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversionTable": {
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            firstOperator = contents.get(backCounter).getFirstOperator();
+                            secondNumber = contents.get(backCounter).getSecondNumber();
+                            secondOperator = contents.get(backCounter).getSecondOperator();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionTableText1", firstNumber);
+                                bundle.putString("conversionTableText2", firstOperator);
+                                bundle.putString("conversionTableText3", secondNumber);
+                                bundle.putString("conversionTableText4", secondOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ConversionTable.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "conversionTableTwo" :{
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            firstOperator = contents.get(backCounter).getFirstOperator();
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("conversionTableText1", firstNumber);
+                                bundle.putString("conversionTableText2", firstOperator);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, ConversionTableTwo.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "shape":{
+                            word = contents.get(backCounter).getWord();
+                            imgOne = contents.get(backCounter).getImgOne();
+                            imgTwo = contents.get(backCounter).getImgTwo();
+                            imgThree = contents.get(backCounter).getImgThree();
+
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("shapeText", word);
+                                bundle.putString("shapeImage1", imgOne);
+                                bundle.putString("shapeImage2", imgTwo);
+                                bundle.putString("shapeImage3", imgThree);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, Shape.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        case "perimeterArea": {
+                            String identify = contents.get(backCounter).getWord();
+                            word = contents.get(backCounter).getWord();
+                            firstNumber = contents.get(backCounter).getFirstNumber();
+                            firstOperator = contents.get(backCounter).getFirstOperator();
+                            secondNumber = contents.get(backCounter).getSecondNumber();
+                            secondOperator = contents.get(backCounter).getSecondOperator();
+                            thirdNumber = contents.get(backCounter).getThirdNumber();
+                            imgOne = contents.get(backCounter).getImgOne();
+
+                            if (!trans.getString(word).equals("empty")) {
+                                word = trans.getString(word);
+                            }
+                            if (!trans.getString(secondNumber).equals("empty")) {
+                                secondNumber = trans.getString(secondNumber);
+                            }
+                            if (!trans.getString(thirdNumber).equals("empty")) {
+                                thirdNumber = trans.getString(thirdNumber);
+                            }
+
+                            if (savedInstanceState == null) {
+                                Bundle bundle = new Bundle();
+                                bundle.putString("PAIdentify", identify);
+                                bundle.putString("PAWord", word);
+                                bundle.putString("PAFirstNumber", firstNumber);
+                                bundle.putString("PAFirstOperator", firstOperator);
+                                bundle.putString("PASecondNumber", secondNumber);
+                                bundle.putString("PASecondOperator", secondOperator);
+                                bundle.putString("PAThirdNumber", thirdNumber);
+                                bundle.putString("PAImage", imgOne);
+
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                transaction.setReorderingAllowed(true);
+                                transaction.replace(R.id.frame_layout_lesson, PerimeterArea.class, bundle);
+                                transaction.commit();
+                            }
+                            break;
+                        }
+
+                        default:
+                    }
+                    backCounter--;
+                    counter = backCounter + 2;
+                    if(backCounter < 0){
+                        backButton.getBackground().setAlpha(64);
+                    }
                 }
             }
         });
@@ -360,6 +628,7 @@ public class Lesson3 extends AppCompatActivity {
         contents = lesson.getContents();
         topBar = findViewById(R.id.lessonTopBar);
         introBackBtn = topBar.findViewById(R.id.goBackBtn);
+        backButton = findViewById(R.id.back_button_lesson);
         nextContent = findViewById(R.id.next_button_lesson);
         lessonName = lesson.getLessonName();
         image = lesson.getImage();
@@ -381,5 +650,6 @@ public class Lesson3 extends AppCompatActivity {
 
     private void setButtonColor(){
         nextContent.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(252, 209, 70)));
+        backButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(252, 209, 70)));
     }
 }

@@ -107,16 +107,15 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
             return false;
         });
 
-        goBackButton.setOnClickListener(v -> onBackPressed());
+        goBackButton.setOnClickListener(this);
     }
 
     private void init(ChildSchema child){
         bottomNavigationView = findViewById(R.id.roadMapBottomNavigationView);
-        roadMapTwo = findViewById(R.id.roadMapTwo);
-        topBarTwo = roadMapTwo.findViewById(R.id.topBarTwo);
+        topBarTwo = findViewById(R.id.topBarTwo);
         topBarTwo.setPoints(String.valueOf(child.getScore()));
         goBackButton = topBarTwo.findViewById(R.id.goBackBtn);
-        roadMapTwoLessonTrail = roadMapTwo.findViewById(R.id.roadMapTwoLessonTrail);
+        roadMapTwoLessonTrail = findViewById(R.id.roadMapTwoLessonTrail);
         childRoadMapTwo = child.getRoadMapTwo();
         lessonCompleted = childRoadMapTwo.getLessonsCompleted();
         roadMapLessons = childRoadMapTwo.getRoadMapLessons();
@@ -226,10 +225,9 @@ public class RoadMapTwo extends AppCompatActivity implements View.OnClickListene
         int viewId = view.getId();
 
         if(viewId == goBackButton.getId()){
-            IntentIntro = new Intent(RoadMapTwo.this, Lesson2.class);
-            Intent lessonIntent = new Intent(RoadMapTwo.this, ChildPortal.class);
-            lessonIntent.putExtra("childIdLandingPage", childID);
-            startActivity(lessonIntent);
+            Intent childPortal = new Intent(RoadMapTwo.this, ChildPortal.class);
+            childPortal.putExtra("childIdLandingPage", childID);
+            startActivity(childPortal);
             this.finish();
         }
 

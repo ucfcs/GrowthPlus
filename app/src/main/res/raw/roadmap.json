@@ -4354,7 +4354,7 @@
           {
             "quizContentId": "RmTwoQuizTwoContentFourteen",
             "image": null,
-            "question": "100 m = _ h",
+            "question": "100 m = _ hm",
             "answerOne": "100",
             "answerTwo": "10",
             "answerThree": "1",
@@ -4473,7 +4473,7 @@
         },
         {
           "idGameContent": "RmTwoScenarioGameContentFive",
-          "question": "63 - 57",
+          "question": "63 - 47",
           "optionOne": "14",
           "optionTwo": "16",
           "optionThree": "15",
@@ -4490,10 +4490,10 @@
         {
           "idGameContent": "RmTwoScenarioGameContentSeven",
           "question": "60 + 16",
-          "optionOne": "54",
-          "optionTwo": "56",
-          "optionThree": "66",
-          "answer": "66"
+          "optionOne": "64",
+          "optionTwo": "66",
+          "optionThree": "76",
+          "answer": "76"
         },
         {
           "idGameContent": "RmTwoScenarioGameContentEight",
@@ -5143,7 +5143,7 @@
             "firstOperator": "x",
             "secondNumber": "6",
             "secondOperator":  "",
-            "answer": "42",
+            "answer": "48",
             "category": "customEquation"
           }
         ]
@@ -5732,7 +5732,7 @@
             "firstOperator": "",
             "secondNumber": "",
             "secondOperator": "",
-            "answer": "1000",
+            "answer": "1",
             "category": "customImageWord"
           },
           {
@@ -7572,7 +7572,7 @@
             "image": null,
             "firstNumber": "5400",
             "firstOperator": ":",
-            "secondNumber": "80",
+            "secondNumber": "8",
             "secondOperator": "",
             "answer": "675",
             "category": "customEquation"
@@ -9038,7 +9038,7 @@
         },
         {
           "idGameContent": "RmFourScenarioGameContentEleven",
-          "question": "150 : 30",
+          "question": "150 x 30",
           "optionOne": "4500",
           "optionTwo": "6000",
           "optionThree": "7000",
@@ -9264,7 +9264,7 @@
           "optionOne": "1644",
           "optionTwo": "1446",
           "optionThree": "1646",
-          "answer": "61446"
+          "answer": "1446"
         },
         {
           "idGameContent": "RmFourScenarioGameContentForty",
