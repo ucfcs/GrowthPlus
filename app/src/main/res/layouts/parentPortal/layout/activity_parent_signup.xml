@@ -258,7 +258,6 @@
         app:layout_constraintEnd_toStartOf="@id/buttonS">
     </EditText>
 
-    <!--android:id="@+id/parentSignupBtn"-->
     <android.widget.Button
         android:id="@+id/parentSignupBtn"
         android:layout_width="150dp"

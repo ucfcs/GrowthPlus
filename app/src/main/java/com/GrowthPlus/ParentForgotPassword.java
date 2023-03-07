@@ -1,6 +1,5 @@
 package com.GrowthPlus;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -91,38 +89,34 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         //if they click the green "play" button
         if(id == R.id.parentGetPinBtn){
 
-            Log.i("in the if statement", String.valueOf(id));
             boolean inputValid = validInput(phoneNumberInput);//checks for null and input that's too short
 
             if(inputValid == true) {
                 phoneNumberStr = String.valueOf(phoneNumberInput.getText());
 
-                //if the phone numbers match and the input was valid
+                //if the phone numbers match (and the input was valid)
                 if(confirmPhoneNumberMatch(phoneNumberStr, parentPhoneNumberStr) == true){
-                    Log.i("phone numbers match", phoneNumberStr);
-                    Log.i("parent pin", parentPIN.toString());
+
+                    //change the input box back to grey (in case it has been earlier changed to red)
+                    phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
+
                     //show pin
                     pinText.setText(parentPIN.toString());
                     backToLoginButton.setVisibility(View.VISIBLE);
                     getPinButton.setVisibility(View.INVISIBLE);
                 }
 
-                else{ //phone numbers don't match -> display a toast
-                    Context context = getApplicationContext();
-                    CharSequence text = "That is not the correct phone number. Please try typing it again.";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+                else{ //phone numbers don't match -> change input box to red to indicate the phone number is incorrect
+                    phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                    phoneNumberInput.setText("");
                 }
             }
 
-            else {//input was not valid -> display a toast
-                Context context = getApplicationContext();
-                CharSequence text = "Please enter a 10 or 11-digit number for the PIN.";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+            else {//input was not valid -> change input box to red to indicate the phone number is incorrect
+                phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                phoneNumberInput.setText("");
             }
+
         }//end if parentGetPinButton
 
         if(id == R.id.backToLoginButton){
