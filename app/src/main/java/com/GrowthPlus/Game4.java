@@ -8,13 +8,16 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.GrowthPlus.customViews.Coconut;
+import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameContent;
 import com.GrowthPlus.dataAccessLayer.ScenarioGame.ScenarioGameSchema;
@@ -45,6 +48,9 @@ public class Game4 extends AppCompatActivity {
     ObjectAnimator animator1, animator2, animator3, animator4;
     private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
+    float height1;
+    private CountDownTimer countDownTimer;
+    private CustomTimerComponent customTimerComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +60,14 @@ public class Game4 extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
+            countDownTimer.cancel(); //since the user is exiting the game we need to stop the timer
         });
         setTopBar();
         setContent();
+        setTimer();
     }
 
     private void init(){
@@ -85,8 +94,15 @@ public class Game4 extends AppCompatActivity {
         c2 = findViewById(R.id.coconut2);
         c3 = findViewById(R.id.coconut3);
         correct = MediaPlayer.create(this, R.raw.correct);
+        correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        incorrect.setVolume((float)3, (float)3);
         background = MediaPlayer.create(this, R.raw.wind);
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        height1 = (float)height;
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
@@ -123,6 +139,8 @@ public class Game4 extends AppCompatActivity {
         keepBouncing(c1, c2, c3);
 
         c1.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             if(c1.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 fallAnimation(c1);
                 playCorrect();
@@ -145,6 +163,8 @@ public class Game4 extends AppCompatActivity {
         });
 
         c2.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             if(c2.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
                 fallAnimation(c2);
@@ -167,6 +187,8 @@ public class Game4 extends AppCompatActivity {
         });
 
         c3.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             if(c3.getNumber().equals(contents.get(forty.get(counter)).getAnswer())) { // CORRECT
                 numberCorrect++;
                 fallAnimation(c3);
@@ -229,6 +251,7 @@ public class Game4 extends AppCompatActivity {
                 c3.animate().translationY(0);
                 c3.animate().setDuration(500);
                 setContent();
+                setTimer();
             }
         }, 2500);
     }
@@ -238,7 +261,7 @@ public class Game4 extends AppCompatActivity {
         animator3.end();
         animator4.end();
 
-        animator1 = ObjectAnimator.ofFloat(target, "translationY", 880f);
+        animator1 = ObjectAnimator.ofFloat(target, "translationY", (float)(0.4 * height1));
         animator1.setDuration(1500);
         animator1.start();
     }
@@ -314,5 +337,23 @@ public class Game4 extends AppCompatActivity {
     protected void onDestroy() {
         if (!realm.isClosed()) realm.close();
         super.onDestroy();
+    }
+
+    //sets a timer that counts down from 30 and moves on if the user doesn't choose an answer in time
+    private void setTimer() {
+        customTimerComponent = findViewById(R.id.countdownTimer);
+        countDownTimer = new CountDownTimer(21000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
+            }
+            public void onFinish() {
+                countDownTimer.cancel();
+                playIncorrect();
+                wrongAnimation(c1, c2, c3);
+                deactivate();
+                showCorrect();
+            }
+        }.start();
     }
 }

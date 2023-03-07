@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,7 +48,7 @@ public class Game extends AppCompatActivity {
     Fish fish1, fish3, correctFish;
     FishMirror fish2;
     TextView question;
-    ObjectAnimator move1, move2, move3, move4, move5, move6, move7, move8, move9;
+    ObjectAnimator move1, move2, move4, move5, move6, move7, move9;
     Random rand;
     Handler handler;
     private MediaPlayer correct, incorrect, background;
@@ -60,6 +61,7 @@ public class Game extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
         });
@@ -92,30 +94,37 @@ public class Game extends AppCompatActivity {
         rand = new Random();
         handler = new Handler();
         correct = MediaPlayer.create(this, R.raw.correct);
+        correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        incorrect.setVolume((float)3, (float)3);
         background = MediaPlayer.create(this, R.raw.sea);
 
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+
+        float wid = (float) width;
+        float heightF = (float) height;
+
         // Fish 1
-        move1 = ObjectAnimator.ofFloat(fish1, "translationX", 1300f);
+        move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid*1.1));
         move1.setDuration(10000);
-        move6 = ObjectAnimator.ofFloat(fish1, "translationY", -150f);
+        move6 = ObjectAnimator.ofFloat(fish1, "translationY", (float) (-heightF*.05));
         move6.setDuration(10000);
 
         // Fish 2
-        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -1300f);
-        move3 = ObjectAnimator.ofFloat(fish2, "translationY", -200f);
+        move2 = ObjectAnimator.ofFloat(fish2, "translationX", (float) (-wid*1.1));
         move2.setDuration(10000);
-        move3.setDuration(10000);
-        move7 = ObjectAnimator.ofFloat(fish2, "translationY", 300f);
+        move7 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (heightF*.2));
         move7.setDuration(10000);
 
         // Fish 3
-        move4 = ObjectAnimator.ofFloat(fish3, "translationX", 1300f);
-        move5 = ObjectAnimator.ofFloat(fish3, "translationY", 500f);
+        move4 = ObjectAnimator.ofFloat(fish3, "translationX", (float) (wid*1.1));
+        move5 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF*.3));
         move4.setDuration(10000);
         move5.setDuration(10000);
-        move8 = ObjectAnimator.ofFloat(fish3, "translationY", 300f);
-        move8.setDuration(10000);
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
@@ -150,33 +159,16 @@ public class Game extends AppCompatActivity {
         fish3.setNumber(contents.get(forty.get(counter)).getOptionThree());
 
         // Fish 1 Movement
-        if(rand.nextInt(2) == 0){
-            move1.start();
-        }
-        else{
-            move1.start();
-            move6.start();
-        }
+        move1.start();
+        move6.start();
 
         // Fish 2 Movement
-        if(rand.nextInt(2) == 0){
-            move2.start();
-            move3.start();
-        }
-        else{
-            move2.start();
-            move7.start();
-        }
+        move2.start();
+        move7.start();
 
         // Fish 3 Movement
-        if(rand.nextInt(2) == 0){
-            move4.start();
-            move5.start();
-        }
-        else{
-            move4.start();
-            move8.start();
-        }
+        move4.start();
+        move5.start();
 
         fish1.setOnClickListener(v -> {
             selectedAnswer = true;
@@ -342,7 +334,7 @@ public class Game extends AppCompatActivity {
 
     private void drop(View target){
         move9 = ObjectAnimator.ofFloat(target, "translationY", 2500f);
-        move9.setDuration(2000);
+        move9.setDuration(2500);
         move9.start();
     }
 

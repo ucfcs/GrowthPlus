@@ -8,11 +8,14 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.Soccer;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
@@ -47,6 +50,11 @@ public class Game3 extends AppCompatActivity {
     ObjectAnimator move1a, move1b, move2a, move2b, move3a, move3b, move4a, move4b, move5a, move5b, move6a, move6b;
     private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
+    int[] onePos = new int[2];
+    int[] twoPos = new int[2];
+    int[] threePos = new int[2];
+    private CountDownTimer countDownTimer;
+    private CustomTimerComponent customTimerComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +64,14 @@ public class Game3 extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
+            countDownTimer.cancel(); //since the user is exiting the game we need to stop the timer
         });
         setTopBar();
         setContent();
+        setTimer();
     }
 
 
@@ -87,16 +98,29 @@ public class Game3 extends AppCompatActivity {
         ball2 = findViewById(R.id.soccer2);
         ball3 = findViewById(R.id.soccer3);
         correct = MediaPlayer.create(this, R.raw.correct);
+        correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        incorrect.setVolume((float)3, (float)3);
         background = MediaPlayer.create(this, R.raw.soccer);
 
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+
+        float width1 = (float)width;
+        float height1 = (float)height;
+        ball1.getLocationInWindow(onePos);
+        ball2.getLocationInWindow(twoPos);
+        ball3.getLocationInWindow(threePos);
+
         // Correct Animation
-        move1a = ObjectAnimator.ofFloat(ball1, "translationX", 360f);
-        move1b = ObjectAnimator.ofFloat(ball1, "translationY", -850f);
+        move1a = ObjectAnimator.ofFloat(ball1, "translationX", (float)(0.34 * width1 - onePos[0]));
+        move1b = ObjectAnimator.ofFloat(ball1, "translationY", (float)((onePos[1] - 0.38 * height1)));
         move2a = ObjectAnimator.ofFloat(ball2, "translationX", 0f);
-        move2b = ObjectAnimator.ofFloat(ball2, "translationY", -850f);
-        move3a = ObjectAnimator.ofFloat(ball3, "translationX", -360f);
-        move3b = ObjectAnimator.ofFloat(ball3, "translationY", -850f);
+        move2b = ObjectAnimator.ofFloat(ball2, "translationY", (float)((twoPos[1] - 0.38 * height1)));
+        move3a = ObjectAnimator.ofFloat(ball3, "translationX", (float)(threePos[0] - 0.34 * width1));
+        move3b = ObjectAnimator.ofFloat(ball3, "translationY", (float)((threePos[1] - 0.38 * height1)));
         move1a.setDuration(1000);
         move1b.setDuration(1000);
         move2a.setDuration(1000);
@@ -105,11 +129,11 @@ public class Game3 extends AppCompatActivity {
         move3b.setDuration(1000);
 
         // Incorrect Animation
-        move4a = ObjectAnimator.ofFloat(ball1, "translationX", 2000f);
+        move4a = ObjectAnimator.ofFloat(ball1, "translationX", 2100f);
         move4b = ObjectAnimator.ofFloat(ball1, "translationY", -2000f);
-        move5a = ObjectAnimator.ofFloat(ball2, "translationX", -1000f);
+        move5a = ObjectAnimator.ofFloat(ball2, "translationX", -1250f);
         move5b = ObjectAnimator.ofFloat(ball2, "translationY", -2000f);
-        move6a = ObjectAnimator.ofFloat(ball3, "translationX", -2000f);
+        move6a = ObjectAnimator.ofFloat(ball3, "translationX", -2100f);
         move6b = ObjectAnimator.ofFloat(ball3, "translationY", -2000f);
         move4a.setDuration(2000);
         move4b.setDuration(2000);
@@ -152,6 +176,8 @@ public class Game3 extends AppCompatActivity {
         ball3.setNumber(contents.get(forty.get(counter)).getOptionThree());
 
         ball1.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             ball2.setVisibility(View.INVISIBLE);
             ball3.setVisibility(View.INVISIBLE);
             deactivate();
@@ -179,6 +205,8 @@ public class Game3 extends AppCompatActivity {
         });
 
         ball2.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             ball1.setVisibility(View.INVISIBLE);
             ball3.setVisibility(View.INVISIBLE);
             deactivate();
@@ -206,6 +234,8 @@ public class Game3 extends AppCompatActivity {
         });
 
         ball3.setOnClickListener(v -> {
+            countDownTimer.cancel(); //the user selected an answer so we can stop the timer
+
             ball1.setVisibility(View.INVISIBLE);
             ball2.setVisibility(View.INVISIBLE);
             deactivate();
@@ -277,6 +307,7 @@ public class Game3 extends AppCompatActivity {
                 ball2.setVisibility(View.VISIBLE);
                 ball3.setVisibility(View.VISIBLE);
                 setContent();
+                setTimer();
             }
         }, 3000);
     }
@@ -334,5 +365,28 @@ public class Game3 extends AppCompatActivity {
     protected void onDestroy() {
         if (!realm.isClosed()) realm.close();
         super.onDestroy();
+    }
+
+    //sets a timer that counts down from 30 and moves on if the user doesn't choose an answer in time
+    private void setTimer() {
+        customTimerComponent = findViewById(R.id.countdownTimer);
+        countDownTimer = new CountDownTimer(21000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
+            }
+            public void onFinish() {
+                countDownTimer.cancel();
+                playIncorrect();
+                move4a.start();
+                move4b.start();
+                move5a.start();
+                move5b.start();
+                move6a.start();
+                move6b.start();
+                deactivate();
+                showNext();
+            }
+        }.start();
     }
 }

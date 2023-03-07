@@ -30,11 +30,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/pointsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Points"
         android:textColor="@color/blue"
-        android:textSize="75sp"
+        android:textSize="65sp"
         app:layout_constraintBottom_toTopOf="@+id/box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
