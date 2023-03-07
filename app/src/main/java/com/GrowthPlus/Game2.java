@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.GrowthPlus.customViews.Banana;
+import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
@@ -49,6 +51,8 @@ public class Game2 extends AppCompatActivity {
     ObjectAnimator animator1, animator2, animator3;
     private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
+    private CountDownTimer countDownTimer;
+    private CustomTimerComponent customTimerComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +64,12 @@ public class Game2 extends AppCompatActivity {
         introBackBtn.setOnClickListener(view -> {
             setCompletedState(gameScore);
             background.stop();
+            countDownTimer.cancel(); //since the user is exiting the game we need to stop the timer
+
         });
         setTopBar();
         setContent();
+        setTimer();
     }
 
     private void init(){
@@ -245,6 +252,7 @@ public class Game2 extends AppCompatActivity {
                 b3.setVisibility(View.VISIBLE);
                 correctB.setVisibility(View.INVISIBLE);
                 setContent();
+                setTimer();
             }
         }, 2500);
     }
@@ -340,5 +348,23 @@ public class Game2 extends AppCompatActivity {
     protected void onDestroy() {
         if (!realm.isClosed()) realm.close();
         super.onDestroy();
+    }
+
+    //sets a timer that counts down from 30 and moves on if the user doesn't choose an answer in time
+    private void setTimer() {
+        customTimerComponent = findViewById(R.id.countdownTimer);
+        countDownTimer = new CountDownTimer(5000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
+            }
+            public void onFinish() {
+                countDownTimer.cancel();
+                playIncorrect();
+                wrongAnimation(b1, b2, b3);
+                deactivate();
+                showNext();
+            }
+        }.start();
     }
 }
