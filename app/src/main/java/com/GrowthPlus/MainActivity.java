@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RealmResults<ParentSchema> parent;
     int parentSize;
 
+    LandingPageAddChild landingPageAddChild;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +75,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         parentPortal.setOnClickListener(this);
         language.setOnClickListener(this);
+
+        //If a parent doesn't exist, we don't want to see the add child icon
+        if(parentSize == 0) {
+            landingPageAddChild.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void init(){
@@ -203,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startAddChildActivity();
             }
 
-            else{ //otherwise, display a toast encouraging them to signup for a parent account
+            else{ //otherwise, hide the plus button
                 Context context = getApplicationContext();
                 CharSequence text = "You cannot add a child account yet. Please create a parent account first.";
                 int duration = Toast.LENGTH_SHORT;
@@ -282,7 +289,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if(childrenNum < MAX_CHILDREN){
-            LandingPageAddChild landingPageAddChild = new LandingPageAddChild(this);
+            landingPageAddChild = new LandingPageAddChild(this);
             landingPageAddChild.setId(R.id.landingPageChildCardAdd);
             landingPageAddChild.setOnClickListener(this);
 

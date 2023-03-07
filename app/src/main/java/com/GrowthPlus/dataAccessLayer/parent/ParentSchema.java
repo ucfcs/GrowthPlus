@@ -10,6 +10,7 @@ public class ParentSchema extends RealmObject {
     @PrimaryKey
     private String parentId;
     private Integer PIN;
+    private String phoneNumber;
     private RealmList<ChildSchema> children;
 
     public String getParentId() {
@@ -26,6 +27,14 @@ public class ParentSchema extends RealmObject {
 
     public void setPIN(Integer PIN) {
         this.PIN = PIN;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNum) {
+        this.phoneNumber = phoneNum;
     }
 
     public RealmList<ChildSchema> getChildren() {

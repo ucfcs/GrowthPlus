@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
@@ -32,10 +33,14 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
     private EditText enterPinInput;
     private EditText confirmPinInput;
+    private EditText phoneNumberInput;
     private TextView createText;
     private TextView confirmText;
+    private TextView phoneNumberText;
     Integer enterPinInputInteger;
     Integer confirmPinInputInteger;
+    String phoneNumString;
+
 
     private ObjectId parentId;
     private String parentIdString;
@@ -60,9 +65,12 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         signupBackButton = findViewById(R.id.backParentSU);
         enterPinInput = findViewById(R.id.enterPin);
         confirmPinInput = findViewById(R.id.confirmPinInput);
+        phoneNumberInput = findViewById(R.id.phoneNumberInput);
         createText = findViewById(R.id.createPinText);
         confirmText = findViewById(R.id.confirmPinText);
+        phoneNumberText = findViewById(R.id.phoneNumberText);
         parentId = new ObjectId();
+        parentIdString = parentId.toString();
     }
 
     @Override
@@ -77,8 +85,10 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
 
         createText.setText(lang.getCreate());
         confirmText.setText(lang.getConfirm());
+        phoneNumberText.setText(lang.getPhoneNumber());
         enterPinInput.setHint(lang.getPin());
         confirmPinInput.setHint(lang.getPin());
+        phoneNumberInput.setHint(lang.getPhoneNumber());
     }
 
     @Override
@@ -89,39 +99,64 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         //if they click the signup button
         if(id == R.id.parentSignupBtn){
 
-            boolean inputValid = validInput(enterPinInput, confirmPinInput);//checks for null and blank input
+            //check for null input or input that is too short
+            boolean inputPINsValid = validInput(enterPinInput, confirmPinInput);
+            boolean phoneNumValid = validPhoneNum(phoneNumberInput);
 
-            if(inputValid == true){
+            //CHECK PHONE NUMBER IS VALID
+            if(phoneNumValid == true){
+                //change the input box back to grey (in case it has been earlier changed to red)
+                phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
+            }
+            else { //input was not valid -> change input box to red to indicate the phone number is wrong
+                phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                phoneNumberInput.setText("");
+            }
+
+            //CHECK PINS ARE VALID AND MATCHING
+            if(inputPINsValid == true){
+                //change the input boxes back to grey (in case they have been earlier changed to red)
+                enterPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
+                confirmPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
+
                 //track what the user entered
-                enterPinInputInteger = Integer.parseInt(enterPinInput.getText().toString());
-                confirmPinInputInteger = Integer.parseInt(confirmPinInput.getText().toString());
+                Integer enterPinInputIntegerTemp = Integer.parseInt(enterPinInput.getText().toString());
+                Integer confirmPinInputIntegerTemp = Integer.parseInt(confirmPinInput.getText().toString());
 
-                //if the PIN's match, start the parent portal activity
-                if(confirmPinMatch(enterPinInputInteger, confirmPinInputInteger) == true){
-                    //create a parent with the pin
-                    createParent();
+                //if the PIN's match and the phone number is valid start the parent portal activity
+                if(confirmPinMatch(enterPinInputIntegerTemp, confirmPinInputIntegerTemp) == true){
 
-                    //move on to the login screen
-                    startLoginActivity();
+                    if(phoneNumValid == true) {//make sure the phoneNumber is valid before moving on
+
+                        //track the phone number that was entered
+                        phoneNumString = phoneNumberInput.getText().toString();
+                        enterPinInputInteger = enterPinInputIntegerTemp;
+                        confirmPinInputInteger = confirmPinInputIntegerTemp;
+
+                        //create a parent with all the necessary fields
+                        createParent();
+
+                        //move on to the login screen
+                        startLoginActivity();
+                    }
                 }
 
-                else{//PIN's don't match -> display a toast
-                    Context context = getApplicationContext();
-                    CharSequence text = "PINs do not match! Please try typing them again.";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+                else{//PIN's don't match -> change input boxes to red to indicate the PIN's are wrong
+                    enterPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                    confirmPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                    enterPinInput.setText("");
+                    confirmPinInput.setText("");
                 }
             }
 
-            else { //input was not valid -> display a toast
-                Context context = getApplicationContext();
-                CharSequence text = "Please enter a 4-digit number for both PIN's.";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+            else { //input was not valid -> change input boxes to red to indicate the PIN's are wrong
+                enterPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                confirmPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                enterPinInput.setText("");
+                confirmPinInput.setText("");
             }
-        }
+
+        }//end if id == sign up button
 
         //if they click the back button, go to the main landing page
         if(id == R.id.backParentSU){
@@ -129,19 +164,31 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         }
 
         enterPinInput.setText("");
-        confirmPinInput.setText("");//clears the EditText(s)
+        confirmPinInput.setText("");
+        phoneNumberInput.setText("");//clears the EditText(s)
 
     }
 
-    private boolean validInput(EditText input1, EditText input2) {
-        String input1String = input1.getText().toString();
-        String input2String = input2.getText().toString();
+    private boolean validInput(EditText pin1, EditText pin2) {
+        String pin1String = pin1.getText().toString();
+        String pin2String = pin2.getText().toString();
 
-        if(!input1String.equals(null) &&
-           !input2String.equals(null) &&
-           input1String.length() == 4 &&
-           input2String.length() == 4)
+        if(!pin1String.equals(null) &&
+           !pin2String.equals(null) &&
+           pin1String.length() == 4 &&
+           pin2String.length() == 4)
         {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private boolean validPhoneNum(EditText phoneNum){
+        String phoneNumStr = phoneNum.getText().toString();
+
+        if(!phoneNumStr.equals(null) && phoneNumStr.length() >= 8){
             return true;
         }
         else{
@@ -171,10 +218,10 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         this.finish();
     }
 
-    //since the signup page involves about creating an account, we need a method to create a parent
+    //create a parent with all the necessary fields including the id, pin, phone number, etc.
     private void createParent(){
         RealmList <ChildSchema> children = new RealmList<>();
-        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, children);
+        signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, phoneNumString, children);
         signupParentService.createParentSchema();
     }
 }
