@@ -106,6 +106,7 @@ public class Game extends AppCompatActivity {
         Log.i("width", String.valueOf(width));
 
         float wid = (float) width;
+        float heightF = (float) height;
         Log.i("wid", String.valueOf(wid));
 
 
@@ -117,25 +118,25 @@ public class Game extends AppCompatActivity {
 
 
         // Fish 1
-        move1 = ObjectAnimator.ofFloat(fish1, "translationX", wid+20);
+        move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid*1.1));
         move1.setDuration(10000);
-        move6 = ObjectAnimator.ofFloat(fish1, "translationY", -150f);
+        move6 = ObjectAnimator.ofFloat(fish1, "translationY", (float) ( heightF*.2));
         move6.setDuration(10000);
 
         // Fish 2
-        move2 = ObjectAnimator.ofFloat(fish2, "translationX", -1300f);
-        move3 = ObjectAnimator.ofFloat(fish2, "translationY", -200f);
+        move2 = ObjectAnimator.ofFloat(fish2, "translationX", (float) (-wid*1.1));
+        move3 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (-heightF*.33));
         move2.setDuration(10000);
         move3.setDuration(10000);
-        move7 = ObjectAnimator.ofFloat(fish2, "translationY", 300f);
+        move7 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (heightF*.33));
         move7.setDuration(10000);
 
         // Fish 3
-        move4 = ObjectAnimator.ofFloat(fish3, "translationX", 1300f);
-        move5 = ObjectAnimator.ofFloat(fish3, "translationY", 500f);
+        move4 = ObjectAnimator.ofFloat(fish3, "translationX", (float) (wid*1.1));
+        move5 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF*.5));
         move4.setDuration(10000);
         move5.setDuration(10000);
-        move8 = ObjectAnimator.ofFloat(fish3, "translationY", 300f);
+        move8 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF*.33));
         move8.setDuration(10000);
 
         for(int i = 0; i <= 39; i++)
