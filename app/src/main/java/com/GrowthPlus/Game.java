@@ -104,6 +104,11 @@ public class Game extends AppCompatActivity {
         int width = displayMetrics.widthPixels;
         Log.i("height", String.valueOf(height));
         Log.i("width", String.valueOf(width));
+
+        float wid = (float) width;
+        Log.i("wid", String.valueOf(wid));
+
+
         //Pixel 6 Pro API 30: height 2816, width 1440
         //Nexus One API 30: height 800, width 480
         //Pixel 3a XL API 30: height 2040, width 1080
@@ -112,7 +117,7 @@ public class Game extends AppCompatActivity {
 
 
         // Fish 1
-        move1 = ObjectAnimator.ofFloat(fish1, "translationX", 1300f);
+        move1 = ObjectAnimator.ofFloat(fish1, "translationX", wid);
         move1.setDuration(10000);
         move6 = ObjectAnimator.ofFloat(fish1, "translationY", -150f);
         move6.setDuration(10000);
