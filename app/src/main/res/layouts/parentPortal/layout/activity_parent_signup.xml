@@ -72,6 +72,8 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.46" />
 
+    <!-- TODO: Guidelines have mixed up names, but that technically isn't necessary to fix-->
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/createBottomLine"
         android:layout_width="wrap_content"
@@ -98,21 +100,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.70" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/phoneNumBottomLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/phoneNumInputLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.82" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.74" />
+        app:layout_constraintGuide_percent="0.86" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.79" />
+        app:layout_constraintGuide_percent="0.91" />
 
     <android.widget.Button
         android:id="@+id/backParentSU"
@@ -154,42 +170,41 @@
     </ImageView>
 
     <TextView
+        android:id="@+id/phoneNumberText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_green"
+        android:textSize="15sp"
+        android:text="phone number"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/bunnyBottomLine"
+        app:layout_constraintBottom_toTopOf="@id/createBottomLine">
+    </TextView>
+
+    <EditText
+        android:id="@+id/phoneNumberInput"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/grey"
+        android:hint="phone number"
+        android:inputType="number"
+        android:maxLength="16"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/nameBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintTop_toBottomOf="@id/createBottomLine"></EditText>
+
+    <TextView
         android:id="@+id/createPinText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textColor="@color/dark_green"
         android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintEnd_toStartOf="@id/buttonS"
-        app:layout_constraintTop_toBottomOf="@id/bunnyBottomLine"
-        app:layout_constraintBottom_toTopOf="@id/createBottomLine"
-        android:text="create 4 digit pin">
-    </TextView>
-
-    <EditText
-        android:id="@+id/enterPin"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:inputType="number"
-        android:maxLength="4"
-        android:hint="Pin"
-        android:textSize="25sp"
-        android:backgroundTint="@color/grey"
-        android:textAlignment="center"
-        android:background="@drawable/round_button"
-        app:layout_constraintTop_toBottomOf="@id/createBottomLine"
-        app:layout_constraintBottom_toTopOf="@id/nameBottom"
-        app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintEnd_toStartOf="@id/buttonS">
-    </EditText>
-
-    <TextView
-        android:id="@+id/confirmPinText"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/dark_green"
-        android:textSize="15sp"
-        android:text="confirm"
+        android:text="create 4 digit pin"
         app:layout_constraintTop_toBottomOf="@id/nameBottom"
         app:layout_constraintBottom_toTopOf="@id/confirmBottomLine"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
@@ -197,7 +212,7 @@
     </TextView>
 
     <EditText
-        android:id="@+id/confirmPinInput"
+        android:id="@+id/enterPin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:inputType="number"
@@ -213,7 +228,36 @@
         app:layout_constraintEnd_toStartOf="@id/buttonS">
     </EditText>
 
-    <!--android:id="@+id/parentSignupBtn"-->
+    <TextView
+        android:id="@+id/confirmPinText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_green"
+        android:textSize="15sp"
+        android:text="confirm"
+        app:layout_constraintTop_toBottomOf="@id/confirmInputLine"
+        app:layout_constraintBottom_toTopOf="@id/phoneNumBottomLine"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS">
+    </TextView>
+
+    <EditText
+        android:id="@+id/confirmPinInput"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:inputType="number"
+        android:maxLength="4"
+        android:hint="Pin"
+        android:textSize="25sp"
+        android:backgroundTint="@color/grey"
+        android:textAlignment="center"
+        android:background="@drawable/round_button"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumBottomLine"
+        app:layout_constraintBottom_toTopOf="@id/phoneNumInputLine"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS">
+    </EditText>
+
     <android.widget.Button
         android:id="@+id/parentSignupBtn"
         android:layout_width="150dp"

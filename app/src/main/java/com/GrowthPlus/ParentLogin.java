@@ -2,16 +2,16 @@ package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
@@ -43,6 +43,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
         loginButton.setOnClickListener(this);
         loginBackButton.setOnClickListener(this);
+        forgotPin.setOnClickListener(this);
     }
 
     private void init(){
@@ -85,24 +86,20 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
                 //if the PIN's match and the input was valid, start the parent portal activity
                 if(confirmPinMatch(loginPinInputInteger, parentSignupPIN) == true){
+                    //change the input box back to grey (in case it has been earlier changed to red)
+                    loginPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
                     startParentPortalActivity();
                 }
 
-                else{ //PIN's don't match -> display a toast
-                    Context context = getApplicationContext();
-                    CharSequence text = "That is not the correct PIN. Please try typing it again.";
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+                else{ //PIN's don't match -> change input box to red to indicate the PIN is incorrect
+                    loginPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                    loginPinInput.setText("");
                 }
             }
 
-            else {//input was not valid -> display a toast
-                Context context = getApplicationContext();
-                CharSequence text = "Please enter a 4-digit number for the PIN.";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+            else {//input was not valid -> change input box to red to indicate the PIN is incorrect
+                loginPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                loginPinInput.setText("");
             }
         }
 
@@ -117,6 +114,10 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
             else {
                 startParentSignupActivity();
             }
+        }
+
+        if(id == R.id.forgotPinText){
+            startForgotPasswordActivity();
         }
         loginPinInput.setText("");//clears the EditText
     }
@@ -159,5 +160,12 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         startActivity(landingPageActivity);
         this.finish();
     }
+
+    public void startForgotPasswordActivity(){
+        Intent forgotPasswordActivity = new Intent(ParentLogin.this, ParentForgotPassword.class);
+        startActivity(forgotPasswordActivity);
+        this.finish();
+    }
+
 
 }

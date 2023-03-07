@@ -162,6 +162,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/dark_green"
         android:textSize="15dp"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintTop_toBottomOf="@id/nameBottom"
