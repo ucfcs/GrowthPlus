@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.GrowthPlus.customViews.TopBar;
+import com.GrowthPlus.dataAccessLayer.Language.Translator;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.roadMapActivity.RoadMapFour;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
@@ -22,7 +24,7 @@ import io.realm.Realm;
 
 public class Results extends AppCompatActivity {
     private TopBar topBar;
-    private TextView first, second;
+    private TextView first, second, pointsText;
     private ImageView box;
     private Button back, next;
     private String childId, whichOne, whichRoadMap;
@@ -37,6 +39,13 @@ public class Results extends AppCompatActivity {
         setContentView(R.layout.activity_results);
         init();
         setTopBar();
+
+        // Create instance of shared preferences and save current language id
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        String langId = langPrefs.getString("languageId", "frenchZero");
+        // Create language translator and set up the Lesson string
+        Translator trans = new Translator(langId);
+        pointsText.setText(trans.getString("points"));
 
         back.setVisibility(View.INVISIBLE);
 
@@ -84,6 +93,7 @@ public class Results extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
         topBar = findViewById(R.id.topBar);
+        pointsText = findViewById(R.id.pointsText);
         back = topBar.findViewById(R.id.goBackBtn);
         next = findViewById(R.id.nextButton);
         first = findViewById(R.id.firstNumber);
