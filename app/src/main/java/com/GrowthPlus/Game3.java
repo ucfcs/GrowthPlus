@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,6 +48,9 @@ public class Game3 extends AppCompatActivity {
     ObjectAnimator move1a, move1b, move2a, move2b, move3a, move3b, move4a, move4b, move5a, move5b, move6a, move6b;
     private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
+    int[] onePos = new int[2];
+    int[] twoPos = new int[2];
+    int[] threePos = new int[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,7 @@ public class Game3 extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
         });
@@ -90,13 +95,24 @@ public class Game3 extends AppCompatActivity {
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
         background = MediaPlayer.create(this, R.raw.soccer);
 
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+
+        float width1 = (float)width;
+        float height1 = (float)height;
+        ball1.getLocationInWindow(onePos);
+        ball2.getLocationInWindow(twoPos);
+        ball3.getLocationInWindow(threePos);
+
         // Correct Animation
-        move1a = ObjectAnimator.ofFloat(ball1, "translationX", 360f);
-        move1b = ObjectAnimator.ofFloat(ball1, "translationY", -850f);
+        move1a = ObjectAnimator.ofFloat(ball1, "translationX", (float)(0.34 * width1 - onePos[0]));
+        move1b = ObjectAnimator.ofFloat(ball1, "translationY", (float)((onePos[1] - 0.38 * height1)));
         move2a = ObjectAnimator.ofFloat(ball2, "translationX", 0f);
-        move2b = ObjectAnimator.ofFloat(ball2, "translationY", -850f);
-        move3a = ObjectAnimator.ofFloat(ball3, "translationX", -360f);
-        move3b = ObjectAnimator.ofFloat(ball3, "translationY", -850f);
+        move2b = ObjectAnimator.ofFloat(ball2, "translationY", (float)((twoPos[1] - 0.38 * height1)));
+        move3a = ObjectAnimator.ofFloat(ball3, "translationX", (float)(threePos[0] - 0.34 * width1));
+        move3b = ObjectAnimator.ofFloat(ball3, "translationY", (float)((threePos[1] - 0.38 * height1)));
         move1a.setDuration(1000);
         move1b.setDuration(1000);
         move2a.setDuration(1000);
@@ -107,7 +123,7 @@ public class Game3 extends AppCompatActivity {
         // Incorrect Animation
         move4a = ObjectAnimator.ofFloat(ball1, "translationX", 2000f);
         move4b = ObjectAnimator.ofFloat(ball1, "translationY", -2000f);
-        move5a = ObjectAnimator.ofFloat(ball2, "translationX", -1000f);
+        move5a = ObjectAnimator.ofFloat(ball2, "translationX", -1500f);
         move5b = ObjectAnimator.ofFloat(ball2, "translationY", -2000f);
         move6a = ObjectAnimator.ofFloat(ball3, "translationX", -2000f);
         move6b = ObjectAnimator.ofFloat(ball3, "translationY", -2000f);

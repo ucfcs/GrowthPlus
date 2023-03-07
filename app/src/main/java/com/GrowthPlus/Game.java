@@ -49,7 +49,7 @@ public class Game extends AppCompatActivity {
     Fish fish1, fish3, correctFish;
     FishMirror fish2;
     TextView question;
-    ObjectAnimator move1, move2, move3, move4, move5, move6, move7, move8, move9;
+    ObjectAnimator move1, move2, move4, move5, move6, move7, move9;
     Random rand;
     Handler handler;
     private MediaPlayer correct, incorrect, background;
@@ -62,6 +62,7 @@ public class Game extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
         });
@@ -115,29 +116,23 @@ public class Game extends AppCompatActivity {
         //Pixel 3a XL API 30: height 2040, width 1080
         //Pixel XL API 30: height 2392, width 1440
 
-
-
         // Fish 1
         move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid*1.1));
         move1.setDuration(10000);
-        move6 = ObjectAnimator.ofFloat(fish1, "translationY", (float) ( heightF*.2));
+        move6 = ObjectAnimator.ofFloat(fish1, "translationY", (float) (-heightF*.05));
         move6.setDuration(10000);
 
         // Fish 2
         move2 = ObjectAnimator.ofFloat(fish2, "translationX", (float) (-wid*1.1));
-        move3 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (-heightF*.33));
         move2.setDuration(10000);
-        move3.setDuration(10000);
-        move7 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (heightF*.33));
+        move7 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (heightF*.2));
         move7.setDuration(10000);
 
         // Fish 3
         move4 = ObjectAnimator.ofFloat(fish3, "translationX", (float) (wid*1.1));
-        move5 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF*.5));
+        move5 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF*.3));
         move4.setDuration(10000);
         move5.setDuration(10000);
-        move8 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF*.33));
-        move8.setDuration(10000);
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
@@ -172,33 +167,16 @@ public class Game extends AppCompatActivity {
         fish3.setNumber(contents.get(forty.get(counter)).getOptionThree());
 
         // Fish 1 Movement
-        if(rand.nextInt(2) == 0){
-            move1.start();
-        }
-        else{
-            move1.start();
-            move6.start();
-        }
+        move1.start();
+        move6.start();
 
         // Fish 2 Movement
-        if(rand.nextInt(2) == 0){
-            move2.start();
-            move3.start();
-        }
-        else{
-            move2.start();
-            move7.start();
-        }
+        move2.start();
+        move7.start();
 
         // Fish 3 Movement
-        if(rand.nextInt(2) == 0){
-            move4.start();
-            move5.start();
-        }
-        else{
-            move4.start();
-            move8.start();
-        }
+        move4.start();
+        move5.start();
 
         fish1.setOnClickListener(v -> {
             selectedAnswer = true;
