@@ -92,7 +92,9 @@ public class Game3 extends AppCompatActivity {
         ball2 = findViewById(R.id.soccer2);
         ball3 = findViewById(R.id.soccer3);
         correct = MediaPlayer.create(this, R.raw.correct);
+        correct.setVolume((float)1.5, (float)1.5);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        incorrect.setVolume((float)1.5, (float)1.5);
         background = MediaPlayer.create(this, R.raw.soccer);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -121,11 +123,11 @@ public class Game3 extends AppCompatActivity {
         move3b.setDuration(1000);
 
         // Incorrect Animation
-        move4a = ObjectAnimator.ofFloat(ball1, "translationX", 2000f);
+        move4a = ObjectAnimator.ofFloat(ball1, "translationX", 2100f);
         move4b = ObjectAnimator.ofFloat(ball1, "translationY", -2000f);
-        move5a = ObjectAnimator.ofFloat(ball2, "translationX", -1500f);
+        move5a = ObjectAnimator.ofFloat(ball2, "translationX", -1250f);
         move5b = ObjectAnimator.ofFloat(ball2, "translationY", -2000f);
-        move6a = ObjectAnimator.ofFloat(ball3, "translationX", -2000f);
+        move6a = ObjectAnimator.ofFloat(ball3, "translationX", -2100f);
         move6b = ObjectAnimator.ofFloat(ball3, "translationY", -2000f);
         move4a.setDuration(2000);
         move4b.setDuration(2000);

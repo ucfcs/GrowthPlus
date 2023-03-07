@@ -95,7 +95,9 @@ public class Game extends AppCompatActivity {
         rand = new Random();
         handler = new Handler();
         correct = MediaPlayer.create(this, R.raw.correct);
+        correct.setVolume((float)1.5, (float)1.5);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        incorrect.setVolume((float)1.5, (float)1.5);
         background = MediaPlayer.create(this, R.raw.sea);
 
 
@@ -342,7 +344,7 @@ public class Game extends AppCompatActivity {
 
     private void drop(View target){
         move9 = ObjectAnimator.ofFloat(target, "translationY", 2500f);
-        move9.setDuration(2000);
+        move9.setDuration(2500);
         move9.start();
     }
 

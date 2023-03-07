@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.Button;
@@ -45,6 +46,7 @@ public class Game4 extends AppCompatActivity {
     ObjectAnimator animator1, animator2, animator3, animator4;
     private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
+    float height1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +88,15 @@ public class Game4 extends AppCompatActivity {
         c2 = findViewById(R.id.coconut2);
         c3 = findViewById(R.id.coconut3);
         correct = MediaPlayer.create(this, R.raw.correct);
+        correct.setVolume((float)1.5, (float)1.5);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        incorrect.setVolume((float)1.5, (float)1.5);
         background = MediaPlayer.create(this, R.raw.wind);
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        height1 = (float)height;
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
@@ -239,7 +248,7 @@ public class Game4 extends AppCompatActivity {
         animator3.end();
         animator4.end();
 
-        animator1 = ObjectAnimator.ofFloat(target, "translationY", 880f);
+        animator1 = ObjectAnimator.ofFloat(target, "translationY", (float)(0.4 * height1));
         animator1.setDuration(1500);
         animator1.start();
     }
