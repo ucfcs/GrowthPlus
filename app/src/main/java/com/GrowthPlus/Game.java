@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -105,18 +104,9 @@ public class Game extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
         int width = displayMetrics.widthPixels;
-        Log.i("height", String.valueOf(height));
-        Log.i("width", String.valueOf(width));
 
         float wid = (float) width;
         float heightF = (float) height;
-        Log.i("wid", String.valueOf(wid));
-
-
-        //Pixel 6 Pro API 30: height 2816, width 1440
-        //Nexus One API 30: height 800, width 480
-        //Pixel 3a XL API 30: height 2040, width 1080
-        //Pixel XL API 30: height 2392, width 1440
 
         // Fish 1
         move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid*1.1));
