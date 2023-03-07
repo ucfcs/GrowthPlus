@@ -92,9 +92,9 @@ public class Game3 extends AppCompatActivity {
         ball2 = findViewById(R.id.soccer2);
         ball3 = findViewById(R.id.soccer3);
         correct = MediaPlayer.create(this, R.raw.correct);
-        correct.setVolume((float)1.5, (float)1.5);
+        correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
-        incorrect.setVolume((float)1.5, (float)1.5);
+        incorrect.setVolume((float)3, (float)3);
         background = MediaPlayer.create(this, R.raw.soccer);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();

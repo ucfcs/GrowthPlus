@@ -88,9 +88,9 @@ public class Game4 extends AppCompatActivity {
         c2 = findViewById(R.id.coconut2);
         c3 = findViewById(R.id.coconut3);
         correct = MediaPlayer.create(this, R.raw.correct);
-        correct.setVolume((float)1.5, (float)1.5);
+        correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
-        incorrect.setVolume((float)1.5, (float)1.5);
+        incorrect.setVolume((float)3, (float)3);
         background = MediaPlayer.create(this, R.raw.wind);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
