@@ -130,7 +130,7 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         String inputString = String.valueOf(input.getText());
 
         if (!inputString.equals(null) &&
-                inputString.length() >= 10) {
+                inputString.length() >= 8) {
             return true;
         }
         else{

@@ -188,7 +188,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     private boolean validPhoneNum(EditText phoneNum){
         String phoneNumStr = phoneNum.getText().toString();
 
-        if(!phoneNumStr.equals(null) && phoneNumStr.length() >= 10){
+        if(!phoneNumStr.equals(null) && phoneNumStr.length() >= 8){
             return true;
         }
         else{

@@ -190,7 +190,7 @@
         android:backgroundTint="@color/grey"
         android:hint="phone number"
         android:inputType="number"
-        android:maxLength="11"
+        android:maxLength="16"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/nameBottom"
