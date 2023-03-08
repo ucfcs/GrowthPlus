@@ -477,4 +477,11 @@ public class Lesson extends AppCompatActivity {
         topBar.setToTriangle();
         topBar.setShapeColor(Color.rgb(252, 209, 70));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
 }

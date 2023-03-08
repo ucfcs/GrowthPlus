@@ -462,4 +462,11 @@ public class Quiz4 extends AppCompatActivity {
             child.getRoadMapFour().getRoadMapQuizzes().get(quizIndex).setCurrentPoints(quizScore);
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
 }

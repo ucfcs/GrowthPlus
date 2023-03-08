@@ -167,5 +167,10 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         this.finish();
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
 }
