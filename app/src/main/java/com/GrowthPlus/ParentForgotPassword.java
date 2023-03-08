@@ -35,6 +35,7 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
     private ParentSchemaService parentService;
     private ParentSchema parent;
     private Integer parentPIN;
+    private String parentPINStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,9 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         parent = parentService.getAllParentSchemas().get(0); //gets the parent,
         parentPIN = parent.getPIN(); //their PIN,
         parentPhoneNumberStr = parent.getPhoneNumber();//and their phone number
+
+        parentPINStr = String.valueOf(parentPIN);
+        while(parentPINStr.length() < 4)parentPINStr = "0"+parentPINStr;
     }
 
 //    @Override
@@ -101,7 +105,7 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
                     phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
 
                     //show pin
-                    pinText.setText(parentPIN.toString());
+                    pinText.setText(parentPINStr);
                     backToLoginButton.setVisibility(View.VISIBLE);
                     getPinButton.setVisibility(View.INVISIBLE);
                 }
