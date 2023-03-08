@@ -109,20 +109,20 @@ public class Game extends AppCompatActivity {
         float heightF = (float) height;
 
         // Fish 1
-        move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid*1.1));
+        move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid * 1.3));
         move1.setDuration(10000);
-        move6 = ObjectAnimator.ofFloat(fish1, "translationY", (float) (-heightF*.05));
+        move6 = ObjectAnimator.ofFloat(fish1, "translationY", (float) (-heightF * .05));
         move6.setDuration(10000);
 
         // Fish 2
-        move2 = ObjectAnimator.ofFloat(fish2, "translationX", (float) (-wid*1.1));
+        move2 = ObjectAnimator.ofFloat(fish2, "translationX", (float) (-wid * 1.22));
         move2.setDuration(10000);
-        move7 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (heightF*.2));
+        move7 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (heightF * .1));
         move7.setDuration(10000);
 
         // Fish 3
-        move4 = ObjectAnimator.ofFloat(fish3, "translationX", (float) (wid*1.1));
-        move5 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF*.3));
+        move4 = ObjectAnimator.ofFloat(fish3, "translationX", (float) (wid * 1.22));
+        move5 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF * .21));
         move4.setDuration(10000);
         move5.setDuration(10000);
 
