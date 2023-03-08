@@ -272,7 +272,9 @@ public class Flashcard2 extends AppCompatActivity {
             counter++;
             if(counter >= MAX){
                 // Passing condition number of correct flashcards
-                setLessonState();
+                if (currentLessonScore >= minScoreToPass && !isCompleted){
+                    setLessonState();
+                }
                 Intent lessonIntent = new Intent(Flashcard2.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Flash");

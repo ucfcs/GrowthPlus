@@ -63,13 +63,25 @@ public class Results extends AppCompatActivity {
             Intent lessonIntent;
 
             if(whichRoadMap.equals("One")){
-                lessonIntent =  new Intent(Results.this, RoadMapOne.class);
+                if(passOrNot == 1 && whichOne.equals("Game")){
+                    lessonIntent =  new Intent(Results.this, RoadMapTwo.class);
+                }else{
+                    lessonIntent =  new Intent(Results.this, RoadMapOne.class);
+                }
             }
             else if(whichRoadMap.equals("Two")){
-                lessonIntent =  new Intent(Results.this, RoadMapTwo.class);
+                if(passOrNot == 1 && whichOne.equals("Game")){
+                    lessonIntent =  new Intent(Results.this, RoadMapThree.class);
+                }else{
+                    lessonIntent =  new Intent(Results.this, RoadMapTwo.class);
+                }
             }
             else if(whichRoadMap.equals("Three")){
-                lessonIntent =  new Intent(Results.this, RoadMapThree.class);
+                if(passOrNot == 1 && whichOne.equals("Game")){
+                    lessonIntent =  new Intent(Results.this, RoadMapFour.class);
+                }else{
+                    lessonIntent =  new Intent(Results.this, RoadMapThree.class);
+                }
             }
             else{
                 lessonIntent =  new Intent(Results.this, RoadMapFour.class);

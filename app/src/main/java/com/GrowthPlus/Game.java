@@ -324,6 +324,7 @@ public class Game extends AppCompatActivity {
                 lessonIntent.putExtra("passOrNot", 0);
             }
             startActivity(lessonIntent);
+            this.finish();
         }
         else{
             resetAnimation();
@@ -352,10 +353,18 @@ public class Game extends AppCompatActivity {
             realm.executeTransactionAsync(realm1 -> {
                 ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
                 assert child != null;
+
+                if(!child.getRoadMapOne().getCompleted()){
+                    child.getRoadMapOne().setCurrent(false);
+                    child.getRoadMapOne().setCompleted(true);
+                }
+
                 if(!child.getRoadMapOne().getScenarioGame().getCompleted()){
                     child.getRoadMapOne().getScenarioGame().setCompleted(true);
                     child.getRoadMapOne().getScenarioGame().setCurrent(false);
+
                 }
+
                 if(child.getRoadMapTwo().getLocked()){
                     ChildRoadMap nextRoadMap = child.getRoadMapTwo();
                     nextRoadMap.setLocked(false);
@@ -367,7 +376,7 @@ public class Game extends AppCompatActivity {
                     firstLesson.setCompleted(false);
                 }
             });
-            goToNextRoadMap();
+            //goToNextRoadMap();
         }else {
             stayCurrentRoadMap();
         }
