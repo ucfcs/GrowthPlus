@@ -22,7 +22,6 @@ public class SelectChildAvatar extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_child_avatar);
         init();
-        Log.i("comingFrom", goBackTo);
 
         bunny.setOnClickListener(this);
 

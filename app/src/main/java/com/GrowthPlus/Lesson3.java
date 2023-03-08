@@ -652,4 +652,11 @@ public class Lesson3 extends AppCompatActivity {
         nextContent.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(252, 209, 70)));
         backButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(252, 209, 70)));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
 }

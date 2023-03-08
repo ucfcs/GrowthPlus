@@ -68,4 +68,11 @@ public class SplashScreen extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
+
 }
