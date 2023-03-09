@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
@@ -37,6 +38,7 @@ public class IntroScreen extends AppCompatActivity {
     ConstraintLayout introScreenBackground;
     ConstraintLayout topBarBackground;
     int bgColorRGB;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,7 @@ public class IntroScreen extends AppCompatActivity {
         }
 
         back.setOnClickListener(v -> {
+            v.startAnimation(buttonClick);
             Intent intent = null;
             if(whichRoadMap.equals("1")){
                 intent = new Intent(IntroScreen.this, RoadMapOne.class);
@@ -96,6 +99,7 @@ public class IntroScreen extends AppCompatActivity {
         });
 
         next.setOnClickListener(v -> {
+            v.startAnimation(buttonClick);
             Intent intent = null;
             if(whichOne.equals("Quiz")){
                 //for each quiz we want to check which roadMap we're on to set the correct

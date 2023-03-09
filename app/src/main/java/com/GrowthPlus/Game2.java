@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.TextView;
@@ -52,6 +53,7 @@ public class Game2 extends AppCompatActivity {
     ConstraintLayout topBarBackground;
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class Game2 extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();

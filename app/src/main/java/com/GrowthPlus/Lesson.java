@@ -54,6 +54,7 @@ public class Lesson extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             Intent lessonIntent = new Intent(Lesson.this, RoadMapOne.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -175,7 +176,6 @@ public class Lesson extends AppCompatActivity {
                                 word = trans.getString(word);
                             }
                             imgOne = contents.get(counter).getImgOne();
-                            // TODO: look into how we're storing images for the wordImage lessons
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();
@@ -352,7 +352,6 @@ public class Lesson extends AppCompatActivity {
                                 word = trans.getString(word);
                             }
                             imgOne = contents.get(backCounter).getImgOne();
-                            // TODO: look into how we're storing images for the wordImage lessons
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();

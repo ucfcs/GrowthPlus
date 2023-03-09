@@ -3,6 +3,7 @@ package com.GrowthPlus;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +26,8 @@ public class Leaderboard extends AppCompatActivity {
     private GridLayout leaderBoardGridLayout;
     public ColorIdentifier colorIdentifier;
     public ImageSrcIdentifier imageSrcIdentifier;
-
     private ChildSchemaService childrenLeaderBoard;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,10 @@ public class Leaderboard extends AppCompatActivity {
             leaderBoardGridLayout.addView(C);
         }
 
-        backChildPortalBtn.setOnClickListener(v -> finish());
+        backChildPortalBtn.setOnClickListener(v -> {
+            v.startAnimation(buttonClick);
+            finish();
+        });
 
     }
 

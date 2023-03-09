@@ -46,7 +46,6 @@ public class Flashcard extends ConstraintLayout {
         frame_layout = findViewById(R.id.frame_layout);
     }
 
-    // TODO: Add methods to change color, image, etc.
     public void setFlashcardColor(ColorStateList tint){
         flashcard.setBackgroundTintList(tint);
     }

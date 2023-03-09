@@ -1,15 +1,20 @@
 package com.GrowthPlus;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
+import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import io.realm.Realm;
@@ -19,12 +24,13 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
     Resources resources;
     TextView forgotPasswordTitle, phoneNumberText, yourPinIsText, pinText;
     EditText phoneNumberInput;
-    Button getPinButton, backToLoginButton;
+    Button getPinButton, backToLoginButton, backParentForgot;
     String phoneNumberStr, parentPhoneNumberStr;
     private ParentSchemaService parentService;
     private ParentSchema parent;
     private Integer parentPIN;
     private String parentPINStr;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,7 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
 
         getPinButton.setOnClickListener(this);
         backToLoginButton.setOnClickListener(this);
+        backParentForgot.setOnClickListener(this);
     }
 
     private void init(){
@@ -48,6 +55,7 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         getPinButton = findViewById(R.id.parentGetPinBtn);
         backToLoginButton = findViewById(R.id.backToLoginButton);
         backToLoginButton.setVisibility(View.INVISIBLE);
+        backParentForgot = findViewById(R.id.backParentForgot);
         parentService = new ParentSchemaService(realm);
         parent = parentService.getAllParentSchemas().get(0); //gets the parent,
         parentPIN = parent.getPIN(); //their PIN,
@@ -58,26 +66,24 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
             parentPINStr = "0" + parentPINStr;
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        // create instance of shared preferences
-//        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
-//        // create language schema service and set strings
-//        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
-//        LanguageSchema lang = langSchemaService.getLanguageSchemaById();
-//
-//
-//        forgotPasswordTitle.setText(lang.getCreate());
-//        phoneNumberText.setText(lang.getConfirm());
-//        yourPinIsText.setText(lang.getPhoneNumber());
-//        pinText.setHint(lang.getPin());
-//        phoneNumberInput.setHint(lang.getPhoneNumber());
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // create instance of shared preferences
+        SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        // create language schema service and set strings
+        LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
+        LanguageSchema lang = langSchemaService.getLanguageSchemaById();
+
+        forgotPasswordTitle.setText(lang.getForgotPin());
+        phoneNumberText.setText(lang.getPhoneNumber()+":");
+        yourPinIsText.setText(lang.getPin()+":");
+    }
 
     @Override
     public void onClick(View view) {
+        view.startAnimation(buttonClick);
         int id = view.getId();
 
         //if they click the green "play" button
@@ -111,6 +117,11 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
 
         if(id == R.id.backToLoginButton){
             startLoginActivity();
+            this.finish();
+        }
+        if(id == R.id.backParentForgot){
+            startLoginActivity();
+            this.finish();
         }
     }
 

@@ -65,6 +65,7 @@ public class Lesson4 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             Intent lessonIntent = new Intent(Lesson4.this, RoadMapFour.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
@@ -109,6 +110,7 @@ public class Lesson4 extends AppCompatActivity {
 
         nextContent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                v.startAnimation(buttonClick);
                 // Reached the end of the contents and need to start looking at flashcards or the Lesson is 10 (which is all flashcards)
                 if(counter >= contentLength){
                     Intent flashcardIntent = new Intent(Lesson4.this, Flashcard4.class);

@@ -64,11 +64,13 @@ public class Lesson2 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             Intent lessonIntent = new Intent(Lesson2.this, RoadMapTwo.class);
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
             this.finish();
         });
+
         setTopBar();
         setLevelColor();
         setButtonColor();
