@@ -65,7 +65,6 @@ public class Game2 extends AppCompatActivity {
             setCompletedState(gameScore);
             background.stop();
             countDownTimer.cancel(); //since the user is exiting the game we need to stop the timer
-
         });
         setTopBar();
         setContent();

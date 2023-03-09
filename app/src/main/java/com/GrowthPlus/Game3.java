@@ -74,7 +74,6 @@ public class Game3 extends AppCompatActivity {
         setTimer();
     }
 
-
     private void init(){
         Bundle extras = getIntent().getExtras();
         if(extras != null){
@@ -302,7 +301,6 @@ public class Game3 extends AppCompatActivity {
                 ball3.animate().translationX(0);
                 ball3.animate().translationY(0);
                 ball3.animate().setDuration(0);
-
                 ball1.setVisibility(View.VISIBLE);
                 ball2.setVisibility(View.VISIBLE);
                 ball3.setVisibility(View.VISIBLE);
@@ -371,7 +369,6 @@ public class Game3 extends AppCompatActivity {
     private void setTimer() {
         customTimerComponent = findViewById(R.id.countdownTimer);
         countDownTimer = new CountDownTimer(21000, 1000) {
-
             public void onTick(long millisUntilFinished) {
                 customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
             }

@@ -48,7 +48,7 @@ public class Game extends AppCompatActivity {
     Fish fish1, fish3, correctFish;
     FishMirror fish2;
     TextView question;
-    ObjectAnimator move1, move2, move4, move5, move6, move7, move9;
+    ObjectAnimator move1, move2, move4, move5, move7, move9;
     Random rand;
     Handler handler;
     private MediaPlayer correct, incorrect, background;
@@ -99,7 +99,6 @@ public class Game extends AppCompatActivity {
         incorrect.setVolume((float)3, (float)3);
         background = MediaPlayer.create(this, R.raw.sea);
 
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
@@ -111,8 +110,6 @@ public class Game extends AppCompatActivity {
         // Fish 1
         move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid * 1.3));
         move1.setDuration(10000);
-        move6 = ObjectAnimator.ofFloat(fish1, "translationY", (float) (-heightF * .05));
-        move6.setDuration(10000);
 
         // Fish 2
         move2 = ObjectAnimator.ofFloat(fish2, "translationX", (float) (-wid * 1.22));
@@ -160,7 +157,6 @@ public class Game extends AppCompatActivity {
 
         // Fish 1 Movement
         move1.start();
-        move6.start();
 
         // Fish 2 Movement
         move2.start();

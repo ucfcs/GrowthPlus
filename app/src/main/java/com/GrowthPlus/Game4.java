@@ -343,7 +343,6 @@ public class Game4 extends AppCompatActivity {
     private void setTimer() {
         customTimerComponent = findViewById(R.id.countdownTimer);
         countDownTimer = new CountDownTimer(21000, 1000) {
-
             public void onTick(long millisUntilFinished) {
                 customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
             }
