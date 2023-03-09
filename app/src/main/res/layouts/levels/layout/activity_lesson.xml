@@ -44,14 +44,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".1" />
+        app:layout_constraintGuide_percent=".09" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".9" />
+        app:layout_constraintGuide_percent=".91" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/frame_top"

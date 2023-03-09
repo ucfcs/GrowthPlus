@@ -14,6 +14,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
@@ -79,6 +80,7 @@ public class Flashcard extends AppCompatActivity {
     private int howMany;
     private MediaPlayer correct, incorrect;
     ArrayList<Integer> randomizer;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,7 @@ public class Flashcard extends AppCompatActivity {
         init();
 
         flashcardBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             if (currentLessonScore >= minScoreToPass && !isCompleted){
                 Objects.requireNonNull(
                         realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
@@ -244,6 +247,7 @@ public class Flashcard extends AppCompatActivity {
         // Now handle the next flashcard onClick, increment the counter to go to next flashcard
         // Make sure to reset the flashcardContainer state
         nextFlashcard.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             counter++;
             if(counter >= MAX){
                 // Passing condition number of correct flashcards

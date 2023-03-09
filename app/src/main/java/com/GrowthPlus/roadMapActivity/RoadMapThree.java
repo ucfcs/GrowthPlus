@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import com.GrowthPlus.ChildPortal;
@@ -48,6 +49,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
     RealmList<RoadMapQuiz> roadMapQuizes;
     RoadMapScenarioGame game;
     HashMap<Integer, String> mapLessonId;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -215,6 +217,7 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
      * */
     @Override
     public void onClick(View view) {
+        view.startAnimation(buttonClick);
         int viewId = view.getId();
 
         if(viewId == goBackButton.getId()){

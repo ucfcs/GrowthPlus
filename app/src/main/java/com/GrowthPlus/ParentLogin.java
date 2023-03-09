@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     private ParentSchema loginParent;
     private Integer parentSignupPIN;
     Integer loginPinInputInteger;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
 
     @Override
@@ -74,6 +76,7 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+        view.startAnimation(buttonClick);
         int id = view.getId();
 
         //the user clicked the login button

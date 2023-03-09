@@ -12,6 +12,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -55,6 +56,7 @@ public class Game3 extends AppCompatActivity {
     int[] threePos = new int[2];
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ public class Game3 extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
@@ -73,7 +76,6 @@ public class Game3 extends AppCompatActivity {
         setContent();
         setTimer();
     }
-
 
     private void init(){
         Bundle extras = getIntent().getExtras();
@@ -100,7 +102,7 @@ public class Game3 extends AppCompatActivity {
         correct = MediaPlayer.create(this, R.raw.correct);
         correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
-        incorrect.setVolume((float)3, (float)3);
+        incorrect.setVolume((float)4, (float)4);
         background = MediaPlayer.create(this, R.raw.soccer);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -304,7 +306,6 @@ public class Game3 extends AppCompatActivity {
                 ball3.animate().translationX(0);
                 ball3.animate().translationY(0);
                 ball3.animate().setDuration(0);
-
                 ball1.setVisibility(View.VISIBLE);
                 ball2.setVisibility(View.VISIBLE);
                 ball3.setVisibility(View.VISIBLE);
@@ -386,7 +387,6 @@ public class Game3 extends AppCompatActivity {
     private void setTimer() {
         customTimerComponent = findViewById(R.id.countdownTimer);
         countDownTimer = new CountDownTimer(21000, 1000) {
-
             public void onTick(long millisUntilFinished) {
                 customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
             }

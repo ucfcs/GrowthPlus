@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -48,10 +49,11 @@ public class Game extends AppCompatActivity {
     Fish fish1, fish3, correctFish;
     FishMirror fish2;
     TextView question;
-    ObjectAnimator move1, move2, move4, move5, move6, move7, move9;
+    ObjectAnimator move1, move2, move4, move5, move7, move9;
     Random rand;
     Handler handler;
     private MediaPlayer correct, incorrect, background;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class Game extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
@@ -96,9 +99,8 @@ public class Game extends AppCompatActivity {
         correct = MediaPlayer.create(this, R.raw.correct);
         correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
-        incorrect.setVolume((float)3, (float)3);
+        incorrect.setVolume((float)4, (float)4);
         background = MediaPlayer.create(this, R.raw.sea);
-
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -109,20 +111,18 @@ public class Game extends AppCompatActivity {
         float heightF = (float) height;
 
         // Fish 1
-        move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid*1.1));
+        move1 = ObjectAnimator.ofFloat(fish1, "translationX", (float) (wid * 1.3));
         move1.setDuration(10000);
-        move6 = ObjectAnimator.ofFloat(fish1, "translationY", (float) (-heightF*.05));
-        move6.setDuration(10000);
 
         // Fish 2
-        move2 = ObjectAnimator.ofFloat(fish2, "translationX", (float) (-wid*1.1));
+        move2 = ObjectAnimator.ofFloat(fish2, "translationX", (float) (-wid * 1.22));
         move2.setDuration(10000);
-        move7 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (heightF*.2));
+        move7 = ObjectAnimator.ofFloat(fish2, "translationY", (float) (heightF * .1));
         move7.setDuration(10000);
 
         // Fish 3
-        move4 = ObjectAnimator.ofFloat(fish3, "translationX", (float) (wid*1.1));
-        move5 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF*.3));
+        move4 = ObjectAnimator.ofFloat(fish3, "translationX", (float) (wid * 1.22));
+        move5 = ObjectAnimator.ofFloat(fish3, "translationY", (float) (heightF * .21));
         move4.setDuration(10000);
         move5.setDuration(10000);
 
@@ -160,7 +160,6 @@ public class Game extends AppCompatActivity {
 
         // Fish 1 Movement
         move1.start();
-        move6.start();
 
         // Fish 2 Movement
         move2.start();

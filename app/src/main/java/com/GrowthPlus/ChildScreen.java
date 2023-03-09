@@ -124,7 +124,10 @@ public class ChildScreen extends AppCompatActivity {
             this.finish();
         });
 
-        deleteChildButton.setOnClickListener(view -> createDeleteChildDialogue(child));
+        deleteChildButton.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
+            createDeleteChildDialogue(child);
+        });
 
     }
 

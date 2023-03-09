@@ -9,6 +9,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -46,6 +47,7 @@ public class CreateAccount extends AppCompatActivity {
     Resources resources;
     private RealmChangeListener<ParentSchema> realmListener;
     private String goBackTo;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -857,6 +859,7 @@ public class CreateAccount extends AppCompatActivity {
 
         // Go to main page with update new child
         View.OnClickListener goNext = v -> {
+            v.startAnimation(buttonClick);
             Objects.requireNonNull(realm.where(ParentSchema.class).findFirst()).addChangeListener(realmListener);
             if (!nameInput.getText().toString().equals("")){
                 loginButton.setOnClickListener(null);
@@ -897,7 +900,10 @@ public class CreateAccount extends AppCompatActivity {
         loginButton.setOnClickListener(goNext);
 
         // Go back to select child avatar
-        View.OnClickListener goBack = v -> backToSelectAvatar();
+        View.OnClickListener goBack = v -> {
+            v.startAnimation(buttonClick);
+            backToSelectAvatar();
+        };
         backButton.setOnClickListener(goBack);
     }
 

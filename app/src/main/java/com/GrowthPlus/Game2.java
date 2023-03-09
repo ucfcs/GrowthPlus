@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.TextView;
@@ -52,6 +53,7 @@ public class Game2 extends AppCompatActivity {
     ConstraintLayout topBarBackground;
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +63,11 @@ public class Game2 extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
             countDownTimer.cancel(); //since the user is exiting the game we need to stop the timer
-
         });
         setTopBar();
         setContent();
@@ -99,7 +101,7 @@ public class Game2 extends AppCompatActivity {
         correct = MediaPlayer.create(this, R.raw.correct);
         correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
-        incorrect.setVolume((float)3, (float)3);
+        incorrect.setVolume((float)4, (float)4);
         background = MediaPlayer.create(this, R.raw.market);
 
         for(int i = 0; i <= 39; i++)

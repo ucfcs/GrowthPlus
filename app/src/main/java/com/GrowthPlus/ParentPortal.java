@@ -12,6 +12,7 @@ import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -52,6 +53,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
     private String parentId;
     private Realm realm;
     private AlertDialog dialogue;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +112,10 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
         buttonBackChild.setOnClickListener(this);
 
-        deleteParent.setOnClickListener(view -> createDeleteParentDialogue());
+        deleteParent.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
+            createDeleteParentDialogue();
+        });
     }
 
     /**
@@ -191,6 +196,7 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        view.startAnimation(buttonClick);
 
         if((view.getId()) == R.id.parentPortalChildCard0) {
             String selectedChildId = childId.get(R.id.parentPortalChildCard0);

@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.CustomTimerComponent;
@@ -50,6 +51,7 @@ public class Quiz2 extends AppCompatActivity {
     private MediaPlayer correct, incorrect;
     ConstraintLayout quizBackground;
     ConstraintLayout topBarBackground;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class Quiz2 extends AppCompatActivity {
         init();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             // Child passes the quiz
             setPointSystem(thisScore, minScoreToPass);
             countDownTimer.cancel(); //since the user is exiting the quiz we need to stop the timer
@@ -129,6 +132,7 @@ public class Quiz2 extends AppCompatActivity {
         nextContent.setVisibility(View.INVISIBLE); // Hide nextQuestion until a circle is selected
 
         nextContent.setOnClickListener(v -> {
+            v.startAnimation(buttonClick);
             countDownTimer.cancel();
             setTimer();
 

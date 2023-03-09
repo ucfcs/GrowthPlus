@@ -15,6 +15,7 @@ import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.TopBar;
@@ -83,6 +84,7 @@ public class Flashcard4 extends AppCompatActivity {
     private boolean isCompleted;
     private String lessonCategory;
     private RealmChangeListener<ChildSchema> realmListener;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,7 @@ public class Flashcard4 extends AppCompatActivity {
         init();
 
         flashcardBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             if (currentLessonScore >= minScoreToPass && !isCompleted){
                 Objects.requireNonNull(
                                 realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
@@ -221,6 +224,7 @@ public class Flashcard4 extends AppCompatActivity {
          * Refer to figma for clarification.
          * */
         flashcardContainer.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             childAnswer = flashcardContainer.getAnswer();
             // Don't take empty input
             if((childAnswer == null) || childAnswer.equals("")){

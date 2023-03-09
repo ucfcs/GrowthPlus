@@ -3,6 +3,7 @@ package com.GrowthPlus.roadMapActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +48,7 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
     HashMap<Integer, String> mapLessonId;
     RealmList<RoadMapQuiz> roadMapQuizes;
     RoadMapScenarioGame game;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,6 +203,7 @@ public class RoadMapFour extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
+        view.startAnimation(buttonClick);
         int viewId = view.getId();
 
         if(viewId == goBackButton.getId()){

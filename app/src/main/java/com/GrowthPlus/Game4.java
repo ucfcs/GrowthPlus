@@ -12,6 +12,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.TextView;
@@ -51,6 +52,7 @@ public class Game4 extends AppCompatActivity {
     float height1;
     private CountDownTimer countDownTimer;
     private CustomTimerComponent customTimerComponent;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,7 @@ public class Game4 extends AppCompatActivity {
         playBackground();
 
         introBackBtn.setOnClickListener(view -> {
+            view.startAnimation(buttonClick);
             handler.removeCallbacksAndMessages(null);
             setCompletedState(gameScore);
             background.stop();
@@ -96,7 +99,7 @@ public class Game4 extends AppCompatActivity {
         correct = MediaPlayer.create(this, R.raw.correct);
         correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
-        incorrect.setVolume((float)3, (float)3);
+        incorrect.setVolume((float)4, (float)4);
         background = MediaPlayer.create(this, R.raw.wind);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -352,7 +355,6 @@ public class Game4 extends AppCompatActivity {
     private void setTimer() {
         customTimerComponent = findViewById(R.id.countdownTimer);
         countDownTimer = new CountDownTimer(21000, 1000) {
-
             public void onTick(long millisUntilFinished) {
                 customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
             }

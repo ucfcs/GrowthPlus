@@ -27,15 +27,12 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     private ImageView freCheck;
     private ImageView chadCheck;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
-
     private TextView name;
     private TextView englishText;
     private TextView frenchText;
     private TextView chadText;
-
     Realm realm;
     Resources resources;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,35 +93,28 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     }
 
     public void setEnglishText(){
-
         // Create shared preferences class to save default language, french
         SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
-
         // Add english as default lang
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "englishZero");
         prefsEditor.commit();
         // refresh UI
         onResume();
-
     }
 
     public void setFrenchText(){
-
         // Create shared preferences class to save default language, french
         SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
-
         // Add english as default lang
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "frenchZero");
         prefsEditor.commit();
         // refresh UI
         onResume();
-
     }
 
     public void setChadText(){
-
         // Create shared preferences class to save default language, french
         SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
 
@@ -134,7 +124,6 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         prefsEditor.commit();
         // refresh UI
         onResume();
-
     }
 
     @Override
@@ -175,6 +164,4 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         // Close the Realm instance.
         realm.close();
     }
-
-
 }
