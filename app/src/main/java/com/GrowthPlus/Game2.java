@@ -98,7 +98,7 @@ public class Game2 extends AppCompatActivity {
         correct = MediaPlayer.create(this, R.raw.correct);
         correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
-        incorrect.setVolume((float)3, (float)3);
+        incorrect.setVolume((float)4, (float)4);
         background = MediaPlayer.create(this, R.raw.market);
 
         for(int i = 0; i <= 39; i++)

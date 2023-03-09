@@ -99,7 +99,7 @@ public class Game3 extends AppCompatActivity {
         correct = MediaPlayer.create(this, R.raw.correct);
         correct.setVolume((float)3, (float)3);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
-        incorrect.setVolume((float)3, (float)3);
+        incorrect.setVolume((float)4, (float)4);
         background = MediaPlayer.create(this, R.raw.soccer);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
