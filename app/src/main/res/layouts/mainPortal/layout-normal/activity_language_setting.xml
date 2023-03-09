@@ -27,21 +27,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08" />
+        app:layout_constraintGuide_percent="0.04" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.13" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/langBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.28" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonS"
@@ -66,14 +66,13 @@
 
     <android.widget.Button
         android:id="@+id/backLang"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="22dp"
-        android:paddingEnd="20dp"
+        android:paddingStart="19dp"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
@@ -83,19 +82,21 @@
         android:id="@+id/languageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
         android:text="Language"
         android:textColor="@color/dark_green"
         android:textSize="45sp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintBottom_toTopOf="@id/langBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintTop_toTopOf="@id/buttonBottom"
-        app:layout_constraintBottom_toTopOf="@id/langBottom"/>
+        app:layout_constraintVertical_bias="0.508"/>
 
     <RelativeLayout
         android:id="@+id/englishBtn"
         android:clickable="true"
-        android:layout_width="280dp"
+        android:layout_width="265dp"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/round_button"
@@ -133,7 +134,7 @@
     <RelativeLayout
         android:id="@+id/frenchBtn"
         android:clickable="true"
-        android:layout_width="280dp"
+        android:layout_width="265dp"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/round_button"
@@ -170,7 +171,7 @@
     <RelativeLayout
         android:id="@+id/chadBtn"
         android:clickable="true"
-        android:layout_width="280dp"
+        android:layout_width="265dp"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/round_button"
@@ -198,7 +199,7 @@
             android:text="Chadian Arabic"
             android:textAllCaps="false"
             android:textSize="25dp"
-            android:paddingStart="10dp"
+            android:paddingStart="5dp"
             android:gravity="center_vertical"
             android:textColor="@color/blue"/>
 

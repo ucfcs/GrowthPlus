@@ -12,10 +12,10 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@id/appName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/topSplash"
-        app:layout_constraintBottom_toTopOf="@id/appName"/>
+        app:layout_constraintTop_toTopOf="@id/topSplash" />
 
     <TextView
         android:id="@+id/appName"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".27"/>
+        app:layout_constraintGuide_percent="0.31" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottomSplash"

@@ -33,14 +33,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.87" />
+        app:layout_constraintGuide_percent="0.93" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/mid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.38" />
+        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonStart"
@@ -89,25 +89,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".605" />
+        app:layout_constraintGuide_percent="0.67" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/botBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".645" />
+        app:layout_constraintGuide_percent="0.71" />
 
     <android.widget.Button
         android:id="@+id/backChild"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="22dp"
-        android:paddingEnd="20dp"
+        android:paddingStart="19dp"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
@@ -117,6 +116,7 @@
         android:id="@+id/childPortalName"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:text="Sally"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:autoSizeTextType="uniform"
@@ -131,7 +131,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="0dp"
         android:paddingEnd="50dp"
         app:layout_constraintBottom_toTopOf="@id/mid"
         app:layout_constraintEnd_toStartOf="@id/rightGuideline"
@@ -154,6 +153,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:paddingTop="20dp"
+            android:text="0"
             android:textColor="@color/yellow"
             android:textSize="45sp"/>
 
