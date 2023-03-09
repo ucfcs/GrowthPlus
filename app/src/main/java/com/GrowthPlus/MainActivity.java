@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
     private JsonSampleData jsonSampleData;
     private RealmResults<ChildSchema> children;
-
     private ParentSchemaService landingPageParentService;
     private RealmResults<ParentSchema> parent;
     int parentSize;
@@ -116,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else{
             Log.i("extras null", "the extras were null");
         }
-
     }
 
     @Override
@@ -274,6 +272,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(int index = 0; index < childrenNum; index ++){
             childTemp = children.get(index);
 
+            assert childTemp != null;
             childIdTemp = childTemp.getChildId();
             childNameTemp = childTemp.getName();
             avatarNameTemp = childTemp.getAvatarName();
@@ -281,11 +280,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             childCardTemp = setLandingPageChildCard(landingPageChildCardIds.get(index), childNameTemp, avatarNameTemp, colorNameTemp);
             landingPageGridLayout.addView(childCardTemp, index);
-
             landingPageChildId.put(landingPageChildCardIds.get(index), childIdTemp);
-
-            childCardTemp = null;
-            childTemp = null;
         }
 
         if(childrenNum < MAX_CHILDREN){

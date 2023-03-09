@@ -169,5 +169,12 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
+
 
 }

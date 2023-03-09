@@ -233,4 +233,11 @@ public class IntroScreen extends AppCompatActivity {
             bgColorRGB = Color.rgb(96,163,200);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
 }

@@ -333,4 +333,11 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
         return (int) progress;
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
+    }
 }

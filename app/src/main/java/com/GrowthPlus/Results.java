@@ -76,6 +76,7 @@ public class Results extends AppCompatActivity {
             }
             lessonIntent.putExtra("childIdentify", childId);
             startActivity(lessonIntent);
+            this.finish();
         });
     }
 
@@ -113,5 +114,12 @@ public class Results extends AppCompatActivity {
         else{
             topBar.setToTriangle();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
     }
 }

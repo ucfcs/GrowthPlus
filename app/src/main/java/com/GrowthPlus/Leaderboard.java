@@ -45,11 +45,7 @@ public class Leaderboard extends AppCompatActivity {
             leaderBoardGridLayout.addView(C);
         }
 
-        backChildPortalBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                finish();
-            }
-        });
+        backChildPortalBtn.setOnClickListener(v -> finish());
 
     }
 
@@ -72,6 +68,13 @@ public class Leaderboard extends AppCompatActivity {
         childrenLeaderBoard = new ChildSchemaService(realm);
         imageSrcIdentifier = new ImageSrcIdentifier();
         colorIdentifier = new ColorIdentifier();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Close the Realm instance.
+        realm.close();
     }
 
 }
