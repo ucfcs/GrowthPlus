@@ -58,8 +58,6 @@ public class RoadMapTile extends ConstraintLayout {
         avatar = findViewById(R.id.avatar);
     }
 
-    // TODO: Need methods to change the state of each view
-
     // Method to change the state of the tile
     public void setTileSelectedState(){
         tile.setImageResource(R.drawable.tile_shape_selected);

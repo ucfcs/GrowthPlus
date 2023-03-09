@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -42,6 +43,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     private ObjectId parentId;
     private String parentIdString;
     private ParentSchemaService signupParentService;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
+        view.startAnimation(buttonClick);
         int id = view.getId();
 
         //if they click the signup button

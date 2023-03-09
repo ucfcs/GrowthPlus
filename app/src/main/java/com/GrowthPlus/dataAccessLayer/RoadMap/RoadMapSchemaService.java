@@ -83,7 +83,6 @@ public class RoadMapSchemaService {
     * Invokes the getRoadMap() method
     * Assumes new Game is already created and populated
     * The upsert must be executed within a realm transaction
-    * TODO: Implement this method signature in the realm sample app
     * */
     public void setRoadMapScenarioGame (ScenarioGameSchema newGame){
         realm.executeTransactionAsync(realm -> {
@@ -97,7 +96,6 @@ public class RoadMapSchemaService {
     * Invokes the getRoadMap() method
     * Assumes list of Lesson are already created and populated
     * The upsert must be executed within a realm transaction
-    * TODO: Implement this method signature in the realm sample app
     * */
     public void setRoadMapLessons (RealmList<LessonSchema> lessons){
         realm.executeTransactionAsync(realm -> {
@@ -109,7 +107,6 @@ public class RoadMapSchemaService {
     /*
     * Method to delete a scenario Game data from a given roadmap
     * The deletion must be executed within a realm transaction
-    * TODO: Implement this method signature in the realm sample app
     * */
     public void deleteRoadMapScenarioGame(){
         realm.executeTransactionAsync(realm -> {
@@ -123,7 +120,6 @@ public class RoadMapSchemaService {
     /*
      * Method to delete all lessons data from a given roadmap
      * The deletion must be executed within a realm transaction
-     * TODO: Implement this method signature in the realm sample app
      * */
     public void deleteRoadMapLessons(){
         realm.executeTransactionAsync(realm -> {

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class Results extends AppCompatActivity {
     private Realm realm;
     private ChildSchema child;
     ColorStateList green, red;
+    private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,7 @@ public class Results extends AppCompatActivity {
         }
 
         next.setOnClickListener(v -> {
+            v.startAnimation(buttonClick);
             Intent lessonIntent;
 
             if(whichRoadMap.equals("One")){
