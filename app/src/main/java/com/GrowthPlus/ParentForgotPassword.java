@@ -6,33 +6,26 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
-
-import org.bson.types.ObjectId;
-
 import io.realm.Realm;
 
 public class ParentForgotPassword extends AppCompatActivity implements View.OnClickListener{
-
     Realm realm;
     Resources resources;
     TextView forgotPasswordTitle, phoneNumberText, yourPinIsText, pinText;
     EditText phoneNumberInput;
     Button getPinButton, backToLoginButton, backParentForgot;
     String phoneNumberStr, parentPhoneNumberStr;
-
     private ParentSchemaService parentService;
     private ParentSchema parent;
     private Integer parentPIN;
@@ -56,6 +49,7 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         forgotPasswordTitle = findViewById(R.id.forgotPasswordTitle);
         phoneNumberText = findViewById(R.id.phoneNumberText);
         yourPinIsText = findViewById(R.id.yourPinIsText);
+        yourPinIsText.setVisibility(View.INVISIBLE);
         pinText = findViewById(R.id.pinText);
         phoneNumberInput = findViewById(R.id.phoneNumberInput);
         getPinButton = findViewById(R.id.parentGetPinBtn);
@@ -68,7 +62,8 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         parentPhoneNumberStr = parent.getPhoneNumber();//and their phone number
 
         parentPINStr = String.valueOf(parentPIN);
-        while(parentPINStr.length() < 4)parentPINStr = "0"+parentPINStr;
+        while(parentPINStr.length() < 4)
+            parentPINStr = "0" + parentPINStr;
     }
 
     @Override
@@ -88,74 +83,55 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-
         view.startAnimation(buttonClick);
         int id = view.getId();
 
         //if they click the green "play" button
         if(id == R.id.parentGetPinBtn){
-
             boolean inputValid = validInput(phoneNumberInput);//checks for null and input that's too short
 
-            if(inputValid == true) {
+            if(inputValid) {
                 phoneNumberStr = String.valueOf(phoneNumberInput.getText());
 
-                //if the phone numbers match (and the input was valid)
-                if(confirmPhoneNumberMatch(phoneNumberStr, parentPhoneNumberStr) == true){
-
-                    //change the input box back to grey (in case it has been earlier changed to red)
+                // if the phone numbers match (and the input was valid)
+                if(confirmPhoneNumberMatch(phoneNumberStr, parentPhoneNumberStr)){
+                    // change the input box back to grey (in case it has been earlier changed to red)
                     phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
 
-                    //show pin
+                    // show pin
                     pinText.setText(parentPINStr);
+                    yourPinIsText.setVisibility(View.VISIBLE);
                     backToLoginButton.setVisibility(View.VISIBLE);
                     getPinButton.setVisibility(View.INVISIBLE);
                 }
-
-                else{ //phone numbers don't match -> change input box to red to indicate the phone number is incorrect
+                else{ // phone numbers don't match -> change input box to red to indicate the phone number is incorrect
                     phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
                     phoneNumberInput.setText("");
                 }
             }
-
-            else {//input was not valid -> change input box to red to indicate the phone number is incorrect
+            else{ //input was not valid -> change input box to red to indicate the phone number is incorrect
                 phoneNumberInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
                 phoneNumberInput.setText("");
             }
-
         }//end if parentGetPinButton
 
         if(id == R.id.backToLoginButton){
             startLoginActivity();
             this.finish();
         }
-
         if(id == R.id.backParentForgot){
             startLoginActivity();
             this.finish();
         }
-
     }
 
     private boolean validInput(EditText input) {
         String inputString = String.valueOf(input.getText());
-
-        if (!inputString.equals(null) &&
-                inputString.length() >= 8) {
-            return true;
-        }
-        else{
-            return false;
-        }
+        return inputString.length() >= 8;
     }
 
     private boolean confirmPhoneNumberMatch(String phoneNum1, String phoneNum2){
-
-        if(phoneNum1.equals(phoneNum2)) //they match
-            return true;
-
-        else //they don't match
-            return false;
+        return phoneNum1.equals(phoneNum2);
     }
 
     //moves to the login page
