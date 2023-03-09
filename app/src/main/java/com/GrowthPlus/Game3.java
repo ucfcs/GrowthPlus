@@ -274,7 +274,7 @@ public class Game3 extends AppCompatActivity {
             counter++;
             if(counter >= MAX){
                 background.stop();
-                setCompletedState(gameScore);
+                //setCompletedState(gameScore);
                 Intent lessonIntent = new Intent(Game3.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Game");
@@ -282,12 +282,14 @@ public class Game3 extends AppCompatActivity {
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "Three");
                 if(gameScore >= MIN_TO_PASS){
+                    updateGameAndRoadMapState();
                     lessonIntent.putExtra("passOrNot", 1);
                 }
                 else{
                     lessonIntent.putExtra("passOrNot", 0);
                 }
                 startActivity(lessonIntent);
+                this.finish();
             }
             else{
                 ball1.clearAnimation();
@@ -323,28 +325,41 @@ public class Game3 extends AppCompatActivity {
 
     private void setCompletedState(int currentScore){
         if(currentScore >= MIN_TO_PASS){
-            realm.executeTransactionAsync(realm1 -> {
-                ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                assert child != null;
-                if(!child.getRoadMapThree().getScenarioGame().getCompleted()){
-                    child.getRoadMapThree().getScenarioGame().setCompleted(true);
-                    child.getRoadMapThree().getScenarioGame().setCurrent(false);
-                }
-                if(child.getRoadMapFour().getLocked()){
-                    ChildRoadMap nextRoadMap = child.getRoadMapFour();
-                    nextRoadMap.setLocked(false);
-                    nextRoadMap.setCurrent(true);
-                    RealmList<RoadMapLesson> nextLessons = nextRoadMap.getRoadMapLessons();
-                    RoadMapLesson firstLesson = nextLessons.get(0);
-                    assert firstLesson != null;
-                    firstLesson.setCurrent(true);
-                    firstLesson.setCompleted(false);
-                }
-            });
+            updateGameAndRoadMapState();
             goToNextRoadMap();
         }else {
             stayCurrentRoadMap();
         }
+    }
+
+    private void setNextRoadMap(ChildSchema child){
+        if(child.getRoadMapFour().getLocked()){
+            ChildRoadMap nextRoadMap = child.getRoadMapFour();
+            nextRoadMap.setLocked(false);
+            nextRoadMap.setCurrent(true);
+            RealmList<RoadMapLesson> nextLessons = nextRoadMap.getRoadMapLessons();
+            RoadMapLesson firstLesson = nextLessons.get(0);
+            assert firstLesson != null;
+            firstLesson.setCurrent(true);
+            firstLesson.setCompleted(false);
+        }
+    }
+
+    private void updateGameAndRoadMapState(){
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+            assert child != null;
+
+            if(!child.getRoadMapThree().getCompleted()){
+                child.getRoadMapThree().setCurrent(false);
+                child.getRoadMapThree().setCompleted(true);
+            }
+            if(!child.getRoadMapThree().getScenarioGame().getCompleted()){
+                child.getRoadMapThree().getScenarioGame().setCompleted(true);
+                child.getRoadMapThree().getScenarioGame().setCurrent(false);
+            }
+            setNextRoadMap(child);
+        });
     }
 
     private void goToNextRoadMap(){

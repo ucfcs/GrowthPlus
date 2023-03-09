@@ -280,20 +280,22 @@ public class Game extends AppCompatActivity {
             counter++;
             if(counter >= MAX){
                 background.stop();
-                setCompletedState(gameScore);
+                //setCompletedState(gameScore);
                 Intent lessonIntent = new Intent(Game.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Game");
-                lessonIntent.putExtra("points", gameScore);
+                lessonIntent.putExtra("points", numberCorrect);
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "One");
                 if(gameScore >= MIN_TO_PASS){
+                    updateGameAndRoadMapState();
                     lessonIntent.putExtra("passOrNot", 1);
                 }
                 else{
                     lessonIntent.putExtra("passOrNot", 0);
                 }
                 startActivity(lessonIntent);
+                this.finish();
             }
             else{
                 fish1.setVisibility(View.VISIBLE);
@@ -311,14 +313,14 @@ public class Game extends AppCompatActivity {
         counter++;
         if(counter >= MAX) {
             background.stop();
-            setCompletedState(gameScore);
             Intent lessonIntent = new Intent(Game.this, Results.class);
             lessonIntent.putExtra("childId", childId);
             lessonIntent.putExtra("whichOne", "Game");
-            lessonIntent.putExtra("points", gameScore);
+            lessonIntent.putExtra("points", numberCorrect);
             lessonIntent.putExtra("max", MAX);
             lessonIntent.putExtra("whichRoadMap", "One");
             if (gameScore >= MIN_TO_PASS) {
+                updateGameAndRoadMapState();
                 lessonIntent.putExtra("passOrNot", 1);
             } else {
                 lessonIntent.putExtra("passOrNot", 0);
@@ -350,36 +352,42 @@ public class Game extends AppCompatActivity {
 
     private void setCompletedState(int currentScore){
         if(currentScore >= MIN_TO_PASS){
-            realm.executeTransactionAsync(realm1 -> {
-                ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                assert child != null;
-
-                if(!child.getRoadMapOne().getCompleted()){
-                    child.getRoadMapOne().setCurrent(false);
-                    child.getRoadMapOne().setCompleted(true);
-                }
-
-                if(!child.getRoadMapOne().getScenarioGame().getCompleted()){
-                    child.getRoadMapOne().getScenarioGame().setCompleted(true);
-                    child.getRoadMapOne().getScenarioGame().setCurrent(false);
-
-                }
-
-                if(child.getRoadMapTwo().getLocked()){
-                    ChildRoadMap nextRoadMap = child.getRoadMapTwo();
-                    nextRoadMap.setLocked(false);
-                    nextRoadMap.setCurrent(true);
-                    RealmList<RoadMapLesson> nextLessons = nextRoadMap.getRoadMapLessons();
-                    RoadMapLesson firstLesson = nextLessons.get(0);
-                    assert firstLesson != null;
-                    firstLesson.setCurrent(true);
-                    firstLesson.setCompleted(false);
-                }
-            });
-            //goToNextRoadMap();
+           updateGameAndRoadMapState();
+           goToNextRoadMap();
         }else {
             stayCurrentRoadMap();
         }
+    }
+
+    private void setNextRoadMap(ChildSchema child){
+        if(child.getRoadMapTwo().getLocked()){
+            ChildRoadMap nextRoadMap = child.getRoadMapTwo();
+            nextRoadMap.setLocked(false);
+            nextRoadMap.setCurrent(true);
+            RealmList<RoadMapLesson> nextLessons = nextRoadMap.getRoadMapLessons();
+            RoadMapLesson firstLesson = nextLessons.get(0);
+            assert firstLesson != null;
+            firstLesson.setCurrent(true);
+            firstLesson.setCompleted(false);
+        }
+    }
+
+    private void updateGameAndRoadMapState(){
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+            assert child != null;
+
+            if(!child.getRoadMapOne().getCompleted()){
+                child.getRoadMapOne().setCurrent(false);
+                child.getRoadMapOne().setCompleted(true);
+            }
+            if(!child.getRoadMapOne().getScenarioGame().getCompleted()){
+                child.getRoadMapOne().getScenarioGame().setCompleted(true);
+                child.getRoadMapOne().getScenarioGame().setCurrent(false);
+
+            }
+            setNextRoadMap(child);
+        });
     }
 
     private void goToNextRoadMap(){
