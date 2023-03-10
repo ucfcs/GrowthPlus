@@ -18,14 +18,11 @@ import android.widget.TextView;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
-import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmList;
 import org.bson.types.ObjectId;
-
-import java.util.Objects;
 
 public class ParentSignup extends AppCompatActivity implements View.OnClickListener{
 
