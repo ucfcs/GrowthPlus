@@ -78,20 +78,18 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.99" />
 
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/leaderBoardGridLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:columnCount="1"
-        app:layout_constraintBottom_toTopOf="@id/bottomLine"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@id/rightLine"
         app:layout_constraintStart_toStartOf="@id/leftLine"
-        app:layout_constraintTop_toBottomOf="@id/guideline4"
-        app:rowCount="6">
-
-    </androidx.gridlayout.widget.GridLayout>
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/guideline4">
+        <LinearLayout
+            android:id="@+id/leaderBoardGridLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

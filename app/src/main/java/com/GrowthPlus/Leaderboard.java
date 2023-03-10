@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -23,7 +24,7 @@ public class Leaderboard extends AppCompatActivity {
 
     Realm realm;
     private Button backChildPortalBtn;
-    private GridLayout leaderBoardGridLayout;
+    private LinearLayout leaderBoardGridLayout;
     public ColorIdentifier colorIdentifier;
     public ImageSrcIdentifier imageSrcIdentifier;
     private ChildSchemaService childrenLeaderBoard;
