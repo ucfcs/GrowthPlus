@@ -18,6 +18,7 @@
         android:drawableStart="@drawable/arrow_large"
         android:drawableTint="@color/dark_green"
         android:paddingStart="18dp"
+        android:paddingEnd="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideBottom" />
@@ -34,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Points"
-        android:textColor="@color/blue"
+        android:textColor="@color/dark_green"
         android:textSize="65sp"
         app:layout_constraintBottom_toTopOf="@+id/box"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,4 +106,5 @@
         app:layout_constraintEnd_toEndOf="@+id/box"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/box" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

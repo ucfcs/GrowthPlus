@@ -20,8 +20,9 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="32dp"
         android:text="7"
-        android:textColor="@color/red"
+        android:textColor="@color/dark_green"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@+id/fish"
         app:layout_constraintTop_toTopOf="@+id/fish" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

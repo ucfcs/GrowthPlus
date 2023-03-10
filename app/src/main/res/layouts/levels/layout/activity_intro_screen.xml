@@ -19,6 +19,7 @@
         android:drawableStart="@drawable/arrow_large"
         android:drawableTint="@color/dark_green"
         android:paddingStart="18dp"
+        android:paddingEnd="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guide_right"
         app:layout_constraintStart_toStartOf="@+id/guide_left"
