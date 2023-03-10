@@ -33,16 +33,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    
-    <ImageView
-        android:id="@+id/congratsBanner"
-        android:layout_width="450dp"
-        android:layout_height="400dp"
-        android:background="@mipmap/banner_foreground"
-        app:layout_constraintBottom_toTopOf="@id/bannerBottom"
-        app:layout_constraintTop_toBottomOf="@+id/topBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 
     <android.widget.Button
         android:id="@+id/nextButton"
@@ -75,5 +65,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/thirtyPercent"></ImageView>
+
+    <ImageView
+        android:id="@+id/congratsBanner"
+        android:layout_width="450dp"
+        android:layout_height="400dp"
+        android:background="@mipmap/banner_foreground"
+        app:layout_constraintBottom_toTopOf="@id/bannerBottom"
+        app:layout_constraintTop_toBottomOf="@+id/topBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
