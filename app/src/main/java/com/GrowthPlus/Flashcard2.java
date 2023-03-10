@@ -237,7 +237,7 @@ public class Flashcard2 extends AppCompatActivity {
                     answerColor = wrongAnswerColor;
                 }
 
-                flashcardContainer.animate().setDuration(500).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
+                flashcardContainer.animate().setDuration(1000).rotationYBy(360f).setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart (Animator animation){
                         super.onAnimationStart(animation);
