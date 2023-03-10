@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/box"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <TextView
+        android:id="@+id/childName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="5dp"
+        android:gravity="center"
+        android:text="ChildName"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintTop_toTopOf="@id/box"
+        app:layout_constraintBottom_toBottomOf="@id/box"
+        app:layout_constraintStart_toStartOf="@id/box"
+        app:layout_constraintEnd_toStartOf="@id/childScore"/>
+
+    <TextView
+        android:id="@+id/childScore"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="125dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/blue"
+        android:gravity="center"
+        android:text="65"
+        android:textAlignment="center"
+        android:textColor="@color/yellow"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/box" />
+</androidx.constraintlayout.widget.ConstraintLayout>
