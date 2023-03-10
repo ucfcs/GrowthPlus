@@ -11,7 +11,7 @@
         android:layout_width="85dp"
         android:layout_height="0dp"
         android:layout_marginTop="45dp"
-        android:progressBackgroundTint="@color/yellow"
+        android:progressBackgroundTint="@color/grey"
         android:progressTint="@color/light_green"
         android:rotation="-90"
         app:layout_constraintEnd_toEndOf="parent"
