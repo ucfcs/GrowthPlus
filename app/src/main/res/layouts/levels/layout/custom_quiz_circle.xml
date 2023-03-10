@@ -24,7 +24,7 @@
         android:text="2"
         android:textAlignment="center"
         android:textColor="@color/yellow"
-        android:textSize="39sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/circle"
         app:layout_constraintEnd_toEndOf="@+id/circle"
         app:layout_constraintStart_toStartOf="@+id/circle"
