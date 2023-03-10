@@ -65,7 +65,15 @@ public class Results extends AppCompatActivity {
             v.startAnimation(buttonClick);
             Intent lessonIntent;
 
-            if(whichRoadMap.equals("One")){
+            //if the user passes the 4th game, go to the congrats screen
+            if( (whichRoadMap.equals("Four")) &&
+                (whichOne.equals("Game")) &&
+                (passOrNot == 1))
+            {
+                lessonIntent =  new Intent(Results.this, Congrats.class);
+            }
+
+            else if(whichRoadMap.equals("One")){
                 if(passOrNot == 1 && whichOne.equals("Game")){
                     lessonIntent =  new Intent(Results.this, RoadMapTwo.class);
                 }else{
