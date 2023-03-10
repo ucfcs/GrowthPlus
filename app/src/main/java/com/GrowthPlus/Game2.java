@@ -232,7 +232,6 @@ public class Game2 extends AppCompatActivity {
             counter++;
             if(counter >= MAX){
                 background.stop();
-                //setCompletedState(gameScore);
                 Intent lessonIntent = new Intent(Game2.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Game");
