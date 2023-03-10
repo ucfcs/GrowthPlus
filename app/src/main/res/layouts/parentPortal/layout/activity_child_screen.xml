@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -78,6 +77,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.97" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
     <android.widget.Button
         android:id="@+id/backParentPortal"
         android:layout_width="70dp"
@@ -91,7 +97,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
-        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
+        app:layout_constraintTop_toBottomOf="@id/buttonTop" />
 
     <android.widget.Button
         android:id="@+id/deleteChildButton"
@@ -100,9 +106,9 @@
         android:background="@drawable/circle"
         android:backgroundTint="@color/red"
         android:drawableStart="@drawable/minus_large"
+        android:gravity="center_horizontal|center_vertical"
         android:paddingStart="2dp"
         android:paddingEnd="0dp"
-        android:gravity="center_horizontal|center_vertical"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonE"
         app:layout_constraintStart_toStartOf="@id/buttonS"
@@ -120,10 +126,10 @@
 
     <com.GrowthPlus.customViews.ChildNameScoreComponent
         android:id="@+id/childNameAndScore"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintEnd_toStartOf="@id/buttonE"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintTop_toBottomOf="@id/bunnyBottom"
         app:layout_constraintBottom_toTopOf="@id/underName"/>
 
@@ -132,10 +138,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@id/buttonStart"
+        app:layout_constraintBottom_toTopOf="@id/guideline14"
         app:layout_constraintEnd_toStartOf="@id/buttonE"
-        app:layout_constraintTop_toBottomOf="@id/underName"
-        app:layout_constraintBottom_toTopOf="@id/underBar">
+        app:layout_constraintStart_toEndOf="@id/buttonStart"
+        app:layout_constraintTop_toBottomOf="@id/underName">
 
         <com.GrowthPlus.customViews.HorizontalProgressBar
             android:id="@+id/horizontalProgressBarLevelOne"
@@ -150,7 +156,7 @@
         <com.GrowthPlus.customViews.HorizontalProgressBar
             android:id="@+id/horizontalProgressBarLevelThree"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <com.GrowthPlus.customViews.HorizontalProgressBar
             android:id="@+id/horizontalProgressBarLevelFour"
@@ -165,51 +171,39 @@
         android:layout_height="wrap_content"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
-        app:columnCount="2"
+        android:paddingStart="10dp"
+        android:paddingEnd="25dp"
         android:paddingBottom="5dp"
-        android:paddingEnd="10dp"
-        android:paddingStart="0dp"
+        app:columnCount="2"
         app:layout_constraintBottom_toBottomOf="@id/end"
-        app:layout_constraintTop_toBottomOf="@id/underBar"
-        app:layout_constraintStart_toEndOf="@id/buttonEnd"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintTop_toBottomOf="@id/underBar"
         app:rowCount="6">
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/numbersCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/numbersCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/lengthCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/lengthCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/unitCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/unitCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/weightCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/weightCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/additionCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/additionCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/moneyCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/moneyCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/subtractionCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/subtractionCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/timeCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/timeCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/multiplicationCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/multiplicationCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/shapesCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/shapesCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/divisionCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/divisionCompletion" />
 
-        <com.GrowthPlus.customViews.SubjectCompletionComponent
-            android:id="@+id/anglesCompletion" />
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/anglesCompletion" />
 
     </androidx.gridlayout.widget.GridLayout>
 

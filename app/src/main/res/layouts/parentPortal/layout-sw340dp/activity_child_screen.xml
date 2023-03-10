@@ -120,10 +120,10 @@
 
     <com.GrowthPlus.customViews.ChildNameScoreComponent
         android:id="@+id/childNameAndScore"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintEnd_toStartOf="@id/buttonE"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintTop_toBottomOf="@id/bunnyBottom"
         app:layout_constraintBottom_toTopOf="@id/underName"/>
 
@@ -167,8 +167,8 @@
         android:backgroundTint="@color/blue"
         app:columnCount="2"
         android:paddingBottom="10dp"
-        android:paddingEnd="10dp"
-        android:paddingStart="0dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="25dp"
         app:layout_constraintBottom_toBottomOf="@id/end"
         app:layout_constraintTop_toBottomOf="@id/underBar"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"

@@ -8,7 +8,6 @@
     android:id="@+id/parentSignUpActivityID"
     tools:context=".ParentSignup">
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
@@ -49,28 +48,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.13" />
+        app:layout_constraintGuide_percent="0.11" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/parentImgTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.14" />
+        app:layout_constraintGuide_percent="0.11" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bunnyBottomLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.42" />
+        app:layout_constraintGuide_percent="0.41" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/createBottomLine"
@@ -84,49 +83,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.53" />
+        app:layout_constraintGuide_percent="0.55" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/confirmBottomLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.56" />
+        app:layout_constraintGuide_percent="0.6" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/confirmInputLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
+        app:layout_constraintGuide_percent="0.69" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/phoneNumBottomLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.67" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/phoneNumInputLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.74" />
+        app:layout_constraintGuide_percent="0.81" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.81" />
+        app:layout_constraintGuide_percent="0.86" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.88" />
+        app:layout_constraintGuide_percent="0.94" />
 
     <android.widget.Button
         android:id="@+id/backParentSU"
@@ -145,8 +144,8 @@
 
     <ImageView
         android:id="@+id/parentCircle"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/circle"
         android:backgroundTint="@color/light_green"
         app:layout_constraintBottom_toTopOf="@id/bunnyBottomLine"
@@ -156,8 +155,8 @@
 
     <ImageView
         android:id="@+id/parentImg"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:scaleX="0.7"
         android:scaleY="0.7"
         android:background="@mipmap/parent_foreground"
@@ -182,20 +181,20 @@
 
     <EditText
         android:id="@+id/phoneNumberInput"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/grey"
         android:hint="phone number"
         android:inputType="number"
         android:maxLength="16"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@id/nameBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintTop_toBottomOf="@id/createBottomLine"></EditText>
+        app:layout_constraintTop_toBottomOf="@id/createBottomLine"/>
 
     <TextView
         android:id="@+id/createPinText"
@@ -212,8 +211,8 @@
 
     <EditText
         android:id="@+id/enterPin"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:inputType="number"
         android:maxLength="4"
         android:hint="Pin"
@@ -224,8 +223,7 @@
         app:layout_constraintTop_toBottomOf="@id/confirmBottomLine"
         app:layout_constraintBottom_toTopOf="@id/confirmInputLine"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintEnd_toStartOf="@id/buttonS">
-    </EditText>
+        app:layout_constraintEnd_toStartOf="@id/buttonS"/>
 
     <TextView
         android:id="@+id/confirmPinText"
@@ -242,8 +240,8 @@
 
     <EditText
         android:id="@+id/confirmPinInput"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:inputType="number"
         android:maxLength="4"
         android:hint="Pin"
@@ -254,17 +252,17 @@
         app:layout_constraintTop_toBottomOf="@id/phoneNumBottomLine"
         app:layout_constraintBottom_toTopOf="@id/phoneNumInputLine"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintEnd_toStartOf="@id/buttonS">
-    </EditText>
+        app:layout_constraintEnd_toStartOf="@id/buttonS"/>
 
     <android.widget.Button
         android:id="@+id/parentSignupBtn"
         android:layout_width="150dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/play_large"
         android:paddingStart="60dp"
+        android:paddingEnd="0dp"
         app:layout_constraintTop_toBottomOf="@id/playTop"
         app:layout_constraintBottom_toTopOf="@id/playBottom"
         app:layout_constraintStart_toEndOf="@id/playStart"

@@ -48,21 +48,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.94" />
+        app:layout_constraintGuide_percent="0.97" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/childEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.68" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/parentStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.71" />
+        app:layout_constraintGuide_percent="0.715" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonStart"
@@ -117,6 +110,7 @@
         android:backgroundTint="@color/red"
         android:drawableStart="@drawable/minus_large"
         android:paddingStart="2dp"
+        android:paddingEnd="0dp"
         android:gravity="center_horizontal|center_vertical"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonE"
@@ -143,8 +137,8 @@
         android:layout_height="0dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
-        android:foregroundGravity="center"
-        app:layout_constraintTop_toBottomOf="@id/parentStart"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/childEnd"
         app:layout_constraintBottom_toTopOf="@id/botLine"
         app:layout_constraintStart_toStartOf="@id/leftLine"
         app:layout_constraintEnd_toStartOf="@id/rightLine"
