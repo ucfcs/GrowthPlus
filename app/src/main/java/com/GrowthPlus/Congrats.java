@@ -5,9 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.utilities.ImageSrcIdentifier;
+
 import io.realm.Realm;
 
 public class Congrats extends AppCompatActivity implements View.OnClickListener{
@@ -15,6 +19,8 @@ public class Congrats extends AppCompatActivity implements View.OnClickListener{
     private Button next, back;
     private ChildSchema child;
     private String childId;
+    private ImageView avatar;
+    private ImageSrcIdentifier avatarImage;
     private Realm realm;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
@@ -35,10 +41,13 @@ public class Congrats extends AppCompatActivity implements View.OnClickListener{
         }
         realm = Realm.getDefaultInstance();
         child = realm.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+        avatar = findViewById(R.id.childAvatarImg);
+        avatarImage = new ImageSrcIdentifier();
         topBar = findViewById(R.id.topBar);
         next = findViewById(R.id.nextButton);
         back = topBar.findViewById(R.id.goBackBtn);
 
+        setAvatar(child.getAvatarName());
     }
 
     @Override
@@ -57,6 +66,10 @@ public class Congrats extends AppCompatActivity implements View.OnClickListener{
 
     private void setTopBar(){
         topBar.setPoints(String.valueOf(child.getScore()));
+    }
+
+    public void setAvatar(String name){
+        avatar.setImageResource(avatarImage.getImageSrcId(name));
     }
 
     @Override

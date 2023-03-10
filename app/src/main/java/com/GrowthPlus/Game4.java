@@ -33,7 +33,7 @@ import io.realm.RealmList;
 
 public class Game4 extends AppCompatActivity {
     final int MAX = 20;
-    final int MIN_TO_PASS = 14;
+    final int MIN_TO_PASS = 3;//TODO: CHANGE BACK TO 14
     ChildSchema child;
     Realm realm;
     TopBar gameTopBar;
@@ -223,6 +223,7 @@ public class Game4 extends AppCompatActivity {
     private void showCorrect(){
         handler.postDelayed(() -> {
             counter++;
+            //TODO: CHANGE THIS BACK TO MAX
             if(counter >= 3){
                 background.stop();
                 setCompletedState(gameScore);
