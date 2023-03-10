@@ -137,7 +137,7 @@
         android:id="@+id/backSelectChild"
         android:layout_width="70dp"
         android:layout_height="48dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
@@ -146,7 +146,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
-        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
+        app:layout_constraintTop_toBottomOf="@id/buttonTop" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

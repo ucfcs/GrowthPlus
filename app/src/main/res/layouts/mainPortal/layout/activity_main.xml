@@ -80,8 +80,8 @@
 
     <ImageButton
         android:id="@+id/langBtn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:src="@drawable/settings_gear"
         android:background="@color/light_green"
         app:tint="@color/dark_green"
@@ -136,12 +136,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="54dp"
             android:clickable="false"
             android:text="Parent"
             android:textColor="@color/dark_green"
-            android:textSize="28dp" />
+            android:textSize="34dp" />
 
     </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="Points"
         android:textColor="@color/blue"
-        android:textSize="65sp"
+        android:textSize="68sp"
         app:layout_constraintBottom_toTopOf="@+id/box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
