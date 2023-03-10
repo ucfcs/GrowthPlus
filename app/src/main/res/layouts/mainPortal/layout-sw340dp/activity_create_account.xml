@@ -34,14 +34,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.17" />
+        app:layout_constraintGuide_percent="0.13" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bunnyBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.59" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonS"
@@ -69,31 +69,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.68" />
+        app:layout_constraintGuide_percent="0.57" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.71" />
+        app:layout_constraintGuide_percent="0.59" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.83" />
+        app:layout_constraintGuide_percent="0.66" />
 
     <android.widget.Button
         android:id="@+id/backCreateAccount"
-        android:layout_width="65dp"
-        android:layout_height="45dp"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="19dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="20dp"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
@@ -112,8 +113,8 @@
 
     <EditText
         android:id="@+id/nameInput"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:maxLength="10"
         android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         android:background="@drawable/round_button"
@@ -134,6 +135,7 @@
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/play_large"
         android:paddingStart="55dp"
+        android:paddingEnd="0dp"
         android:layout_below="@id/nameInput"
         app:layout_constraintTop_toBottomOf="@id/playTop"
         app:layout_constraintBottom_toTopOf="@id/playBottom"

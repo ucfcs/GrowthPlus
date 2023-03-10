@@ -14,7 +14,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/round_button"
-        android:backgroundTint="@color/yellow"/>
+        android:backgroundTint="@color/yellow">
+    </View>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/avatarStartLine"
@@ -75,12 +76,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/nameEndLine"
         app:layout_constraintStart_toStartOf="@id/nameStartLine"
-        android:autoSizeTextType="uniform"/>
+        android:autoSizeTextType="uniform">
+    </TextView>
 
     <TextView
-        android:layout_width="90dp"
+        android:layout_width="95dp"
         android:layout_height="wrap_content"
-        android:textSize="35sp"
+        android:textSize="35dp"
         android:id="@+id/leaderboardPoints"
         android:textColor="@color/white"
         android:background="@drawable/round_button"
@@ -90,6 +92,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/pointStartLine"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+    </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

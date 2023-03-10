@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.02" />
+        app:layout_constraintGuide_percent="0.01" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonBottom"
@@ -100,9 +100,9 @@
         app:layout_constraintBottom_toTopOf="@id/childEnd"
         app:layout_constraintStart_toStartOf="@id/leftLine"
         app:layout_constraintEnd_toStartOf="@id/rightLine"
-        android:paddingStart="15dp"
+        android:paddingStart="10dp"
         android:paddingEnd="0dp"
-        android:paddingTop="30dp"
+        android:paddingTop="25dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         app:columnCount="2"
@@ -128,7 +128,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@drawable/round_button"
-            android:layout_marginTop="-10dp"
+            android:layout_marginTop="-15dp"
             android:visibility="visible"
             android:src="@mipmap/parent_foreground" />
 
@@ -139,8 +139,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:clickable="false"
+            android:text="Parent"
             android:textColor="@color/dark_green"
-            android:textSize="25sp" />
+            android:textSize="28dp" />
 
     </FrameLayout>
 

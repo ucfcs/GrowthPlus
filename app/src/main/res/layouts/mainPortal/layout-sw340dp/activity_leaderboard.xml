@@ -26,24 +26,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.03" />
+        app:layout_constraintGuide_percent="0.08" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
+        app:layout_constraintGuide_percent="0.13" />
 
     <android.widget.Button
         android:id="@+id/backChildPortal"
-        android:layout_width="65dp"
-        android:layout_height="45dp"
+        android:layout_width="70dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="19dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="20dp"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
@@ -54,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.14" />
+        app:layout_constraintGuide_percent="0.18" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/rightLine"
@@ -86,6 +87,11 @@
         app:layout_constraintEnd_toStartOf="@id/rightLine"
         app:layout_constraintStart_toStartOf="@id/leftLine"
         app:layout_constraintTop_toBottomOf="@id/guideline4"
-        app:rowCount="6"/>
+        app:rowCount="6">
+
+    </androidx.gridlayout.widget.GridLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
