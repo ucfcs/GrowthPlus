@@ -223,7 +223,7 @@ public class Game4 extends AppCompatActivity {
     private void showCorrect(){
         handler.postDelayed(() -> {
             counter++;
-            if(counter >= MAX){
+            if(counter >= 3){
                 background.stop();
                 setCompletedState(gameScore);
                 Intent lessonIntent = new Intent(Game4.this, Results.class);

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -65,7 +66,19 @@ public class Results extends AppCompatActivity {
             v.startAnimation(buttonClick);
             Intent lessonIntent;
 
-            if(whichRoadMap.equals("One")){
+            Log.i("results whichroadmap = ", String.valueOf(whichRoadMap));
+            Log.i("results which one = ", String.valueOf(whichOne));
+            Log.i("results passOrNot = ", String.valueOf(passOrNot));
+            Log.i("results max = ", String.valueOf(max));
+
+            if( (whichRoadMap.equals("Four")) &&
+                (whichOne.equals("Game")) &&
+                (passOrNot == 1))
+            {
+                lessonIntent =  new Intent(Results.this, Congrats.class);
+            }
+
+            else if(whichRoadMap.equals("One")){
                 lessonIntent =  new Intent(Results.this, RoadMapOne.class);
             }
             else if(whichRoadMap.equals("Two")){
