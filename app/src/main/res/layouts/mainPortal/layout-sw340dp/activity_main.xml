@@ -80,8 +80,8 @@
 
     <ImageButton
         android:id="@+id/langBtn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:src="@drawable/settings_gear"
         android:background="@color/light_green"
         app:tint="@color/dark_green"
