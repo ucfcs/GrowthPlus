@@ -66,11 +66,7 @@ public class Results extends AppCompatActivity {
             v.startAnimation(buttonClick);
             Intent lessonIntent;
 
-            Log.i("results whichroadmap = ", String.valueOf(whichRoadMap));
-            Log.i("results which one = ", String.valueOf(whichOne));
-            Log.i("results passOrNot = ", String.valueOf(passOrNot));
-            Log.i("results max = ", String.valueOf(max));
-
+            //if the user passes the 4th game, go to the congrats screen
             if( (whichRoadMap.equals("Four")) &&
                 (whichOne.equals("Game")) &&
                 (passOrNot == 1))
