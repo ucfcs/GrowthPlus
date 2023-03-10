@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/yellow"
     android:id="@+id/parentSignUpActivityID"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".ParentSignup">
 
     <androidx.constraintlayout.widget.Guideline
@@ -186,7 +189,7 @@
         android:background="@drawable/round_button"
         android:backgroundTint="@color/grey"
         android:hint="phone number"
-        android:inputType="number"
+        android:inputType="phone"
         android:maxLength="16"
         android:textAlignment="center"
         android:textSize="18sp"

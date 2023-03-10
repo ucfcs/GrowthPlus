@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,7 +30,6 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
     private Button loginBackButton;
     private EditText loginPinInput;
     private TextView forgotPin;
-
     private ParentSchemaService loginParentService;
     private ParentSchema loginParent;
     private Integer parentSignupPIN;
@@ -53,10 +53,14 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         resources = getResources();
         loginButton = findViewById(R.id.parentLoginBtn);
         loginBackButton = findViewById(R.id.backParentLogin);
+
         loginPinInput = findViewById(R.id.loginPinInput);
+        loginPinInput.setOnFocusChangeListener(this::hideKeyboard);
+
         forgotPin = findViewById(R.id.forgotPinText);
         loginParentService = new ParentSchemaService(realm);
         loginParent = loginParentService.getAllParentSchemas().get(0); //gets the parent
+        assert loginParent != null;
         parentSignupPIN = loginParent.getPIN(); //and their PIN
     }
 
@@ -84,11 +88,11 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
             boolean inputValid = validInput(loginPinInput);//checks for null and blank input
 
-            if(inputValid == true){
+            if(inputValid){
                 loginPinInputInteger = Integer.parseInt(loginPinInput.getText().toString());
 
                 //if the PIN's match and the input was valid, start the parent portal activity
-                if(confirmPinMatch(loginPinInputInteger, parentSignupPIN) == true){
+                if(confirmPinMatch(loginPinInputInteger, parentSignupPIN)){
                     //change the input box back to grey (in case it has been earlier changed to red)
                     loginPinInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
                     startParentPortalActivity();
@@ -127,22 +131,10 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
 
     private boolean validInput(EditText input) {
         String inputString = input.getText().toString();
-
-        if (!inputString.equals(null) &&
-            inputString.length() == 4) {
-            return true;
-        }
-        else{
-            return false;
-        }
+        return inputString.length() == 4;
     }
     private boolean confirmPinMatch(Integer pin1, Integer pin2){
-
-        if(pin1.equals(pin2)) //they match
-            return true;
-
-        else //they don't match
-            return false;
+        return pin1.equals(pin2);
     }
 
     public void startParentSignupActivity(){
@@ -168,6 +160,13 @@ public class ParentLogin extends AppCompatActivity implements View.OnClickListen
         Intent forgotPasswordActivity = new Intent(ParentLogin.this, ParentForgotPassword.class);
         startActivity(forgotPasswordActivity);
         this.finish();
+    }
+
+    private void hideKeyboard(View view, boolean hasFocus) {
+        if (!hasFocus) {
+            InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     @Override

@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     android:background="@color/yellow"
     android:id="@+id/parentLoginActivityID"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".ParentLogin">
 
     <androidx.constraintlayout.widget.Guideline
