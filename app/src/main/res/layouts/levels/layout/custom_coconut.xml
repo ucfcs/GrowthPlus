@@ -17,11 +17,17 @@
         android:id="@+id/number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:shadowColor="@color/black"
+        android:shadowDx="1.6"
+        android:shadowDy="2"
+        android:shadowRadius="1"
         android:text="10"
         android:textColor="@color/orange"
         android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.508" />
 </androidx.constraintlayout.widget.ConstraintLayout>
