@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -51,13 +52,17 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         yourPinIsText = findViewById(R.id.yourPinIsText);
         yourPinIsText.setVisibility(View.INVISIBLE);
         pinText = findViewById(R.id.pinText);
+
         phoneNumberInput = findViewById(R.id.phoneNumberInput);
+        phoneNumberInput.setOnFocusChangeListener(this::hideKeyboard);
+
         getPinButton = findViewById(R.id.parentGetPinBtn);
         backToLoginButton = findViewById(R.id.backToLoginButton);
         backToLoginButton.setVisibility(View.INVISIBLE);
         backParentForgot = findViewById(R.id.backParentForgot);
         parentService = new ParentSchemaService(realm);
         parent = parentService.getAllParentSchemas().get(0); //gets the parent,
+        assert parent != null;
         parentPIN = parent.getPIN(); //their PIN,
         parentPhoneNumberStr = parent.getPhoneNumber();//and their phone number
 
@@ -77,8 +82,11 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         LanguageSchema lang = langSchemaService.getLanguageSchemaById();
 
         forgotPasswordTitle.setText(lang.getForgotPin());
-        phoneNumberText.setText(lang.getPhoneNumber()+":");
-        yourPinIsText.setText(lang.getPin()+":");
+        String text = lang.getPhoneNumber()+":";
+        phoneNumberText.setText(text);
+
+        String text2 = lang.getPin()+":";
+        yourPinIsText.setText(text2);
     }
 
     @Override
@@ -139,6 +147,13 @@ public class ParentForgotPassword extends AppCompatActivity implements View.OnCl
         Intent parentLogin = new Intent(ParentForgotPassword.this, ParentLogin.class);
         startActivity(parentLogin);
         this.finish();
+    }
+
+    private void hideKeyboard(View view, boolean hasFocus) {
+        if (!hasFocus) {
+            InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     @Override

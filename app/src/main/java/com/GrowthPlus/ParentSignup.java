@@ -1,6 +1,8 @@
 package com.GrowthPlus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -9,20 +11,18 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
-import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmList;
 import org.bson.types.ObjectId;
-
-import java.util.Objects;
 
 public class ParentSignup extends AppCompatActivity implements View.OnClickListener{
 
@@ -44,6 +44,7 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
     private String parentIdString;
     private ParentSchemaService signupParentService;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +62,16 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         resources = getResources();
         signupButton = findViewById(R.id.parentSignupBtn);
         signupBackButton = findViewById(R.id.backParentSU);
+
         enterPinInput = findViewById(R.id.enterPin);
+        enterPinInput.setOnFocusChangeListener(this::hideKeyboard);
+
         confirmPinInput = findViewById(R.id.confirmPinInput);
+        confirmPinInput.setOnFocusChangeListener(this::hideKeyboard);
+
         phoneNumberInput = findViewById(R.id.phoneNumberInput);
+        phoneNumberInput.setOnFocusChangeListener(this::hideKeyboard);
+
         createText = findViewById(R.id.createPinText);
         confirmText = findViewById(R.id.confirmPinText);
         phoneNumberText = findViewById(R.id.phoneNumberText);
@@ -204,6 +212,13 @@ public class ParentSignup extends AppCompatActivity implements View.OnClickListe
         RealmList <ChildSchema> children = new RealmList<>();
         signupParentService = new ParentSchemaService(realm, parentIdString, confirmPinInputInteger, phoneNumString, children);
         signupParentService.createParentSchema();
+    }
+
+    private void hideKeyboard(View view, boolean hasFocus) {
+        if (!hasFocus) {
+            InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     @Override
