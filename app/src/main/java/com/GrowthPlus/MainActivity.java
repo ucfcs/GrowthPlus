@@ -127,7 +127,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", "frenchZero"));
         LanguageSchema lang = langSchemaService.getLanguageSchemaById();
 
-        parentText.setText(lang.getParent());
+        //without this creatingParent test seems to always crash
+        if(lang.getParent() != null)
+            parentText.setText(lang.getParent());
     }
 
     private void importSampleData(){
