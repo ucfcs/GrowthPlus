@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <supports-screens android:smallScreens="true"
-        android:normalScreens="true"
-        android:largeScreens="true"
-        android:xlargeScreens="true"
-        android:anyDensity="true" />
-
     <application
         android:name=".dataAccessLayer.RealmConfig"
         android:allowBackup="true"
@@ -242,5 +236,4 @@
                 android:value="" />
         </activity>
     </application>
-
 </manifest>
