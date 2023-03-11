@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -936,7 +937,10 @@ public class CreateAccount extends AppCompatActivity {
         resources = getResources();
         backButton = findViewById(R.id.backCreateAccount);
         loginButton = findViewById(R.id.loginBtn);
+
         nameInput = findViewById(R.id.nameInput);
+        nameInput.setOnFocusChangeListener(this::hideKeyboard);
+
         colorIdentifier = new ColorIdentifier();
         imageSrcIdentifier = new ImageSrcIdentifier();
         childAvatar = findViewById(R.id.childAvatar);
@@ -986,6 +990,13 @@ public class CreateAccount extends AppCompatActivity {
         intent.putExtra("comingFrom", goBackTo);
         startActivity(intent);
         this.finish();
+    }
+
+    private void hideKeyboard(View view, boolean hasFocus) {
+        if (!hasFocus) {
+            InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     @Override
