@@ -183,19 +183,25 @@ public class RoadMapThree extends AppCompatActivity implements View.OnClickListe
         }
 
         tile4.setOnClickListener(this);
+        tile4.setEnabled(false);
         if(roadMapQuizes.get(0).getCompleted()){
             tile4.setCompletedState();
+            tile4.setEnabled(true);
         }
         if(roadMapQuizes.get(0).getCurrent()){
             roadMapThreeLessonTrail.setSelectedState(tile4, child);
+            tile4.setEnabled(true);
         }
 
         tile9.setOnClickListener(this);
+        tile9.setEnabled(false);
         if(roadMapQuizes.get(1).getCompleted()){
             tile9.setCompletedState();
+            tile9.setEnabled(true);
         }
         if(roadMapQuizes.get(1).getCurrent()){
             roadMapThreeLessonTrail.setSelectedState(tile9, child);
+            tile9.setEnabled(true);
         }
 
         tile13.setOnClickListener(this);
