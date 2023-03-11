@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -867,7 +868,12 @@ public class CreateAccount extends AppCompatActivity {
         View.OnClickListener goNext = v -> {
             v.startAnimation(buttonClick);
             Objects.requireNonNull(realm.where(ParentSchema.class).findFirst()).addChangeListener(realmListener);
-            if (!nameInput.getText().toString().equals("") && checkForDupes()){
+            if(!hasNoDupes() || nameInput.getText().toString().equals("")){
+                nameInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                nameInput.setText("");
+            }
+            else if (!nameInput.getText().toString().equals("") && hasNoDupes()){
+                nameInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
                 loginButton.setOnClickListener(null);
                 backButton.setOnClickListener(null);
                 realm.executeTransactionAsync(realm -> {
@@ -913,7 +919,7 @@ public class CreateAccount extends AppCompatActivity {
         backButton.setOnClickListener(goBack);
     }
 
-    public boolean checkForDupes(){
+    public boolean hasNoDupes(){
         RealmResults<ChildSchema> children = childSchemaService.getAllChildSchemas();
         int childrenRealmResultSize = children.size();
 
