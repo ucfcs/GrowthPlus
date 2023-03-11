@@ -16,40 +16,40 @@
 
         <TextView
             android:id="@+id/conversion_table_first_text"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="13dp"
             android:text="100 cm = 1 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="40sp" />
+            android:textSize="35sp" />
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="5dp"
             android:background="@color/yellow" />
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="5dp"
             android:layout_marginTop="70dp"
             android:background="@color/yellow" />
 
         <TextView
             android:id="@+id/conversion_table_second_text"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="85dp"
             android:text="10 dm = 1 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="40sp" />
+            android:textSize="35sp" />
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="5dp"
             android:layout_marginTop="140dp"
             android:background="@color/yellow" />
@@ -65,7 +65,7 @@
             android:id="@+id/imageView12"
             android:layout_width="5dp"
             android:layout_height="140dp"
-            android:layout_marginLeft="274.5dp"
+            android:layout_marginLeft="255dp"
             android:background="@color/yellow" />
 
     </FrameLayout>
@@ -89,6 +89,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".55" />
+        app:layout_constraintGuide_percent=".35" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,12 +8,12 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="320dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="perpendicular lines"
         android:textColor="@color/blue"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:id="@+id/first_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:src="@mipmap/triangle_foreground"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintTop_toBottomOf="@+id/text" />

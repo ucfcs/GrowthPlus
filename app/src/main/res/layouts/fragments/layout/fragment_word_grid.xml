@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/wordMD"
-        android:layout_width="320dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:autoSizeTextType="uniform"
         android:text="1 + 2 = 3"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/guideline3"
         app:layout_constraintTop_toTopOf="@id/guideline4" />
@@ -23,7 +23,7 @@
         android:id="@+id/gridLayoutMD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@id/guideline3"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/wordMD"
@@ -52,6 +52,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_percent="0.03" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

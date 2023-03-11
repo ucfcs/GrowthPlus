@@ -3156,8 +3156,7 @@
             "imgTwo": null,
             "imgThree": null,
             "category" : "verticalEquation"
-          }
-        ,
+          },
           {
             "lessonContentId": "RmTwoLessonFiveContentSeven",
             "word": "one",
@@ -4897,7 +4896,7 @@
             "secondNumber": null,
             "secondOperator": null,
             "thirdNumber": null,
-            "imgOne": "unitOfOneHundred",
+            "imgOne": "unitOfOneThousand",
             "imgTwo": null,
             "imgThree": null,
             "category" : "counting"

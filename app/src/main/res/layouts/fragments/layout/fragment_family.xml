@@ -8,156 +8,156 @@
 
     <TextView
         android:id="@+id/number"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="3"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="45sp"
+        android:textSize="33sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text1"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/number" />
 
     <TextView
         android:id="@+id/text2"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text1" />
 
     <TextView
         android:id="@+id/text3"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text2" />
 
     <TextView
         android:id="@+id/text4"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text3" />
 
     <TextView
         android:id="@+id/text5"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text4" />
 
     <TextView
         android:id="@+id/text6"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text5" />
 
     <TextView
         android:id="@+id/text7"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text6" />
 
     <TextView
         android:id="@+id/text8"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text7" />
 
     <TextView
         android:id="@+id/text9"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text8" />
 
     <TextView
         android:id="@+id/text10"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text9" />
 
     <TextView
         android:id="@+id/text11"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text10" />
 
     <TextView
         android:id="@+id/text12"
-        android:layout_width="350dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:text="1 x 3 = 3"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/text11" />

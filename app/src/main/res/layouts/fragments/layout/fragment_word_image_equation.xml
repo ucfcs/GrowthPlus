@@ -8,22 +8,21 @@
 
     <TextView
         android:id="@+id/first_word_fragment"
-        android:layout_width="350dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="ten units"
         android:autoSizeTextType="uniform"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="45sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
-        app:layout_constraintTop_toTopOf="@id/guideline7" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayoutWordImageEquation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/first_word_fragment"
@@ -36,11 +35,10 @@
         android:id="@+id/operator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="="
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="55sp"
+        android:textSize="45sp"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/gridLayoutWordImageEquation" />
@@ -49,12 +47,11 @@
         android:id="@+id/second_word_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="one ten"
         android:autoSizeTextType="uniform"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="45sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/operator" />
@@ -63,7 +60,6 @@
         android:id="@+id/second_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:src="@mipmap/guinea_fowl_foreground"
         app:layout_constraintEnd_toStartOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
@@ -82,12 +78,5 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".9" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

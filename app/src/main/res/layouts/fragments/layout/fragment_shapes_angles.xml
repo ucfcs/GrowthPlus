@@ -9,12 +9,12 @@
 
     <TextView
         android:id="@+id/word"
-        android:layout_width="320dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="triangle"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintTop_toTopOf="@id/guideline4" />
@@ -23,7 +23,7 @@
         android:id="@+id/first_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:src="@mipmap/triangle_foreground"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/word" />
@@ -38,13 +38,13 @@
 
     <TextView
         android:id="@+id/degree"
-        android:layout_width="320dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="280dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:text="180*"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@id/guideline10"
         app:layout_constraintEnd_toEndOf="@id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/second_image" />
@@ -68,6 +68,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.03" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

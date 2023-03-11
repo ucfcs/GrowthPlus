@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/equation"
-        android:layout_width="320dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:autoSizeTextType="uniform"
         android:text="1 + 2 = 3"
@@ -17,7 +17,7 @@
         android:textSize="50sp"
         app:layout_constraintEnd_toStartOf="@id/guide10"
         app:layout_constraintStart_toStartOf="@id/guide0"
-        app:layout_constraintTop_toTopOf="@id/guideline3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayoutHorizontalEquationOne"
@@ -65,13 +65,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".9" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.13" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
