@@ -335,9 +335,9 @@
           {
             "flashCardId": "RmOneLessonTwoFlashTwo",
             "image": "elephant",
-            "firstNumber": "1",
+            "firstNumber": "5",
             "firstOperator": "+",
-            "secondNumber": "5",
+            "secondNumber": "1",
             "secondOperator": null,
             "answer": "6",
             "category": "customImageOperator"
@@ -345,9 +345,9 @@
           {
             "flashCardId": "RmOneLessonTwoFlashThree",
             "image": "elephant",
-            "firstNumber": "3",
+            "firstNumber": "5",
             "firstOperator": "+",
-            "secondNumber": "5",
+            "secondNumber": "3",
             "secondOperator": null,
             "answer": "8",
             "category": "customImageOperator"
@@ -511,9 +511,9 @@
           {
             "flashCardId": "RmOneLessonThreeFlashThree",
             "image": "unit",
-            "firstNumber": "5",
+            "firstNumber": "8",
             "firstOperator": "+",
-            "secondNumber": "5",
+            "secondNumber": "2",
             "secondOperator": null,
             "answer": "10",
             "category": "customImageOperator"
@@ -531,9 +531,9 @@
           {
             "flashCardId": "RmOneLessonThreeFlashFive",
             "image": "unit",
-            "firstNumber": "3",
+            "firstNumber": "7",
             "firstOperator": "+",
-            "secondNumber": "7",
+            "secondNumber": "3",
             "secondOperator": null,
             "answer": "10",
             "category": "customImageOperator"
@@ -887,9 +887,9 @@
             "image": "elephant",
             "firstNumber": "10",
             "firstOperator": "-",
-            "secondNumber": "7",
+            "secondNumber": "4",
             "secondOperator": null,
-            "answer": "3",
+            "answer": "6",
             "category": "customImageOperator"
           },
           {
@@ -2889,9 +2889,9 @@
           {
             "flashCardId": "RmTwoLessonThreeFlashThree",
             "image": "unitOfTen",
-            "firstNumber": "5",
+            "firstNumber": "8",
             "firstOperator": "+",
-            "secondNumber": "5",
+            "secondNumber": "2",
             "secondOperator": null,
             "answer": "100",
             "category": "customImageOperator"

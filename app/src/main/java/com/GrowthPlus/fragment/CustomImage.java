@@ -50,12 +50,6 @@ public class CustomImage extends Fragment {
         else if(image.equals("unitOfTenThousand")){
             imgNum = imgNum / 10000;
         }
-        else if(image.equals("fiveFrancs") || image.equals("tenFrancs") || image.equals("fiftyFrancs") || image.equals("oneHundredFrancs") || image.equals("fiveThousandFrancs") || image.equals("tenThousandFrancs")
-        || image.equals("rectangleAngles") || image.equals("equTriangleAngles") || image.equals("squareAngles") || image.equals("rightTriangleAngles") || image.equals("clockOne") || image.equals("clockThree")
-        || image.equals("clockSix") || image.equals("clockNine") || image.equals("clockTwelve")){
-            imgNum = 1;
-            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
-        }
 
         // Adjust grid rows and columns based on num of images
         if(imgNum <= 4){
@@ -82,6 +76,12 @@ public class CustomImage extends Fragment {
             sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
             customImageGrid.setRowCount(5);
             customImageGrid.setColumnCount(4);
+        }
+        if(image.equals("fiveFrancs") || image.equals("tenFrancs") || image.equals("fiftyFrancs") || image.equals("oneHundredFrancs") || image.equals("fiveThousandFrancs") || image.equals("tenThousandFrancs")
+                || image.equals("rectangleAngles") || image.equals("equTriangleAngles") || image.equals("squareAngles") || image.equals("rightTriangleAngles") || image.equals("clockOne") || image.equals("clockThree")
+                || image.equals("clockSix") || image.equals("clockNine") || image.equals("clockTwelve")){
+            imgNum = 1;
+            sizeInPixels  = getResources().getDimension(R.dimen.flashcardImage);
         }
 
         // Check num of image and map to the size of images
