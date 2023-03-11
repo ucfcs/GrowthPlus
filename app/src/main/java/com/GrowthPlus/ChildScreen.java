@@ -330,7 +330,7 @@ public class ChildScreen extends AppCompatActivity {
         );
         time.setSubjectCompletion(
                 translator.getString("time"),
-                3,
+                1,
                 child.getCatCountTime()
         );
         shapes.setSubjectCompletion(

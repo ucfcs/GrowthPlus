@@ -225,7 +225,6 @@ public class Game4 extends AppCompatActivity {
             counter++;
             if(counter >= MAX){
                 background.stop();
-                setCompletedState(gameScore);
                 Intent lessonIntent = new Intent(Game4.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Game");
@@ -233,12 +232,14 @@ public class Game4 extends AppCompatActivity {
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "Four");
                 if(gameScore >= MIN_TO_PASS){
+                    updateGameAndRoadMapState();
                     lessonIntent.putExtra("passOrNot", 1);
                 }
                 else{
                     lessonIntent.putExtra("passOrNot", 0);
                 }
                 startActivity(lessonIntent);
+                this.finish();
             }
             else{
                 c1.clearAnimation();
@@ -315,18 +316,25 @@ public class Game4 extends AppCompatActivity {
 
     private void setCompletedState(int currentScore){
         if(currentScore >= MIN_TO_PASS){
-            realm.executeTransactionAsync(realm1 -> {
-                ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
-                assert child != null;
-                if(!child.getRoadMapFour().getScenarioGame().getCompleted()){
-                    child.getRoadMapFour().getScenarioGame().setCompleted(true);
-                    child.getRoadMapFour().getScenarioGame().setCurrent(false);
-                }
-            });
-            stayCurrentRoadMap();
-        }else {
-            stayCurrentRoadMap();
+           updateGameAndRoadMapState();
         }
+           stayCurrentRoadMap();
+    }
+
+    private void updateGameAndRoadMapState(){
+        realm.executeTransactionAsync(realm1 -> {
+            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+            assert child != null;
+
+            if(!child.getRoadMapFour().getCompleted()){
+                child.getRoadMapFour().setCurrent(false);
+                child.getRoadMapFour().setCompleted(true);
+            }
+            if(!child.getRoadMapFour().getScenarioGame().getCompleted()){
+                child.getRoadMapFour().getScenarioGame().setCompleted(true);
+                child.getRoadMapFour().getScenarioGame().setCurrent(false);
+            }
+        });
     }
 
     private void stayCurrentRoadMap(){

@@ -144,7 +144,7 @@ public class Quiz3 extends AppCompatActivity {
                 Intent lessonIntent = new Intent(Quiz3.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Quiz");
-                lessonIntent.putExtra("points", thisScore);
+                lessonIntent.putExtra("points", numberCorrect);
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "Three");
                 if(thisScore >= minScoreToPass){

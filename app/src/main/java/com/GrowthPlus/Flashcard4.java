@@ -290,7 +290,9 @@ public class Flashcard4 extends AppCompatActivity {
             counter++;
             if(counter >= MAX){
                 // Passing condition number of correct flashcards
-                setLessonState();
+                if (currentLessonScore >= minScoreToPass && !isCompleted){
+                    setLessonState();
+                }
                 Intent lessonIntent = new Intent(Flashcard4.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Flash");
@@ -573,67 +575,67 @@ public class Flashcard4 extends AppCompatActivity {
                 case "units": {
                     int catCount = child.getCatCountUnits();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountUnits(catCount);
                     break;
                 }
                 case "addition": {
                     int catCount = child.getCatCountAddition();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountAddition(catCount);
                     break;
                 }
                 case "subtraction": {
                     int catCount = child.getCatCountSubtraction();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountSubtraction(catCount);
                     break;
                 }
                 case "multiplication": {
                     int catCount = child.getCatCountMultiplication();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountMultiplication(catCount);
                     break;
                 }
                 case "division": {
                     int catCount = child.getCatCountDivision();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountDivision(catCount);
                     break;
                 }
                 case "length": {
                     int catCount = child.getCatCountLength();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountLength(catCount);
                     break;
                 }
                 case "weight": {
                     int catCount = child.getCatCountWeightVolume();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountWeightVolume(catCount);
                     break;
                 }
                 case "money": {
                     int catCount = child.getCatCountMoney();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountMoney(catCount);
                     break;
                 }
                 case "time": {
                     int catCount = child.getCatCountTime();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountTime(catCount);
                     break;
                 }
                 case "shapes": {
                     int catCount = child.getCatCountShapes();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountShapes(catCount);
                     break;
                 }
                 case "angles": {
                     int catCount = child.getCatCountAngles();
                     catCount++;
-                    child.setCatCountNumbers(catCount);
+                    child.setCatCountAngles(catCount);
                     break;
                 }
                 default: {
