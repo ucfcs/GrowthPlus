@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -22,6 +23,7 @@ import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
 import com.GrowthPlus.dataAccessLayer.RoadMapQuiz.RoadMapQuiz;
 import com.GrowthPlus.dataAccessLayer.RoadMapScenarioGame.RoadMapScenarioGame;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.dataAccessLayer.child.ChildSchemaService;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.dataAccessLayer.parent.ParentSchemaService;
 import com.GrowthPlus.utilities.ColorIdentifier;
@@ -34,6 +36,7 @@ import java.util.Objects;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmList;
+import io.realm.RealmResults;
 
 public class CreateAccount extends AppCompatActivity {
     Button backButton, loginButton;
@@ -44,6 +47,8 @@ public class CreateAccount extends AppCompatActivity {
     ChildAvatarComponent childAvatar;
     ColorStateList color;
     ParentSchemaService parentService;
+
+    ChildSchemaService childSchemaService;
     Realm realm;
     Resources resources;
     private RealmChangeListener<ParentSchema> realmListener;
@@ -55,6 +60,8 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         init();
+
+        //search through the children in realm
 
         // ROADMAP 1 : lessons, quizzes, and game
         RoadMapLesson roadMapLesson1 = new RoadMapLesson(
@@ -862,7 +869,12 @@ public class CreateAccount extends AppCompatActivity {
         View.OnClickListener goNext = v -> {
             v.startAnimation(buttonClick);
             Objects.requireNonNull(realm.where(ParentSchema.class).findFirst()).addChangeListener(realmListener);
-            if (!nameInput.getText().toString().equals("")){
+            if(!hasNoDupes() || nameInput.getText().toString().equals("")){
+                nameInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(221, 97, 87)));
+                nameInput.setText("");
+            }
+            else if (!nameInput.getText().toString().equals("") && hasNoDupes()){
+                nameInput.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(204, 204, 204)));
                 loginButton.setOnClickListener(null);
                 backButton.setOnClickListener(null);
                 realm.executeTransactionAsync(realm -> {
@@ -896,7 +908,7 @@ public class CreateAccount extends AppCompatActivity {
 
                     parent.getChildren().add(newChild);
                 });
-            }
+            }//end of if statement
         };
         loginButton.setOnClickListener(goNext);
 
@@ -908,6 +920,18 @@ public class CreateAccount extends AppCompatActivity {
         backButton.setOnClickListener(goBack);
     }
 
+    public boolean hasNoDupes(){
+        RealmResults<ChildSchema> children = childSchemaService.getAllChildSchemas();
+        int childrenRealmResultSize = children.size();
+
+        for(int i = 0; i<childrenRealmResultSize; i++){
+            ChildSchema childRealmObjectTemp = children.get(i);
+            if(childRealmObjectTemp.getName().equalsIgnoreCase(nameInput.getText().toString())){
+                return false;
+            }
+        }
+        return true;
+    }
     public void init(){
         realm = Realm.getDefaultInstance();
         resources = getResources();
@@ -921,6 +945,7 @@ public class CreateAccount extends AppCompatActivity {
         imageSrcIdentifier = new ImageSrcIdentifier();
         childAvatar = findViewById(R.id.childAvatar);
         parentService = new ParentSchemaService(realm);
+        childSchemaService = new ChildSchemaService(realm);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             colorName = extras.getString("selectColor"); // Get color

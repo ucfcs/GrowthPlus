@@ -43,11 +43,16 @@ public class CreatingParentTest {
 
         Espresso.onView(withId(R.id.parentSignUpActivityID)).check(matches(isDisplayed()));
 
+        Espresso.onView(withId(R.id.phoneNumberText)).perform(typeText("1231231234"), closeSoftKeyboard());
         Espresso.onView(withId(R.id.enterPin)).perform(typeText("1234"), closeSoftKeyboard());
         Espresso.onView(withId(R.id.confirmPinInput)).perform(typeText("1234"), closeSoftKeyboard());
 
         Espresso.onView(withId(R.id.parentSignupBtn)).perform(click());
 
         Espresso.onView(withId(R.id.parentLoginActivityID)).check(matches(isDisplayed()));
+
+        Espresso.onView(withId(R.id.deleteParentButton)).perform(click());
+
+        Espresso.onView(withId(R.id.confirmBtn)).perform(click());
     }
 }
