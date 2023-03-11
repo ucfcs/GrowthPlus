@@ -8,12 +8,13 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="320dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="six"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="61sp"
+        android:textSize="50sp"
+        android:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@id/rightConstraint"
         app:layout_constraintStart_toStartOf="@id/leftConstraint"
         app:layout_constraintTop_toTopOf="@id/topConstraint" />
@@ -37,6 +38,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.20" />
+        app:layout_constraintGuide_percent="0.10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

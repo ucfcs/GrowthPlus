@@ -10,7 +10,7 @@
         android:id="@+id/quizImageGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toStartOf="@id/rightConstraint"
         app:layout_constraintStart_toStartOf="@id/leftConstraint"
         app:layout_constraintTop_toTopOf="parent"

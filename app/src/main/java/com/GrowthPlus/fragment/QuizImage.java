@@ -37,18 +37,28 @@ public class QuizImage extends Fragment {
         int num = requireArguments().getInt("imgNum");
 
         // Adjust grid rows and columns based on num of images
-        if(num <= 4){
+        if(num <= 2){
             sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
             imageGrid.setRowCount(2);
             imageGrid.setColumnCount(2);
         }
+        else if(num <= 4){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
+            imageGrid.setRowCount(2);
+            imageGrid.setColumnCount(2);
+        }
         else if(num <= 6){
-            sizeInPixels  = getResources().getDimension(R.dimen.elephantXLarge);
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
             imageGrid.setRowCount(2);
             imageGrid.setColumnCount(3);
         }
+        else if(num <= 8){
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
+            imageGrid.setRowCount(2);
+            imageGrid.setColumnCount(4);
+        }
         else if(num == 9){
-            sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
+            sizeInPixels  = getResources().getDimension(R.dimen.elephantSize);
             imageGrid.setRowCount(3);
             imageGrid.setColumnCount(3);
         }
