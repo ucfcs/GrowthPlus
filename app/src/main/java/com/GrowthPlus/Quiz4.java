@@ -11,7 +11,6 @@ import android.media.MediaPlayer;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -273,7 +272,7 @@ public class Quiz4 extends AppCompatActivity {
 
             if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 playCorrect();
-                cir1.correct();
+                cir1.correctQuiz3();
                 numberCorrect ++;
                 if(thisScore < MAX){
                     thisScore++;
@@ -290,13 +289,13 @@ public class Quiz4 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -309,7 +308,7 @@ public class Quiz4 extends AppCompatActivity {
 
             if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 playCorrect();
-                cir2.correct();
+                cir2.correctQuiz3();
                 numberCorrect ++;
                 if(thisScore < MAX){
                     thisScore++;
@@ -326,13 +325,13 @@ public class Quiz4 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -345,7 +344,7 @@ public class Quiz4 extends AppCompatActivity {
 
             if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 playCorrect();
-                cir3.correct();
+                cir3.correctQuiz3();
                 numberCorrect ++;
                 if(thisScore < MAX){
                     thisScore++;
@@ -362,13 +361,13 @@ public class Quiz4 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else{
-                    cir4.correct();
+                    cir4.correctQuiz3();
                 }
             }
             deactivate();
@@ -381,7 +380,7 @@ public class Quiz4 extends AppCompatActivity {
 
             if(cir4.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){ // If circle is correct
                 playCorrect();
-                cir4.correct();
+                cir4.correctQuiz3();
                 numberCorrect ++;
                 if(thisScore < MAX){
                     thisScore++;
@@ -398,13 +397,13 @@ public class Quiz4 extends AppCompatActivity {
 
                 // Now show correct answer
                 if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir1.correct();
+                    cir1.correctQuiz3();
                 }
                 else if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
-                    cir2.correct();
+                    cir2.correctQuiz3();
                 }
                 else{
-                    cir3.correct();
+                    cir3.correctQuiz3();
                 }
             }
             deactivate();

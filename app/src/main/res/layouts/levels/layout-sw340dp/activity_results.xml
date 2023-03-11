@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="Points"
         android:textColor="@color/blue"
-        android:textSize="58sp"
+        android:textSize="68sp"
         app:layout_constraintBottom_toTopOf="@+id/box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,11 +44,10 @@
 
     <ImageView
         android:id="@+id/box"
-        android:layout_width="260dp"
-        android:layout_height="170dp"
+        android:layout_width="303dp"
+        android:layout_height="209dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/light_green"
-        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
