@@ -230,7 +230,6 @@ public class ParentPortal extends AppCompatActivity implements View.OnClickListe
 
         if((view.getId()) == R.id.parentPortalChildCardAdd) {
             startSelectChildAvatarActivity();
-
         }
 
         if((view.getId()) == R.id.backChild) {
