@@ -41,7 +41,10 @@ android {
                             'src/main/res/layouts/parentPortal',
                             'src/main/res/layouts/roadmaps',
                             'src/main/res/layouts',
-                            'src/main/res', 'src\\main\\res', 'src\\main\\res\\layouts\\fragments', 'src\\main\\res\\layouts\\customViews'
+                            'src/main/res',
+                            'src\\main\\res',
+                            'src\\main\\res\\layouts\\fragments',
+                            'src\\main\\res\\layouts\\customViews'
                     ]
         }
     }
