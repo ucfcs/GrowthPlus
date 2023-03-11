@@ -121,10 +121,11 @@
         android:id="@+id/childNameAndScore"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toTopOf="@id/underName"
         app:layout_constraintEnd_toStartOf="@id/buttonE"
-        app:layout_constraintTop_toBottomOf="@id/bunnyBottom"
-        app:layout_constraintBottom_toTopOf="@id/underName"/>
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintTop_toBottomOf="@id/bunnyBottom" />
 
     <LinearLayout
         android:id="@+id/horizontalProgressBarLayout"
@@ -208,7 +209,6 @@
 
         <com.GrowthPlus.customViews.SubjectCompletionComponent
             android:id="@+id/anglesCompletion" />
-
     </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

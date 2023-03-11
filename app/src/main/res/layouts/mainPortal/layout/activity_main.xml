@@ -141,6 +141,5 @@
             android:text="Parent"
             android:textColor="@color/dark_green"
             android:textSize="34dp" />
-
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
