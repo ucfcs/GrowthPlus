@@ -95,10 +95,8 @@ public class Flashcard4 extends AppCompatActivity {
         flashcardBackBtn.setOnClickListener(view -> {
             view.startAnimation(buttonClick);
             if (currentLessonScore >= minScoreToPass && !isCompleted){
-                Objects.requireNonNull(
-                                realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
-                        .addChangeListener(realmListener);
                 setLessonState();
+                backToRoadMap();
             }else{
                 backToRoadMap();
             }

@@ -91,10 +91,8 @@ public class Flashcard extends AppCompatActivity {
         flashcardBackBtn.setOnClickListener(view -> {
             view.startAnimation(buttonClick);
             if (currentLessonScore >= minScoreToPass && !isCompleted){
-                Objects.requireNonNull(
-                        realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
-                        .addChangeListener(realmListener);
                 setLessonState();
+                backToRoadMap();
             }else{
                 backToRoadMap();
             }
@@ -230,7 +228,7 @@ public class Flashcard extends AppCompatActivity {
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
                             transaction.replace(flashcardContainer.findViewById(R.id.frame_layout_flashcard).getId(), FlashcardAnswer.class, bundle);
-                            transaction.commit();
+                            transaction.commitAllowingStateLoss();
                             flashcardTopBar.setPoints(String.valueOf(currentChildScore));
                         }
 
