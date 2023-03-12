@@ -2,12 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="95dp"
+    android:layout_height="70dp"
     android:paddingBottom="10dp">
 
     <View
         android:id="@+id/nameBlock"
-        android:layout_width="405dp"
+        android:layout_width="match_parent"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +60,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/avatarStartLine"
         app:layout_constraintEnd_toStartOf="@id/avatarEndLine"
-        android:src="@mipmap/bunny_foreground"></ImageView>
+        android:src="@mipmap/bunny_foreground"/>
 
     <TextView
         android:layout_width="0dp"
@@ -80,9 +80,9 @@
     </TextView>
 
     <TextView
-        android:layout_width="90dp"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
-        android:textSize="35dp"
+        android:textSize="30dp"
         android:id="@+id/leaderboardPoints"
         android:textColor="@color/white"
         android:background="@drawable/round_button"

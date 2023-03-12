@@ -105,7 +105,7 @@
         app:layout_constraintBottom_toTopOf="@id/langBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintTop_toTopOf="@id/buttonBottom"></TextView>
+        app:layout_constraintTop_toTopOf="@id/buttonBottom"/>
 
     <RelativeLayout
         android:id="@+id/englishBtn"
@@ -125,11 +125,11 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="210dp"
+            android:layout_marginStart="220dp"
             android:background="@drawable/circle"
             android:backgroundTint="@color/dark_green"
             android:src="@drawable/ic_check_mark"
-            android:visibility="invisible"></ImageView>
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/englishText"
@@ -137,11 +137,11 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"
             android:gravity="center_vertical"
-            android:paddingStart="25dp"
+            android:paddingStart="20dp"
             android:text="English"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            android:textSize="25sp"></TextView>
+            android:textSize="25sp"/>
 
     </RelativeLayout>
 
@@ -162,11 +162,11 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="210dp"
+            android:layout_marginStart="220dp"
             android:background="@drawable/circle"
             android:backgroundTint="@color/dark_green"
             android:src="@drawable/ic_check_mark"
-            android:visibility="invisible"></ImageView>
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/frenchText"
@@ -174,11 +174,11 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"
             android:gravity="center_vertical"
-            android:paddingStart="25dp"
+            android:paddingStart="20dp"
             android:text="French"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            android:textSize="25sp"></TextView>
+            android:textSize="25sp"/>
 
     </RelativeLayout>
 
@@ -199,11 +199,11 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="210dp"
+            android:layout_marginStart="228dp"
             android:background="@drawable/circle"
             android:backgroundTint="@color/dark_green"
             android:src="@drawable/ic_check_mark"
-            android:visibility="invisible"></ImageView>
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/chadText"
@@ -211,11 +211,11 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"
             android:gravity="center_vertical"
-            android:paddingStart="25dp"
+            android:paddingStart="20dp"
             android:text="Chadian Arabic"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            android:textSize="25sp"></TextView>
+            android:textSize="25sp"/>
 
     </RelativeLayout>
 

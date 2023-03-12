@@ -28,7 +28,7 @@ public class GridWord extends Fragment {
         wordMD = view.findViewById(R.id.wordGrid);
         gridLayoutMD = view.findViewById(R.id.gridLayoutGrid);
         imageSrcIdentifier = new ImageSrcIdentifier();
-        sizeInPixels  = getResources().getDimension(R.dimen.elephantLarge);
+        sizeInPixels  = getResources().getDimension(R.dimen.elephantMedium);
         return view;
     }
 

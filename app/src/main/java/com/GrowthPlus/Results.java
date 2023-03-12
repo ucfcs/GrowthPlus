@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -75,13 +74,25 @@ public class Results extends AppCompatActivity {
             }
 
             else if(whichRoadMap.equals("One")){
-                lessonIntent =  new Intent(Results.this, RoadMapOne.class);
+                if(passOrNot == 1 && whichOne.equals("Game")){
+                    lessonIntent =  new Intent(Results.this, RoadMapTwo.class);
+                }else{
+                    lessonIntent =  new Intent(Results.this, RoadMapOne.class);
+                }
             }
             else if(whichRoadMap.equals("Two")){
-                lessonIntent =  new Intent(Results.this, RoadMapTwo.class);
+                if(passOrNot == 1 && whichOne.equals("Game")){
+                    lessonIntent =  new Intent(Results.this, RoadMapThree.class);
+                }else{
+                    lessonIntent =  new Intent(Results.this, RoadMapTwo.class);
+                }
             }
             else if(whichRoadMap.equals("Three")){
-                lessonIntent =  new Intent(Results.this, RoadMapThree.class);
+                if(passOrNot == 1 && whichOne.equals("Game")){
+                    lessonIntent =  new Intent(Results.this, RoadMapFour.class);
+                }else{
+                    lessonIntent =  new Intent(Results.this, RoadMapThree.class);
+                }
             }
             else{
                 lessonIntent =  new Intent(Results.this, RoadMapFour.class);

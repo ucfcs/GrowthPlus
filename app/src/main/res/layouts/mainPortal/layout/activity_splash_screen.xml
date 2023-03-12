@@ -9,38 +9,42 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="310dp"
+        android:layout_height="310dp"
         android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@id/appName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/topSplash"
-        app:layout_constraintBottom_toTopOf="@id/appName"></ImageView>
+        app:layout_constraintTop_toTopOf="@id/topSplash" />
 
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:shadowColor="@color/black"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="2"
         android:text="Arrose+"
         android:textColor="@color/dark_green"
-        android:textSize="58sp"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@id/bottomSplash"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintBottom_toTopOf="@id/bottomSplash"></TextView>
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".27"/>
+        app:layout_constraintGuide_percent=".27" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottomSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".6"/>
+        app:layout_constraintGuide_percent=".6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

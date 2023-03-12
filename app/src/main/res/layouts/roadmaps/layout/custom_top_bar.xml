@@ -3,16 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="58dp"
     android:background="@color/blue"
-    android:id="@+id/topBar"
-    >
+    android:id="@+id/topBar">
 
     <android.widget.Button
         android:id="@+id/goBackBtn"
         android:layout_width="70dp"
         android:layout_height="48dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/back_arrow"
@@ -22,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </android.widget.Button>
-
 
     <TextView
         android:id="@+id/topBarTriangle"
@@ -35,6 +33,7 @@
         android:textColor="@color/light_green"
         android:textSize="60sp"
         android:visibility="invisible"
+        android:paddingTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pointsIcon"
         app:layout_constraintStart_toEndOf="@id/goBackBtn"
@@ -51,8 +50,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pointsIcon"
         app:layout_constraintStart_toEndOf="@id/goBackBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/topBarStar"
@@ -64,8 +62,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pointsIcon"
         app:layout_constraintStart_toEndOf="@id/goBackBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/pointsIcon"

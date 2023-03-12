@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/frame_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <ImageView
+        android:id="@+id/customImageWord"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/frame_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@mipmap/rectangle_foreground">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/customImageOp"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="5 + 5 = "
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customImageWord"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

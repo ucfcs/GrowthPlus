@@ -26,21 +26,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
+        app:layout_constraintGuide_percent="0.14" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.87" />
+        app:layout_constraintGuide_percent="0.91" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/mid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.38" />
+        app:layout_constraintGuide_percent="0.44" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonStart"
@@ -89,14 +89,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".605" />
+        app:layout_constraintGuide_percent="0.66" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/botBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".645" />
+        app:layout_constraintGuide_percent="0.69" />
 
     <android.widget.Button
         android:id="@+id/backChild"
@@ -111,31 +111,28 @@
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
         app:layout_constraintStart_toStartOf="@id/buttonStart"
-        app:layout_constraintTop_toBottomOf="@id/buttonTop">
-
-    </android.widget.Button>
+        app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
 
     <TextView
         android:id="@+id/childPortalName"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Sally"
         android:textColor="@color/white"
         android:textSize="50sp"
+        android:text="Sally"
         android:autoSizeTextType="uniform"
         android:gravity="center"
         app:layout_constraintEnd_toStartOf="@id/rightGuideline"
         app:layout_constraintStart_toStartOf="@id/leftGuideline"
         app:layout_constraintBottom_toTopOf="@id/points"
-        app:layout_constraintTop_toTopOf="@id/top">
-
-    </TextView>
+        app:layout_constraintTop_toTopOf="@id/top"/>
 
     <LinearLayout
         android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingStart="0dp"
         android:paddingEnd="50dp"
         app:layout_constraintBottom_toTopOf="@id/mid"
         app:layout_constraintEnd_toStartOf="@id/rightGuideline"
@@ -149,25 +146,20 @@
             android:scaleType="centerCrop"
             android:scaleX="0.6"
             android:scaleY="0.6"
-            android:src="@mipmap/points_foreground">
-
-        </ImageView>
+            android:src="@mipmap/points_foreground"/>
 
         <TextView
             android:id="@+id/pointsValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="0"
             android:gravity="center_vertical"
             android:paddingTop="20dp"
-            android:text="0"
             android:textColor="@color/yellow"
-            android:textSize="45sp">
-
-        </TextView>
+            android:textSize="45sp"/>
 
     </LinearLayout>
-
 
     <ImageView
         android:layout_width="0dp"
@@ -176,9 +168,7 @@
         app:layout_constraintStart_toEndOf="@id/rightBtn"
         app:layout_constraintEnd_toStartOf="@id/leftBtn"
         app:layout_constraintTop_toBottomOf="@id/mid"
-        app:layout_constraintBottom_toBottomOf="@id/topBtn">
-
-    </ImageView>
+        app:layout_constraintBottom_toBottomOf="@id/topBtn"/>
 
     <ImageView
         android:id="@+id/leaderboardBtn"
@@ -190,9 +180,7 @@
         app:layout_constraintStart_toEndOf="@id/rightBtn"
         app:layout_constraintEnd_toStartOf="@id/leftBtn"
         app:layout_constraintTop_toBottomOf="@id/mid"
-        app:layout_constraintBottom_toBottomOf="@id/topBtn">
-
-    </ImageView>
+        app:layout_constraintBottom_toBottomOf="@id/topBtn"/>
 
     <ImageView
         android:layout_width="0dp"
@@ -201,9 +189,7 @@
         app:layout_constraintStart_toEndOf="@id/rightBtn"
         app:layout_constraintEnd_toStartOf="@id/leftBtn"
         app:layout_constraintTop_toBottomOf="@id/botBtn"
-        app:layout_constraintBottom_toTopOf="@id/bottom">
-
-    </ImageView>
+        app:layout_constraintBottom_toTopOf="@id/bottom"/>
 
     <ImageView
         android:id="@+id/learnBtn"
@@ -215,8 +201,6 @@
         app:layout_constraintStart_toEndOf="@id/rightBtn"
         app:layout_constraintEnd_toStartOf="@id/leftBtn"
         app:layout_constraintTop_toBottomOf="@id/botBtn"
-        app:layout_constraintBottom_toTopOf="@id/bottom">
-
-    </ImageView>
+        app:layout_constraintBottom_toTopOf="@id/bottom"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

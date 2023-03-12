@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="elephantXSmall">25dp</dimen>
     <dimen name="elephantSmall">32dp</dimen>
     <dimen name="elephantSize">50dp</dimen>
     <dimen name="elephantMedium">65dp</dimen>
@@ -9,4 +10,5 @@
     <dimen name="flashcardAnswerSize">120dp</dimen>
     <dimen name="mediumImage">150dp</dimen>
     <dimen name="largeImages">200dp</dimen>
+    <dimen name="flashcardImage">230dp</dimen>
 </resources>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".fragment.ConversionTable">
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/guideline11"
+        app:layout_constraintStart_toStartOf="@id/guideline10"
+        app:layout_constraintTop_toTopOf="@id/guideline13">
+
+        <TextView
+            android:id="@+id/conversion_table_first_text"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="100 cm = 1 m"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="40sp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="280dp"
+            android:layout_height="5dp"
+            android:background="@color/yellow" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="280dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="70dp"
+            android:background="@color/yellow" />
+
+        <TextView
+            android:id="@+id/conversion_table_second_text"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="85dp"
+            android:text="10 dm = 1 m"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="40sp" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="280dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="140dp"
+            android:background="@color/yellow" />
+
+        <TextView
+            android:id="@+id/conversion_table_third_text"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="155dp"
+            android:text="1 dam = 10 m"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="40sp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="280dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="210dp"
+            android:background="@color/yellow" />
+
+        <TextView
+            android:id="@+id/conversion_table_fourth_text"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="225dp"
+            android:text="1 hm = 100 m"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="40sp" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="280dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="280dp"
+            android:background="@color/yellow"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="5dp"
+            android:layout_height="280dp"
+            android:background="@color/yellow"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="5dp"
+            android:layout_height="280dp"
+            android:layout_marginLeft="275dp"
+            android:background="@color/yellow" />
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

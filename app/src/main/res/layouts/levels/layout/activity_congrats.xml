@@ -44,6 +44,7 @@
         android:drawableStart="@drawable/arrow_large"
         android:drawableTint="@color/dark_green"
         android:paddingStart="18dp"
+        android:paddingEnd="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/nextButtonTop" />
@@ -56,20 +57,20 @@
 
     <ImageView
         android:id="@+id/childAvatarImg"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:scaleX="1"
         android:scaleY="1"
         android:src="@mipmap/bunny_foreground"
         app:layout_constraintBottom_toTopOf="@id/nextButtonTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/thirtyPercent"></ImageView>
+        app:layout_constraintTop_toBottomOf="@id/thirtyPercent"/>
 
     <ImageView
         android:id="@+id/congratsBanner"
-        android:layout_width="450dp"
-        android:layout_height="400dp"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
         android:background="@mipmap/banner_foreground"
         app:layout_constraintBottom_toTopOf="@id/bannerBottom"
         app:layout_constraintTop_toBottomOf="@+id/topBar"

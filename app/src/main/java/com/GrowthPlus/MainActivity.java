@@ -132,16 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             parentText.setText(lang.getParent());
     }
 
-    private void importSampleData(){
-        jsonSampleData.importDataFromJson();
-    }
-
     public void importRoadMapData(){
         jsonSampleData.importRoadMapData();
-    }
-
-    public void importChildData(){
-        jsonSampleData.importChildData();
     }
 
     @Override
