@@ -81,7 +81,6 @@ public class Flashcard3 extends AppCompatActivity {
     ConstraintLayout topBarBackground;
     private boolean isCompleted;
     private String lessonCategory;
-    private RealmChangeListener<ChildSchema> realmListener;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
@@ -438,10 +437,6 @@ public class Flashcard3 extends AppCompatActivity {
         Collections.shuffle(randomizer); // Randomize question selection
         currentLessonScore = Objects.requireNonNull(child.getRoadMapThree().getRoadMapLessons().get(lessonIndex)).getCurrentScore();
         isCompleted = Objects.requireNonNull(child.getRoadMapThree().getRoadMapLessons().get(lessonIndex)).getCompleted();
-        realmListener = realmChildSchema -> {
-            // Navigate back to RoadMap after realm is finished performing tasks in the background thread
-            backToRoadMap();
-        };
 
         if(lessonIndex == 9){
             MAX = 10;
@@ -631,10 +626,6 @@ public class Flashcard3 extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Remove the listener.
-        Objects.requireNonNull(
-                        realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
-                .removeChangeListener(realmListener);
         // Close the Realm instance.
         realm.removeAllChangeListeners();
         realm.close();

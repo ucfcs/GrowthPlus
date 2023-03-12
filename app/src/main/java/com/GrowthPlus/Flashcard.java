@@ -35,7 +35,6 @@ import java.util.Collections;
 import java.util.Objects;
 
 import io.realm.Realm;
-import io.realm.RealmChangeListener;
 import io.realm.RealmList;
 
 public class Flashcard extends AppCompatActivity {
@@ -76,7 +75,6 @@ public class Flashcard extends AppCompatActivity {
     private int currentLessonScore;
     private boolean isCompleted;
     private String lessonCategory;
-    private RealmChangeListener<ChildSchema> realmListener;
     private int howMany;
     private MediaPlayer correct, incorrect;
     ArrayList<Integer> randomizer;
@@ -392,10 +390,6 @@ public class Flashcard extends AppCompatActivity {
             randomizer.add(i);
         Collections.shuffle(randomizer); // Randomize question selection
         isCompleted = Objects.requireNonNull(child.getRoadMapOne().getRoadMapLessons().get(lessonIndex)).getCompleted();
-        realmListener = realmChildSchema -> {
-            // Navigate back to RoadMap after realm is finished performing tasks in the background thread
-           backToRoadMap();
-        };
 
         if(lessonIndex == 9){
             MAX = 10;
@@ -578,10 +572,6 @@ public class Flashcard extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Remove the listener.
-        Objects.requireNonNull(
-                realm.where(ChildSchema.class).equalTo("childId", childId).findFirst())
-                .removeChangeListener(realmListener);
         // Close the Realm instance.
         realm.removeAllChangeListeners();
         realm.close();
