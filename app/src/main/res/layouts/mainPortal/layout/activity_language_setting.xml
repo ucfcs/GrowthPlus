@@ -101,7 +101,7 @@
         android:layout_marginTop="35dp"
         android:text="Language"
         android:textColor="@color/dark_green"
-        android:textSize="48sp"
+        android:textSize="42sp"
         app:layout_constraintBottom_toTopOf="@id/langBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
@@ -141,7 +141,7 @@
             android:text="English"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            android:textSize="25sp"/>
+            android:textSize="21sp"/>
 
     </RelativeLayout>
 
@@ -178,7 +178,7 @@
             android:text="French"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            android:textSize="25sp"/>
+            android:textSize="21sp"/>
 
     </RelativeLayout>
 
@@ -215,7 +215,7 @@
             android:text="Chadian Arabic"
             android:textAllCaps="false"
             android:textColor="@color/blue"
-            android:textSize="25sp"/>
+            android:textSize="21sp"/>
 
     </RelativeLayout>
 
