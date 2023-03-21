@@ -12,7 +12,7 @@ android {
         applicationId "com.GrowthPlus"
         minSdk 21
         targetSdk 33
-        versionCode 2
+        versionCode 1
         versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
