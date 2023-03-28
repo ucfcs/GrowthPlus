@@ -219,4 +219,41 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/lagwanBtn"
+        android:layout_width="280dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/yellow"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="@id/leftGuide"
+        app:layout_constraintStart_toStartOf="@id/rightGuide"
+        app:layout_constraintTop_toBottomOf="@id/chadBtn">
+
+        <ImageView
+            android:id="@+id/lagwanCheck"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="228dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/dark_green"
+            android:src="@drawable/ic_check_mark"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/lagwanText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/yellow"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:text="Lagwan"
+            android:textAllCaps="false"
+            android:textColor="@color/blue"
+            android:textSize="21sp"/>
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

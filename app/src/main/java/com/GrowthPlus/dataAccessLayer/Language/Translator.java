@@ -34,6 +34,9 @@ public class Translator {
             case "chadianArabic":
                 value = languageSchema.getChadianArabic();
                 break;
+            case "lagwan":
+                value = languageSchema.getLagwan();
+                break;
             case "growthPlus":
                 value = languageSchema.getGrowthPlus();
                 break;

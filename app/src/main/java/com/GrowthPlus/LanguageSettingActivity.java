@@ -20,10 +20,10 @@ import io.realm.Realm;
 
 public class LanguageSettingActivity extends AppCompatActivity implements View.OnClickListener {
     private Button backSet, firstTime;
-    private RelativeLayout english, french, chad;
-    private ImageView engCheck, freCheck, chadCheck;
+    private RelativeLayout english, french, chad, lagwan;
+    private ImageView engCheck, freCheck, chadCheck, lagwanCheck;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
-    private TextView name, englishText, frenchText, chadText;
+    private TextView name, englishText, frenchText, chadText, lagwanText;
     Realm realm;
     Resources resources;
     SharedPreferences settings;
@@ -52,6 +52,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         english.setOnClickListener(this);
         french.setOnClickListener(this);
         chad.setOnClickListener(this);
+        lagwan.setOnClickListener(this);
     }
 
     public void init(){
@@ -61,12 +62,15 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         englishText = findViewById(R.id.englishText);
         frenchText = findViewById(R.id.frenchText);
         chadText = findViewById(R.id.chadText);
+        lagwanText = findViewById(R.id.lagwanText);
         engCheck = findViewById(R.id.englishCheck);
         freCheck = findViewById(R.id.frenchCheck);
         chadCheck = findViewById(R.id.chadCheck);
+        lagwanCheck = findViewById(R.id.lagwanCheck);
         english = findViewById(R.id.englishBtn);
         french = findViewById(R.id.frenchBtn);
         chad = findViewById(R.id.chadBtn);
+        lagwan = findViewById(R.id.lagwanBtn);
         name = findViewById(R.id.languageText);
         firstTime = findViewById(R.id.firstTime);
         settings = getSharedPreferences("MyPrefsFile", 0);
@@ -84,19 +88,29 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
             engCheck.setVisibility(View.VISIBLE);
             freCheck.setVisibility(View.INVISIBLE);
             chadCheck.setVisibility(View.INVISIBLE);
+            lagwanCheck.setVisibility(View.INVISIBLE);
             setEnglishText();
         }
         else if(langView == R.id.frenchBtn){
             freCheck.setVisibility(View.VISIBLE);
             engCheck.setVisibility(View.INVISIBLE);
             chadCheck.setVisibility(View.INVISIBLE);
+            lagwanCheck.setVisibility(View.INVISIBLE);
             setFrenchText();
         }
         else if(langView == R.id.chadBtn){
             chadCheck.setVisibility(View.VISIBLE);
             freCheck.setVisibility(View.INVISIBLE);
             engCheck.setVisibility(View.INVISIBLE);
+            lagwanCheck.setVisibility(View.INVISIBLE);
             setChadText();
+        }
+        else if(langView == R.id.lagwanBtn){
+            lagwanCheck.setVisibility(View.VISIBLE);
+            chadCheck.setVisibility(View.INVISIBLE);
+            freCheck.setVisibility(View.INVISIBLE);
+            engCheck.setVisibility(View.INVISIBLE);
+            setLagwanText();
         }
     }
 
@@ -133,6 +147,17 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         onResume();
     }
 
+    public void setLagwanText(){
+        // Create shared preferences class to save default language, french
+        SharedPreferences mPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
+        // Add english as default lang
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString("languageId", "lagwanZero");
+        prefsEditor.apply();
+        // refresh UI
+        onResume();
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -148,19 +173,29 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         englishText.setText(lang.getEnglish());
         frenchText.setText(lang.getFrench());
         chadText.setText(lang.getChadianArabic());
+        lagwanText.setText(lang.getLagwan());
         switch(langId){
             case "englishZero":
                 engCheck.setVisibility(View.VISIBLE);
                 freCheck.setVisibility(View.INVISIBLE);
                 chadCheck.setVisibility(View.INVISIBLE);
+                lagwanCheck.setVisibility(View.INVISIBLE);
                 break;
             case "frenchZero":
                 freCheck.setVisibility(View.VISIBLE);
                 engCheck.setVisibility(View.INVISIBLE);
                 chadCheck.setVisibility(View.INVISIBLE);
+                lagwanCheck.setVisibility(View.INVISIBLE);
                 break;
             case "chadianArabicZero":
                 chadCheck.setVisibility(View.VISIBLE);
+                engCheck.setVisibility(View.INVISIBLE);
+                freCheck.setVisibility(View.INVISIBLE);
+                lagwanCheck.setVisibility(View.INVISIBLE);
+                break;
+            case "lagwanZero":
+                lagwanCheck.setVisibility(View.VISIBLE);
+                chadCheck.setVisibility(View.INVISIBLE);
                 engCheck.setVisibility(View.INVISIBLE);
                 freCheck.setVisibility(View.INVISIBLE);
                 break;
