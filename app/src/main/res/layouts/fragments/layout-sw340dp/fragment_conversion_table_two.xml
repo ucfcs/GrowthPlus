@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
     tools:context=".fragment.ConversionTableTwo">
 
     <FrameLayout
@@ -16,6 +16,7 @@
 
         <TextView
             android:id="@+id/conversion_table_first_text"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -39,6 +40,7 @@
 
         <TextView
             android:id="@+id/conversion_table_second_text"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="85dp"
@@ -75,20 +77,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".05" />
+        app:layout_constraintGuide_percent=".01" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".95" />
+        app:layout_constraintGuide_percent=".99" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".55" />
+        app:layout_constraintGuide_percent=".28" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

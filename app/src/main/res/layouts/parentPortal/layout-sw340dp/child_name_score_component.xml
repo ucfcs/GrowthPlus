@@ -18,6 +18,7 @@
 
     <TextView
         android:id="@+id/childName"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingStart="10dp"
@@ -34,6 +35,7 @@
 
     <TextView
         android:id="@+id/childScore"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginStart="125dp"

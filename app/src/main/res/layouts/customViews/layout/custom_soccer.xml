@@ -15,6 +15,7 @@
 
     <TextView
         android:id="@+id/number"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="@color/black"
@@ -23,7 +24,7 @@
         android:shadowRadius="1"
         android:text="7"
         android:textColor="@color/dark_green"
-        android:textSize="60sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="@+id/soccer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

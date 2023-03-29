@@ -3,30 +3,31 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
     tools:context=".fragment.Shape">
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
         android:text="perimeter (p)"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="50sp"
-        app:layout_constraintStart_toStartOf="@id/guideline10"
-        app:layout_constraintEnd_toEndOf="@id/guideline11"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/first_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="5dp"
         android:src="@mipmap/rectangle_foreground"
-        app:layout_constraintStart_toStartOf="@id/guideline10"
-        app:layout_constraintEnd_toEndOf="@id/guideline11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text" />
 
     <ImageView
@@ -34,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/triangle_foreground"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="@id/guideline10"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/third_image"
         app:layout_constraintTop_toBottomOf="@+id/first_image" />
 
@@ -43,24 +44,10 @@
         android:id="@+id/third_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:src="@mipmap/triangle_green_foreground"
         app:layout_constraintStart_toEndOf="@+id/second_image"
-        app:layout_constraintEnd_toEndOf="@id/guideline11"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/first_image" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".1"  />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".9"  />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

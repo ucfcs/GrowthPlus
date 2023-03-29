@@ -19,12 +19,13 @@
 
     <TextView
         android:id="@+id/timerText"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="30"
         android:textAlignment="center"
         android:textColor="@color/yellow"
-        android:textSize="28sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/timerCircle"
         app:layout_constraintEnd_toEndOf="@+id/timerCircle"
         app:layout_constraintStart_toStartOf="@+id/timerCircle"

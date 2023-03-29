@@ -96,6 +96,7 @@
 
     <TextView
         android:id="@+id/languageText"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -133,6 +134,7 @@
 
         <TextView
             android:id="@+id/englishText"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"
@@ -170,6 +172,7 @@
 
         <TextView
             android:id="@+id/frenchText"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"
@@ -207,6 +210,7 @@
 
         <TextView
             android:id="@+id/chadText"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"
@@ -244,6 +248,7 @@
 
         <TextView
             android:id="@+id/lagwanText"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/yellow"

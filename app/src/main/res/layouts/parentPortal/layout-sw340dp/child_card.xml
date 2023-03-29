@@ -42,11 +42,12 @@
 
         <TextView
             android:id="@+id/childCarName"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:text="Name"
-            android:textSize="18sp"
             android:gravity="center"
+            android:autoSizeTextType="uniform"
             app:layout_constraintEnd_toEndOf="@+id/childCardAvatar"
             app:layout_constraintStart_toStartOf="@+id/childCardAvatar"
             app:layout_constraintTop_toBottomOf="@+id/childCardAvatar" />

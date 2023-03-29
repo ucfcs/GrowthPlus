@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
     tools:context=".fragment.Division">
 
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/guideline10"
-        app:layout_constraintEnd_toEndOf="@id/guideline11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -62,8 +62,10 @@
 
         <TextView
             android:id="@+id/divisor"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="100dp"
             android:text="4"
             android:textColor="@color/orange"
@@ -71,6 +73,7 @@
 
         <TextView
             android:id="@+id/dividend"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -81,6 +84,7 @@
 
         <TextView
             android:id="@+id/quotient"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"
@@ -91,6 +95,7 @@
 
         <TextView
             android:id="@+id/subtractNumber"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
@@ -101,6 +106,7 @@
 
         <TextView
             android:id="@+id/operator"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -111,6 +117,7 @@
 
         <TextView
             android:id="@+id/remainder"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="130dp"
@@ -120,19 +127,5 @@
             android:textSize="55sp" />
 
     </FrameLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".1"  />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".9"  />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

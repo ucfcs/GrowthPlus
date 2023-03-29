@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
     tools:context=".fragment.ImageWord">
 
     <ImageView
@@ -12,35 +12,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:src="@mipmap/five_fcfa_foreground"
-        app:layout_constraintStart_toStartOf="@id/guideline10"
-        app:layout_constraintEnd_toEndOf="@id/guideline11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/imageWordWord"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
         android:text="5 francs"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="35sp"
-        app:layout_constraintStart_toStartOf="@id/guideline10"
-        app:layout_constraintEnd_toEndOf="@id/guideline11"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageWordImage" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".1"  />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".9"  />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

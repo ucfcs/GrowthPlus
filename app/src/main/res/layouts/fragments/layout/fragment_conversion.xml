@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/conversion_first_text"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:text="100 cm"
@@ -20,6 +21,7 @@
 
     <TextView
         android:id="@+id/operator"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -33,6 +35,7 @@
 
     <TextView
         android:id="@+id/conversion_second_text"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"

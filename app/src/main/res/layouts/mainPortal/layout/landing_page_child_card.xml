@@ -41,7 +41,8 @@
         android:text="Sally"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="15sp"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/fredoka_one_regular"
         app:layout_constraintEnd_toEndOf="@+id/landingPageChildAvatar"
         app:layout_constraintStart_toStartOf="@+id/landingPageChildAvatar"
         app:layout_constraintTop_toTopOf="@+id/landingPageChildAvatar" />

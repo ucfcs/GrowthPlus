@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="350dp"
+    android:layout_height="420dp"
     tools:context=".fragment.Counting">
 
     <TextView
         android:id="@+id/numberCounting"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="300dp"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:autoSizeTextType="uniform"
         android:text="1"
         android:textAlignment="center"
@@ -20,9 +21,9 @@
 
     <TextView
         android:id="@+id/wordCounting"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="5dp"
         android:autoSizeTextType="uniform"
         android:text="one"
         android:textAlignment="center"

@@ -171,6 +171,7 @@
 
     <TextView
         android:id="@+id/phoneNumberText"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textColor="@color/dark_green"
@@ -184,16 +185,18 @@
 
     <EditText
         android:id="@+id/phoneNumberInput"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:textColor="@color/dark_grey"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/grey"
         android:hint="phone number"
+        android:textColorHint="@color/dark_grey"
         android:inputType="number"
         android:maxLength="16"
         android:textAlignment="center"
-        android:textSize="18sp"
-        android:autoSizeTextType="uniform"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@id/nameBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
@@ -201,6 +204,7 @@
 
     <TextView
         android:id="@+id/createPinText"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textColor="@color/dark_green"
@@ -214,12 +218,15 @@
 
     <EditText
         android:id="@+id/enterPin"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:textColor="@color/dark_grey"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:inputType="number"
         android:maxLength="4"
         android:hint="Pin"
-        android:textSize="20sp"
+        android:textColorHint="@color/dark_grey"
+        android:autoSizeTextType="uniform"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"
         android:background="@drawable/round_button"
@@ -230,6 +237,7 @@
 
     <TextView
         android:id="@+id/confirmPinText"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textColor="@color/dark_green"
@@ -243,12 +251,15 @@
 
     <EditText
         android:id="@+id/confirmPinInput"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:textColor="@color/dark_grey"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:inputType="number"
         android:maxLength="4"
         android:hint="Pin"
-        android:textSize="20sp"
+        android:textColorHint="@color/dark_grey"
+        android:autoSizeTextType="uniform"
         android:backgroundTint="@color/grey"
         android:textAlignment="center"
         android:background="@drawable/round_button"

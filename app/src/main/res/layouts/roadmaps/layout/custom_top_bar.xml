@@ -31,9 +31,9 @@
         android:text="▼"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="60sp"
+        android:textSize="55sp"
         android:visibility="invisible"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pointsIcon"
         app:layout_constraintStart_toEndOf="@id/goBackBtn"
@@ -79,6 +79,7 @@
 
     <TextView
         android:id="@+id/points"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"

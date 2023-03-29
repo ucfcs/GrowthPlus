@@ -2,22 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="300dp"
+    android:layout_height="420dp"
     tools:context=".fragment.HorizontalEquation">
 
     <TextView
         android:id="@+id/equation"
         android:fontFamily="@font/fredoka_one_regular"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:autoSizeTextType="uniform"
         android:text="1 + 2 = 3"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toStartOf="@id/guide10"
-        app:layout_constraintStart_toStartOf="@id/guide0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.gridlayout.widget.GridLayout
@@ -27,7 +26,7 @@
         android:layout_marginTop="8dp"
         app:columnCount="2"
         app:layout_constraintEnd_toStartOf="@id/guideline8"
-        app:layout_constraintStart_toStartOf="@id/guide0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/equation"
         app:rowCount="10"></androidx.gridlayout.widget.GridLayout>
 
@@ -48,24 +47,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:columnCount="2"
-        app:layout_constraintEnd_toStartOf="@id/guide10"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/equation"
         app:rowCount="10"></androidx.gridlayout.widget.GridLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"

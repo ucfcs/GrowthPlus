@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/text1"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="perimeter"
@@ -30,6 +31,7 @@
 
     <TextView
         android:id="@+id/text2"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

@@ -18,6 +18,7 @@
 
     <TextView
         android:id="@+id/imageWordWord"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"

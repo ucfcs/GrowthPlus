@@ -16,6 +16,7 @@
 
         <TextView
             android:id="@+id/conversion_table_first_text"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
@@ -39,6 +40,7 @@
 
         <TextView
             android:id="@+id/conversion_table_second_text"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="85dp"

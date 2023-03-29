@@ -8,10 +8,11 @@
 
     <TextView
         android:id="@+id/flashcardAnswer"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textSize="120sp"
+        android:textSize="100sp"
         android:textColor="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

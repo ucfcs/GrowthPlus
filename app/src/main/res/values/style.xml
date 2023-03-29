@@ -13,4 +13,9 @@
         <item
             name="android:textSize">35dp</item>
     </style>
+
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/fredoka_one_regular</item>
+    </style>
 </resources>

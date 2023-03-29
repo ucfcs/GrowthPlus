@@ -19,6 +19,7 @@
 
     <TextView
         android:id="@+id/progressBarLevelNumber"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="45dp"
         android:layout_height="30dp"
         android:layout_marginStart="15dp"
