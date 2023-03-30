@@ -18,12 +18,12 @@
             android:id="@+id/conversion_table_first_text"
             android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:text="100 cm = 1 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="35sp" />
+            android:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -42,12 +42,12 @@
             android:id="@+id/conversion_table_second_text"
             android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="85dp"
             android:text="10 dm = 1 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="35sp" />
+            android:autoSizeTextType="uniform"/>
 
         <ImageView
             android:id="@+id/imageView7"
@@ -60,12 +60,12 @@
             android:id="@+id/conversion_table_third_text"
             android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="155dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="150dp"
             android:text="1 dam = 10 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="35sp" />
+            android:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/imageView9"
@@ -78,12 +78,12 @@
             android:id="@+id/conversion_table_fourth_text"
             android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="219dp"
             android:text="1 hm = 100 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="35sp" />
+            android:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/imageView10"

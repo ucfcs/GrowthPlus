@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="350dp"
+    android:layout_height="420dp"
     tools:context=".fragment.VerticalEquation">
 
     <ImageView
@@ -73,7 +73,7 @@
         android:text="1"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="50sp"
+        android:textSize="45sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/barTwo"/>
 
@@ -100,7 +100,7 @@
         android:text="1 7"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="75sp"
+        android:textSize="68sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,7 +114,7 @@
         android:text="23"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="75sp"
+        android:textSize="68sp"
         app:layout_constraintBottom_toTopOf="@+id/bar"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -141,7 +141,7 @@
         android:text="40"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="75sp"
+        android:textSize="68sp"
         app:layout_constraintTop_toBottomOf="@+id/bar"
         app:layout_constraintEnd_toEndOf="parent" />
 
