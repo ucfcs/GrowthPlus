@@ -32,6 +32,7 @@
 
     <TextView
         android:id="@+id/landingPageChildName"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="120dp"
         android:layout_height="35dp"
         android:layout_marginTop="72dp"
@@ -41,7 +42,7 @@
         android:text="Sally"
         android:textAlignment="center"
         android:textColor="@color/dark_green"
-        android:textSize="25sp"
+        android:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="@+id/landingPageChildAvatar"
         app:layout_constraintStart_toStartOf="@+id/landingPageChildAvatar"
         app:layout_constraintTop_toTopOf="@+id/landingPageChildAvatar" />

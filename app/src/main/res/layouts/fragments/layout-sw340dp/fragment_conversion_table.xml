@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
     tools:context=".fragment.ConversionTable">
 
     <FrameLayout
@@ -16,13 +16,14 @@
 
         <TextView
             android:id="@+id/conversion_table_first_text"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:text="100 cm = 1 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="40sp" />
+            android:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -39,13 +40,14 @@
 
         <TextView
             android:id="@+id/conversion_table_second_text"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="85dp"
             android:text="10 dm = 1 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="40sp" />
+            android:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -56,13 +58,14 @@
 
         <TextView
             android:id="@+id/conversion_table_third_text"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="155dp"
             android:text="1 dam = 10 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="40sp" />
+            android:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/imageView9"
@@ -73,13 +76,14 @@
 
         <TextView
             android:id="@+id/conversion_table_fourth_text"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="225dp"
             android:text="1 hm = 100 m"
             android:textAlignment="center"
             android:textColor="@color/blue"
-            android:textSize="40sp" />
+            android:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/imageView10"
@@ -110,20 +114,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".05" />
+        app:layout_constraintGuide_percent=".01" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent=".95" />
+        app:layout_constraintGuide_percent=".99" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".2" />
+        app:layout_constraintGuide_percent=".1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

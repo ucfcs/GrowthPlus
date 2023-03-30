@@ -8,29 +8,16 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="280dp"
+        android:layout_height="100dp"
         android:text="six"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="61sp"
-        app:layout_constraintEnd_toEndOf="@id/rightConstraint"
-        app:layout_constraintStart_toStartOf="@id/leftConstraint"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/topConstraint" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/leftConstraint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10218978" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/rightConstraint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topConstraint"

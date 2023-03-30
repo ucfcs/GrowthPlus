@@ -62,6 +62,7 @@
 
         <TextView
             android:id="@+id/divisor"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -71,6 +72,7 @@
 
         <TextView
             android:id="@+id/dividend"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="90dp"
@@ -81,6 +83,7 @@
 
         <TextView
             android:id="@+id/quotient"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="110dp"
@@ -91,6 +94,7 @@
 
         <TextView
             android:id="@+id/subtractNumber"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
@@ -101,6 +105,7 @@
 
         <TextView
             android:id="@+id/operator"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -111,6 +116,7 @@
 
         <TextView
             android:id="@+id/remainder"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="130dp"

@@ -71,6 +71,7 @@
         android:paddingTop="10dp"
         android:textColor="@color/dark_green"
         android:text="ChildNameHere"
+        android:fontFamily="@font/fredoka_one_regular"
         android:gravity="center_vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,6 +82,7 @@
 
     <TextView
         android:layout_width="85dp"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:id="@+id/leaderboardPoints"

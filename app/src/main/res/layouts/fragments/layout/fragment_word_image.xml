@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/wordFragment"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="280dp"
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"

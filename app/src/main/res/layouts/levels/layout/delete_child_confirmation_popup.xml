@@ -11,6 +11,7 @@
 
     <TextView
         android:id="@+id/delete"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Delete?"
@@ -22,6 +23,7 @@
 
     <TextView
         android:id="@+id/childName"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="ChildName"

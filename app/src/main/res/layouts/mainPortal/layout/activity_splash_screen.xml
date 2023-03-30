@@ -28,6 +28,7 @@
         android:text="Arrose+"
         android:textColor="@color/dark_green"
         android:textSize="60sp"
+        android:fontFamily="@font/fredoka_one_regular"
         app:layout_constraintBottom_toTopOf="@id/bottomSplash"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

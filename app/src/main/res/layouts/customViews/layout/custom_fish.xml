@@ -15,6 +15,7 @@
 
     <TextView
         android:id="@+id/number"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
@@ -25,7 +26,7 @@
         android:shadowRadius="1"
         android:text="7"
         android:textColor="@color/red"
-        android:textSize="40sp"
+        android:textSize="37sp"
         app:layout_constraintStart_toStartOf="@+id/fish"
         app:layout_constraintTop_toTopOf="@+id/fish" />
 

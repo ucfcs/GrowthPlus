@@ -32,10 +32,10 @@ public class FlashcardAnswer extends Fragment {
         int ans = Integer.valueOf(answerText);
 
         if(ans > 900){
-            answer.setTextSize(80);
+            answer.setTextSize(65);
         }
         if(ans > 9999){
-            answer.setTextSize(70);
+            answer.setTextSize(55);
         }
 
         answer.setText(answerText);

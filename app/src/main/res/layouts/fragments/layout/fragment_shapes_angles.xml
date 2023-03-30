@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/word"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="triangle"
@@ -38,6 +39,7 @@
 
     <TextView
         android:id="@+id/degree"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="280dp"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"

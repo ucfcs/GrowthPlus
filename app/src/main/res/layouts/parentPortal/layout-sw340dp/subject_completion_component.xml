@@ -7,6 +7,8 @@
 
     <TextView
         android:id="@+id/subjectName"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:textColor="@color/dark_green"
         android:layout_width="90dp"
         android:layout_height="20dp"
         android:layout_marginTop="10dp"

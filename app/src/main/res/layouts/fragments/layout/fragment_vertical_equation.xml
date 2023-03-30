@@ -69,6 +69,7 @@
 
     <TextView
         android:id="@+id/carryInputNum"
+        android:fontFamily="@font/fredoka_one_regular"
         android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,6 +97,7 @@
 
     <TextView
         android:id="@+id/first_number"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -109,6 +111,7 @@
 
     <TextView
         android:id="@+id/second_number"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
@@ -122,6 +125,7 @@
 
     <TextView
         android:id="@+id/operator"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -135,6 +139,7 @@
 
     <TextView
         android:id="@+id/answer"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"

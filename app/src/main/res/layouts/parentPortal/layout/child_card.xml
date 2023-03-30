@@ -42,10 +42,11 @@
 
         <TextView
             android:id="@+id/childCarName"
+            android:fontFamily="@font/fredoka_one_regular"
             android:layout_width="95dp"
             android:layout_height="15dp"
             android:text="Name"
-            android:textSize="15sp"
+            android:autoSizeTextType="uniform"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="@+id/childCardAvatar"
             app:layout_constraintStart_toStartOf="@+id/childCardAvatar"

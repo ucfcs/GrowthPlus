@@ -11,6 +11,7 @@ public class LanguageSchema extends RealmObject {
     String  english;
     String  french;
     String  chadianArabic;
+    String  lagwan;
     String	growthPlus;
     String	parent;
     String	points;
@@ -240,6 +241,13 @@ public class LanguageSchema extends RealmObject {
 
     public void setChadianArabic(String chadianArabic) {
         this.chadianArabic = chadianArabic;
+    }
+    public String getLagwan() {
+        return lagwan;
+    }
+
+    public void setLagwan(String lagwan) {
+        this.lagwan = lagwan;
     }
 
     public String getGrowthPlus() {

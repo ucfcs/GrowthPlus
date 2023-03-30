@@ -15,17 +15,18 @@
 
     <TextView
         android:id="@+id/number"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="23dp"
         android:shadowColor="@color/black"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="1"
         android:text="45"
         android:textColor="@color/dark_green"
-        android:textSize="48sp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

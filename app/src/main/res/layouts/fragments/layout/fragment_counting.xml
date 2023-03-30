@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/numberCounting"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:autoSizeTextType="uniform"
@@ -21,6 +22,7 @@
 
     <TextView
         android:id="@+id/wordCounting"
+        android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="320dp"
         android:layout_height="0dp"
         android:text="one"
