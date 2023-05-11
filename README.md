@@ -9,17 +9,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 All you need to work on the project is to set up an android development environment, follow the official android documentation and make sure to check the system requirements:  
-https://developer.android.com/studio/install
+https://developer.android.com/studio/install.
 
-## Tech stack
-
-* [Realm](https://www.mongodb.com/docs/realm/sdk/java/realm-database/) - Realm is a fast, scalable alternative to SQLite for mobile development. 
-* [Android](https://developer.android.com/guide) - The operating system inside 2.5 billion active devices.
-* [Java SE](https://docs.oracle.com/en/java/) - Java SE and component technologies offer the rich user interface, performance, versatility, portability, and security.
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://github.com/ucfcs/GrowthPlus/blob/julio/openSourceDocs/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Then, please read [CONTRIBUTING.md](https://github.com/ucfcs/GrowthPlus/blob/julio/openSourceDocs/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
  [About the team](https://arroseplus.netlify.app/team)
