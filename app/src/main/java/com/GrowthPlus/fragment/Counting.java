@@ -1,8 +1,10 @@
 package com.GrowthPlus.fragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.gridlayout.widget.GridLayout;
 
@@ -40,6 +42,7 @@ public class Counting extends Fragment {
         String getWord = requireArguments().getString("lessonWord");
         String getNumber = requireArguments().getString("lessonNumber");
         String getImg = requireArguments().getString("lessonImage");
+        String lang = requireArguments().getString("langId");
         int imgNum = Integer.parseInt(getNumber);
 
         if(imgNum >= 1000){
@@ -79,6 +82,10 @@ public class Counting extends Fragment {
         }
 
         word.setText(getWord);
+        if(lang.equals("lagwanZero")){
+            word.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+        }
+
         number.setText(getNumber);
 
         int resId = imageSrcIdentifier.getImageSrcId(getImg);

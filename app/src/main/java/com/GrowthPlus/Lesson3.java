@@ -143,6 +143,7 @@ public class Lesson3 extends AppCompatActivity {
                                 bundle.putString("lessonWord", word);
                                 bundle.putString("lessonNumber", firstNumber);
                                 bundle.putString("lessonImage", imgOne);
+                                bundle.putString("langId", langId);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
@@ -395,6 +396,7 @@ public class Lesson3 extends AppCompatActivity {
                                 bundle.putString("lessonWord", word);
                                 bundle.putString("lessonNumber", firstNumber);
                                 bundle.putString("lessonImage", imgOne);
+                                bundle.putString("langId", langId);
 
                                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                                 transaction.setReorderingAllowed(true);
