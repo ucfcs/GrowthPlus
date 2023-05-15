@@ -15,7 +15,8 @@ If you are interested in making a code contribution and would like to learn more
 
 ## How do I make a contribution?
 
-Here's a quick rundown on how to get the project on your local machine!
+Here's a quick rundown on how to get the project on your local machine! 
+> Make sure to sync your github account with Android Studio before the following steps
 
 ## Fork the repository
 
