@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 All you need to work on the project is to set up an android development environment, follow the official android documentation and make sure to check the system requirements:  
 https://developer.android.com/studio/install.
 
-Then, please read [CONTRIBUTING.md](https://github.com/ucfcs/GrowthPlus/blob/julio/openSourceDocs/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Then, please read [CONTRIBUTING.md](https://github.com/ucfcs/GrowthPlus/blob/julio/openSourceDocs/CONTRIBUTING.md) for the process for submitting pull requests to us and for details on our code of conduct.
 
 ## Authors
  [About the team](https://arroseplus.netlify.app/team)
