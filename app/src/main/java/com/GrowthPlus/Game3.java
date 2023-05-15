@@ -279,7 +279,7 @@ public class Game3 extends AppCompatActivity {
                 Intent lessonIntent = new Intent(Game3.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Game");
-                lessonIntent.putExtra("points", gameScore);
+                lessonIntent.putExtra("points", numberCorrect);
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "Three");
                 if(gameScore >= MIN_TO_PASS){
