@@ -1,11 +1,15 @@
 # Growth+
 
 ## About Growth +
-Growth+ is a mobile application designed to target numeracy, 
-the ability to understand and work with numbers, in francophone Africa. 
-This project has been developed as a response to the lack of educational resources related to basic math skills. 
+Millions of children across Africa struggle with basic math. 
+Yet they have increasing access to smartphones at home. 
+Our vision is to tackle this need through a mobile application that empowers parents to provide their children with fundamental math skills. 
+Our project, Growth+, is a mobile app designed to target numeracy, the ability to understand and use fundamental math skills, in Africa. 
+While a couple educational apps have been developed in East Africa, our app will be the first to primarily target numeracy in Central and West Africa.
 
-Our app is developed in Android Studio using Java as our programming language. We utilized Realm as our local database which allows offline use of the app. 
+Designed specifically for areas with little to no internet, our application works fully offline and uses limited storage on smartphones. 
+Additionally, our app functions in three main languages: French, English, and Chadian Arabic, with options to add more local languages. 
+Our vision is a better future for African children through improved math skills, and this starts with parents and their children using Growth+.
 
 ## Meet the Team
 
