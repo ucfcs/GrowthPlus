@@ -405,6 +405,8 @@ public class Game extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         if (!realm.isClosed()) realm.close();
+        handler.removeCallbacksAndMessages(null);
+        background.stop();
         super.onDestroy();
     }
 }

@@ -379,6 +379,9 @@ public class Game3 extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         if (!realm.isClosed()) realm.close();
+        handler.removeCallbacksAndMessages(null);
+        background.stop();
+        countDownTimer.cancel();
         super.onDestroy();
     }
 
