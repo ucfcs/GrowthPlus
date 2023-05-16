@@ -97,6 +97,7 @@ public class Quiz2 extends AppCompatActivity {
                     Bundle bundle = new Bundle();
                     bundle.putString("text", word);
                     bundle.putInt("textColor", Color.rgb(252, 209, 70));
+                    bundle.putString("langId", langId);
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
                     transaction.setReorderingAllowed(true);
@@ -176,6 +177,7 @@ public class Quiz2 extends AppCompatActivity {
                             Bundle bundle = new Bundle();
                             bundle.putString("text", word);
                             bundle.putInt("textColor", Color.rgb(252, 209, 70));
+                            bundle.putString("langId", langId);
 
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.setReorderingAllowed(true);
