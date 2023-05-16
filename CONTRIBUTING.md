@@ -15,45 +15,45 @@ If you are interested in making a code contribution and would like to learn more
 
 ## How do I make a contribution?
 
-Here's a quick rundown on how to get the project on your local machine! 
-> Make sure to sync your github account with Android Studio before the following steps
+By now, you should have a copy of the project on your local machine. 
+If not, take a look at the README for instructions.
 
-## Fork the repository
+### Create a new branch for your issue
 
-<img align="right" width="300" src="https://github.com/ucfcs/GrowthPlus/assets/45129978/4a06cd1c-b08b-4653-8346-c2c368252ac2" alt="fork this repository" />
+Find an issue/feature that you are interested in addressing.
+Create a new branch for your fix, from the terminal type
+`git switch -c yourNewBranchName` , this will create a new branch and run the **git checkout** command right away.
 
-- Fork the repository associated with the project to your local GitHub organization/account. This means that you will have a copy of the repository under  **your-GitHub-username/repository-name**.
+![git switch](https://github.com/ucfcs/GrowthPlus/assets/45129978/b7ab75fd-89fa-4067-b9df-39773684123f)
 
-<br />
-<br />
-<br />
-<br />
+### Save changes to your branch
 
-## Clone the repository and run the project
+Make the appropriate changes for the issue you are trying to address or the feature that you want to add and then follow these commands:
+`git status` shows you the state of the project files, this is usefull because **you do not** need to add files that Android Studio generates for your local enviroment.
 
-- Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
+![git status](https://github.com/ucfcs/GrowthPlus/assets/45129978/fc664da1-a22f-4145-b8f6-7ecf50da4f73)
 
-<img width="300" height= "300" src="https://github.com/ucfcs/GrowthPlus/assets/45129978/b7cfd290-f8e0-446a-bd2d-6eaf4ef43603" alt="clone this repository" />
+`git add <file-name>` simply **stages** files so they can be committed. 
 
-<br />
-<br />
+![git add](https://github.com/ucfcs/GrowthPlus/assets/45129978/2d3b26d6-332f-48b7-8cd7-4e8795ff4353)
 
-- Open Android studio and click on `Get from VCS`
+`git commit -m "Message here"` commits your files and completely saves your progress to your branch, it is normal to have multiple commits in a branch, in fact, it is recommended to commit your progress throughout your coding session. Include a short descriptive message of your progress.
 
-<img width="600" src="https://github.com/ucfcs/GrowthPlus/assets/45129978/1cc36dcc-ac22-4cc7-a2ca-d73ee2c98bfb" alt="get from VCS" />
+![git commit](https://github.com/ucfcs/GrowthPlus/assets/45129978/02a526ab-41b3-4adb-95b4-f09821e419c5)
 
-- Paste the URL and click clone
+`git push -u origin <branch-name>` pushes your committed changes to the remote repository, **origin** parameter will push to the repository the project was clone from, in this case, it project's copy that is in your github. 
 
-![Paste repo url](https://github.com/ucfcs/GrowthPlus/assets/45129978/b1915eac-f165-4820-8b69-ea5cbd5de8c5)
+![git push](https://github.com/ucfcs/GrowthPlus/assets/45129978/24cf23b6-6ceb-439f-97e2-cf17b3e669a1)
 
-- Click file and sync project with gradle files
+### Submit a Pull Request
 
-![sync project with gradle](https://github.com/ucfcs/GrowthPlus/assets/45129978/a7bed52f-f382-4310-966e-d1b00e7a45fa)
+Great Job!, if you are done with your implementation, it is time to submit a pull request. If you recently pushed your changes, look for the **Compare & pull request** green button. 
 
-- After the syncing process is completed, click the green triangle to run the project (make sure you have an emulator already set up)
+![pushing changes](https://github.com/ucfcs/GrowthPlus/assets/45129978/a997b21a-f9e7-441d-bb4c-f837f0874fa4)
 
-![Run project](https://github.com/ucfcs/GrowthPlus/assets/45129978/d8957b6b-cf78-4da9-9db4-8e94b06116e8)
 
-- Congratulations!, the app should up and running
 
-![Running app](https://github.com/ucfcs/GrowthPlus/assets/45129978/2f8d2a5a-7046-4d92-86c7-d78ae4e4183e)
+### Where can I go for help?
+
+If you need help, you can ask questions on our mailing list, IRC chat, or  [list any other communication platforms that your project uses].
+
