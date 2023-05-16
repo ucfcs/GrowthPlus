@@ -228,7 +228,7 @@ public class Game4 extends AppCompatActivity {
                 Intent lessonIntent = new Intent(Game4.this, Results.class);
                 lessonIntent.putExtra("childId", childId);
                 lessonIntent.putExtra("whichOne", "Game");
-                lessonIntent.putExtra("points", gameScore);
+                lessonIntent.putExtra("points", numberCorrect);
                 lessonIntent.putExtra("max", MAX);
                 lessonIntent.putExtra("whichRoadMap", "Four");
                 if(gameScore >= MIN_TO_PASS){
@@ -347,6 +347,9 @@ public class Game4 extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         if (!realm.isClosed()) realm.close();
+        handler.removeCallbacksAndMessages(null);
+        background.stop();
+        countDownTimer.cancel();
         super.onDestroy();
     }
 
