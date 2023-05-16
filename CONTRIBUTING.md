@@ -18,6 +18,11 @@ If you are interested in making a code contribution and would like to learn more
 By now, you should have a copy of the project on your local machine. 
 If not, take a look at the README for instructions.
 
+Before moving on, open the terminal and type the command `git remote add upstream https://github.com/ucfcs/GrowthPlus.git` to track the original project.
+
+![add upstream](https://github.com/ucfcs/GrowthPlus/assets/45129978/027ea342-7639-4002-ab62-d16fd6ddb70b)
+
+
 ### Create a new branch for your issue
 
 Find an issue/feature that you are interested in addressing.
@@ -44,6 +49,11 @@ Make the appropriate changes for the issue you are trying to address or the feat
 `git push -u origin <branch-name>` pushes your committed changes to the remote repository, **origin** parameter will push to the repository the project was clone from, in this case, it project's copy that is in your github. 
 
 ![git push](https://github.com/ucfcs/GrowthPlus/assets/45129978/24cf23b6-6ceb-439f-97e2-cf17b3e669a1)
+
+### Sync the fork branch
+
+Before submitting a pull request, make sure your forked copy is to up date with the original project. Fetch the lastest changes, `git fetch upstream`
+ 
 
 ### Submit a Pull Request
 
