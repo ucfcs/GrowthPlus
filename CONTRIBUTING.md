@@ -13,15 +13,15 @@ If you are interested in making a code contribution and would like to learn more
 * [Java SE](https://docs.oracle.com/en/java/) - Java SE and component technologies offer the rich user interface, performance, versatility, portability, and security.
 * [Git](https://git-scm.com/docs) - Git is easy to learn and has a tiny footprint with lightning fast performance..
 
-## How do I make a contribution?
+## Collaboration workflow
 
 By now, you should have a copy of the project on your local machine. 
 If not, take a look at the README for instructions.
-
+> This quick rundown introduces Git and the command line to beginners. If you are an experienced collaborator/programmer, more power to you!, you can skip this part and head over to contribution guidelines. 
+ 
 Before moving on, open the terminal and type the command `git remote add upstream https://github.com/ucfcs/GrowthPlus.git` to track the original project.
 
-![add upstream](https://github.com/ucfcs/GrowthPlus/assets/45129978/027ea342-7639-4002-ab62-d16fd6ddb70b)
-
+![add upstream](https://github.com/ucfcs/GrowthPlus/assets/45129978/8493291e-3c7a-4094-b001-2cbadc131e09)
 
 ### Create a new branch for your issue
 
@@ -29,39 +29,51 @@ Find an issue/feature that you are interested in addressing.
 Create a new branch for your fix, from the terminal type
 `git switch -c yourNewBranchName` , this will create a new branch and run the **git checkout** command right away.
 
-![git switch](https://github.com/ucfcs/GrowthPlus/assets/45129978/b7ab75fd-89fa-4067-b9df-39773684123f)
+![git switch](https://github.com/ucfcs/GrowthPlus/assets/45129978/86ee504f-47b1-4e18-9039-fb735bdae025)
 
 ### Save changes to your branch
 
 Make the appropriate changes for the issue you are trying to address or the feature that you want to add and then follow these commands:
 `git status` shows you the state of the project files, this is usefull because **you do not** need to add files that Android Studio generates for your local enviroment.
 
-![git status](https://github.com/ucfcs/GrowthPlus/assets/45129978/fc664da1-a22f-4145-b8f6-7ecf50da4f73)
+![git status](https://github.com/ucfcs/GrowthPlus/assets/45129978/caa6ea32-d80c-4b19-b372-6629d912822e)
 
 `git add <file-name>` simply **stages** files so they can be committed. 
 
-![git add](https://github.com/ucfcs/GrowthPlus/assets/45129978/2d3b26d6-332f-48b7-8cd7-4e8795ff4353)
+![git add](https://github.com/ucfcs/GrowthPlus/assets/45129978/08b08f36-8be1-40bf-9574-71c815798622)
 
 `git commit -m "Message here"` commits your files and completely saves your progress to your branch, it is normal to have multiple commits in a branch, in fact, it is recommended to commit your progress throughout your coding session. Include a short descriptive message of your progress.
 
-![git commit](https://github.com/ucfcs/GrowthPlus/assets/45129978/02a526ab-41b3-4adb-95b4-f09821e419c5)
+![git commit](https://github.com/ucfcs/GrowthPlus/assets/45129978/4e4b7dfe-641e-4382-ac7d-1366fe8f732f)
 
-`git push -u origin <branch-name>` pushes your committed changes to the remote repository, **origin** parameter will push to the repository the project was clone from, in this case, it project's copy that is in your github. 
+`git push -u origin <branch-name>` pushes your committed changes to the remote repository, **origin** parameter will push to the repository the project was clone from, in this case, it's the project's copy that is in your github. 
 
-![git push](https://github.com/ucfcs/GrowthPlus/assets/45129978/24cf23b6-6ceb-439f-97e2-cf17b3e669a1)
+![git push](https://github.com/ucfcs/GrowthPlus/assets/45129978/fd878b55-1ee5-47c3-a02f-557e76e03220)
 
-### Sync the fork branch
+### Sync the forked project
 
-Before submitting a pull request, make sure your forked copy is to up date with the original project. Fetch the lastest changes, `git fetch upstream`
- 
+Before submitting a pull request, make sure your forked copy is to up date with the original project. Fetch the lastest changes with `git fetch upstream`
+
+![git fecth upstream](https://github.com/ucfcs/GrowthPlus/assets/45129978/8539801c-ab22-48c7-ad13-617b7cff1881)
+
+`git checkout main` to go back to the main branch in your local repo. 
+
+![checkout to main](https://github.com/ucfcs/GrowthPlus/assets/45129978/1a214141-56d7-44ff-840d-10ef890fd7c5)
+
+`git merge upstream/main`, merges the changes from upstream/main branch to your local main branch, this brings your fork's main branch into sync with the upstream repository, without losing your local changes.
+
+![git merge upstream main](https://github.com/ucfcs/GrowthPlus/assets/45129978/97887bd6-2d15-4306-9465-715a1aa8f6ce)
+
+In the local main branch, `git push` updates your remote copy.
+Go back to the working branch, `git checkout <branch-name>`
+
+
 
 ### Submit a Pull Request
 
 Great Job!, if you are done with your implementation, it is time to submit a pull request. If you recently pushed your changes, look for the **Compare & pull request** green button. 
 
 ![pushing changes](https://github.com/ucfcs/GrowthPlus/assets/45129978/a997b21a-f9e7-441d-bb4c-f837f0874fa4)
-
-
 
 ### Where can I go for help?
 
