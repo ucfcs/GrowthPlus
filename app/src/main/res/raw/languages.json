@@ -388,7 +388,7 @@
   {
   "languageId":"chadianArabicZero",
   "languageName":"ChadianArabic",
-  "language": "Lisaan",
+  "language": "Lukhkha",
   "english" : "Anglais",
   "french" : "Faransaawi",
   "chadianArabic": "Arab",
@@ -459,7 +459,7 @@
   "perpendicularLines":"khatt al-amudi",
   "rightAngle":"zawiya al-mustakim",
   "area":"mantaka",
-  "one":"wayit",
+  "one":"waahid",
   "two":"tineen",
   "three":"talaata",
   "four":"arba’a",
