@@ -3,7 +3,13 @@
 Thank you for investing your time in contributing to our project! 
 Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
-## What do I need to know to help?
+#### Table of Contents  
+1. [Tech Stack](#tech-stack)  
+2. [Collaboration workflow](#collaboration-workflow) 
+3. [Submit a Pull Request and guidelines](#submit-a-pull-request-and-guidelines)
+4. [Contact us](#contact-us)
+
+## Tech Stack
 If you are looking to help to with a code contribution, our project uses  Android as our OS, Realm as our local database, Java (_Kotlin in the near future_) as our developing language and Git for collaboration. If you don't feel ready to make a code contribution yet, no problem! You can help us out with  documentation issues or the design issues.
 If you are interested in making a code contribution and would like to learn more about the technologies that we use, check out the list below.
 
@@ -89,8 +95,8 @@ In the **Write** tab:
 What happends now?, each pull request needs two approvals from maintainer. 
 If a pull request does not pass the testing steps or does not function as it should, it is the responsibility of the reviewer to document the issues and it is the responsibility of the owner of the pull request to fix it and push new changes.
   
-### Where can I go for help?
+## Contact us
 
-If you need help, you can ask questions on our mailing list, contactarroseplus@gmail.com.
+For any enquiries, contact us at contactarroseplus@gmail.com.
 If you need help with programming or are stuck somewhere, write a comment in the issue that you are working, a maintener will try to address it as soon as possible. 
 
