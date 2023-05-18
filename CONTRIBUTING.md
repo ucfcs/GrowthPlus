@@ -1,4 +1,3 @@
-
 # Contributor guidelines 
 
 Thank you for investing your time in contributing to our project! 
@@ -82,14 +81,16 @@ Great Job!, if you are done with your implementation, it is time to submit a pul
 In the **Write** tab: 
 - Include a brief description about your pull request, what issue or feature are addressing and how you fixed it. 
 - Provide testing instruction, what should the reviewers be looking for? , be as detail as possible. 
-- Each pull request needs two approvals from fellow developers. 
-- If a pull request does not pass the testing steps or does not function as it should, it is the responsibility of the reviewer to document the issues and it is the responsibility of the owner of the pull request to fix it and push new changes.
-- Include the following script `ucfcs/GrowthPlus #<issue-number>` at the very end, this will refer and close the specific issue you were working on.  
+- Include the following script `ucfcs/GrowthPlus #<issue-number>` at the very end, this will refer and close the specific issue you were working on.
+- Finally, click **Create pull request**
 
 ![open PR](https://github.com/ucfcs/GrowthPlus/assets/45129978/dc78ae5c-f0ed-4fbf-8bf9-5960d5939614)
 
+What happends now?, each pull request needs two approvals from maintainer. 
+If a pull request does not pass the testing steps or does not function as it should, it is the responsibility of the reviewer to document the issues and it is the responsibility of the owner of the pull request to fix it and push new changes.
+  
 ### Where can I go for help?
 
 If you need help, you can ask questions on our mailing list, contactarroseplus@gmail.com.
-If you need with programming or are stuck somewhere, write a comment in the issue that you are working, a maintener will try to address it as soon as possible. 
+If you need help with programming or are stuck somewhere, write a comment in the issue that you are working, a maintener will try to address it as soon as possible. 
 
