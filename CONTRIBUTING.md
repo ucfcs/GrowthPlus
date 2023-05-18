@@ -64,18 +64,32 @@ Before submitting a pull request, make sure your forked copy is to up date with 
 
 ![git merge upstream main](https://github.com/ucfcs/GrowthPlus/assets/45129978/97887bd6-2d15-4306-9465-715a1aa8f6ce)
 
-In the local main branch, `git push` updates your remote copy.
+In the local main branch, `git push` updates your remote forked copy.
 Go back to the working branch, `git checkout <branch-name>`
 
+### Merge your branch with the main branch 
 
+`git merge main` combines the changes of the main branch and your working branch, this is why we update the main branch with the latest changes before merging with your branch's progress, you must ensure that your working branch is up to date to avoid merge conflicts when doing a pull request.
 
-### Submit a Pull Request
+![git merge main](https://github.com/ucfcs/GrowthPlus/assets/45129978/bfc69cfd-4e25-41f6-8d7b-3654723901f1)
 
-Great Job!, if you are done with your implementation, it is time to submit a pull request. If you recently pushed your changes, look for the **Compare & pull request** green button. 
+## Submit a Pull Request and guidelines
 
-![pushing changes](https://github.com/ucfcs/GrowthPlus/assets/45129978/a997b21a-f9e7-441d-bb4c-f837f0874fa4)
+Great Job!, if you are done with your implementation, it is time to submit a pull request. If you recently pushed your changes to your own forked repository, click the **Compare & pull request** green button. 
+
+![compare and pull request](https://github.com/ucfcs/GrowthPlus/assets/45129978/c9b82bba-9f3d-4db1-99c8-5e16e5c28e1b)
+
+In the **Write** tab: 
+- Include a brief description about your pull request, what issue or feature are addressing and how you fixed it. 
+- Provide testing instruction, what should the reviewers be looking for? , be as detail as possible. 
+- Each pull request needs two approvals from fellow developers. 
+- If a pull request does not pass the testing steps or does not function as it should, it is the responsibility of the reviewer to document the issues and it is the responsibility of the owner of the pull request to fix it and push new changes.
+- Include the following script `ucfcs/GrowthPlus #<issue-number>` at the very end, this will refer and close the specific issue you were working on.  
+
+![open PR](https://github.com/ucfcs/GrowthPlus/assets/45129978/dc78ae5c-f0ed-4fbf-8bf9-5960d5939614)
 
 ### Where can I go for help?
 
-If you need help, you can ask questions on our mailing list, IRC chat, or  [list any other communication platforms that your project uses].
+If you need help, you can ask questions on our mailing list, contactarroseplus@gmail.com.
+If you need with programming or are stuck somewhere, write a comment in the issue that you are working, a maintener will try to address it as soon as possible. 
 
