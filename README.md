@@ -4,6 +4,8 @@ Millions of children across Africa struggle with basic math. Yet they have incre
 
 Designed specifically for areas with little to no internet, our application works fully offline and uses limited storage on smartphones. Additionally, our app functions in three main languages: French, English, and Chadian Arabic, with options to add more local languages. Our vision is a better future for African children through improved math skills, and this starts with parents and their children using Growth+.
 
+![growth+](https://github.com/ucfcs/GrowthPlus/assets/45129978/fce91af6-a696-442f-9e75-c6f7cef84397)
+
 ## Getting Started
 
 All you need to work on the project is to set up an android development environment, follow the official android documentation and make sure to check the system requirements:  
