@@ -16,7 +16,7 @@ If you are interested in making a code contribution and would like to learn more
 
 By now, you should have a copy of the project on your local machine. 
 If not, take a look at the README for instructions.
-> This quick rundown introduces Git and the command line to beginners. If you are an experienced collaborator/programmer, more power to you!, you can skip this part and head over to contribution guidelines. 
+This quick rundown introduces Git and the command line to beginners. If you are an experienced collaborator/programmer, more power to you!, you can skip this part and head over to [Submit a Pull Request and guidelines](#submit-a-pull-request-and-guidelines)
  
 Before moving on, open the terminal and type the command `git remote add upstream https://github.com/ucfcs/GrowthPlus.git` to track the original project.
 
