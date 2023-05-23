@@ -10,7 +10,7 @@ Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community ap
 4. [Contact us](#contact-us)
 
 ## Tech Stack
-If you are looking to help to with a code contribution, our project uses  Android as our OS, Realm as our local database, Java (_Kotlin in the near future_) as our developing language and Git for collaboration. If you don't feel ready to make a code contribution yet, no problem! You can help us out with  documentation issues or the design issues.
+If you are looking to help to with a code contribution, our project uses  Android as our OS, Realm as our local database, Java (_Kotlin in the near future_) as our developing language and Git for collaboration. If you don't feel ready to make a code contribution yet, no problem! You can help us out with documentation issues or UI design issues.
 If you are interested in making a code contribution and would like to learn more about the technologies that we use, check out the list below.
 
 * [Realm](https://www.mongodb.com/docs/realm/sdk/java/realm-database/) - Realm is a fast, scalable alternative to SQLite for mobile development. 
