@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
@@ -268,6 +269,8 @@ public class Lesson2 extends AppCompatActivity {
                             firstOperator = contents.get(counter).getFirstOperator();
                             secondNumber = contents.get(counter).getSecondNumber();
                             secondOperator = contents.get(counter).getSecondOperator();
+
+                            Log.i("firstOperator", firstOperator );
 
                             if (savedInstanceState == null) {
                                 Bundle bundle = new Bundle();

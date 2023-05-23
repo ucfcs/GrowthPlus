@@ -33,7 +33,7 @@ public class QuizText extends Fragment {
 
         text.setText(getWord);
         // Changes font to default Roboto if our Fredoka font does not include these characters
-        if(langId.equals("lagwanZero") && !Character.isDigit(getWord.charAt(0))){
+        if((langId.equals("lagwanZero") ||  langId.equals("mousgoumZero")) && !Character.isDigit(getWord.charAt(0))){
             text.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
         setTextColor(textColor);
