@@ -15,8 +15,8 @@ If you are interested in making a code contribution and would like to learn more
 
 * [Realm](https://www.mongodb.com/docs/realm/sdk/java/realm-database/) - Realm is a fast, scalable alternative to SQLite for mobile development. 
 * [Android](https://developer.android.com/guide) - The operating system inside 2.5 billion active devices.
-* [Java SE](https://docs.oracle.com/en/java/) - Java SE and component technologies offer the rich user interface, performance, versatility, portability, and security.
-* [Git](https://git-scm.com/docs) - Git is easy to learn and has a tiny footprint with lightning fast performance..
+* [Java SE](https://docs.oracle.com/en/java/) - Java SE and component technologies offer a rich user interface, performance, versatility, portability, and security.
+* [Git](https://git-scm.com/docs) - Git is easy to learn and has a tiny footprint with lightning fast performance.
 
 ## Collaboration workflow
 
@@ -51,7 +51,7 @@ Make the appropriate changes for the issue you are trying to address or the feat
 
 ![git commit](https://github.com/ucfcs/GrowthPlus/assets/45129978/4e4b7dfe-641e-4382-ac7d-1366fe8f732f)
 
-`git push -u origin <branch-name>` pushes your committed changes to the remote repository, **origin** parameter will push to the repository the project was clone from, in this case, it's the project's copy that is in your github. 
+`git push -u origin <branch-name>` pushes your committed changes to the remote repository, the **origin** parameter will push to the repository the project was cloned from, in this case, it's the project's copy that is in your github. 
 
 ![git push](https://github.com/ucfcs/GrowthPlus/assets/45129978/fd878b55-1ee5-47c3-a02f-557e76e03220)
 
@@ -85,18 +85,18 @@ Great Job!, if you are done with your implementation, it is time to submit a pul
 ![compare and pull request](https://github.com/ucfcs/GrowthPlus/assets/45129978/c9b82bba-9f3d-4db1-99c8-5e16e5c28e1b)
 
 In the **Write** tab: 
-- Include a brief description about your pull request, what issue or feature are addressing and how you fixed it. 
-- Provide testing instruction, what should the reviewers be looking for? , be as detail as possible. 
+- Include a brief description about your pull request, what issue or feature are you addressing and how you fixed it. 
+- Provide testing instructions, what should the reviewers be looking for? , be as detailed as possible. 
 - Include the following script `ucfcs/GrowthPlus #<issue-number>` at the very end, this will refer and close the specific issue you were working on.
 - Finally, click **Create pull request**
 
 ![open PR](https://github.com/ucfcs/GrowthPlus/assets/45129978/dc78ae5c-f0ed-4fbf-8bf9-5960d5939614)
 
-What happends now?, each pull request needs two approvals from maintainer. 
+What happends now?, each pull request needs two approvals from the maintainers. 
 If a pull request does not pass the testing steps or does not function as it should, it is the responsibility of the reviewer to document the issues and it is the responsibility of the owner of the pull request to fix it and push new changes.
   
 ## Contact us
 
 For any enquiries, contact us at contactarroseplus@gmail.com.
-If you need help with programming or are stuck somewhere, write a comment in the issue that you are working, a maintener will try to address it as soon as possible. 
+If you need help with programming or are stuck somewhere, write a comment in the issue that you are working, a maintainer will try to address it as soon as possible. 
 
