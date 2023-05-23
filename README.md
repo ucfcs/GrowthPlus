@@ -47,7 +47,7 @@ https://developer.android.com/studio/install.
 
 ![Run project](https://github.com/ucfcs/GrowthPlus/assets/45129978/d8957b6b-cf78-4da9-9db4-8e94b06116e8)
 
-- Congratulations!, the app should up and running
+- Congratulations! The app should be up and running.
 
 ![Running app](https://github.com/ucfcs/GrowthPlus/assets/45129978/2f8d2a5a-7046-4d92-86c7-d78ae4e4183e)
 
@@ -56,7 +56,7 @@ https://developer.android.com/studio/install.
 Check out [CONTRIBUTING.md](https://github.com/ucfcs/GrowthPlus/blob/julio/openSourceDocs/CONTRIBUTING.md) for the process for submitting pull requests to us and for details on our code of conduct.
 
 ## Authors
- [About the team](https://arroseplus.netlify.app/team)
+ [About the team](https://growthplus4a.org/team)
 
 See also the list of [contributors](https://github.com/ucfcs/GrowthPlus/graphs/contributors) who participated in this project.
 
