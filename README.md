@@ -53,7 +53,7 @@ https://developer.android.com/studio/install.
 
 ## Contributing
 
-Check out [CONTRIBUTING.md](https://github.com/ucfcs/GrowthPlus/blob/julio/openSourceDocs/CONTRIBUTING.md) for the process for submitting pull requests to us and for details on our code of conduct.
+Check out [CONTRIBUTING.md](https://github.com/ucfcs/GrowthPlus/blob/main/CONTRIBUTING.md) for the process for submitting pull requests to us and for details on our code of conduct.
 
 ## Authors
  [About the team](https://growthplus4a.org/team)
