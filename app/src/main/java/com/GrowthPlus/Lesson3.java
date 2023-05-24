@@ -454,7 +454,7 @@ public class Lesson3 extends AppCompatActivity {
                                     word = trans.getString(word);
                                 }
 
-                                word = word + "\n 1 "+firstNumber+" = 60 "+firstOperator+"\n 1 "+secondNumber+" = 24 "+firstNumber;
+                                word = word + "\n 1 "+firstNumber+" = 60 "+firstOperator+"s\n 1 "+secondNumber+" = 24 "+firstNumber+"s";
 
                             }
 

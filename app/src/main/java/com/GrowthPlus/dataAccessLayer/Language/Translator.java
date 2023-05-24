@@ -37,6 +37,9 @@ public class Translator {
             case "lagwan":
                 value = languageSchema.getLagwan();
                 break;
+            case "mousgoum":
+                value = languageSchema.getMousgoum();
+                break;
             case "growthPlus":
                 value = languageSchema.getGrowthPlus();
                 break;
