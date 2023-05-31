@@ -40,6 +40,12 @@ public class Translator {
             case "mousgoum":
                 value = languageSchema.getMousgoum();
                 break;
+            case "massana":
+                value = languageSchema.getMassana();
+                break;
+            case "musey":
+                value = languageSchema.getMusey();
+                break;
             case "growthPlus":
                 value = languageSchema.getGrowthPlus();
                 break;

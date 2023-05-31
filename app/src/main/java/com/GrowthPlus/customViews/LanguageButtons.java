@@ -16,6 +16,8 @@ public class LanguageButtons extends FrameLayout {
     RelativeLayout chadianArabic;
     RelativeLayout lagwan;
     RelativeLayout mousgoum;
+    RelativeLayout massana;
+    RelativeLayout musey;
 
     public LanguageButtons(@NonNull Context context) {
         super(context);
@@ -44,6 +46,8 @@ public class LanguageButtons extends FrameLayout {
         chadianArabic = findViewById(R.id.chadBtn);
         lagwan = findViewById(R.id.lagwanBtn);
         mousgoum = findViewById(R.id.mousgoumBtn);
+        massana = findViewById(R.id.massanaBtn);
+        musey = findViewById(R.id.museyBtn);
     }
 
 }
