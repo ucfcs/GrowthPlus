@@ -126,8 +126,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginTop="-15dp"
-            android:scaleX="2"
-            android:scaleY="2"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
             android:background="@drawable/round_button"
             android:src="@mipmap/parent_foreground"
             android:visibility="visible" />
@@ -138,11 +138,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="115dp"
             android:clickable="false"
             android:text="Parent"
             android:textColor="@color/dark_green"
-            android:textSize="65dp" />
+            android:textSize="60dp" />
 
     </FrameLayout>
 

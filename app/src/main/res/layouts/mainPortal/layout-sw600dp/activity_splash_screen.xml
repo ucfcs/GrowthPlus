@@ -27,7 +27,7 @@
         android:shadowRadius="2"
         android:text="Arrose+"
         android:textColor="@color/dark_green"
-        android:textSize="120sp"
+        android:textSize="100sp"
         android:fontFamily="@font/fredoka_one_regular"
         app:layout_constraintBottom_toTopOf="@id/bottomSplash"
         app:layout_constraintEnd_toEndOf="parent"

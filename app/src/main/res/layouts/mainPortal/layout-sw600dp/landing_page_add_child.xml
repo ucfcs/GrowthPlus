@@ -7,8 +7,8 @@
     android:layout_height="wrap_content" >
 
     <ImageView
-        android:layout_width="240dp"
-        android:layout_height="220dp"
+        android:layout_width="300dp"
+        android:layout_height="230dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,8 +16,8 @@
 
     <ImageView
         android:id="@+id/landingPageAddChildCircle"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:background="@drawable/circle"
         android:backgroundTint="@color/grey"
         app:layout_constraintBottom_toBottomOf="@+id/landingPageAddChild"
@@ -27,8 +27,8 @@
 
     <ImageView
         android:id="@+id/landingPageAddChild"
-        android:layout_width="124dp"
-        android:layout_height="124dp"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
         android:background="@drawable/add_icon"
         android:backgroundTint="@color/dark_green"
         app:layout_constraintBottom_toBottomOf="parent"

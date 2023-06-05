@@ -59,13 +59,13 @@
 
     <android.widget.Button
         android:id="@+id/backLang"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="22dp"
+        android:paddingStart="30dp"
         android:paddingEnd="20dp"
         app:layout_constraintBottom_toTopOf="@id/buttonBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonEnd"
