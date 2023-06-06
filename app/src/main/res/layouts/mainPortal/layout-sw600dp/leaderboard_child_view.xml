@@ -87,7 +87,7 @@
         android:textSize="60dp"
         android:id="@+id/leaderboardPoints"
         android:textColor="@color/white"
-        android:background="@drawable/round_button"
+        android:background="@drawable/round_button_two"
         android:backgroundTint="@color/blue"
         android:text="000"
         android:gravity="center"

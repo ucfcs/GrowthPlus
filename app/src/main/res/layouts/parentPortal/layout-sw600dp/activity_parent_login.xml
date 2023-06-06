@@ -5,18 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="@color/yellow"
+    android:id="@+id/parentLoginActivityID"
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".CreateAccount">
+    tools:context=".ParentLogin">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.08" />
+        app:layout_constraintGuide_percent="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonEnd"
@@ -40,11 +41,18 @@
         app:layout_constraintGuide_percent="0.13" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/parentImgTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.17" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bunnyBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonS"
@@ -72,24 +80,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.67" />
+        app:layout_constraintGuide_percent="0.63" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.68" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77" />
+        app:layout_constraintGuide_percent="0.81" />
 
     <android.widget.Button
-        android:id="@+id/backCreateAccount"
+        android:id="@+id/backParentLogin"
         android:layout_width="85dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
@@ -103,38 +111,69 @@
         app:layout_constraintStart_toStartOf="@id/buttonStart"
         app:layout_constraintTop_toBottomOf="@id/buttonTop"/>
 
-    <com.GrowthPlus.customViews.ChildAvatarComponent
-        android:id="@+id/childAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleX="1.4"
-        android:scaleY="1.4"
+    <ImageView
+        android:id="@+id/loginParentCircle"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/light_green"
         app:layout_constraintBottom_toTopOf="@id/bunnyBottom"
-        app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintTop_toBottomOf="@id/buttonBottom" />
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/parentImgTop"/>
+
+    <ImageView
+        android:id="@+id/loginParentImg"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:background="@mipmap/parent_foreground"
+        app:layout_constraintBottom_toTopOf="@id/bunnyBottom"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/parentImgTop">
+    </ImageView>
 
     <EditText
-        android:id="@+id/nameInput"
+        android:id="@+id/loginPinInput"
+        android:hint="Pin"
         android:layout_width="400dp"
         android:layout_height="100dp"
-        android:maxLength="12"
-        android:inputType="text"
         android:background="@drawable/round_button_two"
-        android:backgroundTint="@color/grey"
         android:fontFamily="@font/fredoka_one_regular"
         android:textColor="@color/dark_grey"
-        android:hint="Name"
         android:textColorHint="@color/dark_grey"
+        android:inputType="number"
+        android:maxLength="4"
+        android:textSize="45sp"
+        android:backgroundTint="@color/grey"
         android:textAlignment="center"
-        android:textSize="60sp"
+        app:layout_constraintTop_toBottomOf="@id/bunnyBottom"
         app:layout_constraintBottom_toTopOf="@id/nameBottom"
-        app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
-        app:layout_constraintTop_toBottomOf="@id/bunnyBottom" />
+        app:layout_constraintEnd_toStartOf="@id/buttonS">
+    </EditText>
+
+    <TextView
+        android:id="@+id/forgotPinText"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:textColor="@color/dark_green"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/nameBottom"
+        app:layout_constraintBottom_toTopOf="@id/playTop"
+        android:text="forgot pin?">
+    </TextView>
 
     <android.widget.Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/parentLoginBtn"
         android:layout_width="280dp"
         android:layout_height="80dp"
         android:background="@drawable/round_button_two"
@@ -142,9 +181,10 @@
         android:drawableStart="@drawable/play_xlarge"
         android:paddingStart="110dp"
         android:paddingEnd="0dp"
-        android:layout_below="@id/nameInput"
         app:layout_constraintTop_toBottomOf="@id/playTop"
         app:layout_constraintBottom_toTopOf="@id/playBottom"
         app:layout_constraintStart_toEndOf="@id/playStart"
-        app:layout_constraintEnd_toStartOf="@id/playEnd" />
+        app:layout_constraintEnd_toStartOf="@id/playEnd"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

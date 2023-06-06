@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toTopOf="@+id/bottomLine"
+    app:layout_constraintEnd_toStartOf="@+id/rightLine"
+    app:layout_constraintStart_toEndOf="@+id/leftLine"
+    app:layout_constraintTop_toBottomOf="@id/topLine"
+    android:background="@color/yellow">
+
+    <TextView
+        android:id="@+id/delete"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete?"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="80sp"
+        app:layout_constraintTop_toBottomOf="@+id/deleteTop"
+        app:layout_constraintBottom_toTopOf="@+id/deleteBottom" />
+
+    <TextView
+        android:id="@+id/childName"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="ChildName"
+        android:paddingTop="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:textSize="60sp"
+        app:layout_constraintTop_toBottomOf="@+id/deleteBottom" />
+
+    <ImageView
+        android:id="@+id/childAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:text="ChildName"
+        android:paddingTop="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/light_green"
+        android:src="@mipmap/elephant_foreground"
+        android:textSize="80sp"
+        app:layout_constraintTop_toBottomOf="@+id/childBottom" />
+
+    <android.widget.Button
+        android:id="@+id/confirmBtn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/dark_green"
+        android:paddingStart="26dp"
+        android:paddingEnd="0dp"
+        android:drawableStart="@drawable/ic_check_mark_large"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTop"
+        app:layout_constraintEnd_toStartOf="@+id/confirmButtonRight"
+        app:layout_constraintStart_toEndOf="@+id/confirmButtonLeft"
+        />
+
+    <android.widget.Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/red"
+        android:paddingStart="26dp"
+        android:paddingEnd="0dp"
+        android:drawableStart="@drawable/ic_baseline_close_large"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTop"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButtonLeft"
+        app:layout_constraintStart_toEndOf="@+id/cancelButtonRight"
+        />
+
+    <!--Guidelines for the internal constraint layout-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/deleteBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/deleteTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/childBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <!--Button Guidelines -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/confirmButtonLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/confirmButtonRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cancelButtonLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/cancelButtonRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

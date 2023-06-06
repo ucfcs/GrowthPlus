@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_green"
+    tools:context=".ChildScreen">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.78" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bunnyBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.34" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/underName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.43" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/underBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67" />
+
+    <android.widget.Button
+        android:id="@+id/backParentPortal"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/back_arrow"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonEnd"
+        app:layout_constraintStart_toStartOf="@id/buttonStart"
+        app:layout_constraintTop_toBottomOf="@id/buttonTop" />
+
+    <android.widget.Button
+        android:id="@+id/deleteChildButton"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:background="@drawable/circle"
+        android:backgroundTint="@color/red"
+        android:drawableStart="@drawable/minus_large"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingStart="7dp"
+        android:paddingEnd="0dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonE"
+        app:layout_constraintStart_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/buttonTop" />
+
+
+    <com.GrowthPlus.customViews.ChildAvatarComponent
+        android:id="@+id/childAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/bunnyBottom"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintTop_toBottomOf="@id/buttonBottom" />
+
+    <com.GrowthPlus.customViews.ChildNameScoreComponent
+        android:id="@+id/childNameAndScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintTop_toBottomOf="@id/bunnyBottom"
+        app:layout_constraintBottom_toTopOf="@id/underName"/>
+
+    <LinearLayout
+        android:id="@+id/horizontalProgressBarLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/guideline14"
+        app:layout_constraintEnd_toStartOf="@id/buttonE"
+        app:layout_constraintStart_toEndOf="@id/buttonStart"
+        app:layout_constraintTop_toBottomOf="@id/underName">
+
+        <com.GrowthPlus.customViews.HorizontalProgressBar
+            android:id="@+id/horizontalProgressBarLevelOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.GrowthPlus.customViews.HorizontalProgressBar
+            android:id="@+id/horizontalProgressBarLevelTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.GrowthPlus.customViews.HorizontalProgressBar
+            android:id="@+id/horizontalProgressBarLevelThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.GrowthPlus.customViews.HorizontalProgressBar
+            android:id="@+id/horizontalProgressBarLevelFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/contentAreasGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button_two"
+        android:backgroundTint="@color/blue"
+        android:paddingStart="20dp"
+        android:paddingEnd="50dp"
+        android:paddingBottom="15dp"
+        app:columnCount="2"
+        app:layout_constraintBottom_toBottomOf="@id/end"
+        app:layout_constraintEnd_toStartOf="@id/buttonS"
+        app:layout_constraintStart_toEndOf="@id/buttonEnd"
+        app:layout_constraintTop_toBottomOf="@id/underBar"
+        app:rowCount="6">
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/numbersCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/lengthCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/unitCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/weightCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/additionCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/moneyCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/subtractionCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/timeCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/multiplicationCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/shapesCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/divisionCompletion" />
+
+        <com.GrowthPlus.customViews.SubjectCompletionComponent android:id="@+id/anglesCompletion" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

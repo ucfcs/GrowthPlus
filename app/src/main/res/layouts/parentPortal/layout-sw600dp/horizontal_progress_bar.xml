@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ProgressBar
+        android:id="@+id/horizontalProgressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="440dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="90dp"
+        android:progress="55"
+        android:progressBackgroundTint="@color/grey"
+        android:progressTint="@color/light_green"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarLevelNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/progressBarLevelNumber" />
+
+    <TextView
+        android:id="@+id/progressBarLevelNumber"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="90dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_button_two"
+        android:backgroundTint="@color/dark_green"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="1"
+        android:textColor="@color/red"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
