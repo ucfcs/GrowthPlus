@@ -3,20 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="58dp"
+    android:layout_height="90dp"
     android:background="@color/blue"
     android:id="@+id/topBar">
 
     <android.widget.Button
         android:id="@+id/goBackBtn"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
         android:layout_marginStart="15dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/back_arrow"
-        android:paddingStart="22dp"
-        android:paddingEnd="20sp"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,16 +24,16 @@
 
     <TextView
         android:id="@+id/topBarTriangle"
-        android:layout_width="80dp"
-        android:layout_height="85dp"
+        android:layout_width="100dp"
+        android:layout_height="125dp"
         android:gravity="center_horizontal|center_vertical"
         android:rotationX="180"
         android:text="▼"
         android:textAlignment="center"
         android:textColor="@color/light_green"
-        android:textSize="55sp"
+        android:textSize="100sp"
         android:visibility="invisible"
-        android:paddingTop="10dp"
+        android:paddingTop="-50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/pointsIcon"
         app:layout_constraintStart_toEndOf="@id/goBackBtn"
@@ -42,8 +42,8 @@
 
     <ImageView
         android:id="@+id/topBarCircle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="@drawable/circle"
         android:backgroundTint="@color/dark_green"
         android:visibility="invisible"
@@ -54,8 +54,8 @@
 
     <ImageView
         android:id="@+id/topBarStar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/star"
         android:backgroundTint="@color/yellow"
         android:visibility="invisible"
@@ -66,8 +66,8 @@
 
     <ImageView
         android:id="@+id/pointsIcon"
-        android:layout_width="50dp"
-        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
         android:background="@color/blue"
         android:scaleX="0.8"
         android:scaleY="0.8"
@@ -82,10 +82,10 @@
         android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="25dp"
         android:text="65"
         android:textColor="@color/yellow"
-        android:textSize="35sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

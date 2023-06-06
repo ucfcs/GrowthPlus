@@ -18,8 +18,8 @@
 
     <com.GrowthPlus.customViews.RoadMapLessonTrail
         android:id="@+id/roadMapThreeLessonTrail"
-        android:layout_width="340dp"
-        android:layout_height="375dp"
+        android:layout_width="680dp"
+        android:layout_height="750dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBarThree">
