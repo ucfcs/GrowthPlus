@@ -9,9 +9,9 @@
         android:id="@+id/subjectName"
         android:fontFamily="@font/fredoka_one_regular"
         android:textColor="@color/dark_green"
-        android:layout_width="190dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="18dp"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="Numbers"
         android:autoSizeTextType="uniform"
@@ -21,8 +21,8 @@
 
     <ImageView
         android:id="@+id/checkMark"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:background="@drawable/circle"
         android:backgroundTint="@color/red"
         android:src="@drawable/ic_baseline_close"

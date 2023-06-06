@@ -117,7 +117,7 @@
         android:id="@+id/childPortalName"
         android:fontFamily="@font/fredoka_one_regular"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="130dp"
         android:textColor="@color/white"
         android:text="Sally"
         android:autoSizeTextType="uniform"
@@ -141,7 +141,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="130dp"
+            android:layout_height="110dp"
             android:layout_weight="1"
             android:scaleType="centerCrop"
             android:scaleX="0.8"
@@ -158,7 +158,7 @@
             android:gravity="center_vertical"
             android:paddingTop="20dp"
             android:textColor="@color/yellow"
-            android:textSize="90sp"/>
+            android:textSize="70sp"/>
 
     </LinearLayout>
 

@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/box"
         android:layout_width="300dp"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/round_button_two"
@@ -26,7 +26,7 @@
         android:gravity="center"
         android:text="ChildName"
         android:textColor="@color/blue"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:autoSizeTextType="uniform"
         app:layout_constraintTop_toTopOf="@id/box"
         app:layout_constraintBottom_toBottomOf="@id/box"
@@ -36,8 +36,8 @@
     <TextView
         android:id="@+id/childScore"
         android:fontFamily="@font/fredoka_one_regular"
-        android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
         android:layout_marginStart="250dp"
         android:background="@drawable/round_button_two"
         android:backgroundTint="@color/blue"
@@ -45,7 +45,7 @@
         android:text="65"
         android:textAlignment="center"
         android:textColor="@color/yellow"
-        android:textSize="50sp"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/box" />
 </androidx.constraintlayout.widget.ConstraintLayout>

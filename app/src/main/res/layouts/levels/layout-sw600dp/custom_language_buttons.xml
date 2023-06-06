@@ -24,9 +24,9 @@
         android:orientation="vertical">
         <RelativeLayout
             android:id="@+id/englishBtn"
-            android:layout_width="560dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="520dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/round_button_two"
             android:backgroundTint="@color/yellow"
             android:clickable="true"
@@ -36,8 +36,8 @@
 
             <ImageView
                 android:id="@+id/englishCheck"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="440dp"
                 android:background="@drawable/circle"
@@ -62,9 +62,9 @@
 
         <RelativeLayout
             android:id="@+id/frenchBtn"
-            android:layout_width="560dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="520dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/round_button_two"
             android:backgroundTint="@color/yellow"
             android:clickable="true"
@@ -74,8 +74,8 @@
 
             <ImageView
                 android:id="@+id/frenchCheck"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="440dp"
                 android:background="@drawable/circle"
@@ -101,9 +101,9 @@
 
         <RelativeLayout
             android:id="@+id/chadBtn"
-            android:layout_width="560dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="520dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/round_button_two"
             android:backgroundTint="@color/yellow"
             android:clickable="true"
@@ -113,8 +113,8 @@
 
             <ImageView
                 android:id="@+id/chadCheck"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="440dp"
                 android:background="@drawable/circle"
@@ -139,9 +139,9 @@
 
         <RelativeLayout
             android:id="@+id/lagwanBtn"
-            android:layout_width="560dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="520dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/round_button_two"
             android:backgroundTint="@color/yellow"
             android:clickable="true"
@@ -151,8 +151,8 @@
 
             <ImageView
                 android:id="@+id/lagwanCheck"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="440dp"
                 android:background="@drawable/circle"
@@ -177,9 +177,9 @@
 
         <RelativeLayout
             android:id="@+id/mousgoumBtn"
-            android:layout_width="560dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="520dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/round_button_two"
             android:backgroundTint="@color/yellow"
             android:clickable="true"
@@ -189,8 +189,8 @@
 
             <ImageView
                 android:id="@+id/mousgoumCheck"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="440dp"
                 android:background="@drawable/circle"
@@ -215,9 +215,9 @@
 
         <RelativeLayout
             android:id="@+id/massanaBtn"
-            android:layout_width="560dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="520dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/round_button_two"
             android:backgroundTint="@color/yellow"
             android:clickable="true"
@@ -227,8 +227,8 @@
 
             <ImageView
                 android:id="@+id/massanaCheck"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="440dp"
                 android:background="@drawable/circle"
@@ -253,9 +253,9 @@
 
         <RelativeLayout
             android:id="@+id/museyBtn"
-            android:layout_width="560dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="520dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/round_button_two"
             android:backgroundTint="@color/yellow"
             android:clickable="true"
@@ -265,8 +265,8 @@
 
             <ImageView
                 android:id="@+id/museyCheck"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="440dp"
                 android:background="@drawable/circle"

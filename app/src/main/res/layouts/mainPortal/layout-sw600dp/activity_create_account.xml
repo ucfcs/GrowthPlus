@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.57" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/buttonS"
@@ -72,21 +72,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.67" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.68" />
+        app:layout_constraintGuide_percent="0.73" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/playBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77" />
+        app:layout_constraintGuide_percent="0.84" />
 
     <android.widget.Button
         android:id="@+id/backCreateAccount"
@@ -116,8 +116,8 @@
 
     <EditText
         android:id="@+id/nameInput"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
+        android:layout_width="370dp"
+        android:layout_height="85dp"
         android:maxLength="12"
         android:inputType="text"
         android:background="@drawable/round_button_two"
@@ -127,7 +127,7 @@
         android:hint="Name"
         android:textColorHint="@color/dark_grey"
         android:textAlignment="center"
-        android:textSize="60sp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@id/nameBottom"
         app:layout_constraintEnd_toStartOf="@id/buttonS"
         app:layout_constraintStart_toEndOf="@id/buttonEnd"
@@ -135,12 +135,12 @@
 
     <android.widget.Button
         android:id="@+id/loginBtn"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
+        android:layout_width="260dp"
+        android:layout_height="70dp"
         android:background="@drawable/round_button_two"
         android:backgroundTint="@color/dark_green"
         android:drawableStart="@drawable/play_xlarge"
-        android:paddingStart="110dp"
+        android:paddingStart="100dp"
         android:paddingEnd="0dp"
         android:layout_below="@id/nameInput"
         app:layout_constraintTop_toBottomOf="@id/playTop"

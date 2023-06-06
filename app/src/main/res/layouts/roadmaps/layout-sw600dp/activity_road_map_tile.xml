@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/tile"
-        android:layout_width="160dp"
-        android:layout_height="96dp"
+        android:layout_width="140dp"
+        android:layout_height="76dp"
         android:src="@drawable/tile_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,8 +17,8 @@
 
     <TextView
         android:id="@+id/roadmapTriangle"
-        android:layout_width="160dp"
-        android:layout_height="170dp"
+        android:layout_width="140dp"
+        android:layout_height="150dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:gravity="center_horizontal|center_vertical"
@@ -26,7 +26,7 @@
         android:text="▼"
         android:textAlignment="center"
         android:textColor="@color/blue"
-        android:textSize="90sp"
+        android:textSize="70sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/tile"
         app:layout_constraintEnd_toEndOf="@+id/tile"
@@ -37,8 +37,8 @@
 
     <ImageView
         android:id="@+id/roadmapCircle"
-        android:layout_height="70dp"
-        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
         android:background="@drawable/circle"
         android:backgroundTint="@color/dark_green"
         android:visibility="invisible"
@@ -49,8 +49,8 @@
 
     <ImageView
         android:id="@+id/roadmapStar"
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_width="60dp"
         android:background="@drawable/star"
         android:backgroundTint="@color/yellow"
         android:visibility="invisible"
@@ -61,8 +61,8 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="160dp"
-        android:layout_height="96dp"
+        android:layout_width="140dp"
+        android:layout_height="76dp"
         android:scaleX="1"
         android:scaleY="1"
         app:layout_constraintBottom_toBottomOf="@+id/tile"
