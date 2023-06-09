@@ -11,13 +11,14 @@
 
     <android.widget.Button
         android:id="@+id/next_button_flashcard"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/arrow_large"
         android:drawableTint="@color/dark_green"
-        android:paddingStart="18dp"
+        android:paddingStart="28dp"
         android:paddingEnd="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guide_right"

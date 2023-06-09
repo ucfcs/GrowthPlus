@@ -81,7 +81,7 @@
         android:shadowRadius="2"
         android:text="20 x 2"
         android:textColor="@color/blue"
-        android:textSize="70sp"
+        android:textSize="100sp"
         app:layout_constraintBottom_toTopOf="@+id/guide_middle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
