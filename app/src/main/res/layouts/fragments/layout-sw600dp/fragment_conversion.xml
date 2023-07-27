@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    tools:context=".fragment.Conversion">
+
+    <TextView
+        android:id="@+id/conversion_first_text"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
+        android:text="100 cm"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/operator"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:text="="
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conversion_first_text" />
+
+    <TextView
+        android:id="@+id/conversion_second_text"
+        android:fontFamily="@font/fredoka_one_regular"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:text="1 dm"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/operator" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,8 @@ public class LanguageSchema extends RealmObject {
     String  chadianArabic;
     String  lagwan;
     String  mousgoum;
+    String massana;
+    String musey;
     String	growthPlus;
     String	parent;
     String	points;
@@ -252,6 +254,13 @@ public class LanguageSchema extends RealmObject {
     }
     public String getMousgoum() { return mousgoum; }
     public void setMousgoum(String mousgoum) { this.mousgoum = mousgoum; }
+    public String getMassana() { return massana; }
+
+    public void setMassana(String massana) { this.massana = massana; }
+
+    public String getMusey() { return musey; }
+
+    public void setMusey(String musey) { this.musey = musey; }
     public String getGrowthPlus() {
         return growthPlus;
     }

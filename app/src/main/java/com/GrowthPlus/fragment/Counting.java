@@ -83,7 +83,7 @@ public class Counting extends Fragment {
 
         word.setText(getWord);
         // Changes font to default Roboto if our Fredoka font does not include these characters
-        if(lang.equals("lagwanZero") || lang.equals("mousgoumZero")){
+        if(lang.equals("lagwanZero") || lang.equals("mousgoumZero") || lang.equals("massanaZero") || lang.equals("museyZero")){
             word.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
 
