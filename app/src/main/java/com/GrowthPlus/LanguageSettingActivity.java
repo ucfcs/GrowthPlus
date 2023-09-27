@@ -15,8 +15,13 @@ import android.widget.TextView;
 
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
+import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
+
+import java.io.InputStream;
 
 import io.realm.Realm;
+import android.os.Handler;
 
 public class LanguageSettingActivity extends AppCompatActivity implements View.OnClickListener {
     private Button backSet, firstTime;
@@ -27,6 +32,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     Realm realm;
     Resources resources;
     SharedPreferences settings;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     public void init(){
         realm = Realm.getDefaultInstance();
         resources = getResources();
+        handler = new Handler();
         backSet = findViewById(R.id.backLang);
         englishText = findViewById(R.id.englishText);
         frenchText = findViewById(R.id.frenchText);
@@ -95,6 +102,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
 
         if(langView == R.id.backLang){
             this.finish();
+            handler.removeCallbacksAndMessages(null);
         }
         else if(langView == R.id.englishBtn){
             engCheck.setVisibility(View.VISIBLE);
@@ -175,6 +183,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "englishZero");
         prefsEditor.apply();
+        updateLanguageJsonInRealm("englishZero");
         // refresh UI
         onResume();
     }
@@ -186,6 +195,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "frenchZero");
         prefsEditor.apply();
+        updateLanguageJsonInRealm("frenchZero");
         // refresh UI
         onResume();
     }
@@ -197,6 +207,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "chadianArabicZero");
         prefsEditor.apply();
+        updateLanguageJsonInRealm("chadianArabicZero");
         // refresh UI
         onResume();
     }
@@ -208,6 +219,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "lagwanZero");
         prefsEditor.apply();
+        updateLanguageJsonInRealm("lagwanZero");
         // refresh UI
         onResume();
     }
@@ -219,6 +231,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "mousgoumZero");
         prefsEditor.apply();
+        updateLanguageJsonInRealm("mousgoumZero");
         // refresh UI
         onResume();
     }
@@ -230,6 +243,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "massanaZero");
         prefsEditor.apply();
+        updateLanguageJsonInRealm("massanaZero");
         // refresh UI
         onResume();
     }
@@ -241,6 +255,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("languageId", "museyZero");
         prefsEditor.apply();
+        updateLanguageJsonInRealm("museyZero");
         // refresh UI
         onResume();
     }
@@ -252,6 +267,7 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         // create instance of shared preferences
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
         String langId = langPrefs.getString("languageId", "frenchZero");
+        updateLanguageJsonInRealm(langId);
         // create language schema service and set strings
         LanguageSchemaService langSchemaService = new LanguageSchemaService(realm, langPrefs.getString("languageId", langId));
         LanguageSchema lang = langSchemaService.getLanguageSchemaById();
@@ -331,9 +347,45 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
         }
     }
 
+    private void updateLanguageJsonInRealm(String lang){
+        InputStream langInputStream = resources.openRawResource(R.raw.languages);
+
+        if(lang.equals("frenchZero")){
+            langInputStream = resources.openRawResource(R.raw.french);
+            LanguagesRealmImporter languagesRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+            languagesRealmImporter.importLanguagesFromJson();
+        }
+        else{
+            langInputStream = resources.openRawResource(R.raw.languages);
+            LanguagesRealmImporter languagesRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+            languagesRealmImporter.importLanguagesFromJson();
+        }
+
+
+
+//        realm.executeTransactionAsync(realm1 -> {
+//            LanguageSchema lang = realm1.where(LanguageSchema.class).findFirst();
+//            assert lang != null;
+//            realm.createOrUpdateAllFromJson(lang, langInputStream);
+//        });
+
+        // import language json file
+//        InputStream langInputStream = resources.openRawResource(R.raw.french);
+//        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+//        langRealmImporter.importLanguagesFromJson();
+
+
+//            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
+//            assert child != null;
+//            child.setScore(childScore);
+//            child.getRoadMapOne().getScenarioGame().setCurrentPoints(gameScore);
+
+    }
+
     @Override
     protected void onDestroy() {
+        if (!realm.isClosed()) realm.close();
+        handler.removeCallbacksAndMessages(null);
         super.onDestroy();
-        realm.close();
     }
 }

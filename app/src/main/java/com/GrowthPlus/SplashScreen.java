@@ -65,7 +65,7 @@ public class SplashScreen extends AppCompatActivity {
         SharedPreferences langPrefs = getSharedPreferences("LangPreferences", MODE_PRIVATE);
 
         // import language json file
-        InputStream langInputStream = resources.openRawResource(R.raw.languages);
+        InputStream langInputStream = resources.openRawResource(R.raw.french);
         LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
         langRealmImporter.importLanguagesFromJson();
         // create language schema service and set strings
