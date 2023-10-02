@@ -16,11 +16,14 @@ import android.widget.TextView;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchema;
 import com.GrowthPlus.dataAccessLayer.Language.LanguageSchemaService;
 import com.GrowthPlus.dataAccessLayer.child.ChildSchema;
+import com.GrowthPlus.dataAccessLayer.parent.ParentSchema;
 import com.GrowthPlus.realmImporter.LanguagesRealmImporter;
 
 import java.io.InputStream;
 
 import io.realm.Realm;
+import io.realm.RealmList;
+
 import android.os.Handler;
 
 public class LanguageSettingActivity extends AppCompatActivity implements View.OnClickListener {
@@ -348,31 +351,45 @@ public class LanguageSettingActivity extends AppCompatActivity implements View.O
     }
 
     private void updateLanguageJsonInRealm(String lang){
-        InputStream langInputStream = resources.openRawResource(R.raw.languages);
+
 
         if(lang.equals("frenchZero")){
-            langInputStream = resources.openRawResource(R.raw.french);
-            LanguagesRealmImporter languagesRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
-            languagesRealmImporter.importLanguagesFromJson();
+            realm.executeTransactionAsync(realm1 -> {
+                LanguageSchema langRealm = realm1.where(LanguageSchema.class).findFirst();
+                assert langRealm != null;
+                langRealm.deleteFromRealm();
+            });
+            InputStream langInputStream = resources.openRawResource(R.raw.french);
+            LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+            langRealmImporter.importLanguagesFromJson();
         }
         else{
-            langInputStream = resources.openRawResource(R.raw.languages);
-            LanguagesRealmImporter languagesRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
-            languagesRealmImporter.importLanguagesFromJson();
+            realm.executeTransactionAsync(realm1 -> {
+                LanguageSchema langRealm = realm1.where(LanguageSchema.class).findFirst();
+                assert langRealm != null;
+                langRealm.deleteFromRealm();
+            });
+            InputStream langInputStream = resources.openRawResource(R.raw.languages);
+            LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
+            langRealmImporter.importLanguagesFromJson();
         }
 
 
-
-//        realm.executeTransactionAsync(realm1 -> {
-//            LanguageSchema lang = realm1.where(LanguageSchema.class).findFirst();
-//            assert lang != null;
-//            realm.createOrUpdateAllFromJson(lang, langInputStream);
-//        });
 
         // import language json file
 //        InputStream langInputStream = resources.openRawResource(R.raw.french);
 //        LanguagesRealmImporter langRealmImporter = new LanguagesRealmImporter(realm, resources, langInputStream);
 //        langRealmImporter.importLanguagesFromJson();
+
+//        realm.executeTransactionAsync(realm -> {
+//                    ParentSchema parentDel = realm.where(ParentSchema.class).equalTo("parentId", parentId).findFirst();
+//                    assert parentDel != null;
+//                    RealmList<ChildSchema> children = parentDel.getChildren();
+//                    if(children.size()>0){
+//                        children.deleteAllFromRealm();
+//                    }
+//                    parentDel.deleteFromRealm();
+//                }
 
 
 //            ChildSchema child = realm1.where(ChildSchema.class).equalTo("childId", childId).findFirst();
