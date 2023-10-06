@@ -3,17 +3,12 @@ package com.GrowthPlus.utilities;
 import java.util.Random;
 
 public class MathProblemGenerator {
-    private String numOne;
-    private String operator;
-    private String numTwo;
-    private String equalSign;
     private Random random;
     private String[] mathProblem;
 
     public MathProblemGenerator() {
         random = new Random();
         mathProblem = new String[5];
-        equalSign = "=";
     }
 
     @SuppressWarnings("DuplicateBranchesInSwitch")
