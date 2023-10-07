@@ -3,56 +3,63 @@ package com.GrowthPlus.utilities;
 import java.util.Random;
 
 public class MathProblemGenerator {
+    private int numOne;
+    private int numTwo;
+    private int result;
     private Random random;
     private String[] mathProblem;
+    private String problem;
 
     public MathProblemGenerator() {
         random = new Random();
         mathProblem = new String[5];
     }
 
-    @SuppressWarnings("DuplicateBranchesInSwitch")
-    public String[] generateMathProblem(MathOperation operation){
+    public int getNumOne() {
+        return numOne;
+    }
+
+    public int getNumTwo() {
+        return numTwo;
+    }
+
+    public int getResult() {
+        return result;
+    }
+
+    public void generateMathProblem(MathOperation operation){
         switch (operation){
             case ADDITION:{
-                int num1 = random.nextInt(10); // Generates a random number between 0 and 10
-                int num2 = random.nextInt(10);
-                int result = num1 + num2;
-                this.mathProblem[0] = String.valueOf(num1);
-                this.mathProblem[1] = "+";
-                this.mathProblem[2] = String.valueOf(num2);
-                this.mathProblem[3] = "=";
-                this.mathProblem[4] = String.valueOf(result);
-                // generate addition
+                numOne = random.nextInt(10);
+                numTwo = random.nextInt(10);
+                result = numOne + numTwo;
+                problem = numOne + " + " + numTwo;
                 break;
             }
             case SUBTRACTION:{
-                int num1 = random.nextInt(10); // Generates a random number between 0 and 10
-                int num2 = random.nextInt(num1 + 1); // Ensures second number is smaller than first so there is no negative number
-                int result = num1 - num2;
-                this.mathProblem[0] = String.valueOf(num1);
-                this.mathProblem[1] = ":";
-                this.mathProblem[2] = String.valueOf(num2);
-                this.mathProblem[3] = "=";
-                this.mathProblem[4] = String.valueOf(result);
+                numOne = random.nextInt(10);
+                numTwo = random.nextInt(numOne + 1);
+                result = numOne - numTwo;
+                problem = numOne + " - " + numTwo;
                 break;
             }
             case DIVISION:{
-                // Need to think about this a little bit to make sure result is a whole number
+                int tempOne = random.nextInt(10);
+                int tempTwo = random.nextInt(10);
+
+                numOne = tempOne * tempTwo;
+                numTwo = tempOne;
+                result = tempTwo;
+                problem = numOne + " : " + numTwo;
                 break;
             }
             case MULTIPLICATION:{
-                int num1 = random.nextInt(10); // Generates a random number between 0 and 10
-                int num2 = random.nextInt(10);
-                int result = num1 * num2;
-                this.mathProblem[0] = String.valueOf(num1);
-                this.mathProblem[1] = "x";
-                this.mathProblem[2] = String.valueOf(num2);
-                this.mathProblem[3] = "=";
-                this.mathProblem[4] = String.valueOf(result);
+                numOne = random.nextInt(10);
+                numTwo = random.nextInt(10);
+                result = numOne * numTwo;
+                problem = numOne + " * " + numTwo;
                 break;
             }
         }
-        return this.mathProblem;
     }
 }
