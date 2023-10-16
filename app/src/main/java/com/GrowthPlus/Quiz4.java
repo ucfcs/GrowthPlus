@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
+import com.GrowthPlus.customViews.CircleTimer;
 import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.QuizCircle;
 import com.GrowthPlus.customViews.TopBar;
@@ -36,6 +37,8 @@ import io.realm.RealmList;
 
 public class Quiz4 extends AppCompatActivity {
     final int MAX = 10;
+    final int TOTALTIMER = 21000;
+    final int INTERVAL = 100;
     ChildSchema child;
     Realm realm;
     TopBar quizTopBar;
@@ -52,6 +55,7 @@ public class Quiz4 extends AppCompatActivity {
     ConstraintLayout topBarBackground;
     private MediaPlayer correct, incorrect;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
+    private CircleTimer circleTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -240,6 +244,7 @@ public class Quiz4 extends AppCompatActivity {
         minScoreToPass = 7;
         correct = MediaPlayer.create(this, R.raw.correct);
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
+        circleTimer = findViewById(R.id.circleTimer);
 
         for(int i = 0; i <= 19; i++)
             twenty.add(i);
@@ -422,16 +427,34 @@ public class Quiz4 extends AppCompatActivity {
 
     //sets a timer that counts down from 30 and moves on if the user doesn't choose an answer in time
     private void setTimer() {
-        customTimerComponent = findViewById(R.id.countdownTimer);
-        countDownTimer = new CountDownTimer(21000, 1000) {
-
+        countDownTimer = new CountDownTimer(TOTALTIMER, INTERVAL){
+            @Override
             public void onTick(long millisUntilFinished) {
-                customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
+                float progress = (float) millisUntilFinished / TOTALTIMER;
+                circleTimer.setProgress(progress);
             }
+
+            @Override
             public void onFinish() {
-                countDownTimer.cancel();
-                nextContent.setVisibility(View.VISIBLE); //make the next button visible
-                nextContent.performClick(); //and programmatically click it
+                playIncorrect();
+                circleTimer.setProgress(0);
+
+                // show correct answer
+                if(cir1.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
+                    cir1.correct();
+                }
+                else if(cir2.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
+                    cir2.correct();
+                }
+                else if(cir3.getAnswer().equals(contents.get(twenty.get(counter)).getAnswer())){
+                    cir3.correct();
+                }
+                else{
+                    cir4.correct();
+                }
+
+                deactivate();
+                nextContent.setVisibility(View.VISIBLE);
             }
         }.start();
     }
