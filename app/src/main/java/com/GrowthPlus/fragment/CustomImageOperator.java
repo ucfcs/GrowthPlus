@@ -78,7 +78,6 @@ public class CustomImageOperator extends Fragment {
         operator.setText(firstOperator);
         operator.setTextColor(textColor);
 
-
         // Setting bottom grid
         for(int i=0; i<secondNumber; i++){
             ImageView imageTemp = setImageView(resId, sizeInPixels.intValue(), sizeInPixels.intValue());

@@ -29,6 +29,9 @@ import com.GrowthPlus.fragment.CustomImage;
 import com.GrowthPlus.fragment.CustomImageOperator;
 import com.GrowthPlus.fragment.FlashcardAnswer;
 import com.GrowthPlus.roadMapActivity.RoadMapOne;
+import com.GrowthPlus.utilities.Difficulty;
+import com.GrowthPlus.utilities.MathOperation;
+import com.GrowthPlus.utilities.MathProblemGenerator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -143,11 +146,32 @@ public class Flashcard extends AppCompatActivity {
                 break;
             }
 
-            case "customEquation":{
-                firstNumber = flashcard.getFirstNumber();
+            case "customEquation": {
+                MathProblemGenerator generator = new MathProblemGenerator();
                 firstOperator = flashcard.getFirstOperator();
-                secondNumber = flashcard.getSecondNumber();
-                secondOperator = flashcard.getSecondOperator();
+                Log.i("OPERATION", firstOperator);
+                switch (firstOperator){
+                    case "+": {
+                        generator.generateMathProblem(MathOperation.ADDITION, Difficulty.LEVEL_ONE);
+                        break;
+                    }
+                    case "-": {
+                        generator.generateMathProblem(MathOperation.SUBTRACTION, Difficulty.LEVEL_ONE);
+                        break;
+                    }
+                    case "x": {
+                        generator.generateMathProblem(MathOperation.MULTIPLICATION, Difficulty.LEVEL_ONE);
+                        break;
+                    }
+                    case ":": {
+                        generator.generateMathProblem(MathOperation.DIVISION, Difficulty.DIVISION_LOW);
+                        break;
+                    }
+                }
+                firstNumber = String.valueOf(generator.getNumOne());
+                secondNumber = String.valueOf(generator.getNumTwo());
+                secondOperator = "=";
+                flashcardAnswer = String.valueOf(generator.getResult());
                 if (savedInstanceState == null) {
                     Bundle bundle = new Bundle();
                     bundle.putString("image", image);
@@ -321,12 +345,32 @@ public class Flashcard extends AppCompatActivity {
                         }
                         break;
                     }
-
-                    case "customEquation":{
-                        firstNumber = flashcard.getFirstNumber();
+                    case "customEquation": {
+                        MathProblemGenerator generator = new MathProblemGenerator();
                         firstOperator = flashcard.getFirstOperator();
-                        secondNumber = flashcard.getSecondNumber();
-                        secondOperator = flashcard.getSecondOperator();
+                        Log.i("OPERATION", firstOperator);
+                        switch (firstOperator){
+                            case "+": {
+                                generator.generateMathProblem(MathOperation.ADDITION, Difficulty.LEVEL_ONE);
+                                break;
+                            }
+                            case "-": {
+                                generator.generateMathProblem(MathOperation.SUBTRACTION, Difficulty.LEVEL_ONE);
+                                break;
+                            }
+                            case "x": {
+                                generator.generateMathProblem(MathOperation.MULTIPLICATION, Difficulty.LEVEL_ONE);
+                                break;
+                            }
+                            case ":": {
+                                generator.generateMathProblem(MathOperation.DIVISION, Difficulty.DIVISION_LOW);
+                                break;
+                            }
+                        }
+                        firstNumber = String.valueOf(generator.getNumOne());
+                        secondNumber = String.valueOf(generator.getNumTwo());
+                        secondOperator = "=";
+                        flashcardAnswer = String.valueOf(generator.getResult());
                         if (savedInstanceState == null) {
                             Bundle bundle = new Bundle();
                             bundle.putString("image", image);

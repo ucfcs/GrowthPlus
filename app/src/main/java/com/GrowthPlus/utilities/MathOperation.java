@@ -6,3 +6,4 @@ public enum MathOperation {
     MULTIPLICATION,
     DIVISION
 }
+

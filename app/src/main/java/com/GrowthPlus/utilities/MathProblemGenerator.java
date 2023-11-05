@@ -27,25 +27,25 @@ public class MathProblemGenerator {
         return result;
     }
 
-    public void generateMathProblem(MathOperation operation){
+    public void generateMathProblem(MathOperation operation, Difficulty difficulty){
         switch (operation){
             case ADDITION:{
-                numOne = random.nextInt(10);
-                numTwo = random.nextInt(10);
+                numOne = random.nextInt(difficulty.getDifficultySeed()) + 1;
+                numTwo = random.nextInt(difficulty.getDifficultySeed()) + 1;
                 result = numOne + numTwo;
                 problem = numOne + " + " + numTwo;
                 break;
             }
             case SUBTRACTION:{
-                numOne = random.nextInt(10);
+                numOne = random.nextInt(difficulty.getDifficultySeed()) + 1;
                 numTwo = random.nextInt(numOne + 1);
                 result = numOne - numTwo;
                 problem = numOne + " - " + numTwo;
                 break;
             }
             case DIVISION:{
-                int tempOne = random.nextInt(10);
-                int tempTwo = random.nextInt(10);
+                int tempOne = random.nextInt(difficulty.getDifficultySeed()) + 1;
+                int tempTwo = random.nextInt(difficulty.getDifficultySeed()) + 1;
 
                 numOne = tempOne * tempTwo;
                 numTwo = tempOne;
@@ -54,8 +54,8 @@ public class MathProblemGenerator {
                 break;
             }
             case MULTIPLICATION:{
-                numOne = random.nextInt(10);
-                numTwo = random.nextInt(10);
+                numOne = random.nextInt(difficulty.getDifficultySeed()) + 1;
+                numTwo = random.nextInt(difficulty.getDifficultySeed()) + 1;
                 result = numOne * numTwo;
                 problem = numOne + " * " + numTwo;
                 break;

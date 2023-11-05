@@ -1,5 +1,7 @@
 package com.GrowthPlus;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+
+import com.GrowthPlus.utilities.Difficulty;
 import com.GrowthPlus.utilities.MathOperation;
 import com.GrowthPlus.utilities.MathProblemGenerator;
 import org.junit.Test;
@@ -17,7 +19,7 @@ public class MathProblemGeneratorTest {
         /*
         * Test addition
         * */
-        generator.generateMathProblem(MathOperation.ADDITION);
+        generator.generateMathProblem(MathOperation.ADDITION, Difficulty.LEVEL_ONE);
         num1 = generator.getNumOne();
         num2 = generator.getNumTwo();
         testResult = num1 + num2;
@@ -31,7 +33,7 @@ public class MathProblemGeneratorTest {
         /*
          * Test subtraction
          * */
-        generator.generateMathProblem(MathOperation.SUBTRACTION);
+        generator.generateMathProblem(MathOperation.SUBTRACTION, Difficulty.LEVEL_ONE);
         num1 = generator.getNumOne();
         num2 = generator.getNumTwo();
         testResult = num1 - num2;
