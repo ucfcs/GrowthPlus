@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.GrowthPlus.customViews.Banana;
-import com.GrowthPlus.customViews.CustomTimerComponent;
+import com.GrowthPlus.customViews.CircleTimer;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.ChildRoadMap.ChildRoadMap;
 import com.GrowthPlus.dataAccessLayer.RoadMapLesson.RoadMapLesson;
@@ -36,6 +36,8 @@ import io.realm.RealmList;
 public class Game2 extends AppCompatActivity {
     final int MAX = 20;
     final int MIN_TO_PASS = 14;
+    final int TOTALTIMER = 21000;
+    final int INTERVAL = 100;
     ChildSchema child;
     Realm realm;
     TopBar gameTopBar;
@@ -52,7 +54,7 @@ public class Game2 extends AppCompatActivity {
     private MediaPlayer correct, incorrect, background;
     ConstraintLayout topBarBackground;
     private CountDownTimer countDownTimer;
-    private CustomTimerComponent customTimerComponent;
+    private CircleTimer circleTimer;
     private final AlphaAnimation buttonClick = new AlphaAnimation(1F, 0.8F);
 
     @Override
@@ -103,6 +105,7 @@ public class Game2 extends AppCompatActivity {
         incorrect = MediaPlayer.create(this, R.raw.incorrect);
         incorrect.setVolume((float)4, (float)4);
         background = MediaPlayer.create(this, R.raw.market);
+        circleTimer = findViewById(R.id.circleTimer);
 
         for(int i = 0; i <= 39; i++)
             forty.add(i);
@@ -379,15 +382,15 @@ public class Game2 extends AppCompatActivity {
 
     //sets a timer that counts down from 30 and moves on if the user doesn't choose an answer in time
     private void setTimer() {
-        customTimerComponent = findViewById(R.id.countdownTimer);
-        countDownTimer = new CountDownTimer(21000, 1000) {
-
+        countDownTimer = new CountDownTimer(TOTALTIMER, INTERVAL){
+            @Override
             public void onTick(long millisUntilFinished) {
-                customTimerComponent.setTimerText(""+millisUntilFinished / 1000);
+                float progress = (float) millisUntilFinished / TOTALTIMER;
+                circleTimer.setProgress(progress);
             }
-            public void onFinish() {
-                countDownTimer.cancel();
+            public void onFinish(){
                 playIncorrect();
+                circleTimer.setProgress(0);
                 wrongAnimation(b1, b2, b3);
                 deactivate();
                 showNext();
