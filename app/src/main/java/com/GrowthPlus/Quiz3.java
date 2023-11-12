@@ -16,7 +16,6 @@ import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 
 import com.GrowthPlus.customViews.CircleTimer;
-import com.GrowthPlus.customViews.CustomTimerComponent;
 import com.GrowthPlus.customViews.QuizCircle;
 import com.GrowthPlus.customViews.TopBar;
 import com.GrowthPlus.dataAccessLayer.Language.Translator;
@@ -50,7 +49,6 @@ public class Quiz3 extends AppCompatActivity {
     QuizCircle cir1, cir2, cir3, cir4;
     ArrayList<Integer> twenty = new ArrayList<>(20);
     private CountDownTimer countDownTimer;
-    private CustomTimerComponent customTimerComponent;
     private MediaPlayer correct, incorrect;
     ConstraintLayout quizBackground;
     ConstraintLayout topBarBackground;

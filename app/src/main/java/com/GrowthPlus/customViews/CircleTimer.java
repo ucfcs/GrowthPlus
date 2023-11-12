@@ -1,11 +1,17 @@
 package com.GrowthPlus.customViews;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.core.content.ContextCompat;
+
+import com.GrowthPlus.R;
+import com.GrowthPlus.utilities.ColorIdentifier;
 
 public class CircleTimer extends View{
     private Paint fillPaint;
@@ -18,14 +24,19 @@ public class CircleTimer extends View{
     }
 
     private void init(){
+        String red = "#DD6157";
+        String blue = "#60A3C8";
+        int redInt = Color.parseColor(red);
+        int blueInt = Color.parseColor(blue);
+
         fillPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        fillPaint.setColor(Color.BLACK);
+        fillPaint.setColor(blueInt);
         fillPaint.setStyle(Paint.Style.FILL);
 
         borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        borderPaint.setColor(Color.WHITE);
+        borderPaint.setColor(redInt);
         borderPaint.setStyle(Paint.Style.STROKE);
-        borderPaint.setStrokeWidth(4f);
+        borderPaint.setStrokeWidth(11f);
     }
 
     public void setProgress(float progress){
@@ -43,10 +54,10 @@ public class CircleTimer extends View{
         float centerY = getHeight() / 2f;
 
         // circle border
-        canvas.drawCircle(centerX, centerY, size / 2f, borderPaint);
+        canvas.drawCircle(centerX, centerY, size / 2.3f, borderPaint);
 
         // fill circle
-        float radius = (size - 2 * borderPaint.getStrokeWidth()) / 2f; // subtract border width
+        float radius = (size - 2 * borderPaint.getStrokeWidth()) / 2.3f; // subtract border width
         canvas.drawArc(
                 centerX - radius, centerY - radius,
                 centerX + radius, centerY + radius,
