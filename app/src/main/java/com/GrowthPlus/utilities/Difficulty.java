@@ -7,8 +7,8 @@ public enum Difficulty {
     DIVISION_LOW(4),
     LEVEL_ONE(9),
     LEVEL_TWO(19),
-    LEVEL_THREE(29),
-    LEVEL_FOUR(39);
+    LEVEL_THREE(49),
+    LEVEL_FOUR(99);
 
     private final int difficultySeed;
 
