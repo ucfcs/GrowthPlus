@@ -14,7 +14,7 @@ public class MathProblemGeneratorTest {
     int num2;
     int testResult;
     @Test
-    public void testGenerateRandomMathProblem() {
+    public void testGenerateAdditionProblem() {
         MathProblemGenerator generator = new MathProblemGenerator();
         /*
         * Test addition
@@ -37,6 +37,32 @@ public class MathProblemGeneratorTest {
         num1 = generator.getNumOne();
         num2 = generator.getNumTwo();
         testResult = num1 - num2;
+        assertEquals(testResult, generator.getResult());
+    }
+
+    @Test
+    public void testGenerateMultiplicationProblem(){
+        MathProblemGenerator generator = new MathProblemGenerator();
+        /*
+         * Test Multiplication
+         * */
+        generator.generateMathProblem(MathOperation.MULTIPLICATION, Difficulty.LEVEL_ONE);
+        num1 = generator.getNumOne();
+        num2 = generator.getNumTwo();
+        testResult = num1 * num2;
+        assertEquals(testResult, generator.getResult());
+    }
+
+    @Test
+    public void testGenerateDivisionProblem(){
+        MathProblemGenerator generator = new MathProblemGenerator();
+        /*
+         * Test Multiplication
+         * */
+        generator.generateMathProblem(MathOperation.DIVISION, Difficulty.LEVEL_ONE);
+        num1 = generator.getNumOne();
+        num2 = generator.getNumTwo();
+        testResult = num1 / num2;
         assertEquals(testResult, generator.getResult());
     }
 }
