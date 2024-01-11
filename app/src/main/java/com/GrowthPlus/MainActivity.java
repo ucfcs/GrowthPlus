@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         importRoadMapData();
 
         //UNCOMMENT FOR TESTING
-        jsonSampleData.importChildData();
+        //jsonSampleData.importChildData();
 
         setAllLandingPageCards(children);
 
